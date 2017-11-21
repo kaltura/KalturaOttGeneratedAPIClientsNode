@@ -3562,6 +3562,834 @@ module.exports.OTTUserListResponse = OTTUserListResponse;
 /**
  *
  */
+class BaseChannel extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBaseChannel';
+	}
+	
+	/**
+	 * Unique identifier for the channel
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Channel name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Channel name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+}
+module.exports.BaseChannel = BaseChannel;
+
+/**
+ *
+ */
+class DiscountModule extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDiscountModule';
+	}
+	
+	/**
+	 * The discount percentage
+	 * @return float
+	 */
+	 getPercent() {
+	 	return this.percent;
+	 }
+	
+	/**
+	 * @param percent float The discount percentage
+	 */
+	 setPercent(percent) {
+	 	this.percent = percent;
+	 }
+	
+	/**
+	 * The first date the discount is available
+	 * @return int
+	 */
+	 getStartDate() {
+	 	return this.startDate;
+	 }
+	
+	/**
+	 * @param startDate int The first date the discount is available
+	 */
+	 setStartDate(startDate) {
+	 	this.startDate = startDate;
+	 }
+	
+	/**
+	 * The last date the discount is available
+	 * @return int
+	 */
+	 getEndDate() {
+	 	return this.endDate;
+	 }
+	
+	/**
+	 * @param endDate int The last date the discount is available
+	 */
+	 setEndDate(endDate) {
+	 	this.endDate = endDate;
+	 }
+}
+module.exports.DiscountModule = DiscountModule;
+
+/**
+ *
+ */
+class UsageModule extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUsageModule';
+	}
+	
+	/**
+	 * Usage module identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Usage module name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * The maximum number of times an item in this usage module can be viewed
+	 * @return int
+	 */
+	 getMaxViewsNumber() {
+	 	return this.maxViewsNumber;
+	 }
+	
+	/**
+	 * The amount time an item is available for viewing since a user started watching the item
+	 * @return int
+	 */
+	 getViewLifeCycle() {
+	 	return this.viewLifeCycle;
+	 }
+	
+	/**
+	 * The amount time an item is available for viewing
+	 * @return int
+	 */
+	 getFullLifeCycle() {
+	 	return this.fullLifeCycle;
+	 }
+	
+	/**
+	 * Identifies a specific coupon linked to this object
+	 * @return int
+	 */
+	 getCouponId() {
+	 	return this.couponId;
+	 }
+	
+	/**
+	 * Time period during which the end user can waive his rights to cancel a purchase. When the time period is passed, the purchase can no longer be cancelled
+	 * @return int
+	 */
+	 getWaiverPeriod() {
+	 	return this.waiverPeriod;
+	 }
+	
+	/**
+	 * Indicates whether or not the end user has the right to waive his rights to cancel a purchase
+	 * @return bool
+	 */
+	 getIsWaiverEnabled() {
+	 	return this.isWaiverEnabled;
+	 }
+	
+	/**
+	 * Indicates that usage is targeted for offline playback
+	 * @return bool
+	 */
+	 getIsOfflinePlayback() {
+	 	return this.isOfflinePlayback;
+	 }
+}
+module.exports.UsageModule = UsageModule;
+
+/**
+ *
+ */
+class CouponsGroup extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCouponsGroup';
+	}
+	
+	/**
+	 * Coupon group identifier
+	 * @return string
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Coupon group name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Coupon group name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * A list of the descriptions of the coupon group on different languages (language code and translation)
+	 * @return array
+	 */
+	 getDescriptions() {
+	 	return this.descriptions;
+	 }
+	
+	/**
+	 * @param descriptions array A list of the descriptions of the coupon group on different languages (language code and translation)
+	 */
+	 setDescriptions(descriptions) {
+	 	this.descriptions = descriptions;
+	 }
+	
+	/**
+	 * The first date the coupons in this coupons group are valid
+	 * @return int
+	 */
+	 getStartDate() {
+	 	return this.startDate;
+	 }
+	
+	/**
+	 * @param startDate int The first date the coupons in this coupons group are valid
+	 */
+	 setStartDate(startDate) {
+	 	this.startDate = startDate;
+	 }
+	
+	/**
+	 * The last date the coupons in this coupons group are valid
+	 * @return int
+	 */
+	 getEndDate() {
+	 	return this.endDate;
+	 }
+	
+	/**
+	 * @param endDate int The last date the coupons in this coupons group are valid
+	 */
+	 setEndDate(endDate) {
+	 	this.endDate = endDate;
+	 }
+	
+	/**
+	 * Maximum number of uses for each coupon in the group
+	 * @return int
+	 */
+	 getMaxUsesNumber() {
+	 	return this.maxUsesNumber;
+	 }
+	
+	/**
+	 * @param maxUsesNumber int Maximum number of uses for each coupon in the group
+	 */
+	 setMaxUsesNumber(maxUsesNumber) {
+	 	this.maxUsesNumber = maxUsesNumber;
+	 }
+	
+	/**
+	 * Maximum number of uses for each coupon in the group on a renewable subscription
+	 * @return int
+	 */
+	 getMaxUsesNumberOnRenewableSub() {
+	 	return this.maxUsesNumberOnRenewableSub;
+	 }
+	
+	/**
+	 * @param maxUsesNumberOnRenewableSub int Maximum number of uses for each coupon in the group on a renewable subscription
+	 */
+	 setMaxUsesNumberOnRenewableSub(maxUsesNumberOnRenewableSub) {
+	 	this.maxUsesNumberOnRenewableSub = maxUsesNumberOnRenewableSub;
+	 }
+	
+	/**
+	 * Type of the coupon group
+	 * @return string
+	 */
+	 getCouponGroupType() {
+	 	return this.couponGroupType;
+	 }
+	
+	/**
+	 * @param couponGroupType string Type of the coupon group
+	 */
+	 setCouponGroupType(couponGroupType) {
+	 	this.couponGroupType = couponGroupType;
+	 }
+}
+module.exports.CouponsGroup = CouponsGroup;
+
+/**
+ *
+ */
+class ProductCode extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaProductCode';
+	}
+	
+	/**
+	 * Provider Name
+	 * @return string
+	 */
+	 getInappProvider() {
+	 	return this.inappProvider;
+	 }
+	
+	/**
+	 * @param inappProvider string Provider Name
+	 */
+	 setInappProvider(inappProvider) {
+	 	this.inappProvider = inappProvider;
+	 }
+	
+	/**
+	 * Product Code
+	 * @return string
+	 */
+	 getCode() {
+	 	return this.code;
+	 }
+	
+	/**
+	 * @param code string Product Code
+	 */
+	 setCode(code) {
+	 	this.code = code;
+	 }
+}
+module.exports.ProductCode = ProductCode;
+
+/**
+ *
+ */
+class Collection extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCollection';
+	}
+	
+	/**
+	 * Collection identifier
+	 * @return string
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id string Collection identifier
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
+	 * A list of channels associated with this collection
+	 * @return array
+	 */
+	 getChannels() {
+	 	return this.channels;
+	 }
+	
+	/**
+	 * @param channels array A list of channels associated with this collection
+	 */
+	 setChannels(channels) {
+	 	this.channels = channels;
+	 }
+	
+	/**
+	 * The first date the collection is available for purchasing
+	 * @return int
+	 */
+	 getStartDate() {
+	 	return this.startDate;
+	 }
+	
+	/**
+	 * @param startDate int The first date the collection is available for purchasing
+	 */
+	 setStartDate(startDate) {
+	 	this.startDate = startDate;
+	 }
+	
+	/**
+	 * The last date the collection is available for purchasing
+	 * @return int
+	 */
+	 getEndDate() {
+	 	return this.endDate;
+	 }
+	
+	/**
+	 * @param endDate int The last date the collection is available for purchasing
+	 */
+	 setEndDate(endDate) {
+	 	this.endDate = endDate;
+	 }
+	
+	/**
+	 * The internal discount module for the subscription
+	 * @return DiscountModule
+	 */
+	 getDiscountModule() {
+	 	return this.discountModule;
+	 }
+	
+	/**
+	 * @param discountModule DiscountModule The internal discount module for the subscription
+	 */
+	 setDiscountModule(discountModule) {
+	 	this.discountModule = discountModule;
+	 }
+	
+	/**
+	 * Name of the subscription
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Name of the subscription
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Name of the subscription
+	 * @return array
+	 */
+	 getMultilingualName() {
+	 	return this.multilingualName;
+	 }
+	
+	/**
+	 * @param multilingualName array Name of the subscription
+	 */
+	 setMultilingualName(multilingualName) {
+	 	this.multilingualName = multilingualName;
+	 }
+	
+	/**
+	 * description of the subscription
+	 * @return string
+	 */
+	 getDescription() {
+	 	return this.description;
+	 }
+	
+	/**
+	 * @param description string description of the subscription
+	 */
+	 setDescription(description) {
+	 	this.description = description;
+	 }
+	
+	/**
+	 * description of the subscription
+	 * @return array
+	 */
+	 getMultilingualDescription() {
+	 	return this.multilingualDescription;
+	 }
+	
+	/**
+	 * @param multilingualDescription array description of the subscription
+	 */
+	 setMultilingualDescription(multilingualDescription) {
+	 	this.multilingualDescription = multilingualDescription;
+	 }
+	
+	/**
+	 * Collection usage module
+	 * @return UsageModule
+	 */
+	 getUsageModule() {
+	 	return this.usageModule;
+	 }
+	
+	/**
+	 * @param usageModule UsageModule Collection usage module
+	 */
+	 setUsageModule(usageModule) {
+	 	this.usageModule = usageModule;
+	 }
+	
+	/**
+	 * List of Coupons group
+	 * @return array
+	 */
+	 getCouponsGroups() {
+	 	return this.couponsGroups;
+	 }
+	
+	/**
+	 * @param couponsGroups array List of Coupons group
+	 */
+	 setCouponsGroups(couponsGroups) {
+	 	this.couponsGroups = couponsGroups;
+	 }
+	
+	/**
+	 * External ID
+	 * @return string
+	 */
+	 getExternalId() {
+	 	return this.externalId;
+	 }
+	
+	/**
+	 * @param externalId string External ID
+	 */
+	 setExternalId(externalId) {
+	 	this.externalId = externalId;
+	 }
+	
+	/**
+	 * List of Collection product codes
+	 * @return array
+	 */
+	 getProductCodes() {
+	 	return this.productCodes;
+	 }
+	
+	/**
+	 * @param productCodes array List of Collection product codes
+	 */
+	 setProductCodes(productCodes) {
+	 	this.productCodes = productCodes;
+	 }
+	
+	/**
+	 * The ID of the price details associated with this collection
+	 * @return int
+	 */
+	 getPriceDetailsId() {
+	 	return this.priceDetailsId;
+	 }
+	
+	/**
+	 * @param priceDetailsId int The ID of the price details associated with this collection
+	 */
+	 setPriceDetailsId(priceDetailsId) {
+	 	this.priceDetailsId = priceDetailsId;
+	 }
+}
+module.exports.Collection = Collection;
+
+/**
+ *
+ */
+class CollectionListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCollectionListResponse';
+	}
+	
+	/**
+	 * A list of collections
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of collections
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.CollectionListResponse = CollectionListResponse;
+
+/**
+ *
+ */
+class AssetGroupBy extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetGroupBy';
+	}
+}
+module.exports.AssetGroupBy = AssetGroupBy;
+
+/**
+ *
+ */
+class Channel extends BaseChannel{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaChannel';
+	}
+	
+	/**
+	 * Cannel description
+	 * @return string
+	 */
+	 getDescription() {
+	 	return this.description;
+	 }
+	
+	/**
+	 * @param description string Cannel description
+	 */
+	 setDescription(description) {
+	 	this.description = description;
+	 }
+	
+	/**
+	 * Channel images
+	 * @return array
+	 */
+	 getImages() {
+	 	return this.images;
+	 }
+	
+	/**
+	 * @param images array Channel images
+	 */
+	 setImages(images) {
+	 	this.images = images;
+	 }
+	
+	/**
+	 * Asset types in the channel.
+ * -26 is EPG
+	 * @return array
+	 */
+	 getAssetTypes() {
+	 	return this.assetTypes;
+	 }
+	
+	/**
+	 * @param assetTypes array Asset types in the channel.
+ * -26 is EPG
+	 */
+	 setAssetTypes(assetTypes) {
+	 	this.assetTypes = assetTypes;
+	 }
+	
+	/**
+	 * Filter expression
+	 * @return string
+	 */
+	 getFilterExpression() {
+	 	return this.filterExpression;
+	 }
+	
+	/**
+	 * @param filterExpression string Filter expression
+	 */
+	 setFilterExpression(filterExpression) {
+	 	this.filterExpression = filterExpression;
+	 }
+	
+	/**
+	 * active status
+	 * @return bool
+	 */
+	 getIsActive() {
+	 	return this.isActive;
+	 }
+	
+	/**
+	 * @param isActive bool active status
+	 */
+	 setIsActive(isActive) {
+	 	this.isActive = isActive;
+	 }
+	
+	/**
+	 * Channel order
+	 * @return string
+	 */
+	 getOrder() {
+	 	return this.order;
+	 }
+	
+	/**
+	 * @param order string Channel order
+	 */
+	 setOrder(order) {
+	 	this.order = order;
+	 }
+	
+	/**
+	 * Channel group by
+	 * @return AssetGroupBy
+	 */
+	 getGroupBy() {
+	 	return this.groupBy;
+	 }
+	
+	/**
+	 * @param groupBy AssetGroupBy Channel group by
+	 */
+	 setGroupBy(groupBy) {
+	 	this.groupBy = groupBy;
+	 }
+}
+module.exports.Channel = Channel;
+
+/**
+ *
+ */
+class AssetMetaOrTagGroupBy extends AssetGroupBy{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetMetaOrTagGroupBy';
+	}
+	
+	/**
+	 * Group by a tag or meta - according to the name that appears in the system (similar to KSQL)
+	 * @return string
+	 */
+	 getValue() {
+	 	return this.value;
+	 }
+	
+	/**
+	 * @param value string Group by a tag or meta - according to the name that appears in the system (similar to KSQL)
+	 */
+	 setValue(value) {
+	 	this.value = value;
+	 }
+}
+module.exports.AssetMetaOrTagGroupBy = AssetMetaOrTagGroupBy;
+
+/**
+ *
+ */
+class AssetFieldGroupBy extends AssetGroupBy{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetFieldGroupBy';
+	}
+	
+	/**
+	 * Group by a specific field that is defined in enum
+	 * @return string
+	 */
+	 getValue() {
+	 	return this.value;
+	 }
+	
+	/**
+	 * @param value string Group by a specific field that is defined in enum
+	 */
+	 setValue(value) {
+	 	this.value = value;
+	 }
+}
+module.exports.AssetFieldGroupBy = AssetFieldGroupBy;
+
+/**
+ *
+ */
+class PricePlan extends UsageModule{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPricePlan';
+	}
+	
+	/**
+	 * Denotes whether or not this object can be renewed
+	 * @return bool
+	 */
+	 getIsRenewable() {
+	 	return this.isRenewable;
+	 }
+	
+	/**
+	 * Defines the number of times the module will be renewed (for the life_cycle period)
+	 * @return int
+	 */
+	 getRenewalsNumber() {
+	 	return this.renewalsNumber;
+	 }
+	
+	/**
+	 * The discount module identifier of the price plan
+	 * @return int
+	 */
+	 getDiscountId() {
+	 	return this.discountId;
+	 }
+	
+	/**
+	 * The ID of the price details associated with this price plan
+	 * @return int
+	 */
+	 getPriceDetailsId() {
+	 	return this.priceDetailsId;
+	 }
+	
+	/**
+	 * @param priceDetailsId int The ID of the price details associated with this price plan
+	 */
+	 setPriceDetailsId(priceDetailsId) {
+	 	this.priceDetailsId = priceDetailsId;
+	 }
+}
+module.exports.PricePlan = PricePlan;
+
+/**
+ *
+ */
 class SubscriptionSet extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -3853,6 +4681,18 @@ class ProductPriceListResponse extends ListResponse{
 	 }
 }
 module.exports.ProductPriceListResponse = ProductPriceListResponse;
+
+/**
+ *
+ */
+class CollectionPrice extends ProductPrice{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCollectionPrice';
+	}
+}
+module.exports.CollectionPrice = CollectionPrice;
 
 /**
  *
@@ -4251,141 +5091,6 @@ module.exports.PriceDetailsListResponse = PriceDetailsListResponse;
 /**
  *
  */
-class UsageModule extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaUsageModule';
-	}
-	
-	/**
-	 * Usage module identifier
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Usage module name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * The maximum number of times an item in this usage module can be viewed
-	 * @return int
-	 */
-	 getMaxViewsNumber() {
-	 	return this.maxViewsNumber;
-	 }
-	
-	/**
-	 * The amount time an item is available for viewing since a user started watching the item
-	 * @return int
-	 */
-	 getViewLifeCycle() {
-	 	return this.viewLifeCycle;
-	 }
-	
-	/**
-	 * The amount time an item is available for viewing
-	 * @return int
-	 */
-	 getFullLifeCycle() {
-	 	return this.fullLifeCycle;
-	 }
-	
-	/**
-	 * Identifies a specific coupon linked to this object
-	 * @return int
-	 */
-	 getCouponId() {
-	 	return this.couponId;
-	 }
-	
-	/**
-	 * Time period during which the end user can waive his rights to cancel a purchase. When the time period is passed, the purchase can no longer be cancelled
-	 * @return int
-	 */
-	 getWaiverPeriod() {
-	 	return this.waiverPeriod;
-	 }
-	
-	/**
-	 * Indicates whether or not the end user has the right to waive his rights to cancel a purchase
-	 * @return bool
-	 */
-	 getIsWaiverEnabled() {
-	 	return this.isWaiverEnabled;
-	 }
-	
-	/**
-	 * Indicates that usage is targeted for offline playback
-	 * @return bool
-	 */
-	 getIsOfflinePlayback() {
-	 	return this.isOfflinePlayback;
-	 }
-}
-module.exports.UsageModule = UsageModule;
-
-/**
- *
- */
-class PricePlan extends UsageModule{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPricePlan';
-	}
-	
-	/**
-	 * Denotes whether or not this object can be renewed
-	 * @return bool
-	 */
-	 getIsRenewable() {
-	 	return this.isRenewable;
-	 }
-	
-	/**
-	 * Defines the number of times the module will be renewed (for the life_cycle period)
-	 * @return int
-	 */
-	 getRenewalsNumber() {
-	 	return this.renewalsNumber;
-	 }
-	
-	/**
-	 * The discount module identifier of the price plan
-	 * @return int
-	 */
-	 getDiscountId() {
-	 	return this.discountId;
-	 }
-	
-	/**
-	 * The ID of the price details associated with this price plan
-	 * @return int
-	 */
-	 getPriceDetailsId() {
-	 	return this.priceDetailsId;
-	 }
-	
-	/**
-	 * @param priceDetailsId int The ID of the price details associated with this price plan
-	 */
-	 setPriceDetailsId(priceDetailsId) {
-	 	this.priceDetailsId = priceDetailsId;
-	 }
-}
-module.exports.PricePlan = PricePlan;
-
-/**
- *
- */
 class PricePlanListResponse extends ListResponse{
 	
 	constructor(object = null) {
@@ -4409,223 +5114,6 @@ class PricePlanListResponse extends ListResponse{
 	 }
 }
 module.exports.PricePlanListResponse = PricePlanListResponse;
-
-/**
- *
- */
-class BaseChannel extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBaseChannel';
-	}
-	
-	/**
-	 * Unique identifier for the channel
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Channel name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Channel name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-}
-module.exports.BaseChannel = BaseChannel;
-
-/**
- *
- */
-class DiscountModule extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDiscountModule';
-	}
-	
-	/**
-	 * The discount percentage
-	 * @return float
-	 */
-	 getPercent() {
-	 	return this.percent;
-	 }
-	
-	/**
-	 * @param percent float The discount percentage
-	 */
-	 setPercent(percent) {
-	 	this.percent = percent;
-	 }
-	
-	/**
-	 * The first date the discount is available
-	 * @return int
-	 */
-	 getStartDate() {
-	 	return this.startDate;
-	 }
-	
-	/**
-	 * @param startDate int The first date the discount is available
-	 */
-	 setStartDate(startDate) {
-	 	this.startDate = startDate;
-	 }
-	
-	/**
-	 * The last date the discount is available
-	 * @return int
-	 */
-	 getEndDate() {
-	 	return this.endDate;
-	 }
-	
-	/**
-	 * @param endDate int The last date the discount is available
-	 */
-	 setEndDate(endDate) {
-	 	this.endDate = endDate;
-	 }
-}
-module.exports.DiscountModule = DiscountModule;
-
-/**
- *
- */
-class CouponsGroup extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCouponsGroup';
-	}
-	
-	/**
-	 * Coupon group identifier
-	 * @return string
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Coupon group name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Coupon group name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
-	 * A list of the descriptions of the coupon group on different languages (language code and translation)
-	 * @return array
-	 */
-	 getDescriptions() {
-	 	return this.descriptions;
-	 }
-	
-	/**
-	 * @param descriptions array A list of the descriptions of the coupon group on different languages (language code and translation)
-	 */
-	 setDescriptions(descriptions) {
-	 	this.descriptions = descriptions;
-	 }
-	
-	/**
-	 * The first date the coupons in this coupons group are valid
-	 * @return int
-	 */
-	 getStartDate() {
-	 	return this.startDate;
-	 }
-	
-	/**
-	 * @param startDate int The first date the coupons in this coupons group are valid
-	 */
-	 setStartDate(startDate) {
-	 	this.startDate = startDate;
-	 }
-	
-	/**
-	 * The last date the coupons in this coupons group are valid
-	 * @return int
-	 */
-	 getEndDate() {
-	 	return this.endDate;
-	 }
-	
-	/**
-	 * @param endDate int The last date the coupons in this coupons group are valid
-	 */
-	 setEndDate(endDate) {
-	 	this.endDate = endDate;
-	 }
-	
-	/**
-	 * Maximum number of uses for each coupon in the group
-	 * @return int
-	 */
-	 getMaxUsesNumber() {
-	 	return this.maxUsesNumber;
-	 }
-	
-	/**
-	 * @param maxUsesNumber int Maximum number of uses for each coupon in the group
-	 */
-	 setMaxUsesNumber(maxUsesNumber) {
-	 	this.maxUsesNumber = maxUsesNumber;
-	 }
-	
-	/**
-	 * Maximum number of uses for each coupon in the group on a renewable subscription
-	 * @return int
-	 */
-	 getMaxUsesNumberOnRenewableSub() {
-	 	return this.maxUsesNumberOnRenewableSub;
-	 }
-	
-	/**
-	 * @param maxUsesNumberOnRenewableSub int Maximum number of uses for each coupon in the group on a renewable subscription
-	 */
-	 setMaxUsesNumberOnRenewableSub(maxUsesNumberOnRenewableSub) {
-	 	this.maxUsesNumberOnRenewableSub = maxUsesNumberOnRenewableSub;
-	 }
-	
-	/**
-	 * Type of the coupon group
-	 * @return string
-	 */
-	 getCouponGroupType() {
-	 	return this.couponGroupType;
-	 }
-	
-	/**
-	 * @param couponGroupType string Type of the coupon group
-	 */
-	 setCouponGroupType(couponGroupType) {
-	 	this.couponGroupType = couponGroupType;
-	 }
-}
-module.exports.CouponsGroup = CouponsGroup;
 
 /**
  *
@@ -4726,48 +5214,6 @@ class PremiumService extends kaltura.BaseObject{
 	 }
 }
 module.exports.PremiumService = PremiumService;
-
-/**
- *
- */
-class ProductCode extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaProductCode';
-	}
-	
-	/**
-	 * Provider Name
-	 * @return string
-	 */
-	 getInappProvider() {
-	 	return this.inappProvider;
-	 }
-	
-	/**
-	 * @param inappProvider string Provider Name
-	 */
-	 setInappProvider(inappProvider) {
-	 	this.inappProvider = inappProvider;
-	 }
-	
-	/**
-	 * Product Code
-	 * @return string
-	 */
-	 getCode() {
-	 	return this.code;
-	 }
-	
-	/**
-	 * @param code string Product Code
-	 */
-	 setCode(code) {
-	 	this.code = code;
-	 }
-}
-module.exports.ProductCode = ProductCode;
 
 /**
  *
@@ -5272,191 +5718,6 @@ class SubscriptionListResponse extends ListResponse{
 	 }
 }
 module.exports.SubscriptionListResponse = SubscriptionListResponse;
-
-/**
- *
- */
-class AssetGroupBy extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetGroupBy';
-	}
-}
-module.exports.AssetGroupBy = AssetGroupBy;
-
-/**
- *
- */
-class Channel extends BaseChannel{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaChannel';
-	}
-	
-	/**
-	 * Cannel description
-	 * @return string
-	 */
-	 getDescription() {
-	 	return this.description;
-	 }
-	
-	/**
-	 * @param description string Cannel description
-	 */
-	 setDescription(description) {
-	 	this.description = description;
-	 }
-	
-	/**
-	 * Channel images
-	 * @return array
-	 */
-	 getImages() {
-	 	return this.images;
-	 }
-	
-	/**
-	 * @param images array Channel images
-	 */
-	 setImages(images) {
-	 	this.images = images;
-	 }
-	
-	/**
-	 * Asset types in the channel.
- * -26 is EPG
-	 * @return array
-	 */
-	 getAssetTypes() {
-	 	return this.assetTypes;
-	 }
-	
-	/**
-	 * @param assetTypes array Asset types in the channel.
- * -26 is EPG
-	 */
-	 setAssetTypes(assetTypes) {
-	 	this.assetTypes = assetTypes;
-	 }
-	
-	/**
-	 * Filter expression
-	 * @return string
-	 */
-	 getFilterExpression() {
-	 	return this.filterExpression;
-	 }
-	
-	/**
-	 * @param filterExpression string Filter expression
-	 */
-	 setFilterExpression(filterExpression) {
-	 	this.filterExpression = filterExpression;
-	 }
-	
-	/**
-	 * active status
-	 * @return bool
-	 */
-	 getIsActive() {
-	 	return this.isActive;
-	 }
-	
-	/**
-	 * @param isActive bool active status
-	 */
-	 setIsActive(isActive) {
-	 	this.isActive = isActive;
-	 }
-	
-	/**
-	 * Channel order
-	 * @return string
-	 */
-	 getOrder() {
-	 	return this.order;
-	 }
-	
-	/**
-	 * @param order string Channel order
-	 */
-	 setOrder(order) {
-	 	this.order = order;
-	 }
-	
-	/**
-	 * Channel group by
-	 * @return AssetGroupBy
-	 */
-	 getGroupBy() {
-	 	return this.groupBy;
-	 }
-	
-	/**
-	 * @param groupBy AssetGroupBy Channel group by
-	 */
-	 setGroupBy(groupBy) {
-	 	this.groupBy = groupBy;
-	 }
-}
-module.exports.Channel = Channel;
-
-/**
- *
- */
-class AssetMetaOrTagGroupBy extends AssetGroupBy{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetMetaOrTagGroupBy';
-	}
-	
-	/**
-	 * Group by a tag or meta - according to the name that appears in the system (similar to KSQL)
-	 * @return string
-	 */
-	 getValue() {
-	 	return this.value;
-	 }
-	
-	/**
-	 * @param value string Group by a tag or meta - according to the name that appears in the system (similar to KSQL)
-	 */
-	 setValue(value) {
-	 	this.value = value;
-	 }
-}
-module.exports.AssetMetaOrTagGroupBy = AssetMetaOrTagGroupBy;
-
-/**
- *
- */
-class AssetFieldGroupBy extends AssetGroupBy{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetFieldGroupBy';
-	}
-	
-	/**
-	 * Group by a specific field that is defined in enum
-	 * @return string
-	 */
-	 getValue() {
-	 	return this.value;
-	 }
-	
-	/**
-	 * @param value string Group by a specific field that is defined in enum
-	 */
-	 setValue(value) {
-	 	this.value = value;
-	 }
-}
-module.exports.AssetFieldGroupBy = AssetFieldGroupBy;
 
 /**
  *
@@ -11605,6 +11866,48 @@ module.exports.OTTUserFilter = OTTUserFilter;
 /**
  *
  */
+class CollectionFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCollectionFilter';
+	}
+	
+	/**
+	 * Comma separated collection IDs
+	 * @return string
+	 */
+	 getCollectionIdIn() {
+	 	return this.collectionIdIn;
+	 }
+	
+	/**
+	 * @param collectionIdIn string Comma separated collection IDs
+	 */
+	 setCollectionIdIn(collectionIdIn) {
+	 	this.collectionIdIn = collectionIdIn;
+	 }
+	
+	/**
+	 * Media-file ID to get the subscriptions by
+	 * @return int
+	 */
+	 getMediaFileIdEqual() {
+	 	return this.mediaFileIdEqual;
+	 }
+	
+	/**
+	 * @param mediaFileIdEqual int Media-file ID to get the subscriptions by
+	 */
+	 setMediaFileIdEqual(mediaFileIdEqual) {
+	 	this.mediaFileIdEqual = mediaFileIdEqual;
+	 }
+}
+module.exports.CollectionFilter = CollectionFilter;
+
+/**
+ *
+ */
 class PricePlanFilter extends Filter{
 	
 	constructor(object = null) {
@@ -12854,6 +13157,21 @@ class ProductPriceFilter extends Filter{
 	 */
 	 setFileIdIn(fileIdIn) {
 	 	this.fileIdIn = fileIdIn;
+	 }
+	
+	/**
+	 * Comma separated collections identifiers
+	 * @return string
+	 */
+	 getCollectionIdIn() {
+	 	return this.collectionIdIn;
+	 }
+	
+	/**
+	 * @param collectionIdIn string Comma separated collections identifiers
+	 */
+	 setCollectionIdIn(collectionIdIn) {
+	 	this.collectionIdIn = collectionIdIn;
 	 }
 	
 	/**

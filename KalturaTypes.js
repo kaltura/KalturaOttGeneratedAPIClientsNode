@@ -169,6 +169,10 @@ DTTREGION : 'DTTRegion',
 ATHOME : 'AtHome',
 };
 
+module.exports.CollectionOrderBy = {
+NONE : 'NONE',
+};
+
 module.exports.CompensationType = {
 PERCENTAGE : 'PERCENTAGE',
 FIXED_AMOUNT : 'FIXED_AMOUNT',

@@ -662,6 +662,27 @@ module.exports.channel = channel;
 
 
 /**
+ *Class definition for the Kaltura service: collection.
+ * The available service actions:
+ * @action list Returns a list of subscriptions requested by Subscription ID or file ID.
+ */
+class collection{
+	
+	/**
+	 * Returns a list of subscriptions requested by Subscription ID or file ID.
+	 * @param filter CollectionFilter Filter request
+	 * @return KalturaCollectionListResponse
+	 */
+	static listAction(filter){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('collection', 'list', kparams);
+	};
+}
+module.exports.collection = collection;
+
+
+/**
  *Class definition for the Kaltura service: compensation.
  * The available service actions:
  * @action add Adds a new compensation for a household for a given number of iterations of a subscription renewal for a fixed amount / percentage of the renewal price.
