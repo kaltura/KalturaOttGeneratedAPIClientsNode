@@ -1,7 +1,7 @@
 {
-  "name": "kaltura-client",
-  "version": "1.0.7",
-  "description": "Kaltura NodeJS client library (new implementation)",
+  "name": "kaltura-ott-client",
+  "version": "4.3.25.20936",
+  "description": "Kaltura OTT NodeJS client library",
   "main": "KalturaClient.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --timeout 60000"
@@ -11,12 +11,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kaltura/KalturaGeneratedAPIClientsNodeJS"
+    "url": "https://github.com/kaltura/KalturaOttGeneratedAPIClientsNode"
   },
   "keywords": [
     "Kaltura",
     "API",
-    "clientlibs"
+    "clientlibs",
+    "OTT"
   ],
   "author": {
     "name": "Kaltura Community",
