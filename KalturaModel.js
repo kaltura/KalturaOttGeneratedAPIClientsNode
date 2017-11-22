@@ -3116,6 +3116,33 @@ module.exports.FairPlayPlaybackPluginData = FairPlayPlaybackPluginData;
 /**
  *
  */
+class CustomDrmPlaybackPluginData extends DrmPlaybackPluginData{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCustomDrmPlaybackPluginData';
+	}
+	
+	/**
+	 * Custom DRM license data
+	 * @return string
+	 */
+	 getData() {
+	 	return this.data;
+	 }
+	
+	/**
+	 * @param data string Custom DRM license data
+	 */
+	 setData(data) {
+	 	this.data = data;
+	 }
+}
+module.exports.CustomDrmPlaybackPluginData = CustomDrmPlaybackPluginData;
+
+/**
+ *
+ */
 class BaseOTTUser extends kaltura.BaseObject{
 	
 	constructor(object = null) {
