@@ -2552,6 +2552,7 @@ module.exports.ottCategory = ottCategory;
  * @action resetPassword Send an e-mail with URL to enable the user to set new password.
  * @action setInitialPassword Renew the user&#39;s password after validating the token that sent as part of URL in e-mail.
  * @action update Update user information.
+ * @action updateDynamicData Update user dynamic data.
  * @action updateLoginData Given a user name and existing password, change to a new password.
  * @action updatePassword Update the user&#39;s existing password.
  */
@@ -2746,6 +2747,19 @@ class ottUser{
 		kparams.user = user;
 		kparams.id = id;
 		return new kaltura.RequestBuilder('ottuser', 'update', kparams);
+	};
+	
+	/**
+	 * Update user dynamic data.
+	 * @param key string Type of dynamicData
+	 * @param value StringValue Value of dynamicData
+	 * @return KalturaOTTUserDynamicData
+	 */
+	static updateDynamicData(key, value){
+		let kparams = {};
+		kparams.key = key;
+		kparams.value = value;
+		return new kaltura.RequestBuilder('ottuser', 'updateDynamicData', kparams);
 	};
 	
 	/**

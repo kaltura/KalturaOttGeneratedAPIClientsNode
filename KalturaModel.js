@@ -17786,3 +17786,38 @@ class UserLoginPin extends kaltura.BaseObject{
 	 }
 }
 module.exports.UserLoginPin = UserLoginPin;
+
+/**
+ *
+ */
+class OTTUserDynamicData extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaOTTUserDynamicData';
+	}
+	
+	/**
+	 * User identifier
+	 * @return string
+	 */
+	 getUserId() {
+	 	return this.userId;
+	 }
+	
+	/**
+	 * Dynamic data
+	 * @return map
+	 */
+	 getDynamicData() {
+	 	return this.dynamicData;
+	 }
+	
+	/**
+	 * @param dynamicData map Dynamic data
+	 */
+	 setDynamicData(dynamicData) {
+	 	this.dynamicData = dynamicData;
+	 }
+}
+module.exports.OTTUserDynamicData = OTTUserDynamicData;
