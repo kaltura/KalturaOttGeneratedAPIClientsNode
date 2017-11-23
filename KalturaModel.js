@@ -1428,6 +1428,87 @@ module.exports.IntegerValue = IntegerValue;
 /**
  *
  */
+class PluginData extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPluginData';
+	}
+}
+module.exports.PluginData = PluginData;
+
+/**
+ *
+ */
+class DrmPlaybackPluginData extends PluginData{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDrmPlaybackPluginData';
+	}
+	
+	/**
+	 * Scheme
+	 * @return string
+	 */
+	 getScheme() {
+	 	return this.scheme;
+	 }
+	
+	/**
+	 * @param scheme string Scheme
+	 */
+	 setScheme(scheme) {
+	 	this.scheme = scheme;
+	 }
+	
+	/**
+	 * License URL
+	 * @return string
+	 */
+	 getLicenseURL() {
+	 	return this.licenseURL;
+	 }
+	
+	/**
+	 * @param licenseURL string License URL
+	 */
+	 setLicenseURL(licenseURL) {
+	 	this.licenseURL = licenseURL;
+	 }
+}
+module.exports.DrmPlaybackPluginData = DrmPlaybackPluginData;
+
+/**
+ *
+ */
+class CustomDrmPlaybackPluginData extends DrmPlaybackPluginData{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCustomDrmPlaybackPluginData';
+	}
+	
+	/**
+	 * Custom DRM license data
+	 * @return string
+	 */
+	 getData() {
+	 	return this.data;
+	 }
+	
+	/**
+	 * @param data string Custom DRM license data
+	 */
+	 setData(data) {
+	 	this.data = data;
+	 }
+}
+module.exports.CustomDrmPlaybackPluginData = CustomDrmPlaybackPluginData;
+
+/**
+ *
+ */
 class HouseholdDevice extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -1525,6 +1606,14 @@ class HouseholdDevice extends kaltura.BaseObject{
 	 getDeviceFamilyId() {
 	 	return this.deviceFamilyId;
 	 }
+	
+	/**
+	 * Device DRM data
+	 * @return CustomDrmPlaybackPluginData
+	 */
+	 getDrm() {
+	 	return this.drm;
+	 }
 }
 module.exports.HouseholdDevice = HouseholdDevice;
 
@@ -1554,6 +1643,33 @@ class HouseholdDeviceListResponse extends ListResponse{
 	 }
 }
 module.exports.HouseholdDeviceListResponse = HouseholdDeviceListResponse;
+
+/**
+ *
+ */
+class FairPlayPlaybackPluginData extends DrmPlaybackPluginData{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaFairPlayPlaybackPluginData';
+	}
+	
+	/**
+	 * Custom data string
+	 * @return string
+	 */
+	 getCertificate() {
+	 	return this.certificate;
+	 }
+	
+	/**
+	 * @param certificate string Custom data string
+	 */
+	 setCertificate(certificate) {
+	 	this.certificate = certificate;
+	 }
+}
+module.exports.FairPlayPlaybackPluginData = FairPlayPlaybackPluginData;
 
 /**
  *
@@ -2978,60 +3094,6 @@ module.exports.FavoriteListResponse = FavoriteListResponse;
 /**
  *
  */
-class PluginData extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPluginData';
-	}
-}
-module.exports.PluginData = PluginData;
-
-/**
- *
- */
-class DrmPlaybackPluginData extends PluginData{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDrmPlaybackPluginData';
-	}
-	
-	/**
-	 * Scheme
-	 * @return string
-	 */
-	 getScheme() {
-	 	return this.scheme;
-	 }
-	
-	/**
-	 * @param scheme string Scheme
-	 */
-	 setScheme(scheme) {
-	 	this.scheme = scheme;
-	 }
-	
-	/**
-	 * License URL
-	 * @return string
-	 */
-	 getLicenseURL() {
-	 	return this.licenseURL;
-	 }
-	
-	/**
-	 * @param licenseURL string License URL
-	 */
-	 setLicenseURL(licenseURL) {
-	 	this.licenseURL = licenseURL;
-	 }
-}
-module.exports.DrmPlaybackPluginData = DrmPlaybackPluginData;
-
-/**
- *
- */
 class PlaybackSource extends MediaFile{
 	
 	constructor(object = null) {
@@ -3085,60 +3147,6 @@ class PlaybackSource extends MediaFile{
 	 }
 }
 module.exports.PlaybackSource = PlaybackSource;
-
-/**
- *
- */
-class FairPlayPlaybackPluginData extends DrmPlaybackPluginData{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaFairPlayPlaybackPluginData';
-	}
-	
-	/**
-	 * Custom data string
-	 * @return string
-	 */
-	 getCertificate() {
-	 	return this.certificate;
-	 }
-	
-	/**
-	 * @param certificate string Custom data string
-	 */
-	 setCertificate(certificate) {
-	 	this.certificate = certificate;
-	 }
-}
-module.exports.FairPlayPlaybackPluginData = FairPlayPlaybackPluginData;
-
-/**
- *
- */
-class CustomDrmPlaybackPluginData extends DrmPlaybackPluginData{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCustomDrmPlaybackPluginData';
-	}
-	
-	/**
-	 * Custom DRM license data
-	 * @return string
-	 */
-	 getData() {
-	 	return this.data;
-	 }
-	
-	/**
-	 * @param data string Custom DRM license data
-	 */
-	 setData(data) {
-	 	this.data = data;
-	 }
-}
-module.exports.CustomDrmPlaybackPluginData = CustomDrmPlaybackPluginData;
 
 /**
  *
