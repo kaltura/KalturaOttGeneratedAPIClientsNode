@@ -33,6 +33,8 @@ class RequestData {
 	}
 	
 	/**
+	 * Client tag
+	 * 
 	 * @param string clientTag
 	 */
 	setClientTag(clientTag){
@@ -40,6 +42,8 @@ class RequestData {
 	};
 	
 	/**
+	 * Client tag
+	 * 
 	 * @return string
 	 */
 	getClientTag(){
@@ -47,6 +51,8 @@ class RequestData {
 	};
 	
 	/**
+	 * API Version
+	 * 
 	 * @param string apiVersion
 	 */
 	setApiVersion(apiVersion){
@@ -54,6 +60,8 @@ class RequestData {
 	};
 	
 	/**
+	 * API Version
+	 * 
 	 * @return string
 	 */
 	getApiVersion(){
