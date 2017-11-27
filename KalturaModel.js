@@ -17814,18 +17814,33 @@ class OTTUserDynamicData extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Dynamic data
-	 * @return map
+	 * Key
+	 * @return string
 	 */
-	 getDynamicData() {
-	 	return this.dynamicData;
+	 getKey() {
+	 	return this.key;
 	 }
 	
 	/**
-	 * @param dynamicData map Dynamic data
+	 * @param key string Key
 	 */
-	 setDynamicData(dynamicData) {
-	 	this.dynamicData = dynamicData;
+	 setKey(key) {
+	 	this.key = key;
+	 }
+	
+	/**
+	 * Value
+	 * @return StringValue
+	 */
+	 getValue() {
+	 	return this.value;
+	 }
+	
+	/**
+	 * @param value StringValue Value
+	 */
+	 setValue(value) {
+	 	this.value = value;
 	 }
 }
 module.exports.OTTUserDynamicData = OTTUserDynamicData;
