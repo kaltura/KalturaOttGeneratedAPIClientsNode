@@ -1203,6 +1203,21 @@ class PaymentGatewayProfile extends PaymentGatewayBaseProfile{
 	 setRenewStartMinutes(renewStartMinutes) {
 	 	this.renewStartMinutes = renewStartMinutes;
 	 }
+	
+	/**
+	 * Payment gateway external verification
+	 * @return bool
+	 */
+	 getExternalVerification() {
+	 	return this.externalVerification;
+	 }
+	
+	/**
+	 * @param externalVerification bool Payment gateway external verification
+	 */
+	 setExternalVerification(externalVerification) {
+	 	this.externalVerification = externalVerification;
+	 }
 }
 module.exports.PaymentGatewayProfile = PaymentGatewayProfile;
 
