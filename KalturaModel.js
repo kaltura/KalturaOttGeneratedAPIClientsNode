@@ -7725,11 +7725,11 @@ class Entitlement extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Entitlement identifier
+	 * Product identifier
 	 * @return string
 	 */
-	 getEntitlementId() {
-	 	return this.entitlementId;
+	 getProductId() {
+	 	return this.productId;
 	 }
 	
 	/**
@@ -7970,18 +7970,18 @@ class SubscriptionEntitlement extends Entitlement{
 	 }
 	
 	/**
-	 * Scheduled Subscription Identifier
+	 * Unified payment identifier
 	 * @return int
 	 */
-	 getScheduledSubscriptionId() {
-	 	return this.scheduledSubscriptionId;
+	 getUnifiedPaymentId() {
+	 	return this.unifiedPaymentId;
 	 }
 	
 	/**
-	 * @param scheduledSubscriptionId int Scheduled Subscription Identifier
+	 * @param unifiedPaymentId int Unified payment identifier
 	 */
-	 setScheduledSubscriptionId(scheduledSubscriptionId) {
-	 	this.scheduledSubscriptionId = scheduledSubscriptionId;
+	 setUnifiedPaymentId(unifiedPaymentId) {
+	 	this.unifiedPaymentId = unifiedPaymentId;
 	 }
 	
 	/**
@@ -13270,15 +13270,15 @@ class EntitlementFilter extends Filter{
 	 * The type of the entitlements to return
 	 * @return string
 	 */
-	 getEntitlementTypeEqual() {
-	 	return this.entitlementTypeEqual;
+	 getProductTypeEqual() {
+	 	return this.productTypeEqual;
 	 }
 	
 	/**
-	 * @param entitlementTypeEqual string The type of the entitlements to return
+	 * @param productTypeEqual string The type of the entitlements to return
 	 */
-	 setEntitlementTypeEqual(entitlementTypeEqual) {
-	 	this.entitlementTypeEqual = entitlementTypeEqual;
+	 setProductTypeEqual(productTypeEqual) {
+	 	this.productTypeEqual = productTypeEqual;
 	 }
 	
 	/**
@@ -14996,6 +14996,135 @@ class EmailMessage extends kaltura.BaseObject{
 	 }
 }
 module.exports.EmailMessage = EmailMessage;
+
+/**
+ *
+ */
+class EntitlementRenewalBase extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEntitlementRenewalBase';
+	}
+	
+	/**
+	 * Price that is going to be paid on the renewal
+	 * @return float
+	 */
+	 getPrice() {
+	 	return this.price;
+	 }
+	
+	/**
+	 * @param price float Price that is going to be paid on the renewal
+	 */
+	 setPrice(price) {
+	 	this.price = price;
+	 }
+	
+	/**
+	 * Puchase ID
+	 * @return int
+	 */
+	 getPurchaseId() {
+	 	return this.purchaseId;
+	 }
+	
+	/**
+	 * @param purchaseId int Puchase ID
+	 */
+	 setPurchaseId(purchaseId) {
+	 	this.purchaseId = purchaseId;
+	 }
+	
+	/**
+	 * Subscription ID
+	 * @return int
+	 */
+	 getSubscriptionId() {
+	 	return this.subscriptionId;
+	 }
+	
+	/**
+	 * @param subscriptionId int Subscription ID
+	 */
+	 setSubscriptionId(subscriptionId) {
+	 	this.subscriptionId = subscriptionId;
+	 }
+}
+module.exports.EntitlementRenewalBase = EntitlementRenewalBase;
+
+/**
+ *
+ */
+class UnifiedPaymentRenewal extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUnifiedPaymentRenewal';
+	}
+	
+	/**
+	 * Price that is going to be paid on the renewal
+	 * @return Price
+	 */
+	 getPrice() {
+	 	return this.price;
+	 }
+	
+	/**
+	 * @param price Price Price that is going to be paid on the renewal
+	 */
+	 setPrice(price) {
+	 	this.price = price;
+	 }
+	
+	/**
+	 * Next renewal date
+	 * @return int
+	 */
+	 getDate() {
+	 	return this.date;
+	 }
+	
+	/**
+	 * @param date int Next renewal date
+	 */
+	 setDate(date) {
+	 	this.date = date;
+	 }
+	
+	/**
+	 * Unified payment ID
+	 * @return int
+	 */
+	 getUnifiedPaymentId() {
+	 	return this.unifiedPaymentId;
+	 }
+	
+	/**
+	 * @param unifiedPaymentId int Unified payment ID
+	 */
+	 setUnifiedPaymentId(unifiedPaymentId) {
+	 	this.unifiedPaymentId = unifiedPaymentId;
+	 }
+	
+	/**
+	 * List of entitlements in this unified payment renewal
+	 * @return array
+	 */
+	 getEntitlements() {
+	 	return this.entitlements;
+	 }
+	
+	/**
+	 * @param entitlements array List of entitlements in this unified payment renewal
+	 */
+	 setEntitlements(entitlements) {
+	 	this.entitlements = entitlements;
+	 }
+}
+module.exports.UnifiedPaymentRenewal = UnifiedPaymentRenewal;
 
 /**
  *
@@ -17027,6 +17156,78 @@ class OTTCategory extends kaltura.BaseObject{
 	 }
 }
 module.exports.OTTCategory = OTTCategory;
+
+/**
+ *
+ */
+class EntitlementRenewal extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEntitlementRenewal';
+	}
+	
+	/**
+	 * Price that is going to be paid on the renewal
+	 * @return Price
+	 */
+	 getPrice() {
+	 	return this.price;
+	 }
+	
+	/**
+	 * @param price Price Price that is going to be paid on the renewal
+	 */
+	 setPrice(price) {
+	 	this.price = price;
+	 }
+	
+	/**
+	 * Next renewal date
+	 * @return int
+	 */
+	 getDate() {
+	 	return this.date;
+	 }
+	
+	/**
+	 * @param date int Next renewal date
+	 */
+	 setDate(date) {
+	 	this.date = date;
+	 }
+	
+	/**
+	 * Puchase ID
+	 * @return int
+	 */
+	 getPurchaseId() {
+	 	return this.purchaseId;
+	 }
+	
+	/**
+	 * @param purchaseId int Puchase ID
+	 */
+	 setPurchaseId(purchaseId) {
+	 	this.purchaseId = purchaseId;
+	 }
+	
+	/**
+	 * Subscription ID
+	 * @return int
+	 */
+	 getSubscriptionId() {
+	 	return this.subscriptionId;
+	 }
+	
+	/**
+	 * @param subscriptionId int Subscription ID
+	 */
+	 setSubscriptionId(subscriptionId) {
+	 	this.subscriptionId = subscriptionId;
+	 }
+}
+module.exports.EntitlementRenewal = EntitlementRenewal;
 
 /**
  *

@@ -1250,6 +1250,7 @@ module.exports.engagement = engagement;
  * @action cancelScheduledSubscription Cancel Scheduled Subscription.
  * @action externalReconcile Reconcile the user household&#39;s entitlements with an external entitlements source. This request is frequency protected to avoid too frequent calls per household.
  * @action forceCancel Immediately cancel a subscription, PPV or collection. Cancel applies regardless of cancellation window and content consumption status.
+ * @action getNextRenewal Returns the data about the next renewal.
  * @action grant Grant household for an entitlement for a PPV or Subscription.
  * @action list Gets all the entitled media items for a household.
  * @action swap Swap current entitlement (subscription) with new entitlement (subscription) - only Grant.
@@ -1311,6 +1312,17 @@ class entitlement{
 		kparams.assetId = assetId;
 		kparams.transactionType = transactionType;
 		return new kaltura.RequestBuilder('entitlement', 'forceCancel', kparams);
+	};
+	
+	/**
+	 * Returns the data about the next renewal.
+	 * @param id int Purchase Id
+	 * @return KalturaEntitlementRenewal
+	 */
+	static getNextRenewal(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('entitlement', 'getNextRenewal', kparams);
 	};
 	
 	/**
@@ -4288,6 +4300,27 @@ class transactionHistory{
 	};
 }
 module.exports.transactionHistory = transactionHistory;
+
+
+/**
+ *Class definition for the Kaltura service: unifiedPayment.
+ * The available service actions:
+ * @action getNextRenewal Returns the data about the next renewal.
+ */
+class unifiedPayment{
+	
+	/**
+	 * Returns the data about the next renewal.
+	 * @param id int Unified payment ID
+	 * @return KalturaUnifiedPaymentRenewal
+	 */
+	static getNextRenewal(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('unifiedpayment', 'getNextRenewal', kparams);
+	};
+}
+module.exports.unifiedPayment = unifiedPayment;
 
 
 /**
