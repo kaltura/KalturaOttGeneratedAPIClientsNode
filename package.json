@@ -1,6 +1,6 @@
 {
   "name": "kaltura-ott-client",
-  "version": "4.7.7.21001",
+  "version": "4.7.8.25711",
   "description": "Kaltura OTT NodeJS client library",
   "main": "KalturaClient.js",
   "scripts": {
@@ -38,6 +38,7 @@
   "devDependencies": {
     "shortid": "^2.2.8",
     "chai": "^3.5.0",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "node-shared-cache": "^1.6.2"
   }
 }
