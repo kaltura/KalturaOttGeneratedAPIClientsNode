@@ -1261,13 +1261,13 @@ class entitlement{
 	/**
 	 * Immediately cancel a subscription, PPV or collection. Cancel is possible only if within cancellation window and content not already consumed.
 	 * @param assetId int The mediaFileID to cancel
-	 * @param transactionType string The transaction type for the cancelation (enum: KalturaTransactionType)
+	 * @param productType string The product type for the cancelation (enum: KalturaTransactionType)
 	 * @return bool
 	 */
-	static cancel(assetId, transactionType){
+	static cancel(assetId, productType){
 		let kparams = {};
 		kparams.assetId = assetId;
-		kparams.transactionType = transactionType;
+		kparams.productType = productType;
 		return new kaltura.RequestBuilder('entitlement', 'cancel', kparams);
 	};
 	
@@ -1304,13 +1304,13 @@ class entitlement{
 	/**
 	 * Immediately cancel a subscription, PPV or collection. Cancel applies regardless of cancellation window and content consumption status.
 	 * @param assetId int The mediaFileID to cancel
-	 * @param transactionType string The transaction type for the cancelation (enum: KalturaTransactionType)
+	 * @param productType string The product type for the cancelation (enum: KalturaTransactionType)
 	 * @return bool
 	 */
-	static forceCancel(assetId, transactionType){
+	static forceCancel(assetId, productType){
 		let kparams = {};
 		kparams.assetId = assetId;
-		kparams.transactionType = transactionType;
+		kparams.productType = productType;
 		return new kaltura.RequestBuilder('entitlement', 'forceCancel', kparams);
 	};
 	

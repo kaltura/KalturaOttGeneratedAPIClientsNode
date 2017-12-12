@@ -4617,7 +4617,7 @@ class Price extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Currency
+	 * Country ID
 	 * @return int
 	 */
 	 getCountryId() {
@@ -4625,7 +4625,7 @@ class Price extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param countryId int Currency
+	 * @param countryId int Country ID
 	 */
 	 setCountryId(countryId) {
 	 	this.countryId = countryId;
@@ -7967,6 +7967,21 @@ class SubscriptionEntitlement extends Entitlement{
 	 */
 	 setPaymentMethodId(paymentMethodId) {
 	 	this.paymentMethodId = paymentMethodId;
+	 }
+	
+	/**
+	 * Scheduled Subscription Identifier
+	 * @return int
+	 */
+	 getScheduledSubscriptionId() {
+	 	return this.scheduledSubscriptionId;
+	 }
+	
+	/**
+	 * @param scheduledSubscriptionId int Scheduled Subscription Identifier
+	 */
+	 setScheduledSubscriptionId(scheduledSubscriptionId) {
+	 	this.scheduledSubscriptionId = scheduledSubscriptionId;
 	 }
 	
 	/**
