@@ -39,6 +39,7 @@ class RequestData {
 	 */
 	setClientTag(clientTag){
 		this.requestData['clientTag'] = clientTag;
+		return this;
 	};
 	
 	/**
@@ -57,6 +58,7 @@ class RequestData {
 	 */
 	setApiVersion(apiVersion){
 		this.requestData['apiVersion'] = apiVersion;
+		return this;
 	};
 	
 	/**
@@ -75,6 +77,7 @@ class RequestData {
 	 */
 	setPartnerId(partnerId){
 		this.requestData['partnerId'] = partnerId;
+		return this;
 	};
 	
 	/**
@@ -93,6 +96,7 @@ class RequestData {
 	 */
 	setUserId(userId){
 		this.requestData['userId'] = userId;
+		return this;
 	};
 	
 	/**
@@ -111,6 +115,7 @@ class RequestData {
 	 */
 	setLanguage(language){
 		this.requestData['language'] = language;
+		return this;
 	};
 	
 	/**
@@ -129,6 +134,7 @@ class RequestData {
 	 */
 	setCurrency(currency){
 		this.requestData['currency'] = currency;
+		return this;
 	};
 	
 	/**
@@ -147,6 +153,7 @@ class RequestData {
 	 */
 	setKs(ks){
 		this.requestData['ks'] = ks;
+		return this;
 	};
 	
 	/**
@@ -165,6 +172,7 @@ class RequestData {
 	 */
 	setSessionId(sessionId){
 		this.requestData['ks'] = sessionId;
+		return this;
 	};
 	
 	/**
