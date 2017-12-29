@@ -2840,21 +2840,6 @@ class MediaFile extends kaltura.BaseObject{
 	 setProductCode(productCode) {
 	 	this.productCode = productCode;
 	 }
-	
-	/**
-	 * File size
-	 * @return int
-	 */
-	 getFileSize() {
-	 	return this.fileSize;
-	 }
-	
-	/**
-	 * @param fileSize int File size
-	 */
-	 setFileSize(fileSize) {
-	 	this.fileSize = fileSize;
-	 }
 }
 module.exports.MediaFile = MediaFile;
 
