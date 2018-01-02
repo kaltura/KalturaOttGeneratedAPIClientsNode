@@ -3219,6 +3219,25 @@ module.exports.productPrice = productPrice;
 
 
 /**
+ *Class definition for the Kaltura service: promotion.
+ * The available service actions:
+ * @action list Returns promotions list regarding to mediaId.
+ */
+class promotion{
+	
+	/**
+	 * Returns promotions list regarding to mediaId.
+	 * @return KalturaPromotionListResponse
+	 */
+	static listAction(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('promotion', 'list', kparams);
+	};
+}
+module.exports.promotion = promotion;
+
+
+/**
  *Class definition for the Kaltura service: purchaseSettings.
  * The available service actions:
  * @action get Retrieve the purchase settings.
