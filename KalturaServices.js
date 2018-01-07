@@ -1675,6 +1675,7 @@ module.exports.homeNetwork = homeNetwork;
  * @action add Creates a household for the user.
  * @action delete Fully delete a household. Delete all of the household information, including users, devices, entitlements, payment methods and notification date.
  * @action get Returns the household model.
+ * @action purge Purge a household. Delete all of the household information, including users, devices, entitlements, payment methods and notification date.
  * @action resetFrequency Reset a household’s time limitation for removing user or device.
  * @action resume Resumed a given household service to its previous service settings.
  * @action suspend Suspend a given household service. Sets the household status to “suspended&quot;.The household service settings are maintained for later resume.
@@ -1713,6 +1714,17 @@ class household{
 		let kparams = {};
 		kparams.id = id;
 		return new kaltura.RequestBuilder('household', 'get', kparams);
+	};
+	
+	/**
+	 * Purge a household. Delete all of the household information, including users, devices, entitlements, payment methods and notification date.
+	 * @param id int Household identifier
+	 * @return bool
+	 */
+	static purge(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('household', 'purge', kparams);
 	};
 	
 	/**
