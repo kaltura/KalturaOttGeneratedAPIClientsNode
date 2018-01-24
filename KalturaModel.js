@@ -8025,6 +8025,36 @@ class MediaFileType extends kaltura.BaseObject{
 	 setQuality(quality) {
 	 	this.quality = quality;
 	 }
+	
+	/**
+	 * List of comma separated video codecs
+	 * @return string
+	 */
+	 getVideoCodecs() {
+	 	return this.videoCodecs;
+	 }
+	
+	/**
+	 * @param videoCodecs string List of comma separated video codecs
+	 */
+	 setVideoCodecs(videoCodecs) {
+	 	this.videoCodecs = videoCodecs;
+	 }
+	
+	/**
+	 * List of comma separated audio codecs
+	 * @return string
+	 */
+	 getAudioCodecs() {
+	 	return this.audioCodecs;
+	 }
+	
+	/**
+	 * @param audioCodecs string List of comma separated audio codecs
+	 */
+	 setAudioCodecs(audioCodecs) {
+	 	this.audioCodecs = audioCodecs;
+	 }
 }
 module.exports.MediaFileType = MediaFileType;
 
