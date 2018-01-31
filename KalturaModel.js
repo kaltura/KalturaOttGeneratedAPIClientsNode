@@ -8602,6 +8602,53 @@ class Ratio extends kaltura.BaseObject{
 	 setName(name) {
 	 	this.name = name;
 	 }
+	
+	/**
+	 * Height
+	 * @return int
+	 */
+	 getHeight() {
+	 	return this.height;
+	 }
+	
+	/**
+	 * @param height int Height
+	 */
+	 setHeight(height) {
+	 	this.height = height;
+	 }
+	
+	/**
+	 * Width
+	 * @return int
+	 */
+	 getWidth() {
+	 	return this.width;
+	 }
+	
+	/**
+	 * @param width int Width
+	 */
+	 setWidth(width) {
+	 	this.width = width;
+	 }
+	
+	/**
+	 * Accepted error margin precentage of an image uploaded for this ratio
+ * 0 - no validation, everything accepted
+	 * @return int
+	 */
+	 getAcceptedErrorMarginPrecentage() {
+	 	return this.acceptedErrorMarginPrecentage;
+	 }
+	
+	/**
+	 * @param acceptedErrorMarginPrecentage int Accepted error margin precentage of an image uploaded for this ratio
+ * 0 - no validation, everything accepted
+	 */
+	 setAcceptedErrorMarginPrecentage(acceptedErrorMarginPrecentage) {
+	 	this.acceptedErrorMarginPrecentage = acceptedErrorMarginPrecentage;
+	 }
 }
 module.exports.Ratio = Ratio;
 
