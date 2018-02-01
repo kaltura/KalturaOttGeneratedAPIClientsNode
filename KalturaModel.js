@@ -6643,6 +6643,21 @@ class Announcement extends kaltura.BaseObject{
 	 setImageUrl(imageUrl) {
 	 	this.imageUrl = imageUrl;
 	 }
+	
+	/**
+	 * Include Mail
+	 * @return bool
+	 */
+	 getIncludeMail() {
+	 	return this.includeMail;
+	 }
+	
+	/**
+	 * @param includeMail bool Include Mail
+	 */
+	 setIncludeMail(includeMail) {
+	 	this.includeMail = includeMail;
+	 }
 }
 module.exports.Announcement = Announcement;
 
@@ -15363,6 +15378,36 @@ class MessageTemplate extends kaltura.BaseObject{
 	 setUrl(url) {
 	 	this.url = url;
 	 }
+	
+	/**
+	 * Mail template name
+	 * @return string
+	 */
+	 getMailTemplate() {
+	 	return this.mailTemplate;
+	 }
+	
+	/**
+	 * @param mailTemplate string Mail template name
+	 */
+	 setMailTemplate(mailTemplate) {
+	 	this.mailTemplate = mailTemplate;
+	 }
+	
+	/**
+	 * Mail subject
+	 * @return string
+	 */
+	 getMailSubject() {
+	 	return this.mailSubject;
+	 }
+	
+	/**
+	 * @param mailSubject string Mail subject
+	 */
+	 setMailSubject(mailSubject) {
+	 	this.mailSubject = mailSubject;
+	 }
 }
 module.exports.MessageTemplate = MessageTemplate;
 
@@ -16085,6 +16130,21 @@ class NotificationsPartnerSettings extends kaltura.BaseObject{
 	 */
 	 setMailSenderName(mailSenderName) {
 	 	this.mailSenderName = mailSenderName;
+	 }
+	
+	/**
+	 * Mail notification adapter identifier
+	 * @return int
+	 */
+	 getMailNotificationAdapterId() {
+	 	return this.mailNotificationAdapterId;
+	 }
+	
+	/**
+	 * @param mailNotificationAdapterId int Mail notification adapter identifier
+	 */
+	 setMailNotificationAdapterId(mailNotificationAdapterId) {
+	 	this.mailNotificationAdapterId = mailNotificationAdapterId;
 	 }
 }
 module.exports.NotificationsPartnerSettings = NotificationsPartnerSettings;
