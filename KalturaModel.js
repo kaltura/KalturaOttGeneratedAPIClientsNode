@@ -6658,6 +6658,36 @@ class Announcement extends kaltura.BaseObject{
 	 setIncludeMail(includeMail) {
 	 	this.includeMail = includeMail;
 	 }
+	
+	/**
+	 * Mail Template
+	 * @return string
+	 */
+	 getMailTemplate() {
+	 	return this.mailTemplate;
+	 }
+	
+	/**
+	 * @param mailTemplate string Mail Template
+	 */
+	 setMailTemplate(mailTemplate) {
+	 	this.mailTemplate = mailTemplate;
+	 }
+	
+	/**
+	 * Mail Subject
+	 * @return string
+	 */
+	 getMailSubject() {
+	 	return this.mailSubject;
+	 }
+	
+	/**
+	 * @param mailSubject string Mail Subject
+	 */
+	 setMailSubject(mailSubject) {
+	 	this.mailSubject = mailSubject;
+	 }
 }
 module.exports.Announcement = Announcement;
 
