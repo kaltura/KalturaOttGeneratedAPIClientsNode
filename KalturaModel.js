@@ -16218,6 +16218,21 @@ class NotificationsSettings extends kaltura.BaseObject{
 	 setPushFollowEnabled(pushFollowEnabled) {
 	 	this.pushFollowEnabled = pushFollowEnabled;
 	 }
+	
+	/**
+	 * Specify if the user want to receive mail notifications or not
+	 * @return bool
+	 */
+	 getMailEnabled() {
+	 	return this.mailEnabled;
+	 }
+	
+	/**
+	 * @param mailEnabled bool Specify if the user want to receive mail notifications or not
+	 */
+	 setMailEnabled(mailEnabled) {
+	 	this.mailEnabled = mailEnabled;
+	 }
 }
 module.exports.NotificationsSettings = NotificationsSettings;
 
