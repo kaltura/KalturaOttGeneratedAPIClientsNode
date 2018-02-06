@@ -15438,6 +15438,21 @@ class MessageTemplate extends kaltura.BaseObject{
 	 setMailSubject(mailSubject) {
 	 	this.mailSubject = mailSubject;
 	 }
+	
+	/**
+	 * Ratio identifier
+	 * @return string
+	 */
+	 getRatioId() {
+	 	return this.ratioId;
+	 }
+	
+	/**
+	 * @param ratioId string Ratio identifier
+	 */
+	 setRatioId(ratioId) {
+	 	this.ratioId = ratioId;
+	 }
 }
 module.exports.MessageTemplate = MessageTemplate;
 
