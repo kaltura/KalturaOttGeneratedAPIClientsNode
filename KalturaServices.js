@@ -2379,7 +2379,6 @@ class image{
 	 * Sets the content of an existing image.
 	 * @param id int Image ID
 	 * @param content ContentResource Content of the image to set
-	 * @return bool
 	 */
 	static setContent(id, content){
 		let kparams = {};
