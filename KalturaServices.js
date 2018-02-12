@@ -2445,7 +2445,7 @@ module.exports.notificationsPartnerSettings = notificationsPartnerSettings;
  * The available service actions:
  * @action get Retrieve the user’s notification settings.
  * @action update Update the user’s notification settings.
- * @action update Update the user’s notification settings.
+ * @action updateWithToken Update the user’s notification settings.
  */
 class notificationsSettings{
 	
@@ -2476,12 +2476,12 @@ class notificationsSettings{
 	 * @param partnerId int Partner identifier
 	 * @return bool
 	 */
-	static update(settings, token, partnerId){
+	static updateWithToken(settings, token, partnerId){
 		let kparams = {};
 		kparams.settings = settings;
 		kparams.token = token;
 		kparams.partnerId = partnerId;
-		return new kaltura.RequestBuilder('notificationssettings', 'update', kparams);
+		return new kaltura.RequestBuilder('notificationssettings', 'updateWithToken', kparams);
 	};
 }
 module.exports.notificationsSettings = notificationsSettings;
