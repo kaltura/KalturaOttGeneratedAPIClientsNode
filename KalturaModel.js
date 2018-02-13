@@ -8318,6 +8318,22 @@ class Channel extends kaltura.BaseObject{
 	 setOrderBy(orderBy) {
 	 	this.orderBy = orderBy;
 	 }
+	
+	/**
+	 * Specifies when was the Channel was created. Date and time represented as epoch
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * Specifies when was the Channel last updated. Date and time represented as epoch
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
 }
 module.exports.Channel = Channel;
 

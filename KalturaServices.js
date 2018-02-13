@@ -720,16 +720,16 @@ module.exports.cDVRAdapterProfile = cDVRAdapterProfile;
 /**
  *Class definition for the Kaltura service: channel.
  * The available service actions:
- * @action add Insert new channel for partner. Currently supports only KSQL channel.
+ * @action add Insert new channel for partner. Supports KalturaDynamicChannel or KalturaManualChannel.
  * @action delete Delete channel by its channel id.
  * @action get Returns channel info.
  * @action list Get the list of tags for the partner.
- * @action update Update channel details. Currently supports only KSQL channel.
+ * @action update Update channel details. Supports KalturaDynamicChannel or KalturaManualChannel.
  */
 class channel{
 	
 	/**
-	 * Insert new channel for partner. Currently supports only KSQL channel.
+	 * Insert new channel for partner. Supports KalturaDynamicChannel or KalturaManualChannel.
 	 * @param channel Channel KSQL channel Object
 	 * @return KalturaChannel
 	 */
@@ -775,7 +775,7 @@ class channel{
 	};
 	
 	/**
-	 * Update channel details. Currently supports only KSQL channel.
+	 * Update channel details. Supports KalturaDynamicChannel or KalturaManualChannel.
 	 * @param channelId int Channel identifier
 	 * @param channel Channel KSQL channel Object
 	 * @return KalturaChannel
