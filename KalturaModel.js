@@ -8100,6 +8100,90 @@ module.exports.AssetGroupBy = AssetGroupBy;
 /**
  *
  */
+class DynamicOrderBy extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDynamicOrderBy';
+	}
+	
+	/**
+	 * order by name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string order by name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * order by meta asc/desc
+	 * @return string
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy string order by meta asc/desc
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.DynamicOrderBy = DynamicOrderBy;
+
+/**
+ *
+ */
+class ChannelOrder extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaChannelOrder';
+	}
+	
+	/**
+	 * Channel dynamic order by (meta)
+	 * @return DynamicOrderBy
+	 */
+	 getDynamicOrderBy() {
+	 	return this.dynamicOrderBy;
+	 }
+	
+	/**
+	 * @param dynamicOrderBy DynamicOrderBy Channel dynamic order by (meta)
+	 */
+	 setDynamicOrderBy(dynamicOrderBy) {
+	 	this.dynamicOrderBy = dynamicOrderBy;
+	 }
+	
+	/**
+	 * Channel order by
+	 * @return string
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy string Channel order by
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.ChannelOrder = ChannelOrder;
+
+/**
+ *
+ */
 class Channel extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -8218,6 +8302,21 @@ class Channel extends kaltura.BaseObject{
 	 */
 	 setIsActive(isActive) {
 	 	this.isActive = isActive;
+	 }
+	
+	/**
+	 * Channel order by
+	 * @return ChannelOrder
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy ChannelOrder Channel order by
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
 	 }
 }
 module.exports.Channel = Channel;
@@ -8357,48 +8456,6 @@ module.exports.AssetFieldGroupBy = AssetFieldGroupBy;
 /**
  *
  */
-class DynamicOrderBy extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDynamicOrderBy';
-	}
-	
-	/**
-	 * order by name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string order by name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
-	 * order by meta asc/desc
-	 * @return string
-	 */
-	 getOrderBy() {
-	 	return this.orderBy;
-	 }
-	
-	/**
-	 * @param orderBy string order by meta asc/desc
-	 */
-	 setOrderBy(orderBy) {
-	 	this.orderBy = orderBy;
-	 }
-}
-module.exports.DynamicOrderBy = DynamicOrderBy;
-
-/**
- *
- */
 class ManualChannel extends Channel{
 	
 	constructor(object = null) {
@@ -8419,21 +8476,6 @@ class ManualChannel extends Channel{
 	 */
 	 setMediaIds(mediaIds) {
 	 	this.mediaIds = mediaIds;
-	 }
-	
-	/**
-	 * dynamicOrderBy - order by Meta
-	 * @return DynamicOrderBy
-	 */
-	 getDynamicOrderBy() {
-	 	return this.dynamicOrderBy;
-	 }
-	
-	/**
-	 * @param dynamicOrderBy DynamicOrderBy dynamicOrderBy - order by Meta
-	 */
-	 setDynamicOrderBy(dynamicOrderBy) {
-	 	this.dynamicOrderBy = dynamicOrderBy;
 	 }
 }
 module.exports.ManualChannel = ManualChannel;
