@@ -8178,6 +8178,21 @@ class ChannelOrder extends kaltura.BaseObject{
 	 setOrderBy(orderBy) {
 	 	this.orderBy = orderBy;
 	 }
+	
+	/**
+	 * Sliding window period in minutes
+	 * @return int
+	 */
+	 getSlidingWindowPeriod() {
+	 	return this.slidingWindowPeriod;
+	 }
+	
+	/**
+	 * @param slidingWindowPeriod int Sliding window period in minutes
+	 */
+	 setSlidingWindowPeriod(slidingWindowPeriod) {
+	 	this.slidingWindowPeriod = slidingWindowPeriod;
+	 }
 }
 module.exports.ChannelOrder = ChannelOrder;
 
