@@ -42,7 +42,7 @@ class Client extends kaltura.ClientBase {
 	 */
 	constructor(config) {
 		super(config);
-		this.setApiVersion('4.7.253.23530');
+		this.setApiVersion('4.7.253.24691');
 		this.setClientTag('node:18-02-14');
 	}
 }
