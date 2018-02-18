@@ -14591,6 +14591,21 @@ class ChannelsFilter extends Filter{
 	}
 	
 	/**
+	 * channel identifier to filter by
+	 * @return int
+	 */
+	 getIdEqual() {
+	 	return this.idEqual;
+	 }
+	
+	/**
+	 * @param idEqual int channel identifier to filter by
+	 */
+	 setIdEqual(idEqual) {
+	 	this.idEqual = idEqual;
+	 }
+	
+	/**
 	 * Exact channel name to filter by
 	 * @return string
 	 */
