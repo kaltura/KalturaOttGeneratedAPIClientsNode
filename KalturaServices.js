@@ -722,7 +722,7 @@ module.exports.cDVRAdapterProfile = cDVRAdapterProfile;
  * The available service actions:
  * @action add Insert new channel for partner. Supports KalturaDynamicChannel or KalturaManualChannel.
  * @action delete Delete channel by its channel id.
- * @action get Returns channel info.
+ * @action get Returns channel.
  * @action list Get the list of tags for the partner.
  * @action update Update channel details. Supports KalturaDynamicChannel or KalturaManualChannel.
  */
@@ -751,7 +751,7 @@ class channel{
 	};
 	
 	/**
-	 * Returns channel info.
+	 * Returns channel.
 	 * @param id int Channel Identifier
 	 * @return KalturaChannel
 	 */
