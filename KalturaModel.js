@@ -2758,15 +2758,15 @@ class MediaFile extends kaltura.BaseObject{
 	 * Alternative streaming supplier identifier
 	 * @return int
 	 */
-	 getAltStreamingSuplierId() {
-	 	return this.altStreamingSuplierId;
+	 getAltStreamingSupplierId() {
+	 	return this.altStreamingSupplierId;
 	 }
 	
 	/**
-	 * @param altStreamingSuplierId int Alternative streaming supplier identifier
+	 * @param altStreamingSupplierId int Alternative streaming supplier identifier
 	 */
-	 setAltStreamingSuplierId(altStreamingSuplierId) {
-	 	this.altStreamingSuplierId = altStreamingSuplierId;
+	 setAltStreamingSupplierId(altStreamingSupplierId) {
+	 	this.altStreamingSupplierId = altStreamingSupplierId;
 	 }
 	
 	/**
@@ -2875,18 +2875,18 @@ class MediaFile extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * StreamingSuplierId
-	 * @return string
+	 * StreamingSupplierId
+	 * @return int
 	 */
-	 getStreamingSuplierId() {
-	 	return this.streamingSuplierId;
+	 getStreamingSupplierId() {
+	 	return this.streamingSupplierId;
 	 }
 	
 	/**
-	 * @param streamingSuplierId string StreamingSuplierId
+	 * @param streamingSupplierId int StreamingSupplierId
 	 */
-	 setStreamingSuplierId(streamingSuplierId) {
-	 	this.streamingSuplierId = streamingSuplierId;
+	 setStreamingSupplierId(streamingSupplierId) {
+	 	this.streamingSupplierId = streamingSupplierId;
 	 }
 	
 	/**
