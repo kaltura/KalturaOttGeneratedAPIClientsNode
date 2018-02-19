@@ -16191,6 +16191,21 @@ class NotificationsPartnerSettings extends kaltura.BaseObject{
 	 setMailNotificationAdapterId(mailNotificationAdapterId) {
 	 	this.mailNotificationAdapterId = mailNotificationAdapterId;
 	 }
+	
+	/**
+	 * SMS capability is enabled for the account
+	 * @return bool
+	 */
+	 getSmsEnabled() {
+	 	return this.smsEnabled;
+	 }
+	
+	/**
+	 * @param smsEnabled bool SMS capability is enabled for the account
+	 */
+	 setSmsEnabled(smsEnabled) {
+	 	this.smsEnabled = smsEnabled;
+	 }
 }
 module.exports.NotificationsPartnerSettings = NotificationsPartnerSettings;
 
@@ -16235,7 +16250,7 @@ class NotificationsSettings extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Specify if the user want to receive mail notifications or not
+	 * Specify if the user wants to receive mail notifications or not
 	 * @return bool
 	 */
 	 getMailEnabled() {
@@ -16243,10 +16258,25 @@ class NotificationsSettings extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param mailEnabled bool Specify if the user want to receive mail notifications or not
+	 * @param mailEnabled bool Specify if the user wants to receive mail notifications or not
 	 */
 	 setMailEnabled(mailEnabled) {
 	 	this.mailEnabled = mailEnabled;
+	 }
+	
+	/**
+	 * Specify if the user wants to receive SMS notifications or not
+	 * @return bool
+	 */
+	 getSmsEnabled() {
+	 	return this.smsEnabled;
+	 }
+	
+	/**
+	 * @param smsEnabled bool Specify if the user wants to receive SMS notifications or not
+	 */
+	 setSmsEnabled(smsEnabled) {
+	 	this.smsEnabled = smsEnabled;
 	 }
 }
 module.exports.NotificationsSettings = NotificationsSettings;
