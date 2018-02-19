@@ -2755,18 +2755,18 @@ class MediaFile extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Alternative streaming supplier identifier
+	 * Alternative cdn adapter profile identifier
 	 * @return int
 	 */
-	 getAltStreamingSupplierId() {
-	 	return this.altStreamingSupplierId;
+	 getAlternativecdnAdapaterProfileId () {
+	 	return this.alternativecdnAdapaterProfileId ;
 	 }
 	
 	/**
-	 * @param altStreamingSupplierId int Alternative streaming supplier identifier
+	 * @param alternativecdnAdapaterProfileId  int Alternative cdn adapter profile identifier
 	 */
-	 setAltStreamingSupplierId(altStreamingSupplierId) {
-	 	this.altStreamingSupplierId = altStreamingSupplierId;
+	 setAlternativecdnAdapaterProfileId (alternativecdnAdapaterProfileId ) {
+	 	this.alternativecdnAdapaterProfileId  = alternativecdnAdapaterProfileId ;
 	 }
 	
 	/**
@@ -2801,14 +2801,14 @@ class MediaFile extends kaltura.BaseObject{
 	
 	/**
 	 * ExternalStoreId
-	 * @return int
+	 * @return string
 	 */
 	 getExternalStoreId() {
 	 	return this.externalStoreId;
 	 }
 	
 	/**
-	 * @param externalStoreId int ExternalStoreId
+	 * @param externalStoreId string ExternalStoreId
 	 */
 	 setExternalStoreId(externalStoreId) {
 	 	this.externalStoreId = externalStoreId;
@@ -2875,18 +2875,18 @@ class MediaFile extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * StreamingSupplierId
+	 * cdn adapter profile identifier
 	 * @return int
 	 */
-	 getStreamingSupplierId() {
-	 	return this.streamingSupplierId;
+	 getCdnAdapaterProfileId() {
+	 	return this.cdnAdapaterProfileId;
 	 }
 	
 	/**
-	 * @param streamingSupplierId int StreamingSupplierId
+	 * @param cdnAdapaterProfileId int cdn adapter profile identifier
 	 */
-	 setStreamingSupplierId(streamingSupplierId) {
-	 	this.streamingSupplierId = streamingSupplierId;
+	 setCdnAdapaterProfileId(cdnAdapaterProfileId) {
+	 	this.cdnAdapaterProfileId = cdnAdapaterProfileId;
 	 }
 	
 	/**
@@ -8180,18 +8180,18 @@ class ChannelOrder extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Sliding window period in minutes
+	 * Sliding window period in minutes, used only when ordering by LIKES_DESC / VOTES_DESC / RATINGS_DESC / VIEWS_DESC
 	 * @return int
 	 */
-	 getSlidingWindowPeriod() {
-	 	return this.slidingWindowPeriod;
+	 getPeriod() {
+	 	return this.period;
 	 }
 	
 	/**
-	 * @param slidingWindowPeriod int Sliding window period in minutes
+	 * @param period int Sliding window period in minutes, used only when ordering by LIKES_DESC / VOTES_DESC / RATINGS_DESC / VIEWS_DESC
 	 */
-	 setSlidingWindowPeriod(slidingWindowPeriod) {
-	 	this.slidingWindowPeriod = slidingWindowPeriod;
+	 setPeriod(period) {
+	 	this.period = period;
 	 }
 }
 module.exports.ChannelOrder = ChannelOrder;
