@@ -2758,15 +2758,15 @@ class MediaFile extends kaltura.BaseObject{
 	 * Alternative cdn adapter profile identifier
 	 * @return int
 	 */
-	 getAlternativecdnAdapaterProfileId () {
-	 	return this.alternativecdnAdapaterProfileId ;
+	 getAlternativecdnAdapaterProfileId() {
+	 	return this.alternativecdnAdapaterProfileId;
 	 }
 	
 	/**
-	 * @param alternativecdnAdapaterProfileId  int Alternative cdn adapter profile identifier
+	 * @param alternativecdnAdapaterProfileId int Alternative cdn adapter profile identifier
 	 */
-	 setAlternativecdnAdapaterProfileId (alternativecdnAdapaterProfileId ) {
-	 	this.alternativecdnAdapaterProfileId  = alternativecdnAdapaterProfileId ;
+	 setAlternativecdnAdapaterProfileId(alternativecdnAdapaterProfileId) {
+	 	this.alternativecdnAdapaterProfileId = alternativecdnAdapaterProfileId;
 	 }
 	
 	/**
