@@ -6688,6 +6688,21 @@ class Announcement extends kaltura.BaseObject{
 	 setMailSubject(mailSubject) {
 	 	this.mailSubject = mailSubject;
 	 }
+	
+	/**
+	 * Include SMS
+	 * @return bool
+	 */
+	 getIncludeSms() {
+	 	return this.includeSms;
+	 }
+	
+	/**
+	 * @param includeSms bool Include SMS
+	 */
+	 setIncludeSms(includeSms) {
+	 	this.includeSms = includeSms;
+	 }
 }
 module.exports.Announcement = Announcement;
 
