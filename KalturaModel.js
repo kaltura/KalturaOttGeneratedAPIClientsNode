@@ -8711,16 +8711,16 @@ class Ratio extends kaltura.BaseObject{
  * 0 - no validation, everything accepted
 	 * @return int
 	 */
-	 getAcceptedErrorMarginPrecentage() {
-	 	return this.acceptedErrorMarginPrecentage;
+	 getPrecisionPrecentage() {
+	 	return this.precisionPrecentage;
 	 }
 	
 	/**
-	 * @param acceptedErrorMarginPrecentage int Accepted error margin precentage of an image uploaded for this ratio
+	 * @param precisionPrecentage int Accepted error margin precentage of an image uploaded for this ratio
  * 0 - no validation, everything accepted
 	 */
-	 setAcceptedErrorMarginPrecentage(acceptedErrorMarginPrecentage) {
-	 	this.acceptedErrorMarginPrecentage = acceptedErrorMarginPrecentage;
+	 setPrecisionPrecentage(precisionPrecentage) {
+	 	this.precisionPrecentage = precisionPrecentage;
 	 }
 }
 module.exports.Ratio = Ratio;
