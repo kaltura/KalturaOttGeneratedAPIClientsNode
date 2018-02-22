@@ -2365,6 +2365,7 @@ module.exports.meta = meta;
  * The available service actions:
  * @action register TBD.
  * @action sendPush Sends push notification to user devices.
+ * @action sendSms Sends SMS notification to user.
  * @action setDevicePushToken Registers the device push token to the push service.
  */
 class notification{
@@ -2393,6 +2394,17 @@ class notification{
 		kparams.userId = userId;
 		kparams.pushMessage = pushMessage;
 		return new kaltura.RequestBuilder('notification', 'sendPush', kparams);
+	};
+	
+	/**
+	 * Sends SMS notification to user.
+	 * @param message string Message to send
+	 * @return bool
+	 */
+	static sendSms(message){
+		let kparams = {};
+		kparams.message = message;
+		return new kaltura.RequestBuilder('notification', 'sendSms', kparams);
 	};
 	
 	/**
