@@ -8298,13 +8298,6 @@ class Channel extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param images array Channel images
-	 */
-	 setImages(images) {
-	 	this.images = images;
-	 }
-	
-	/**
 	 * active status
 	 * @return bool
 	 */
