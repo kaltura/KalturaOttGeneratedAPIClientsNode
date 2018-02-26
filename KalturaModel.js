@@ -2758,15 +2758,15 @@ class MediaFile extends kaltura.BaseObject{
 	 * Alternative cdn adapter profile identifier
 	 * @return int
 	 */
-	 getAlternativecdnAdapaterProfileId() {
-	 	return this.alternativecdnAdapaterProfileId;
+	 getAlternativeCdnAdapaterProfileId() {
+	 	return this.alternativeCdnAdapaterProfileId;
 	 }
 	
 	/**
-	 * @param alternativecdnAdapaterProfileId int Alternative cdn adapter profile identifier
+	 * @param alternativeCdnAdapaterProfileId int Alternative cdn adapter profile identifier
 	 */
-	 setAlternativecdnAdapaterProfileId(alternativecdnAdapaterProfileId) {
-	 	this.alternativecdnAdapaterProfileId = alternativecdnAdapaterProfileId;
+	 setAlternativeCdnAdapaterProfileId(alternativeCdnAdapaterProfileId) {
+	 	this.alternativeCdnAdapaterProfileId = alternativeCdnAdapaterProfileId;
 	 }
 	
 	/**
@@ -8287,14 +8287,6 @@ class Channel extends kaltura.BaseObject{
 	 */
 	 setMultilingualDescription(multilingualDescription) {
 	 	this.multilingualDescription = multilingualDescription;
-	 }
-	
-	/**
-	 * Channel images
-	 * @return array
-	 */
-	 getImages() {
-	 	return this.images;
 	 }
 	
 	/**
