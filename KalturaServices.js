@@ -1714,6 +1714,7 @@ module.exports.favorite = favorite;
  * Possible status codes: UserAlreadyFollowing = 8013, NotFound = 500007, InvalidAssetId = 4024.
  * @action delete Delete a user&#39;s tv series follow.
  * Possible status codes: UserNotFollowing = 8012, NotFound = 500007, InvalidAssetId = 4024, AnnouncementNotFound = 8006.
+ * @action deleteWithToken Delete a user&#39;s tv series follow.
  * @action list List user&#39;s tv series follows.
  * Possible status codes:.
  */
@@ -1741,6 +1742,20 @@ class followTvSeries{
 		let kparams = {};
 		kparams.assetId = assetId;
 		return new kaltura.RequestBuilder('followtvseries', 'delete', kparams);
+	};
+	
+	/**
+	 * Delete a user&#39;s tv series follow.
+	 * @param assetId int Asset identifier
+	 * @param token string User's token identifier
+	 * @param partnerId int Partner identifier
+	 */
+	static deleteWithToken(assetId, token, partnerId){
+		let kparams = {};
+		kparams.assetId = assetId;
+		kparams.token = token;
+		kparams.partnerId = partnerId;
+		return new kaltura.RequestBuilder('followtvseries', 'deleteWithToken', kparams);
 	};
 	
 	/**
@@ -2755,6 +2770,7 @@ module.exports.meta = meta;
  * The available service actions:
  * @action register TBD.
  * @action sendPush Sends push notification to user devices.
+ * @action sendSms Sends SMS notification to user.
  * @action setDevicePushToken Registers the device push token to the push service.
  */
 class notification{
@@ -2783,6 +2799,17 @@ class notification{
 		kparams.userId = userId;
 		kparams.pushMessage = pushMessage;
 		return new kaltura.RequestBuilder('notification', 'sendPush', kparams);
+	};
+	
+	/**
+	 * Sends SMS notification to user.
+	 * @param message string Message to send
+	 * @return bool
+	 */
+	static sendSms(message){
+		let kparams = {};
+		kparams.message = message;
+		return new kaltura.RequestBuilder('notification', 'sendSms', kparams);
 	};
 	
 	/**
@@ -2835,6 +2862,7 @@ module.exports.notificationsPartnerSettings = notificationsPartnerSettings;
  * The available service actions:
  * @action get Retrieve the user’s notification settings.
  * @action update Update the user’s notification settings.
+ * @action updateWithToken Update the user’s notification settings.
  */
 class notificationsSettings{
 	
@@ -2856,6 +2884,21 @@ class notificationsSettings{
 		let kparams = {};
 		kparams.settings = settings;
 		return new kaltura.RequestBuilder('notificationssettings', 'update', kparams);
+	};
+	
+	/**
+	 * Update the user’s notification settings.
+	 * @param settings NotificationsSettings Notifications settings
+	 * @param token string User's token identifier
+	 * @param partnerId int Partner identifier
+	 * @return bool
+	 */
+	static updateWithToken(settings, token, partnerId){
+		let kparams = {};
+		kparams.settings = settings;
+		kparams.token = token;
+		kparams.partnerId = partnerId;
+		return new kaltura.RequestBuilder('notificationssettings', 'updateWithToken', kparams);
 	};
 }
 module.exports.notificationsSettings = notificationsSettings;
@@ -3900,6 +3943,7 @@ module.exports.registrySettings = registrySettings;
  * The available service actions:
  * @action add Add a new future reminder.
  * @action delete Delete a reminder. Reminder cannot be delete while being sent.
+ * @action deleteWithToken Delete a reminder. Reminder cannot be delete while being sent.
  * @action list Return a list of reminders with optional filter by KSQL.
  */
 class reminder{
@@ -3926,6 +3970,22 @@ class reminder{
 		kparams.id = id;
 		kparams.type = type;
 		return new kaltura.RequestBuilder('reminder', 'delete', kparams);
+	};
+	
+	/**
+	 * Delete a reminder. Reminder cannot be delete while being sent.
+	 * @param id int Id of the reminder
+	 * @param type string Reminder type (enum: KalturaReminderType)
+	 * @param token string User's token identifier
+	 * @param partnerId int Partner identifier
+	 */
+	static deleteWithToken(id, type, token, partnerId){
+		let kparams = {};
+		kparams.id = id;
+		kparams.type = type;
+		kparams.token = token;
+		kparams.partnerId = partnerId;
+		return new kaltura.RequestBuilder('reminder', 'deleteWithToken', kparams);
 	};
 	
 	/**
@@ -4945,6 +5005,7 @@ module.exports.userAssetsListItem = userAssetsListItem;
  * The available service actions:
  * @action add Insert new user interest for partner user.
  * @action delete Delete new user interest for partner user.
+ * @action deleteWithToken Delete new user interest for partner user.
  * @action list Returns all Engagement for partner.
  */
 class userInterest{
@@ -4969,6 +5030,20 @@ class userInterest{
 		let kparams = {};
 		kparams.id = id;
 		return new kaltura.RequestBuilder('userinterest', 'delete', kparams);
+	};
+	
+	/**
+	 * Delete new user interest for partner user.
+	 * @param id string User interest identifier
+	 * @param token string User's token identifier
+	 * @param partnerId int Partner identifier
+	 */
+	static deleteWithToken(id, token, partnerId){
+		let kparams = {};
+		kparams.id = id;
+		kparams.token = token;
+		kparams.partnerId = partnerId;
+		return new kaltura.RequestBuilder('userinterest', 'deleteWithToken', kparams);
 	};
 	
 	/**
