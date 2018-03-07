@@ -3641,21 +3641,6 @@ class BaseChannel extends kaltura.BaseObject{
 	 getId() {
 	 	return this.id;
 	 }
-	
-	/**
-	 * Channel name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Channel name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
 }
 module.exports.BaseChannel = BaseChannel;
 
@@ -4237,6 +4222,21 @@ class Channel extends BaseChannel{
 		super(object);
 		this.objectType = 'KalturaChannel';
 	}
+	
+	/**
+	 * Channel name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Channel name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
 	
 	/**
 	 * Cannel description
@@ -8053,25 +8053,11 @@ class SubscriptionEntitlement extends Entitlement{
 	 }
 	
 	/**
-	 * @param scheduledSubscriptionId int Scheduled Subscription Identifier
-	 */
-	 setScheduledSubscriptionId(scheduledSubscriptionId) {
-	 	this.scheduledSubscriptionId = scheduledSubscriptionId;
-	 }
-	
-	/**
 	 * Unified payment identifier
 	 * @return int
 	 */
 	 getUnifiedPaymentId() {
 	 	return this.unifiedPaymentId;
-	 }
-	
-	/**
-	 * @param unifiedPaymentId int Unified payment identifier
-	 */
-	 setUnifiedPaymentId(unifiedPaymentId) {
-	 	this.unifiedPaymentId = unifiedPaymentId;
 	 }
 	
 	/**
