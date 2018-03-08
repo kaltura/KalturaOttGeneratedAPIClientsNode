@@ -8,7 +8,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2018  Kaltura Inc.
+// Copyright (C) 2006-2017  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -776,13 +776,13 @@ class channel{
 	
 	/**
 	 * Update channel details. Supports KalturaDynamicChannel or KalturaManualChannel.
-	 * @param channelId int Channel identifier
+	 * @param id int Channel identifier
 	 * @param channel Channel KSQL channel Object
 	 * @return KalturaChannel
 	 */
-	static update(channelId, channel){
+	static update(id, channel){
 		let kparams = {};
-		kparams.channelId = channelId;
+		kparams.id = id;
 		kparams.channel = channel;
 		return new kaltura.RequestBuilder('channel', 'update', kparams);
 	};
