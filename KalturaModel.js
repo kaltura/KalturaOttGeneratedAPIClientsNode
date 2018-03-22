@@ -3641,6 +3641,21 @@ class BaseChannel extends kaltura.BaseObject{
 	 getId() {
 	 	return this.id;
 	 }
+	
+	/**
+	 * Channel name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Channel name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
 }
 module.exports.BaseChannel = BaseChannel;
 
@@ -4222,21 +4237,6 @@ class Channel extends BaseChannel{
 		super(object);
 		this.objectType = 'KalturaChannel';
 	}
-	
-	/**
-	 * Channel name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Channel name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
 	
 	/**
 	 * Cannel description
@@ -6643,66 +6643,6 @@ class Announcement extends kaltura.BaseObject{
 	 setImageUrl(imageUrl) {
 	 	this.imageUrl = imageUrl;
 	 }
-	
-	/**
-	 * Include Mail
-	 * @return bool
-	 */
-	 getIncludeMail() {
-	 	return this.includeMail;
-	 }
-	
-	/**
-	 * @param includeMail bool Include Mail
-	 */
-	 setIncludeMail(includeMail) {
-	 	this.includeMail = includeMail;
-	 }
-	
-	/**
-	 * Mail Template
-	 * @return string
-	 */
-	 getMailTemplate() {
-	 	return this.mailTemplate;
-	 }
-	
-	/**
-	 * @param mailTemplate string Mail Template
-	 */
-	 setMailTemplate(mailTemplate) {
-	 	this.mailTemplate = mailTemplate;
-	 }
-	
-	/**
-	 * Mail Subject
-	 * @return string
-	 */
-	 getMailSubject() {
-	 	return this.mailSubject;
-	 }
-	
-	/**
-	 * @param mailSubject string Mail Subject
-	 */
-	 setMailSubject(mailSubject) {
-	 	this.mailSubject = mailSubject;
-	 }
-	
-	/**
-	 * Include SMS
-	 * @return bool
-	 */
-	 getIncludeSms() {
-	 	return this.includeSms;
-	 }
-	
-	/**
-	 * @param includeSms bool Include SMS
-	 */
-	 setIncludeSms(includeSms) {
-	 	this.includeSms = includeSms;
-	 }
 }
 module.exports.Announcement = Announcement;
 
@@ -8053,11 +7993,25 @@ class SubscriptionEntitlement extends Entitlement{
 	 }
 	
 	/**
+	 * @param scheduledSubscriptionId int Scheduled Subscription Identifier
+	 */
+	 setScheduledSubscriptionId(scheduledSubscriptionId) {
+	 	this.scheduledSubscriptionId = scheduledSubscriptionId;
+	 }
+	
+	/**
 	 * Unified payment identifier
 	 * @return int
 	 */
 	 getUnifiedPaymentId() {
 	 	return this.unifiedPaymentId;
+	 }
+	
+	/**
+	 * @param unifiedPaymentId int Unified payment identifier
+	 */
+	 setUnifiedPaymentId(unifiedPaymentId) {
+	 	this.unifiedPaymentId = unifiedPaymentId;
 	 }
 	
 	/**
@@ -12854,7 +12808,7 @@ class ChannelFilter extends AssetFilter{
  * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
  * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
  * epg_channel_id – the channel identifier of the EPG program.
- * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
  * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
  * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
  * Logical conjunction: and, or.
@@ -12874,7 +12828,7 @@ class ChannelFilter extends AssetFilter{
  * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
  * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
  * epg_channel_id – the channel identifier of the EPG program.
- * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
  * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
  * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
  * Logical conjunction: and, or.
@@ -12905,7 +12859,7 @@ class RelatedFilter extends BaseSearchAssetFilter{
  * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
  * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
  * epg_channel_id – the channel identifier of the EPG program.
- * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
  * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
  * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
  * Logical conjunction: and, or.
@@ -12925,7 +12879,7 @@ class RelatedFilter extends BaseSearchAssetFilter{
  * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
  * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
  * epg_channel_id – the channel identifier of the EPG program.
- * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
  * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
  * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
  * Logical conjunction: and, or.
@@ -13066,7 +13020,7 @@ class SearchAssetFilter extends BaseSearchAssetFilter{
  * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
  * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
  * epg_channel_id – the channel identifier of the EPG program.
- * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
  * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
  * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
  * Logical conjunction: and, or.
@@ -13086,7 +13040,7 @@ class SearchAssetFilter extends BaseSearchAssetFilter{
  * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
  * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
  * epg_channel_id – the channel identifier of the EPG program.
- * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
  * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
  * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
  * Logical conjunction: and, or.
@@ -15409,51 +15363,6 @@ class MessageTemplate extends kaltura.BaseObject{
 	 setUrl(url) {
 	 	this.url = url;
 	 }
-	
-	/**
-	 * Mail template name
-	 * @return string
-	 */
-	 getMailTemplate() {
-	 	return this.mailTemplate;
-	 }
-	
-	/**
-	 * @param mailTemplate string Mail template name
-	 */
-	 setMailTemplate(mailTemplate) {
-	 	this.mailTemplate = mailTemplate;
-	 }
-	
-	/**
-	 * Mail subject
-	 * @return string
-	 */
-	 getMailSubject() {
-	 	return this.mailSubject;
-	 }
-	
-	/**
-	 * @param mailSubject string Mail subject
-	 */
-	 setMailSubject(mailSubject) {
-	 	this.mailSubject = mailSubject;
-	 }
-	
-	/**
-	 * Ratio identifier
-	 * @return string
-	 */
-	 getRatioId() {
-	 	return this.ratioId;
-	 }
-	
-	/**
-	 * @param ratioId string Ratio identifier
-	 */
-	 setRatioId(ratioId) {
-	 	this.ratioId = ratioId;
-	 }
 }
 module.exports.MessageTemplate = MessageTemplate;
 
@@ -16177,36 +16086,6 @@ class NotificationsPartnerSettings extends kaltura.BaseObject{
 	 setMailSenderName(mailSenderName) {
 	 	this.mailSenderName = mailSenderName;
 	 }
-	
-	/**
-	 * Mail notification adapter identifier
-	 * @return int
-	 */
-	 getMailNotificationAdapterId() {
-	 	return this.mailNotificationAdapterId;
-	 }
-	
-	/**
-	 * @param mailNotificationAdapterId int Mail notification adapter identifier
-	 */
-	 setMailNotificationAdapterId(mailNotificationAdapterId) {
-	 	this.mailNotificationAdapterId = mailNotificationAdapterId;
-	 }
-	
-	/**
-	 * SMS capability is enabled for the account
-	 * @return bool
-	 */
-	 getSmsEnabled() {
-	 	return this.smsEnabled;
-	 }
-	
-	/**
-	 * @param smsEnabled bool SMS capability is enabled for the account
-	 */
-	 setSmsEnabled(smsEnabled) {
-	 	this.smsEnabled = smsEnabled;
-	 }
 }
 module.exports.NotificationsPartnerSettings = NotificationsPartnerSettings;
 
@@ -16248,36 +16127,6 @@ class NotificationsSettings extends kaltura.BaseObject{
 	 */
 	 setPushFollowEnabled(pushFollowEnabled) {
 	 	this.pushFollowEnabled = pushFollowEnabled;
-	 }
-	
-	/**
-	 * Specify if the user wants to receive mail notifications or not
-	 * @return bool
-	 */
-	 getMailEnabled() {
-	 	return this.mailEnabled;
-	 }
-	
-	/**
-	 * @param mailEnabled bool Specify if the user wants to receive mail notifications or not
-	 */
-	 setMailEnabled(mailEnabled) {
-	 	this.mailEnabled = mailEnabled;
-	 }
-	
-	/**
-	 * Specify if the user wants to receive SMS notifications or not
-	 * @return bool
-	 */
-	 getSmsEnabled() {
-	 	return this.smsEnabled;
-	 }
-	
-	/**
-	 * @param smsEnabled bool Specify if the user wants to receive SMS notifications or not
-	 */
-	 setSmsEnabled(smsEnabled) {
-	 	this.smsEnabled = smsEnabled;
 	 }
 }
 module.exports.NotificationsSettings = NotificationsSettings;
