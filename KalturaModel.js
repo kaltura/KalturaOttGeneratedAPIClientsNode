@@ -12884,6 +12884,21 @@ class ChannelFilter extends AssetFilter{
 	 setKSql(kSql) {
 	 	this.kSql = kSql;
 	 }
+	
+	/**
+	 * Exclude watched asset
+	 * @return bool
+	 */
+	 getExcludeWatched() {
+	 	return this.excludeWatched;
+	 }
+	
+	/**
+	 * @param excludeWatched bool Exclude watched asset
+	 */
+	 setExcludeWatched(excludeWatched) {
+	 	this.excludeWatched = excludeWatched;
+	 }
 }
 module.exports.ChannelFilter = ChannelFilter;
 
@@ -12968,6 +12983,21 @@ class RelatedFilter extends BaseSearchAssetFilter{
 	 */
 	 setTypeIn(typeIn) {
 	 	this.typeIn = typeIn;
+	 }
+	
+	/**
+	 * Exclude watched asset
+	 * @return bool
+	 */
+	 getExcludeWatched() {
+	 	return this.excludeWatched;
+	 }
+	
+	/**
+	 * @param excludeWatched bool Exclude watched asset
+	 */
+	 setExcludeWatched(excludeWatched) {
+	 	this.excludeWatched = excludeWatched;
 	 }
 }
 module.exports.RelatedFilter = RelatedFilter;
@@ -13129,6 +13159,21 @@ class SearchAssetFilter extends BaseSearchAssetFilter{
 	 */
 	 setIdIn(idIn) {
 	 	this.idIn = idIn;
+	 }
+	
+	/**
+	 * Exclude watched asset
+	 * @return bool
+	 */
+	 getExcludeWatched() {
+	 	return this.excludeWatched;
+	 }
+	
+	/**
+	 * @param excludeWatched bool Exclude watched asset
+	 */
+	 setExcludeWatched(excludeWatched) {
+	 	this.excludeWatched = excludeWatched;
 	 }
 }
 module.exports.SearchAssetFilter = SearchAssetFilter;
