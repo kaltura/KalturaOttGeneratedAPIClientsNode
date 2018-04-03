@@ -1,12 +1,12 @@
 ## Kaltura node.js API Client Library.
-Compatible with Kaltura OTT server version 4.8.0.23932 and above.
+Compatible with Kaltura OTT server version 4.8.0.43130 and above.
 
 [![NPM](https://nodei.co/npm/kaltura-ott-client.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/kaltura-ott-client/)
 
 
 You can install this client library using npm with:
 ```
-npm install kaltura-ott-client@4.8.0.23932
+npm install kaltura-ott-client@4.8.0.43130
 ```
 
 ## Sanity Check
