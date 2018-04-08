@@ -3907,6 +3907,21 @@ class CouponsGroup extends kaltura.BaseObject{
 	 setCouponGroupType(couponGroupType) {
 	 	this.couponGroupType = couponGroupType;
 	 }
+	
+	/**
+	 * Maximum number of uses per household for each coupon in the group
+	 * @return int
+	 */
+	 getMaxHouseholdUses() {
+	 	return this.maxHouseholdUses;
+	 }
+	
+	/**
+	 * @param maxHouseholdUses int Maximum number of uses per household for each coupon in the group
+	 */
+	 setMaxHouseholdUses(maxHouseholdUses) {
+	 	this.maxHouseholdUses = maxHouseholdUses;
+	 }
 }
 module.exports.CouponsGroup = CouponsGroup;
 
@@ -14905,6 +14920,117 @@ module.exports.Compensation = Compensation;
 /**
  *
  */
+class CouponGenerationOptions extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCouponGenerationOptions';
+	}
+}
+module.exports.CouponGenerationOptions = CouponGenerationOptions;
+
+/**
+ *
+ */
+class PublicCouponGenerationOptions extends CouponGenerationOptions{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPublicCouponGenerationOptions';
+	}
+	
+	/**
+	 * Coupon code (name)
+	 * @return string
+	 */
+	 getCode() {
+	 	return this.code;
+	 }
+	
+	/**
+	 * @param code string Coupon code (name)
+	 */
+	 setCode(code) {
+	 	this.code = code;
+	 }
+}
+module.exports.PublicCouponGenerationOptions = PublicCouponGenerationOptions;
+
+/**
+ *
+ */
+class RandomCouponGenerationOptions extends CouponGenerationOptions{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRandomCouponGenerationOptions';
+	}
+	
+	/**
+	 * Number of coupons to generate
+	 * @return int
+	 */
+	 getNumberOfCoupons() {
+	 	return this.numberOfCoupons;
+	 }
+	
+	/**
+	 * @param numberOfCoupons int Number of coupons to generate
+	 */
+	 setNumberOfCoupons(numberOfCoupons) {
+	 	this.numberOfCoupons = numberOfCoupons;
+	 }
+	
+	/**
+	 * Indicates whether to use letters in the generated codes (default is true)
+	 * @return bool
+	 */
+	 getUseLetters() {
+	 	return this.useLetters;
+	 }
+	
+	/**
+	 * @param useLetters bool Indicates whether to use letters in the generated codes (default is true)
+	 */
+	 setUseLetters(useLetters) {
+	 	this.useLetters = useLetters;
+	 }
+	
+	/**
+	 * Indicates whether to use numbers in the generated codes (default is true)
+	 * @return bool
+	 */
+	 getUseNumbers() {
+	 	return this.useNumbers;
+	 }
+	
+	/**
+	 * @param useNumbers bool Indicates whether to use numbers in the generated codes (default is true)
+	 */
+	 setUseNumbers(useNumbers) {
+	 	this.useNumbers = useNumbers;
+	 }
+	
+	/**
+	 * Indicates whether to use special characters in the generated codes(default is true)
+	 * @return bool
+	 */
+	 getUseSpecialCharacters() {
+	 	return this.useSpecialCharacters;
+	 }
+	
+	/**
+	 * @param useSpecialCharacters bool Indicates whether to use special characters in the generated codes(default is true)
+	 */
+	 setUseSpecialCharacters(useSpecialCharacters) {
+	 	this.useSpecialCharacters = useSpecialCharacters;
+	 }
+}
+module.exports.RandomCouponGenerationOptions = RandomCouponGenerationOptions;
+
+/**
+ *
+ */
 class KeyValue extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -17257,6 +17383,22 @@ class Coupon extends kaltura.BaseObject{
 	 */
 	 getStatus() {
 	 	return this.status;
+	 }
+	
+	/**
+	 * Total available coupon uses
+	 * @return int
+	 */
+	 getTotalUses() {
+	 	return this.totalUses;
+	 }
+	
+	/**
+	 * Left coupon uses
+	 * @return int
+	 */
+	 getLeftUses() {
+	 	return this.leftUses;
 	 }
 }
 module.exports.Coupon = Coupon;

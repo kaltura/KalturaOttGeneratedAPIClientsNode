@@ -1025,6 +1025,29 @@ module.exports.coupon = coupon;
 
 
 /**
+ *Class definition for the Kaltura service: couponGroup.
+ * The available service actions:
+ * @action generate Generate a coupon.
+ */
+class couponGroup{
+	
+	/**
+	 * Generate a coupon.
+	 * @param id int Coupon group identifier
+	 * @param couponGenerationOptions CouponGenerationOptions Coupon generation options
+	 * @return string
+	 */
+	static generate(id, couponGenerationOptions){
+		let kparams = {};
+		kparams.id = id;
+		kparams.couponGenerationOptions = couponGenerationOptions;
+		return new kaltura.RequestBuilder('coupongroup', 'generate', kparams);
+	};
+}
+module.exports.couponGroup = couponGroup;
+
+
+/**
  *Class definition for the Kaltura service: currency.
  * The available service actions:
  * @action list Get the list of currencies for the partner with option to filter by currency codes.
