@@ -1025,26 +1025,26 @@ module.exports.coupon = coupon;
 
 
 /**
- *Class definition for the Kaltura service: couponGroup.
+ *Class definition for the Kaltura service: couponsGroup.
  * The available service actions:
  * @action generate Generate a coupon.
  */
-class couponGroup{
+class couponsGroup{
 	
 	/**
 	 * Generate a coupon.
 	 * @param id int Coupon group identifier
 	 * @param couponGenerationOptions CouponGenerationOptions Coupon generation options
-	 * @return string
+	 * @return KalturaStringValueArray
 	 */
 	static generate(id, couponGenerationOptions){
 		let kparams = {};
 		kparams.id = id;
 		kparams.couponGenerationOptions = couponGenerationOptions;
-		return new kaltura.RequestBuilder('coupongroup', 'generate', kparams);
+		return new kaltura.RequestBuilder('couponsgroup', 'generate', kparams);
 	};
 }
-module.exports.couponGroup = couponGroup;
+module.exports.couponsGroup = couponsGroup;
 
 
 /**
