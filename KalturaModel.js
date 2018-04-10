@@ -5071,6 +5071,33 @@ module.exports.SubscriptionPrice = SubscriptionPrice;
 /**
  *
  */
+class CouponsGroupListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCouponsGroupListResponse';
+	}
+	
+	/**
+	 * A list of coupons groups
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of coupons groups
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.CouponsGroupListResponse = CouponsGroupListResponse;
+
+/**
+ *
+ */
 class PriceDetails extends kaltura.BaseObject{
 	
 	constructor(object = null) {

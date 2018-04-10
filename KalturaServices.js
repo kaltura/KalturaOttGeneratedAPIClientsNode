@@ -1029,6 +1029,7 @@ module.exports.coupon = coupon;
  * The available service actions:
  * @action generate Generate a coupon.
  * @action get Returns information about coupons group.
+ * @action list Returns information about partner coupons groups.
  * @action update Update coupons group.
  */
 class couponsGroup{
@@ -1055,6 +1056,15 @@ class couponsGroup{
 		let kparams = {};
 		kparams.id = id;
 		return new kaltura.RequestBuilder('couponsgroup', 'get', kparams);
+	};
+	
+	/**
+	 * Returns information about partner coupons groups.
+	 * @return KalturaCouponsGroupListResponse
+	 */
+	static listAction(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('couponsgroup', 'list', kparams);
 	};
 	
 	/**
