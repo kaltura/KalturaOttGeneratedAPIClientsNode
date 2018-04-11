@@ -1027,12 +1027,24 @@ module.exports.coupon = coupon;
 /**
  *Class definition for the Kaltura service: couponsGroup.
  * The available service actions:
+ * @action delete Delete a coupons group.
  * @action generate Generate a coupon.
  * @action get Returns information about coupons group.
  * @action list Returns information about partner coupons groups.
  * @action update Update coupons group.
  */
 class couponsGroup{
+	
+	/**
+	 * Delete a coupons group.
+	 * @param id int Coupons group identifier
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('couponsgroup', 'delete', kparams);
+	};
 	
 	/**
 	 * Generate a coupon.
