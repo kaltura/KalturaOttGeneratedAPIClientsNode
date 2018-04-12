@@ -2441,13 +2441,6 @@ class UserInterest extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param id string Identifier
-	 */
-	 setId(id) {
-	 	this.id = id;
-	 }
-	
-	/**
 	 * Topic
 	 * @return UserInterestTopic
 	 */
