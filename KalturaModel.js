@@ -3900,6 +3900,21 @@ class CouponsGroup extends kaltura.BaseObject{
 	 setMaxHouseholdUses(maxHouseholdUses) {
 	 	this.maxHouseholdUses = maxHouseholdUses;
 	 }
+	
+	/**
+	 * Discount code
+	 * @return int
+	 */
+	 getDiscountCode() {
+	 	return this.discountCode;
+	 }
+	
+	/**
+	 * @param discountCode int Discount code
+	 */
+	 setDiscountCode(discountCode) {
+	 	this.discountCode = discountCode;
+	 }
 }
 module.exports.CouponsGroup = CouponsGroup;
 
