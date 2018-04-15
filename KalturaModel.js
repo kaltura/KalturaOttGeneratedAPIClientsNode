@@ -3812,21 +3812,6 @@ class CouponsGroup extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * A list of the descriptions of the coupon group on different languages (language code and translation)
-	 * @return array
-	 */
-	 getDescriptions() {
-	 	return this.descriptions;
-	 }
-	
-	/**
-	 * @param descriptions array A list of the descriptions of the coupon group on different languages (language code and translation)
-	 */
-	 setDescriptions(descriptions) {
-	 	this.descriptions = descriptions;
-	 }
-	
-	/**
 	 * The first date the coupons in this coupons group are valid
 	 * @return int
 	 */
