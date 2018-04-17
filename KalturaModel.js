@@ -14257,6 +14257,22 @@ class AppToken extends kaltura.BaseObject{
 	 setSessionUserId(sessionUserId) {
 	 	this.sessionUserId = sessionUserId;
 	 }
+	
+	/**
+	 * Create date
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * Update date
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
 }
 module.exports.AppToken = AppToken;
 
