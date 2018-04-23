@@ -3720,6 +3720,7 @@ module.exports.purchaseSettings = purchaseSettings;
  * The available service actions:
  * @action add Add new group ratio.
  * @action list Get the list of available ratios.
+ * @action update Update group ratio&#39;s PrecisionPrecentage.
  */
 class ratio{
 	
@@ -3741,6 +3742,19 @@ class ratio{
 	static listAction(){
 		let kparams = {};
 		return new kaltura.RequestBuilder('ratio', 'list', kparams);
+	};
+	
+	/**
+	 * Update group ratio&#39;s PrecisionPrecentage.
+	 * @param id int The ratio ID
+	 * @param ratio Ratio Ratio to update for the partner
+	 * @return KalturaRatio
+	 */
+	static update(id, ratio){
+		let kparams = {};
+		kparams.id = id;
+		kparams.ratio = ratio;
+		return new kaltura.RequestBuilder('ratio', 'update', kparams);
 	};
 }
 module.exports.ratio = ratio;
