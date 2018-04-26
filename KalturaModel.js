@@ -9077,7 +9077,7 @@ class Asset extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * External identifier for the media file
+	 * External identifier for the asset
 	 * @return string
 	 */
 	 getExternalId() {
@@ -9085,7 +9085,7 @@ class Asset extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param externalId string External identifier for the media file
+	 * @param externalId string External identifier for the asset
 	 */
 	 setExternalId(externalId) {
 	 	this.externalId = externalId;
@@ -9218,18 +9218,164 @@ class LinearMediaAsset extends MediaAsset{
 	}
 	
 	/**
-	 * Id of epg channel
-	 * @return int
+	 * Enable CDVR, configuration only
+	 * @return string
 	 */
-	 getEpgChannelId() {
-	 	return this.epgChannelId;
+	 getEnableCdvrState() {
+	 	return this.enableCdvrState;
 	 }
 	
 	/**
-	 * @param epgChannelId int Id of epg channel
+	 * @param enableCdvrState string Enable CDVR, configuration only
 	 */
-	 setEpgChannelId(epgChannelId) {
-	 	this.epgChannelId = epgChannelId;
+	 setEnableCdvrState(enableCdvrState) {
+	 	this.enableCdvrState = enableCdvrState;
+	 }
+	
+	/**
+	 * Enable catch-up, configuration only
+	 * @return string
+	 */
+	 getEnableCatchUpState() {
+	 	return this.enableCatchUpState;
+	 }
+	
+	/**
+	 * @param enableCatchUpState string Enable catch-up, configuration only
+	 */
+	 setEnableCatchUpState(enableCatchUpState) {
+	 	this.enableCatchUpState = enableCatchUpState;
+	 }
+	
+	/**
+	 * Enable start over, configuration only
+	 * @return string
+	 */
+	 getEnableStartOverState() {
+	 	return this.enableStartOverState;
+	 }
+	
+	/**
+	 * @param enableStartOverState string Enable start over, configuration only
+	 */
+	 setEnableStartOverState(enableStartOverState) {
+	 	this.enableStartOverState = enableStartOverState;
+	 }
+	
+	/**
+	 * Enable Recording playback for non entitled channel, configuration only
+	 * @return string
+	 */
+	 getEnableRecordingPlaybackNonEntitledChannelState() {
+	 	return this.enableRecordingPlaybackNonEntitledChannelState;
+	 }
+	
+	/**
+	 * @param enableRecordingPlaybackNonEntitledChannelState string Enable Recording playback for non entitled channel, configuration only
+	 */
+	 setEnableRecordingPlaybackNonEntitledChannelState(enableRecordingPlaybackNonEntitledChannelState) {
+	 	this.enableRecordingPlaybackNonEntitledChannelState = enableRecordingPlaybackNonEntitledChannelState;
+	 }
+	
+	/**
+	 * Enable trick-play, configuration only
+	 * @return string
+	 */
+	 getEnableTrickPlayState() {
+	 	return this.enableTrickPlayState;
+	 }
+	
+	/**
+	 * @param enableTrickPlayState string Enable trick-play, configuration only
+	 */
+	 setEnableTrickPlayState(enableTrickPlayState) {
+	 	this.enableTrickPlayState = enableTrickPlayState;
+	 }
+	
+	/**
+	 * External identifier used when ingesting programs for this linear media asset
+	 * @return string
+	 */
+	 getExternalIngestId() {
+	 	return this.externalIngestId;
+	 }
+	
+	/**
+	 * @param externalIngestId string External identifier used when ingesting programs for this linear media asset
+	 */
+	 setExternalIngestId(externalIngestId) {
+	 	this.externalIngestId = externalIngestId;
+	 }
+	
+	/**
+	 * External identifier for the CDVR
+	 * @return string
+	 */
+	 getExternalCdvrId() {
+	 	return this.externalCdvrId;
+	 }
+	
+	/**
+	 * @param externalCdvrId string External identifier for the CDVR
+	 */
+	 setExternalCdvrId(externalCdvrId) {
+	 	this.externalCdvrId = externalCdvrId;
+	 }
+	
+	/**
+	 * Is CDVR enabled for this asset
+	 * @return bool
+	 */
+	 getCdvrEnabaled() {
+	 	return this.cdvrEnabaled;
+	 }
+	
+	/**
+	 * Is catch-up enabled for this asset
+	 * @return bool
+	 */
+	 getCatchUpEnabled() {
+	 	return this.catchUpEnabled;
+	 }
+	
+	/**
+	 * Is start over enabled for this asset
+	 * @return bool
+	 */
+	 getStartOverEnabled() {
+	 	return this.startOverEnabled;
+	 }
+	
+	/**
+	 * buffer Catch-up
+	 * @return int
+	 */
+	 getBufferCatchUp() {
+	 	return this.bufferCatchUp;
+	 }
+	
+	/**
+	 * buffer Trick-play
+	 * @return int
+	 */
+	 getBufferTrickPlay() {
+	 	return this.bufferTrickPlay;
+	 }
+	
+	/**
+	 * Is recording playback for non entitled channel enabled for this asset
+	 * @return bool
+	 */
+	 getRecordingPlaybackNonEntitledChannelEnabled() {
+	 	return this.recordingPlaybackNonEntitledChannelEnabled;
+	 }
+	
+	/**
+	 * Is trick-play enabled for this asset
+	 * @return bool
+	 */
+	 getTrickPlayEnabled() {
+	 	return this.trickPlayEnabled;
 	 }
 }
 module.exports.LinearMediaAsset = LinearMediaAsset;

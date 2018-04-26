@@ -766,6 +766,12 @@ module.exports.TagOrderBy = {
 NONE : 'NONE',
 };
 
+module.exports.TimeShiftedTvState = {
+INHERITED : 'INHERITED',
+ENABLED : 'ENABLED',
+DISABLED : 'DISABLED',
+};
+
 module.exports.TopicAutomaticIssueNotification = {
 INHERIT : 'Inherit',
 YES : 'Yes',
