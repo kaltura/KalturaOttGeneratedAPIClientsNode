@@ -14797,6 +14797,21 @@ class ChannelsFilter extends Filter{
 	 }
 	
 	/**
+	 * media identifier to filter by
+	 * @return int
+	 */
+	 getMediaIdEqual() {
+	 	return this.mediaIdEqual;
+	 }
+	
+	/**
+	 * @param mediaIdEqual int media identifier to filter by
+	 */
+	 setMediaIdEqual(mediaIdEqual) {
+	 	this.mediaIdEqual = mediaIdEqual;
+	 }
+	
+	/**
 	 * Exact channel name to filter by
 	 * @return string
 	 */
@@ -14812,7 +14827,7 @@ class ChannelsFilter extends Filter{
 	 }
 	
 	/**
-	 * Channel name starts with (autocomplete)
+	 * Channel name starts with (auto-complete)
 	 * @return string
 	 */
 	 getNameStartsWith() {
@@ -14820,7 +14835,7 @@ class ChannelsFilter extends Filter{
 	 }
 	
 	/**
-	 * @param nameStartsWith string Channel name starts with (autocomplete)
+	 * @param nameStartsWith string Channel name starts with (auto-complete)
 	 */
 	 setNameStartsWith(nameStartsWith) {
 	 	this.nameStartsWith = nameStartsWith;
