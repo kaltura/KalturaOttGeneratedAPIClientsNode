@@ -512,6 +512,43 @@ module.exports.assetStruct = assetStruct;
 
 
 /**
+ *Class definition for the Kaltura service: assetStructMeta.
+ * The available service actions:
+ * @action list Return a list of asset struct metas for the account with optional filter.
+ * @action update Update Asset struct meta.
+ */
+class assetStructMeta{
+	
+	/**
+	 * Return a list of asset struct metas for the account with optional filter.
+	 * @param filter AssetStructMetaFilter Filter parameters for filtering out the result
+	 * @return KalturaAssetStructMetaListResponse
+	 */
+	static listAction(filter){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('assetstructmeta', 'list', kparams);
+	};
+	
+	/**
+	 * Update Asset struct meta.
+	 * @param assetStructId int AssetStruct Identifier
+	 * @param metaId int Meta Identifier
+	 * @param assetStructMeta AssetStructMeta AssetStructMeta Object
+	 * @return KalturaAssetStructMeta
+	 */
+	static update(assetStructId, metaId, assetStructMeta){
+		let kparams = {};
+		kparams.assetStructId = assetStructId;
+		kparams.metaId = metaId;
+		kparams.assetStructMeta = assetStructMeta;
+		return new kaltura.RequestBuilder('assetstructmeta', 'update', kparams);
+	};
+}
+module.exports.assetStructMeta = assetStructMeta;
+
+
+/**
  *Class definition for the Kaltura service: bookmark.
  * The available service actions:
  * @action add Report player position and action for the user on the watched asset. Player position is used to later allow resume watching.

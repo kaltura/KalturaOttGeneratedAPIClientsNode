@@ -100,6 +100,10 @@ START_DATE_ASC : 'START_DATE_ASC',
 LIKES_DESC : 'LIKES_DESC',
 };
 
+module.exports.AssetStructMetaOrderBy = {
+NONE : 'NONE',
+};
+
 module.exports.AssetStructOrderBy = {
 NAME_ASC : 'NAME_ASC',
 NAME_DESC : 'NAME_DESC',
