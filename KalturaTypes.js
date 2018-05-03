@@ -557,6 +557,8 @@ NONE : 'NONE',
 
 module.exports.RuleActionType = {
 BLOCK : 'BLOCK',
+START_DATE_OFFSET : 'START_DATE_OFFSET',
+END_DATE_OFFSET : 'END_DATE_OFFSET',
 };
 
 module.exports.RuleLevel = {

@@ -376,6 +376,63 @@ module.exports.assetHistory = assetHistory;
 
 
 /**
+ *Class definition for the Kaltura service: assetRule.
+ * The available service actions:
+ * @action add Add asset rule.
+ * @action delete Delete asset rule.
+ * @action list Get the list of asset rules for the partner.
+ * @action update Update asset rule.
+ */
+class assetRule{
+	
+	/**
+	 * Add asset rule.
+	 * @param assetRule AssetRule Asset rule
+	 * @return KalturaAssetRule
+	 */
+	static add(assetRule){
+		let kparams = {};
+		kparams.assetRule = assetRule;
+		return new kaltura.RequestBuilder('assetrule', 'add', kparams);
+	};
+	
+	/**
+	 * Delete asset rule.
+	 * @param id int Asset rule ID
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('assetrule', 'delete', kparams);
+	};
+	
+	/**
+	 * Get the list of asset rules for the partner.
+	 * @return KalturaAssetRuleListResponse
+	 */
+	static listAction(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('assetrule', 'list', kparams);
+	};
+	
+	/**
+	 * Update asset rule.
+	 * @param id int Asset rule ID to update
+	 * @param assetRule AssetRule Asset rule
+	 * @return KalturaAssetRule
+	 */
+	static update(id, assetRule){
+		let kparams = {};
+		kparams.id = id;
+		kparams.assetRule = assetRule;
+		return new kaltura.RequestBuilder('assetrule', 'update', kparams);
+	};
+}
+module.exports.assetRule = assetRule;
+
+
+/**
  *Class definition for the Kaltura service: assetStatistics.
  * The available service actions:
  * @action query Returns statistics for given list of assets by type and / or time period.
