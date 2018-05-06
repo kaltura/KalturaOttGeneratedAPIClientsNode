@@ -9450,6 +9450,36 @@ class LinearMediaAsset extends MediaAsset{
 	 }
 	
 	/**
+	 * buffer Catch-up, configuration only
+	 * @return int
+	 */
+	 getBufferCatchUp() {
+	 	return this.bufferCatchUp;
+	 }
+	
+	/**
+	 * @param bufferCatchUp int buffer Catch-up, configuration only
+	 */
+	 setBufferCatchUp(bufferCatchUp) {
+	 	this.bufferCatchUp = bufferCatchUp;
+	 }
+	
+	/**
+	 * buffer Trick-play, configuration only
+	 * @return int
+	 */
+	 getBufferTrickPlay() {
+	 	return this.bufferTrickPlay;
+	 }
+	
+	/**
+	 * @param bufferTrickPlay int buffer Trick-play, configuration only
+	 */
+	 setBufferTrickPlay(bufferTrickPlay) {
+	 	this.bufferTrickPlay = bufferTrickPlay;
+	 }
+	
+	/**
 	 * Enable Recording playback for non entitled channel, configuration only
 	 * @return string
 	 */
@@ -9507,62 +9537,6 @@ class LinearMediaAsset extends MediaAsset{
 	 */
 	 setExternalCdvrId(externalCdvrId) {
 	 	this.externalCdvrId = externalCdvrId;
-	 }
-	
-	/**
-	 * Is CDVR enabled for this asset
-	 * @return bool
-	 */
-	 getCdvrEnabaled() {
-	 	return this.cdvrEnabaled;
-	 }
-	
-	/**
-	 * Is catch-up enabled for this asset
-	 * @return bool
-	 */
-	 getCatchUpEnabled() {
-	 	return this.catchUpEnabled;
-	 }
-	
-	/**
-	 * Is start over enabled for this asset
-	 * @return bool
-	 */
-	 getStartOverEnabled() {
-	 	return this.startOverEnabled;
-	 }
-	
-	/**
-	 * buffer Catch-up
-	 * @return int
-	 */
-	 getBufferCatchUp() {
-	 	return this.bufferCatchUp;
-	 }
-	
-	/**
-	 * buffer Trick-play
-	 * @return int
-	 */
-	 getBufferTrickPlay() {
-	 	return this.bufferTrickPlay;
-	 }
-	
-	/**
-	 * Is recording playback for non entitled channel enabled for this asset
-	 * @return bool
-	 */
-	 getRecordingPlaybackNonEntitledChannelEnabled() {
-	 	return this.recordingPlaybackNonEntitledChannelEnabled;
-	 }
-	
-	/**
-	 * Is trick-play enabled for this asset
-	 * @return bool
-	 */
-	 getTrickPlayEnabled() {
-	 	return this.trickPlayEnabled;
 	 }
 }
 module.exports.LinearMediaAsset = LinearMediaAsset;
