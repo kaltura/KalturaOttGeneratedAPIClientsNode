@@ -522,7 +522,7 @@ class assetStructMeta{
 	/**
 	 * Return a list of asset struct metas for the account with optional filter.
 	 * @param filter AssetStructMetaFilter Filter parameters for filtering out the result
-	 * @return KalturaAssetStructMetaListResponse
+	 * @return KalturaGenericListResponse
 	 */
 	static listAction(filter){
 		let kparams = {};
