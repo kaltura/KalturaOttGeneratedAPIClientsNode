@@ -8627,38 +8627,6 @@ class DynamicChannel extends Channel{
 	 setKSql(kSql) {
 	 	this.kSql = kSql;
 	 }
-	
-	/**
-	 * Asset types in the channel.
- * -26 is EPG
-	 * @return array
-	 */
-	 getChannelAssetTypes() {
-	 	return this.channelAssetTypes;
-	 }
-	
-	/**
-	 * @param channelAssetTypes array Asset types in the channel.
- * -26 is EPG
-	 */
-	 setChannelAssetTypes(channelAssetTypes) {
-	 	this.channelAssetTypes = channelAssetTypes;
-	 }
-	
-	/**
-	 * Channel group by
-	 * @return AssetGroupBy
-	 */
-	 getChannelGroupBy() {
-	 	return this.channelGroupBy;
-	 }
-	
-	/**
-	 * @param channelGroupBy AssetGroupBy Channel group by
-	 */
-	 setChannelGroupBy(channelGroupBy) {
-	 	this.channelGroupBy = channelGroupBy;
-	 }
 }
 module.exports.DynamicChannel = DynamicChannel;
 
