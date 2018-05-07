@@ -9513,15 +9513,15 @@ class LinearMediaAsset extends MediaAsset{
 	 * External identifier used when ingesting programs for this linear media asset
 	 * @return string
 	 */
-	 getExternalIngestId() {
-	 	return this.externalIngestId;
+	 getExternalEpgIngestId() {
+	 	return this.externalEpgIngestId;
 	 }
 	
 	/**
-	 * @param externalIngestId string External identifier used when ingesting programs for this linear media asset
+	 * @param externalEpgIngestId string External identifier used when ingesting programs for this linear media asset
 	 */
-	 setExternalIngestId(externalIngestId) {
-	 	this.externalIngestId = externalIngestId;
+	 setExternalEpgIngestId(externalEpgIngestId) {
+	 	this.externalEpgIngestId = externalEpgIngestId;
 	 }
 	
 	/**
@@ -9543,56 +9543,56 @@ class LinearMediaAsset extends MediaAsset{
 	 * Is CDVR enabled for this asset
 	 * @return bool
 	 */
-	 getEnableCdvr() {
-	 	return this.enableCdvr;
+	 getCdvrEnabled() {
+	 	return this.cdvrEnabled;
 	 }
 	
 	/**
 	 * Is catch-up enabled for this asset
 	 * @return bool
 	 */
-	 getEnableCatchUp() {
-	 	return this.enableCatchUp;
+	 getCatchUpEnabled() {
+	 	return this.catchUpEnabled;
 	 }
 	
 	/**
 	 * Is start over enabled for this asset
 	 * @return bool
 	 */
-	 getEnableStartOver() {
-	 	return this.enableStartOver;
+	 getStartOverEnabled() {
+	 	return this.startOverEnabled;
 	 }
 	
 	/**
-	 * Catch-up buffer
+	 * summed Catch-up buffer, the TimeShiftedTvPartnerSettings are also taken into consideration
 	 * @return int
 	 */
-	 getCatchUpBuffer() {
-	 	return this.catchUpBuffer;
+	 getSummedCatchUpBuffer() {
+	 	return this.summedCatchUpBuffer;
 	 }
 	
 	/**
-	 * buffer Trick-play
+	 * summed Trick-play buffer, the TimeShiftedTvPartnerSettings are also taken into consideration
 	 * @return int
 	 */
-	 getTrickPlayBuffer() {
-	 	return this.trickPlayBuffer;
+	 getSummedTrickPlayBuffer() {
+	 	return this.summedTrickPlayBuffer;
 	 }
 	
 	/**
 	 * Is recording playback for non entitled channel enabled for this asset
 	 * @return bool
 	 */
-	 getEnableRecordingPlaybackNonEntitledChannel() {
-	 	return this.enableRecordingPlaybackNonEntitledChannel;
+	 getRecordingPlaybackNonEntitledChannelEnabled() {
+	 	return this.recordingPlaybackNonEntitledChannelEnabled;
 	 }
 	
 	/**
 	 * Is trick-play enabled for this asset
 	 * @return bool
 	 */
-	 getEnableTrickPlay() {
-	 	return this.enableTrickPlay;
+	 getTrickPlayEnabled() {
+	 	return this.trickPlayEnabled;
 	 }
 }
 module.exports.LinearMediaAsset = LinearMediaAsset;
