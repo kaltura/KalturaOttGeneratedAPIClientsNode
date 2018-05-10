@@ -9493,14 +9493,14 @@ module.exports.CountryCondition = CountryCondition;
 /**
  *
  */
-class AssetUserBlockRuleAction extends AssetUserRuleAction{
+class AssetUserRuleBlockAction extends AssetUserRuleAction{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaAssetUserBlockRuleAction';
+		this.objectType = 'KalturaAssetUserRuleBlockAction';
 	}
 }
-module.exports.AssetUserBlockRuleAction = AssetUserBlockRuleAction;
+module.exports.AssetUserRuleBlockAction = AssetUserRuleBlockAction;
 
 /**
  *

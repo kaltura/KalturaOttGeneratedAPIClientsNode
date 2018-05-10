@@ -559,7 +559,7 @@ module.exports.RuleActionType = {
 BLOCK : 'BLOCK',
 START_DATE_OFFSET : 'START_DATE_OFFSET',
 END_DATE_OFFSET : 'END_DATE_OFFSET',
-ASSET_USER_BLOCK : 'ASSET_USER_BLOCK',
+USER_BLOCK : 'USER_BLOCK',
 };
 
 module.exports.RuleLevel = {
