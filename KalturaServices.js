@@ -454,6 +454,27 @@ module.exports.assetStatistics = assetStatistics;
 
 
 /**
+ *Class definition for the Kaltura service: assetUserRule.
+ * The available service actions:
+ * @action add Add asset user rule.
+ */
+class assetUserRule{
+	
+	/**
+	 * Add asset user rule.
+	 * @param assetUserRule AssetUserRule Asset user rule
+	 * @return KalturaAssetUserRule
+	 */
+	static add(assetUserRule){
+		let kparams = {};
+		kparams.assetUserRule = assetUserRule;
+		return new kaltura.RequestBuilder('assetuserrule', 'add', kparams);
+	};
+}
+module.exports.assetUserRule = assetUserRule;
+
+
+/**
  *Class definition for the Kaltura service: bookmark.
  * The available service actions:
  * @action add Report player position and action for the user on the watched asset. Player position is used to later allow resume watching.
