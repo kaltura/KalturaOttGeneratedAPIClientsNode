@@ -6937,6 +6937,45 @@ module.exports.TopicListResponse = TopicListResponse;
 /**
  *
  */
+class T extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaT';
+	}
+}
+module.exports.T = T;
+
+/**
+ *
+ */
+class GenericListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaGenericListResponse';
+	}
+	
+	/**
+	 * A list of objects
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of objects
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.GenericListResponse = GenericListResponse;
+
+/**
+ *
+ */
 class IntegerValueListResponse extends ListResponse{
 	
 	constructor(object = null) {
@@ -9378,7 +9417,7 @@ class AssetUserRuleListResponse extends ListResponse{
 	}
 	
 	/**
-	 * Asset rules
+	 * Asset user rules
 	 * @return array
 	 */
 	 getObjects() {
@@ -9386,7 +9425,7 @@ class AssetUserRuleListResponse extends ListResponse{
 	 }
 	
 	/**
-	 * @param objects array Asset rules
+	 * @param objects array Asset user rules
 	 */
 	 setObjects(objects) {
 	 	this.objects = objects;

@@ -457,6 +457,9 @@ module.exports.assetStatistics = assetStatistics;
  *Class definition for the Kaltura service: assetUserRule.
  * The available service actions:
  * @action add Add asset user rule.
+ * @action delete Delete asset user rule.
+ * @action list Get the list of asset user rules for the partner.
+ * @action update Update asset user rule.
  */
 class assetUserRule{
 	
@@ -469,6 +472,39 @@ class assetUserRule{
 		let kparams = {};
 		kparams.assetUserRule = assetUserRule;
 		return new kaltura.RequestBuilder('assetuserrule', 'add', kparams);
+	};
+	
+	/**
+	 * Delete asset user rule.
+	 * @param id int Asset user rule ID
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('assetuserrule', 'delete', kparams);
+	};
+	
+	/**
+	 * Get the list of asset user rules for the partner.
+	 * @return KalturaAssetUserRuleListResponse
+	 */
+	static listAction(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('assetuserrule', 'list', kparams);
+	};
+	
+	/**
+	 * Update asset user rule.
+	 * @param id int Asset user rule ID to update
+	 * @param assetUserRule AssetUserRule Asset user rule
+	 * @return KalturaAssetUserRule
+	 */
+	static update(id, assetUserRule){
+		let kparams = {};
+		kparams.id = id;
+		kparams.assetUserRule = assetUserRule;
+		return new kaltura.RequestBuilder('assetuserrule', 'update', kparams);
 	};
 }
 module.exports.assetUserRule = assetUserRule;
