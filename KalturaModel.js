@@ -3358,6 +3358,21 @@ class Country extends kaltura.BaseObject{
 	 setVatPercent(vatPercent) {
 	 	this.vatPercent = vatPercent;
 	 }
+	
+	/**
+	 * Time zone ID
+	 * @return string
+	 */
+	 getTimeZoneId() {
+	 	return this.timeZoneId;
+	 }
+	
+	/**
+	 * @param timeZoneId string Time zone ID
+	 */
+	 setTimeZoneId(timeZoneId) {
+	 	this.timeZoneId = timeZoneId;
+	 }
 }
 module.exports.Country = Country;
 
