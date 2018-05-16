@@ -104,6 +104,10 @@ RECORDING : 'recording',
 EPG : 'epg',
 };
 
+module.exports.AssetUserRuleOrderBy = {
+NONE : 'NONE',
+};
+
 module.exports.BillingAction = {
 UNKNOWN : 'unknown',
 PURCHASE : 'purchase',

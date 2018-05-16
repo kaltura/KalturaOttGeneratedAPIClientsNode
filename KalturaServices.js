@@ -457,8 +457,10 @@ module.exports.assetStatistics = assetStatistics;
  *Class definition for the Kaltura service: assetUserRule.
  * The available service actions:
  * @action add Add asset user rule.
+ * @action addRuleToUser Add Asset User Rule To User.
  * @action delete Delete asset user rule.
  * @action list Get the list of asset user rules for the partner.
+ * @action removeRuleToUser Remove asset user rule from user.
  * @action update Update asset user rule.
  */
 class assetUserRule{
@@ -475,9 +477,18 @@ class assetUserRule{
 	};
 	
 	/**
+	 * Add Asset User Rule To User.
+	 * @param ruleId int Asset user rule id to add
+	 */
+	static addRuleToUser(ruleId){
+		let kparams = {};
+		kparams.ruleId = ruleId;
+		return new kaltura.RequestBuilder('assetuserrule', 'addRuleToUser', kparams);
+	};
+	
+	/**
 	 * Delete asset user rule.
 	 * @param id int Asset user rule ID
-	 * @return bool
 	 */
 	static deleteAction(id){
 		let kparams = {};
@@ -487,11 +498,23 @@ class assetUserRule{
 	
 	/**
 	 * Get the list of asset user rules for the partner.
+	 * @param filter AssetUserRuleFilter AssetUserRule Filter (optional, default: null)
 	 * @return KalturaAssetUserRuleListResponse
 	 */
-	static listAction(){
+	static listAction(filter = null){
 		let kparams = {};
+		kparams.filter = filter;
 		return new kaltura.RequestBuilder('assetuserrule', 'list', kparams);
+	};
+	
+	/**
+	 * Remove asset user rule from user.
+	 * @param ruleId int Asset user rule id to remove
+	 */
+	static removeRuleToUser(ruleId){
+		let kparams = {};
+		kparams.ruleId = ruleId;
+		return new kaltura.RequestBuilder('assetuserrule', 'removeRuleToUser', kparams);
 	};
 	
 	/**

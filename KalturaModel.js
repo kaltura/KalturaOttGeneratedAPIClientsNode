@@ -14214,6 +14214,33 @@ module.exports.AssetHistoryFilter = AssetHistoryFilter;
 /**
  *
  */
+class AssetUserRuleFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetUserRuleFilter';
+	}
+	
+	/**
+	 * Indicates if to get the asset user rule list for the associated user or for the entire group
+	 * @return bool
+	 */
+	 getAssociatedUserIdEqualCurrent() {
+	 	return this.associatedUserIdEqualCurrent;
+	 }
+	
+	/**
+	 * @param associatedUserIdEqualCurrent bool Indicates if to get the asset user rule list for the associated user or for the entire group
+	 */
+	 setAssociatedUserIdEqualCurrent(associatedUserIdEqualCurrent) {
+	 	this.associatedUserIdEqualCurrent = associatedUserIdEqualCurrent;
+	 }
+}
+module.exports.AssetUserRuleFilter = AssetUserRuleFilter;
+
+/**
+ *
+ */
 class CurrencyFilter extends Filter{
 	
 	constructor(object = null) {
