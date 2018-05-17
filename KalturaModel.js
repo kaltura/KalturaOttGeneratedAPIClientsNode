@@ -14237,18 +14237,18 @@ class AssetUserRuleFilter extends Filter{
 	}
 	
 	/**
-	 * Indicates if to get the asset user rule list for the associated user or for the entire group
+	 * Indicates if to get the asset user rule list for the attached user or for the entire group
 	 * @return bool
 	 */
-	 getAssociatedUserIdEqualCurrent() {
-	 	return this.associatedUserIdEqualCurrent;
+	 getAttachedUserIdEqualCurrent() {
+	 	return this.attachedUserIdEqualCurrent;
 	 }
 	
 	/**
-	 * @param associatedUserIdEqualCurrent bool Indicates if to get the asset user rule list for the associated user or for the entire group
+	 * @param attachedUserIdEqualCurrent bool Indicates if to get the asset user rule list for the attached user or for the entire group
 	 */
-	 setAssociatedUserIdEqualCurrent(associatedUserIdEqualCurrent) {
-	 	this.associatedUserIdEqualCurrent = associatedUserIdEqualCurrent;
+	 setAttachedUserIdEqualCurrent(attachedUserIdEqualCurrent) {
+	 	this.attachedUserIdEqualCurrent = attachedUserIdEqualCurrent;
 	 }
 }
 module.exports.AssetUserRuleFilter = AssetUserRuleFilter;

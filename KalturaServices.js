@@ -457,10 +457,10 @@ module.exports.assetStatistics = assetStatistics;
  *Class definition for the Kaltura service: assetUserRule.
  * The available service actions:
  * @action add Add asset user rule.
- * @action addRuleToUser Add Asset User Rule To User.
+ * @action attachUser  Attach AssetUserRule To User.
  * @action delete Delete asset user rule.
+ * @action detachUser Detach AssetUserRule from user.
  * @action list Get the list of asset user rules for the partner.
- * @action removeRuleToUser Remove asset user rule from user.
  * @action update Update asset user rule.
  */
 class assetUserRule{
@@ -477,13 +477,13 @@ class assetUserRule{
 	};
 	
 	/**
-	 * Add Asset User Rule To User.
-	 * @param ruleId int Asset user rule id to add
+	 * Attach AssetUserRule To User.
+	 * @param ruleId int AssetUserRule id to add
 	 */
-	static addRuleToUser(ruleId){
+	static attachUser (ruleId){
 		let kparams = {};
 		kparams.ruleId = ruleId;
-		return new kaltura.RequestBuilder('assetuserrule', 'addRuleToUser', kparams);
+		return new kaltura.RequestBuilder('assetuserrule', 'attachUser ', kparams);
 	};
 	
 	/**
@@ -497,6 +497,16 @@ class assetUserRule{
 	};
 	
 	/**
+	 * Detach AssetUserRule from user.
+	 * @param ruleId int AssetUserRule id to remove
+	 */
+	static detachUser(ruleId){
+		let kparams = {};
+		kparams.ruleId = ruleId;
+		return new kaltura.RequestBuilder('assetuserrule', 'detachUser', kparams);
+	};
+	
+	/**
 	 * Get the list of asset user rules for the partner.
 	 * @param filter AssetUserRuleFilter AssetUserRule Filter (optional, default: null)
 	 * @return KalturaAssetUserRuleListResponse
@@ -505,16 +515,6 @@ class assetUserRule{
 		let kparams = {};
 		kparams.filter = filter;
 		return new kaltura.RequestBuilder('assetuserrule', 'list', kparams);
-	};
-	
-	/**
-	 * Remove asset user rule from user.
-	 * @param ruleId int Asset user rule id to remove
-	 */
-	static removeRuleToUser(ruleId){
-		let kparams = {};
-		kparams.ruleId = ruleId;
-		return new kaltura.RequestBuilder('assetuserrule', 'removeRuleToUser', kparams);
 	};
 	
 	/**
