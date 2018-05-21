@@ -578,6 +578,7 @@ PARENTAL : 'parental',
 GEO : 'geo',
 USER_TYPE : 'user_type',
 DEVICE : 'device',
+ASSETUSER : 'assetUser',
 };
 
 module.exports.ScheduledRecordingAssetType = {
