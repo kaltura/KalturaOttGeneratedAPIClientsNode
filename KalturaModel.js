@@ -9344,13 +9344,6 @@ class RuleAction extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param type string The type of the action
-	 */
-	 setType(type) {
-	 	this.type = type;
-	 }
-	
-	/**
 	 * Description
 	 * @return string
 	 */
