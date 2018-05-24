@@ -326,6 +326,7 @@ class assetFile{
 	 * @param assetFileId int Asset file identifier
 	 * @param contextType string Playback context type (enum: KalturaPlaybackContextType)
 	 * @param ks string Kaltura session for the user, not mandatory for anonymous user (optional, default: null)
+	 * @return string
 	 */
 	static playManifest(partnerId, assetId, assetType, assetFileId, contextType, ks = null){
 		let kparams = {};
