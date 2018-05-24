@@ -2597,6 +2597,33 @@ module.exports.MediaImage = MediaImage;
 /**
  *
  */
+class AssetFile extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetFile';
+	}
+	
+	/**
+	 * URL of the media file to be played
+	 * @return string
+	 */
+	 getUrl() {
+	 	return this.url;
+	 }
+	
+	/**
+	 * @param url string URL of the media file to be played
+	 */
+	 setUrl(url) {
+	 	this.url = url;
+	 }
+}
+module.exports.AssetFile = AssetFile;
+
+/**
+ *
+ */
 class StringValueArray extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -2624,7 +2651,7 @@ module.exports.StringValueArray = StringValueArray;
 /**
  *
  */
-class MediaFile extends kaltura.BaseObject{
+class MediaFile extends AssetFile{
 	
 	constructor(object = null) {
 		super(object);
@@ -2667,21 +2694,6 @@ class MediaFile extends kaltura.BaseObject{
 	 */
 	 setType(type) {
 	 	this.type = type;
-	 }
-	
-	/**
-	 * URL of the media file to be played
-	 * @return string
-	 */
-	 getUrl() {
-	 	return this.url;
-	 }
-	
-	/**
-	 * @param url string URL of the media file to be played
-	 */
-	 setUrl(url) {
-	 	this.url = url;
 	 }
 	
 	/**
