@@ -1305,6 +1305,27 @@ module.exports.deviceFamily = deviceFamily;
 
 
 /**
+ *Class definition for the Kaltura service: discountDetails.
+ * The available service actions:
+ * @action list Returns the list of available discounts details, can be filtered by discount codes.
+ */
+class discountDetails{
+	
+	/**
+	 * Returns the list of available discounts details, can be filtered by discount codes.
+	 * @param filter DiscountDetailsFilter Filter (optional, default: null)
+	 * @return KalturaDiscountDetailsListResponse
+	 */
+	static listAction(filter = null){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('discountdetails', 'list', kparams);
+	};
+}
+module.exports.discountDetails = discountDetails;
+
+
+/**
  *Class definition for the Kaltura service: email.
  * The available service actions:
  * @action send Sends email notification.

@@ -3929,18 +3929,18 @@ class CouponsGroup extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Discount code
+	 * Discount ID
 	 * @return int
 	 */
-	 getDiscountCode() {
-	 	return this.discountCode;
+	 getDiscountId() {
+	 	return this.discountId;
 	 }
 	
 	/**
-	 * @param discountCode int Discount code
+	 * @param discountId int Discount ID
 	 */
-	 setDiscountCode(discountCode) {
-	 	this.discountCode = discountCode;
+	 setDiscountId(discountId) {
+	 	this.discountId = discountId;
 	 }
 }
 module.exports.CouponsGroup = CouponsGroup;
@@ -4490,6 +4490,205 @@ module.exports.PricePlan = PricePlan;
 /**
  *
  */
+class Price extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPrice';
+	}
+	
+	/**
+	 * Price
+	 * @return float
+	 */
+	 getAmount() {
+	 	return this.amount;
+	 }
+	
+	/**
+	 * @param amount float Price
+	 */
+	 setAmount(amount) {
+	 	this.amount = amount;
+	 }
+	
+	/**
+	 * Currency
+	 * @return string
+	 */
+	 getCurrency() {
+	 	return this.currency;
+	 }
+	
+	/**
+	 * @param currency string Currency
+	 */
+	 setCurrency(currency) {
+	 	this.currency = currency;
+	 }
+	
+	/**
+	 * Currency Sign
+	 * @return string
+	 */
+	 getCurrencySign() {
+	 	return this.currencySign;
+	 }
+	
+	/**
+	 * @param currencySign string Currency Sign
+	 */
+	 setCurrencySign(currencySign) {
+	 	this.currencySign = currencySign;
+	 }
+	
+	/**
+	 * Country ID
+	 * @return int
+	 */
+	 getCountryId() {
+	 	return this.countryId;
+	 }
+	
+	/**
+	 * @param countryId int Country ID
+	 */
+	 setCountryId(countryId) {
+	 	this.countryId = countryId;
+	 }
+}
+module.exports.Price = Price;
+
+/**
+ *
+ */
+class Discount extends Price{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDiscount';
+	}
+	
+	/**
+	 * The discount percentage
+	 * @return int
+	 */
+	 getPercentage() {
+	 	return this.percentage;
+	 }
+}
+module.exports.Discount = Discount;
+
+/**
+ *
+ */
+class DiscountDetails extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDiscountDetails';
+	}
+	
+	/**
+	 * The discount ID
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * The price code name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string The price code name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Multi currency discounts for all countries and currencies
+	 * @return array
+	 */
+	 getMultiCurrencyDiscount() {
+	 	return this.multiCurrencyDiscount;
+	 }
+	
+	/**
+	 * @param multiCurrencyDiscount array Multi currency discounts for all countries and currencies
+	 */
+	 setMultiCurrencyDiscount(multiCurrencyDiscount) {
+	 	this.multiCurrencyDiscount = multiCurrencyDiscount;
+	 }
+	
+	/**
+	 * Start date represented as epoch
+	 * @return int
+	 */
+	 getStartDate() {
+	 	return this.startDate;
+	 }
+	
+	/**
+	 * @param startDate int Start date represented as epoch
+	 */
+	 setStartDate(startDate) {
+	 	this.startDate = startDate;
+	 }
+	
+	/**
+	 * End date represented as epoch
+	 * @return int
+	 */
+	 getEndDate() {
+	 	return this.endDate;
+	 }
+	
+	/**
+	 * @param endDate int End date represented as epoch
+	 */
+	 setEndDate(endDate) {
+	 	this.endDate = endDate;
+	 }
+}
+module.exports.DiscountDetails = DiscountDetails;
+
+/**
+ *
+ */
+class DiscountDetailsListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDiscountDetailsListResponse';
+	}
+	
+	/**
+	 * A list of price details
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of price details
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.DiscountDetailsListResponse = DiscountDetailsListResponse;
+
+/**
+ *
+ */
 class SubscriptionSet extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -4610,78 +4809,6 @@ class SubscriptionSwitchSet extends SubscriptionSet{
 	}
 }
 module.exports.SubscriptionSwitchSet = SubscriptionSwitchSet;
-
-/**
- *
- */
-class Price extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPrice';
-	}
-	
-	/**
-	 * Price
-	 * @return float
-	 */
-	 getAmount() {
-	 	return this.amount;
-	 }
-	
-	/**
-	 * @param amount float Price
-	 */
-	 setAmount(amount) {
-	 	this.amount = amount;
-	 }
-	
-	/**
-	 * Currency
-	 * @return string
-	 */
-	 getCurrency() {
-	 	return this.currency;
-	 }
-	
-	/**
-	 * @param currency string Currency
-	 */
-	 setCurrency(currency) {
-	 	this.currency = currency;
-	 }
-	
-	/**
-	 * Currency Sign
-	 * @return string
-	 */
-	 getCurrencySign() {
-	 	return this.currencySign;
-	 }
-	
-	/**
-	 * @param currencySign string Currency Sign
-	 */
-	 setCurrencySign(currencySign) {
-	 	this.currencySign = currencySign;
-	 }
-	
-	/**
-	 * Country ID
-	 * @return int
-	 */
-	 getCountryId() {
-	 	return this.countryId;
-	 }
-	
-	/**
-	 * @param countryId int Country ID
-	 */
-	 setCountryId(countryId) {
-	 	this.countryId = countryId;
-	 }
-}
-module.exports.Price = Price;
 
 /**
  *
@@ -12564,6 +12691,33 @@ class CollectionFilter extends Filter{
 	 }
 }
 module.exports.CollectionFilter = CollectionFilter;
+
+/**
+ *
+ */
+class DiscountDetailsFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDiscountDetailsFilter';
+	}
+	
+	/**
+	 * Comma separated discount codes
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated discount codes
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.DiscountDetailsFilter = DiscountDetailsFilter;
 
 /**
  *
