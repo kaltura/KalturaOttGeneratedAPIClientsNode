@@ -9596,6 +9596,21 @@ class LinearMediaAsset extends MediaAsset{
 	 getTrickPlayEnabled() {
 	 	return this.trickPlayEnabled;
 	 }
+	
+	/**
+	 * channel type, possible values: UNKNOWN, DTT, OTT, DTT_AND_OTT
+	 * @return string
+	 */
+	 getChannelType() {
+	 	return this.channelType;
+	 }
+	
+	/**
+	 * @param channelType string channel type, possible values: UNKNOWN, DTT, OTT, DTT_AND_OTT
+	 */
+	 setChannelType(channelType) {
+	 	this.channelType = channelType;
+	 }
 }
 module.exports.LinearMediaAsset = LinearMediaAsset;
 

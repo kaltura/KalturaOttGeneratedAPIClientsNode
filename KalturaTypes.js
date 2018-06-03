@@ -413,6 +413,13 @@ CODE_ASC : 'CODE_ASC',
 CODE_DESC : 'CODE_DESC',
 };
 
+module.exports.LinearChannelType = {
+UNKNOWN : 'UNKNOWN',
+DTT : 'DTT',
+OTT : 'OTT',
+DTT_AND_OTT : 'DTT_AND_OTT',
+};
+
 module.exports.MediaFileOrderBy = {
 NONE : 'NONE',
 };
