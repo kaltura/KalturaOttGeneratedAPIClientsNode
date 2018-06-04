@@ -3359,6 +3359,54 @@ module.exports.personalFeed = personalFeed;
 
 
 /**
+ *Class definition for the Kaltura service: personalList.
+ * The available service actions:
+ * @action add Add a user&#39;s personal list item to follow.
+ * @action delete Remove followed item from user&#39;s personal list.
+ * @action list List user&#39;s tv personal item to follow.
+ * Possible status codes:.
+ */
+class personalList{
+	
+	/**
+	 * Add a user&#39;s personal list item to follow.
+	 * @param personalList PersonalList Follow personal list item request parameters
+	 * @return KalturaPersonalList
+	 */
+	static add(personalList){
+		let kparams = {};
+		kparams.personalList = personalList;
+		return new kaltura.RequestBuilder('personallist', 'add', kparams);
+	};
+	
+	/**
+	 * Remove followed item from user&#39;s personal list.
+	 * @param personalListId int personalListId identifier
+	 */
+	static deleteAction(personalListId){
+		let kparams = {};
+		kparams.personalListId = personalListId;
+		return new kaltura.RequestBuilder('personallist', 'delete', kparams);
+	};
+	
+	/**
+	 * List user&#39;s tv personal item to follow.
+ * Possible status codes:.
+	 * @param filter PersonalListFilter Personal list filter (optional, default: null)
+	 * @param pager FilterPager pager (optional, default: null)
+	 * @return KalturaPersonalListListResponse
+	 */
+	static listAction(filter = null, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('personallist', 'list', kparams);
+	};
+}
+module.exports.personalList = personalList;
+
+
+/**
  *Class definition for the Kaltura service: pin.
  * The available service actions:
  * @action get Retrieve the parental or purchase PIN that applies for the household or user. Includes specification of where the PIN was defined at – account, household or user  level.

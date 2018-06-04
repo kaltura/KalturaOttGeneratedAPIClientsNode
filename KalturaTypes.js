@@ -445,6 +445,11 @@ START_DATE_DESC : 'START_DATE_DESC',
 START_DATE_ASC : 'START_DATE_ASC',
 };
 
+module.exports.PersonalListOrderBy = {
+START_DATE_DESC : 'START_DATE_DESC',
+START_DATE_ASC : 'START_DATE_ASC',
+};
+
 module.exports.PinType = {
 PURCHASE : 'purchase',
 PARENTAL : 'parental',
