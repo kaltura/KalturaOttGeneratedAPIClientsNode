@@ -446,8 +446,8 @@ START_DATE_ASC : 'START_DATE_ASC',
 };
 
 module.exports.PersonalListOrderBy = {
-START_DATE_DESC : 'START_DATE_DESC',
-START_DATE_ASC : 'START_DATE_ASC',
+CREATE_DATE_DESC : 'CREATE_DATE_DESC',
+CREATE_DATE_ASC : 'CREATE_DATE_ASC',
 };
 
 module.exports.PinType = {
