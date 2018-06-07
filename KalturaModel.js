@@ -13474,12 +13474,12 @@ class BaseSearchAssetFilter extends AssetFilter{
  * (maximum length of entire filter is 2048 characters)
 	 * @return string
 	 */
-	 getKsql() {
-	 	return this.ksql;
+	 getKSql() {
+	 	return this.kSql;
 	 }
 	
 	/**
-	 * @param ksql string Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
+	 * @param kSql string Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
  * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
  * epg_id, media_id - for specific asset IDs.
  * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restricted to the user by geo-block rules will return.
@@ -13494,8 +13494,8 @@ class BaseSearchAssetFilter extends AssetFilter{
  * Search values are limited to 20 characters each for the next operators: ~, !~, ^, ^=
  * (maximum length of entire filter is 2048 characters)
 	 */
-	 setKsql(ksql) {
-	 	this.ksql = ksql;
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
 	 }
 	
 	/**
