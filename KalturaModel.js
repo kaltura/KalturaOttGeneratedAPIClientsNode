@@ -9547,6 +9547,14 @@ class Condition extends kaltura.BaseObject{
 	}
 	
 	/**
+	 * The type of the condition
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
 	 * Description
 	 * @return string
 	 */
@@ -9801,6 +9809,48 @@ class CountryCondition extends Condition{
 	 }
 }
 module.exports.CountryCondition = CountryCondition;
+
+/**
+ *
+ */
+class ConcurrencyCondition extends AssetCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaConcurrencyCondition';
+	}
+	
+	/**
+	 * Concurrency limitation
+	 * @return int
+	 */
+	 getLimit() {
+	 	return this.limit;
+	 }
+	
+	/**
+	 * @param limit int Concurrency limitation
+	 */
+	 setLimit(limit) {
+	 	this.limit = limit;
+	 }
+	
+	/**
+	 * Concurrency limitation type
+	 * @return string
+	 */
+	 getConcurrencyLimitationType() {
+	 	return this.concurrencyLimitationType;
+	 }
+	
+	/**
+	 * @param concurrencyLimitationType string Concurrency limitation type
+	 */
+	 setConcurrencyLimitationType(concurrencyLimitationType) {
+	 	this.concurrencyLimitationType = concurrencyLimitationType;
+	 }
+}
+module.exports.ConcurrencyCondition = ConcurrencyCondition;
 
 /**
  *
@@ -14539,6 +14589,33 @@ class AssetHistoryFilter extends Filter{
 	 }
 }
 module.exports.AssetHistoryFilter = AssetHistoryFilter;
+
+/**
+ *
+ */
+class AssetRuleFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetRuleFilter';
+	}
+	
+	/**
+	 * Indicates if to get the asset user rule list for the attached user or for the entire group
+	 * @return string
+	 */
+	 getConditionsContainType() {
+	 	return this.conditionsContainType;
+	 }
+	
+	/**
+	 * @param conditionsContainType string Indicates if to get the asset user rule list for the attached user or for the entire group
+	 */
+	 setConditionsContainType(conditionsContainType) {
+	 	this.conditionsContainType = conditionsContainType;
+	 }
+}
+module.exports.AssetRuleFilter = AssetRuleFilter;
 
 /**
  *

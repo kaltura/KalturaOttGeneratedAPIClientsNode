@@ -98,6 +98,10 @@ START_DATE_ASC : 'START_DATE_ASC',
 LIKES_DESC : 'LIKES_DESC',
 };
 
+module.exports.AssetRuleOrderBy = {
+NONE : 'NONE',
+};
+
 module.exports.AssetType = {
 MEDIA : 'media',
 RECORDING : 'recording',
@@ -180,6 +184,11 @@ NONE : 'NONE',
 module.exports.CompensationType = {
 PERCENTAGE : 'PERCENTAGE',
 FIXED_AMOUNT : 'FIXED_AMOUNT',
+};
+
+module.exports.ConcurrencyLimitationType = {
+SINGLE : 'Single',
+GROUP : 'Group',
 };
 
 module.exports.ConfigurationGroupDeviceOrderBy = {
@@ -569,6 +578,12 @@ BLOCK : 'BLOCK',
 START_DATE_OFFSET : 'START_DATE_OFFSET',
 END_DATE_OFFSET : 'END_DATE_OFFSET',
 USER_BLOCK : 'USER_BLOCK',
+};
+
+module.exports.RuleConditionType = {
+ASSET : 'ASSET',
+COUNTRY : 'COUNTRY',
+CONCURRENCY : 'CONCURRENCY',
 };
 
 module.exports.RuleLevel = {

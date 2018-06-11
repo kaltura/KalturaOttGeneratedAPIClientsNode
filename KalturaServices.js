@@ -410,10 +410,12 @@ class assetRule{
 	
 	/**
 	 * Get the list of asset rules for the partner.
+	 * @param filter AssetRuleFilter filter by condition name (optional, default: null)
 	 * @return KalturaAssetRuleListResponse
 	 */
-	static listAction(){
+	static listAction(filter = null){
 		let kparams = {};
+		kparams.filter = filter;
 		return new kaltura.RequestBuilder('assetrule', 'list', kparams);
 	};
 	
