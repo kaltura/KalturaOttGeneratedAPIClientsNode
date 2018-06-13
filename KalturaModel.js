@@ -14601,7 +14601,7 @@ class AssetRuleFilter extends Filter{
 	}
 	
 	/**
-	 * Indicates if to get the asset user rule list for the attached user or for the entire group
+	 * Indicates which asset rule list to return by it KalturaRuleConditionType
 	 * @return string
 	 */
 	 getConditionsContainType() {
@@ -14609,10 +14609,25 @@ class AssetRuleFilter extends Filter{
 	 }
 	
 	/**
-	 * @param conditionsContainType string Indicates if to get the asset user rule list for the attached user or for the entire group
+	 * @param conditionsContainType string Indicates which asset rule list to return by it KalturaRuleConditionType
 	 */
 	 setConditionsContainType(conditionsContainType) {
 	 	this.conditionsContainType = conditionsContainType;
+	 }
+	
+	/**
+	 * Indicates if to return an asset rule list that related to specific asset
+	 * @return SlimAsset
+	 */
+	 getAssetApplied() {
+	 	return this.assetApplied;
+	 }
+	
+	/**
+	 * @param assetApplied SlimAsset Indicates if to return an asset rule list that related to specific asset
+	 */
+	 setAssetApplied(assetApplied) {
+	 	this.assetApplied = assetApplied;
 	 }
 }
 module.exports.AssetRuleFilter = AssetRuleFilter;
