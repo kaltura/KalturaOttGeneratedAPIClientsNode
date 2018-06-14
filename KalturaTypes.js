@@ -98,10 +98,6 @@ START_DATE_ASC : 'START_DATE_ASC',
 LIKES_DESC : 'LIKES_DESC',
 };
 
-module.exports.AssetRuleOrderBy = {
-NONE : 'NONE',
-};
-
 module.exports.AssetType = {
 MEDIA : 'media',
 RECORDING : 'recording',
@@ -184,11 +180,6 @@ NONE : 'NONE',
 module.exports.CompensationType = {
 PERCENTAGE : 'PERCENTAGE',
 FIXED_AMOUNT : 'FIXED_AMOUNT',
-};
-
-module.exports.ConcurrencyLimitationType = {
-SINGLE : 'Single',
-GROUP : 'Group',
 };
 
 module.exports.ConfigurationGroupDeviceOrderBy = {
@@ -454,11 +445,6 @@ START_DATE_DESC : 'START_DATE_DESC',
 START_DATE_ASC : 'START_DATE_ASC',
 };
 
-module.exports.PersonalListOrderBy = {
-CREATE_DATE_DESC : 'CREATE_DATE_DESC',
-CREATE_DATE_ASC : 'CREATE_DATE_ASC',
-};
-
 module.exports.PinType = {
 PURCHASE : 'purchase',
 PARENTAL : 'parental',
@@ -578,12 +564,6 @@ BLOCK : 'BLOCK',
 START_DATE_OFFSET : 'START_DATE_OFFSET',
 END_DATE_OFFSET : 'END_DATE_OFFSET',
 USER_BLOCK : 'USER_BLOCK',
-};
-
-module.exports.RuleConditionType = {
-ASSET : 'ASSET',
-COUNTRY : 'COUNTRY',
-CONCURRENCY : 'CONCURRENCY',
 };
 
 module.exports.RuleLevel = {

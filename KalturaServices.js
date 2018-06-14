@@ -410,12 +410,10 @@ class assetRule{
 	
 	/**
 	 * Get the list of asset rules for the partner.
-	 * @param filter AssetRuleFilter filter by condition name (optional, default: null)
 	 * @return KalturaAssetRuleListResponse
 	 */
-	static listAction(filter = null){
+	static listAction(){
 		let kparams = {};
-		kparams.filter = filter;
 		return new kaltura.RequestBuilder('assetrule', 'list', kparams);
 	};
 	
@@ -1806,22 +1804,18 @@ module.exports.favorite = favorite;
 /**
  *Class definition for the Kaltura service: followTvSeries.
  * The available service actions:
- * @action add (Deprecated - use personalList.add)
- * Add a user&#39;s tv series follow.
+ * @action add Add a user&#39;s tv series follow.
  * Possible status codes: UserAlreadyFollowing = 8013, NotFound = 500007, InvalidAssetId = 4024.
- * @action delete (Deprecated - use personalList.delete)
- * Delete a user&#39;s tv series follow.
+ * @action delete Delete a user&#39;s tv series follow.
  * Possible status codes: UserNotFollowing = 8012, NotFound = 500007, InvalidAssetId = 4024, AnnouncementNotFound = 8006.
  * @action deleteWithToken Delete a user&#39;s tv series follow.
- * @action list (Deprecated - use personalList.list)
- * List user&#39;s tv series follows.
+ * @action list List user&#39;s tv series follows.
  * Possible status codes:.
  */
 class followTvSeries{
 	
 	/**
-	 * (Deprecated - use personalList.add)
- * Add a user&#39;s tv series follow.
+	 * Add a user&#39;s tv series follow.
  * Possible status codes: UserAlreadyFollowing = 8013, NotFound = 500007, InvalidAssetId = 4024.
 	 * @param followTvSeries FollowTvSeries Follow series request parameters
 	 * @return KalturaFollowTvSeries
@@ -1833,8 +1827,7 @@ class followTvSeries{
 	};
 	
 	/**
-	 * (Deprecated - use personalList.delete)
- * Delete a user&#39;s tv series follow.
+	 * Delete a user&#39;s tv series follow.
  * Possible status codes: UserNotFollowing = 8012, NotFound = 500007, InvalidAssetId = 4024, AnnouncementNotFound = 8006.
 	 * @param assetId int Asset identifier
 	 * @return bool
@@ -1860,8 +1853,7 @@ class followTvSeries{
 	};
 	
 	/**
-	 * (Deprecated - use personalList.list)
- * List user&#39;s tv series follows.
+	 * List user&#39;s tv series follows.
  * Possible status codes:.
 	 * @param filter FollowTvSeriesFilter Follow TV series filter
 	 * @param pager FilterPager pager (optional, default: null)
@@ -3364,54 +3356,6 @@ class personalFeed{
 	};
 }
 module.exports.personalFeed = personalFeed;
-
-
-/**
- *Class definition for the Kaltura service: personalList.
- * The available service actions:
- * @action add Add a user&#39;s personal list item to follow.
- * @action delete Remove followed item from user&#39;s personal list.
- * @action list List user&#39;s tv personal item to follow.
- * Possible status codes:.
- */
-class personalList{
-	
-	/**
-	 * Add a user&#39;s personal list item to follow.
-	 * @param personalList PersonalList Follow personal list item request parameters
-	 * @return KalturaPersonalList
-	 */
-	static add(personalList){
-		let kparams = {};
-		kparams.personalList = personalList;
-		return new kaltura.RequestBuilder('personallist', 'add', kparams);
-	};
-	
-	/**
-	 * Remove followed item from user&#39;s personal list.
-	 * @param personalListId int personalListId identifier
-	 */
-	static deleteAction(personalListId){
-		let kparams = {};
-		kparams.personalListId = personalListId;
-		return new kaltura.RequestBuilder('personallist', 'delete', kparams);
-	};
-	
-	/**
-	 * List user&#39;s tv personal item to follow.
- * Possible status codes:.
-	 * @param filter PersonalListFilter Personal list filter (optional, default: null)
-	 * @param pager FilterPager pager (optional, default: null)
-	 * @return KalturaPersonalListListResponse
-	 */
-	static listAction(filter = null, pager = null){
-		let kparams = {};
-		kparams.filter = filter;
-		kparams.pager = pager;
-		return new kaltura.RequestBuilder('personallist', 'list', kparams);
-	};
-}
-module.exports.personalList = personalList;
 
 
 /**

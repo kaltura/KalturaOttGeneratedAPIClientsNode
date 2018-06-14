@@ -6035,132 +6035,6 @@ module.exports.ProductsPriceListResponse = ProductsPriceListResponse;
 /**
  *
  */
-class PersonalList extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPersonalList';
-	}
-	
-	/**
-	 * Id
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
-	 * Create Date
-	 * @return int
-	 */
-	 getCreateDate() {
-	 	return this.createDate;
-	 }
-	
-	/**
-	 * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
- * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
- * epg_id, media_id - for specific asset IDs.
- * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restricted to the user by geo-block rules will return.
- * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
- * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
- * epg_channel_id – the channel identifier of the EPG program.
- * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
- * asset_type - valid values: &quot;media&quot;, &quot;epg&quot;, &quot;recording&quot; or any number that represents media type in group.
- * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
- * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
- * Logical conjunction: and, or.
- * Search values are limited to 20 characters each for the next operators: ~, !~, ^, ^=
- * (maximum length of entire filter is 2048 characters)
-	 * @return string
-	 */
-	 getKsql() {
-	 	return this.ksql;
-	 }
-	
-	/**
-	 * @param ksql string Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
- * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
- * epg_id, media_id - for specific asset IDs.
- * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restricted to the user by geo-block rules will return.
- * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
- * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
- * epg_channel_id – the channel identifier of the EPG program.
- * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
- * asset_type - valid values: &quot;media&quot;, &quot;epg&quot;, &quot;recording&quot; or any number that represents media type in group.
- * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
- * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
- * Logical conjunction: and, or.
- * Search values are limited to 20 characters each for the next operators: ~, !~, ^, ^=
- * (maximum length of entire filter is 2048 characters)
-	 */
-	 setKsql(ksql) {
-	 	this.ksql = ksql;
-	 }
-	
-	/**
-	 * Partner List Type (optional)
-	 * @return int
-	 */
-	 getPartnerListType() {
-	 	return this.partnerListType;
-	 }
-	
-	/**
-	 * @param partnerListType int Partner List Type (optional)
-	 */
-	 setPartnerListType(partnerListType) {
-	 	this.partnerListType = partnerListType;
-	 }
-}
-module.exports.PersonalList = PersonalList;
-
-/**
- *
- */
-class PersonalListListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPersonalListListResponse';
-	}
-	
-	/**
-	 * Follow data list
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array Follow data list
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.PersonalListListResponse = PersonalListListResponse;
-
-/**
- *
- */
 class Engagement extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -9547,14 +9421,6 @@ class Condition extends kaltura.BaseObject{
 	}
 	
 	/**
-	 * The type of the condition
-	 * @return string
-	 */
-	 getType() {
-	 	return this.type;
-	 }
-	
-	/**
 	 * Description
 	 * @return string
 	 */
@@ -9809,48 +9675,6 @@ class CountryCondition extends Condition{
 	 }
 }
 module.exports.CountryCondition = CountryCondition;
-
-/**
- *
- */
-class ConcurrencyCondition extends AssetCondition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaConcurrencyCondition';
-	}
-	
-	/**
-	 * Concurrency limitation
-	 * @return int
-	 */
-	 getLimit() {
-	 	return this.limit;
-	 }
-	
-	/**
-	 * @param limit int Concurrency limitation
-	 */
-	 setLimit(limit) {
-	 	this.limit = limit;
-	 }
-	
-	/**
-	 * Concurrency limitation type
-	 * @return string
-	 */
-	 getConcurrencyLimitationType() {
-	 	return this.concurrencyLimitationType;
-	 }
-	
-	/**
-	 * @param concurrencyLimitationType string Concurrency limitation type
-	 */
-	 setConcurrencyLimitationType(concurrencyLimitationType) {
-	 	this.concurrencyLimitationType = concurrencyLimitationType;
-	 }
-}
-module.exports.ConcurrencyCondition = ConcurrencyCondition;
 
 /**
  *
@@ -13093,35 +12917,6 @@ module.exports.SubscriptionFilter = SubscriptionFilter;
 /**
  *
  */
-class PersonalListFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPersonalListFilter';
-	}
-	
-	/**
-	 * Comma separated list of partner list types to search within.
- * If omitted – all types should be included
-	 * @return string
-	 */
-	 getPartnerListTypeIn() {
-	 	return this.partnerListTypeIn;
-	 }
-	
-	/**
-	 * @param partnerListTypeIn string Comma separated list of partner list types to search within.
- * If omitted – all types should be included
-	 */
-	 setPartnerListTypeIn(partnerListTypeIn) {
-	 	this.partnerListTypeIn = partnerListTypeIn;
-	 }
-}
-module.exports.PersonalListFilter = PersonalListFilter;
-
-/**
- *
- */
 class EngagementFilter extends Filter{
 	
 	constructor(object = null) {
@@ -13508,47 +13303,6 @@ class BaseSearchAssetFilter extends AssetFilter{
 	}
 	
 	/**
-	 * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
- * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
- * epg_id, media_id - for specific asset IDs.
- * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restricted to the user by geo-block rules will return.
- * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
- * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
- * epg_channel_id – the channel identifier of the EPG program.
- * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
- * asset_type - valid values: &quot;media&quot;, &quot;epg&quot;, &quot;recording&quot; or any number that represents media type in group.
- * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
- * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
- * Logical conjunction: and, or.
- * Search values are limited to 20 characters each for the next operators: ~, !~, ^, ^=
- * (maximum length of entire filter is 2048 characters)
-	 * @return string
-	 */
-	 getKSql() {
-	 	return this.kSql;
-	 }
-	
-	/**
-	 * @param kSql string Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
- * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
- * epg_id, media_id - for specific asset IDs.
- * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restricted to the user by geo-block rules will return.
- * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
- * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
- * epg_channel_id – the channel identifier of the EPG program.
- * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
- * asset_type - valid values: &quot;media&quot;, &quot;epg&quot;, &quot;recording&quot; or any number that represents media type in group.
- * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
- * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
- * Logical conjunction: and, or.
- * Search values are limited to 20 characters each for the next operators: ~, !~, ^, ^=
- * (maximum length of entire filter is 2048 characters)
-	 */
-	 setKSql(kSql) {
-	 	this.kSql = kSql;
-	 }
-	
-	/**
 	 * groupBy
 	 * @return array
 	 */
@@ -13568,35 +13322,6 @@ module.exports.BaseSearchAssetFilter = BaseSearchAssetFilter;
 /**
  *
  */
-class PersonalListSearchFilter extends BaseSearchAssetFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPersonalListSearchFilter';
-	}
-	
-	/**
-	 * Comma separated list of partner list types to search within.
- * If omitted – all types should be included
-	 * @return string
-	 */
-	 getPartnerListTypeIn() {
-	 	return this.partnerListTypeIn;
-	 }
-	
-	/**
-	 * @param partnerListTypeIn string Comma separated list of partner list types to search within.
- * If omitted – all types should be included
-	 */
-	 setPartnerListTypeIn(partnerListTypeIn) {
-	 	this.partnerListTypeIn = partnerListTypeIn;
-	 }
-}
-module.exports.PersonalListSearchFilter = PersonalListSearchFilter;
-
-/**
- *
- */
 class SearchAssetFilter extends BaseSearchAssetFilter{
 	
 	constructor(object = null) {
@@ -13605,8 +13330,46 @@ class SearchAssetFilter extends BaseSearchAssetFilter{
 	}
 	
 	/**
-	 * (Deprecated - use KalturaBaseSearchAssetFilter.kSql)
- * Comma separated list of asset types to search within.
+	 * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
+ * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
+ * epg_id, media_id - for specific asset IDs.
+ * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restriced to the user by geo-block rules will return.
+ * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
+ * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
+ * epg_channel_id – the channel identifier of the EPG program.
+ * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
+ * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
+ * Logical conjunction: and, or.
+ * Search values are limited to 20 characters each.
+ * (maximum length of entire filter is 2048 characters)
+	 * @return string
+	 */
+	 getKSql() {
+	 	return this.kSql;
+	 }
+	
+	/**
+	 * @param kSql string Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
+ * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
+ * epg_id, media_id - for specific asset IDs.
+ * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restriced to the user by geo-block rules will return.
+ * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
+ * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
+ * epg_channel_id – the channel identifier of the EPG program.
+ * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
+ * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
+ * Logical conjunction: and, or.
+ * Search values are limited to 20 characters each.
+ * (maximum length of entire filter is 2048 characters)
+	 */
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
+	 }
+	
+	/**
+	 * Comma separated list of asset types to search within.
  * Possible values: 0 – EPG linear programs entries; 1 - Recordings; Any media type ID (according to media type IDs defined dynamically in the system).
  * If omitted – all types should be included
 	 * @return string
@@ -13616,8 +13379,7 @@ class SearchAssetFilter extends BaseSearchAssetFilter{
 	 }
 	
 	/**
-	 * @param typeIn string (Deprecated - use KalturaBaseSearchAssetFilter.kSql)
- * Comma separated list of asset types to search within.
+	 * @param typeIn string Comma separated list of asset types to search within.
  * Possible values: 0 – EPG linear programs entries; 1 - Recordings; Any media type ID (according to media type IDs defined dynamically in the system).
  * If omitted – all types should be included
 	 */
@@ -13885,20 +13647,18 @@ class ChannelFilter extends AssetFilter{
 	 }
 	
 	/**
-	 * ///
- * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
+	 * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
  * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
  * epg_id, media_id - for specific asset IDs.
- * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restricted to the user by geo-block rules will return.
+ * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restriced to the user by geo-block rules will return.
  * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
  * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
  * epg_channel_id – the channel identifier of the EPG program.
  * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
- * asset_type - valid values: &quot;media&quot;, &quot;epg&quot;, &quot;recording&quot; or any number that represents media type in group.
  * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
  * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
  * Logical conjunction: and, or.
- * Search values are limited to 20 characters each for the next operators: ~, !~, ^, ^=
+ * Search values are limited to 20 characters each.
  * (maximum length of entire filter is 2048 characters)
 	 * @return string
 	 */
@@ -13907,20 +13667,18 @@ class ChannelFilter extends AssetFilter{
 	 }
 	
 	/**
-	 * @param kSql string ///
- * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
+	 * @param kSql string Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
  * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
  * epg_id, media_id - for specific asset IDs.
- * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restricted to the user by geo-block rules will return.
+ * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restriced to the user by geo-block rules will return.
  * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
  * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
  * epg_channel_id – the channel identifier of the EPG program.
  * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
- * asset_type - valid values: &quot;media&quot;, &quot;epg&quot;, &quot;recording&quot; or any number that represents media type in group.
  * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
  * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
  * Logical conjunction: and, or.
- * Search values are limited to 20 characters each for the next operators: ~, !~, ^, ^=
+ * Search values are limited to 20 characters each.
  * (maximum length of entire filter is 2048 characters)
 	 */
 	 setKSql(kSql) {
@@ -13955,6 +13713,45 @@ class RelatedFilter extends BaseSearchAssetFilter{
 	}
 	
 	/**
+	 * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
+ * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
+ * epg_id, media_id - for specific asset IDs.
+ * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restriced to the user by geo-block rules will return.
+ * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
+ * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
+ * epg_channel_id – the channel identifier of the EPG program.
+ * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
+ * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
+ * Logical conjunction: and, or.
+ * Search values are limited to 20 characters each.
+ * (maximum length of entire filter is 2048 characters)
+	 * @return string
+	 */
+	 getKSql() {
+	 	return this.kSql;
+	 }
+	
+	/**
+	 * @param kSql string Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
+ * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
+ * epg_id, media_id - for specific asset IDs.
+ * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restriced to the user by geo-block rules will return.
+ * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
+ * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
+ * epg_channel_id – the channel identifier of the EPG program.
+ * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
+ * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
+ * Logical conjunction: and, or.
+ * Search values are limited to 20 characters each.
+ * (maximum length of entire filter is 2048 characters)
+	 */
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
+	 }
+	
+	/**
 	 * the ID of the asset for which to return related assets
 	 * @return int
 	 */
@@ -13970,8 +13767,7 @@ class RelatedFilter extends BaseSearchAssetFilter{
 	 }
 	
 	/**
-	 * (Deprecated - use KalturaBaseSearchAssetFilter.kSql)
- * Comma separated list of asset types to search within.
+	 * Comma separated list of asset types to search within.
  * Possible values: any media type ID (according to media type IDs defined dynamically in the system).
  * If omitted –   same type as the provided asset
 	 * @return string
@@ -13981,8 +13777,7 @@ class RelatedFilter extends BaseSearchAssetFilter{
 	 }
 	
 	/**
-	 * @param typeIn string (Deprecated - use KalturaBaseSearchAssetFilter.kSql)
- * Comma separated list of asset types to search within.
+	 * @param typeIn string Comma separated list of asset types to search within.
  * Possible values: any media type ID (according to media type IDs defined dynamically in the system).
  * If omitted –   same type as the provided asset
 	 */
@@ -14589,48 +14384,6 @@ class AssetHistoryFilter extends Filter{
 	 }
 }
 module.exports.AssetHistoryFilter = AssetHistoryFilter;
-
-/**
- *
- */
-class AssetRuleFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetRuleFilter';
-	}
-	
-	/**
-	 * Indicates which asset rule list to return by it KalturaRuleConditionType
-	 * @return string
-	 */
-	 getConditionsContainType() {
-	 	return this.conditionsContainType;
-	 }
-	
-	/**
-	 * @param conditionsContainType string Indicates which asset rule list to return by it KalturaRuleConditionType
-	 */
-	 setConditionsContainType(conditionsContainType) {
-	 	this.conditionsContainType = conditionsContainType;
-	 }
-	
-	/**
-	 * Indicates if to return an asset rule list that related to specific asset
-	 * @return SlimAsset
-	 */
-	 getAssetApplied() {
-	 	return this.assetApplied;
-	 }
-	
-	/**
-	 * @param assetApplied SlimAsset Indicates if to return an asset rule list that related to specific asset
-	 */
-	 setAssetApplied(assetApplied) {
-	 	this.assetApplied = assetApplied;
-	 }
-}
-module.exports.AssetRuleFilter = AssetRuleFilter;
 
 /**
  *
