@@ -326,7 +326,6 @@ class assetFile{
 	 * @param assetFileId int Asset file identifier
 	 * @param contextType string Playback context type (enum: KalturaPlaybackContextType)
 	 * @param ks string Kaltura session for the user, not mandatory for anonymous user (optional, default: null)
-	 * @return KalturaAssetFile
 	 */
 	static playManifest(partnerId, assetId, assetType, assetFileId, contextType, ks = null){
 		let kparams = {};
@@ -377,65 +376,6 @@ module.exports.assetHistory = assetHistory;
 
 
 /**
- *Class definition for the Kaltura service: assetRule.
- * The available service actions:
- * @action add Add asset rule.
- * @action delete Delete asset rule.
- * @action list Get the list of asset rules for the partner.
- * @action update Update asset rule.
- */
-class assetRule{
-	
-	/**
-	 * Add asset rule.
-	 * @param assetRule AssetRule Asset rule
-	 * @return KalturaAssetRule
-	 */
-	static add(assetRule){
-		let kparams = {};
-		kparams.assetRule = assetRule;
-		return new kaltura.RequestBuilder('assetrule', 'add', kparams);
-	};
-	
-	/**
-	 * Delete asset rule.
-	 * @param id int Asset rule ID
-	 * @return bool
-	 */
-	static deleteAction(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('assetrule', 'delete', kparams);
-	};
-	
-	/**
-	 * Get the list of asset rules for the partner.
-	 * @param filter AssetRuleFilter filter by condition name (optional, default: null)
-	 * @return KalturaAssetRuleListResponse
-	 */
-	static listAction(filter = null){
-		let kparams = {};
-		kparams.filter = filter;
-		return new kaltura.RequestBuilder('assetrule', 'list', kparams);
-	};
-	
-	/**
-	 * Update asset rule.
-	 * @param id int Asset rule ID to update
-	 * @param assetRule AssetRule Asset rule
-	 * @return KalturaAssetRule
-	 */
-	static update(id, assetRule){
-		let kparams = {};
-		kparams.id = id;
-		kparams.assetRule = assetRule;
-		return new kaltura.RequestBuilder('assetrule', 'update', kparams);
-	};
-}
-module.exports.assetRule = assetRule;
-
-
-/**
  *Class definition for the Kaltura service: assetStatistics.
  * The available service actions:
  * @action query Returns statistics for given list of assets by type and / or time period.
@@ -454,86 +394,6 @@ class assetStatistics{
 	};
 }
 module.exports.assetStatistics = assetStatistics;
-
-
-/**
- *Class definition for the Kaltura service: assetUserRule.
- * The available service actions:
- * @action add Add asset user rule.
- * @action attachUser Attach AssetUserRule To User.
- * @action delete Delete asset user rule.
- * @action detachUser Detach AssetUserRule from user.
- * @action list Get the list of asset user rules for the partner.
- * @action update Update asset user rule.
- */
-class assetUserRule{
-	
-	/**
-	 * Add asset user rule.
-	 * @param assetUserRule AssetUserRule Asset user rule
-	 * @return KalturaAssetUserRule
-	 */
-	static add(assetUserRule){
-		let kparams = {};
-		kparams.assetUserRule = assetUserRule;
-		return new kaltura.RequestBuilder('assetuserrule', 'add', kparams);
-	};
-	
-	/**
-	 * Attach AssetUserRule To User.
-	 * @param ruleId int AssetUserRule id to add
-	 */
-	static attachUser(ruleId){
-		let kparams = {};
-		kparams.ruleId = ruleId;
-		return new kaltura.RequestBuilder('assetuserrule', 'attachUser', kparams);
-	};
-	
-	/**
-	 * Delete asset user rule.
-	 * @param id int Asset user rule ID
-	 */
-	static deleteAction(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('assetuserrule', 'delete', kparams);
-	};
-	
-	/**
-	 * Detach AssetUserRule from user.
-	 * @param ruleId int AssetUserRule id to remove
-	 */
-	static detachUser(ruleId){
-		let kparams = {};
-		kparams.ruleId = ruleId;
-		return new kaltura.RequestBuilder('assetuserrule', 'detachUser', kparams);
-	};
-	
-	/**
-	 * Get the list of asset user rules for the partner.
-	 * @param filter AssetUserRuleFilter AssetUserRule Filter (optional, default: null)
-	 * @return KalturaAssetUserRuleListResponse
-	 */
-	static listAction(filter = null){
-		let kparams = {};
-		kparams.filter = filter;
-		return new kaltura.RequestBuilder('assetuserrule', 'list', kparams);
-	};
-	
-	/**
-	 * Update asset user rule.
-	 * @param id int Asset user rule ID to update
-	 * @param assetUserRule AssetUserRule Asset user rule
-	 * @return KalturaAssetUserRule
-	 */
-	static update(id, assetUserRule){
-		let kparams = {};
-		kparams.id = id;
-		kparams.assetUserRule = assetUserRule;
-		return new kaltura.RequestBuilder('assetuserrule', 'update', kparams);
-	};
-}
-module.exports.assetUserRule = assetUserRule;
 
 
 /**
@@ -1307,27 +1167,6 @@ module.exports.deviceFamily = deviceFamily;
 
 
 /**
- *Class definition for the Kaltura service: discountDetails.
- * The available service actions:
- * @action list Returns the list of available discounts details, can be filtered by discount codes.
- */
-class discountDetails{
-	
-	/**
-	 * Returns the list of available discounts details, can be filtered by discount codes.
-	 * @param filter DiscountDetailsFilter Filter (optional, default: null)
-	 * @return KalturaDiscountDetailsListResponse
-	 */
-	static listAction(filter = null){
-		let kparams = {};
-		kparams.filter = filter;
-		return new kaltura.RequestBuilder('discountdetails', 'list', kparams);
-	};
-}
-module.exports.discountDetails = discountDetails;
-
-
-/**
  *Class definition for the Kaltura service: email.
  * The available service actions:
  * @action send Sends email notification.
@@ -1806,22 +1645,18 @@ module.exports.favorite = favorite;
 /**
  *Class definition for the Kaltura service: followTvSeries.
  * The available service actions:
- * @action add (Deprecated - use personalList.add)
- * Add a user&#39;s tv series follow.
+ * @action add Add a user&#39;s tv series follow.
  * Possible status codes: UserAlreadyFollowing = 8013, NotFound = 500007, InvalidAssetId = 4024.
- * @action delete (Deprecated - use personalList.delete)
- * Delete a user&#39;s tv series follow.
+ * @action delete Delete a user&#39;s tv series follow.
  * Possible status codes: UserNotFollowing = 8012, NotFound = 500007, InvalidAssetId = 4024, AnnouncementNotFound = 8006.
  * @action deleteWithToken Delete a user&#39;s tv series follow.
- * @action list (Deprecated - use personalList.list)
- * List user&#39;s tv series follows.
+ * @action list List user&#39;s tv series follows.
  * Possible status codes:.
  */
 class followTvSeries{
 	
 	/**
-	 * (Deprecated - use personalList.add)
- * Add a user&#39;s tv series follow.
+	 * Add a user&#39;s tv series follow.
  * Possible status codes: UserAlreadyFollowing = 8013, NotFound = 500007, InvalidAssetId = 4024.
 	 * @param followTvSeries FollowTvSeries Follow series request parameters
 	 * @return KalturaFollowTvSeries
@@ -1833,8 +1668,7 @@ class followTvSeries{
 	};
 	
 	/**
-	 * (Deprecated - use personalList.delete)
- * Delete a user&#39;s tv series follow.
+	 * Delete a user&#39;s tv series follow.
  * Possible status codes: UserNotFollowing = 8012, NotFound = 500007, InvalidAssetId = 4024, AnnouncementNotFound = 8006.
 	 * @param assetId int Asset identifier
 	 * @return bool
@@ -1860,8 +1694,7 @@ class followTvSeries{
 	};
 	
 	/**
-	 * (Deprecated - use personalList.list)
- * List user&#39;s tv series follows.
+	 * List user&#39;s tv series follows.
  * Possible status codes:.
 	 * @param filter FollowTvSeriesFilter Follow TV series filter
 	 * @param pager FilterPager pager (optional, default: null)
@@ -3364,54 +3197,6 @@ class personalFeed{
 	};
 }
 module.exports.personalFeed = personalFeed;
-
-
-/**
- *Class definition for the Kaltura service: personalList.
- * The available service actions:
- * @action add Add a user&#39;s personal list item to follow.
- * @action delete Remove followed item from user&#39;s personal list.
- * @action list List user&#39;s tv personal item to follow.
- * Possible status codes:.
- */
-class personalList{
-	
-	/**
-	 * Add a user&#39;s personal list item to follow.
-	 * @param personalList PersonalList Follow personal list item request parameters
-	 * @return KalturaPersonalList
-	 */
-	static add(personalList){
-		let kparams = {};
-		kparams.personalList = personalList;
-		return new kaltura.RequestBuilder('personallist', 'add', kparams);
-	};
-	
-	/**
-	 * Remove followed item from user&#39;s personal list.
-	 * @param personalListId int personalListId identifier
-	 */
-	static deleteAction(personalListId){
-		let kparams = {};
-		kparams.personalListId = personalListId;
-		return new kaltura.RequestBuilder('personallist', 'delete', kparams);
-	};
-	
-	/**
-	 * List user&#39;s tv personal item to follow.
- * Possible status codes:.
-	 * @param filter PersonalListFilter Personal list filter (optional, default: null)
-	 * @param pager FilterPager pager (optional, default: null)
-	 * @return KalturaPersonalListListResponse
-	 */
-	static listAction(filter = null, pager = null){
-		let kparams = {};
-		kparams.filter = filter;
-		kparams.pager = pager;
-		return new kaltura.RequestBuilder('personallist', 'list', kparams);
-	};
-}
-module.exports.personalList = personalList;
 
 
 /**
