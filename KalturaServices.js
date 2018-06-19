@@ -4311,6 +4311,75 @@ module.exports.socialFriendActivity = socialFriendActivity;
 
 
 /**
+ *Class definition for the Kaltura service: ssoAdapterProfile.
+ * The available service actions:
+ * @action add Insert new sso adapter for partner.
+ * @action delete Delete sso adapters by sso adapters id.
+ * @action generateSharedSecret Generate SSO Adapter shared secret.
+ * @action list Returns all sso adapters for partner : id + name.
+ * @action update Update sso adapter details.
+ */
+class ssoAdapterProfile{
+	
+	/**
+	 * Insert new sso adapter for partner.
+	 * @param ssoAdapter SSOAdapterProfile SSO Adapter Object to be added
+	 * @return KalturaSSOAdapterProfile
+	 */
+	static add(ssoAdapter){
+		let kparams = {};
+		kparams.ssoAdapter = ssoAdapter;
+		return new kaltura.RequestBuilder('ssoadapterprofile', 'add', kparams);
+	};
+	
+	/**
+	 * Delete sso adapters by sso adapters id.
+	 * @param ssoAdapterId int SSO Adapter Identifier
+	 * @return bool
+	 */
+	static deleteAction(ssoAdapterId){
+		let kparams = {};
+		kparams.ssoAdapterId = ssoAdapterId;
+		return new kaltura.RequestBuilder('ssoadapterprofile', 'delete', kparams);
+	};
+	
+	/**
+	 * Generate SSO Adapter shared secret.
+	 * @param ssoAdapterId int SSO Adapter identifier
+	 * @return KalturaSSOAdapterProfile
+	 */
+	static generateSharedSecret(ssoAdapterId){
+		let kparams = {};
+		kparams.ssoAdapterId = ssoAdapterId;
+		return new kaltura.RequestBuilder('ssoadapterprofile', 'generateSharedSecret', kparams);
+	};
+	
+	/**
+	 * Returns all sso adapters for partner : id + name.
+	 * @return KalturaSSOAdapterProfileListResponse
+	 */
+	static listAction(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('ssoadapterprofile', 'list', kparams);
+	};
+	
+	/**
+	 * Update sso adapter details.
+	 * @param ssoAdapterId int SSO Adapter Identifier
+	 * @param ssoAdapter SSOAdapterProfile SSO Adapter Object
+	 * @return KalturaSSOAdapterProfile
+	 */
+	static update(ssoAdapterId, ssoAdapter){
+		let kparams = {};
+		kparams.ssoAdapterId = ssoAdapterId;
+		kparams.ssoAdapter = ssoAdapter;
+		return new kaltura.RequestBuilder('ssoadapterprofile', 'update', kparams);
+	};
+}
+module.exports.ssoAdapterProfile = ssoAdapterProfile;
+
+
+/**
  *Class definition for the Kaltura service: subscription.
  * The available service actions:
  * @action list Returns a list of subscriptions requested by Subscription ID or file ID.

@@ -2368,6 +2368,143 @@ module.exports.ConfigurationGroupListResponse = ConfigurationGroupListResponse;
 /**
  *
  */
+class SSOAdapterProfile extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSSOAdapterProfile';
+	}
+	
+	/**
+	 * SSO Adapter id
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * SSO Adapter name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string SSO Adapter name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * SSO Adapter is active status
+	 * @return int
+	 */
+	 getIsActive() {
+	 	return this.isActive;
+	 }
+	
+	/**
+	 * @param isActive int SSO Adapter is active status
+	 */
+	 setIsActive(isActive) {
+	 	this.isActive = isActive;
+	 }
+	
+	/**
+	 * SSO Adapter URL
+	 * @return string
+	 */
+	 getAdapterUrl() {
+	 	return this.adapterUrl;
+	 }
+	
+	/**
+	 * @param adapterUrl string SSO Adapter URL
+	 */
+	 setAdapterUrl(adapterUrl) {
+	 	this.adapterUrl = adapterUrl;
+	 }
+	
+	/**
+	 * SSO Adapter extra parameters
+	 * @return map
+	 */
+	 getSsoAdapterSettings() {
+	 	return this.ssoAdapterSettings;
+	 }
+	
+	/**
+	 * @param ssoAdapterSettings map SSO Adapter extra parameters
+	 */
+	 setSsoAdapterSettings(ssoAdapterSettings) {
+	 	this.ssoAdapterSettings = ssoAdapterSettings;
+	 }
+	
+	/**
+	 * SSO Adapter external identifier
+	 * @return string
+	 */
+	 getExternalIdentifier() {
+	 	return this.externalIdentifier;
+	 }
+	
+	/**
+	 * @param externalIdentifier string SSO Adapter external identifier
+	 */
+	 setExternalIdentifier(externalIdentifier) {
+	 	this.externalIdentifier = externalIdentifier;
+	 }
+	
+	/**
+	 * Shared Secret
+	 * @return string
+	 */
+	 getSharedSecret() {
+	 	return this.sharedSecret;
+	 }
+	
+	/**
+	 * @param sharedSecret string Shared Secret
+	 */
+	 setSharedSecret(sharedSecret) {
+	 	this.sharedSecret = sharedSecret;
+	 }
+}
+module.exports.SSOAdapterProfile = SSOAdapterProfile;
+
+/**
+ *
+ */
+class SSOAdapterProfileListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSSOAdapterProfileListResponse';
+	}
+	
+	/**
+	 * A list of payment-gateway profiles
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of payment-gateway profiles
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.SSOAdapterProfileListResponse = SSOAdapterProfileListResponse;
+
+/**
+ *
+ */
 class UserInterestTopic extends kaltura.BaseObject{
 	
 	constructor(object = null) {
