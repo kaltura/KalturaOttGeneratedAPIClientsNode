@@ -2432,15 +2432,15 @@ class SSOAdapterProfile extends kaltura.BaseObject{
 	 * SSO Adapter extra parameters
 	 * @return map
 	 */
-	 getSsoAdapterSettings() {
-	 	return this.ssoAdapterSettings;
+	 getSettings() {
+	 	return this.settings;
 	 }
 	
 	/**
-	 * @param ssoAdapterSettings map SSO Adapter extra parameters
+	 * @param settings map SSO Adapter extra parameters
 	 */
-	 setSsoAdapterSettings(ssoAdapterSettings) {
-	 	this.ssoAdapterSettings = ssoAdapterSettings;
+	 setSettings(settings) {
+	 	this.settings = settings;
 	 }
 	
 	/**
