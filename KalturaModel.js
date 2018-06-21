@@ -15538,6 +15538,21 @@ class PlaybackContextOptions extends kaltura.BaseObject{
 	 setContext(context) {
 	 	this.context = context;
 	 }
+	
+	/**
+	 * Url type
+	 * @return string
+	 */
+	 getUrlType() {
+	 	return this.urlType;
+	 }
+	
+	/**
+	 * @param urlType string Url type
+	 */
+	 setUrlType(urlType) {
+	 	this.urlType = urlType;
+	 }
 }
 module.exports.PlaybackContextOptions = PlaybackContextOptions;
 

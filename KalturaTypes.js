@@ -479,6 +479,7 @@ TRAILER : 'TRAILER',
 CATCHUP : 'CATCHUP',
 START_OVER : 'START_OVER',
 PLAYBACK : 'PLAYBACK',
+DOWNLOAD : 'DOWNLOAD',
 };
 
 module.exports.PositionOwner = {
@@ -736,6 +737,11 @@ module.exports.TransactionType = {
 PPV : 'ppv',
 SUBSCRIPTION : 'subscription',
 COLLECTION : 'collection',
+};
+
+module.exports.UrlType = {
+PLAYMANIFEST : 'PLAYMANIFEST',
+DIRECT : 'DIRECT',
 };
 
 module.exports.UserAssetRuleOrderBy = {
