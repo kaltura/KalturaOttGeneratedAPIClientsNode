@@ -11031,7 +11031,7 @@ class Meta extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Specifies when was the meta was created. Date and time represented as epoch
+	 * Specifies when was the meta created. Date and time represented as epoch
 	 * @return int
 	 */
 	 getCreateDate() {
@@ -12665,10 +12665,34 @@ class ParentalRule extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param origin string Where was this rule defined account, household or user
+	 * active status
+	 * @return bool
 	 */
-	 setOrigin(origin) {
-	 	this.origin = origin;
+	 getIsActive() {
+	 	return this.isActive;
+	 }
+	
+	/**
+	 * @param isActive bool active status
+	 */
+	 setIsActive(isActive) {
+	 	this.isActive = isActive;
+	 }
+	
+	/**
+	 * Specifies when was the parental rule created. Date and time represented as epoch
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * Specifies when was the parental rule last updated. Date and time represented as epoch
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
 	 }
 }
 module.exports.ParentalRule = ParentalRule;

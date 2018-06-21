@@ -3304,13 +3304,39 @@ module.exports.ottUser = ottUser;
 /**
  *Class definition for the Kaltura service: parentalRule.
  * The available service actions:
+ * @action add Add a new parentalRule.
+ * @action delete Delete an existing parentalRule.
  * @action disable Disables a parental rule that was previously defined by the household master. Disable can be at specific user or household level.
  * @action disableDefault Disables a parental rule that was defined at account level. Disable can be at specific user or household level.
  * @action enable Enable a parental rules for a user.
+ * @action get Get an existing parentalRule by identifier.
  * @action list Return the parental rules that applies for the user or household. Can include rules that have been associated in account, household, or user level.
  * Association level is also specified in the response.
+ * @action update Update an existing parentalRule.
  */
 class parentalRule{
+	
+	/**
+	 * Add a new parentalRule.
+	 * @param parentalRule ParentalRule parentalRule object
+	 * @return KalturaParentalRule
+	 */
+	static add(parentalRule){
+		let kparams = {};
+		kparams.parentalRule = parentalRule;
+		return new kaltura.RequestBuilder('parentalrule', 'add', kparams);
+	};
+	
+	/**
+	 * Delete an existing parentalRule.
+	 * @param id int parentalRule identifier
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('parentalrule', 'delete', kparams);
+	};
 	
 	/**
 	 * Disables a parental rule that was previously defined by the household master. Disable can be at specific user or household level.
@@ -3350,6 +3376,17 @@ class parentalRule{
 	};
 	
 	/**
+	 * Get an existing parentalRule by identifier.
+	 * @param id int parentalRule identifier
+	 * @return KalturaParentalRule
+	 */
+	static get(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('parentalrule', 'get', kparams);
+	};
+	
+	/**
 	 * Return the parental rules that applies for the user or household. Can include rules that have been associated in account, household, or user level.
  * Association level is also specified in the response.
 	 * @param filter ParentalRuleFilter Filter
@@ -3359,6 +3396,19 @@ class parentalRule{
 		let kparams = {};
 		kparams.filter = filter;
 		return new kaltura.RequestBuilder('parentalrule', 'list', kparams);
+	};
+	
+	/**
+	 * Update an existing parentalRule.
+	 * @param id int parentalRule identifier
+	 * @param parentalRule ParentalRule parentalRule object
+	 * @return KalturaParentalRule
+	 */
+	static update(id, parentalRule){
+		let kparams = {};
+		kparams.id = id;
+		kparams.parentalRule = parentalRule;
+		return new kaltura.RequestBuilder('parentalrule', 'update', kparams);
 	};
 }
 module.exports.parentalRule = parentalRule;
