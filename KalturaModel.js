@@ -12650,13 +12650,6 @@ class ParentalRule extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param isDefault bool Is the rule the default rule of the account
-	 */
-	 setIsDefault(isDefault) {
-	 	this.isDefault = isDefault;
-	 }
-	
-	/**
 	 * Where was this rule defined account, household or user
 	 * @return string
 	 */
