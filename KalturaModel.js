@@ -8894,6 +8894,21 @@ class Bookmark extends SlimAsset{
 	 setPlayerData(playerData) {
 	 	this.playerData = playerData;
 	 }
+	
+	/**
+	 * Program Id
+	 * @return int
+	 */
+	 getProgramId() {
+	 	return this.programId;
+	 }
+	
+	/**
+	 * @param programId int Program Id
+	 */
+	 setProgramId(programId) {
+	 	this.programId = programId;
+	 }
 }
 module.exports.Bookmark = Bookmark;
 
@@ -9622,6 +9637,129 @@ class AssetHistoryListResponse extends ListResponse{
 	 }
 }
 module.exports.AssetHistoryListResponse = AssetHistoryListResponse;
+
+/**
+ *
+ */
+class PartnerConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPartnerConfiguration';
+	}
+}
+module.exports.PartnerConfiguration = PartnerConfiguration;
+
+/**
+ *
+ */
+class PartnerConfigurationListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPartnerConfigurationListResponse';
+	}
+	
+	/**
+	 * Partner Configurations
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Partner Configurations
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.PartnerConfigurationListResponse = PartnerConfigurationListResponse;
+
+/**
+ *
+ */
+class ConcurrencyPartnerConfig extends PartnerConfiguration{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaConcurrencyPartnerConfig';
+	}
+	
+	/**
+	 * Comma separated list of device Family Ids order by their priority
+	 * @return string
+	 */
+	 getDeviceFamilyIds() {
+	 	return this.deviceFamilyIds;
+	 }
+	
+	/**
+	 * @param deviceFamilyIds string Comma separated list of device Family Ids order by their priority
+	 */
+	 setDeviceFamilyIds(deviceFamilyIds) {
+	 	this.deviceFamilyIds = deviceFamilyIds;
+	 }
+	
+	/**
+	 * Policy of eviction devices
+	 * @return string
+	 */
+	 getEvictionPolicy() {
+	 	return this.evictionPolicy;
+	 }
+	
+	/**
+	 * @param evictionPolicy string Policy of eviction devices
+	 */
+	 setEvictionPolicy(evictionPolicy) {
+	 	this.evictionPolicy = evictionPolicy;
+	 }
+}
+module.exports.ConcurrencyPartnerConfig = ConcurrencyPartnerConfig;
+
+/**
+ *
+ */
+class BillingPartnerConfig extends PartnerConfiguration{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBillingPartnerConfig';
+	}
+	
+	/**
+	 * configuration value
+	 * @return string
+	 */
+	 getValue() {
+	 	return this.value;
+	 }
+	
+	/**
+	 * @param value string configuration value
+	 */
+	 setValue(value) {
+	 	this.value = value;
+	 }
+	
+	/**
+	 * partner configuration type
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * @param type string partner configuration type
+	 */
+	 setType(type) {
+	 	this.type = type;
+	 }
+}
+module.exports.BillingPartnerConfig = BillingPartnerConfig;
 
 /**
  *
@@ -14730,6 +14868,33 @@ module.exports.AssetHistoryFilter = AssetHistoryFilter;
 /**
  *
  */
+class PartnerConfigurationFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPartnerConfigurationFilter';
+	}
+	
+	/**
+	 * Indicates which partner configuration list to return
+	 * @return string
+	 */
+	 getPartnerConfigurationTypeEqual() {
+	 	return this.partnerConfigurationTypeEqual;
+	 }
+	
+	/**
+	 * @param partnerConfigurationTypeEqual string Indicates which partner configuration list to return
+	 */
+	 setPartnerConfigurationTypeEqual(partnerConfigurationTypeEqual) {
+	 	this.partnerConfigurationTypeEqual = partnerConfigurationTypeEqual;
+	 }
+}
+module.exports.PartnerConfigurationFilter = PartnerConfigurationFilter;
+
+/**
+ *
+ */
 class AssetRuleFilter extends Filter{
 	
 	constructor(object = null) {
@@ -14738,7 +14903,8 @@ class AssetRuleFilter extends Filter{
 	}
 	
 	/**
-	 * Indicates which asset rule list to return by it KalturaRuleConditionType
+	 * Indicates which asset rule list to return by it KalturaRuleConditionType.
+ * Default value: KalturaRuleConditionType.COUNTRY
 	 * @return string
 	 */
 	 getConditionsContainType() {
@@ -14746,7 +14912,8 @@ class AssetRuleFilter extends Filter{
 	 }
 	
 	/**
-	 * @param conditionsContainType string Indicates which asset rule list to return by it KalturaRuleConditionType
+	 * @param conditionsContainType string Indicates which asset rule list to return by it KalturaRuleConditionType.
+ * Default value: KalturaRuleConditionType.COUNTRY
 	 */
 	 setConditionsContainType(conditionsContainType) {
 	 	this.conditionsContainType = conditionsContainType;
@@ -18047,60 +18214,6 @@ class HouseholdLimitations extends kaltura.BaseObject{
 	 }
 }
 module.exports.HouseholdLimitations = HouseholdLimitations;
-
-/**
- *
- */
-class PartnerConfiguration extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPartnerConfiguration';
-	}
-}
-module.exports.PartnerConfiguration = PartnerConfiguration;
-
-/**
- *
- */
-class BillingPartnerConfig extends PartnerConfiguration{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBillingPartnerConfig';
-	}
-	
-	/**
-	 * configuration value
-	 * @return string
-	 */
-	 getValue() {
-	 	return this.value;
-	 }
-	
-	/**
-	 * @param value string configuration value
-	 */
-	 setValue(value) {
-	 	this.value = value;
-	 }
-	
-	/**
-	 * partner configuration type
-	 * @return string
-	 */
-	 getType() {
-	 	return this.type;
-	 }
-	
-	/**
-	 * @param type string partner configuration type
-	 */
-	 setType(type) {
-	 	this.type = type;
-	 }
-}
-module.exports.BillingPartnerConfig = BillingPartnerConfig;
 
 /**
  *

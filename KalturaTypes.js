@@ -265,6 +265,11 @@ USER : 'user',
 HOUSEHOLD : 'household',
 };
 
+module.exports.EvictionPolicyType = {
+FIFO : 'FIFO',
+LIFO : 'LIFO',
+};
+
 module.exports.ExportDataType = {
 VOD : 'vod',
 EPG : 'epg',
@@ -416,10 +421,15 @@ MOVIES : 'MOVIES',
 TV_SERIES : 'TV_SERIES',
 };
 
+module.exports.PartnerConfigurationOrderBy = {
+NONE : 'NONE',
+};
+
 module.exports.PartnerConfigurationType = {
 DEFAULTPAYMENTGATEWAY : 'DefaultPaymentGateway',
 ENABLEPAYMENTGATEWAYSELECTION : 'EnablePaymentGatewaySelection',
 OSSADAPTER : 'OSSAdapter',
+CONCURRENCY : 'Concurrency',
 };
 
 module.exports.PaymentMethodProfileOrderBy = {

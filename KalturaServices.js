@@ -3175,9 +3175,21 @@ module.exports.parentalRule = parentalRule;
 /**
  *Class definition for the Kaltura service: partnerConfiguration.
  * The available service actions:
+ * @action list Get the list of PartnerConfiguration.
  * @action update Update Partner Configuration.
  */
 class partnerConfiguration{
+	
+	/**
+	 * Get the list of PartnerConfiguration.
+	 * @param filter PartnerConfigurationFilter filter by PartnerConfiguration type
+	 * @return KalturaPartnerConfigurationListResponse
+	 */
+	static listAction(filter){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('partnerconfiguration', 'list', kparams);
+	};
 	
 	/**
 	 * Update Partner Configuration.
