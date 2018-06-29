@@ -586,6 +586,41 @@ module.exports.bookmark = bookmark;
 
 
 /**
+ *Class definition for the Kaltura service: bulk.
+ * The available service actions:
+ * @action list List bulk actions.
+ * @action serveLog  ServeLog action returns the log file for the bulk action.
+ */
+class bulk{
+	
+	/**
+	 * List bulk actions.
+	 * @param filter BulkFilter Filtering the bulk action request (optional, default: null)
+	 * @param pager FilterPager Paging the request (optional, default: null)
+	 * @return KalturaBulkListResponse
+	 */
+	static listAction(filter = null, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('bulk', 'list', kparams);
+	};
+	
+	/**
+	 * ServeLog action returns the log file for the bulk action.
+	 * @param id int bulk action id
+	 * @return KalturaBulk
+	 */
+	static serveLog (id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('bulk', 'serveLog ', kparams);
+	};
+}
+module.exports.bulk = bulk;
+
+
+/**
  *Class definition for the Kaltura service: cdnAdapterProfile.
  * The available service actions:
  * @action add Insert new CDN adapter for partner.

@@ -121,6 +121,22 @@ RECORDING : 'recording',
 EPG : 'epg',
 };
 
+module.exports.BatchJobStatus = {
+PENDING : 'PENDING',
+QUEUED : 'QUEUED',
+PROCESSING : 'PROCESSING',
+PROCESSED : 'PROCESSED',
+MOVEFILE : 'MOVEFILE',
+FINISHED : 'FINISHED',
+FAILED : 'FAILED',
+ABORTED : 'ABORTED',
+ALMOST_DONE : 'ALMOST_DONE',
+RETRY : 'RETRY',
+FATAL : 'FATAL',
+DONT_PROCESS : 'DONT_PROCESS',
+FINISHED_PARTIALLY : 'FINISHED_PARTIALLY',
+};
+
 module.exports.BillingAction = {
 UNKNOWN : 'unknown',
 PURCHASE : 'purchase',
@@ -164,6 +180,10 @@ NONE : 'NONE',
 module.exports.BookmarkOrderBy = {
 POSITION_ASC : 'POSITION_ASC',
 POSITION_DESC : 'POSITION_DESC',
+};
+
+module.exports.BulkOrderBy = {
+NONE : 'NONE',
 };
 
 module.exports.BundleType = {

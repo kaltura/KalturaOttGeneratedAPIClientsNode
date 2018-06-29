@@ -10537,6 +10537,77 @@ module.exports.AssetHistoryListResponse = AssetHistoryListResponse;
 /**
  *
  */
+class Bulk extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulk';
+	}
+	
+	/**
+	 * Bulk identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Status
+	 * @return string
+	 */
+	 getStatus() {
+	 	return this.status;
+	 }
+	
+	/**
+	 * Specifies when was the bulk action created. Date and time represented as epoch
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * Specifies when was the bulk action last updated. Date and time represented as epoch
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
+}
+module.exports.Bulk = Bulk;
+
+/**
+ *
+ */
+class BulkListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkListResponse';
+	}
+	
+	/**
+	 * bulk items
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array bulk items
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.BulkListResponse = BulkListResponse;
+
+/**
+ *
+ */
 class DrmProfile extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -15027,6 +15098,33 @@ class SearchExternalFilter extends AssetFilter{
 	 }
 }
 module.exports.SearchExternalFilter = SearchExternalFilter;
+
+/**
+ *
+ */
+class BulkFilter extends PersistedFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkFilter';
+	}
+	
+	/**
+	 * dynamicOrderBy - order by Meta
+	 * @return string
+	 */
+	 getStatusEqual() {
+	 	return this.statusEqual;
+	 }
+	
+	/**
+	 * @param statusEqual string dynamicOrderBy - order by Meta
+	 */
+	 setStatusEqual(statusEqual) {
+	 	this.statusEqual = statusEqual;
+	 }
+}
+module.exports.BulkFilter = BulkFilter;
 
 /**
  *
