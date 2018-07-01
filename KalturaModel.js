@@ -2368,6 +2368,143 @@ module.exports.ConfigurationGroupListResponse = ConfigurationGroupListResponse;
 /**
  *
  */
+class SSOAdapterProfile extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSSOAdapterProfile';
+	}
+	
+	/**
+	 * SSO Adapter id
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * SSO Adapter name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string SSO Adapter name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * SSO Adapter is active status
+	 * @return int
+	 */
+	 getIsActive() {
+	 	return this.isActive;
+	 }
+	
+	/**
+	 * @param isActive int SSO Adapter is active status
+	 */
+	 setIsActive(isActive) {
+	 	this.isActive = isActive;
+	 }
+	
+	/**
+	 * SSO Adapter URL
+	 * @return string
+	 */
+	 getAdapterUrl() {
+	 	return this.adapterUrl;
+	 }
+	
+	/**
+	 * @param adapterUrl string SSO Adapter URL
+	 */
+	 setAdapterUrl(adapterUrl) {
+	 	this.adapterUrl = adapterUrl;
+	 }
+	
+	/**
+	 * SSO Adapter extra parameters
+	 * @return map
+	 */
+	 getSettings() {
+	 	return this.settings;
+	 }
+	
+	/**
+	 * @param settings map SSO Adapter extra parameters
+	 */
+	 setSettings(settings) {
+	 	this.settings = settings;
+	 }
+	
+	/**
+	 * SSO Adapter external identifier
+	 * @return string
+	 */
+	 getExternalIdentifier() {
+	 	return this.externalIdentifier;
+	 }
+	
+	/**
+	 * @param externalIdentifier string SSO Adapter external identifier
+	 */
+	 setExternalIdentifier(externalIdentifier) {
+	 	this.externalIdentifier = externalIdentifier;
+	 }
+	
+	/**
+	 * Shared Secret
+	 * @return string
+	 */
+	 getSharedSecret() {
+	 	return this.sharedSecret;
+	 }
+	
+	/**
+	 * @param sharedSecret string Shared Secret
+	 */
+	 setSharedSecret(sharedSecret) {
+	 	this.sharedSecret = sharedSecret;
+	 }
+}
+module.exports.SSOAdapterProfile = SSOAdapterProfile;
+
+/**
+ *
+ */
+class SSOAdapterProfileListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSSOAdapterProfileListResponse';
+	}
+	
+	/**
+	 * A list of payment-gateway profiles
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of payment-gateway profiles
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.SSOAdapterProfileListResponse = SSOAdapterProfileListResponse;
+
+/**
+ *
+ */
 class UserInterestTopic extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -2438,13 +2575,6 @@ class UserInterest extends kaltura.BaseObject{
 	 */
 	 getId() {
 	 	return this.id;
-	 }
-	
-	/**
-	 * @param id string Identifier
-	 */
-	 setId(id) {
-	 	this.id = id;
 	 }
 	
 	/**
@@ -2604,7 +2734,61 @@ module.exports.MediaImage = MediaImage;
 /**
  *
  */
-class MediaFile extends kaltura.BaseObject{
+class AssetFile extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetFile';
+	}
+	
+	/**
+	 * URL of the media file to be played
+	 * @return string
+	 */
+	 getUrl() {
+	 	return this.url;
+	 }
+	
+	/**
+	 * @param url string URL of the media file to be played
+	 */
+	 setUrl(url) {
+	 	this.url = url;
+	 }
+}
+module.exports.AssetFile = AssetFile;
+
+/**
+ *
+ */
+class StringValueArray extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaStringValueArray';
+	}
+	
+	/**
+	 * List of string values
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array List of string values
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.StringValueArray = StringValueArray;
+
+/**
+ *
+ */
+class MediaFile extends AssetFile{
 	
 	constructor(object = null) {
 		super(object);
@@ -2647,21 +2831,6 @@ class MediaFile extends kaltura.BaseObject{
 	 */
 	 setTypeId(typeId) {
 	 	this.typeId = typeId;
-	 }
-	
-	/**
-	 * URL of the media file to be played
-	 * @return string
-	 */
-	 getUrl() {
-	 	return this.url;
-	 }
-	
-	/**
-	 * @param url string URL of the media file to be played
-	 */
-	 setUrl(url) {
-	 	this.url = url;
 	 }
 	
 	/**
@@ -3413,6 +3582,21 @@ class Country extends kaltura.BaseObject{
 	 setVatPercent(vatPercent) {
 	 	this.vatPercent = vatPercent;
 	 }
+	
+	/**
+	 * Time zone ID
+	 * @return string
+	 */
+	 getTimeZoneId() {
+	 	return this.timeZoneId;
+	 }
+	
+	/**
+	 * @param timeZoneId string Time zone ID
+	 */
+	 setTimeZoneId(timeZoneId) {
+	 	this.timeZoneId = timeZoneId;
+	 }
 }
 module.exports.Country = Country;
 
@@ -3689,21 +3873,6 @@ class BaseChannel extends kaltura.BaseObject{
 	 getId() {
 	 	return this.id;
 	 }
-	
-	/**
-	 * Channel name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Channel name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
 }
 module.exports.BaseChannel = BaseChannel;
 
@@ -3882,21 +4051,6 @@ class CouponsGroup extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * A list of the descriptions of the coupon group on different languages (language code and translation)
-	 * @return array
-	 */
-	 getDescriptions() {
-	 	return this.descriptions;
-	 }
-	
-	/**
-	 * @param descriptions array A list of the descriptions of the coupon group on different languages (language code and translation)
-	 */
-	 setDescriptions(descriptions) {
-	 	this.descriptions = descriptions;
-	 }
-	
-	/**
 	 * The first date the coupons in this coupons group are valid
 	 * @return int
 	 */
@@ -3969,6 +4123,36 @@ class CouponsGroup extends kaltura.BaseObject{
 	 */
 	 setCouponGroupType(couponGroupType) {
 	 	this.couponGroupType = couponGroupType;
+	 }
+	
+	/**
+	 * Maximum number of uses per household for each coupon in the group
+	 * @return int
+	 */
+	 getMaxHouseholdUses() {
+	 	return this.maxHouseholdUses;
+	 }
+	
+	/**
+	 * @param maxHouseholdUses int Maximum number of uses per household for each coupon in the group
+	 */
+	 setMaxHouseholdUses(maxHouseholdUses) {
+	 	this.maxHouseholdUses = maxHouseholdUses;
+	 }
+	
+	/**
+	 * Discount ID
+	 * @return int
+	 */
+	 getDiscountId() {
+	 	return this.discountId;
+	 }
+	
+	/**
+	 * @param discountId int Discount ID
+	 */
+	 setDiscountId(discountId) {
+	 	this.discountId = discountId;
 	 }
 }
 module.exports.CouponsGroup = CouponsGroup;
@@ -4318,6 +4502,205 @@ module.exports.PricePlan = PricePlan;
 /**
  *
  */
+class Price extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPrice';
+	}
+	
+	/**
+	 * Price
+	 * @return float
+	 */
+	 getAmount() {
+	 	return this.amount;
+	 }
+	
+	/**
+	 * @param amount float Price
+	 */
+	 setAmount(amount) {
+	 	this.amount = amount;
+	 }
+	
+	/**
+	 * Currency
+	 * @return string
+	 */
+	 getCurrency() {
+	 	return this.currency;
+	 }
+	
+	/**
+	 * @param currency string Currency
+	 */
+	 setCurrency(currency) {
+	 	this.currency = currency;
+	 }
+	
+	/**
+	 * Currency Sign
+	 * @return string
+	 */
+	 getCurrencySign() {
+	 	return this.currencySign;
+	 }
+	
+	/**
+	 * @param currencySign string Currency Sign
+	 */
+	 setCurrencySign(currencySign) {
+	 	this.currencySign = currencySign;
+	 }
+	
+	/**
+	 * Country ID
+	 * @return int
+	 */
+	 getCountryId() {
+	 	return this.countryId;
+	 }
+	
+	/**
+	 * @param countryId int Country ID
+	 */
+	 setCountryId(countryId) {
+	 	this.countryId = countryId;
+	 }
+}
+module.exports.Price = Price;
+
+/**
+ *
+ */
+class Discount extends Price{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDiscount';
+	}
+	
+	/**
+	 * The discount percentage
+	 * @return int
+	 */
+	 getPercentage() {
+	 	return this.percentage;
+	 }
+}
+module.exports.Discount = Discount;
+
+/**
+ *
+ */
+class DiscountDetails extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDiscountDetails';
+	}
+	
+	/**
+	 * The discount ID
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * The price code name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string The price code name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Multi currency discounts for all countries and currencies
+	 * @return array
+	 */
+	 getMultiCurrencyDiscount() {
+	 	return this.multiCurrencyDiscount;
+	 }
+	
+	/**
+	 * @param multiCurrencyDiscount array Multi currency discounts for all countries and currencies
+	 */
+	 setMultiCurrencyDiscount(multiCurrencyDiscount) {
+	 	this.multiCurrencyDiscount = multiCurrencyDiscount;
+	 }
+	
+	/**
+	 * Start date represented as epoch
+	 * @return int
+	 */
+	 getStartDate() {
+	 	return this.startDate;
+	 }
+	
+	/**
+	 * @param startDate int Start date represented as epoch
+	 */
+	 setStartDate(startDate) {
+	 	this.startDate = startDate;
+	 }
+	
+	/**
+	 * End date represented as epoch
+	 * @return int
+	 */
+	 getEndDate() {
+	 	return this.endDate;
+	 }
+	
+	/**
+	 * @param endDate int End date represented as epoch
+	 */
+	 setEndDate(endDate) {
+	 	this.endDate = endDate;
+	 }
+}
+module.exports.DiscountDetails = DiscountDetails;
+
+/**
+ *
+ */
+class DiscountDetailsListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDiscountDetailsListResponse';
+	}
+	
+	/**
+	 * A list of price details
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of price details
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.DiscountDetailsListResponse = DiscountDetailsListResponse;
+
+/**
+ *
+ */
 class SubscriptionSet extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -4438,78 +4821,6 @@ class SubscriptionSwitchSet extends SubscriptionSet{
 	}
 }
 module.exports.SubscriptionSwitchSet = SubscriptionSwitchSet;
-
-/**
- *
- */
-class Price extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPrice';
-	}
-	
-	/**
-	 * Price
-	 * @return float
-	 */
-	 getAmount() {
-	 	return this.amount;
-	 }
-	
-	/**
-	 * @param amount float Price
-	 */
-	 setAmount(amount) {
-	 	this.amount = amount;
-	 }
-	
-	/**
-	 * Currency
-	 * @return string
-	 */
-	 getCurrency() {
-	 	return this.currency;
-	 }
-	
-	/**
-	 * @param currency string Currency
-	 */
-	 setCurrency(currency) {
-	 	this.currency = currency;
-	 }
-	
-	/**
-	 * Currency Sign
-	 * @return string
-	 */
-	 getCurrencySign() {
-	 	return this.currencySign;
-	 }
-	
-	/**
-	 * @param currencySign string Currency Sign
-	 */
-	 setCurrencySign(currencySign) {
-	 	this.currencySign = currencySign;
-	 }
-	
-	/**
-	 * Country ID
-	 * @return int
-	 */
-	 getCountryId() {
-	 	return this.countryId;
-	 }
-	
-	/**
-	 * @param countryId int Country ID
-	 */
-	 setCountryId(countryId) {
-	 	this.countryId = countryId;
-	 }
-}
-module.exports.Price = Price;
 
 /**
  *
@@ -4915,6 +5226,33 @@ class SubscriptionPrice extends ProductPrice{
 	 }
 }
 module.exports.SubscriptionPrice = SubscriptionPrice;
+
+/**
+ *
+ */
+class CouponsGroupListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCouponsGroupListResponse';
+	}
+	
+	/**
+	 * A list of coupons groups
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of coupons groups
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.CouponsGroupListResponse = CouponsGroupListResponse;
 
 /**
  *
@@ -5705,6 +6043,132 @@ class ProductsPriceListResponse extends ListResponse{
 	 }
 }
 module.exports.ProductsPriceListResponse = ProductsPriceListResponse;
+
+/**
+ *
+ */
+class PersonalList extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPersonalList';
+	}
+	
+	/**
+	 * Id
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Create Date
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
+ * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
+ * epg_id, media_id - for specific asset IDs.
+ * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restricted to the user by geo-block rules will return.
+ * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
+ * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
+ * epg_channel_id – the channel identifier of the EPG program.
+ * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * asset_type - valid values: &quot;media&quot;, &quot;epg&quot;, &quot;recording&quot; or any number that represents media type in group.
+ * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
+ * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
+ * Logical conjunction: and, or.
+ * Search values are limited to 20 characters each for the next operators: ~, !~, ^, ^=
+ * (maximum length of entire filter is 2048 characters)
+	 * @return string
+	 */
+	 getKsql() {
+	 	return this.ksql;
+	 }
+	
+	/**
+	 * @param ksql string Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
+ * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
+ * epg_id, media_id - for specific asset IDs.
+ * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restricted to the user by geo-block rules will return.
+ * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
+ * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
+ * epg_channel_id – the channel identifier of the EPG program.
+ * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * asset_type - valid values: &quot;media&quot;, &quot;epg&quot;, &quot;recording&quot; or any number that represents media type in group.
+ * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
+ * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
+ * Logical conjunction: and, or.
+ * Search values are limited to 20 characters each for the next operators: ~, !~, ^, ^=
+ * (maximum length of entire filter is 2048 characters)
+	 */
+	 setKsql(ksql) {
+	 	this.ksql = ksql;
+	 }
+	
+	/**
+	 * Partner List Type (optional)
+	 * @return int
+	 */
+	 getPartnerListType() {
+	 	return this.partnerListType;
+	 }
+	
+	/**
+	 * @param partnerListType int Partner List Type (optional)
+	 */
+	 setPartnerListType(partnerListType) {
+	 	this.partnerListType = partnerListType;
+	 }
+}
+module.exports.PersonalList = PersonalList;
+
+/**
+ *
+ */
+class PersonalListListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPersonalListListResponse';
+	}
+	
+	/**
+	 * Follow data list
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Follow data list
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.PersonalListListResponse = PersonalListListResponse;
 
 /**
  *
@@ -7629,25 +8093,11 @@ class SubscriptionEntitlement extends Entitlement{
 	 }
 	
 	/**
-	 * @param scheduledSubscriptionId int Scheduled Subscription Identifier
-	 */
-	 setScheduledSubscriptionId(scheduledSubscriptionId) {
-	 	this.scheduledSubscriptionId = scheduledSubscriptionId;
-	 }
-	
-	/**
 	 * Unified payment identifier
 	 * @return int
 	 */
 	 getUnifiedPaymentId() {
 	 	return this.unifiedPaymentId;
-	 }
-	
-	/**
-	 * @param unifiedPaymentId int Unified payment identifier
-	 */
-	 setUnifiedPaymentId(unifiedPaymentId) {
-	 	this.unifiedPaymentId = unifiedPaymentId;
 	 }
 	
 	/**
@@ -7659,6 +8109,129 @@ class SubscriptionEntitlement extends Entitlement{
 	 }
 }
 module.exports.SubscriptionEntitlement = SubscriptionEntitlement;
+
+/**
+ *
+ */
+class PartnerConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPartnerConfiguration';
+	}
+}
+module.exports.PartnerConfiguration = PartnerConfiguration;
+
+/**
+ *
+ */
+class PartnerConfigurationListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPartnerConfigurationListResponse';
+	}
+	
+	/**
+	 * Partner Configurations
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Partner Configurations
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.PartnerConfigurationListResponse = PartnerConfigurationListResponse;
+
+/**
+ *
+ */
+class ConcurrencyPartnerConfig extends PartnerConfiguration{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaConcurrencyPartnerConfig';
+	}
+	
+	/**
+	 * Comma separated list of device Family Ids order by their priority
+	 * @return string
+	 */
+	 getDeviceFamilyIds() {
+	 	return this.deviceFamilyIds;
+	 }
+	
+	/**
+	 * @param deviceFamilyIds string Comma separated list of device Family Ids order by their priority
+	 */
+	 setDeviceFamilyIds(deviceFamilyIds) {
+	 	this.deviceFamilyIds = deviceFamilyIds;
+	 }
+	
+	/**
+	 * Policy of eviction devices
+	 * @return string
+	 */
+	 getEvictionPolicy() {
+	 	return this.evictionPolicy;
+	 }
+	
+	/**
+	 * @param evictionPolicy string Policy of eviction devices
+	 */
+	 setEvictionPolicy(evictionPolicy) {
+	 	this.evictionPolicy = evictionPolicy;
+	 }
+}
+module.exports.ConcurrencyPartnerConfig = ConcurrencyPartnerConfig;
+
+/**
+ *
+ */
+class BillingPartnerConfig extends PartnerConfiguration{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBillingPartnerConfig';
+	}
+	
+	/**
+	 * configuration value
+	 * @return string
+	 */
+	 getValue() {
+	 	return this.value;
+	 }
+	
+	/**
+	 * @param value string configuration value
+	 */
+	 setValue(value) {
+	 	this.value = value;
+	 }
+	
+	/**
+	 * partner configuration type
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * @param type string partner configuration type
+	 */
+	 setType(type) {
+	 	this.type = type;
+	 }
+}
+module.exports.BillingPartnerConfig = BillingPartnerConfig;
 
 /**
  *
@@ -8475,7 +9048,7 @@ class Channel extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Channel description
+	 * Cannel description
 	 * @return string
 	 */
 	 getDescription() {
@@ -8483,14 +9056,14 @@ class Channel extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param description string Channel description
+	 * @param description string Cannel description
 	 */
 	 setDescription(description) {
 	 	this.description = description;
 	 }
 	
 	/**
-	 * Channel description
+	 * Cannel description
 	 * @return array
 	 */
 	 getMultilingualDescription() {
@@ -8498,7 +9071,7 @@ class Channel extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param multilingualDescription array Channel description
+	 * @param multilingualDescription array Cannel description
 	 */
 	 setMultilingualDescription(multilingualDescription) {
 	 	this.multilingualDescription = multilingualDescription;
@@ -10336,6 +10909,21 @@ class Bookmark extends SlimAsset{
 	 setPlayerData(playerData) {
 	 	this.playerData = playerData;
 	 }
+	
+	/**
+	 * Program Id
+	 * @return int
+	 */
+	 getProgramId() {
+	 	return this.programId;
+	 }
+	
+	/**
+	 * @param programId int Program Id
+	 */
+	 setProgramId(programId) {
+	 	this.programId = programId;
+	 }
 }
 module.exports.Bookmark = Bookmark;
 
@@ -10738,6 +11326,462 @@ module.exports.DrmProfileListResponse = DrmProfileListResponse;
 /**
  *
  */
+class AssetRuleBase extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetRuleBase';
+	}
+	
+	/**
+	 * ID
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Description
+	 * @return string
+	 */
+	 getDescription() {
+	 	return this.description;
+	 }
+	
+	/**
+	 * @param description string Description
+	 */
+	 setDescription(description) {
+	 	this.description = description;
+	 }
+}
+module.exports.AssetRuleBase = AssetRuleBase;
+
+/**
+ *
+ */
+class Condition extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCondition';
+	}
+	
+	/**
+	 * The type of the condition
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * Description
+	 * @return string
+	 */
+	 getDescription() {
+	 	return this.description;
+	 }
+	
+	/**
+	 * @param description string Description
+	 */
+	 setDescription(description) {
+	 	this.description = description;
+	 }
+}
+module.exports.Condition = Condition;
+
+/**
+ *
+ */
+class AssetCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetCondition';
+	}
+	
+	/**
+	 * KSQL
+	 * @return string
+	 */
+	 getKsql() {
+	 	return this.ksql;
+	 }
+	
+	/**
+	 * @param ksql string KSQL
+	 */
+	 setKsql(ksql) {
+	 	this.ksql = ksql;
+	 }
+}
+module.exports.AssetCondition = AssetCondition;
+
+/**
+ *
+ */
+class RuleAction extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRuleAction';
+	}
+	
+	/**
+	 * The type of the action
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * Description
+	 * @return string
+	 */
+	 getDescription() {
+	 	return this.description;
+	 }
+	
+	/**
+	 * @param description string Description
+	 */
+	 setDescription(description) {
+	 	this.description = description;
+	 }
+}
+module.exports.RuleAction = RuleAction;
+
+/**
+ *
+ */
+class AssetUserRuleAction extends RuleAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetUserRuleAction';
+	}
+}
+module.exports.AssetUserRuleAction = AssetUserRuleAction;
+
+/**
+ *
+ */
+class AssetUserRule extends AssetRuleBase{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetUserRule';
+	}
+	
+	/**
+	 * List of Ksql conditions for the user rule
+	 * @return array
+	 */
+	 getConditions() {
+	 	return this.conditions;
+	 }
+	
+	/**
+	 * @param conditions array List of Ksql conditions for the user rule
+	 */
+	 setConditions(conditions) {
+	 	this.conditions = conditions;
+	 }
+	
+	/**
+	 * List of actions for the user rule
+	 * @return array
+	 */
+	 getActions() {
+	 	return this.actions;
+	 }
+	
+	/**
+	 * @param actions array List of actions for the user rule
+	 */
+	 setActions(actions) {
+	 	this.actions = actions;
+	 }
+}
+module.exports.AssetUserRule = AssetUserRule;
+
+/**
+ *
+ */
+class AssetUserRuleListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetUserRuleListResponse';
+	}
+	
+	/**
+	 * Asset user rules
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Asset user rules
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.AssetUserRuleListResponse = AssetUserRuleListResponse;
+
+/**
+ *
+ */
+class AssetRuleAction extends RuleAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetRuleAction';
+	}
+}
+module.exports.AssetRuleAction = AssetRuleAction;
+
+/**
+ *
+ */
+class AssetRule extends AssetRuleBase{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetRule';
+	}
+	
+	/**
+	 * List of conditions for the rule
+	 * @return array
+	 */
+	 getConditions() {
+	 	return this.conditions;
+	 }
+	
+	/**
+	 * @param conditions array List of conditions for the rule
+	 */
+	 setConditions(conditions) {
+	 	this.conditions = conditions;
+	 }
+	
+	/**
+	 * List of actions for the rule
+	 * @return array
+	 */
+	 getActions() {
+	 	return this.actions;
+	 }
+	
+	/**
+	 * @param actions array List of actions for the rule
+	 */
+	 setActions(actions) {
+	 	this.actions = actions;
+	 }
+}
+module.exports.AssetRule = AssetRule;
+
+/**
+ *
+ */
+class CountryCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCountryCondition';
+	}
+	
+	/**
+	 * Indicates whether to apply not on the other properties in the condition
+	 * @return bool
+	 */
+	 getNot() {
+	 	return this.not;
+	 }
+	
+	/**
+	 * @param not bool Indicates whether to apply not on the other properties in the condition
+	 */
+	 setNot(not) {
+	 	this.not = not;
+	 }
+	
+	/**
+	 * Comma separated countries IDs list
+	 * @return string
+	 */
+	 getCountries() {
+	 	return this.countries;
+	 }
+	
+	/**
+	 * @param countries string Comma separated countries IDs list
+	 */
+	 setCountries(countries) {
+	 	this.countries = countries;
+	 }
+}
+module.exports.CountryCondition = CountryCondition;
+
+/**
+ *
+ */
+class ConcurrencyCondition extends AssetCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaConcurrencyCondition';
+	}
+	
+	/**
+	 * Concurrency limitation
+	 * @return int
+	 */
+	 getLimit() {
+	 	return this.limit;
+	 }
+	
+	/**
+	 * @param limit int Concurrency limitation
+	 */
+	 setLimit(limit) {
+	 	this.limit = limit;
+	 }
+	
+	/**
+	 * Concurrency limitation type
+	 * @return string
+	 */
+	 getConcurrencyLimitationType() {
+	 	return this.concurrencyLimitationType;
+	 }
+	
+	/**
+	 * @param concurrencyLimitationType string Concurrency limitation type
+	 */
+	 setConcurrencyLimitationType(concurrencyLimitationType) {
+	 	this.concurrencyLimitationType = concurrencyLimitationType;
+	 }
+}
+module.exports.ConcurrencyCondition = ConcurrencyCondition;
+
+/**
+ *
+ */
+class AssetUserRuleBlockAction extends AssetUserRuleAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetUserRuleBlockAction';
+	}
+}
+module.exports.AssetUserRuleBlockAction = AssetUserRuleBlockAction;
+
+/**
+ *
+ */
+class AccessControlBlockAction extends AssetRuleAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAccessControlBlockAction';
+	}
+}
+module.exports.AccessControlBlockAction = AccessControlBlockAction;
+
+/**
+ *
+ */
+class TimeOffsetRuleAction extends AssetRuleAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTimeOffsetRuleAction';
+	}
+	
+	/**
+	 * Offset in seconds
+	 * @return int
+	 */
+	 getOffset() {
+	 	return this.offset;
+	 }
+	
+	/**
+	 * @param offset int Offset in seconds
+	 */
+	 setOffset(offset) {
+	 	this.offset = offset;
+	 }
+	
+	/**
+	 * Indicates whether to add time zone offset to the time
+	 * @return bool
+	 */
+	 getTimeZone() {
+	 	return this.timeZone;
+	 }
+	
+	/**
+	 * @param timeZone bool Indicates whether to add time zone offset to the time
+	 */
+	 setTimeZone(timeZone) {
+	 	this.timeZone = timeZone;
+	 }
+}
+module.exports.TimeOffsetRuleAction = TimeOffsetRuleAction;
+
+/**
+ *
+ */
+class EndDateOffsetRuleAction extends TimeOffsetRuleAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEndDateOffsetRuleAction';
+	}
+}
+module.exports.EndDateOffsetRuleAction = EndDateOffsetRuleAction;
+
+/**
+ *
+ */
+class StartDateOffsetRuleAction extends TimeOffsetRuleAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaStartDateOffsetRuleAction';
+	}
+}
+module.exports.StartDateOffsetRuleAction = StartDateOffsetRuleAction;
+
+/**
+ *
+ */
 class Currency extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -10833,6 +11877,33 @@ class CurrencyListResponse extends ListResponse{
 	 }
 }
 module.exports.CurrencyListResponse = CurrencyListResponse;
+
+/**
+ *
+ */
+class AssetRuleListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetRuleListResponse';
+	}
+	
+	/**
+	 * Asset rules
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Asset rules
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.AssetRuleListResponse = AssetRuleListResponse;
 
 /**
  *
@@ -13693,6 +14764,33 @@ module.exports.CollectionFilter = CollectionFilter;
 /**
  *
  */
+class DiscountDetailsFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDiscountDetailsFilter';
+	}
+	
+	/**
+	 * Comma separated discount codes
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated discount codes
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.DiscountDetailsFilter = DiscountDetailsFilter;
+
+/**
+ *
+ */
 class PricePlanFilter extends Filter{
 	
 	constructor(object = null) {
@@ -13884,6 +14982,35 @@ class SubscriptionFilter extends Filter{
 	 }
 }
 module.exports.SubscriptionFilter = SubscriptionFilter;
+
+/**
+ *
+ */
+class PersonalListFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPersonalListFilter';
+	}
+	
+	/**
+	 * Comma separated list of partner list types to search within.
+ * If omitted – all types should be included
+	 * @return string
+	 */
+	 getPartnerListTypeIn() {
+	 	return this.partnerListTypeIn;
+	 }
+	
+	/**
+	 * @param partnerListTypeIn string Comma separated list of partner list types to search within.
+ * If omitted – all types should be included
+	 */
+	 setPartnerListTypeIn(partnerListTypeIn) {
+	 	this.partnerListTypeIn = partnerListTypeIn;
+	 }
+}
+module.exports.PersonalListFilter = PersonalListFilter;
 
 /**
  *
@@ -14440,6 +15567,33 @@ module.exports.RecordingFilter = RecordingFilter;
 /**
  *
  */
+class PartnerConfigurationFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPartnerConfigurationFilter';
+	}
+	
+	/**
+	 * Indicates which partner configuration list to return
+	 * @return string
+	 */
+	 getPartnerConfigurationTypeEqual() {
+	 	return this.partnerConfigurationTypeEqual;
+	 }
+	
+	/**
+	 * @param partnerConfigurationTypeEqual string Indicates which partner configuration list to return
+	 */
+	 setPartnerConfigurationTypeEqual(partnerConfigurationTypeEqual) {
+	 	this.partnerConfigurationTypeEqual = partnerConfigurationTypeEqual;
+	 }
+}
+module.exports.PartnerConfigurationFilter = PartnerConfigurationFilter;
+
+/**
+ *
+ */
 class AggregationCountFilter extends RelatedObjectFilter{
 	
 	constructor(object = null) {
@@ -14514,6 +15668,47 @@ class BaseSearchAssetFilter extends AssetFilter{
 	}
 	
 	/**
+	 * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
+ * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
+ * epg_id, media_id - for specific asset IDs.
+ * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restricted to the user by geo-block rules will return.
+ * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
+ * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
+ * epg_channel_id – the channel identifier of the EPG program.
+ * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * asset_type - valid values: &quot;media&quot;, &quot;epg&quot;, &quot;recording&quot; or any number that represents media type in group.
+ * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
+ * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
+ * Logical conjunction: and, or.
+ * Search values are limited to 20 characters each for the next operators: ~, !~, ^, ^=
+ * (maximum length of entire filter is 2048 characters)
+	 * @return string
+	 */
+	 getKSql() {
+	 	return this.kSql;
+	 }
+	
+	/**
+	 * @param kSql string Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
+ * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
+ * epg_id, media_id - for specific asset IDs.
+ * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restricted to the user by geo-block rules will return.
+ * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
+ * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
+ * epg_channel_id – the channel identifier of the EPG program.
+ * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * asset_type - valid values: &quot;media&quot;, &quot;epg&quot;, &quot;recording&quot; or any number that represents media type in group.
+ * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
+ * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
+ * Logical conjunction: and, or.
+ * Search values are limited to 20 characters each for the next operators: ~, !~, ^, ^=
+ * (maximum length of entire filter is 2048 characters)
+	 */
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
+	 }
+	
+	/**
 	 * groupBy
 	 * @return array
 	 */
@@ -14529,6 +15724,153 @@ class BaseSearchAssetFilter extends AssetFilter{
 	 }
 }
 module.exports.BaseSearchAssetFilter = BaseSearchAssetFilter;
+
+/**
+ *
+ */
+class PersonalListSearchFilter extends BaseSearchAssetFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPersonalListSearchFilter';
+	}
+	
+	/**
+	 * Comma separated list of partner list types to search within.
+ * If omitted – all types should be included
+	 * @return string
+	 */
+	 getPartnerListTypeIn() {
+	 	return this.partnerListTypeIn;
+	 }
+	
+	/**
+	 * @param partnerListTypeIn string Comma separated list of partner list types to search within.
+ * If omitted – all types should be included
+	 */
+	 setPartnerListTypeIn(partnerListTypeIn) {
+	 	this.partnerListTypeIn = partnerListTypeIn;
+	 }
+}
+module.exports.PersonalListSearchFilter = PersonalListSearchFilter;
+
+/**
+ *
+ */
+class SearchAssetFilter extends BaseSearchAssetFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSearchAssetFilter';
+	}
+	
+	/**
+	 * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
+ * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
+ * epg_id, media_id - for specific asset IDs.
+ * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restriced to the user by geo-block rules will return.
+ * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
+ * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
+ * epg_channel_id – the channel identifier of the EPG program. *****Deprecated, please use linear_media_id instead*****
+ * linear_media_id – the linear media identifier of the EPG program.
+ * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * asset_type - valid values: &quot;media&quot;, &quot;epg&quot;, &quot;recording&quot; or any number that represents media type in group.
+ * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
+ * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
+ * Logical conjunction: and, or.
+ * Search values are limited to 20 characters each.
+ * (maximum length of entire filter is 2048 characters)
+	 * @return string
+	 */
+	 getKSql() {
+	 	return this.kSql;
+	 }
+	
+	/**
+	 * @param kSql string Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
+ * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
+ * epg_id, media_id - for specific asset IDs.
+ * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restriced to the user by geo-block rules will return.
+ * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
+ * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
+ * epg_channel_id – the channel identifier of the EPG program. *****Deprecated, please use linear_media_id instead*****
+ * linear_media_id – the linear media identifier of the EPG program.
+ * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * asset_type - valid values: &quot;media&quot;, &quot;epg&quot;, &quot;recording&quot; or any number that represents media type in group.
+ * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
+ * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
+ * Logical conjunction: and, or.
+ * Search values are limited to 20 characters each.
+ * (maximum length of entire filter is 2048 characters)
+	 */
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
+	 }
+	
+	/**
+	 * (Deprecated - use KalturaBaseSearchAssetFilter.kSql)
+ * Comma separated list of asset types to search within.
+ * Possible values: 0 – EPG linear programs entries; 1 - Recordings; Any media type ID (according to media type IDs defined dynamically in the system).
+ * If omitted – all types should be included
+	 * @return string
+	 */
+	 getTypeIn() {
+	 	return this.typeIn;
+	 }
+	
+	/**
+	 * @param typeIn string (Deprecated - use KalturaBaseSearchAssetFilter.kSql)
+ * Comma separated list of asset types to search within.
+ * Possible values: 0 – EPG linear programs entries; 1 - Recordings; Any media type ID (according to media type IDs defined dynamically in the system).
+ * If omitted – all types should be included
+	 */
+	 setTypeIn(typeIn) {
+	 	this.typeIn = typeIn;
+	 }
+	
+	/**
+	 * Comma separated list of EPG channel ids to search within. *****Deprecated, please use linear_media_id inside kSql instead*****
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated list of EPG channel ids to search within. *****Deprecated, please use linear_media_id inside kSql instead*****
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.SearchAssetFilter = SearchAssetFilter;
+
+/**
+ *
+ */
+class SearchAssetListFilter extends SearchAssetFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSearchAssetListFilter';
+	}
+	
+	/**
+	 * Exclude watched asset
+	 * @return bool
+	 */
+	 getExcludeWatched() {
+	 	return this.excludeWatched;
+	 }
+	
+	/**
+	 * @param excludeWatched bool Exclude watched asset
+	 */
+	 setExcludeWatched(excludeWatched) {
+	 	this.excludeWatched = excludeWatched;
+	 }
+}
+module.exports.SearchAssetListFilter = SearchAssetListFilter;
 
 /**
  *
@@ -14746,19 +16088,21 @@ class ChannelFilter extends AssetFilter{
 	 }
 	
 	/**
-	 * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
+	 * ///
+ * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
  * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
  * epg_id, media_id - for specific asset IDs.
- * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restriced to the user by geo-block rules will return.
+ * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restricted to the user by geo-block rules will return.
  * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
  * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
  * epg_channel_id – the channel identifier of the EPG program. *****Deprecated, please use linear_media_id instead*****
  * linear_media_id – the linear media identifier of the EPG program.
- * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * asset_type - valid values: &quot;media&quot;, &quot;epg&quot;, &quot;recording&quot; or any number that represents media type in group.
  * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
  * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
  * Logical conjunction: and, or.
- * Search values are limited to 20 characters each.
+ * Search values are limited to 20 characters each for the next operators: ~, !~, ^, ^=
  * (maximum length of entire filter is 2048 characters)
 	 * @return string
 	 */
@@ -14767,23 +16111,40 @@ class ChannelFilter extends AssetFilter{
 	 }
 	
 	/**
-	 * @param kSql string Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
+	 * @param kSql string ///
+ * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
  * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
  * epg_id, media_id - for specific asset IDs.
- * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restriced to the user by geo-block rules will return.
+ * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restricted to the user by geo-block rules will return.
  * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
  * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
  * epg_channel_id – the channel identifier of the EPG program. *****Deprecated, please use linear_media_id instead*****
  * linear_media_id – the linear media identifier of the EPG program.
- * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * asset_type - valid values: &quot;media&quot;, &quot;epg&quot;, &quot;recording&quot; or any number that represents media type in group.
  * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
  * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
  * Logical conjunction: and, or.
- * Search values are limited to 20 characters each.
+ * Search values are limited to 20 characters each for the next operators: ~, !~, ^, ^=
  * (maximum length of entire filter is 2048 characters)
 	 */
 	 setKSql(kSql) {
 	 	this.kSql = kSql;
+	 }
+	
+	/**
+	 * Exclude watched asset
+	 * @return bool
+	 */
+	 getExcludeWatched() {
+	 	return this.excludeWatched;
+	 }
+	
+	/**
+	 * @param excludeWatched bool Exclude watched asset
+	 */
+	 setExcludeWatched(excludeWatched) {
+	 	this.excludeWatched = excludeWatched;
 	 }
 }
 module.exports.ChannelFilter = ChannelFilter;
@@ -14855,7 +16216,8 @@ class RelatedFilter extends BaseSearchAssetFilter{
 	 }
 	
 	/**
-	 * Comma separated list of asset types to search within.
+	 * (Deprecated - use KalturaBaseSearchAssetFilter.kSql)
+ * Comma separated list of asset types to search within.
  * Possible values: any media type ID (according to media type IDs defined dynamically in the system).
  * If omitted –   same type as the provided asset
 	 * @return string
@@ -14865,12 +16227,28 @@ class RelatedFilter extends BaseSearchAssetFilter{
 	 }
 	
 	/**
-	 * @param typeIn string Comma separated list of asset types to search within.
+	 * @param typeIn string (Deprecated - use KalturaBaseSearchAssetFilter.kSql)
+ * Comma separated list of asset types to search within.
  * Possible values: any media type ID (according to media type IDs defined dynamically in the system).
  * If omitted –   same type as the provided asset
 	 */
 	 setTypeIn(typeIn) {
 	 	this.typeIn = typeIn;
+	 }
+	
+	/**
+	 * Exclude watched asset
+	 * @return bool
+	 */
+	 getExcludeWatched() {
+	 	return this.excludeWatched;
+	 }
+	
+	/**
+	 * @param excludeWatched bool Exclude watched asset
+	 */
+	 setExcludeWatched(excludeWatched) {
+	 	this.excludeWatched = excludeWatched;
 	 }
 }
 module.exports.RelatedFilter = RelatedFilter;
@@ -14950,93 +16328,6 @@ class RelatedExternalFilter extends AssetFilter{
 	 }
 }
 module.exports.RelatedExternalFilter = RelatedExternalFilter;
-
-/**
- *
- */
-class SearchAssetFilter extends BaseSearchAssetFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSearchAssetFilter';
-	}
-	
-	/**
-	 * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
- * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
- * epg_id, media_id - for specific asset IDs.
- * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restriced to the user by geo-block rules will return.
- * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
- * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
- * epg_channel_id – the channel identifier of the EPG program. *****Deprecated, please use linear_media_id instead*****
- * linear_media_id – the linear media identifier of the EPG program.
- * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
- * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
- * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
- * Logical conjunction: and, or.
- * Search values are limited to 20 characters each.
- * (maximum length of entire filter is 2048 characters)
-	 * @return string
-	 */
-	 getKSql() {
-	 	return this.kSql;
-	 }
-	
-	/**
-	 * @param kSql string Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
- * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
- * epg_id, media_id - for specific asset IDs.
- * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restriced to the user by geo-block rules will return.
- * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
- * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
- * epg_channel_id – the channel identifier of the EPG program. *****Deprecated, please use linear_media_id instead*****
- * linear_media_id – the linear media identifier of the EPG program.
- * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
- * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
- * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
- * Logical conjunction: and, or.
- * Search values are limited to 20 characters each.
- * (maximum length of entire filter is 2048 characters)
-	 */
-	 setKSql(kSql) {
-	 	this.kSql = kSql;
-	 }
-	
-	/**
-	 * Comma separated list of asset types to search within.
- * Possible values: 0 – EPG linear programs entries; 1 - Recordings; Any media type ID (according to media type IDs defined dynamically in the system).
- * If omitted – all types should be included
-	 * @return string
-	 */
-	 getTypeIn() {
-	 	return this.typeIn;
-	 }
-	
-	/**
-	 * @param typeIn string Comma separated list of asset types to search within.
- * Possible values: 0 – EPG linear programs entries; 1 - Recordings; Any media type ID (according to media type IDs defined dynamically in the system).
- * If omitted – all types should be included
-	 */
-	 setTypeIn(typeIn) {
-	 	this.typeIn = typeIn;
-	 }
-	
-	/**
-	 * Comma separated list of EPG channel ids to search within. *****Deprecated, please use linear_media_id inside kSql instead*****
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Comma separated list of EPG channel ids to search within. *****Deprecated, please use linear_media_id inside kSql instead*****
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.SearchAssetFilter = SearchAssetFilter;
 
 /**
  *
@@ -15692,6 +16983,77 @@ module.exports.AssetHistoryFilter = AssetHistoryFilter;
 /**
  *
  */
+class AssetRuleFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetRuleFilter';
+	}
+	
+	/**
+	 * Indicates which asset rule list to return by it KalturaRuleConditionType.
+ * Default value: KalturaRuleConditionType.COUNTRY
+	 * @return string
+	 */
+	 getConditionsContainType() {
+	 	return this.conditionsContainType;
+	 }
+	
+	/**
+	 * @param conditionsContainType string Indicates which asset rule list to return by it KalturaRuleConditionType.
+ * Default value: KalturaRuleConditionType.COUNTRY
+	 */
+	 setConditionsContainType(conditionsContainType) {
+	 	this.conditionsContainType = conditionsContainType;
+	 }
+	
+	/**
+	 * Indicates if to return an asset rule list that related to specific asset
+	 * @return SlimAsset
+	 */
+	 getAssetApplied() {
+	 	return this.assetApplied;
+	 }
+	
+	/**
+	 * @param assetApplied SlimAsset Indicates if to return an asset rule list that related to specific asset
+	 */
+	 setAssetApplied(assetApplied) {
+	 	this.assetApplied = assetApplied;
+	 }
+}
+module.exports.AssetRuleFilter = AssetRuleFilter;
+
+/**
+ *
+ */
+class AssetUserRuleFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetUserRuleFilter';
+	}
+	
+	/**
+	 * Indicates if to get the asset user rule list for the attached user or for the entire group
+	 * @return bool
+	 */
+	 getAttachedUserIdEqualCurrent() {
+	 	return this.attachedUserIdEqualCurrent;
+	 }
+	
+	/**
+	 * @param attachedUserIdEqualCurrent bool Indicates if to get the asset user rule list for the attached user or for the entire group
+	 */
+	 setAttachedUserIdEqualCurrent(attachedUserIdEqualCurrent) {
+	 	this.attachedUserIdEqualCurrent = attachedUserIdEqualCurrent;
+	 }
+}
+module.exports.AssetUserRuleFilter = AssetUserRuleFilter;
+
+/**
+ *
+ */
 class CurrencyFilter extends Filter{
 	
 	constructor(object = null) {
@@ -16199,6 +17561,22 @@ class AppToken extends kaltura.BaseObject{
 	 setSessionUserId(sessionUserId) {
 	 	this.sessionUserId = sessionUserId;
 	 }
+	
+	/**
+	 * Create date
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * Update date
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
 }
 module.exports.AppToken = AppToken;
 
@@ -16400,35 +17778,23 @@ class PlaybackContextOptions extends kaltura.BaseObject{
 	 setContext(context) {
 	 	this.context = context;
 	 }
-}
-module.exports.PlaybackContextOptions = PlaybackContextOptions;
-
-/**
- *
- */
-class RuleAction extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaRuleAction';
-	}
 	
 	/**
-	 * The type of the action
+	 * Url type
 	 * @return string
 	 */
-	 getType() {
-	 	return this.type;
+	 getUrlType() {
+	 	return this.urlType;
 	 }
 	
 	/**
-	 * @param type string The type of the action
+	 * @param urlType string Url type
 	 */
-	 setType(type) {
-	 	this.type = type;
+	 setUrlType(urlType) {
+	 	this.urlType = urlType;
 	 }
 }
-module.exports.RuleAction = RuleAction;
+module.exports.PlaybackContextOptions = PlaybackContextOptions;
 
 /**
  *
@@ -16528,18 +17894,6 @@ class PlaybackContext extends kaltura.BaseObject{
 	 }
 }
 module.exports.PlaybackContext = PlaybackContext;
-
-/**
- *
- */
-class AccessControlBlockAction extends RuleAction{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAccessControlBlockAction';
-	}
-}
-module.exports.AccessControlBlockAction = AccessControlBlockAction;
 
 /**
  *
@@ -16996,6 +18350,117 @@ class UrlResource extends ContentResource{
 	 }
 }
 module.exports.UrlResource = UrlResource;
+
+/**
+ *
+ */
+class CouponGenerationOptions extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCouponGenerationOptions';
+	}
+}
+module.exports.CouponGenerationOptions = CouponGenerationOptions;
+
+/**
+ *
+ */
+class PublicCouponGenerationOptions extends CouponGenerationOptions{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPublicCouponGenerationOptions';
+	}
+	
+	/**
+	 * Coupon code (name)
+	 * @return string
+	 */
+	 getCode() {
+	 	return this.code;
+	 }
+	
+	/**
+	 * @param code string Coupon code (name)
+	 */
+	 setCode(code) {
+	 	this.code = code;
+	 }
+}
+module.exports.PublicCouponGenerationOptions = PublicCouponGenerationOptions;
+
+/**
+ *
+ */
+class RandomCouponGenerationOptions extends CouponGenerationOptions{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRandomCouponGenerationOptions';
+	}
+	
+	/**
+	 * Number of coupons to generate
+	 * @return int
+	 */
+	 getNumberOfCoupons() {
+	 	return this.numberOfCoupons;
+	 }
+	
+	/**
+	 * @param numberOfCoupons int Number of coupons to generate
+	 */
+	 setNumberOfCoupons(numberOfCoupons) {
+	 	this.numberOfCoupons = numberOfCoupons;
+	 }
+	
+	/**
+	 * Indicates whether to use letters in the generated codes (default is true)
+	 * @return bool
+	 */
+	 getUseLetters() {
+	 	return this.useLetters;
+	 }
+	
+	/**
+	 * @param useLetters bool Indicates whether to use letters in the generated codes (default is true)
+	 */
+	 setUseLetters(useLetters) {
+	 	this.useLetters = useLetters;
+	 }
+	
+	/**
+	 * Indicates whether to use numbers in the generated codes (default is true)
+	 * @return bool
+	 */
+	 getUseNumbers() {
+	 	return this.useNumbers;
+	 }
+	
+	/**
+	 * @param useNumbers bool Indicates whether to use numbers in the generated codes (default is true)
+	 */
+	 setUseNumbers(useNumbers) {
+	 	this.useNumbers = useNumbers;
+	 }
+	
+	/**
+	 * Indicates whether to use special characters in the generated codes(default is true)
+	 * @return bool
+	 */
+	 getUseSpecialCharacters() {
+	 	return this.useSpecialCharacters;
+	 }
+	
+	/**
+	 * @param useSpecialCharacters bool Indicates whether to use special characters in the generated codes(default is true)
+	 */
+	 setUseSpecialCharacters(useSpecialCharacters) {
+	 	this.useSpecialCharacters = useSpecialCharacters;
+	 }
+}
+module.exports.RandomCouponGenerationOptions = RandomCouponGenerationOptions;
 
 /**
  *
@@ -18944,60 +20409,6 @@ module.exports.HouseholdLimitations = HouseholdLimitations;
 /**
  *
  */
-class PartnerConfiguration extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPartnerConfiguration';
-	}
-}
-module.exports.PartnerConfiguration = PartnerConfiguration;
-
-/**
- *
- */
-class BillingPartnerConfig extends PartnerConfiguration{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBillingPartnerConfig';
-	}
-	
-	/**
-	 * configuration value
-	 * @return string
-	 */
-	 getValue() {
-	 	return this.value;
-	 }
-	
-	/**
-	 * @param value string configuration value
-	 */
-	 setValue(value) {
-	 	this.value = value;
-	 }
-	
-	/**
-	 * partner configuration type
-	 * @return string
-	 */
-	 getType() {
-	 	return this.type;
-	 }
-	
-	/**
-	 * @param type string partner configuration type
-	 */
-	 setType(type) {
-	 	this.type = type;
-	 }
-}
-module.exports.BillingPartnerConfig = BillingPartnerConfig;
-
-/**
- *
- */
 class LoginSession extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -19352,6 +20763,22 @@ class Coupon extends kaltura.BaseObject{
 	 */
 	 getStatus() {
 	 	return this.status;
+	 }
+	
+	/**
+	 * Total available coupon uses
+	 * @return int
+	 */
+	 getTotalUses() {
+	 	return this.totalUses;
+	 }
+	
+	/**
+	 * Left coupon uses
+	 * @return int
+	 */
+	 getLeftUses() {
+	 	return this.leftUses;
 	 }
 }
 module.exports.Coupon = Coupon;

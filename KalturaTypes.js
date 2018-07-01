@@ -100,6 +100,10 @@ START_DATE_ASC : 'START_DATE_ASC',
 LIKES_DESC : 'LIKES_DESC',
 };
 
+module.exports.AssetRuleOrderBy = {
+NONE : 'NONE',
+};
+
 module.exports.AssetStructMetaOrderBy = {
 NONE : 'NONE',
 };
@@ -119,6 +123,10 @@ module.exports.AssetType = {
 MEDIA : 'media',
 RECORDING : 'recording',
 EPG : 'epg',
+};
+
+module.exports.AssetUserRuleOrderBy = {
+NONE : 'NONE',
 };
 
 module.exports.BatchJobStatus = {
@@ -238,6 +246,11 @@ PERCENTAGE : 'PERCENTAGE',
 FIXED_AMOUNT : 'FIXED_AMOUNT',
 };
 
+module.exports.ConcurrencyLimitationType = {
+SINGLE : 'Single',
+GROUP : 'Group',
+};
+
 module.exports.ConfigurationGroupDeviceOrderBy = {
 NONE : 'NONE',
 };
@@ -310,6 +323,11 @@ PURCHASE_DATE_DESC : 'PURCHASE_DATE_DESC',
 module.exports.EntityReferenceBy = {
 USER : 'user',
 HOUSEHOLD : 'household',
+};
+
+module.exports.EvictionPolicyType = {
+FIFO : 'FIFO',
+LIFO : 'LIFO',
 };
 
 module.exports.ExportDataType = {
@@ -513,10 +531,15 @@ MOVIES : 'MOVIES',
 TV_SERIES : 'TV_SERIES',
 };
 
+module.exports.PartnerConfigurationOrderBy = {
+NONE : 'NONE',
+};
+
 module.exports.PartnerConfigurationType = {
 DEFAULTPAYMENTGATEWAY : 'DefaultPaymentGateway',
 ENABLEPAYMENTGATEWAYSELECTION : 'EnablePaymentGatewaySelection',
 OSSADAPTER : 'OSSAdapter',
+CONCURRENCY : 'Concurrency',
 };
 
 module.exports.PaymentMethodProfileOrderBy = {
@@ -551,6 +574,11 @@ START_DATE_DESC : 'START_DATE_DESC',
 START_DATE_ASC : 'START_DATE_ASC',
 };
 
+module.exports.PersonalListOrderBy = {
+CREATE_DATE_DESC : 'CREATE_DATE_DESC',
+CREATE_DATE_ASC : 'CREATE_DATE_ASC',
+};
+
 module.exports.PinType = {
 PURCHASE : 'purchase',
 PARENTAL : 'parental',
@@ -571,6 +599,7 @@ TRAILER : 'TRAILER',
 CATCHUP : 'CATCHUP',
 START_OVER : 'START_OVER',
 PLAYBACK : 'PLAYBACK',
+DOWNLOAD : 'DOWNLOAD',
 };
 
 module.exports.PositionOwner = {
@@ -667,6 +696,15 @@ NONE : 'NONE',
 
 module.exports.RuleActionType = {
 BLOCK : 'BLOCK',
+START_DATE_OFFSET : 'START_DATE_OFFSET',
+END_DATE_OFFSET : 'END_DATE_OFFSET',
+USER_BLOCK : 'USER_BLOCK',
+};
+
+module.exports.RuleConditionType = {
+ASSET : 'ASSET',
+COUNTRY : 'COUNTRY',
+CONCURRENCY : 'CONCURRENCY',
 };
 
 module.exports.RuleLevel = {
@@ -681,6 +719,7 @@ PARENTAL : 'parental',
 GEO : 'geo',
 USER_TYPE : 'user_type',
 DEVICE : 'device',
+ASSETUSER : 'assetUser',
 };
 
 module.exports.ScheduledRecordingAssetType = {
@@ -834,6 +873,11 @@ module.exports.UploadTokenStatus = {
 PENDING : 'PENDING',
 FULL_UPLOAD : 'FULL_UPLOAD',
 CLOSED : 'CLOSED',
+};
+
+module.exports.UrlType = {
+PLAYMANIFEST : 'PLAYMANIFEST',
+DIRECT : 'DIRECT',
 };
 
 module.exports.UserAssetRuleOrderBy = {
