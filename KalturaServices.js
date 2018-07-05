@@ -219,13 +219,28 @@ module.exports.assetComment = assetComment;
 /**
  *Class definition for the Kaltura service: asset.
  * The available service actions:
+ * @action add Add a new asset.
  * @action count Returns a group-by result for media or EPG according to given filter. Lists values of each field and their respective count.
+ * @action delete Delete an existing asset.
  * @action get Returns media or EPG asset by media / EPG internal or external identifier.
  * @action getAdsContext Returns the data for ads control.
  * @action getPlaybackContext This action delivers all data relevant for player.
  * @action list Returns media or EPG assets. Filters by media identifiers or by EPG internal or external identifier.
+ * @action removeMetasAndTags remove metas and tags from asset.
+ * @action update update an existing asset.
  */
 class asset{
+	
+	/**
+	 * Add a new asset.
+	 * @param asset Asset Asset object
+	 * @return KalturaAsset
+	 */
+	static add(asset){
+		let kparams = {};
+		kparams.asset = asset;
+		return new kaltura.RequestBuilder('asset', 'add', kparams);
+	};
 	
 	/**
 	 * Returns a group-by result for media or EPG according to given filter. Lists values of each field and their respective count.
@@ -236,6 +251,19 @@ class asset{
 		let kparams = {};
 		kparams.filter = filter;
 		return new kaltura.RequestBuilder('asset', 'count', kparams);
+	};
+	
+	/**
+	 * Delete an existing asset.
+	 * @param id int Asset Identifier
+	 * @param assetReferenceType string Type of asset (enum: KalturaAssetReferenceType)
+	 * @return bool
+	 */
+	static deleteAction(id, assetReferenceType){
+		let kparams = {};
+		kparams.id = id;
+		kparams.assetReferenceType = assetReferenceType;
+		return new kaltura.RequestBuilder('asset', 'delete', kparams);
 	};
 	
 	/**
@@ -292,6 +320,34 @@ class asset{
 		kparams.filter = filter;
 		kparams.pager = pager;
 		return new kaltura.RequestBuilder('asset', 'list', kparams);
+	};
+	
+	/**
+	 * remove metas and tags from asset.
+	 * @param id int Asset Identifier
+	 * @param assetReferenceType string Type of asset (enum: KalturaAssetReferenceType)
+	 * @param idIn string comma separated ids of metas and tags
+	 * @return bool
+	 */
+	static removeMetasAndTags(id, assetReferenceType, idIn){
+		let kparams = {};
+		kparams.id = id;
+		kparams.assetReferenceType = assetReferenceType;
+		kparams.idIn = idIn;
+		return new kaltura.RequestBuilder('asset', 'removeMetasAndTags', kparams);
+	};
+	
+	/**
+	 * update an existing asset.
+	 * @param id int Asset Identifier
+	 * @param asset Asset Asset object
+	 * @return KalturaAsset
+	 */
+	static update(id, asset){
+		let kparams = {};
+		kparams.id = id;
+		kparams.asset = asset;
+		return new kaltura.RequestBuilder('asset', 'update', kparams);
 	};
 }
 module.exports.asset = asset;
@@ -457,6 +513,102 @@ module.exports.assetStatistics = assetStatistics;
 
 
 /**
+ *Class definition for the Kaltura service: assetStruct.
+ * The available service actions:
+ * @action add Add a new assetStruct.
+ * @action delete Delete an existing assetStruct.
+ * @action list Return a list of asset structs for the account with optional filter.
+ * @action update Update an existing assetStruct.
+ */
+class assetStruct{
+	
+	/**
+	 * Add a new assetStruct.
+	 * @param assetStruct AssetStruct AssetStruct Object
+	 * @return KalturaAssetStruct
+	 */
+	static add(assetStruct){
+		let kparams = {};
+		kparams.assetStruct = assetStruct;
+		return new kaltura.RequestBuilder('assetstruct', 'add', kparams);
+	};
+	
+	/**
+	 * Delete an existing assetStruct.
+	 * @param id int AssetStruct Identifier
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('assetstruct', 'delete', kparams);
+	};
+	
+	/**
+	 * Return a list of asset structs for the account with optional filter.
+	 * @param filter AssetStructFilter Filter parameters for filtering out the result (optional, default: null)
+	 * @return KalturaAssetStructListResponse
+	 */
+	static listAction(filter = null){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('assetstruct', 'list', kparams);
+	};
+	
+	/**
+	 * Update an existing assetStruct.
+	 * @param id int AssetStruct Identifier
+	 * @param assetStruct AssetStruct AssetStruct Object
+	 * @return KalturaAssetStruct
+	 */
+	static update(id, assetStruct){
+		let kparams = {};
+		kparams.id = id;
+		kparams.assetStruct = assetStruct;
+		return new kaltura.RequestBuilder('assetstruct', 'update', kparams);
+	};
+}
+module.exports.assetStruct = assetStruct;
+
+
+/**
+ *Class definition for the Kaltura service: assetStructMeta.
+ * The available service actions:
+ * @action list Return a list of asset struct metas for the account with optional filter.
+ * @action update Update Asset struct meta.
+ */
+class assetStructMeta{
+	
+	/**
+	 * Return a list of asset struct metas for the account with optional filter.
+	 * @param filter AssetStructMetaFilter Filter parameters for filtering out the result
+	 * @return KalturaAssetStructMetaListResponse
+	 */
+	static listAction(filter){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('assetstructmeta', 'list', kparams);
+	};
+	
+	/**
+	 * Update Asset struct meta.
+	 * @param assetStructId int AssetStruct Identifier
+	 * @param metaId int Meta Identifier
+	 * @param assetStructMeta AssetStructMeta AssetStructMeta Object
+	 * @return KalturaAssetStructMeta
+	 */
+	static update(assetStructId, metaId, assetStructMeta){
+		let kparams = {};
+		kparams.assetStructId = assetStructId;
+		kparams.metaId = metaId;
+		kparams.assetStructMeta = assetStructMeta;
+		return new kaltura.RequestBuilder('assetstructmeta', 'update', kparams);
+	};
+}
+module.exports.assetStructMeta = assetStructMeta;
+
+
+/**
  *Class definition for the Kaltura service: assetUserRule.
  * The available service actions:
  * @action add Add asset user rule.
@@ -571,6 +723,41 @@ class bookmark{
 	};
 }
 module.exports.bookmark = bookmark;
+
+
+/**
+ *Class definition for the Kaltura service: bulk.
+ * The available service actions:
+ * @action list List bulk actions.
+ * @action serveLog  ServeLog action returns the log file for the bulk action.
+ */
+class bulk{
+	
+	/**
+	 * List bulk actions.
+	 * @param filter BulkFilter Filtering the bulk action request (optional, default: null)
+	 * @param pager FilterPager Paging the request (optional, default: null)
+	 * @return KalturaBulkListResponse
+	 */
+	static listAction(filter = null, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('bulk', 'list', kparams);
+	};
+	
+	/**
+	 * ServeLog action returns the log file for the bulk action.
+	 * @param id int bulk action id
+	 * @return KalturaBulk
+	 */
+	static serveLog (id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('bulk', 'serveLog ', kparams);
+	};
+}
+module.exports.bulk = bulk;
 
 
 /**
@@ -745,15 +932,16 @@ module.exports.cDVRAdapterProfile = cDVRAdapterProfile;
 /**
  *Class definition for the Kaltura service: channel.
  * The available service actions:
- * @action add Insert new channel for partner. Currently supports only KSQL channel.
+ * @action add Insert new channel for partner. Supports KalturaDynamicChannel or KalturaManualChannel.
  * @action delete Delete channel by its channel id.
- * @action get Returns channel info.
- * @action update Update channel details. Currently supports only KSQL channel.
+ * @action get Returns channel.
+ * @action list Get the list of tags for the partner.
+ * @action update Update channel details. Supports KalturaDynamicChannel or KalturaManualChannel.
  */
 class channel{
 	
 	/**
-	 * Insert new channel for partner. Currently supports only KSQL channel.
+	 * Insert new channel for partner. Supports KalturaDynamicChannel or KalturaManualChannel.
 	 * @param channel Channel KSQL channel Object
 	 * @return KalturaChannel
 	 */
@@ -775,7 +963,7 @@ class channel{
 	};
 	
 	/**
-	 * Returns channel info.
+	 * Returns channel.
 	 * @param id int Channel Identifier
 	 * @return KalturaChannel
 	 */
@@ -786,14 +974,27 @@ class channel{
 	};
 	
 	/**
-	 * Update channel details. Currently supports only KSQL channel.
-	 * @param channelId int Channel identifier
+	 * Get the list of tags for the partner.
+	 * @param filter ChannelsFilter Filter (optional, default: null)
+	 * @param pager FilterPager Page size and index (optional, default: null)
+	 * @return KalturaChannelListResponse
+	 */
+	static listAction(filter = null, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('channel', 'list', kparams);
+	};
+	
+	/**
+	 * Update channel details. Supports KalturaDynamicChannel or KalturaManualChannel.
+	 * @param id int Channel identifier
 	 * @param channel Channel KSQL channel Object
 	 * @return KalturaChannel
 	 */
-	static update(channelId, channel){
+	static update(id, channel){
 		let kparams = {};
-		kparams.channelId = channelId;
+		kparams.id = id;
 		kparams.channel = channel;
 		return new kaltura.RequestBuilder('channel', 'update', kparams);
 	};
@@ -2450,6 +2651,123 @@ module.exports.householdUser = householdUser;
 
 
 /**
+ *Class definition for the Kaltura service: image.
+ * The available service actions:
+ * @action add Add a new image.
+ * @action delete Delete an existing image.
+ * @action list Get the list of images by different filtering.
+ * @action setContent Sets the content of an existing image.
+ */
+class image{
+	
+	/**
+	 * Add a new image.
+	 * @param image Image Image
+	 * @return KalturaImage
+	 */
+	static add(image){
+		let kparams = {};
+		kparams.image = image;
+		return new kaltura.RequestBuilder('image', 'add', kparams);
+	};
+	
+	/**
+	 * Delete an existing image.
+	 * @param id int Image ID
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('image', 'delete', kparams);
+	};
+	
+	/**
+	 * Get the list of images by different filtering.
+	 * @param filter ImageFilter Filter (optional, default: null)
+	 * @return KalturaImageListResponse
+	 */
+	static listAction(filter = null){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('image', 'list', kparams);
+	};
+	
+	/**
+	 * Sets the content of an existing image.
+	 * @param id int Image ID
+	 * @param content ContentResource Content of the image to set
+	 */
+	static setContent(id, content){
+		let kparams = {};
+		kparams.id = id;
+		kparams.content = content;
+		return new kaltura.RequestBuilder('image', 'setContent', kparams);
+	};
+}
+module.exports.image = image;
+
+
+/**
+ *Class definition for the Kaltura service: imageType.
+ * The available service actions:
+ * @action add Add a new image type.
+ * @action delete Delete an existing image type.
+ * @action list Get the list of image types for the partner.
+ * @action update Update an existing image type.
+ */
+class imageType{
+	
+	/**
+	 * Add a new image type.
+	 * @param imageType ImageType Image type object
+	 * @return KalturaImageType
+	 */
+	static add(imageType){
+		let kparams = {};
+		kparams.imageType = imageType;
+		return new kaltura.RequestBuilder('imagetype', 'add', kparams);
+	};
+	
+	/**
+	 * Delete an existing image type.
+	 * @param id int Image type ID
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('imagetype', 'delete', kparams);
+	};
+	
+	/**
+	 * Get the list of image types for the partner.
+	 * @param filter ImageTypeFilter Filter (optional, default: null)
+	 * @return KalturaImageTypeListResponse
+	 */
+	static listAction(filter = null){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('imagetype', 'list', kparams);
+	};
+	
+	/**
+	 * Update an existing image type.
+	 * @param id int Image type ID
+	 * @param imageType ImageType Image type object
+	 * @return KalturaImageType
+	 */
+	static update(id, imageType){
+		let kparams = {};
+		kparams.id = id;
+		kparams.imageType = imageType;
+		return new kaltura.RequestBuilder('imagetype', 'update', kparams);
+	};
+}
+module.exports.imageType = imageType;
+
+
+/**
  *Class definition for the Kaltura service: inboxMessage.
  * The available service actions:
  * @action get TBD.
@@ -2541,6 +2859,122 @@ module.exports.licensedUrl = licensedUrl;
 
 
 /**
+ *Class definition for the Kaltura service: mediaFile.
+ * The available service actions:
+ * @action add Add a new media file.
+ * @action delete Delete an existing media file.
+ * @action list Returns a list of media-file.
+ * @action update update an existing media file.
+ */
+class mediaFile{
+	
+	/**
+	 * Add a new media file.
+	 * @param mediaFile MediaFile Media file object
+	 * @return KalturaMediaFile
+	 */
+	static add(mediaFile){
+		let kparams = {};
+		kparams.mediaFile = mediaFile;
+		return new kaltura.RequestBuilder('mediafile', 'add', kparams);
+	};
+	
+	/**
+	 * Delete an existing media file.
+	 * @param id int Media file identifier
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('mediafile', 'delete', kparams);
+	};
+	
+	/**
+	 * Returns a list of media-file.
+	 * @param filter MediaFileFilter Filter (optional, default: null)
+	 * @return KalturaMediaFileListResponse
+	 */
+	static listAction(filter = null){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('mediafile', 'list', kparams);
+	};
+	
+	/**
+	 * update an existing media file.
+	 * @param id int Media file identifier
+	 * @param mediaFile MediaFile Media file object
+	 * @return KalturaMediaFile
+	 */
+	static update(id, mediaFile){
+		let kparams = {};
+		kparams.id = id;
+		kparams.mediaFile = mediaFile;
+		return new kaltura.RequestBuilder('mediafile', 'update', kparams);
+	};
+}
+module.exports.mediaFile = mediaFile;
+
+
+/**
+ *Class definition for the Kaltura service: mediaFileType.
+ * The available service actions:
+ * @action add Add new media-file type.
+ * @action delete Delete media-file type by id.
+ * @action list Returns a list of media-file types.
+ * @action update Update existing media-file type.
+ */
+class mediaFileType{
+	
+	/**
+	 * Add new media-file type.
+	 * @param mediaFileType MediaFileType Media-file type
+	 * @return KalturaMediaFileType
+	 */
+	static add(mediaFileType){
+		let kparams = {};
+		kparams.mediaFileType = mediaFileType;
+		return new kaltura.RequestBuilder('mediafiletype', 'add', kparams);
+	};
+	
+	/**
+	 * Delete media-file type by id.
+	 * @param id int Media-file type identifier
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('mediafiletype', 'delete', kparams);
+	};
+	
+	/**
+	 * Returns a list of media-file types.
+	 * @return KalturaMediaFileTypeListResponse
+	 */
+	static listAction(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('mediafiletype', 'list', kparams);
+	};
+	
+	/**
+	 * Update existing media-file type.
+	 * @param id int Media-file type identifier
+	 * @param mediaFileType MediaFileType Media-file type
+	 * @return KalturaMediaFileType
+	 */
+	static update(id, mediaFileType){
+		let kparams = {};
+		kparams.id = id;
+		kparams.mediaFileType = mediaFileType;
+		return new kaltura.RequestBuilder('mediafiletype', 'update', kparams);
+	};
+}
+module.exports.mediaFileType = mediaFileType;
+
+
+/**
  *Class definition for the Kaltura service: messageTemplate.
  * The available service actions:
  * @action get Retrieve a message template used in push notifications and inbox.
@@ -2578,13 +3012,37 @@ module.exports.messageTemplate = messageTemplate;
 /**
  *Class definition for the Kaltura service: meta.
  * The available service actions:
- * @action list Get the list of meta mappings for the partner.
- * @action update Update meta&#39;s user interest.
+ * @action add Add a new meta.
+ * @action delete Delete an existing meta.
+ * @action list Return a list of metas for the account with optional filter.
+ * @action update Update an existing meta.
  */
 class meta{
 	
 	/**
-	 * Get the list of meta mappings for the partner.
+	 * Add a new meta.
+	 * @param meta Meta Meta Object
+	 * @return KalturaMeta
+	 */
+	static add(meta){
+		let kparams = {};
+		kparams.meta = meta;
+		return new kaltura.RequestBuilder('meta', 'add', kparams);
+	};
+	
+	/**
+	 * Delete an existing meta.
+	 * @param id int Meta Identifier
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('meta', 'delete', kparams);
+	};
+	
+	/**
+	 * Return a list of metas for the account with optional filter.
 	 * @param filter MetaFilter Meta filter (optional, default: null)
 	 * @return KalturaMetaListResponse
 	 */
@@ -2595,8 +3053,8 @@ class meta{
 	};
 	
 	/**
-	 * Update meta&#39;s user interest.
-	 * @param id string Meta identifier
+	 * Update an existing meta.
+	 * @param id int Meta identifier
 	 * @param meta Meta Meta
 	 * @return KalturaMeta
 	 */
@@ -3112,13 +3570,39 @@ module.exports.ottUser = ottUser;
 /**
  *Class definition for the Kaltura service: parentalRule.
  * The available service actions:
+ * @action add Add a new parentalRule.
+ * @action delete Delete an existing parentalRule.
  * @action disable Disables a parental rule that was previously defined by the household master. Disable can be at specific user or household level.
  * @action disableDefault Disables a parental rule that was defined at account level. Disable can be at specific user or household level.
  * @action enable Enable a parental rules for a user.
+ * @action get Get an existing parentalRule by identifier.
  * @action list Return the parental rules that applies for the user or household. Can include rules that have been associated in account, household, or user level.
  * Association level is also specified in the response.
+ * @action update Update an existing parentalRule.
  */
 class parentalRule{
+	
+	/**
+	 * Add a new parentalRule.
+	 * @param parentalRule ParentalRule parentalRule object
+	 * @return KalturaParentalRule
+	 */
+	static add(parentalRule){
+		let kparams = {};
+		kparams.parentalRule = parentalRule;
+		return new kaltura.RequestBuilder('parentalrule', 'add', kparams);
+	};
+	
+	/**
+	 * Delete an existing parentalRule.
+	 * @param id int parentalRule identifier
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('parentalrule', 'delete', kparams);
+	};
 	
 	/**
 	 * Disables a parental rule that was previously defined by the household master. Disable can be at specific user or household level.
@@ -3158,6 +3642,17 @@ class parentalRule{
 	};
 	
 	/**
+	 * Get an existing parentalRule by identifier.
+	 * @param id int parentalRule identifier
+	 * @return KalturaParentalRule
+	 */
+	static get(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('parentalrule', 'get', kparams);
+	};
+	
+	/**
 	 * Return the parental rules that applies for the user or household. Can include rules that have been associated in account, household, or user level.
  * Association level is also specified in the response.
 	 * @param filter ParentalRuleFilter Filter
@@ -3167,6 +3662,19 @@ class parentalRule{
 		let kparams = {};
 		kparams.filter = filter;
 		return new kaltura.RequestBuilder('parentalrule', 'list', kparams);
+	};
+	
+	/**
+	 * Update an existing parentalRule.
+	 * @param id int parentalRule identifier
+	 * @param parentalRule ParentalRule parentalRule object
+	 * @return KalturaParentalRule
+	 */
+	static update(id, parentalRule){
+		let kparams = {};
+		kparams.id = id;
+		kparams.parentalRule = parentalRule;
+		return new kaltura.RequestBuilder('parentalrule', 'update', kparams);
 	};
 }
 module.exports.parentalRule = parentalRule;
@@ -3618,6 +4126,51 @@ class purchaseSettings{
 	};
 }
 module.exports.purchaseSettings = purchaseSettings;
+
+
+/**
+ *Class definition for the Kaltura service: ratio.
+ * The available service actions:
+ * @action add Add new group ratio.
+ * @action list Get the list of available ratios.
+ * @action update Update group ratio&#39;s PrecisionPrecentage.
+ */
+class ratio{
+	
+	/**
+	 * Add new group ratio.
+	 * @param ratio Ratio Ratio to add for the partner
+	 * @return KalturaRatio
+	 */
+	static add(ratio){
+		let kparams = {};
+		kparams.ratio = ratio;
+		return new kaltura.RequestBuilder('ratio', 'add', kparams);
+	};
+	
+	/**
+	 * Get the list of available ratios.
+	 * @return KalturaRatioListResponse
+	 */
+	static listAction(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('ratio', 'list', kparams);
+	};
+	
+	/**
+	 * Update group ratio&#39;s PrecisionPrecentage.
+	 * @param id int The ratio ID
+	 * @param ratio Ratio Ratio to update for the partner
+	 * @return KalturaRatio
+	 */
+	static update(id, ratio){
+		let kparams = {};
+		kparams.id = id;
+		kparams.ratio = ratio;
+		return new kaltura.RequestBuilder('ratio', 'update', kparams);
+	};
+}
+module.exports.ratio = ratio;
 
 
 /**
@@ -4537,6 +5090,67 @@ module.exports.system = system;
 
 
 /**
+ *Class definition for the Kaltura service: tag.
+ * The available service actions:
+ * @action add Add a new tag.
+ * @action delete Delete an existing tag.
+ * @action list Get the list of tags for the partner.
+ * @action update Update an existing tag.
+ */
+class tag{
+	
+	/**
+	 * Add a new tag.
+	 * @param tag Tag Tag Object
+	 * @return KalturaTag
+	 */
+	static add(tag){
+		let kparams = {};
+		kparams.tag = tag;
+		return new kaltura.RequestBuilder('tag', 'add', kparams);
+	};
+	
+	/**
+	 * Delete an existing tag.
+	 * @param id int Tag Identifier
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('tag', 'delete', kparams);
+	};
+	
+	/**
+	 * Get the list of tags for the partner.
+	 * @param filter TagFilter Filter (optional, default: null)
+	 * @param pager FilterPager Page size and index (optional, default: null)
+	 * @return KalturaTagListResponse
+	 */
+	static listAction(filter = null, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('tag', 'list', kparams);
+	};
+	
+	/**
+	 * Update an existing tag.
+	 * @param id int Tag Identifier
+	 * @param tag Tag Tag Object
+	 * @return KalturaTag
+	 */
+	static update(id, tag){
+		let kparams = {};
+		kparams.id = id;
+		kparams.tag = tag;
+		return new kaltura.RequestBuilder('tag', 'update', kparams);
+	};
+}
+module.exports.tag = tag;
+
+
+/**
  *Class definition for the Kaltura service: timeShiftedTvPartnerSettings.
  * The available service actions:
  * @action get Retrieve the account’s time-shifted TV settings (catch-up and C-DVR, Trick-play, Start-over).
@@ -4772,6 +5386,42 @@ class unifiedPayment{
 	};
 }
 module.exports.unifiedPayment = unifiedPayment;
+
+
+/**
+ *Class definition for the Kaltura service: uploadToken.
+ * The available service actions:
+ * @action add Adds new upload token to upload a file.
+ * @action upload Upload a file using the upload token id.
+ */
+class uploadToken{
+	
+	/**
+	 * Adds new upload token to upload a file.
+	 * @param uploadToken UploadToken Upload token details (optional, default: null)
+	 * @return KalturaUploadToken
+	 */
+	static add(uploadToken = null){
+		let kparams = {};
+		kparams.uploadToken = uploadToken;
+		return new kaltura.RequestBuilder('uploadtoken', 'add', kparams);
+	};
+	
+	/**
+	 * Upload a file using the upload token id.
+	 * @param uploadTokenId string Identifier of existing upload-token
+	 * @param fileData file File to upload
+	 * @return KalturaUploadToken
+	 */
+	static upload(uploadTokenId, fileData){
+		let kparams = {};
+		kparams.uploadTokenId = uploadTokenId;
+		let kfiles = {};
+		kfiles.fileData = fileData;
+		return new kaltura.RequestBuilder('uploadtoken', 'upload', kparams, kfiles);
+	};
+}
+module.exports.uploadToken = uploadToken;
 
 
 /**
