@@ -729,7 +729,7 @@ module.exports.bookmark = bookmark;
  *Class definition for the Kaltura service: bulk.
  * The available service actions:
  * @action list List bulk actions.
- * @action serveLog  ServeLog action returns the log file for the bulk action.
+ * @action serveLog ServeLog action returns the log file for the bulk action.
  */
 class bulk{
 	
@@ -751,10 +751,10 @@ class bulk{
 	 * @param id int bulk action id
 	 * @return KalturaBulk
 	 */
-	static serveLog (id){
+	static serveLog(id){
 		let kparams = {};
 		kparams.id = id;
-		return new kaltura.RequestBuilder('bulk', 'serveLog ', kparams);
+		return new kaltura.RequestBuilder('bulk', 'serveLog', kparams);
 	};
 }
 module.exports.bulk = bulk;
