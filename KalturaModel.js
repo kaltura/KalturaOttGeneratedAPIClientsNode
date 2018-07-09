@@ -10424,6 +10424,81 @@ class AssetStruct extends kaltura.BaseObject{
 	 getUpdateDate() {
 	 	return this.updateDate;
 	 }
+	
+	/**
+	 * List of supported features
+	 * @return string
+	 */
+	 getFeatures() {
+	 	return this.features;
+	 }
+	
+	/**
+	 * @param features string List of supported features
+	 */
+	 setFeatures(features) {
+	 	this.features = features;
+	 }
+	
+	/**
+	 * Plural Name
+	 * @return string
+	 */
+	 getPluralName() {
+	 	return this.pluralName;
+	 }
+	
+	/**
+	 * @param pluralName string Plural Name
+	 */
+	 setPluralName(pluralName) {
+	 	this.pluralName = pluralName;
+	 }
+	
+	/**
+	 * AssetStruct parent Id
+	 * @return int
+	 */
+	 getParentId() {
+	 	return this.parentId;
+	 }
+	
+	/**
+	 * @param parentId int AssetStruct parent Id
+	 */
+	 setParentId(parentId) {
+	 	this.parentId = parentId;
+	 }
+	
+	/**
+	 * connectingMetaId
+	 * @return int
+	 */
+	 getConnectingMetaId() {
+	 	return this.connectingMetaId;
+	 }
+	
+	/**
+	 * @param connectingMetaId int connectingMetaId
+	 */
+	 setConnectingMetaId(connectingMetaId) {
+	 	this.connectingMetaId = connectingMetaId;
+	 }
+	
+	/**
+	 * connectedParentMetaId
+	 * @return int
+	 */
+	 getConnectedParentMetaId() {
+	 	return this.connectedParentMetaId;
+	 }
+	
+	/**
+	 * @param connectedParentMetaId int connectedParentMetaId
+	 */
+	 setConnectedParentMetaId(connectedParentMetaId) {
+	 	this.connectedParentMetaId = connectedParentMetaId;
+	 }
 }
 module.exports.AssetStruct = AssetStruct;
 
@@ -10923,6 +10998,21 @@ class Bookmark extends SlimAsset{
 	 */
 	 setProgramId(programId) {
 	 	this.programId = programId;
+	 }
+	
+	/**
+	 * Indicates if the current request is in reporting mode (hit)
+	 * @return bool
+	 */
+	 getIsReportingMode() {
+	 	return this.isReportingMode;
+	 }
+	
+	/**
+	 * @param isReportingMode bool Indicates if the current request is in reporting mode (hit)
+	 */
+	 setIsReportingMode(isReportingMode) {
+	 	this.isReportingMode = isReportingMode;
 	 }
 }
 module.exports.Bookmark = Bookmark;

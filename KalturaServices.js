@@ -1529,6 +1529,25 @@ module.exports.discountDetails = discountDetails;
 
 
 /**
+ *Class definition for the Kaltura service: drmProfile.
+ * The available service actions:
+ * @action list Returns all DRM adapters for partner.
+ */
+class drmProfile{
+	
+	/**
+	 * Returns all DRM adapters for partner.
+	 * @return KalturaDrmProfileListResponse
+	 */
+	static listAction(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('drmprofile', 'list', kparams);
+	};
+}
+module.exports.drmProfile = drmProfile;
+
+
+/**
  *Class definition for the Kaltura service: email.
  * The available service actions:
  * @action send Sends email notification.
