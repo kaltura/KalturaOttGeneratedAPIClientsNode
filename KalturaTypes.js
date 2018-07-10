@@ -26,11 +26,6 @@
 // @ignore
 // ===================================================================================================
 
-module.exports.AdsPolicy = {
-NO_ADS : 'NO_ADS',
-KEEP_ADS : 'KEEP_ADS',
-};
-
 module.exports.AggregationCountOrderBy = {
 NONE : 'NONE',
 };
@@ -53,13 +48,6 @@ SENT : 'Sent',
 ABORTED : 'Aborted',
 };
 
-module.exports.AppTokenHashType = {
-SHA1 : 'SHA1',
-SHA256 : 'SHA256',
-SHA512 : 'SHA512',
-MD5 : 'MD5',
-};
-
 module.exports.AssetCommentOrderBy = {
 CREATE_DATE_DESC : 'CREATE_DATE_DESC',
 };
@@ -80,12 +68,6 @@ START_DATE_ASC : 'START_DATE_ASC',
 LIKES_DESC : 'LIKES_DESC',
 CREATE_DATE_ASC : 'CREATE_DATE_ASC',
 CREATE_DATE_DESC : 'CREATE_DATE_DESC',
-};
-
-module.exports.AssetReferenceType = {
-MEDIA : 'media',
-EPG_INTERNAL : 'epg_internal',
-EPG_EXTERNAL : 'epg_external',
 };
 
 module.exports.AssetReminderOrderBy = {
@@ -241,11 +223,6 @@ module.exports.CollectionOrderBy = {
 NONE : 'NONE',
 };
 
-module.exports.CompensationType = {
-PERCENTAGE : 'PERCENTAGE',
-FIXED_AMOUNT : 'FIXED_AMOUNT',
-};
-
 module.exports.ConcurrencyLimitationType = {
 SINGLE : 'Single',
 GROUP : 'Group',
@@ -263,11 +240,6 @@ module.exports.ConfigurationsOrderBy = {
 NONE : 'NONE',
 };
 
-module.exports.ContextType = {
-NONE : 'none',
-RECORDING : 'recording',
-};
-
 module.exports.CountryOrderBy = {
 NAME_ASC : 'NAME_ASC',
 };
@@ -275,14 +247,6 @@ NAME_ASC : 'NAME_ASC',
 module.exports.CouponGroupType = {
 COUPON : 'COUPON',
 GIFT_CARD : 'GIFT_CARD',
-};
-
-module.exports.CouponStatus = {
-VALID : 'VALID',
-NOT_EXISTS : 'NOT_EXISTS',
-ALREADY_USED : 'ALREADY_USED',
-EXPIRED : 'EXPIRED',
-INACTIVE : 'INACTIVE',
 };
 
 module.exports.CurrencyOrderBy = {
@@ -364,30 +328,10 @@ module.exports.HouseholdDeviceOrderBy = {
 NONE : 'NONE',
 };
 
-module.exports.HouseholdFrequencyType = {
-DEVICES : 'devices',
-USERS : 'users',
-};
-
 module.exports.HouseholdPaymentGatewaySelectedBy = {
 NONE : 'none',
 ACCOUNT : 'account',
 HOUSEHOLD : 'household',
-};
-
-module.exports.HouseholdRestriction = {
-NOT_RESTRICTED : 'not_restricted',
-USER_MASTER_RESTRICTED : 'user_master_restricted',
-DEVICE_MASTER_RESTRICTED : 'device_master_restricted',
-DEVICE_USER_MASTER_RESTRICTED : 'device_user_master_restricted',
-};
-
-module.exports.HouseholdState = {
-OK : 'ok',
-CREATED_WITHOUT_NPVR_ACCOUNT : 'created_without_npvr_account',
-SUSPENDED : 'suspended',
-NO_USERS_IN_HOUSEHOLD : 'no_users_in_household',
-PENDING : 'pending',
 };
 
 module.exports.HouseholdSuspensionState = {
@@ -477,15 +421,6 @@ HD_1080 : 'HD_1080',
 UHD_4K : 'UHD_4K',
 };
 
-module.exports.MessageTemplateType = {
-SERIES : 'Series',
-REMINDER : 'Reminder',
-CHURN : 'Churn',
-SERIESREMINDER : 'SeriesReminder',
-INTERESTVOD : 'InterestVod',
-INTERESTEPG : 'InterestEPG',
-};
-
 module.exports.MetaDataType = {
 STRING : 'STRING',
 MULTILINGUAL_STRING : 'MULTILINGUAL_STRING',
@@ -508,13 +443,6 @@ UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
 module.exports.MetaTagOrderBy = {
 META_ASC : 'META_ASC',
 META_DESC : 'META_DESC',
-};
-
-module.exports.NotificationType = {
-ANNOUNCEMENT : 'announcement',
-SYSTEM : 'system',
-REMINDER : 'Reminder',
-SERIES_REMINDER : 'series_reminder',
 };
 
 module.exports.OTTUserOrderBy = {
@@ -579,11 +507,6 @@ CREATE_DATE_DESC : 'CREATE_DATE_DESC',
 CREATE_DATE_ASC : 'CREATE_DATE_ASC',
 };
 
-module.exports.PinType = {
-PURCHASE : 'purchase',
-PARENTAL : 'parental',
-};
-
 module.exports.Platform = {
 ANDROID : 'Android',
 IOS : 'iOS',
@@ -592,14 +515,6 @@ BLACKBERRY : 'Blackberry',
 STB : 'STB',
 CTV : 'CTV',
 OTHER : 'Other',
-};
-
-module.exports.PlaybackContextType = {
-TRAILER : 'TRAILER',
-CATCHUP : 'CATCHUP',
-START_OVER : 'START_OVER',
-PLAYBACK : 'PLAYBACK',
-DOWNLOAD : 'DOWNLOAD',
 };
 
 module.exports.PositionOwner = {
@@ -620,17 +535,6 @@ PRODUCT_ID_ASC : 'PRODUCT_ID_ASC',
 PRODUCT_ID_DESC : 'PRODUCT_ID_DESC',
 };
 
-module.exports.ProtectionPolicy = {
-EXTENDINGRECORDINGLIFETIME : 'ExtendingRecordingLifetime',
-LIMITEDBYRECORDINGLIFETIME : 'LimitedByRecordingLifetime',
-};
-
-module.exports.PurchaseSettingsType = {
-BLOCK : 'block',
-ASK : 'ask',
-ALLOW : 'allow',
-};
-
 module.exports.PurchaseStatus = {
 PPV_PURCHASED : 'ppv_purchased',
 FREE : 'free',
@@ -647,11 +551,6 @@ USER_SUSPENDED : 'user_suspended',
 NOT_FOR_PURCHASE : 'not_for_purchase',
 INVALID_CURRENCY : 'invalid_currency',
 CURRENCY_NOT_DEFINED_ON_PRICE_CODE : 'currency_not_defined_on_price_code',
-};
-
-module.exports.QuotaOveragePolicy = {
-STOPATQUOTA : 'StopAtQuota',
-FIFOAUTODELETE : 'FIFOAutoDelete',
 };
 
 module.exports.RecordingContextOrderBy = {
@@ -749,11 +648,6 @@ module.exports.SocialActionOrderBy = {
 NONE : 'NONE',
 };
 
-module.exports.SocialActionPrivacy = {
-ALLOW : 'ALLOW',
-DONT_ALLOW : 'DONT_ALLOW',
-};
-
 module.exports.SocialActionType = {
 LIKE : 'LIKE',
 WATCH : 'WATCH',
@@ -771,44 +665,10 @@ NONE : 'NONE',
 UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
 };
 
-module.exports.SocialNetwork = {
-FACEBOOK : 'facebook',
-};
-
 module.exports.SocialPlatform = {
 IN_APP : 'IN_APP',
 FACEBOOK : 'FACEBOOK',
 TWITTER : 'TWITTER',
-};
-
-module.exports.SocialPrivacy = {
-UNKNOWN : 'UNKNOWN',
-EVERYONE : 'EVERYONE',
-ALL_FRIENDS : 'ALL_FRIENDS',
-FRIENDS_OF_FRIENDS : 'FRIENDS_OF_FRIENDS',
-SELF : 'SELF',
-CUSTOM : 'CUSTOM',
-};
-
-module.exports.SocialStatus = {
-ERROR : 'error',
-OK : 'ok',
-USER_DOES_NOT_EXIST : 'user_does_not_exist',
-NO_USER_SOCIAL_SETTINGS_FOUND : 'no_user_social_settings_found',
-ASSET_ALREADY_LIKED : 'asset_already_liked',
-NOT_ALLOWED : 'not_allowed',
-INVALID_PARAMETERS : 'invalid_parameters',
-NO_FACEBOOK_ACTION : 'no_facebook_action',
-ASSET_ALREADY_RATED : 'asset_already_rated',
-ASSET_DOSE_NOT_EXISTS : 'asset_dose_not_exists',
-INVALID_PLATFORM_REQUEST : 'invalid_platform_request',
-INVALID_ACCESS_TOKEN : 'invalid_access_token',
-};
-
-module.exports.StreamType = {
-CATCHUP : 'catchup',
-START_OVER : 'start_over',
-TRICK_PLAY : 'trick_play',
 };
 
 module.exports.SubscriptionDependencyType = {
@@ -852,12 +712,6 @@ module.exports.TopicOrderBy = {
 NONE : 'NONE',
 };
 
-module.exports.TransactionAdapterStatus = {
-OK : 'OK',
-PENDING : 'PENDING',
-FAILED : 'FAILED',
-};
-
 module.exports.TransactionHistoryOrderBy = {
 CREATE_DATE_ASC : 'CREATE_DATE_ASC',
 CREATE_DATE_DESC : 'CREATE_DATE_DESC',
@@ -869,32 +723,9 @@ SUBSCRIPTION : 'subscription',
 COLLECTION : 'collection',
 };
 
-module.exports.UploadTokenStatus = {
-PENDING : 'PENDING',
-FULL_UPLOAD : 'FULL_UPLOAD',
-CLOSED : 'CLOSED',
-};
-
-module.exports.UrlType = {
-PLAYMANIFEST : 'PLAYMANIFEST',
-DIRECT : 'DIRECT',
-};
-
 module.exports.UserAssetRuleOrderBy = {
 NAME_ASC : 'NAME_ASC',
 NAME_DESC : 'NAME_DESC',
-};
-
-module.exports.UserAssetsListItemType = {
-ALL : 'all',
-MEDIA : 'media',
-};
-
-module.exports.UserAssetsListType = {
-ALL : 'all',
-WATCH : 'watch',
-PURCHASE : 'purchase',
-LIBRARY : 'library',
 };
 
 module.exports.UserRoleOrderBy = {
