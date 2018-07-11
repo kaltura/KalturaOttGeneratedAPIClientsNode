@@ -1309,13 +1309,6 @@ class MultilingualStringValue extends Value{
 	 }
 	
 	/**
-	 * @param value string Value
-	 */
-	 setValue(value) {
-	 	this.value = value;
-	 }
-	
-	/**
 	 * Value
 	 * @return array
 	 */
@@ -4266,13 +4259,6 @@ class Collection extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param name string Name of the subscription
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
 	 * Name of the subscription
 	 * @return array
 	 */
@@ -4293,13 +4279,6 @@ class Collection extends kaltura.BaseObject{
 	 */
 	 getDescription() {
 	 	return this.description;
-	 }
-	
-	/**
-	 * @param description string description of the subscription
-	 */
-	 setDescription(description) {
-	 	this.description = description;
 	 }
 	
 	/**
@@ -4551,13 +4530,6 @@ class Channel extends BaseChannel{
 	 }
 	
 	/**
-	 * @param name string Channel name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
 	 * Channel name
 	 * @return array
 	 */
@@ -4593,13 +4565,6 @@ class Channel extends BaseChannel{
 	 */
 	 getDescription() {
 	 	return this.description;
-	 }
-	
-	/**
-	 * @param description string Cannel description
-	 */
-	 setDescription(description) {
-	 	this.description = description;
 	 }
 	
 	/**
@@ -6033,13 +5998,6 @@ class Subscription extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param name string Name of the subscription
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
 	 * Name of the subscription
 	 * @return array
 	 */
@@ -6060,13 +6018,6 @@ class Subscription extends kaltura.BaseObject{
 	 */
 	 getDescription() {
 	 	return this.description;
-	 }
-	
-	/**
-	 * @param description string description of the subscription
-	 */
-	 setDescription(description) {
-	 	this.description = description;
 	 }
 	
 	/**
@@ -7946,7 +7897,7 @@ class Recording extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Recording state: scheduled/recording/recorded/canceled/failed/does_not_exists/deleted
+	 * Recording state: scheduled/recording/recorded/canceled/failed/deleted
 	 * @return string
 	 */
 	 getStatus() {
@@ -7990,6 +7941,21 @@ class Recording extends kaltura.BaseObject{
 	 */
 	 getIsProtected() {
 	 	return this.isProtected;
+	 }
+	
+	/**
+	 * External identifier for the recording
+	 * @return string
+	 */
+	 getExternalId() {
+	 	return this.externalId;
+	 }
+	
+	/**
+	 * @param externalId string External identifier for the recording
+	 */
+	 setExternalId(externalId) {
+	 	this.externalId = externalId;
 	 }
 	
 	/**
@@ -9566,13 +9532,6 @@ class Tag extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param tag string Tag
-	 */
-	 setTag(tag) {
-	 	this.tag = tag;
-	 }
-	
-	/**
 	 * Tag
 	 * @return array
 	 */
@@ -9660,13 +9619,6 @@ class Asset extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param name string Asset name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
 	 * Asset name
 	 * @return array
 	 */
@@ -9687,13 +9639,6 @@ class Asset extends kaltura.BaseObject{
 	 */
 	 getDescription() {
 	 	return this.description;
-	 }
-	
-	/**
-	 * @param description string Asset description
-	 */
-	 setDescription(description) {
-	 	this.description = description;
 	 }
 	
 	/**
@@ -10305,13 +10250,6 @@ class AssetStruct extends kaltura.BaseObject{
 	 */
 	 getName() {
 	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Asset struct name for the partner
-	 */
-	 setName(name) {
-	 	this.name = name;
 	 }
 	
 	/**
@@ -11381,6 +11319,105 @@ module.exports.DrmProfileListResponse = DrmProfileListResponse;
 /**
  *
  */
+class MediaConcurrencyRule extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaMediaConcurrencyRule';
+	}
+	
+	/**
+	 * Media concurrency rule  identifier
+	 * @return string
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id string Media concurrency rule  identifier
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
+	 * Media concurrency rule  name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Media concurrency rule  name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Concurrency limitation type
+	 * @return string
+	 */
+	 getConcurrencyLimitationType() {
+	 	return this.concurrencyLimitationType;
+	 }
+	
+	/**
+	 * @param concurrencyLimitationType string Concurrency limitation type
+	 */
+	 setConcurrencyLimitationType(concurrencyLimitationType) {
+	 	this.concurrencyLimitationType = concurrencyLimitationType;
+	 }
+	
+	/**
+	 * Limitation
+	 * @return int
+	 */
+	 getLimitation() {
+	 	return this.limitation;
+	 }
+	
+	/**
+	 * @param limitation int Limitation
+	 */
+	 setLimitation(limitation) {
+	 	this.limitation = limitation;
+	 }
+}
+module.exports.MediaConcurrencyRule = MediaConcurrencyRule;
+
+/**
+ *
+ */
+class MediaConcurrencyRuleListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaMediaConcurrencyRuleListResponse';
+	}
+	
+	/**
+	 * Media CONCURRENCY RULES
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Media CONCURRENCY RULES
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.MediaConcurrencyRuleListResponse = MediaConcurrencyRuleListResponse;
+
+/**
+ *
+ */
 class AssetRuleBase extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -12098,13 +12135,6 @@ class Meta extends kaltura.BaseObject{
 	 */
 	 getName() {
 	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Meta name for the partner
-	 */
-	 setName(name) {
-	 	this.name = name;
 	 }
 	
 	/**
@@ -15606,15 +15636,15 @@ class RecordingFilter extends Filter{
 	 * KSQL expression
 	 * @return string
 	 */
-	 getFilterExpression() {
-	 	return this.filterExpression;
+	 getKSql() {
+	 	return this.kSql;
 	 }
 	
 	/**
-	 * @param filterExpression string KSQL expression
+	 * @param kSql string KSQL expression
 	 */
-	 setFilterExpression(filterExpression) {
-	 	this.filterExpression = filterExpression;
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
 	 }
 }
 module.exports.RecordingFilter = RecordingFilter;
