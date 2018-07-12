@@ -1309,13 +1309,6 @@ class MultilingualStringValue extends Value{
 	 }
 	
 	/**
-	 * @param value string Value
-	 */
-	 setValue(value) {
-	 	this.value = value;
-	 }
-	
-	/**
 	 * Value
 	 * @return array
 	 */
@@ -2604,33 +2597,6 @@ module.exports.MediaImage = MediaImage;
 /**
  *
  */
-class StringValueArray extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaStringValueArray';
-	}
-	
-	/**
-	 * List of string values
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array List of string values
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.StringValueArray = StringValueArray;
-
-/**
- *
- */
 class MediaFile extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -2719,126 +2685,6 @@ class MediaFile extends kaltura.BaseObject{
 	 */
 	 setExternalId(externalId) {
 	 	this.externalId = externalId;
-	 }
-	
-	/**
-	 * Billing type
-	 * @return string
-	 */
-	 getBillingType() {
-	 	return this.billingType;
-	 }
-	
-	/**
-	 * @param billingType string Billing type
-	 */
-	 setBillingType(billingType) {
-	 	this.billingType = billingType;
-	 }
-	
-	/**
-	 * Quality
-	 * @return string
-	 */
-	 getQuality() {
-	 	return this.quality;
-	 }
-	
-	/**
-	 * @param quality string Quality
-	 */
-	 setQuality(quality) {
-	 	this.quality = quality;
-	 }
-	
-	/**
-	 * Handling type
-	 * @return string
-	 */
-	 getHandlingType() {
-	 	return this.handlingType;
-	 }
-	
-	/**
-	 * @param handlingType string Handling type
-	 */
-	 setHandlingType(handlingType) {
-	 	this.handlingType = handlingType;
-	 }
-	
-	/**
-	 * CDN name
-	 * @return string
-	 */
-	 getCdnName() {
-	 	return this.cdnName;
-	 }
-	
-	/**
-	 * @param cdnName string CDN name
-	 */
-	 setCdnName(cdnName) {
-	 	this.cdnName = cdnName;
-	 }
-	
-	/**
-	 * CDN code
-	 * @return string
-	 */
-	 getCdnCode() {
-	 	return this.cdnCode;
-	 }
-	
-	/**
-	 * @param cdnCode string CDN code
-	 */
-	 setCdnCode(cdnCode) {
-	 	this.cdnCode = cdnCode;
-	 }
-	
-	/**
-	 * Alt CDN code
-	 * @return string
-	 */
-	 getAltCdnCode() {
-	 	return this.altCdnCode;
-	 }
-	
-	/**
-	 * @param altCdnCode string Alt CDN code
-	 */
-	 setAltCdnCode(altCdnCode) {
-	 	this.altCdnCode = altCdnCode;
-	 }
-	
-	/**
-	 * PPV Module
-	 * @return StringValueArray
-	 */
-	 getPpvModules() {
-	 	return this.ppvModules;
-	 }
-	
-	/**
-	 * @param ppvModules StringValueArray PPV Module
-	 */
-	 setPpvModules(ppvModules) {
-	 	this.ppvModules = ppvModules;
-	 }
-	
-	/**
-	 * Product code
-	 * @return string
-	 */
-	 getProductCode() {
-	 	return this.productCode;
-	 }
-	
-	/**
-	 * @param productCode string Product code
-	 */
-	 setProductCode(productCode) {
-	 	this.productCode = productCode;
 	 }
 	
 	/**
@@ -4061,13 +3907,6 @@ class Collection extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param name string Name of the subscription
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
 	 * Name of the subscription
 	 * @return array
 	 */
@@ -4088,13 +3927,6 @@ class Collection extends kaltura.BaseObject{
 	 */
 	 getDescription() {
 	 	return this.description;
-	 }
-	
-	/**
-	 * @param description string description of the subscription
-	 */
-	 setDescription(description) {
-	 	this.description = description;
 	 }
 	
 	/**
@@ -5449,13 +5281,6 @@ class Subscription extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param name string Name of the subscription
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
 	 * Name of the subscription
 	 * @return array
 	 */
@@ -5476,13 +5301,6 @@ class Subscription extends kaltura.BaseObject{
 	 */
 	 getDescription() {
 	 	return this.description;
-	 }
-	
-	/**
-	 * @param description string description of the subscription
-	 */
-	 setDescription(description) {
-	 	this.description = description;
 	 }
 	
 	/**
@@ -8431,13 +8249,6 @@ class Asset extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param name string Asset name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
 	 * Asset name
 	 * @return array
 	 */
@@ -8458,13 +8269,6 @@ class Asset extends kaltura.BaseObject{
 	 */
 	 getDescription() {
 	 	return this.description;
-	 }
-	
-	/**
-	 * @param description string Asset description
-	 */
-	 setDescription(description) {
-	 	this.description = description;
 	 }
 	
 	/**
@@ -8630,21 +8434,6 @@ class Asset extends kaltura.BaseObject{
 	 */
 	 setEnableTrickPlay(enableTrickPlay) {
 	 	this.enableTrickPlay = enableTrickPlay;
-	 }
-	
-	/**
-	 * External identifier for the media file
-	 * @return string
-	 */
-	 getExternalId() {
-	 	return this.externalId;
-	 }
-	
-	/**
-	 * @param externalId string External identifier for the media file
-	 */
-	 setExternalId(externalId) {
-	 	this.externalId = externalId;
 	 }
 }
 module.exports.Asset = Asset;
@@ -8869,21 +8658,6 @@ class MediaAsset extends Asset{
 	 }
 	
 	/**
-	 * Asset type description
-	 * @return string
-	 */
-	 getTypeDescription() {
-	 	return this.typeDescription;
-	 }
-	
-	/**
-	 * @param typeDescription string Asset type description
-	 */
-	 setTypeDescription(typeDescription) {
-	 	this.typeDescription = typeDescription;
-	 }
-	
-	/**
 	 * Entry Identifier
 	 * @return string
 	 */
@@ -8896,51 +8670,6 @@ class MediaAsset extends Asset{
 	 */
 	 setEntryId(entryId) {
 	 	this.entryId = entryId;
-	 }
-	
-	/**
-	 * Device rule
-	 * @return string
-	 */
-	 getDeviceRule() {
-	 	return this.deviceRule;
-	 }
-	
-	/**
-	 * @param deviceRule string Device rule
-	 */
-	 setDeviceRule(deviceRule) {
-	 	this.deviceRule = deviceRule;
-	 }
-	
-	/**
-	 * Geo block rule
-	 * @return string
-	 */
-	 getGeoBlockRule() {
-	 	return this.geoBlockRule;
-	 }
-	
-	/**
-	 * @param geoBlockRule string Geo block rule
-	 */
-	 setGeoBlockRule(geoBlockRule) {
-	 	this.geoBlockRule = geoBlockRule;
-	 }
-	
-	/**
-	 * Watch permission rule
-	 * @return string
-	 */
-	 getWatchPermissionRule() {
-	 	return this.watchPermissionRule;
-	 }
-	
-	/**
-	 * @param watchPermissionRule string Watch permission rule
-	 */
-	 setWatchPermissionRule(watchPermissionRule) {
-	 	this.watchPermissionRule = watchPermissionRule;
 	 }
 }
 module.exports.MediaAsset = MediaAsset;
