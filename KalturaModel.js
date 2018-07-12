@@ -7955,6 +7955,13 @@ class Recording extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * @param type string Recording Type: single/season/series
+	 */
+	 setType(type) {
+	 	this.type = type;
+	 }
+	
+	/**
 	 * Specifies until when the recording is available for viewing. Date and time represented as epoch
 	 * @return int
 	 */
@@ -7968,6 +7975,13 @@ class Recording extends kaltura.BaseObject{
 	 */
 	 getIsProtected() {
 	 	return this.isProtected;
+	 }
+	
+	/**
+	 * @param isProtected bool Specifies whether or not the recording is protected
+	 */
+	 setIsProtected(isProtected) {
+	 	this.isProtected = isProtected;
 	 }
 	
 	/**
@@ -15657,6 +15671,21 @@ class RecordingFilter extends Filter{
 	 */
 	 setStatusIn(statusIn) {
 	 	this.statusIn = statusIn;
+	 }
+	
+	/**
+	 * Comma separated external identifiers
+	 * @return string
+	 */
+	 getExternalRecordingIdIn() {
+	 	return this.externalRecordingIdIn;
+	 }
+	
+	/**
+	 * @param externalRecordingIdIn string Comma separated external identifiers
+	 */
+	 setExternalRecordingIdIn(externalRecordingIdIn) {
+	 	this.externalRecordingIdIn = externalRecordingIdIn;
 	 }
 	
 	/**

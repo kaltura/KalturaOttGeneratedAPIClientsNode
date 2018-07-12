@@ -4288,7 +4288,6 @@ module.exports.recommendationProfile = recommendationProfile;
  * @action delete Delete one or more user recording(s). Delete recording can be called only for recordings in status Recorded.
  * @action get Returns recording object by internal identifier.
  * @action list Return a list of recordings for the household with optional filter by status and KSQL.
- * @action notify Notify on an external recording.
  * @action protect Protects an existing recording from the cleanup process for the defined protection period.
  */
 class recording{
@@ -4348,27 +4347,6 @@ class recording{
 		kparams.filter = filter;
 		kparams.pager = pager;
 		return new kaltura.RequestBuilder('recording', 'list', kparams);
-	};
-	
-	/**
-	 * Notify on an external recording.
-	 * @param externalDomainRecordingId string External domain recording identifier
-	 * @param recordingStatus string Recording status: scheduled/recording/recorded/canceled/failed/deleted (enum: KalturaRecordingStatus)
-	 * @param domainId int Houshehold identifier
-	 * @param externalEpgId string Epg external identifier (optional, default: null)
-	 * @param recordingType string Recording Type: single/season/series (optional, enum: KalturaRecordingType, default: null)
-	 * @param isProtected bool is the recording protected by the user (optional, default: false)
-	 * @return bool
-	 */
-	static notify(externalDomainRecordingId, recordingStatus, domainId, externalEpgId = null, recordingType = null, isProtected = false){
-		let kparams = {};
-		kparams.externalDomainRecordingId = externalDomainRecordingId;
-		kparams.recordingStatus = recordingStatus;
-		kparams.domainId = domainId;
-		kparams.externalEpgId = externalEpgId;
-		kparams.recordingType = recordingType;
-		kparams.isProtected = isProtected;
-		return new kaltura.RequestBuilder('recording', 'notify', kparams);
 	};
 	
 	/**
