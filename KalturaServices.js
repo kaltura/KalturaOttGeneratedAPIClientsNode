@@ -4357,7 +4357,7 @@ class recording{
 	 * @param domainId int Houshehold identifier
 	 * @param externalEpgId string Epg external identifier (optional, default: null)
 	 * @param recordingType string Recording Type: single/season/series (optional, enum: KalturaRecordingType, default: null)
-	 * @param isProtected bool is the recording protected by the user (optional, default: False)
+	 * @param isProtected bool is the recording protected by the user (optional, default: false)
 	 * @return bool
 	 */
 	static notify(externalDomainRecordingId, recordingStatus, domainId, externalEpgId = null, recordingType = null, isProtected = false){
