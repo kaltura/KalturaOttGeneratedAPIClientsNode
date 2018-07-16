@@ -2812,6 +2812,14 @@ class MediaFile extends AssetFile{
 	 }
 	
 	/**
+	 * Deprecated - Device types as defined in the system
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
 	 * Device types identifier as defined in the system
 	 * @return int
 	 */
