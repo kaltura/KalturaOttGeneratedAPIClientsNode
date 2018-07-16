@@ -7598,919 +7598,6 @@ module.exports.TopicListResponse = TopicListResponse;
 /**
  *
  */
-class SeriesRecording extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSeriesRecording';
-	}
-	
-	/**
-	 * Kaltura unique ID representing the series recording identifier
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Kaltura EpgId
-	 * @return int
-	 */
-	 getEpgId() {
-	 	return this.epgId;
-	 }
-	
-	/**
-	 * @param epgId int Kaltura EpgId
-	 */
-	 setEpgId(epgId) {
-	 	this.epgId = epgId;
-	 }
-	
-	/**
-	 * Kaltura ChannelId
-	 * @return int
-	 */
-	 getChannelId() {
-	 	return this.channelId;
-	 }
-	
-	/**
-	 * @param channelId int Kaltura ChannelId
-	 */
-	 setChannelId(channelId) {
-	 	this.channelId = channelId;
-	 }
-	
-	/**
-	 * Kaltura SeriesId
-	 * @return string
-	 */
-	 getSeriesId() {
-	 	return this.seriesId;
-	 }
-	
-	/**
-	 * @param seriesId string Kaltura SeriesId
-	 */
-	 setSeriesId(seriesId) {
-	 	this.seriesId = seriesId;
-	 }
-	
-	/**
-	 * Kaltura SeasonNumber
-	 * @return int
-	 */
-	 getSeasonNumber() {
-	 	return this.seasonNumber;
-	 }
-	
-	/**
-	 * @param seasonNumber int Kaltura SeasonNumber
-	 */
-	 setSeasonNumber(seasonNumber) {
-	 	this.seasonNumber = seasonNumber;
-	 }
-	
-	/**
-	 * Recording Type: single/series/season
-	 * @return string
-	 */
-	 getType() {
-	 	return this.type;
-	 }
-	
-	/**
-	 * @param type string Recording Type: single/series/season
-	 */
-	 setType(type) {
-	 	this.type = type;
-	 }
-	
-	/**
-	 * Specifies when was the series recording created. Date and time represented as epoch
-	 * @return int
-	 */
-	 getCreateDate() {
-	 	return this.createDate;
-	 }
-	
-	/**
-	 * Specifies when was the series recording last updated. Date and time represented as epoch
-	 * @return int
-	 */
-	 getUpdateDate() {
-	 	return this.updateDate;
-	 }
-	
-	/**
-	 * List of the season numbers to exclude
-	 * @return array
-	 */
-	 getExcludedSeasons() {
-	 	return this.excludedSeasons;
-	 }
-}
-module.exports.SeriesRecording = SeriesRecording;
-
-/**
- *
- */
-class SeriesRecordingListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSeriesRecordingListResponse';
-	}
-	
-	/**
-	 * Series Recordings
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array Series Recordings
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.SeriesRecordingListResponse = SeriesRecordingListResponse;
-
-/**
- *
- */
-class HouseholdPremiumServiceListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdPremiumServiceListResponse';
-	}
-	
-	/**
-	 * A list of premium services
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array A list of premium services
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.HouseholdPremiumServiceListResponse = HouseholdPremiumServiceListResponse;
-
-/**
- *
- */
-class CDVRAdapterProfile extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCDVRAdapterProfile';
-	}
-	
-	/**
-	 * C-DVR adapter identifier
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * C-DVR adapter name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string C-DVR adapter name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
-	 * C-DVR adapter active status
-	 * @return bool
-	 */
-	 getIsActive() {
-	 	return this.isActive;
-	 }
-	
-	/**
-	 * @param isActive bool C-DVR adapter active status
-	 */
-	 setIsActive(isActive) {
-	 	this.isActive = isActive;
-	 }
-	
-	/**
-	 * C-DVR adapter adapter URL
-	 * @return string
-	 */
-	 getAdapterUrl() {
-	 	return this.adapterUrl;
-	 }
-	
-	/**
-	 * @param adapterUrl string C-DVR adapter adapter URL
-	 */
-	 setAdapterUrl(adapterUrl) {
-	 	this.adapterUrl = adapterUrl;
-	 }
-	
-	/**
-	 * C-DVR adapter extra parameters
-	 * @return map
-	 */
-	 getSettings() {
-	 	return this.settings;
-	 }
-	
-	/**
-	 * @param settings map C-DVR adapter extra parameters
-	 */
-	 setSettings(settings) {
-	 	this.settings = settings;
-	 }
-	
-	/**
-	 * C-DVR adapter external identifier
-	 * @return string
-	 */
-	 getExternalIdentifier() {
-	 	return this.externalIdentifier;
-	 }
-	
-	/**
-	 * @param externalIdentifier string C-DVR adapter external identifier
-	 */
-	 setExternalIdentifier(externalIdentifier) {
-	 	this.externalIdentifier = externalIdentifier;
-	 }
-	
-	/**
-	 * C-DVR shared secret
-	 * @return string
-	 */
-	 getSharedSecret() {
-	 	return this.sharedSecret;
-	 }
-	
-	/**
-	 * Indicates whether the C-DVR adapter supports dynamic URLs
-	 * @return bool
-	 */
-	 getDynamicLinksSupport() {
-	 	return this.dynamicLinksSupport;
-	 }
-	
-	/**
-	 * @param dynamicLinksSupport bool Indicates whether the C-DVR adapter supports dynamic URLs
-	 */
-	 setDynamicLinksSupport(dynamicLinksSupport) {
-	 	this.dynamicLinksSupport = dynamicLinksSupport;
-	 }
-}
-module.exports.CDVRAdapterProfile = CDVRAdapterProfile;
-
-/**
- *
- */
-class CDVRAdapterProfileListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCDVRAdapterProfileListResponse';
-	}
-	
-	/**
-	 * C-DVR adapter profiles
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array C-DVR adapter profiles
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.CDVRAdapterProfileListResponse = CDVRAdapterProfileListResponse;
-
-/**
- *
- */
-class Recording extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaRecording';
-	}
-	
-	/**
-	 * Kaltura unique ID representing the recording identifier
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Recording state: scheduled/recording/recorded/canceled/failed/deleted
-	 * @return string
-	 */
-	 getStatus() {
-	 	return this.status;
-	 }
-	
-	/**
-	 * Kaltura unique ID representing the program identifier
-	 * @return int
-	 */
-	 getAssetId() {
-	 	return this.assetId;
-	 }
-	
-	/**
-	 * @param assetId int Kaltura unique ID representing the program identifier
-	 */
-	 setAssetId(assetId) {
-	 	this.assetId = assetId;
-	 }
-	
-	/**
-	 * Recording Type: single/season/series
-	 * @return string
-	 */
-	 getType() {
-	 	return this.type;
-	 }
-	
-	/**
-	 * @param type string Recording Type: single/season/series
-	 */
-	 setType(type) {
-	 	this.type = type;
-	 }
-	
-	/**
-	 * Specifies until when the recording is available for viewing. Date and time represented as epoch
-	 * @return int
-	 */
-	 getViewableUntilDate() {
-	 	return this.viewableUntilDate;
-	 }
-	
-	/**
-	 * Specifies whether or not the recording is protected
-	 * @return bool
-	 */
-	 getIsProtected() {
-	 	return this.isProtected;
-	 }
-	
-	/**
-	 * @param isProtected bool Specifies whether or not the recording is protected
-	 */
-	 setIsProtected(isProtected) {
-	 	this.isProtected = isProtected;
-	 }
-	
-	/**
-	 * External identifier for the recording
-	 * @return string
-	 */
-	 getExternalId() {
-	 	return this.externalId;
-	 }
-	
-	/**
-	 * @param externalId string External identifier for the recording
-	 */
-	 setExternalId(externalId) {
-	 	this.externalId = externalId;
-	 }
-	
-	/**
-	 * Specifies when was the recording created. Date and time represented as epoch
-	 * @return int
-	 */
-	 getCreateDate() {
-	 	return this.createDate;
-	 }
-	
-	/**
-	 * Specifies when was the recording last updated. Date and time represented as epoch
-	 * @return int
-	 */
-	 getUpdateDate() {
-	 	return this.updateDate;
-	 }
-}
-module.exports.Recording = Recording;
-
-/**
- *
- */
-class RecordingListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaRecordingListResponse';
-	}
-	
-	/**
-	 * Recordings
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array Recordings
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.RecordingListResponse = RecordingListResponse;
-
-/**
- *
- */
-class BillingTransaction extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBillingTransaction';
-	}
-	
-	/**
-	 * Reciept Code
-	 * @return string
-	 */
-	 getRecieptCode() {
-	 	return this.recieptCode;
-	 }
-	
-	/**
-	 * Purchased Item Name
-	 * @return string
-	 */
-	 getPurchasedItemName() {
-	 	return this.purchasedItemName;
-	 }
-	
-	/**
-	 * Purchased Item Code
-	 * @return string
-	 */
-	 getPurchasedItemCode() {
-	 	return this.purchasedItemCode;
-	 }
-	
-	/**
-	 * Item Type
-	 * @return string
-	 */
-	 getItemType() {
-	 	return this.itemType;
-	 }
-	
-	/**
-	 * Billing Action
-	 * @return string
-	 */
-	 getBillingAction() {
-	 	return this.billingAction;
-	 }
-	
-	/**
-	 * price
-	 * @return Price
-	 */
-	 getPrice() {
-	 	return this.price;
-	 }
-	
-	/**
-	 * Action Date
-	 * @return int
-	 */
-	 getActionDate() {
-	 	return this.actionDate;
-	 }
-	
-	/**
-	 * Start Date
-	 * @return int
-	 */
-	 getStartDate() {
-	 	return this.startDate;
-	 }
-	
-	/**
-	 * End Date
-	 * @return int
-	 */
-	 getEndDate() {
-	 	return this.endDate;
-	 }
-	
-	/**
-	 * Payment Method
-	 * @return string
-	 */
-	 getPaymentMethod() {
-	 	return this.paymentMethod;
-	 }
-	
-	/**
-	 * Payment Method Extra Details
-	 * @return string
-	 */
-	 getPaymentMethodExtraDetails() {
-	 	return this.paymentMethodExtraDetails;
-	 }
-	
-	/**
-	 * Is Recurring
-	 * @return bool
-	 */
-	 getIsRecurring() {
-	 	return this.isRecurring;
-	 }
-	
-	/**
-	 * Billing Provider Ref
-	 * @return int
-	 */
-	 getBillingProviderRef() {
-	 	return this.billingProviderRef;
-	 }
-	
-	/**
-	 * Purchase ID
-	 * @return int
-	 */
-	 getPurchaseId() {
-	 	return this.purchaseId;
-	 }
-	
-	/**
-	 * Remarks
-	 * @return string
-	 */
-	 getRemarks() {
-	 	return this.remarks;
-	 }
-	
-	/**
-	 * Billing Price Info
-	 * @return string
-	 */
-	 getBillingPriceType() {
-	 	return this.billingPriceType;
-	 }
-}
-module.exports.BillingTransaction = BillingTransaction;
-
-/**
- *
- */
-class BillingTransactionListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBillingTransactionListResponse';
-	}
-	
-	/**
-	 * Transactions
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array Transactions
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.BillingTransactionListResponse = BillingTransactionListResponse;
-
-/**
- *
- */
-class Entitlement extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaEntitlement';
-	}
-	
-	/**
-	 * Purchase identifier (for subscriptions and collections only)
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Product identifier
-	 * @return string
-	 */
-	 getProductId() {
-	 	return this.productId;
-	 }
-	
-	/**
-	 * The current number of uses
-	 * @return int
-	 */
-	 getCurrentUses() {
-	 	return this.currentUses;
-	 }
-	
-	/**
-	 * The end date of the entitlement
-	 * @return int
-	 */
-	 getEndDate() {
-	 	return this.endDate;
-	 }
-	
-	/**
-	 * Current date
-	 * @return int
-	 */
-	 getCurrentDate() {
-	 	return this.currentDate;
-	 }
-	
-	/**
-	 * The last date the item was viewed
-	 * @return int
-	 */
-	 getLastViewDate() {
-	 	return this.lastViewDate;
-	 }
-	
-	/**
-	 * Purchase date
-	 * @return int
-	 */
-	 getPurchaseDate() {
-	 	return this.purchaseDate;
-	 }
-	
-	/**
-	 * Payment Method
-	 * @return string
-	 */
-	 getPaymentMethod() {
-	 	return this.paymentMethod;
-	 }
-	
-	/**
-	 * The UDID of the device from which the purchase was made
-	 * @return string
-	 */
-	 getDeviceUdid() {
-	 	return this.deviceUdid;
-	 }
-	
-	/**
-	 * The name of the device from which the purchase was made
-	 * @return string
-	 */
-	 getDeviceName() {
-	 	return this.deviceName;
-	 }
-	
-	/**
-	 * Indicates whether a cancelation window period is enabled
-	 * @return bool
-	 */
-	 getIsCancelationWindowEnabled() {
-	 	return this.isCancelationWindowEnabled;
-	 }
-	
-	/**
-	 * The maximum number of uses available for this item (only for subscription and PPV)
-	 * @return int
-	 */
-	 getMaxUses() {
-	 	return this.maxUses;
-	 }
-	
-	/**
-	 * The Identifier of the purchasing user
-	 * @return string
-	 */
-	 getUserId() {
-	 	return this.userId;
-	 }
-	
-	/**
-	 * The Identifier of the purchasing household
-	 * @return int
-	 */
-	 getHouseholdId() {
-	 	return this.householdId;
-	 }
-}
-module.exports.Entitlement = Entitlement;
-
-/**
- *
- */
-class EntitlementListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaEntitlementListResponse';
-	}
-	
-	/**
-	 * A list of entitlements
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array A list of entitlements
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.EntitlementListResponse = EntitlementListResponse;
-
-/**
- *
- */
-class CollectionEntitlement extends Entitlement{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCollectionEntitlement';
-	}
-}
-module.exports.CollectionEntitlement = CollectionEntitlement;
-
-/**
- *
- */
-class PpvEntitlement extends Entitlement{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPpvEntitlement';
-	}
-	
-	/**
-	 * Media file identifier
-	 * @return int
-	 */
-	 getMediaFileId() {
-	 	return this.mediaFileId;
-	 }
-	
-	/**
-	 * Media identifier
-	 * @return int
-	 */
-	 getMediaId() {
-	 	return this.mediaId;
-	 }
-}
-module.exports.PpvEntitlement = PpvEntitlement;
-
-/**
- *
- */
-class SubscriptionEntitlement extends Entitlement{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSubscriptionEntitlement';
-	}
-	
-	/**
-	 * The date of the next renewal (only for subscription)
-	 * @return int
-	 */
-	 getNextRenewalDate() {
-	 	return this.nextRenewalDate;
-	 }
-	
-	/**
-	 * Indicates whether the subscription is renewable in this purchase (only for subscription)
-	 * @return bool
-	 */
-	 getIsRenewableForPurchase() {
-	 	return this.isRenewableForPurchase;
-	 }
-	
-	/**
-	 * Indicates whether a subscription is renewable (only for subscription)
-	 * @return bool
-	 */
-	 getIsRenewable() {
-	 	return this.isRenewable;
-	 }
-	
-	/**
-	 * Indicates whether the user is currently in his grace period entitlement
-	 * @return bool
-	 */
-	 getIsInGracePeriod() {
-	 	return this.isInGracePeriod;
-	 }
-	
-	/**
-	 * Payment Gateway identifier
-	 * @return int
-	 */
-	 getPaymentGatewayId() {
-	 	return this.paymentGatewayId;
-	 }
-	
-	/**
-	 * @param paymentGatewayId int Payment Gateway identifier
-	 */
-	 setPaymentGatewayId(paymentGatewayId) {
-	 	this.paymentGatewayId = paymentGatewayId;
-	 }
-	
-	/**
-	 * Payment Method identifier
-	 * @return int
-	 */
-	 getPaymentMethodId() {
-	 	return this.paymentMethodId;
-	 }
-	
-	/**
-	 * @param paymentMethodId int Payment Method identifier
-	 */
-	 setPaymentMethodId(paymentMethodId) {
-	 	this.paymentMethodId = paymentMethodId;
-	 }
-	
-	/**
-	 * Scheduled Subscription Identifier
-	 * @return int
-	 */
-	 getScheduledSubscriptionId() {
-	 	return this.scheduledSubscriptionId;
-	 }
-	
-	/**
-	 * Unified payment identifier
-	 * @return int
-	 */
-	 getUnifiedPaymentId() {
-	 	return this.unifiedPaymentId;
-	 }
-	
-	/**
-	 * Indicates if the subscription suspended
-	 * @return bool
-	 */
-	 getIsSuspended() {
-	 	return this.isSuspended;
-	 }
-}
-module.exports.SubscriptionEntitlement = SubscriptionEntitlement;
-
-/**
- *
- */
 class PartnerConfiguration extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -11234,6 +10321,931 @@ class BulkListResponse extends ListResponse{
 	 }
 }
 module.exports.BulkListResponse = BulkListResponse;
+
+/**
+ *
+ */
+class SeriesRecording extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSeriesRecording';
+	}
+	
+	/**
+	 * Kaltura unique ID representing the series recording identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Kaltura EpgId
+	 * @return int
+	 */
+	 getEpgId() {
+	 	return this.epgId;
+	 }
+	
+	/**
+	 * @param epgId int Kaltura EpgId
+	 */
+	 setEpgId(epgId) {
+	 	this.epgId = epgId;
+	 }
+	
+	/**
+	 * Kaltura ChannelId
+	 * @return int
+	 */
+	 getChannelId() {
+	 	return this.channelId;
+	 }
+	
+	/**
+	 * @param channelId int Kaltura ChannelId
+	 */
+	 setChannelId(channelId) {
+	 	this.channelId = channelId;
+	 }
+	
+	/**
+	 * Kaltura SeriesId
+	 * @return string
+	 */
+	 getSeriesId() {
+	 	return this.seriesId;
+	 }
+	
+	/**
+	 * @param seriesId string Kaltura SeriesId
+	 */
+	 setSeriesId(seriesId) {
+	 	this.seriesId = seriesId;
+	 }
+	
+	/**
+	 * Kaltura SeasonNumber
+	 * @return int
+	 */
+	 getSeasonNumber() {
+	 	return this.seasonNumber;
+	 }
+	
+	/**
+	 * @param seasonNumber int Kaltura SeasonNumber
+	 */
+	 setSeasonNumber(seasonNumber) {
+	 	this.seasonNumber = seasonNumber;
+	 }
+	
+	/**
+	 * Recording Type: single/series/season
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * @param type string Recording Type: single/series/season
+	 */
+	 setType(type) {
+	 	this.type = type;
+	 }
+	
+	/**
+	 * Specifies when was the series recording created. Date and time represented as epoch
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * Specifies when was the series recording last updated. Date and time represented as epoch
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
+	
+	/**
+	 * List of the season numbers to exclude
+	 * @return array
+	 */
+	 getExcludedSeasons() {
+	 	return this.excludedSeasons;
+	 }
+}
+module.exports.SeriesRecording = SeriesRecording;
+
+/**
+ *
+ */
+class SeriesRecordingListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSeriesRecordingListResponse';
+	}
+	
+	/**
+	 * Series Recordings
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Series Recordings
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.SeriesRecordingListResponse = SeriesRecordingListResponse;
+
+/**
+ *
+ */
+class HouseholdPremiumServiceListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdPremiumServiceListResponse';
+	}
+	
+	/**
+	 * A list of premium services
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of premium services
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.HouseholdPremiumServiceListResponse = HouseholdPremiumServiceListResponse;
+
+/**
+ *
+ */
+class CDVRAdapterProfile extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCDVRAdapterProfile';
+	}
+	
+	/**
+	 * C-DVR adapter identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * C-DVR adapter name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string C-DVR adapter name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * C-DVR adapter active status
+	 * @return bool
+	 */
+	 getIsActive() {
+	 	return this.isActive;
+	 }
+	
+	/**
+	 * @param isActive bool C-DVR adapter active status
+	 */
+	 setIsActive(isActive) {
+	 	this.isActive = isActive;
+	 }
+	
+	/**
+	 * C-DVR adapter adapter URL
+	 * @return string
+	 */
+	 getAdapterUrl() {
+	 	return this.adapterUrl;
+	 }
+	
+	/**
+	 * @param adapterUrl string C-DVR adapter adapter URL
+	 */
+	 setAdapterUrl(adapterUrl) {
+	 	this.adapterUrl = adapterUrl;
+	 }
+	
+	/**
+	 * C-DVR adapter extra parameters
+	 * @return map
+	 */
+	 getSettings() {
+	 	return this.settings;
+	 }
+	
+	/**
+	 * @param settings map C-DVR adapter extra parameters
+	 */
+	 setSettings(settings) {
+	 	this.settings = settings;
+	 }
+	
+	/**
+	 * C-DVR adapter external identifier
+	 * @return string
+	 */
+	 getExternalIdentifier() {
+	 	return this.externalIdentifier;
+	 }
+	
+	/**
+	 * @param externalIdentifier string C-DVR adapter external identifier
+	 */
+	 setExternalIdentifier(externalIdentifier) {
+	 	this.externalIdentifier = externalIdentifier;
+	 }
+	
+	/**
+	 * C-DVR shared secret
+	 * @return string
+	 */
+	 getSharedSecret() {
+	 	return this.sharedSecret;
+	 }
+	
+	/**
+	 * Indicates whether the C-DVR adapter supports dynamic URLs
+	 * @return bool
+	 */
+	 getDynamicLinksSupport() {
+	 	return this.dynamicLinksSupport;
+	 }
+	
+	/**
+	 * @param dynamicLinksSupport bool Indicates whether the C-DVR adapter supports dynamic URLs
+	 */
+	 setDynamicLinksSupport(dynamicLinksSupport) {
+	 	this.dynamicLinksSupport = dynamicLinksSupport;
+	 }
+}
+module.exports.CDVRAdapterProfile = CDVRAdapterProfile;
+
+/**
+ *
+ */
+class CDVRAdapterProfileListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCDVRAdapterProfileListResponse';
+	}
+	
+	/**
+	 * C-DVR adapter profiles
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array C-DVR adapter profiles
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.CDVRAdapterProfileListResponse = CDVRAdapterProfileListResponse;
+
+/**
+ *
+ */
+class Recording extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRecording';
+	}
+	
+	/**
+	 * Kaltura unique ID representing the recording identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Recording state: scheduled/recording/recorded/canceled/failed/deleted
+	 * @return string
+	 */
+	 getStatus() {
+	 	return this.status;
+	 }
+	
+	/**
+	 * Kaltura unique ID representing the program identifier
+	 * @return int
+	 */
+	 getAssetId() {
+	 	return this.assetId;
+	 }
+	
+	/**
+	 * @param assetId int Kaltura unique ID representing the program identifier
+	 */
+	 setAssetId(assetId) {
+	 	this.assetId = assetId;
+	 }
+	
+	/**
+	 * Recording Type: single/season/series
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * @param type string Recording Type: single/season/series
+	 */
+	 setType(type) {
+	 	this.type = type;
+	 }
+	
+	/**
+	 * Specifies until when the recording is available for viewing. Date and time represented as epoch
+	 * @return int
+	 */
+	 getViewableUntilDate() {
+	 	return this.viewableUntilDate;
+	 }
+	
+	/**
+	 * Specifies whether or not the recording is protected
+	 * @return bool
+	 */
+	 getIsProtected() {
+	 	return this.isProtected;
+	 }
+	
+	/**
+	 * @param isProtected bool Specifies whether or not the recording is protected
+	 */
+	 setIsProtected(isProtected) {
+	 	this.isProtected = isProtected;
+	 }
+	
+	/**
+	 * Specifies when was the recording created. Date and time represented as epoch
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * Specifies when was the recording last updated. Date and time represented as epoch
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
+}
+module.exports.Recording = Recording;
+
+/**
+ *
+ */
+class ExternalRecording extends Recording{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaExternalRecording';
+	}
+	
+	/**
+	 * External identifier for the recording
+	 * @return string
+	 */
+	 getExternalId() {
+	 	return this.externalId;
+	 }
+	
+	/**
+	 * @param externalId string External identifier for the recording
+	 */
+	 setExternalId(externalId) {
+	 	this.externalId = externalId;
+	 }
+}
+module.exports.ExternalRecording = ExternalRecording;
+
+/**
+ *
+ */
+class RecordingListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRecordingListResponse';
+	}
+	
+	/**
+	 * Recordings
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Recordings
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.RecordingListResponse = RecordingListResponse;
+
+/**
+ *
+ */
+class BillingTransaction extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBillingTransaction';
+	}
+	
+	/**
+	 * Reciept Code
+	 * @return string
+	 */
+	 getRecieptCode() {
+	 	return this.recieptCode;
+	 }
+	
+	/**
+	 * Purchased Item Name
+	 * @return string
+	 */
+	 getPurchasedItemName() {
+	 	return this.purchasedItemName;
+	 }
+	
+	/**
+	 * Purchased Item Code
+	 * @return string
+	 */
+	 getPurchasedItemCode() {
+	 	return this.purchasedItemCode;
+	 }
+	
+	/**
+	 * Item Type
+	 * @return string
+	 */
+	 getItemType() {
+	 	return this.itemType;
+	 }
+	
+	/**
+	 * Billing Action
+	 * @return string
+	 */
+	 getBillingAction() {
+	 	return this.billingAction;
+	 }
+	
+	/**
+	 * price
+	 * @return Price
+	 */
+	 getPrice() {
+	 	return this.price;
+	 }
+	
+	/**
+	 * Action Date
+	 * @return int
+	 */
+	 getActionDate() {
+	 	return this.actionDate;
+	 }
+	
+	/**
+	 * Start Date
+	 * @return int
+	 */
+	 getStartDate() {
+	 	return this.startDate;
+	 }
+	
+	/**
+	 * End Date
+	 * @return int
+	 */
+	 getEndDate() {
+	 	return this.endDate;
+	 }
+	
+	/**
+	 * Payment Method
+	 * @return string
+	 */
+	 getPaymentMethod() {
+	 	return this.paymentMethod;
+	 }
+	
+	/**
+	 * Payment Method Extra Details
+	 * @return string
+	 */
+	 getPaymentMethodExtraDetails() {
+	 	return this.paymentMethodExtraDetails;
+	 }
+	
+	/**
+	 * Is Recurring
+	 * @return bool
+	 */
+	 getIsRecurring() {
+	 	return this.isRecurring;
+	 }
+	
+	/**
+	 * Billing Provider Ref
+	 * @return int
+	 */
+	 getBillingProviderRef() {
+	 	return this.billingProviderRef;
+	 }
+	
+	/**
+	 * Purchase ID
+	 * @return int
+	 */
+	 getPurchaseId() {
+	 	return this.purchaseId;
+	 }
+	
+	/**
+	 * Remarks
+	 * @return string
+	 */
+	 getRemarks() {
+	 	return this.remarks;
+	 }
+	
+	/**
+	 * Billing Price Info
+	 * @return string
+	 */
+	 getBillingPriceType() {
+	 	return this.billingPriceType;
+	 }
+}
+module.exports.BillingTransaction = BillingTransaction;
+
+/**
+ *
+ */
+class BillingTransactionListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBillingTransactionListResponse';
+	}
+	
+	/**
+	 * Transactions
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Transactions
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.BillingTransactionListResponse = BillingTransactionListResponse;
+
+/**
+ *
+ */
+class Entitlement extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEntitlement';
+	}
+	
+	/**
+	 * Purchase identifier (for subscriptions and collections only)
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Product identifier
+	 * @return string
+	 */
+	 getProductId() {
+	 	return this.productId;
+	 }
+	
+	/**
+	 * The current number of uses
+	 * @return int
+	 */
+	 getCurrentUses() {
+	 	return this.currentUses;
+	 }
+	
+	/**
+	 * The end date of the entitlement
+	 * @return int
+	 */
+	 getEndDate() {
+	 	return this.endDate;
+	 }
+	
+	/**
+	 * Current date
+	 * @return int
+	 */
+	 getCurrentDate() {
+	 	return this.currentDate;
+	 }
+	
+	/**
+	 * The last date the item was viewed
+	 * @return int
+	 */
+	 getLastViewDate() {
+	 	return this.lastViewDate;
+	 }
+	
+	/**
+	 * Purchase date
+	 * @return int
+	 */
+	 getPurchaseDate() {
+	 	return this.purchaseDate;
+	 }
+	
+	/**
+	 * Payment Method
+	 * @return string
+	 */
+	 getPaymentMethod() {
+	 	return this.paymentMethod;
+	 }
+	
+	/**
+	 * The UDID of the device from which the purchase was made
+	 * @return string
+	 */
+	 getDeviceUdid() {
+	 	return this.deviceUdid;
+	 }
+	
+	/**
+	 * The name of the device from which the purchase was made
+	 * @return string
+	 */
+	 getDeviceName() {
+	 	return this.deviceName;
+	 }
+	
+	/**
+	 * Indicates whether a cancelation window period is enabled
+	 * @return bool
+	 */
+	 getIsCancelationWindowEnabled() {
+	 	return this.isCancelationWindowEnabled;
+	 }
+	
+	/**
+	 * The maximum number of uses available for this item (only for subscription and PPV)
+	 * @return int
+	 */
+	 getMaxUses() {
+	 	return this.maxUses;
+	 }
+	
+	/**
+	 * The Identifier of the purchasing user
+	 * @return string
+	 */
+	 getUserId() {
+	 	return this.userId;
+	 }
+	
+	/**
+	 * The Identifier of the purchasing household
+	 * @return int
+	 */
+	 getHouseholdId() {
+	 	return this.householdId;
+	 }
+}
+module.exports.Entitlement = Entitlement;
+
+/**
+ *
+ */
+class EntitlementListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEntitlementListResponse';
+	}
+	
+	/**
+	 * A list of entitlements
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of entitlements
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.EntitlementListResponse = EntitlementListResponse;
+
+/**
+ *
+ */
+class CollectionEntitlement extends Entitlement{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCollectionEntitlement';
+	}
+}
+module.exports.CollectionEntitlement = CollectionEntitlement;
+
+/**
+ *
+ */
+class PpvEntitlement extends Entitlement{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPpvEntitlement';
+	}
+	
+	/**
+	 * Media file identifier
+	 * @return int
+	 */
+	 getMediaFileId() {
+	 	return this.mediaFileId;
+	 }
+	
+	/**
+	 * Media identifier
+	 * @return int
+	 */
+	 getMediaId() {
+	 	return this.mediaId;
+	 }
+}
+module.exports.PpvEntitlement = PpvEntitlement;
+
+/**
+ *
+ */
+class SubscriptionEntitlement extends Entitlement{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSubscriptionEntitlement';
+	}
+	
+	/**
+	 * The date of the next renewal (only for subscription)
+	 * @return int
+	 */
+	 getNextRenewalDate() {
+	 	return this.nextRenewalDate;
+	 }
+	
+	/**
+	 * Indicates whether the subscription is renewable in this purchase (only for subscription)
+	 * @return bool
+	 */
+	 getIsRenewableForPurchase() {
+	 	return this.isRenewableForPurchase;
+	 }
+	
+	/**
+	 * Indicates whether a subscription is renewable (only for subscription)
+	 * @return bool
+	 */
+	 getIsRenewable() {
+	 	return this.isRenewable;
+	 }
+	
+	/**
+	 * Indicates whether the user is currently in his grace period entitlement
+	 * @return bool
+	 */
+	 getIsInGracePeriod() {
+	 	return this.isInGracePeriod;
+	 }
+	
+	/**
+	 * Payment Gateway identifier
+	 * @return int
+	 */
+	 getPaymentGatewayId() {
+	 	return this.paymentGatewayId;
+	 }
+	
+	/**
+	 * @param paymentGatewayId int Payment Gateway identifier
+	 */
+	 setPaymentGatewayId(paymentGatewayId) {
+	 	this.paymentGatewayId = paymentGatewayId;
+	 }
+	
+	/**
+	 * Payment Method identifier
+	 * @return int
+	 */
+	 getPaymentMethodId() {
+	 	return this.paymentMethodId;
+	 }
+	
+	/**
+	 * @param paymentMethodId int Payment Method identifier
+	 */
+	 setPaymentMethodId(paymentMethodId) {
+	 	this.paymentMethodId = paymentMethodId;
+	 }
+	
+	/**
+	 * Scheduled Subscription Identifier
+	 * @return int
+	 */
+	 getScheduledSubscriptionId() {
+	 	return this.scheduledSubscriptionId;
+	 }
+	
+	/**
+	 * Unified payment identifier
+	 * @return int
+	 */
+	 getUnifiedPaymentId() {
+	 	return this.unifiedPaymentId;
+	 }
+	
+	/**
+	 * Indicates if the subscription suspended
+	 * @return bool
+	 */
+	 getIsSuspended() {
+	 	return this.isSuspended;
+	 }
+}
+module.exports.SubscriptionEntitlement = SubscriptionEntitlement;
 
 /**
  *
@@ -15419,303 +15431,6 @@ module.exports.TopicFilter = TopicFilter;
 /**
  *
  */
-class SeriesRecordingFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSeriesRecordingFilter';
-	}
-}
-module.exports.SeriesRecordingFilter = SeriesRecordingFilter;
-
-/**
- *
- */
-class ProductPriceFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaProductPriceFilter';
-	}
-	
-	/**
-	 * Comma separated subscriptions identifiers
-	 * @return string
-	 */
-	 getSubscriptionIdIn() {
-	 	return this.subscriptionIdIn;
-	 }
-	
-	/**
-	 * @param subscriptionIdIn string Comma separated subscriptions identifiers
-	 */
-	 setSubscriptionIdIn(subscriptionIdIn) {
-	 	this.subscriptionIdIn = subscriptionIdIn;
-	 }
-	
-	/**
-	 * Comma separated media files identifiers
-	 * @return string
-	 */
-	 getFileIdIn() {
-	 	return this.fileIdIn;
-	 }
-	
-	/**
-	 * @param fileIdIn string Comma separated media files identifiers
-	 */
-	 setFileIdIn(fileIdIn) {
-	 	this.fileIdIn = fileIdIn;
-	 }
-	
-	/**
-	 * Comma separated collections identifiers
-	 * @return string
-	 */
-	 getCollectionIdIn() {
-	 	return this.collectionIdIn;
-	 }
-	
-	/**
-	 * @param collectionIdIn string Comma separated collections identifiers
-	 */
-	 setCollectionIdIn(collectionIdIn) {
-	 	this.collectionIdIn = collectionIdIn;
-	 }
-	
-	/**
-	 * A flag that indicates if only the lowest price of an item should return
-	 * @return bool
-	 */
-	 getIsLowest() {
-	 	return this.isLowest;
-	 }
-	
-	/**
-	 * @param isLowest bool A flag that indicates if only the lowest price of an item should return
-	 */
-	 setIsLowest(isLowest) {
-	 	this.isLowest = isLowest;
-	 }
-	
-	/**
-	 * Discount coupon code
-	 * @return string
-	 */
-	 getCouponCodeEqual() {
-	 	return this.couponCodeEqual;
-	 }
-	
-	/**
-	 * @param couponCodeEqual string Discount coupon code
-	 */
-	 setCouponCodeEqual(couponCodeEqual) {
-	 	this.couponCodeEqual = couponCodeEqual;
-	 }
-}
-module.exports.ProductPriceFilter = ProductPriceFilter;
-
-/**
- *
- */
-class EntitlementFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaEntitlementFilter';
-	}
-	
-	/**
-	 * The type of the entitlements to return
-	 * @return string
-	 */
-	 getProductTypeEqual() {
-	 	return this.productTypeEqual;
-	 }
-	
-	/**
-	 * @param productTypeEqual string The type of the entitlements to return
-	 */
-	 setProductTypeEqual(productTypeEqual) {
-	 	this.productTypeEqual = productTypeEqual;
-	 }
-	
-	/**
-	 * Reference type to filter by
-	 * @return string
-	 */
-	 getEntityReferenceEqual() {
-	 	return this.entityReferenceEqual;
-	 }
-	
-	/**
-	 * @param entityReferenceEqual string Reference type to filter by
-	 */
-	 setEntityReferenceEqual(entityReferenceEqual) {
-	 	this.entityReferenceEqual = entityReferenceEqual;
-	 }
-	
-	/**
-	 * Is expired
-	 * @return bool
-	 */
-	 getIsExpiredEqual() {
-	 	return this.isExpiredEqual;
-	 }
-	
-	/**
-	 * @param isExpiredEqual bool Is expired
-	 */
-	 setIsExpiredEqual(isExpiredEqual) {
-	 	this.isExpiredEqual = isExpiredEqual;
-	 }
-}
-module.exports.EntitlementFilter = EntitlementFilter;
-
-/**
- *
- */
-class TransactionHistoryFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaTransactionHistoryFilter';
-	}
-	
-	/**
-	 * Reference type to filter by
-	 * @return string
-	 */
-	 getEntityReferenceEqual() {
-	 	return this.entityReferenceEqual;
-	 }
-	
-	/**
-	 * @param entityReferenceEqual string Reference type to filter by
-	 */
-	 setEntityReferenceEqual(entityReferenceEqual) {
-	 	this.entityReferenceEqual = entityReferenceEqual;
-	 }
-	
-	/**
-	 * Filter transactions later than specific date
-	 * @return int
-	 */
-	 getStartDateGreaterThanOrEqual() {
-	 	return this.startDateGreaterThanOrEqual;
-	 }
-	
-	/**
-	 * @param startDateGreaterThanOrEqual int Filter transactions later than specific date
-	 */
-	 setStartDateGreaterThanOrEqual(startDateGreaterThanOrEqual) {
-	 	this.startDateGreaterThanOrEqual = startDateGreaterThanOrEqual;
-	 }
-	
-	/**
-	 * Filter transactions earlier than specific date
-	 * @return int
-	 */
-	 getEndDateLessThanOrEqual() {
-	 	return this.endDateLessThanOrEqual;
-	 }
-	
-	/**
-	 * @param endDateLessThanOrEqual int Filter transactions earlier than specific date
-	 */
-	 setEndDateLessThanOrEqual(endDateLessThanOrEqual) {
-	 	this.endDateLessThanOrEqual = endDateLessThanOrEqual;
-	 }
-}
-module.exports.TransactionHistoryFilter = TransactionHistoryFilter;
-
-/**
- *
- */
-class RecordingContextFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaRecordingContextFilter';
-	}
-	
-	/**
-	 * Comma separated asset ids
-	 * @return string
-	 */
-	 getAssetIdIn() {
-	 	return this.assetIdIn;
-	 }
-	
-	/**
-	 * @param assetIdIn string Comma separated asset ids
-	 */
-	 setAssetIdIn(assetIdIn) {
-	 	this.assetIdIn = assetIdIn;
-	 }
-}
-module.exports.RecordingContextFilter = RecordingContextFilter;
-
-/**
- *
- */
-class RecordingFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaRecordingFilter';
-	}
-	
-	/**
-	 * Recording Statuses
-	 * @return string
-	 */
-	 getStatusIn() {
-	 	return this.statusIn;
-	 }
-	
-	/**
-	 * @param statusIn string Recording Statuses
-	 */
-	 setStatusIn(statusIn) {
-	 	this.statusIn = statusIn;
-	 }
-	
-	/**
-	 * Comma separated external identifiers
-	 * @return string
-	 */
-	 getExternalRecordingIdIn() {
-	 	return this.externalRecordingIdIn;
-	 }
-	
-	/**
-	 * @param externalRecordingIdIn string Comma separated external identifiers
-	 */
-	 setExternalRecordingIdIn(externalRecordingIdIn) {
-	 	this.externalRecordingIdIn = externalRecordingIdIn;
-	 }
-	
-	/**
-	 * KSQL expression
-	 * @return string
-	 */
-	 getKSql() {
-	 	return this.kSql;
-	 }
-	
-	/**
-	 * @param kSql string KSQL expression
-	 */
-	 setKSql(kSql) {
-	 	this.kSql = kSql;
-	 }
-}
-module.exports.RecordingFilter = RecordingFilter;
-
-/**
- *
- */
 class PartnerConfigurationFilter extends Filter{
 	
 	constructor(object = null) {
@@ -17128,6 +16843,303 @@ class AssetHistoryFilter extends Filter{
 	 }
 }
 module.exports.AssetHistoryFilter = AssetHistoryFilter;
+
+/**
+ *
+ */
+class SeriesRecordingFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSeriesRecordingFilter';
+	}
+}
+module.exports.SeriesRecordingFilter = SeriesRecordingFilter;
+
+/**
+ *
+ */
+class ProductPriceFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaProductPriceFilter';
+	}
+	
+	/**
+	 * Comma separated subscriptions identifiers
+	 * @return string
+	 */
+	 getSubscriptionIdIn() {
+	 	return this.subscriptionIdIn;
+	 }
+	
+	/**
+	 * @param subscriptionIdIn string Comma separated subscriptions identifiers
+	 */
+	 setSubscriptionIdIn(subscriptionIdIn) {
+	 	this.subscriptionIdIn = subscriptionIdIn;
+	 }
+	
+	/**
+	 * Comma separated media files identifiers
+	 * @return string
+	 */
+	 getFileIdIn() {
+	 	return this.fileIdIn;
+	 }
+	
+	/**
+	 * @param fileIdIn string Comma separated media files identifiers
+	 */
+	 setFileIdIn(fileIdIn) {
+	 	this.fileIdIn = fileIdIn;
+	 }
+	
+	/**
+	 * Comma separated collections identifiers
+	 * @return string
+	 */
+	 getCollectionIdIn() {
+	 	return this.collectionIdIn;
+	 }
+	
+	/**
+	 * @param collectionIdIn string Comma separated collections identifiers
+	 */
+	 setCollectionIdIn(collectionIdIn) {
+	 	this.collectionIdIn = collectionIdIn;
+	 }
+	
+	/**
+	 * A flag that indicates if only the lowest price of an item should return
+	 * @return bool
+	 */
+	 getIsLowest() {
+	 	return this.isLowest;
+	 }
+	
+	/**
+	 * @param isLowest bool A flag that indicates if only the lowest price of an item should return
+	 */
+	 setIsLowest(isLowest) {
+	 	this.isLowest = isLowest;
+	 }
+	
+	/**
+	 * Discount coupon code
+	 * @return string
+	 */
+	 getCouponCodeEqual() {
+	 	return this.couponCodeEqual;
+	 }
+	
+	/**
+	 * @param couponCodeEqual string Discount coupon code
+	 */
+	 setCouponCodeEqual(couponCodeEqual) {
+	 	this.couponCodeEqual = couponCodeEqual;
+	 }
+}
+module.exports.ProductPriceFilter = ProductPriceFilter;
+
+/**
+ *
+ */
+class EntitlementFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEntitlementFilter';
+	}
+	
+	/**
+	 * The type of the entitlements to return
+	 * @return string
+	 */
+	 getProductTypeEqual() {
+	 	return this.productTypeEqual;
+	 }
+	
+	/**
+	 * @param productTypeEqual string The type of the entitlements to return
+	 */
+	 setProductTypeEqual(productTypeEqual) {
+	 	this.productTypeEqual = productTypeEqual;
+	 }
+	
+	/**
+	 * Reference type to filter by
+	 * @return string
+	 */
+	 getEntityReferenceEqual() {
+	 	return this.entityReferenceEqual;
+	 }
+	
+	/**
+	 * @param entityReferenceEqual string Reference type to filter by
+	 */
+	 setEntityReferenceEqual(entityReferenceEqual) {
+	 	this.entityReferenceEqual = entityReferenceEqual;
+	 }
+	
+	/**
+	 * Is expired
+	 * @return bool
+	 */
+	 getIsExpiredEqual() {
+	 	return this.isExpiredEqual;
+	 }
+	
+	/**
+	 * @param isExpiredEqual bool Is expired
+	 */
+	 setIsExpiredEqual(isExpiredEqual) {
+	 	this.isExpiredEqual = isExpiredEqual;
+	 }
+}
+module.exports.EntitlementFilter = EntitlementFilter;
+
+/**
+ *
+ */
+class TransactionHistoryFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTransactionHistoryFilter';
+	}
+	
+	/**
+	 * Reference type to filter by
+	 * @return string
+	 */
+	 getEntityReferenceEqual() {
+	 	return this.entityReferenceEqual;
+	 }
+	
+	/**
+	 * @param entityReferenceEqual string Reference type to filter by
+	 */
+	 setEntityReferenceEqual(entityReferenceEqual) {
+	 	this.entityReferenceEqual = entityReferenceEqual;
+	 }
+	
+	/**
+	 * Filter transactions later than specific date
+	 * @return int
+	 */
+	 getStartDateGreaterThanOrEqual() {
+	 	return this.startDateGreaterThanOrEqual;
+	 }
+	
+	/**
+	 * @param startDateGreaterThanOrEqual int Filter transactions later than specific date
+	 */
+	 setStartDateGreaterThanOrEqual(startDateGreaterThanOrEqual) {
+	 	this.startDateGreaterThanOrEqual = startDateGreaterThanOrEqual;
+	 }
+	
+	/**
+	 * Filter transactions earlier than specific date
+	 * @return int
+	 */
+	 getEndDateLessThanOrEqual() {
+	 	return this.endDateLessThanOrEqual;
+	 }
+	
+	/**
+	 * @param endDateLessThanOrEqual int Filter transactions earlier than specific date
+	 */
+	 setEndDateLessThanOrEqual(endDateLessThanOrEqual) {
+	 	this.endDateLessThanOrEqual = endDateLessThanOrEqual;
+	 }
+}
+module.exports.TransactionHistoryFilter = TransactionHistoryFilter;
+
+/**
+ *
+ */
+class RecordingContextFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRecordingContextFilter';
+	}
+	
+	/**
+	 * Comma separated asset ids
+	 * @return string
+	 */
+	 getAssetIdIn() {
+	 	return this.assetIdIn;
+	 }
+	
+	/**
+	 * @param assetIdIn string Comma separated asset ids
+	 */
+	 setAssetIdIn(assetIdIn) {
+	 	this.assetIdIn = assetIdIn;
+	 }
+}
+module.exports.RecordingContextFilter = RecordingContextFilter;
+
+/**
+ *
+ */
+class RecordingFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRecordingFilter';
+	}
+	
+	/**
+	 * Recording Statuses
+	 * @return string
+	 */
+	 getStatusIn() {
+	 	return this.statusIn;
+	 }
+	
+	/**
+	 * @param statusIn string Recording Statuses
+	 */
+	 setStatusIn(statusIn) {
+	 	this.statusIn = statusIn;
+	 }
+	
+	/**
+	 * Comma separated external identifiers
+	 * @return string
+	 */
+	 getExternalRecordingIdIn() {
+	 	return this.externalRecordingIdIn;
+	 }
+	
+	/**
+	 * @param externalRecordingIdIn string Comma separated external identifiers
+	 */
+	 setExternalRecordingIdIn(externalRecordingIdIn) {
+	 	this.externalRecordingIdIn = externalRecordingIdIn;
+	 }
+	
+	/**
+	 * KSQL expression
+	 * @return string
+	 */
+	 getKSql() {
+	 	return this.kSql;
+	 }
+	
+	/**
+	 * @param kSql string KSQL expression
+	 */
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
+	 }
+}
+module.exports.RecordingFilter = RecordingFilter;
 
 /**
  *
