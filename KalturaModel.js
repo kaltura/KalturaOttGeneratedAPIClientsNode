@@ -9779,6 +9779,105 @@ module.exports.BillingPartnerConfig = BillingPartnerConfig;
 /**
  *
  */
+class MediaConcurrencyRule extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaMediaConcurrencyRule';
+	}
+	
+	/**
+	 * Media concurrency rule  identifier
+	 * @return string
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id string Media concurrency rule  identifier
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
+	 * Media concurrency rule  name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Media concurrency rule  name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Concurrency limitation type
+	 * @return string
+	 */
+	 getConcurrencyLimitationType() {
+	 	return this.concurrencyLimitationType;
+	 }
+	
+	/**
+	 * @param concurrencyLimitationType string Concurrency limitation type
+	 */
+	 setConcurrencyLimitationType(concurrencyLimitationType) {
+	 	this.concurrencyLimitationType = concurrencyLimitationType;
+	 }
+	
+	/**
+	 * Limitation
+	 * @return int
+	 */
+	 getLimitation() {
+	 	return this.limitation;
+	 }
+	
+	/**
+	 * @param limitation int Limitation
+	 */
+	 setLimitation(limitation) {
+	 	this.limitation = limitation;
+	 }
+}
+module.exports.MediaConcurrencyRule = MediaConcurrencyRule;
+
+/**
+ *
+ */
+class MediaConcurrencyRuleListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaMediaConcurrencyRuleListResponse';
+	}
+	
+	/**
+	 * Media CONCURRENCY RULES
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Media CONCURRENCY RULES
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.MediaConcurrencyRuleListResponse = MediaConcurrencyRuleListResponse;
+
+/**
+ *
+ */
 class AssetRuleBase extends kaltura.BaseObject{
 	
 	constructor(object = null) {

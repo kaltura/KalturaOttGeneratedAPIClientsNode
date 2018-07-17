@@ -2541,6 +2541,25 @@ module.exports.licensedUrl = licensedUrl;
 
 
 /**
+ *Class definition for the Kaltura service: mediaConcurrencyRule.
+ * The available service actions:
+ * @action list Get the list of meta mappings for the partner.
+ */
+class mediaConcurrencyRule{
+	
+	/**
+	 * Get the list of meta mappings for the partner.
+	 * @return KalturaMediaConcurrencyRuleListResponse
+	 */
+	static listAction(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('mediaconcurrencyrule', 'list', kparams);
+	};
+}
+module.exports.mediaConcurrencyRule = mediaConcurrencyRule;
+
+
+/**
  *Class definition for the Kaltura service: messageTemplate.
  * The available service actions:
  * @action get Retrieve a message template used in push notifications and inbox.
