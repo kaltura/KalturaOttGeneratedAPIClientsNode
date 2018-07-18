@@ -11845,6 +11845,48 @@ module.exports.ConcurrencyCondition = ConcurrencyCondition;
 /**
  *
  */
+class IpRangeCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIpRangeCondition';
+	}
+	
+	/**
+	 * From IP address range
+	 * @return string
+	 */
+	 getFromIP() {
+	 	return this.fromIP;
+	 }
+	
+	/**
+	 * @param fromIP string From IP address range
+	 */
+	 setFromIP(fromIP) {
+	 	this.fromIP = fromIP;
+	 }
+	
+	/**
+	 * TO IP address range
+	 * @return string
+	 */
+	 getToIP() {
+	 	return this.toIP;
+	 }
+	
+	/**
+	 * @param toIP string TO IP address range
+	 */
+	 setToIP(toIP) {
+	 	this.toIP = toIP;
+	 }
+}
+module.exports.IpRangeCondition = IpRangeCondition;
+
+/**
+ *
+ */
 class AssetUserRuleBlockAction extends AssetUserRuleAction{
 	
 	constructor(object = null) {
@@ -11931,6 +11973,30 @@ class StartDateOffsetRuleAction extends TimeOffsetRuleAction{
 	}
 }
 module.exports.StartDateOffsetRuleAction = StartDateOffsetRuleAction;
+
+/**
+ *
+ */
+class AllowPlaybackAction extends AssetRuleAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAllowPlaybackAction';
+	}
+}
+module.exports.AllowPlaybackAction = AllowPlaybackAction;
+
+/**
+ *
+ */
+class BlockPlaybackAction extends AssetRuleAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBlockPlaybackAction';
+	}
+}
+module.exports.BlockPlaybackAction = BlockPlaybackAction;
 
 /**
  *
