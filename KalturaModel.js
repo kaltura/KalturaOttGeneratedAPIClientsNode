@@ -4580,6 +4580,21 @@ class Channel extends BaseChannel{
 	 }
 	
 	/**
+	 * Channel name
+	 * @return string
+	 */
+	 getOldName() {
+	 	return this.oldName;
+	 }
+	
+	/**
+	 * @param oldName string Channel name
+	 */
+	 setOldName(oldName) {
+	 	this.oldName = oldName;
+	 }
+	
+	/**
 	 * Channel system name
 	 * @return string
 	 */
@@ -4615,6 +4630,21 @@ class Channel extends BaseChannel{
 	 */
 	 setMultilingualDescription(multilingualDescription) {
 	 	this.multilingualDescription = multilingualDescription;
+	 }
+	
+	/**
+	 * Cannel description
+	 * @return string
+	 */
+	 getOldDescription() {
+	 	return this.oldDescription;
+	 }
+	
+	/**
+	 * @param oldDescription string Cannel description
+	 */
+	 setOldDescription(oldDescription) {
+	 	this.oldDescription = oldDescription;
 	 }
 	
 	/**
