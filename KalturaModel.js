@@ -9048,11 +9048,11 @@ module.exports.MediaAsset = MediaAsset;
 /**
  *
  */
-class LinearMediaAsset extends MediaAsset{
+class LiveAsset extends MediaAsset{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaLinearMediaAsset';
+		this.objectType = 'KalturaLiveAsset';
 	}
 	
 	/**
@@ -9261,7 +9261,7 @@ class LinearMediaAsset extends MediaAsset{
 	 	this.channelType = channelType;
 	 }
 }
-module.exports.LinearMediaAsset = LinearMediaAsset;
+module.exports.LiveAsset = LiveAsset;
 
 /**
  *
