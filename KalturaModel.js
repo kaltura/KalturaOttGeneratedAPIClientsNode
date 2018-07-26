@@ -9104,30 +9104,30 @@ class LiveAsset extends MediaAsset{
 	 * buffer Catch-up, configuration only
 	 * @return int
 	 */
-	 getBufferCatchUp() {
-	 	return this.bufferCatchUp;
+	 getBufferCatchUpSetting() {
+	 	return this.bufferCatchUpSetting;
 	 }
 	
 	/**
-	 * @param bufferCatchUp int buffer Catch-up, configuration only
+	 * @param bufferCatchUpSetting int buffer Catch-up, configuration only
 	 */
-	 setBufferCatchUp(bufferCatchUp) {
-	 	this.bufferCatchUp = bufferCatchUp;
+	 setBufferCatchUpSetting(bufferCatchUpSetting) {
+	 	this.bufferCatchUpSetting = bufferCatchUpSetting;
 	 }
 	
 	/**
 	 * buffer Trick-play, configuration only
 	 * @return int
 	 */
-	 getBufferTrickPlay() {
-	 	return this.bufferTrickPlay;
+	 getBufferTrickPlaySetting() {
+	 	return this.bufferTrickPlaySetting;
 	 }
 	
 	/**
-	 * @param bufferTrickPlay int buffer Trick-play, configuration only
+	 * @param bufferTrickPlaySetting int buffer Trick-play, configuration only
 	 */
-	 setBufferTrickPlay(bufferTrickPlay) {
-	 	this.bufferTrickPlay = bufferTrickPlay;
+	 setBufferTrickPlaySetting(bufferTrickPlaySetting) {
+	 	this.bufferTrickPlaySetting = bufferTrickPlaySetting;
 	 }
 	
 	/**
@@ -9194,56 +9194,56 @@ class LiveAsset extends MediaAsset{
 	 * Is CDVR enabled for this asset
 	 * @return bool
 	 */
-	 getCdvrEnabled() {
-	 	return this.cdvrEnabled;
+	 getEnableCdvr() {
+	 	return this.enableCdvr;
 	 }
 	
 	/**
 	 * Is catch-up enabled for this asset
 	 * @return bool
 	 */
-	 getCatchUpEnabled() {
-	 	return this.catchUpEnabled;
+	 getEnableCatchUp() {
+	 	return this.enableCatchUp;
 	 }
 	
 	/**
 	 * Is start over enabled for this asset
 	 * @return bool
 	 */
-	 getStartOverEnabled() {
-	 	return this.startOverEnabled;
+	 getEnableStartOver() {
+	 	return this.enableStartOver;
 	 }
 	
 	/**
 	 * summed Catch-up buffer, the TimeShiftedTvPartnerSettings are also taken into consideration
 	 * @return int
 	 */
-	 getSummedCatchUpBuffer() {
-	 	return this.summedCatchUpBuffer;
+	 getCatchUpBuffer() {
+	 	return this.catchUpBuffer;
 	 }
 	
 	/**
 	 * summed Trick-play buffer, the TimeShiftedTvPartnerSettings are also taken into consideration
 	 * @return int
 	 */
-	 getSummedTrickPlayBuffer() {
-	 	return this.summedTrickPlayBuffer;
+	 getTrickPlayBuffer() {
+	 	return this.trickPlayBuffer;
 	 }
 	
 	/**
 	 * Is recording playback for non entitled channel enabled for this asset
 	 * @return bool
 	 */
-	 getRecordingPlaybackNonEntitledChannelEnabled() {
-	 	return this.recordingPlaybackNonEntitledChannelEnabled;
+	 getEnableRecordingPlaybackNonEntitledChannel() {
+	 	return this.enableRecordingPlaybackNonEntitledChannel;
 	 }
 	
 	/**
 	 * Is trick-play enabled for this asset
 	 * @return bool
 	 */
-	 getTrickPlayEnabled() {
-	 	return this.trickPlayEnabled;
+	 getEnableTrickPlay() {
+	 	return this.enableTrickPlay;
 	 }
 	
 	/**
