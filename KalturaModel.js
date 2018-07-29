@@ -15787,21 +15787,6 @@ class SearchAssetFilter extends BaseSearchAssetFilter{
 	 setTypeIn(typeIn) {
 	 	this.typeIn = typeIn;
 	 }
-	
-	/**
-	 * Comma separated list of EPG channel ids to search within. *****Deprecated, please use linear_media_id inside kSql instead*****
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Comma separated list of EPG channel ids to search within. *****Deprecated, please use linear_media_id inside kSql instead*****
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
 }
 module.exports.SearchAssetFilter = SearchAssetFilter;
 
