@@ -78,8 +78,6 @@ VOTES_DESC : 'VOTES_DESC',
 START_DATE_DESC : 'START_DATE_DESC',
 START_DATE_ASC : 'START_DATE_ASC',
 LIKES_DESC : 'LIKES_DESC',
-CREATE_DATE_ASC : 'CREATE_DATE_ASC',
-CREATE_DATE_DESC : 'CREATE_DATE_DESC',
 };
 
 module.exports.AssetReferenceType = {
@@ -100,49 +98,10 @@ START_DATE_ASC : 'START_DATE_ASC',
 LIKES_DESC : 'LIKES_DESC',
 };
 
-module.exports.AssetRuleOrderBy = {
-NONE : 'NONE',
-};
-
-module.exports.AssetStructMetaOrderBy = {
-NONE : 'NONE',
-};
-
-module.exports.AssetStructOrderBy = {
-NAME_ASC : 'NAME_ASC',
-NAME_DESC : 'NAME_DESC',
-SYSTEM_NAME_ASC : 'SYSTEM_NAME_ASC',
-SYSTEM_NAME_DESC : 'SYSTEM_NAME_DESC',
-CREATE_DATE_ASC : 'CREATE_DATE_ASC',
-CREATE_DATE_DESC : 'CREATE_DATE_DESC',
-UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
-UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
-};
-
 module.exports.AssetType = {
 MEDIA : 'media',
 RECORDING : 'recording',
 EPG : 'epg',
-};
-
-module.exports.AssetUserRuleOrderBy = {
-NONE : 'NONE',
-};
-
-module.exports.BatchJobStatus = {
-PENDING : 'PENDING',
-QUEUED : 'QUEUED',
-PROCESSING : 'PROCESSING',
-PROCESSED : 'PROCESSED',
-MOVEFILE : 'MOVEFILE',
-FINISHED : 'FINISHED',
-FAILED : 'FAILED',
-ABORTED : 'ABORTED',
-ALMOST_DONE : 'ALMOST_DONE',
-RETRY : 'RETRY',
-FATAL : 'FATAL',
-DONT_PROCESS : 'DONT_PROCESS',
-FINISHED_PARTIALLY : 'FINISHED_PARTIALLY',
 };
 
 module.exports.BillingAction = {
@@ -190,10 +149,6 @@ POSITION_ASC : 'POSITION_ASC',
 POSITION_DESC : 'POSITION_DESC',
 };
 
-module.exports.BulkOrderBy = {
-NONE : 'NONE',
-};
-
 module.exports.BundleType = {
 SUBSCRIPTION : 'subscription',
 COLLECTION : 'collection',
@@ -214,29 +169,6 @@ DTTREGION : 'DTTRegion',
 ATHOME : 'AtHome',
 };
 
-module.exports.ChannelOrderBy = {
-ORDER_NUM : 'ORDER_NUM',
-RELEVANCY_DESC : 'RELEVANCY_DESC',
-NAME_ASC : 'NAME_ASC',
-NAME_DESC : 'NAME_DESC',
-VIEWS_DESC : 'VIEWS_DESC',
-RATINGS_DESC : 'RATINGS_DESC',
-VOTES_DESC : 'VOTES_DESC',
-START_DATE_DESC : 'START_DATE_DESC',
-START_DATE_ASC : 'START_DATE_ASC',
-LIKES_DESC : 'LIKES_DESC',
-CREATE_DATE_ASC : 'CREATE_DATE_ASC',
-CREATE_DATE_DESC : 'CREATE_DATE_DESC',
-};
-
-module.exports.ChannelsOrderBy = {
-NONE : 'NONE',
-NAME_ASC : 'NAME_ASC',
-NAME_DESC : 'NAME_DESC',
-CREATE_DATE_ASC : 'CREATE_DATE_ASC',
-CREATE_DATE_DESC : 'CREATE_DATE_DESC',
-};
-
 module.exports.CollectionOrderBy = {
 NONE : 'NONE',
 };
@@ -244,11 +176,6 @@ NONE : 'NONE',
 module.exports.CompensationType = {
 PERCENTAGE : 'PERCENTAGE',
 FIXED_AMOUNT : 'FIXED_AMOUNT',
-};
-
-module.exports.ConcurrencyLimitationType = {
-SINGLE : 'Single',
-GROUP : 'Group',
 };
 
 module.exports.ConfigurationGroupDeviceOrderBy = {
@@ -325,11 +252,6 @@ USER : 'user',
 HOUSEHOLD : 'household',
 };
 
-module.exports.EvictionPolicyType = {
-FIFO : 'FIFO',
-LIFO : 'LIFO',
-};
-
 module.exports.ExportDataType = {
 VOD : 'vod',
 EPG : 'epg',
@@ -404,29 +326,6 @@ OK : 'OK',
 PENDING : 'PENDING',
 };
 
-module.exports.ImageObjectType = {
-MEDIA_ASSET : 'MEDIA_ASSET',
-PROGRAM_ASSET : 'PROGRAM_ASSET',
-CHANNEL : 'CHANNEL',
-CATEGORY : 'CATEGORY',
-PARTNER : 'PARTNER',
-IMAGE_TYPE : 'IMAGE_TYPE',
-};
-
-module.exports.ImageOrderBy = {
-NONE : 'NONE',
-};
-
-module.exports.ImageStatus = {
-PENDING : 'PENDING',
-READY : 'READY',
-FAILED : 'FAILED',
-};
-
-module.exports.ImageTypeOrderBy = {
-NONE : 'NONE',
-};
-
 module.exports.InboxMessageOrderBy = {
 NONE : 'NONE',
 };
@@ -451,32 +350,6 @@ CODE_ASC : 'CODE_ASC',
 CODE_DESC : 'CODE_DESC',
 };
 
-module.exports.LinearChannelType = {
-UNKNOWN : 'UNKNOWN',
-DTT : 'DTT',
-OTT : 'OTT',
-DTT_AND_OTT : 'DTT_AND_OTT',
-};
-
-module.exports.MediaFileOrderBy = {
-NONE : 'NONE',
-};
-
-module.exports.MediaFileStreamerType = {
-APPLE_HTTP : 'APPLE_HTTP',
-MPEG_DASH : 'MPEG_DASH',
-URL : 'URL',
-SMOOTH_STREAMING : 'SMOOTH_STREAMING',
-};
-
-module.exports.MediaFileTypeQuality = {
-ADAPTIVE : 'ADAPTIVE',
-SD : 'SD',
-HD_720 : 'HD_720',
-HD_1080 : 'HD_1080',
-UHD_4K : 'UHD_4K',
-};
-
 module.exports.MessageTemplateType = {
 SERIES : 'Series',
 REMINDER : 'Reminder',
@@ -486,28 +359,27 @@ INTERESTVOD : 'InterestVod',
 INTERESTEPG : 'InterestEPG',
 };
 
-module.exports.MetaDataType = {
-STRING : 'STRING',
-MULTILINGUAL_STRING : 'MULTILINGUAL_STRING',
-NUMBER : 'NUMBER',
-BOOLEAN : 'BOOLEAN',
-DATE : 'DATE',
+module.exports.MetaFieldName = {
+NONE : 'NONE',
+SERIES_ID : 'SERIES_ID',
+SEASON_NUMBER : 'SEASON_NUMBER',
+EPISODE_NUMBER : 'EPISODE_NUMBER',
 };
 
 module.exports.MetaOrderBy = {
-NAME_ASC : 'NAME_ASC',
-NAME_DESC : 'NAME_DESC',
-SYSTEM_NAME_ASC : 'SYSTEM_NAME_ASC',
-SYSTEM_NAME_DESC : 'SYSTEM_NAME_DESC',
-CREATE_DATE_ASC : 'CREATE_DATE_ASC',
-CREATE_DATE_DESC : 'CREATE_DATE_DESC',
-UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
-UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
+NONE : 'NONE',
 };
 
 module.exports.MetaTagOrderBy = {
 META_ASC : 'META_ASC',
 META_DESC : 'META_DESC',
+};
+
+module.exports.MetaType = {
+STRING : 'STRING',
+NUMBER : 'NUMBER',
+BOOLEAN : 'BOOLEAN',
+STRING_ARRAY : 'STRING_ARRAY',
 };
 
 module.exports.NotificationType = {
@@ -531,15 +403,10 @@ MOVIES : 'MOVIES',
 TV_SERIES : 'TV_SERIES',
 };
 
-module.exports.PartnerConfigurationOrderBy = {
-NONE : 'NONE',
-};
-
 module.exports.PartnerConfigurationType = {
 DEFAULTPAYMENTGATEWAY : 'DefaultPaymentGateway',
 ENABLEPAYMENTGATEWAYSELECTION : 'EnablePaymentGatewaySelection',
 OSSADAPTER : 'OSSAdapter',
-CONCURRENCY : 'Concurrency',
 };
 
 module.exports.PaymentMethodProfileOrderBy = {
@@ -574,11 +441,6 @@ START_DATE_DESC : 'START_DATE_DESC',
 START_DATE_ASC : 'START_DATE_ASC',
 };
 
-module.exports.PersonalListOrderBy = {
-CREATE_DATE_DESC : 'CREATE_DATE_DESC',
-CREATE_DATE_ASC : 'CREATE_DATE_ASC',
-};
-
 module.exports.PinType = {
 PURCHASE : 'purchase',
 PARENTAL : 'parental',
@@ -599,7 +461,6 @@ TRAILER : 'TRAILER',
 CATCHUP : 'CATCHUP',
 START_OVER : 'START_OVER',
 PLAYBACK : 'PLAYBACK',
-DOWNLOAD : 'DOWNLOAD',
 };
 
 module.exports.PositionOwner = {
@@ -696,18 +557,6 @@ NONE : 'NONE',
 
 module.exports.RuleActionType = {
 BLOCK : 'BLOCK',
-START_DATE_OFFSET : 'START_DATE_OFFSET',
-END_DATE_OFFSET : 'END_DATE_OFFSET',
-USER_BLOCK : 'USER_BLOCK',
-ALLOW_PLAYBACK : 'ALLOW_PLAYBACK',
-BLOCK_PLAYBACK : 'BLOCK_PLAYBACK',
-};
-
-module.exports.RuleConditionType = {
-ASSET : 'ASSET',
-COUNTRY : 'COUNTRY',
-CONCURRENCY : 'CONCURRENCY',
-IP_RANGE : 'IP_RANGE',
 };
 
 module.exports.RuleLevel = {
@@ -722,7 +571,6 @@ PARENTAL : 'parental',
 GEO : 'geo',
 USER_TYPE : 'user_type',
 DEVICE : 'device',
-ASSETUSER : 'assetUser',
 };
 
 module.exports.ScheduledRecordingAssetType = {
@@ -835,16 +683,6 @@ SWITCH : 'SWITCH',
 DEPENDENCY : 'DEPENDENCY',
 };
 
-module.exports.TagOrderBy = {
-NONE : 'NONE',
-};
-
-module.exports.TimeShiftedTvState = {
-INHERITED : 'INHERITED',
-ENABLED : 'ENABLED',
-DISABLED : 'DISABLED',
-};
-
 module.exports.TopicAutomaticIssueNotification = {
 INHERIT : 'Inherit',
 YES : 'Yes',
@@ -870,17 +708,6 @@ module.exports.TransactionType = {
 PPV : 'ppv',
 SUBSCRIPTION : 'subscription',
 COLLECTION : 'collection',
-};
-
-module.exports.UploadTokenStatus = {
-PENDING : 'PENDING',
-FULL_UPLOAD : 'FULL_UPLOAD',
-CLOSED : 'CLOSED',
-};
-
-module.exports.UrlType = {
-PLAYMANIFEST : 'PLAYMANIFEST',
-DIRECT : 'DIRECT',
 };
 
 module.exports.UserAssetRuleOrderBy = {
