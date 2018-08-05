@@ -3351,7 +3351,7 @@ module.exports.ottCategory = ottCategory;
  *Class definition for the Kaltura service: ottUser.
  * The available service actions:
  * @action activate Activate the account by activation token.
- * @action addRole Edit user details.
+ * @action addRole Deprecate - use Register or Update actions instead by setting user.roleIds parameter.
  * @action anonymousLogin Returns tokens (KS and refresh token) for anonymous access.
  * @action delete Permanently delete a user. User to delete cannot be an exclusive household master, and cannot be default user.
  * @action get Retrieving users&#39; data.
@@ -3387,7 +3387,7 @@ class ottUser{
 	};
 	
 	/**
-	 * Edit user details.
+	 * Deprecate - use Register or Update actions instead by setting user.roleIds parameter.
 	 * @param roleId int The role identifier to add
 	 * @return bool
 	 */

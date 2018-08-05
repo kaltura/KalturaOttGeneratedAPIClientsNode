@@ -3827,6 +3827,37 @@ class OTTUser extends BaseOTTUser{
 	 getUserState() {
 	 	return this.userState;
 	 }
+	
+	/**
+	 * Comma separated list of role Ids
+	 * @return string
+	 */
+	 getRoleIds() {
+	 	return this.roleIds;
+	 }
+	
+	/**
+	 * @param roleIds string Comma separated list of role Ids
+	 */
+	 setRoleIds(roleIds) {
+	 	this.roleIds = roleIds;
+	 }
+	
+	/**
+	 * User create date
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * User last update date
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
 }
 module.exports.OTTUser = OTTUser;
 
@@ -14957,6 +14988,21 @@ class OTTUserFilter extends Filter{
 	 */
 	 setIdIn(idIn) {
 	 	this.idIn = idIn;
+	 }
+	
+	/**
+	 * Comma separated list of role Ids
+	 * @return string
+	 */
+	 getRoleIdsIn() {
+	 	return this.roleIdsIn;
+	 }
+	
+	/**
+	 * @param roleIdsIn string Comma separated list of role Ids
+	 */
+	 setRoleIdsIn(roleIdsIn) {
+	 	this.roleIdsIn = roleIdsIn;
 	 }
 }
 module.exports.OTTUserFilter = OTTUserFilter;
