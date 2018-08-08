@@ -3899,6 +3899,37 @@ module.exports.paymentMethodProfile = paymentMethodProfile;
 
 
 /**
+ *Class definition for the Kaltura service: permission.
+ * The available service actions:
+ * @action getCurrentPermissions Returns permission names as comma separated string.
+ * @action list Retrieving permissions by identifiers, if filter is empty, returns all partner permissions.
+ */
+class permission{
+	
+	/**
+	 * Returns permission names as comma separated string.
+	 * @return string
+	 */
+	static getCurrentPermissions(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('permission', 'getCurrentPermissions', kparams);
+	};
+	
+	/**
+	 * Retrieving permissions by identifiers, if filter is empty, returns all partner permissions.
+	 * @param filter PermissionFilter Filter for permissions (optional, default: null)
+	 * @return KalturaPermissionListResponse
+	 */
+	static listAction(filter = null){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('permission', 'list', kparams);
+	};
+}
+module.exports.permission = permission;
+
+
+/**
  *Class definition for the Kaltura service: personalFeed.
  * The available service actions:
  * @action list List user&#39;s feeds.

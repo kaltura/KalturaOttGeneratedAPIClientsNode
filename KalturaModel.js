@@ -11441,6 +11441,110 @@ module.exports.DrmProfileListResponse = DrmProfileListResponse;
 /**
  *
  */
+class Permission extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPermission';
+	}
+	
+	/**
+	 * Permission identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Permission name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Permission name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Permission friendly name
+	 * @return string
+	 */
+	 getFriendlyName() {
+	 	return this.friendlyName;
+	 }
+	
+	/**
+	 * @param friendlyName string Permission friendly name
+	 */
+	 setFriendlyName(friendlyName) {
+	 	this.friendlyName = friendlyName;
+	 }
+}
+module.exports.Permission = Permission;
+
+/**
+ *
+ */
+class PermissionListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPermissionListResponse';
+	}
+	
+	/**
+	 * A list of permissions
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of permissions
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.PermissionListResponse = PermissionListResponse;
+
+/**
+ *
+ */
+class GroupPermission extends Permission{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaGroupPermission';
+	}
+	
+	/**
+	 * Permission identifier
+	 * @return string
+	 */
+	 getGroup() {
+	 	return this.group;
+	 }
+	
+	/**
+	 * @param group string Permission identifier
+	 */
+	 setGroup(group) {
+	 	this.group = group;
+	 }
+}
+module.exports.GroupPermission = GroupPermission;
+
+/**
+ *
+ */
 class MediaConcurrencyRule extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -17656,6 +17760,33 @@ class ExportTaskFilter extends Filter{
 	 }
 }
 module.exports.ExportTaskFilter = ExportTaskFilter;
+
+/**
+ *
+ */
+class PermissionFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPermissionFilter';
+	}
+	
+	/**
+	 * Indicates whether the results should be filtered by userId using the current
+	 * @return bool
+	 */
+	 getCurrentUserPermissionsContains() {
+	 	return this.currentUserPermissionsContains;
+	 }
+	
+	/**
+	 * @param currentUserPermissionsContains bool Indicates whether the results should be filtered by userId using the current
+	 */
+	 setCurrentUserPermissionsContains(currentUserPermissionsContains) {
+	 	this.currentUserPermissionsContains = currentUserPermissionsContains;
+	 }
+}
+module.exports.PermissionFilter = PermissionFilter;
 
 /**
  *

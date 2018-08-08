@@ -563,6 +563,10 @@ CHANGE_SUBSCRIPTION : 'change_subscription',
 OFFLINE : 'offline',
 };
 
+module.exports.PermissionOrderBy = {
+NONE : 'NONE',
+};
+
 module.exports.PersonalFeedOrderBy = {
 RELEVANCY_DESC : 'RELEVANCY_DESC',
 NAME_ASC : 'NAME_ASC',
