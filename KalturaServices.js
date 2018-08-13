@@ -3525,12 +3525,14 @@ class ottUser{
 	 * Send an e-mail with URL to enable the user to set new password.
 	 * @param partnerId int Partner Identifier
 	 * @param username string user name
+	 * @param templateName string Template name for reset password (optional, default: null)
 	 * @return bool
 	 */
-	static resetPassword(partnerId, username){
+	static resetPassword(partnerId, username, templateName = null){
 		let kparams = {};
 		kparams.partnerId = partnerId;
 		kparams.username = username;
+		kparams.templateName = templateName;
 		return new kaltura.RequestBuilder('ottuser', 'resetPassword', kparams);
 	};
 	
