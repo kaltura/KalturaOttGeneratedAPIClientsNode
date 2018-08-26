@@ -16227,10 +16227,9 @@ class RelatedFilter extends BaseSearchAssetFilter{
 	 }
 	
 	/**
-	 * (Deprecated - use KalturaBaseSearchAssetFilter.kSql)
- * Comma separated list of asset types to search within.
+	 * Comma separated list of asset types to search within.
  * Possible values: any media type ID (according to media type IDs defined dynamically in the system).
- * If omitted –   same type as the provided asset
+ * If omitted – same type as the provided asset
 	 * @return string
 	 */
 	 getTypeIn() {
@@ -16238,10 +16237,9 @@ class RelatedFilter extends BaseSearchAssetFilter{
 	 }
 	
 	/**
-	 * @param typeIn string (Deprecated - use KalturaBaseSearchAssetFilter.kSql)
- * Comma separated list of asset types to search within.
+	 * @param typeIn string Comma separated list of asset types to search within.
  * Possible values: any media type ID (according to media type IDs defined dynamically in the system).
- * If omitted –   same type as the provided asset
+ * If omitted – same type as the provided asset
 	 */
 	 setTypeIn(typeIn) {
 	 	this.typeIn = typeIn;
