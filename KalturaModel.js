@@ -10386,6 +10386,824 @@ module.exports.BulkListResponse = BulkListResponse;
 /**
  *
  */
+class BaseSegmentCondition extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBaseSegmentCondition';
+	}
+}
+module.exports.BaseSegmentCondition = BaseSegmentCondition;
+
+/**
+ *
+ */
+class BaseSegmentValue extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBaseSegmentValue';
+	}
+}
+module.exports.BaseSegmentValue = BaseSegmentValue;
+
+/**
+ *
+ */
+class SegmentationType extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSegmentationType';
+	}
+	
+	/**
+	 * Id of segmentation type
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id int Id of segmentation type
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
+	 * Name of segmentation type
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * Name of segmentation type
+	 * @return array
+	 */
+	 getMultilingualName() {
+	 	return this.multilingualName;
+	 }
+	
+	/**
+	 * @param multilingualName array Name of segmentation type
+	 */
+	 setMultilingualName(multilingualName) {
+	 	this.multilingualName = multilingualName;
+	 }
+	
+	/**
+	 * Description of segmentation type
+	 * @return string
+	 */
+	 getDescription() {
+	 	return this.description;
+	 }
+	
+	/**
+	 * Description of segmentation type
+	 * @return array
+	 */
+	 getMultilingualDescription() {
+	 	return this.multilingualDescription;
+	 }
+	
+	/**
+	 * @param multilingualDescription array Description of segmentation type
+	 */
+	 setMultilingualDescription(multilingualDescription) {
+	 	this.multilingualDescription = multilingualDescription;
+	 }
+	
+	/**
+	 * Segmentation conditions - can be empty
+	 * @return array
+	 */
+	 getConditions() {
+	 	return this.conditions;
+	 }
+	
+	/**
+	 * @param conditions array Segmentation conditions - can be empty
+	 */
+	 setConditions(conditions) {
+	 	this.conditions = conditions;
+	 }
+	
+	/**
+	 * Segmentation values - can be empty (so only one segment will be created)
+	 * @return BaseSegmentValue
+	 */
+	 getValue() {
+	 	return this.value;
+	 }
+	
+	/**
+	 * @param value BaseSegmentValue Segmentation values - can be empty (so only one segment will be created)
+	 */
+	 setValue(value) {
+	 	this.value = value;
+	 }
+}
+module.exports.SegmentationType = SegmentationType;
+
+/**
+ *
+ */
+class SegmentationTypeListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSegmentationTypeListResponse';
+	}
+	
+	/**
+	 * Segmentation Types
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Segmentation Types
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.SegmentationTypeListResponse = SegmentationTypeListResponse;
+
+/**
+ *
+ */
+class MonetizationCondition extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaMonetizationCondition';
+	}
+	
+	/**
+	 * Purchase type
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * @param type string Purchase type
+	 */
+	 setType(type) {
+	 	this.type = type;
+	 }
+	
+	/**
+	 * Minimum price of purchase
+	 * @return int
+	 */
+	 getMinimumPrice() {
+	 	return this.minimumPrice;
+	 }
+	
+	/**
+	 * @param minimumPrice int Minimum price of purchase
+	 */
+	 setMinimumPrice(minimumPrice) {
+	 	this.minimumPrice = minimumPrice;
+	 }
+	
+	/**
+	 * Score multiplier
+	 * @return int
+	 */
+	 getMultiplier() {
+	 	return this.multiplier;
+	 }
+	
+	/**
+	 * @param multiplier int Score multiplier
+	 */
+	 setMultiplier(multiplier) {
+	 	this.multiplier = multiplier;
+	 }
+}
+module.exports.MonetizationCondition = MonetizationCondition;
+
+/**
+ *
+ */
+class ScoredMonetizationCondition extends BaseSegmentCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaScoredMonetizationCondition';
+	}
+	
+	/**
+	 * The minimum score to be met
+	 * @return int
+	 */
+	 getScore() {
+	 	return this.score;
+	 }
+	
+	/**
+	 * @param score int The minimum score to be met
+	 */
+	 setScore(score) {
+	 	this.score = score;
+	 }
+	
+	/**
+	 * List of the actions that consist the condition
+	 * @return array
+	 */
+	 getActions() {
+	 	return this.actions;
+	 }
+	
+	/**
+	 * @param actions array List of the actions that consist the condition
+	 */
+	 setActions(actions) {
+	 	this.actions = actions;
+	 }
+}
+module.exports.ScoredMonetizationCondition = ScoredMonetizationCondition;
+
+/**
+ *
+ */
+class ContentActionCondition extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaContentActionCondition';
+	}
+	
+	/**
+	 * The relevant action to be examined
+	 * @return string
+	 */
+	 getAction() {
+	 	return this.action;
+	 }
+	
+	/**
+	 * @param action string The relevant action to be examined
+	 */
+	 setAction(action) {
+	 	this.action = action;
+	 }
+	
+	/**
+	 * Optional - if action required specific length to be considered
+	 * @return int
+	 */
+	 getLength() {
+	 	return this.length;
+	 }
+	
+	/**
+	 * @param length int Optional - if action required specific length to be considered
+	 */
+	 setLength(length) {
+	 	this.length = length;
+	 }
+	
+	/**
+	 * Score multiplier - how much is a single action worth when considering the action
+	 * @return int
+	 */
+	 getMultiplier() {
+	 	return this.multiplier;
+	 }
+	
+	/**
+	 * @param multiplier int Score multiplier - how much is a single action worth when considering the action
+	 */
+	 setMultiplier(multiplier) {
+	 	this.multiplier = multiplier;
+	 }
+}
+module.exports.ContentActionCondition = ContentActionCondition;
+
+/**
+ *
+ */
+class ContentScoreCondition extends BaseSegmentCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaContentScoreCondition';
+	}
+	
+	/**
+	 * The minimum score to be met
+	 * @return int
+	 */
+	 getScore() {
+	 	return this.score;
+	 }
+	
+	/**
+	 * @param score int The minimum score to be met
+	 */
+	 setScore(score) {
+	 	this.score = score;
+	 }
+	
+	/**
+	 * List of the actions that consist the condition
+	 * @return array
+	 */
+	 getActions() {
+	 	return this.actions;
+	 }
+	
+	/**
+	 * @param actions array List of the actions that consist the condition
+	 */
+	 setActions(actions) {
+	 	this.actions = actions;
+	 }
+}
+module.exports.ContentScoreCondition = ContentScoreCondition;
+
+/**
+ *
+ */
+class UserDataCondition extends BaseSegmentCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUserDataCondition';
+	}
+	
+	/**
+	 * Field name
+	 * @return string
+	 */
+	 getField() {
+	 	return this.field;
+	 }
+	
+	/**
+	 * @param field string Field name
+	 */
+	 setField(field) {
+	 	this.field = field;
+	 }
+	
+	/**
+	 * Value
+	 * @return string
+	 */
+	 getValue() {
+	 	return this.value;
+	 }
+	
+	/**
+	 * @param value string Value
+	 */
+	 setValue(value) {
+	 	this.value = value;
+	 }
+}
+module.exports.UserDataCondition = UserDataCondition;
+
+/**
+ *
+ */
+class SegmentSource extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSegmentSource';
+	}
+}
+module.exports.SegmentSource = SegmentSource;
+
+/**
+ *
+ */
+class SegmentValue extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSegmentValue';
+	}
+	
+	/**
+	 * Id of segment
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id int Id of segment
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
+	 * Name of segment
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * Name of segment
+	 * @return array
+	 */
+	 getMultilingualName() {
+	 	return this.multilingualName;
+	 }
+	
+	/**
+	 * @param multilingualName array Name of segment
+	 */
+	 setMultilingualName(multilingualName) {
+	 	this.multilingualName = multilingualName;
+	 }
+	
+	/**
+	 * The value of the segment
+	 * @return string
+	 */
+	 getValue() {
+	 	return this.value;
+	 }
+	
+	/**
+	 * @param value string The value of the segment
+	 */
+	 setValue(value) {
+	 	this.value = value;
+	 }
+	
+	/**
+	 * Threshold - minimuim score to be met for this specific value
+	 * @return int
+	 */
+	 getThreshold() {
+	 	return this.threshold;
+	 }
+	
+	/**
+	 * @param threshold int Threshold - minimuim score to be met for this specific value
+	 */
+	 setThreshold(threshold) {
+	 	this.threshold = threshold;
+	 }
+}
+module.exports.SegmentValue = SegmentValue;
+
+/**
+ *
+ */
+class SegmentValues extends BaseSegmentValue{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSegmentValues';
+	}
+	
+	/**
+	 * Segment values source
+	 * @return SegmentSource
+	 */
+	 getSource() {
+	 	return this.source;
+	 }
+	
+	/**
+	 * @param source SegmentSource Segment values source
+	 */
+	 setSource(source) {
+	 	this.source = source;
+	 }
+	
+	/**
+	 * Threshold - minimum score to be met for all values in general (can be overriden)
+	 * @return int
+	 */
+	 getThreshold() {
+	 	return this.threshold;
+	 }
+	
+	/**
+	 * @param threshold int Threshold - minimum score to be met for all values in general (can be overriden)
+	 */
+	 setThreshold(threshold) {
+	 	this.threshold = threshold;
+	 }
+	
+	/**
+	 * List of segment values
+	 * @return array
+	 */
+	 getValues() {
+	 	return this.values;
+	 }
+	
+	/**
+	 * @param values array List of segment values
+	 */
+	 setValues(values) {
+	 	this.values = values;
+	 }
+}
+module.exports.SegmentValues = SegmentValues;
+
+/**
+ *
+ */
+class SegmentAllValues extends SegmentValues{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSegmentAllValues';
+	}
+	
+	/**
+	 * Segment names&#39; format - they will be automatically generated
+	 * @return string
+	 */
+	 getNameFormat() {
+	 	return this.nameFormat;
+	 }
+	
+	/**
+	 * @param nameFormat string Segment names&#39; format - they will be automatically generated
+	 */
+	 setNameFormat(nameFormat) {
+	 	this.nameFormat = nameFormat;
+	 }
+}
+module.exports.SegmentAllValues = SegmentAllValues;
+
+/**
+ *
+ */
+class MonetizationSource extends SegmentSource{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaMonetizationSource';
+	}
+	
+	/**
+	 * Purchase type
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * @param type string Purchase type
+	 */
+	 setType(type) {
+	 	this.type = type;
+	 }
+	
+	/**
+	 * Mathermtical operator to calculate
+	 * @return string
+	 */
+	 getOperator() {
+	 	return this.operator;
+	 }
+	
+	/**
+	 * @param operator string Mathermtical operator to calculate
+	 */
+	 setOperator(operator) {
+	 	this.operator = operator;
+	 }
+}
+module.exports.MonetizationSource = MonetizationSource;
+
+/**
+ *
+ */
+class ContentSource extends SegmentSource{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaContentSource';
+	}
+	
+	/**
+	 * Content data type
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * @param type string Content data type
+	 */
+	 setType(type) {
+	 	this.type = type;
+	 }
+	
+	/**
+	 * Field name
+	 * @return string
+	 */
+	 getField() {
+	 	return this.field;
+	 }
+	
+	/**
+	 * @param field string Field name
+	 */
+	 setField(field) {
+	 	this.field = field;
+	 }
+}
+module.exports.ContentSource = ContentSource;
+
+/**
+ *
+ */
+class UserDynamicDataSource extends SegmentSource{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUserDynamicDataSource';
+	}
+	
+	/**
+	 * Field name
+	 * @return string
+	 */
+	 getField() {
+	 	return this.field;
+	 }
+	
+	/**
+	 * @param field string Field name
+	 */
+	 setField(field) {
+	 	this.field = field;
+	 }
+}
+module.exports.UserDynamicDataSource = UserDynamicDataSource;
+
+/**
+ *
+ */
+class SegmentRange extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSegmentRange';
+	}
+	
+	/**
+	 * Specific segment name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * Specific segment name
+	 * @return array
+	 */
+	 getMultilingualName() {
+	 	return this.multilingualName;
+	 }
+	
+	/**
+	 * @param multilingualName array Specific segment name
+	 */
+	 setMultilingualName(multilingualName) {
+	 	this.multilingualName = multilingualName;
+	 }
+	
+	/**
+	 * Greater than or equals &gt;=
+	 * @return float
+	 */
+	 getGte() {
+	 	return this.gte;
+	 }
+	
+	/**
+	 * @param gte float Greater than or equals &gt;=
+	 */
+	 setGte(gte) {
+	 	this.gte = gte;
+	 }
+	
+	/**
+	 * Greater than &gt;
+	 * @return float
+	 */
+	 getGt() {
+	 	return this.gt;
+	 }
+	
+	/**
+	 * @param gt float Greater than &gt;
+	 */
+	 setGt(gt) {
+	 	this.gt = gt;
+	 }
+	
+	/**
+	 * Less than or equals
+	 * @return float
+	 */
+	 getLte() {
+	 	return this.lte;
+	 }
+	
+	/**
+	 * @param lte float Less than or equals
+	 */
+	 setLte(lte) {
+	 	this.lte = lte;
+	 }
+	
+	/**
+	 * Less than
+	 * @return float
+	 */
+	 getLt() {
+	 	return this.lt;
+	 }
+	
+	/**
+	 * @param lt float Less than
+	 */
+	 setLt(lt) {
+	 	this.lt = lt;
+	 }
+}
+module.exports.SegmentRange = SegmentRange;
+
+/**
+ *
+ */
+class SegmentRanges extends BaseSegmentValue{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSegmentRanges';
+	}
+	
+	/**
+	 * Range source
+	 * @return SegmentSource
+	 */
+	 getSource() {
+	 	return this.source;
+	 }
+	
+	/**
+	 * @param source SegmentSource Range source
+	 */
+	 setSource(source) {
+	 	this.source = source;
+	 }
+	
+	/**
+	 * List of ranges for segmentation
+	 * @return array
+	 */
+	 getRanges() {
+	 	return this.ranges;
+	 }
+	
+	/**
+	 * @param ranges array List of ranges for segmentation
+	 */
+	 setRanges(ranges) {
+	 	this.ranges = ranges;
+	 }
+}
+module.exports.SegmentRanges = SegmentRanges;
+
+/**
+ *
+ */
 class SeriesRecording extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -16988,6 +17806,18 @@ class AssetHistoryFilter extends Filter{
 	 }
 }
 module.exports.AssetHistoryFilter = AssetHistoryFilter;
+
+/**
+ *
+ */
+class SegmentationTypeFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSegmentationTypeFilter';
+	}
+}
+module.exports.SegmentationTypeFilter = SegmentationTypeFilter;
 
 /**
  *

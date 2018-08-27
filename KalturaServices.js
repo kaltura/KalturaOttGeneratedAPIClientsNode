@@ -4587,6 +4587,67 @@ module.exports.searchHistory = searchHistory;
 
 
 /**
+ *Class definition for the Kaltura service: segmentationType.
+ * The available service actions:
+ * @action add .
+ * @action delete .
+ * @action list .
+ * @action update .
+ */
+class segmentationType{
+	
+	/**
+	 * .
+	 * @param segmentationType SegmentationType 
+	 * @return KalturaSegmentationType
+	 */
+	static add(segmentationType){
+		let kparams = {};
+		kparams.segmentationType = segmentationType;
+		return new kaltura.RequestBuilder('segmentationtype', 'add', kparams);
+	};
+	
+	/**
+	 * .
+	 * @param id int 
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('segmentationtype', 'delete', kparams);
+	};
+	
+	/**
+	 * .
+	 * @param filter SegmentationTypeFilter 
+	 * @param pager FilterPager  (optional, default: null)
+	 * @return KalturaSegmentationTypeListResponse
+	 */
+	static listAction(filter, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('segmentationtype', 'list', kparams);
+	};
+	
+	/**
+	 * .
+	 * @param segmentationTypeId int 
+	 * @param segmentationType SegmentationType 
+	 * @return KalturaSegmentationType
+	 */
+	static update(segmentationTypeId, segmentationType){
+		let kparams = {};
+		kparams.segmentationTypeId = segmentationTypeId;
+		kparams.segmentationType = segmentationType;
+		return new kaltura.RequestBuilder('segmentationtype', 'update', kparams);
+	};
+}
+module.exports.segmentationType = segmentationType;
+
+
+/**
  *Class definition for the Kaltura service: seriesRecording.
  * The available service actions:
  * @action add Issue a record request for a complete season or series.

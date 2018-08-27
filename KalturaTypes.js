@@ -263,6 +263,21 @@ module.exports.ConfigurationsOrderBy = {
 NONE : 'NONE',
 };
 
+module.exports.ContentAction = {
+WATCH_LINEAR : 'watch_linear',
+WATCH_VOD : 'watch_vod',
+CATCHUP : 'catchup',
+NPVR : 'npvr',
+FAVORITE : 'favorite',
+RECORDING : 'recording',
+SOCIAL_ACTION : 'social_action',
+};
+
+module.exports.ContentFieldType = {
+META : 'meta',
+TAG : 'tag',
+};
+
 module.exports.ContextType = {
 NONE : 'none',
 RECORDING : 'recording',
@@ -458,6 +473,12 @@ OTT : 'OTT',
 DTT_AND_OTT : 'DTT_AND_OTT',
 };
 
+module.exports.MathemticalOperatorType = {
+COUNT : 'count',
+SUM : 'sum',
+AVG : 'avg',
+};
+
 module.exports.MediaFileOrderBy = {
 NONE : 'NONE',
 };
@@ -508,6 +529,11 @@ UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
 module.exports.MetaTagOrderBy = {
 META_ASC : 'META_ASC',
 META_DESC : 'META_DESC',
+};
+
+module.exports.MonetizationType = {
+PPV : 'ppv',
+SUBSCRIPTION : 'subscription',
 };
 
 module.exports.NotificationType = {
