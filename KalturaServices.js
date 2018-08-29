@@ -2026,22 +2026,18 @@ module.exports.favorite = favorite;
 /**
  *Class definition for the Kaltura service: followTvSeries.
  * The available service actions:
- * @action add (Deprecated - use personalList.add)
- * Add a user&#39;s tv series follow.
+ * @action add Add a user&#39;s tv series follow.
  * Possible status codes: UserAlreadyFollowing = 8013, NotFound = 500007, InvalidAssetId = 4024.
- * @action delete (Deprecated - use personalList.delete)
- * Delete a user&#39;s tv series follow.
+ * @action delete Delete a user&#39;s tv series follow.
  * Possible status codes: UserNotFollowing = 8012, NotFound = 500007, InvalidAssetId = 4024, AnnouncementNotFound = 8006.
  * @action deleteWithToken Delete a user&#39;s tv series follow.
- * @action list (Deprecated - use personalList.list)
- * List user&#39;s tv series follows.
+ * @action list List user&#39;s tv series follows.
  * Possible status codes:.
  */
 class followTvSeries{
 	
 	/**
-	 * (Deprecated - use personalList.add)
- * Add a user&#39;s tv series follow.
+	 * Add a user&#39;s tv series follow.
  * Possible status codes: UserAlreadyFollowing = 8013, NotFound = 500007, InvalidAssetId = 4024.
 	 * @param followTvSeries FollowTvSeries Follow series request parameters
 	 * @return KalturaFollowTvSeries
@@ -2053,8 +2049,7 @@ class followTvSeries{
 	};
 	
 	/**
-	 * (Deprecated - use personalList.delete)
- * Delete a user&#39;s tv series follow.
+	 * Delete a user&#39;s tv series follow.
  * Possible status codes: UserNotFollowing = 8012, NotFound = 500007, InvalidAssetId = 4024, AnnouncementNotFound = 8006.
 	 * @param assetId int Asset identifier
 	 * @return bool
@@ -2080,8 +2075,7 @@ class followTvSeries{
 	};
 	
 	/**
-	 * (Deprecated - use personalList.list)
- * List user&#39;s tv series follows.
+	 * List user&#39;s tv series follows.
  * Possible status codes:.
 	 * @param filter FollowTvSeriesFilter Follow TV series filter
 	 * @param pager FilterPager pager (optional, default: null)
