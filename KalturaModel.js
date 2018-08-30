@@ -10853,7 +10853,7 @@ class SegmentValue extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Threshold - minimuim score to be met for this specific value
+	 * Threshold - minimum score to be met for this specific value
 	 * @return int
 	 */
 	 getThreshold() {
@@ -10861,7 +10861,7 @@ class SegmentValue extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param threshold int Threshold - minimuim score to be met for this specific value
+	 * @param threshold int Threshold - minimum score to be met for this specific value
 	 */
 	 setThreshold(threshold) {
 	 	this.threshold = threshold;
