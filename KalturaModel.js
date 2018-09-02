@@ -4750,7 +4750,7 @@ class DynamicChannel extends Channel{
  * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
  * Logical conjunction: and, or.
  * Search values are limited to 20 characters each.
- * (maximum length of entire filter is 2048 characters)
+ * (maximum length of entire filter is 4096 characters)
 	 * @return string
 	 */
 	 getKSql() {
@@ -4771,7 +4771,7 @@ class DynamicChannel extends Channel{
  * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
  * Logical conjunction: and, or.
  * Search values are limited to 20 characters each.
- * (maximum length of entire filter is 2048 characters)
+ * (maximum length of entire filter is 4096 characters)
 	 */
 	 setKSql(kSql) {
 	 	this.kSql = kSql;
@@ -6529,7 +6529,7 @@ class PersonalList extends kaltura.BaseObject{
  * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
  * Logical conjunction: and, or.
  * Search values are limited to 20 characters each for the next operators: ~, !~, ^, ^=
- * (maximum length of entire filter is 2048 characters)
+ * (maximum length of entire filter is 4096 characters)
 	 * @return string
 	 */
 	 getKsql() {
@@ -6550,7 +6550,7 @@ class PersonalList extends kaltura.BaseObject{
  * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
  * Logical conjunction: and, or.
  * Search values are limited to 20 characters each for the next operators: ~, !~, ^, ^=
- * (maximum length of entire filter is 2048 characters)
+ * (maximum length of entire filter is 4096 characters)
 	 */
 	 setKsql(ksql) {
 	 	this.ksql = ksql;
@@ -16609,7 +16609,7 @@ class BaseSearchAssetFilter extends AssetFilter{
  * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
  * Logical conjunction: and, or.
  * Search values are limited to 20 characters each for the next operators: ~, !~, ^, ^=
- * (maximum length of entire filter is 2048 characters)
+ * (maximum length of entire filter is 4096 characters)
 	 * @return string
 	 */
 	 getKSql() {
@@ -16630,7 +16630,7 @@ class BaseSearchAssetFilter extends AssetFilter{
  * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
  * Logical conjunction: and, or.
  * Search values are limited to 20 characters each for the next operators: ~, !~, ^, ^=
- * (maximum length of entire filter is 2048 characters)
+ * (maximum length of entire filter is 4096 characters)
 	 */
 	 setKSql(kSql) {
 	 	this.kSql = kSql;
@@ -16973,7 +16973,7 @@ class ChannelFilter extends AssetFilter{
  * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
  * Logical conjunction: and, or.
  * Search values are limited to 20 characters each for the next operators: ~, !~, ^, ^=
- * (maximum length of entire filter is 2048 characters)
+ * (maximum length of entire filter is 4096 characters)
 	 * @return string
 	 */
 	 getKSql() {
@@ -16996,7 +16996,7 @@ class ChannelFilter extends AssetFilter{
  * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
  * Logical conjunction: and, or.
  * Search values are limited to 20 characters each for the next operators: ~, !~, ^, ^=
- * (maximum length of entire filter is 2048 characters)
+ * (maximum length of entire filter is 4096 characters)
 	 */
 	 setKSql(kSql) {
 	 	this.kSql = kSql;
