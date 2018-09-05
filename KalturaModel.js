@@ -8191,6 +8191,21 @@ class AssetStructMeta extends kaltura.BaseObject{
 	 getUpdateDate() {
 	 	return this.updateDate;
 	 }
+	
+	/**
+	 * Is inherited
+	 * @return bool
+	 */
+	 getIsInherited() {
+	 	return this.isInherited;
+	 }
+	
+	/**
+	 * @param isInherited bool Is inherited
+	 */
+	 setIsInherited(isInherited) {
+	 	this.isInherited = isInherited;
+	 }
 }
 module.exports.AssetStructMeta = AssetStructMeta;
 
