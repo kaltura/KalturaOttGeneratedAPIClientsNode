@@ -9347,6 +9347,38 @@ class ProgramAsset extends Asset{
 	 setLinearAssetId(linearAssetId) {
 	 	this.linearAssetId = linearAssetId;
 	 }
+	
+	/**
+	 * Is CDVR enabled for this asset
+	 * @return bool
+	 */
+	 getEnableCdvr() {
+	 	return this.enableCdvr;
+	 }
+	
+	/**
+	 * Is catch-up enabled for this asset
+	 * @return bool
+	 */
+	 getEnableCatchUp() {
+	 	return this.enableCatchUp;
+	 }
+	
+	/**
+	 * Is start over enabled for this asset
+	 * @return bool
+	 */
+	 getEnableStartOver() {
+	 	return this.enableStartOver;
+	 }
+	
+	/**
+	 * Is trick-play enabled for this asset
+	 * @return bool
+	 */
+	 getEnableTrickPlay() {
+	 	return this.enableTrickPlay;
+	 }
 }
 module.exports.ProgramAsset = ProgramAsset;
 
