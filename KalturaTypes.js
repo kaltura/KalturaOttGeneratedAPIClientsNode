@@ -273,11 +273,6 @@ RECORDING : 'recording',
 SOCIAL_ACTION : 'social_action',
 };
 
-module.exports.ContentFieldType = {
-META : 'meta',
-TAG : 'tag',
-};
-
 module.exports.ContextType = {
 NONE : 'none',
 RECORDING : 'recording',
@@ -534,6 +529,7 @@ META_DESC : 'META_DESC',
 module.exports.MonetizationType = {
 PPV : 'ppv',
 SUBSCRIPTION : 'subscription',
+BOXSET : 'boxset',
 };
 
 module.exports.NotificationType = {

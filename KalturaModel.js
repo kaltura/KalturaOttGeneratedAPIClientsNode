@@ -10667,6 +10667,21 @@ class ScoredMonetizationCondition extends BaseSegmentCondition{
 	 }
 	
 	/**
+	 * How many days back should the actions be considered
+	 * @return int
+	 */
+	 getDays() {
+	 	return this.days;
+	 }
+	
+	/**
+	 * @param days int How many days back should the actions be considered
+	 */
+	 setDays(days) {
+	 	this.days = days;
+	 }
+	
+	/**
 	 * List of the actions that consist the condition
 	 * @return array
 	 */
@@ -10766,6 +10781,21 @@ class ContentScoreCondition extends BaseSegmentCondition{
 	 }
 	
 	/**
+	 * How many days back should the actions be considered
+	 * @return int
+	 */
+	 getDays() {
+	 	return this.days;
+	 }
+	
+	/**
+	 * @param days int How many days back should the actions be considered
+	 */
+	 setDays(days) {
+	 	this.days = days;
+	 }
+	
+	/**
 	 * List of the actions that consist the condition
 	 * @return array
 	 */
@@ -10855,10 +10885,18 @@ class SegmentValue extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param id int Id of segment
+	 * Systematic name of segment
+	 * @return string
 	 */
-	 setId(id) {
-	 	this.id = id;
+	 getSystematicName() {
+	 	return this.systematicName;
+	 }
+	
+	/**
+	 * @param systematicName string Systematic name of segment
+	 */
+	 setSystematicName(systematicName) {
+	 	this.systematicName = systematicName;
 	 }
 	
 	/**
@@ -10939,21 +10977,6 @@ class SegmentValues extends BaseSegmentValue{
 	 */
 	 setSource(source) {
 	 	this.source = source;
-	 }
-	
-	/**
-	 * Threshold - minimum score to be met for all values in general (can be overriden)
-	 * @return int
-	 */
-	 getThreshold() {
-	 	return this.threshold;
-	 }
-	
-	/**
-	 * @param threshold int Threshold - minimum score to be met for all values in general (can be overriden)
-	 */
-	 setThreshold(threshold) {
-	 	this.threshold = threshold;
 	 }
 	
 	/**
@@ -11053,22 +11076,7 @@ class ContentSource extends SegmentSource{
 	}
 	
 	/**
-	 * Content data type
-	 * @return string
-	 */
-	 getType() {
-	 	return this.type;
-	 }
-	
-	/**
-	 * @param type string Content data type
-	 */
-	 setType(type) {
-	 	this.type = type;
-	 }
-	
-	/**
-	 * Field name
+	 * Topic (meta or tag) name
 	 * @return string
 	 */
 	 getField() {
@@ -11076,7 +11084,7 @@ class ContentSource extends SegmentSource{
 	 }
 	
 	/**
-	 * @param field string Field name
+	 * @param field string Topic (meta or tag) name
 	 */
 	 setField(field) {
 	 	this.field = field;
@@ -11120,6 +11128,29 @@ class SegmentRange extends kaltura.BaseObject{
 		super(object);
 		this.objectType = 'KalturaSegmentRange';
 	}
+	
+	/**
+	 * Id of segment
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Systematic name of segment
+	 * @return string
+	 */
+	 getSystematicName() {
+	 	return this.systematicName;
+	 }
+	
+	/**
+	 * @param systematicName string Systematic name of segment
+	 */
+	 setSystematicName(systematicName) {
+	 	this.systematicName = systematicName;
+	 }
 	
 	/**
 	 * Specific segment name
@@ -11203,6 +11234,21 @@ class SegmentRange extends kaltura.BaseObject{
 	 setLt(lt) {
 	 	this.lt = lt;
 	 }
+	
+	/**
+	 * Equals
+	 * @return float
+	 */
+	 getEquals() {
+	 	return this.equals;
+	 }
+	
+	/**
+	 * @param equals float Equals
+	 */
+	 setEquals(equals) {
+	 	this.equals = equals;
+	 }
 }
 module.exports.SegmentRange = SegmentRange;
 
@@ -11247,6 +11293,90 @@ class SegmentRanges extends BaseSegmentValue{
 	 }
 }
 module.exports.SegmentRanges = SegmentRanges;
+
+/**
+ *
+ */
+class UserSegment extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUserSegment';
+	}
+	
+	/**
+	 * Segment Id
+	 * @return int
+	 */
+	 getSegmentId() {
+	 	return this.segmentId;
+	 }
+	
+	/**
+	 * @param segmentId int Segment Id
+	 */
+	 setSegmentId(segmentId) {
+	 	this.segmentId = segmentId;
+	 }
+	
+	/**
+	 * Segmentation type Id
+	 * @return int
+	 */
+	 getSegmentationTypeId() {
+	 	return this.segmentationTypeId;
+	 }
+	
+	/**
+	 * @param segmentationTypeId int Segmentation type Id
+	 */
+	 setSegmentationTypeId(segmentationTypeId) {
+	 	this.segmentationTypeId = segmentationTypeId;
+	 }
+	
+	/**
+	 * User Id of segment
+	 * @return string
+	 */
+	 getUserId() {
+	 	return this.userId;
+	 }
+	
+	/**
+	 * @param userId string User Id of segment
+	 */
+	 setUserId(userId) {
+	 	this.userId = userId;
+	 }
+}
+module.exports.UserSegment = UserSegment;
+
+/**
+ *
+ */
+class UserSegmentListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUserSegmentListResponse';
+	}
+	
+	/**
+	 * Segmentation Types
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Segmentation Types
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.UserSegmentListResponse = UserSegmentListResponse;
 
 /**
  *
@@ -17865,6 +17995,33 @@ class SegmentationTypeFilter extends Filter{
 	}
 }
 module.exports.SegmentationTypeFilter = SegmentationTypeFilter;
+
+/**
+ *
+ */
+class UserSegmentFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUserSegmentFilter';
+	}
+	
+	/**
+	 * User ID
+	 * @return string
+	 */
+	 getUserIdEqual() {
+	 	return this.userIdEqual;
+	 }
+	
+	/**
+	 * @param userIdEqual string User ID
+	 */
+	 setUserIdEqual(userIdEqual) {
+	 	this.userIdEqual = userIdEqual;
+	 }
+}
+module.exports.UserSegmentFilter = UserSegmentFilter;
 
 /**
  *

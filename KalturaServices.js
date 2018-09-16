@@ -4584,7 +4584,7 @@ module.exports.searchHistory = searchHistory;
  *Class definition for the Kaltura service: segmentationType.
  * The available service actions:
  * @action add .
- * @action delete .
+ * @action delete Delete a segmentation type from the system.
  * @action list .
  * @action update .
  */
@@ -4602,8 +4602,8 @@ class segmentationType{
 	};
 	
 	/**
-	 * .
-	 * @param id int 
+	 * Delete a segmentation type from the system.
+	 * @param id int Segmentation type id
 	 * @return bool
 	 */
 	static deleteAction(id){
@@ -5794,4 +5794,53 @@ class userRole{
 	};
 }
 module.exports.userRole = userRole;
+
+
+/**
+ *Class definition for the Kaltura service: userSegment.
+ * The available service actions:
+ * @action add Adds a segment to a user.
+ * @action delete Deletes a segment from a user.
+ * @action list Retrieve all the segments that apply for this user.
+ */
+class userSegment{
+	
+	/**
+	 * Adds a segment to a user.
+	 * @param userSegment UserSegment User segment
+	 * @return KalturaUserSegment
+	 */
+	static add(userSegment){
+		let kparams = {};
+		kparams.userSegment = userSegment;
+		return new kaltura.RequestBuilder('usersegment', 'add', kparams);
+	};
+	
+	/**
+	 * Deletes a segment from a user.
+	 * @param userId string User id
+	 * @param segmentId int Segment id
+	 * @return bool
+	 */
+	static deleteAction(userId, segmentId){
+		let kparams = {};
+		kparams.userId = userId;
+		kparams.segmentId = segmentId;
+		return new kaltura.RequestBuilder('usersegment', 'delete', kparams);
+	};
+	
+	/**
+	 * Retrieve all the segments that apply for this user.
+	 * @param filter UserSegmentFilter Filter
+	 * @param pager FilterPager Pager (optional, default: null)
+	 * @return KalturaUserSegmentListResponse
+	 */
+	static listAction(filter, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('usersegment', 'list', kparams);
+	};
+}
+module.exports.userSegment = userSegment;
 
