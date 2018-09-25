@@ -68,6 +68,11 @@ module.exports.AssetHistoryOrderBy = {
 NONE : 'NONE',
 };
 
+module.exports.AssetInheritancePolicy = {
+ENABLE : 'Enable',
+DISABLE : 'Disable',
+};
+
 module.exports.AssetOrderBy = {
 RELEVANCY_DESC : 'RELEVANCY_DESC',
 NAME_ASC : 'NAME_ASC',
