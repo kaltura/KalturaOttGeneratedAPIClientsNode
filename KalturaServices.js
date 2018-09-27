@@ -399,6 +399,27 @@ module.exports.assetFile = assetFile;
 
 
 /**
+ *Class definition for the Kaltura service: assetFilePpv.
+ * The available service actions:
+ * @action list Return a list of asset files ppvs for the account with optional filter.
+ */
+class assetFilePpv{
+	
+	/**
+	 * Return a list of asset files ppvs for the account with optional filter.
+	 * @param filter AssetFilePpvFilter Filter parameters for filtering out the result
+	 * @return KalturaAssetFilePpvListResponse
+	 */
+	static listAction(filter){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('assetfileppv', 'list', kparams);
+	};
+}
+module.exports.assetFilePpv = assetFilePpv;
+
+
+/**
  *Class definition for the Kaltura service: assetHistory.
  * The available service actions:
  * @action clean Clean the user’s viewing history.
@@ -4062,6 +4083,7 @@ module.exports.pin = pin;
  *Class definition for the Kaltura service: ppv.
  * The available service actions:
  * @action get Returns ppv object by internal identifier.
+ * @action list Returns all ppv objects.
  */
 class ppv{
 	
@@ -4074,6 +4096,15 @@ class ppv{
 		let kparams = {};
 		kparams.id = id;
 		return new kaltura.RequestBuilder('ppv', 'get', kparams);
+	};
+	
+	/**
+	 * Returns all ppv objects.
+	 * @return KalturaPpvListResponse
+	 */
+	static listAction(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('ppv', 'list', kparams);
 	};
 }
 module.exports.ppv = ppv;

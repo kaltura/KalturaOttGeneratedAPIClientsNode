@@ -64,6 +64,10 @@ module.exports.AssetCommentOrderBy = {
 CREATE_DATE_DESC : 'CREATE_DATE_DESC',
 };
 
+module.exports.AssetFilePpvOrderBy = {
+NONE : 'NONE',
+};
+
 module.exports.AssetHistoryOrderBy = {
 NONE : 'NONE',
 };
