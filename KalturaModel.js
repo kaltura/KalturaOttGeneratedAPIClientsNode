@@ -17814,6 +17814,33 @@ module.exports.RecordingFilter = RecordingFilter;
 /**
  *
  */
+class PpvFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPpvFilter';
+	}
+	
+	/**
+	 * Comma separated identifiers
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated identifiers
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.PpvFilter = PpvFilter;
+
+/**
+ *
+ */
 class AssetFilePpvFilter extends Filter{
 	
 	constructor(object = null) {

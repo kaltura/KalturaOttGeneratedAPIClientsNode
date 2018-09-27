@@ -642,6 +642,10 @@ HOUSEHOLD : 'household',
 USER : 'user',
 };
 
+module.exports.PpvOrderBy = {
+NONE : 'NONE',
+};
+
 module.exports.PriceDetailsOrderBy = {
 NAME_ASC : 'NAME_ASC',
 };

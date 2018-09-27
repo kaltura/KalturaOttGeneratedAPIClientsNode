@@ -401,9 +401,36 @@ module.exports.assetFile = assetFile;
 /**
  *Class definition for the Kaltura service: assetFilePpv.
  * The available service actions:
+ * @action add Add asset file ppv.
+ * @action delete Delete asset file ppv.
  * @action list Return a list of asset files ppvs for the account with optional filter.
+ * @action update Update assetFilePpv.
  */
 class assetFilePpv{
+	
+	/**
+	 * Add asset file ppv.
+	 * @param assetFilePpv AssetFilePpv asset file ppv
+	 * @return KalturaAssetFilePpv
+	 */
+	static add(assetFilePpv){
+		let kparams = {};
+		kparams.assetFilePpv = assetFilePpv;
+		return new kaltura.RequestBuilder('assetfileppv', 'add', kparams);
+	};
+	
+	/**
+	 * Delete asset file ppv.
+	 * @param assetFileId int Asset file id
+	 * @param ppvModuleId int Ppv module id
+	 * @return bool
+	 */
+	static deleteAction(assetFileId, ppvModuleId){
+		let kparams = {};
+		kparams.assetFileId = assetFileId;
+		kparams.ppvModuleId = ppvModuleId;
+		return new kaltura.RequestBuilder('assetfileppv', 'delete', kparams);
+	};
 	
 	/**
 	 * Return a list of asset files ppvs for the account with optional filter.
@@ -414,6 +441,21 @@ class assetFilePpv{
 		let kparams = {};
 		kparams.filter = filter;
 		return new kaltura.RequestBuilder('assetfileppv', 'list', kparams);
+	};
+	
+	/**
+	 * Update assetFilePpv.
+	 * @param assetFileId int Asset file id
+	 * @param ppvModuleId int Ppv module id
+	 * @param assetFilePpv AssetFilePpv assetFilePpv
+	 * @return KalturaAssetFilePpv
+	 */
+	static update(assetFileId, ppvModuleId, assetFilePpv){
+		let kparams = {};
+		kparams.assetFileId = assetFileId;
+		kparams.ppvModuleId = ppvModuleId;
+		kparams.assetFilePpv = assetFilePpv;
+		return new kaltura.RequestBuilder('assetfileppv', 'update', kparams);
 	};
 }
 module.exports.assetFilePpv = assetFilePpv;
@@ -4100,10 +4142,12 @@ class ppv{
 	
 	/**
 	 * Returns all ppv objects.
+	 * @param filter PpvFilter Filter parameters for filtering out the result (optional, default: null)
 	 * @return KalturaPpvListResponse
 	 */
-	static listAction(){
+	static listAction(filter = null){
 		let kparams = {};
+		kparams.filter = filter;
 		return new kaltura.RequestBuilder('ppv', 'list', kparams);
 	};
 }
