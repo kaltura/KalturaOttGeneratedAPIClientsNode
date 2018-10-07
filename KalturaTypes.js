@@ -282,6 +282,11 @@ RECORDING : 'recording',
 SOCIAL_ACTION : 'social_action',
 };
 
+module.exports.ContentActionConditionLengthType = {
+MINUTES : 'minutes',
+PERCENTAGE : 'percentage',
+};
+
 module.exports.ContextType = {
 NONE : 'none',
 RECORDING : 'recording',
