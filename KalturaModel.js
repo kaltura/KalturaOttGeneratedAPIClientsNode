@@ -5648,10 +5648,18 @@ class SegmentationType extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param name string Name of segmentation type
+	 * Name of segmentation type
+	 * @return array
 	 */
-	 setName(name) {
-	 	this.name = name;
+	 getMultilingualName() {
+	 	return this.multilingualName;
+	 }
+	
+	/**
+	 * @param multilingualName array Name of segmentation type
+	 */
+	 setMultilingualName(multilingualName) {
+	 	this.multilingualName = multilingualName;
 	 }
 	
 	/**
@@ -5663,10 +5671,18 @@ class SegmentationType extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param description string Description of segmentation type
+	 * Description of segmentation type
+	 * @return array
 	 */
-	 setDescription(description) {
-	 	this.description = description;
+	 getMultilingualDescription() {
+	 	return this.multilingualDescription;
+	 }
+	
+	/**
+	 * @param multilingualDescription array Description of segmentation type
+	 */
+	 setMultilingualDescription(multilingualDescription) {
+	 	this.multilingualDescription = multilingualDescription;
 	 }
 	
 	/**
@@ -5799,30 +5815,15 @@ class ScoredMonetizationCondition extends BaseSegmentCondition{
 	 * The minimum score to be met
 	 * @return int
 	 */
-	 getMinScore() {
-	 	return this.minScore;
+	 getScore() {
+	 	return this.score;
 	 }
 	
 	/**
-	 * @param minScore int The minimum score to be met
+	 * @param score int The minimum score to be met
 	 */
-	 setMinScore(minScore) {
-	 	this.minScore = minScore;
-	 }
-	
-	/**
-	 * The maximum score to be met
-	 * @return int
-	 */
-	 getMaxScore() {
-	 	return this.maxScore;
-	 }
-	
-	/**
-	 * @param maxScore int The maximum score to be met
-	 */
-	 setMaxScore(maxScore) {
-	 	this.maxScore = maxScore;
+	 setScore(score) {
+	 	this.score = score;
 	 }
 	
 	/**
@@ -5883,7 +5884,7 @@ class ContentActionCondition extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Optional - if action required specific length to be considered (in percentage or minutes)
+	 * Optional - if action required specific length to be considered
 	 * @return int
 	 */
 	 getLength() {
@@ -5891,25 +5892,10 @@ class ContentActionCondition extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param length int Optional - if action required specific length to be considered (in percentage or minutes)
+	 * @param length int Optional - if action required specific length to be considered
 	 */
 	 setLength(length) {
 	 	this.length = length;
-	 }
-	
-	/**
-	 * Optional - if action required specific length to be considered (in percentage or minutes)
-	 * @return string
-	 */
-	 getLengthType() {
-	 	return this.lengthType;
-	 }
-	
-	/**
-	 * @param lengthType string Optional - if action required specific length to be considered (in percentage or minutes)
-	 */
-	 setLengthType(lengthType) {
-	 	this.lengthType = lengthType;
 	 }
 	
 	/**
@@ -5943,30 +5929,15 @@ class ContentScoreCondition extends BaseSegmentCondition{
 	 * The minimum score to be met
 	 * @return int
 	 */
-	 getMinScore() {
-	 	return this.minScore;
+	 getScore() {
+	 	return this.score;
 	 }
 	
 	/**
-	 * @param minScore int The minimum score to be met
+	 * @param score int The minimum score to be met
 	 */
-	 setMinScore(minScore) {
-	 	this.minScore = minScore;
-	 }
-	
-	/**
-	 * The maximum score to be met
-	 * @return int
-	 */
-	 getMaxScore() {
-	 	return this.maxScore;
-	 }
-	
-	/**
-	 * @param maxScore int The maximum score to be met
-	 */
-	 setMaxScore(maxScore) {
-	 	this.maxScore = maxScore;
+	 setScore(score) {
+	 	this.score = score;
 	 }
 	
 	/**
@@ -5982,36 +5953,6 @@ class ContentScoreCondition extends BaseSegmentCondition{
 	 */
 	 setDays(days) {
 	 	this.days = days;
-	 }
-	
-	/**
-	 * If condition should be applied on specific field (and not the one of the segment value)
-	 * @return string
-	 */
-	 getField() {
-	 	return this.field;
-	 }
-	
-	/**
-	 * @param field string If condition should be applied on specific field (and not the one of the segment value)
-	 */
-	 setField(field) {
-	 	this.field = field;
-	 }
-	
-	/**
-	 * If condition should be applied on specific field (and not the one of the segment value) -
-	 * @return string
-	 */
-	 getValue() {
-	 	return this.value;
-	 }
-	
-	/**
-	 * @param value string If condition should be applied on specific field (and not the one of the segment value) -
-	 */
-	 setValue(value) {
-	 	this.value = value;
 	 }
 	
 	/**
@@ -6127,10 +6068,18 @@ class SegmentValue extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param name string Name of segment
+	 * Name of segment
+	 * @return array
 	 */
-	 setName(name) {
-	 	this.name = name;
+	 getMultilingualName() {
+	 	return this.multilingualName;
+	 }
+	
+	/**
+	 * @param multilingualName array Name of segment
+	 */
+	 setMultilingualName(multilingualName) {
+	 	this.multilingualName = multilingualName;
 	 }
 	
 	/**
@@ -6372,10 +6321,18 @@ class SegmentRange extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param name string Specific segment name
+	 * Specific segment name
+	 * @return array
 	 */
-	 setName(name) {
-	 	this.name = name;
+	 getMultilingualName() {
+	 	return this.multilingualName;
+	 }
+	
+	/**
+	 * @param multilingualName array Specific segment name
+	 */
+	 setMultilingualName(multilingualName) {
+	 	this.multilingualName = multilingualName;
 	 }
 	
 	/**
