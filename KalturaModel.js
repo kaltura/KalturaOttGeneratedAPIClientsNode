@@ -20567,6 +20567,21 @@ class UnifiedPaymentRenewal extends kaltura.BaseObject{
 	 setEntitlements(entitlements) {
 	 	this.entitlements = entitlements;
 	 }
+	
+	/**
+	 * User ID
+	 * @return int
+	 */
+	 getUserId() {
+	 	return this.userId;
+	 }
+	
+	/**
+	 * @param userId int User ID
+	 */
+	 setUserId(userId) {
+	 	this.userId = userId;
+	 }
 }
 module.exports.UnifiedPaymentRenewal = UnifiedPaymentRenewal;
 
@@ -22559,6 +22574,21 @@ class EntitlementRenewal extends kaltura.BaseObject{
 	 */
 	 setSubscriptionId(subscriptionId) {
 	 	this.subscriptionId = subscriptionId;
+	 }
+	
+	/**
+	 * User ID
+	 * @return int
+	 */
+	 getUserId() {
+	 	return this.userId;
+	 }
+	
+	/**
+	 * @param userId int User ID
+	 */
+	 setUserId(userId) {
+	 	this.userId = userId;
 	 }
 }
 module.exports.EntitlementRenewal = EntitlementRenewal;
