@@ -5633,13 +5633,6 @@ class SegmentationType extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param id int Id of segmentation type
-	 */
-	 setId(id) {
-	 	this.id = id;
-	 }
-	
-	/**
 	 * Name of segmentation type
 	 * @return string
 	 */

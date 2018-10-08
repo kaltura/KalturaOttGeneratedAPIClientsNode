@@ -4658,16 +4658,16 @@ module.exports.searchHistory = searchHistory;
 /**
  *Class definition for the Kaltura service: segmentationType.
  * The available service actions:
- * @action add .
+ * @action add Adds a new segmentation type to the system.
  * @action delete Delete a segmentation type from the system.
- * @action list .
- * @action update .
+ * @action list Lists all segmentation types in group.
+ * @action update Updates an existing segmentation type.
  */
 class segmentationType{
 	
 	/**
-	 * .
-	 * @param segmentationType SegmentationType 
+	 * Adds a new segmentation type to the system.
+	 * @param segmentationType SegmentationType The segmentation type to be added
 	 * @return KalturaSegmentationType
 	 */
 	static add(segmentationType){
@@ -4688,9 +4688,9 @@ class segmentationType{
 	};
 	
 	/**
-	 * .
-	 * @param filter SegmentationTypeFilter 
-	 * @param pager FilterPager  (optional, default: null)
+	 * Lists all segmentation types in group.
+	 * @param filter SegmentationTypeFilter Segmentation type filter - basically empty
+	 * @param pager FilterPager Simple pager (optional, default: null)
 	 * @return KalturaSegmentationTypeListResponse
 	 */
 	static listAction(filter, pager = null){
@@ -4701,9 +4701,9 @@ class segmentationType{
 	};
 	
 	/**
-	 * .
-	 * @param segmentationTypeId int 
-	 * @param segmentationType SegmentationType 
+	 * Updates an existing segmentation type.
+	 * @param segmentationTypeId int The ID of the object that will be updated
+	 * @param segmentationType SegmentationType The segmentation type to be updated
 	 * @return KalturaSegmentationType
 	 */
 	static update(segmentationTypeId, segmentationType){
