@@ -648,7 +648,8 @@ USER : 'user',
 };
 
 module.exports.PpvOrderBy = {
-NONE : 'NONE',
+NAME_ASC : 'NAME_ASC',
+NAME_DESC : 'NAME_DESC',
 };
 
 module.exports.PriceDetailsOrderBy = {
