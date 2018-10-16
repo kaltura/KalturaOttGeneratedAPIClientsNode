@@ -824,6 +824,64 @@ module.exports.bulk = bulk;
 
 
 /**
+ *Class definition for the Kaltura service: businessModuleRule.
+ * The available service actions:
+ * @action add Add business module rule.
+ * @action delete Delete business module rule.
+ * @action list Get the list of business module rules for the partner.
+ * @action update Update business module rule.
+ */
+class businessModuleRule{
+	
+	/**
+	 * Add business module rule.
+	 * @param businessModuleRule BusinessModuleRule Business module rule
+	 * @return KalturaBusinessModuleRule
+	 */
+	static add(businessModuleRule){
+		let kparams = {};
+		kparams.businessModuleRule = businessModuleRule;
+		return new kaltura.RequestBuilder('businessmodulerule', 'add', kparams);
+	};
+	
+	/**
+	 * Delete business module rule.
+	 * @param id int Business module rule ID
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('businessmodulerule', 'delete', kparams);
+	};
+	
+	/**
+	 * Get the list of business module rules for the partner.
+	 * @param filter BusinessModuleRuleFilter filter by condition name (optional, default: null)
+	 * @return KalturaBusinessModuleRuleListResponse
+	 */
+	static listAction(filter = null){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('businessmodulerule', 'list', kparams);
+	};
+	
+	/**
+	 * Update business module rule.
+	 * @param id int Business module rule ID to update
+	 * @param businessModuleRule BusinessModuleRule Business module rule
+	 * @return KalturaBusinessModuleRule
+	 */
+	static update(id, businessModuleRule){
+		let kparams = {};
+		kparams.id = id;
+		kparams.businessModuleRule = businessModuleRule;
+		return new kaltura.RequestBuilder('businessmodulerule', 'update', kparams);
+	};
+}
+module.exports.businessModuleRule = businessModuleRule;
+
+
+/**
  *Class definition for the Kaltura service: cdnAdapterProfile.
  * The available service actions:
  * @action add Insert new CDN adapter for partner.
@@ -5876,7 +5934,7 @@ module.exports.userRole = userRole;
  * The available service actions:
  * @action add Adds a segment to a user.
  * @action delete Deletes a segment from a user.
- * @action list Retrieve all the segments that apply for this user.
+ * @action list Retrieve all the segments that apply for given user.
  */
 class userSegment{
 	
@@ -5907,7 +5965,7 @@ class userSegment{
 	};
 	
 	/**
-	 * Retrieve all the segments that apply for this user.
+	 * Retrieve all the segments that apply for given user.
 	 * @param filter UserSegmentFilter Filter
 	 * @param pager FilterPager Pager (optional, default: null)
 	 * @return KalturaUserSegmentListResponse
