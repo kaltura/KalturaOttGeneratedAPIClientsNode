@@ -220,6 +220,7 @@ module.exports.assetComment = assetComment;
  *Class definition for the Kaltura service: asset.
  * The available service actions:
  * @action add Add a new asset.
+ * For metas of type bool-&gt; use kalturaBoolValue, type number-&gt; KalturaDoubleValue, type date -&gt; KalturaLongValue, type string -&gt; KalturaStringValue.
  * @action count Returns a group-by result for media or EPG according to given filter. Lists values of each field and their respective count.
  * @action delete Delete an existing asset.
  * @action get Returns media or EPG asset by media / EPG internal or external identifier.
@@ -228,11 +229,13 @@ module.exports.assetComment = assetComment;
  * @action list Returns media or EPG assets. Filters by media identifiers or by EPG internal or external identifier.
  * @action removeMetasAndTags remove metas and tags from asset.
  * @action update update an existing asset.
+ * For metas of type bool-&gt; use kalturaBoolValue, type number-&gt; KalturaDoubleValue, type date -&gt; KalturaLongValue, type string -&gt; KalturaStringValue.
  */
 class asset{
 	
 	/**
 	 * Add a new asset.
+ * For metas of type bool-&gt; use kalturaBoolValue, type number-&gt; KalturaDoubleValue, type date -&gt; KalturaLongValue, type string -&gt; KalturaStringValue.
 	 * @param asset Asset Asset object
 	 * @return KalturaAsset
 	 */
@@ -339,6 +342,7 @@ class asset{
 	
 	/**
 	 * update an existing asset.
+ * For metas of type bool-&gt; use kalturaBoolValue, type number-&gt; KalturaDoubleValue, type date -&gt; KalturaLongValue, type string -&gt; KalturaStringValue.
 	 * @param id int Asset Identifier
 	 * @param asset Asset Asset object
 	 * @return KalturaAsset
