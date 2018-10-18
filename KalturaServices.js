@@ -5956,14 +5956,12 @@ class userSegment{
 	/**
 	 * Deletes a segment from a user.
 	 * @param userId string User id
-	 * @param segmentationTypeId int Segmentation type id
 	 * @param segmentId int Segment id
 	 * @return bool
 	 */
-	static deleteAction(userId, segmentationTypeId, segmentId){
+	static deleteAction(userId, segmentId){
 		let kparams = {};
 		kparams.userId = userId;
-		kparams.segmentationTypeId = segmentationTypeId;
 		kparams.segmentId = segmentId;
 		return new kaltura.RequestBuilder('usersegment', 'delete', kparams);
 	};

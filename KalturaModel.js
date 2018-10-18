@@ -6516,21 +6516,6 @@ class UserSegment extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Segmentation type Id
-	 * @return int
-	 */
-	 getSegmentationTypeId() {
-	 	return this.segmentationTypeId;
-	 }
-	
-	/**
-	 * @param segmentationTypeId int Segmentation type Id
-	 */
-	 setSegmentationTypeId(segmentationTypeId) {
-	 	this.segmentationTypeId = segmentationTypeId;
-	 }
-	
-	/**
 	 * User Id of segment
 	 * @return string
 	 */
@@ -17778,6 +17763,21 @@ class SegmentationTypeFilter extends Filter{
 		super(object);
 		this.objectType = 'KalturaSegmentationTypeFilter';
 	}
+	
+	/**
+	 * Comma separated segmentation types identifieridentifiers
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated segmentation types identifieridentifiers
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
 }
 module.exports.SegmentationTypeFilter = SegmentationTypeFilter;
 
