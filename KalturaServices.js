@@ -4751,11 +4751,11 @@ class segmentationType{
 	
 	/**
 	 * Lists all segmentation types in group.
-	 * @param filter SegmentationTypeFilter Segmentation type filter - basically empty
+	 * @param filter SegmentationTypeFilter Segmentation type filter - basically empty (optional, default: null)
 	 * @param pager FilterPager Simple pager (optional, default: null)
 	 * @return KalturaSegmentationTypeListResponse
 	 */
-	static listAction(filter, pager = null){
+	static listAction(filter = null, pager = null){
 		let kparams = {};
 		kparams.filter = filter;
 		kparams.pager = pager;
