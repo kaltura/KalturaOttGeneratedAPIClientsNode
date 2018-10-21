@@ -6069,6 +6069,26 @@ module.exports.UserDataCondition = UserDataCondition;
 /**
  *
  */
+class DummyValue extends BaseSegmentValue{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDummyValue';
+	}
+	
+	/**
+	 * Id of segment
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+}
+module.exports.DummyValue = DummyValue;
+
+/**
+ *
+ */
 class SegmentSource extends kaltura.BaseObject{
 	
 	constructor(object = null) {
