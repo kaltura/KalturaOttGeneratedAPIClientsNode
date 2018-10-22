@@ -5691,6 +5691,29 @@ class SegmentationType extends kaltura.BaseObject{
 	 setValue(value) {
 	 	this.value = value;
 	 }
+	
+	/**
+	 * Create date of segmentation type
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * Do the segments of this type affect content ordering of channels and searches
+	 * @return bool
+	 */
+	 getAffectsContentOrdering() {
+	 	return this.affectsContentOrdering;
+	 }
+	
+	/**
+	 * @param affectsContentOrdering bool Do the segments of this type affect content ordering of channels and searches
+	 */
+	 setAffectsContentOrdering(affectsContentOrdering) {
+	 	this.affectsContentOrdering = affectsContentOrdering;
+	 }
 }
 module.exports.SegmentationType = SegmentationType;
 
@@ -5724,7 +5747,7 @@ module.exports.SegmentationTypeListResponse = SegmentationTypeListResponse;
 /**
  *
  */
-class MonetizationCondition extends kaltura.BaseObject{
+class MonetizationCondition extends BaseSegmentCondition{
 	
 	constructor(object = null) {
 		super(object);
@@ -5732,90 +5755,33 @@ class MonetizationCondition extends kaltura.BaseObject{
 	}
 	
 	/**
-	 * Purchase type
-	 * @return string
-	 */
-	 getType() {
-	 	return this.type;
-	 }
-	
-	/**
-	 * @param type string Purchase type
-	 */
-	 setType(type) {
-	 	this.type = type;
-	 }
-	
-	/**
-	 * Minimum price of purchase
+	 * The minimum value to be met
 	 * @return int
 	 */
-	 getMinimumPrice() {
-	 	return this.minimumPrice;
+	 getMinValue() {
+	 	return this.minValue;
 	 }
 	
 	/**
-	 * @param minimumPrice int Minimum price of purchase
+	 * @param minValue int The minimum value to be met
 	 */
-	 setMinimumPrice(minimumPrice) {
-	 	this.minimumPrice = minimumPrice;
+	 setMinValue(minValue) {
+	 	this.minValue = minValue;
 	 }
 	
 	/**
-	 * Score multiplier
+	 * The maximum value to be met
 	 * @return int
 	 */
-	 getMultiplier() {
-	 	return this.multiplier;
+	 getMaxValue() {
+	 	return this.maxValue;
 	 }
 	
 	/**
-	 * @param multiplier int Score multiplier
+	 * @param maxValue int The maximum value to be met
 	 */
-	 setMultiplier(multiplier) {
-	 	this.multiplier = multiplier;
-	 }
-}
-module.exports.MonetizationCondition = MonetizationCondition;
-
-/**
- *
- */
-class ScoredMonetizationCondition extends BaseSegmentCondition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaScoredMonetizationCondition';
-	}
-	
-	/**
-	 * The minimum score to be met
-	 * @return int
-	 */
-	 getMinScore() {
-	 	return this.minScore;
-	 }
-	
-	/**
-	 * @param minScore int The minimum score to be met
-	 */
-	 setMinScore(minScore) {
-	 	this.minScore = minScore;
-	 }
-	
-	/**
-	 * The maximum score to be met
-	 * @return int
-	 */
-	 getMaxScore() {
-	 	return this.maxScore;
-	 }
-	
-	/**
-	 * @param maxScore int The maximum score to be met
-	 */
-	 setMaxScore(maxScore) {
-	 	this.maxScore = maxScore;
+	 setMaxValue(maxValue) {
+	 	this.maxValue = maxValue;
 	 }
 	
 	/**
@@ -5834,21 +5800,36 @@ class ScoredMonetizationCondition extends BaseSegmentCondition{
 	 }
 	
 	/**
-	 * List of the actions that consist the condition
-	 * @return array
+	 * Purchase type
+	 * @return string
 	 */
-	 getActions() {
-	 	return this.actions;
+	 getType() {
+	 	return this.type;
 	 }
 	
 	/**
-	 * @param actions array List of the actions that consist the condition
+	 * @param type string Purchase type
 	 */
-	 setActions(actions) {
-	 	this.actions = actions;
+	 setType(type) {
+	 	this.type = type;
+	 }
+	
+	/**
+	 * Mathermtical operator to calculate
+	 * @return string
+	 */
+	 getOperator() {
+	 	return this.operator;
+	 }
+	
+	/**
+	 * @param operator string Mathermtical operator to calculate
+	 */
+	 setOperator(operator) {
+	 	this.operator = operator;
 	 }
 }
-module.exports.ScoredMonetizationCondition = ScoredMonetizationCondition;
+module.exports.MonetizationCondition = MonetizationCondition;
 
 /**
  *
