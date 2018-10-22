@@ -6069,11 +6069,11 @@ module.exports.UserDataCondition = UserDataCondition;
 /**
  *
  */
-class DummyValue extends BaseSegmentValue{
+class SingleSegmentValue extends BaseSegmentValue{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaDummyValue';
+		this.objectType = 'KalturaSingleSegmentValue';
 	}
 	
 	/**
@@ -6084,7 +6084,7 @@ class DummyValue extends BaseSegmentValue{
 	 	return this.id;
 	 }
 }
-module.exports.DummyValue = DummyValue;
+module.exports.SingleSegmentValue = SingleSegmentValue;
 
 /**
  *
