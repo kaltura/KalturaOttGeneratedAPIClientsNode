@@ -3073,6 +3073,21 @@ class MediaFile extends AssetFile{
 	 setStatus(status) {
 	 	this.status = status;
 	 }
+	
+	/**
+	 * Catalog end date
+	 * @return int
+	 */
+	 getCatalogEndDate() {
+	 	return this.catalogEndDate;
+	 }
+	
+	/**
+	 * @param catalogEndDate int Catalog end date
+	 */
+	 setCatalogEndDate(catalogEndDate) {
+	 	this.catalogEndDate = catalogEndDate;
+	 }
 }
 module.exports.MediaFile = MediaFile;
 
@@ -5698,21 +5713,6 @@ class SegmentationType extends kaltura.BaseObject{
 	 */
 	 getCreateDate() {
 	 	return this.createDate;
-	 }
-	
-	/**
-	 * Do the segments of this type affect content ordering of channels and searches
-	 * @return bool
-	 */
-	 getAffectsContentOrdering() {
-	 	return this.affectsContentOrdering;
-	 }
-	
-	/**
-	 * @param affectsContentOrdering bool Do the segments of this type affect content ordering of channels and searches
-	 */
-	 setAffectsContentOrdering(affectsContentOrdering) {
-	 	this.affectsContentOrdering = affectsContentOrdering;
 	 }
 }
 module.exports.SegmentationType = SegmentationType;
