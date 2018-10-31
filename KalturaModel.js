@@ -16074,6 +16074,36 @@ class RequestConfiguration extends kaltura.BaseObject{
 	 setResponseProfile(responseProfile) {
 	 	this.responseProfile = responseProfile;
 	 }
+	
+	/**
+	 * Abort all following requests if current request has an error
+	 * @return bool
+	 */
+	 getAbortAllOnError() {
+	 	return this.abortAllOnError;
+	 }
+	
+	/**
+	 * @param abortAllOnError bool Abort all following requests if current request has an error
+	 */
+	 setAbortAllOnError(abortAllOnError) {
+	 	this.abortAllOnError = abortAllOnError;
+	 }
+	
+	/**
+	 * Skip current request according to skip option
+	 * @return string
+	 */
+	 getSkipOnOrror() {
+	 	return this.skipOnOrror;
+	 }
+	
+	/**
+	 * @param skipOnOrror string Skip current request according to skip option
+	 */
+	 setSkipOnOrror(skipOnOrror) {
+	 	this.skipOnOrror = skipOnOrror;
+	 }
 }
 module.exports.RequestConfiguration = RequestConfiguration;
 

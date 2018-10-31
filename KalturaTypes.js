@@ -798,6 +798,12 @@ module.exports.SeriesReminderOrderBy = {
 NONE : 'NONE',
 };
 
+module.exports.SkipOptions = {
+NO : 'No',
+PREVIOUS : 'Previous',
+ANY : 'Any',
+};
+
 module.exports.SocialActionOrderBy = {
 NONE : 'NONE',
 };
