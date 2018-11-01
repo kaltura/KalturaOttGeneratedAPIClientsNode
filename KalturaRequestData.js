@@ -184,6 +184,44 @@ class RequestData {
 		return this.requestData['ks'];
 	};
 	
+	/**
+	 * Abort all following requests if current request has an error
+	 * 
+	 * @param bool abortAllOnError
+	 */
+	setAbortAllOnError(abortAllOnError){
+		this.requestData['abortAllOnError'] = abortAllOnError;
+		return this;
+	};
+	
+	/**
+	 * Abort all following requests if current request has an error
+	 * 
+	 * @return bool
+	 */
+	getAbortAllOnError(){
+		return this.requestData['abortAllOnError'];
+	};
+	
+	/**
+	 * Skip current request according to skip option
+	 * 
+	 * @param string skipOnOrror
+	 */
+	setSkipOnOrror(skipOnOrror){
+		this.requestData['skipOnOrror'] = skipOnOrror;
+		return this;
+	};
+	
+	/**
+	 * Skip current request according to skip option
+	 * 
+	 * @return string
+	 */
+	getSkipOnOrror(){
+		return this.requestData['skipOnOrror'];
+	};
+	
 }
 
 class VolatileRequestData extends RequestData {
