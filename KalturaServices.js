@@ -832,6 +832,7 @@ module.exports.bulk = bulk;
  * The available service actions:
  * @action add Add business module rule.
  * @action delete Delete business module rule.
+ * @action get Get business module rule by ID.
  * @action list Get the list of business module rules for the partner.
  * @action update Update business module rule.
  */
@@ -856,6 +857,17 @@ class businessModuleRule{
 		let kparams = {};
 		kparams.id = id;
 		return new kaltura.RequestBuilder('businessmodulerule', 'delete', kparams);
+	};
+	
+	/**
+	 * Get business module rule by ID.
+	 * @param id int ID to get
+	 * @return KalturaBusinessModuleRule
+	 */
+	static get(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('businessmodulerule', 'get', kparams);
 	};
 	
 	/**

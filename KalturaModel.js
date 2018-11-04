@@ -12829,6 +12829,22 @@ class BusinessModuleRule extends Rule{
 	 setActions(actions) {
 	 	this.actions = actions;
 	 }
+	
+	/**
+	 * Create date of the rule
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * Update date of the rule
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
 }
 module.exports.BusinessModuleRule = BusinessModuleRule;
 
