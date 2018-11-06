@@ -8906,6 +8906,21 @@ class Channel extends BaseChannel{
 	 getUpdateDate() {
 	 	return this.updateDate;
 	 }
+	
+	/**
+	 * Specifies whether the assets in this channel will be ordered based on their match to the user&#39;s segments (see BEO-5524)
+	 * @return bool
+	 */
+	 getSupportSegmentBasedOrdering() {
+	 	return this.supportSegmentBasedOrdering;
+	 }
+	
+	/**
+	 * @param supportSegmentBasedOrdering bool Specifies whether the assets in this channel will be ordered based on their match to the user&#39;s segments (see BEO-5524)
+	 */
+	 setSupportSegmentBasedOrdering(supportSegmentBasedOrdering) {
+	 	this.supportSegmentBasedOrdering = supportSegmentBasedOrdering;
+	 }
 }
 module.exports.Channel = Channel;
 
