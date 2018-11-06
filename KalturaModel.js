@@ -16125,15 +16125,15 @@ class RequestConfiguration extends kaltura.BaseObject{
 	 * Skip current request according to skip option
 	 * @return string
 	 */
-	 getSkipOnOrror() {
-	 	return this.skipOnOrror;
+	 getSkipOnError() {
+	 	return this.skipOnError;
 	 }
 	
 	/**
-	 * @param skipOnOrror string Skip current request according to skip option
+	 * @param skipOnError string Skip current request according to skip option
 	 */
-	 setSkipOnOrror(skipOnOrror) {
-	 	this.skipOnOrror = skipOnOrror;
+	 setSkipOnError(skipOnError) {
+	 	this.skipOnError = skipOnError;
 	 }
 }
 module.exports.RequestConfiguration = RequestConfiguration;

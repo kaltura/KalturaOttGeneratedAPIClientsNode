@@ -206,10 +206,10 @@ class RequestData {
 	/**
 	 * Skip current request according to skip option
 	 * 
-	 * @param string skipOnOrror
+	 * @param string skipOnError
 	 */
-	setSkipOnOrror(skipOnOrror){
-		this.requestData['skipOnOrror'] = skipOnOrror;
+	setSkipOnError(skipOnError){
+		this.requestData['skipOnError'] = skipOnError;
 		return this;
 	};
 	
@@ -218,8 +218,8 @@ class RequestData {
 	 * 
 	 * @return string
 	 */
-	getSkipOnOrror(){
-		return this.requestData['skipOnOrror'];
+	getSkipOnError(){
+		return this.requestData['skipOnError'];
 	};
 	
 }
