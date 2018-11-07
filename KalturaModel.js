@@ -5714,6 +5714,14 @@ class SegmentationType extends kaltura.BaseObject{
 	 getCreateDate() {
 	 	return this.createDate;
 	 }
+	
+	/**
+	 * Segmentation type version
+	 * @return int
+	 */
+	 getVersion() {
+	 	return this.version;
+	 }
 }
 module.exports.SegmentationType = SegmentationType;
 
