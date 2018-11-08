@@ -1148,10 +1148,10 @@ class collection{
 	
 	/**
 	 * Returns a list of subscriptions requested by Subscription ID or file ID.
-	 * @param filter CollectionFilter Filter request
+	 * @param filter CollectionFilter Filter request (optional, default: null)
 	 * @return KalturaCollectionListResponse
 	 */
-	static listAction(filter){
+	static listAction(filter = null){
 		let kparams = {};
 		kparams.filter = filter;
 		return new kaltura.RequestBuilder('collection', 'list', kparams);
