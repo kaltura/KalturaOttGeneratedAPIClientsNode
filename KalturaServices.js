@@ -1149,11 +1149,13 @@ class collection{
 	/**
 	 * Returns a list of subscriptions requested by Subscription ID or file ID.
 	 * @param filter CollectionFilter Filter request (optional, default: null)
+	 * @param pager FilterPager Page size and index (optional, default: null)
 	 * @return KalturaCollectionListResponse
 	 */
-	static listAction(filter = null){
+	static listAction(filter = null, pager = null){
 		let kparams = {};
 		kparams.filter = filter;
+		kparams.pager = pager;
 		return new kaltura.RequestBuilder('collection', 'list', kparams);
 	};
 }
@@ -5229,12 +5231,14 @@ class subscription{
 	
 	/**
 	 * Returns a list of subscriptions requested by Subscription ID or file ID.
-	 * @param filter SubscriptionFilter Filter request
+	 * @param filter SubscriptionFilter Filter request (optional, default: null)
+	 * @param pager FilterPager Page size and index (optional, default: null)
 	 * @return KalturaSubscriptionListResponse
 	 */
-	static listAction(filter){
+	static listAction(filter = null, pager = null){
 		let kparams = {};
 		kparams.filter = filter;
+		kparams.pager = pager;
 		return new kaltura.RequestBuilder('subscription', 'list', kparams);
 	};
 	
