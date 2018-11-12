@@ -6275,6 +6275,21 @@ class MonetizationSource extends SegmentSource{
 	 setOperator(operator) {
 	 	this.operator = operator;
 	 }
+	
+	/**
+	 * Days to consider when checking the users&#39; purchaes
+	 * @return int
+	 */
+	 getDays() {
+	 	return this.days;
+	 }
+	
+	/**
+	 * @param days int Days to consider when checking the users&#39; purchaes
+	 */
+	 setDays(days) {
+	 	this.days = days;
+	 }
 }
 module.exports.MonetizationSource = MonetizationSource;
 
