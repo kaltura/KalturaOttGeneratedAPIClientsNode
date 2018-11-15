@@ -5983,17 +5983,19 @@ class ContentScoreCondition extends BaseSegmentCondition{
 	
 	/**
 	 * If condition should be applied on specific field (and not the one of the segment value) -
-	 * @return string
+ * list of values to be considered together
+	 * @return array
 	 */
-	 getValue() {
-	 	return this.value;
+	 getValues() {
+	 	return this.values;
 	 }
 	
 	/**
-	 * @param value string If condition should be applied on specific field (and not the one of the segment value) -
+	 * @param values array If condition should be applied on specific field (and not the one of the segment value) -
+ * list of values to be considered together
 	 */
-	 setValue(value) {
-	 	this.value = value;
+	 setValues(values) {
+	 	this.values = values;
 	 }
 	
 	/**
@@ -6148,21 +6150,6 @@ class SegmentValue extends kaltura.BaseObject{
 	 */
 	 setValue(value) {
 	 	this.value = value;
-	 }
-	
-	/**
-	 * Threshold - minimum score to be met for this specific value
-	 * @return int
-	 */
-	 getThreshold() {
-	 	return this.threshold;
-	 }
-	
-	/**
-	 * @param threshold int Threshold - minimum score to be met for this specific value
-	 */
-	 setThreshold(threshold) {
-	 	this.threshold = threshold;
 	 }
 }
 module.exports.SegmentValue = SegmentValue;
