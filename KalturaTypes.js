@@ -384,6 +384,14 @@ module.exports.GroupByField = {
 MEDIA_TYPE_ID : 'media_type_id',
 };
 
+module.exports.GroupByOrder = {
+DEFAULTORDER : 'defaultOrder',
+COUNT_ASC : 'count_asc',
+COUNT_DESC : 'count_desc',
+VALUE_ASC : 'value_asc',
+VALUE_DESC : 'value_desc',
+};
+
 module.exports.HouseholdDeviceOrderBy = {
 NONE : 'NONE',
 };

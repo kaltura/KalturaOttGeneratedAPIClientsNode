@@ -17259,6 +17259,21 @@ class BaseSearchAssetFilter extends AssetFilter{
 	 setGroupBy(groupBy) {
 	 	this.groupBy = groupBy;
 	 }
+	
+	/**
+	 * order by of grouping
+	 * @return string
+	 */
+	 getGroupOrderBy() {
+	 	return this.groupOrderBy;
+	 }
+	
+	/**
+	 * @param groupOrderBy string order by of grouping
+	 */
+	 setGroupOrderBy(groupOrderBy) {
+	 	this.groupOrderBy = groupOrderBy;
+	 }
 }
 module.exports.BaseSearchAssetFilter = BaseSearchAssetFilter;
 
