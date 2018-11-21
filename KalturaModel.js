@@ -11652,13 +11652,6 @@ class ProgramAsset extends Asset{
 	 }
 	
 	/**
-	 * @param epgId string EPG identifier
-	 */
-	 setEpgId(epgId) {
-	 	this.epgId = epgId;
-	 }
-	
-	/**
 	 * Ralated media identifier
 	 * @return int
 	 */
@@ -11697,18 +11690,18 @@ class ProgramAsset extends Asset{
 	 }
 	
 	/**
-	 * @param linearAssetId int Id of linear media asset
-	 */
-	 setLinearAssetId(linearAssetId) {
-	 	this.linearAssetId = linearAssetId;
-	 }
-	
-	/**
 	 * Is CDVR enabled for this asset
 	 * @return bool
 	 */
 	 getEnableCdvr() {
 	 	return this.enableCdvr;
+	 }
+	
+	/**
+	 * @param enableCdvr bool Is CDVR enabled for this asset
+	 */
+	 setEnableCdvr(enableCdvr) {
+	 	this.enableCdvr = enableCdvr;
 	 }
 	
 	/**
@@ -11720,6 +11713,13 @@ class ProgramAsset extends Asset{
 	 }
 	
 	/**
+	 * @param enableCatchUp bool Is catch-up enabled for this asset
+	 */
+	 setEnableCatchUp(enableCatchUp) {
+	 	this.enableCatchUp = enableCatchUp;
+	 }
+	
+	/**
 	 * Is start over enabled for this asset
 	 * @return bool
 	 */
@@ -11728,11 +11728,25 @@ class ProgramAsset extends Asset{
 	 }
 	
 	/**
+	 * @param enableStartOver bool Is start over enabled for this asset
+	 */
+	 setEnableStartOver(enableStartOver) {
+	 	this.enableStartOver = enableStartOver;
+	 }
+	
+	/**
 	 * Is trick-play enabled for this asset
 	 * @return bool
 	 */
 	 getEnableTrickPlay() {
 	 	return this.enableTrickPlay;
+	 }
+	
+	/**
+	 * @param enableTrickPlay bool Is trick-play enabled for this asset
+	 */
+	 setEnableTrickPlay(enableTrickPlay) {
+	 	this.enableTrickPlay = enableTrickPlay;
 	 }
 }
 module.exports.ProgramAsset = ProgramAsset;
