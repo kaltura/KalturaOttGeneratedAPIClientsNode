@@ -16033,6 +16033,18 @@ module.exports.BaseResponseProfile = BaseResponseProfile;
 /**
  *
  */
+class SkipCondition extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSkipCondition';
+	}
+}
+module.exports.SkipCondition = SkipCondition;
+
+/**
+ *
+ */
 class RequestConfiguration extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -16146,18 +16158,18 @@ class RequestConfiguration extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Skip current request according to skip option
-	 * @return string
+	 * Skip current request according to skip condition
+	 * @return SkipCondition
 	 */
-	 getSkipOnError() {
-	 	return this.skipOnError;
+	 getSkipCondition() {
+	 	return this.skipCondition;
 	 }
 	
 	/**
-	 * @param skipOnError string Skip current request according to skip option
+	 * @param skipCondition SkipCondition Skip current request according to skip condition
 	 */
-	 setSkipOnError(skipOnError) {
-	 	this.skipOnError = skipOnError;
+	 setSkipCondition(skipCondition) {
+	 	this.skipCondition = skipCondition;
 	 }
 }
 module.exports.RequestConfiguration = RequestConfiguration;
@@ -19616,6 +19628,117 @@ class UserRoleFilter extends Filter{
 	 }
 }
 module.exports.UserRoleFilter = UserRoleFilter;
+
+/**
+ *
+ */
+class SkipOnErrorCondition extends SkipCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSkipOnErrorCondition';
+	}
+	
+	/**
+	 * Indicates which error should be considered to skip the current request
+	 * @return string
+	 */
+	 getCondition() {
+	 	return this.condition;
+	 }
+	
+	/**
+	 * @param condition string Indicates which error should be considered to skip the current request
+	 */
+	 setCondition(condition) {
+	 	this.condition = condition;
+	 }
+}
+module.exports.SkipOnErrorCondition = SkipOnErrorCondition;
+
+/**
+ *
+ */
+class PropertySkipCondition extends SkipCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPropertySkipCondition';
+	}
+	
+	/**
+	 * The property path on which the condition is checked
+	 * @return string
+	 */
+	 getPropertyPath() {
+	 	return this.propertyPath;
+	 }
+	
+	/**
+	 * @param propertyPath string The property path on which the condition is checked
+	 */
+	 setPropertyPath(propertyPath) {
+	 	this.propertyPath = propertyPath;
+	 }
+	
+	/**
+	 * The operator that applies the check to the condition
+	 * @return string
+	 */
+	 getOperator() {
+	 	return this.operator;
+	 }
+	
+	/**
+	 * @param operator string The operator that applies the check to the condition
+	 */
+	 setOperator(operator) {
+	 	this.operator = operator;
+	 }
+	
+	/**
+	 * The value on which the condition is checked
+	 * @return string
+	 */
+	 getValue() {
+	 	return this.value;
+	 }
+	
+	/**
+	 * @param value string The value on which the condition is checked
+	 */
+	 setValue(value) {
+	 	this.value = value;
+	 }
+}
+module.exports.PropertySkipCondition = PropertySkipCondition;
+
+/**
+ *
+ */
+class AggregatedPropertySkipCondition extends PropertySkipCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAggregatedPropertySkipCondition';
+	}
+	
+	/**
+	 * The aggregation type on which the condition is based on
+	 * @return string
+	 */
+	 getAggregationType() {
+	 	return this.aggregationType;
+	 }
+	
+	/**
+	 * @param aggregationType string The aggregation type on which the condition is based on
+	 */
+	 setAggregationType(aggregationType) {
+	 	this.aggregationType = aggregationType;
+	 }
+}
+module.exports.AggregatedPropertySkipCondition = AggregatedPropertySkipCondition;
 
 /**
  *

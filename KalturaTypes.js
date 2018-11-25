@@ -35,6 +35,12 @@ module.exports.AggregationCountOrderBy = {
 NONE : 'NONE',
 };
 
+module.exports.AggregationType = {
+COUNT : 'Count',
+SUM : 'Sum',
+AVG : 'Avg',
+};
+
 module.exports.AnnouncementOrderBy = {
 NONE : 'NONE',
 };
@@ -804,6 +810,13 @@ SERIES_ID_DESC : 'SERIES_ID_DESC',
 
 module.exports.SeriesReminderOrderBy = {
 NONE : 'NONE',
+};
+
+module.exports.SkipOperators = {
+EQUAL : 'Equal',
+UNEQUAL : 'UnEqual',
+LESSTHAN : 'LessThan',
+GREATERTHAN : 'GreaterThan',
 };
 
 module.exports.SkipOptions = {
