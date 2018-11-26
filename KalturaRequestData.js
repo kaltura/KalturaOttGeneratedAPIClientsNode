@@ -204,22 +204,22 @@ class RequestData {
 	};
 	
 	/**
-	 * Skip current request according to skip option
+	 * Skip current request according to skip condition
 	 * 
-	 * @param string skipOnError
+	 * @param KalturaSkipCondition skipCondition
 	 */
-	setSkipOnError(skipOnError){
-		this.requestData['skipOnError'] = skipOnError;
+	setSkipCondition(skipCondition){
+		this.requestData['skipCondition'] = skipCondition;
 		return this;
 	};
 	
 	/**
-	 * Skip current request according to skip option
+	 * Skip current request according to skip condition
 	 * 
-	 * @return string
+	 * @return KalturaSkipCondition
 	 */
-	getSkipOnError(){
-		return this.requestData['skipOnError'];
+	getSkipCondition(){
+		return this.requestData['skipCondition'];
 	};
 	
 }
