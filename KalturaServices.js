@@ -602,7 +602,7 @@ class assetStruct{
 	
 	/**
 	 * Delete an existing assetStruct.
-	 * @param id int AssetStruct Identifier
+	 * @param id int AssetStruct Identifier, id = 0 is identified as program AssetStruct
 	 * @return bool
 	 */
 	static deleteAction(id){
@@ -624,7 +624,7 @@ class assetStruct{
 	
 	/**
 	 * Update an existing assetStruct.
-	 * @param id int AssetStruct Identifier
+	 * @param id int AssetStruct Identifier, id = 0 is identified as program AssetStruct
 	 * @param assetStruct AssetStruct AssetStruct Object
 	 * @return KalturaAssetStruct
 	 */

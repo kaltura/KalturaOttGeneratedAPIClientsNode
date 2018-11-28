@@ -18904,7 +18904,7 @@ class AssetStructFilter extends Filter{
 	}
 	
 	/**
-	 * Comma separated identifiers
+	 * Comma separated identifiers, id = 0 is identified as program AssetStruct
 	 * @return string
 	 */
 	 getIdIn() {
@@ -18912,7 +18912,7 @@ class AssetStructFilter extends Filter{
 	 }
 	
 	/**
-	 * @param idIn string Comma separated identifiers
+	 * @param idIn string Comma separated identifiers, id = 0 is identified as program AssetStruct
 	 */
 	 setIdIn(idIn) {
 	 	this.idIn = idIn;
