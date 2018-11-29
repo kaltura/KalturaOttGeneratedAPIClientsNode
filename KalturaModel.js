@@ -11637,13 +11637,6 @@ class ProgramAsset extends Asset{
 	 }
 	
 	/**
-	 * @param epgChannelId int EPG channel identifier
-	 */
-	 setEpgChannelId(epgChannelId) {
-	 	this.epgChannelId = epgChannelId;
-	 }
-	
-	/**
 	 * EPG identifier
 	 * @return string
 	 */
@@ -11687,6 +11680,13 @@ class ProgramAsset extends Asset{
 	 */
 	 getLinearAssetId() {
 	 	return this.linearAssetId;
+	 }
+	
+	/**
+	 * @param linearAssetId int Id of linear media asset
+	 */
+	 setLinearAssetId(linearAssetId) {
+	 	this.linearAssetId = linearAssetId;
 	 }
 	
 	/**
