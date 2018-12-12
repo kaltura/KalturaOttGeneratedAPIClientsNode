@@ -13037,6 +13037,33 @@ module.exports.NotCondition = NotCondition;
 /**
  *
  */
+class OrCondition extends NotCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaOrCondition';
+	}
+	
+	/**
+	 * List of conditions with or between them
+	 * @return array
+	 */
+	 getConditions() {
+	 	return this.conditions;
+	 }
+	
+	/**
+	 * @param conditions array List of conditions with or between them
+	 */
+	 setConditions(conditions) {
+	 	this.conditions = conditions;
+	 }
+}
+module.exports.OrCondition = OrCondition;
+
+/**
+ *
+ */
 class CountryCondition extends NotCondition{
 	
 	constructor(object = null) {
@@ -13106,29 +13133,44 @@ module.exports.DateCondition = DateCondition;
 /**
  *
  */
-class OrCondition extends Condition{
+class HeaderCondition extends NotCondition{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaOrCondition';
+		this.objectType = 'KalturaHeaderCondition';
 	}
 	
 	/**
-	 * List of conditions with or between them
-	 * @return array
+	 * Header key
+	 * @return string
 	 */
-	 getConditions() {
-	 	return this.conditions;
+	 getKey() {
+	 	return this.key;
 	 }
 	
 	/**
-	 * @param conditions array List of conditions with or between them
+	 * @param key string Header key
 	 */
-	 setConditions(conditions) {
-	 	this.conditions = conditions;
+	 setKey(key) {
+	 	this.key = key;
+	 }
+	
+	/**
+	 * Header value
+	 * @return string
+	 */
+	 getValue() {
+	 	return this.value;
+	 }
+	
+	/**
+	 * @param value string Header value
+	 */
+	 setValue(value) {
+	 	this.value = value;
 	 }
 }
-module.exports.OrCondition = OrCondition;
+module.exports.HeaderCondition = HeaderCondition;
 
 /**
  *
@@ -19211,6 +19253,21 @@ class AssetRuleFilter extends Filter{
 	 */
 	 setAssetApplied(assetApplied) {
 	 	this.assetApplied = assetApplied;
+	 }
+	
+	/**
+	 * Indicates which asset rule list to return by this KalturaRuleActionType
+	 * @return string
+	 */
+	 getActionsContainType() {
+	 	return this.actionsContainType;
+	 }
+	
+	/**
+	 * @param actionsContainType string Indicates which asset rule list to return by this KalturaRuleActionType
+	 */
+	 setActionsContainType(actionsContainType) {
+	 	this.actionsContainType = actionsContainType;
 	 }
 }
 module.exports.AssetRuleFilter = AssetRuleFilter;

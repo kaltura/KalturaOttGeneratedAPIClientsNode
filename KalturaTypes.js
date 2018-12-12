@@ -772,6 +772,7 @@ BUSINESS_MODULE : 'BUSINESS_MODULE',
 SEGMENTS : 'SEGMENTS',
 DATE : 'DATE',
 OR : 'OR',
+HEADER : 'HEADER',
 };
 
 module.exports.RuleLevel = {
@@ -787,6 +788,7 @@ GEO : 'geo',
 USER_TYPE : 'user_type',
 DEVICE : 'device',
 ASSETUSER : 'assetUser',
+NETWORK : 'network',
 };
 
 module.exports.ScheduledRecordingAssetType = {
