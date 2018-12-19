@@ -3408,6 +3408,21 @@ class PlaybackSource extends MediaFile{
 	 setDrm(drm) {
 	 	this.drm = drm;
 	 }
+	
+	/**
+	 * Is Tokenized
+	 * @return bool
+	 */
+	 getIsTokenized() {
+	 	return this.isTokenized;
+	 }
+	
+	/**
+	 * @param isTokenized bool Is Tokenized
+	 */
+	 setIsTokenized(isTokenized) {
+	 	this.isTokenized = isTokenized;
+	 }
 }
 module.exports.PlaybackSource = PlaybackSource;
 
