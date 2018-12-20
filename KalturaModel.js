@@ -12700,6 +12700,136 @@ module.exports.AssetHistoryListResponse = AssetHistoryListResponse;
 /**
  *
  */
+class PlaybackProfile extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPlaybackProfile';
+	}
+	
+	/**
+	 * Playback profile identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Playback profile name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Playback profile name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Playback profile active status
+	 * @return bool
+	 */
+	 getIsActive() {
+	 	return this.isActive;
+	 }
+	
+	/**
+	 * @param isActive bool Playback profile active status
+	 */
+	 setIsActive(isActive) {
+	 	this.isActive = isActive;
+	 }
+	
+	/**
+	 * Playback profile URL
+	 * @return string
+	 */
+	 getAdapterUrl() {
+	 	return this.adapterUrl;
+	 }
+	
+	/**
+	 * @param adapterUrl string Playback profile URL
+	 */
+	 setAdapterUrl(adapterUrl) {
+	 	this.adapterUrl = adapterUrl;
+	 }
+	
+	/**
+	 * Playback profile settings
+	 * @return string
+	 */
+	 getSettings() {
+	 	return this.settings;
+	 }
+	
+	/**
+	 * @param settings string Playback profile settings
+	 */
+	 setSettings(settings) {
+	 	this.settings = settings;
+	 }
+	
+	/**
+	 * Playback profile alias
+	 * @return string
+	 */
+	 getSystemName() {
+	 	return this.systemName;
+	 }
+	
+	/**
+	 * @param systemName string Playback profile alias
+	 */
+	 setSystemName(systemName) {
+	 	this.systemName = systemName;
+	 }
+	
+	/**
+	 * Playback adapter shared secret
+	 * @return string
+	 */
+	 getSharedSecret() {
+	 	return this.sharedSecret;
+	 }
+}
+module.exports.PlaybackProfile = PlaybackProfile;
+
+/**
+ *
+ */
+class PlaybackProfileListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPlaybackProfileListResponse';
+	}
+	
+	/**
+	 * A list of Engagement adapter
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of Engagement adapter
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.PlaybackProfileListResponse = PlaybackProfileListResponse;
+
+/**
+ *
+ */
 class Rule extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -13453,6 +13583,33 @@ class BlockPlaybackAction extends AssetRuleAction{
 	}
 }
 module.exports.BlockPlaybackAction = BlockPlaybackAction;
+
+/**
+ *
+ */
+class ApplyPlaybackAdapterAction extends AssetRuleAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaApplyPlaybackAdapterAction';
+	}
+	
+	/**
+	 * Playback Adapter Identifier
+	 * @return int
+	 */
+	 getAdapterId() {
+	 	return this.adapterId;
+	 }
+	
+	/**
+	 * @param adapterId int Playback Adapter Identifier
+	 */
+	 setAdapterId(adapterId) {
+	 	this.adapterId = adapterId;
+	 }
+}
+module.exports.ApplyPlaybackAdapterAction = ApplyPlaybackAdapterAction;
 
 /**
  *
@@ -19227,6 +19384,33 @@ class BusinessModuleRuleFilter extends Filter{
 	 }
 }
 module.exports.BusinessModuleRuleFilter = BusinessModuleRuleFilter;
+
+/**
+ *
+ */
+class PlaybackProfileFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPlaybackProfileFilter';
+	}
+	
+	/**
+	 * Playback profile to filter by
+	 * @return int
+	 */
+	 getPlaybackProfileEqual() {
+	 	return this.playbackProfileEqual;
+	 }
+	
+	/**
+	 * @param playbackProfileEqual int Playback profile to filter by
+	 */
+	 setPlaybackProfileEqual(playbackProfileEqual) {
+	 	this.playbackProfileEqual = playbackProfileEqual;
+	 }
+}
+module.exports.PlaybackProfileFilter = PlaybackProfileFilter;
 
 /**
  *

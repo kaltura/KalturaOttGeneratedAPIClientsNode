@@ -656,6 +656,10 @@ PLAYBACK : 'PLAYBACK',
 DOWNLOAD : 'DOWNLOAD',
 };
 
+module.exports.PlaybackProfileOrderBy = {
+NAME_ASC : 'NAME_ASC',
+};
+
 module.exports.PositionOwner = {
 HOUSEHOLD : 'household',
 USER : 'user',
@@ -761,6 +765,7 @@ USER_BLOCK : 'USER_BLOCK',
 ALLOW_PLAYBACK : 'ALLOW_PLAYBACK',
 BLOCK_PLAYBACK : 'BLOCK_PLAYBACK',
 APPLY_DISCOUNT_MODULE : 'APPLY_DISCOUNT_MODULE',
+APPLY_PLAYBACK_ADAPTER : 'APPLY_PLAYBACK_ADAPTER',
 };
 
 module.exports.RuleConditionType = {
