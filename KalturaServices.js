@@ -4539,6 +4539,8 @@ module.exports.recommendationProfile = recommendationProfile;
  * @action delete Delete one or more user recording(s). Delete recording can be called only for recordings in status Recorded.
  * @action get Returns recording object by internal identifier.
  * @action list Return a list of recordings for the household with optional filter by status and KSQL.
+ * @action protect Deprecated, please use recording.update instead
+ * Protects an existing recording from the cleanup process for the defined protection period.
  * @action update Update an existing recording with is protected field.
  */
 class recording{
@@ -4598,6 +4600,18 @@ class recording{
 		kparams.filter = filter;
 		kparams.pager = pager;
 		return new kaltura.RequestBuilder('recording', 'list', kparams);
+	};
+	
+	/**
+	 * Deprecated, please use recording.update instead
+ * Protects an existing recording from the cleanup process for the defined protection period.
+	 * @param id int Recording identifier
+	 * @return KalturaRecording
+	 */
+	static protect(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('recording', 'protect', kparams);
 	};
 	
 	/**
