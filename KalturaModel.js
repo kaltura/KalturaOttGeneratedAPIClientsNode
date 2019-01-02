@@ -16229,6 +16229,21 @@ class ClientConfiguration extends kaltura.BaseObject{
 	 setApiVersion(apiVersion) {
 	 	this.apiVersion = apiVersion;
 	 }
+	
+	/**
+	 * Abort the Multireuqset call if any error occurs in one of the requests
+	 * @return string
+	 */
+	 getAbortOnError() {
+	 	return this.abortOnError;
+	 }
+	
+	/**
+	 * @param abortOnError string Abort the Multireuqset call if any error occurs in one of the requests
+	 */
+	 setAbortOnError(abortOnError) {
+	 	this.abortOnError = abortOnError;
+	 }
 }
 module.exports.ClientConfiguration = ClientConfiguration;
 
