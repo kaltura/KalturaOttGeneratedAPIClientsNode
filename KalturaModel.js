@@ -16232,14 +16232,14 @@ class ClientConfiguration extends kaltura.BaseObject{
 	
 	/**
 	 * Abort the Multireuqset call if any error occurs in one of the requests
-	 * @return string
+	 * @return bool
 	 */
 	 getAbortOnError() {
 	 	return this.abortOnError;
 	 }
 	
 	/**
-	 * @param abortOnError string Abort the Multireuqset call if any error occurs in one of the requests
+	 * @param abortOnError bool Abort the Multireuqset call if any error occurs in one of the requests
 	 */
 	 setAbortOnError(abortOnError) {
 	 	this.abortOnError = abortOnError;
