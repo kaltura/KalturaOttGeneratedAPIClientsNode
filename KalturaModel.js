@@ -8,7 +8,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2018  Kaltura Inc.
+// Copyright (C) 2006-2019  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -7672,7 +7672,19 @@ module.exports.SubscriptionEntitlement = SubscriptionEntitlement;
 /**
  *
  */
-class AssetFilePpv extends kaltura.BaseObject{
+class OTTObjectSupportNullable extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaOTTObjectSupportNullable';
+	}
+}
+module.exports.OTTObjectSupportNullable = OTTObjectSupportNullable;
+
+/**
+ *
+ */
+class AssetFilePpv extends OTTObjectSupportNullable{
 	
 	constructor(object = null) {
 		super(object);
