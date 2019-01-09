@@ -20525,44 +20525,14 @@ module.exports.CaptionPlaybackPluginData = CaptionPlaybackPluginData;
 /**
  *
  */
-class BumpersPlaybackPluginData extends kaltura.BaseObject{
+class PlaybackPluginData extends kaltura.BaseObject{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaBumpersPlaybackPluginData';
+		this.objectType = 'KalturaPlaybackPluginData';
 	}
-	
-	/**
-	 * url
-	 * @return string
-	 */
-	 getUrl() {
-	 	return this.url;
-	 }
-	
-	/**
-	 * @param url string url
-	 */
-	 setUrl(url) {
-	 	this.url = url;
-	 }
-	
-	/**
-	 * Streamer type: hls, dash, progressive
-	 * @return string
-	 */
-	 getStreamertype() {
-	 	return this.streamertype;
-	 }
-	
-	/**
-	 * @param streamertype string Streamer type: hls, dash, progressive
-	 */
-	 setStreamertype(streamertype) {
-	 	this.streamertype = streamertype;
-	 }
 }
-module.exports.BumpersPlaybackPluginData = BumpersPlaybackPluginData;
+module.exports.PlaybackPluginData = PlaybackPluginData;
 
 /**
  *
@@ -20635,21 +20605,63 @@ class PlaybackContext extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Playback bumpers
+	 * Plugins
 	 * @return array
 	 */
-	 getPlaybackBumpers() {
-	 	return this.playbackBumpers;
+	 getPlugins() {
+	 	return this.plugins;
 	 }
 	
 	/**
-	 * @param playbackBumpers array Playback bumpers
+	 * @param plugins array Plugins
 	 */
-	 setPlaybackBumpers(playbackBumpers) {
-	 	this.playbackBumpers = playbackBumpers;
+	 setPlugins(plugins) {
+	 	this.plugins = plugins;
 	 }
 }
 module.exports.PlaybackContext = PlaybackContext;
+
+/**
+ *
+ */
+class BumpersPlaybackPluginData extends PlaybackPluginData{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBumpersPlaybackPluginData';
+	}
+	
+	/**
+	 * url
+	 * @return string
+	 */
+	 getUrl() {
+	 	return this.url;
+	 }
+	
+	/**
+	 * @param url string url
+	 */
+	 setUrl(url) {
+	 	this.url = url;
+	 }
+	
+	/**
+	 * Streamer type: hls, dash, progressive
+	 * @return string
+	 */
+	 getStreamertype() {
+	 	return this.streamertype;
+	 }
+	
+	/**
+	 * @param streamertype string Streamer type: hls, dash, progressive
+	 */
+	 setStreamertype(streamertype) {
+	 	this.streamertype = streamertype;
+	 }
+}
+module.exports.BumpersPlaybackPluginData = BumpersPlaybackPluginData;
 
 /**
  *
