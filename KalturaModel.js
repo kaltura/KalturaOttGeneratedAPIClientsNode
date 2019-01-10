@@ -15460,21 +15460,6 @@ class ExportTask extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * List of media type identifiers (as configured in TVM) to export. used only in case data_type = vod
-	 * @return array
-	 */
-	 getVodTypes() {
-	 	return this.vodTypes;
-	 }
-	
-	/**
-	 * @param vodTypes array List of media type identifiers (as configured in TVM) to export. used only in case data_type = vod
-	 */
-	 setVodTypes(vodTypes) {
-	 	this.vodTypes = vodTypes;
-	 }
-	
-	/**
 	 * Indicates if the task is active or not
 	 * @return bool
 	 */
