@@ -8,7 +8,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2019  Kaltura Inc.
+// Copyright (C) 2006-2018  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -16226,21 +16226,6 @@ class ClientConfiguration extends kaltura.BaseObject{
 	 setApiVersion(apiVersion) {
 	 	this.apiVersion = apiVersion;
 	 }
-	
-	/**
-	 * Abort the Multireuqset call if any error occurs in one of the requests
-	 * @return bool
-	 */
-	 getAbortOnError() {
-	 	return this.abortOnError;
-	 }
-	
-	/**
-	 * @param abortOnError bool Abort the Multireuqset call if any error occurs in one of the requests
-	 */
-	 setAbortOnError(abortOnError) {
-	 	this.abortOnError = abortOnError;
-	 }
 }
 module.exports.ClientConfiguration = ClientConfiguration;
 
@@ -16369,7 +16354,22 @@ class RequestConfiguration extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Abort all following requests if current request has an error
+	 * Abort the Multireuqset call if any error occurs in one of the requests
+	 * @return bool
+	 */
+	 getAbortOnError() {
+	 	return this.abortOnError;
+	 }
+	
+	/**
+	 * @param abortOnError bool Abort the Multireuqset call if any error occurs in one of the requests
+	 */
+	 setAbortOnError(abortOnError) {
+	 	this.abortOnError = abortOnError;
+	 }
+	
+	/**
+	 * Abort all following requests in Multireuqset if current request has an error
 	 * @return bool
 	 */
 	 getAbortAllOnError() {
@@ -16377,7 +16377,7 @@ class RequestConfiguration extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param abortAllOnError bool Abort all following requests if current request has an error
+	 * @param abortAllOnError bool Abort all following requests in Multireuqset if current request has an error
 	 */
 	 setAbortAllOnError(abortAllOnError) {
 	 	this.abortAllOnError = abortAllOnError;
