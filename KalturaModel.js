@@ -18989,7 +18989,7 @@ class ImageFilter extends Filter{
 	 }
 	
 	/**
-	 * Filter images that are default on atleast on image type or not default at any
+	 * Filter images that are default on at least on image type or not default at any
 	 * @return bool
 	 */
 	 getIsDefaultEqual() {
@@ -18997,7 +18997,7 @@ class ImageFilter extends Filter{
 	 }
 	
 	/**
-	 * @param isDefaultEqual bool Filter images that are default on atleast on image type or not default at any
+	 * @param isDefaultEqual bool Filter images that are default on at least on image type or not default at any
 	 */
 	 setIsDefaultEqual(isDefaultEqual) {
 	 	this.isDefaultEqual = isDefaultEqual;

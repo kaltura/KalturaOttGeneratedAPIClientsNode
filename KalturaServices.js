@@ -2838,10 +2838,10 @@ class image{
 	
 	/**
 	 * Get the list of images by different filtering.
-	 * @param filter ImageFilter Filter (optional, default: null)
+	 * @param filter ImageFilter Filter
 	 * @return KalturaImageListResponse
 	 */
-	static listAction(filter = null){
+	static listAction(filter){
 		let kparams = {};
 		kparams.filter = filter;
 		return new kaltura.RequestBuilder('image', 'list', kparams);
