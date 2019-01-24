@@ -12852,7 +12852,7 @@ class TvmGeoRule extends TvmRule{
 	}
 	
 	/**
-	 * Indicates if the rule is relevent ONLY for the country ids or except country ids here
+	 * Indicates if the rule is relevent ONLY for the country ids or except country ids here. - is that true?
 	 * @return bool
 	 */
 	 getOnlyOrBut() {
@@ -12860,7 +12860,7 @@ class TvmGeoRule extends TvmRule{
 	 }
 	
 	/**
-	 * @param onlyOrBut bool Indicates if the rule is relevent ONLY for the country ids or except country ids here
+	 * @param onlyOrBut bool Indicates if the rule is relevent ONLY for the country ids or except country ids here. - is that true?
 	 */
 	 setOnlyOrBut(onlyOrBut) {
 	 	this.onlyOrBut = onlyOrBut;
@@ -12882,33 +12882,63 @@ class TvmGeoRule extends TvmRule{
 	 }
 	
 	/**
-	 * proxyRule - what is that?
+	 * proxyRuleId - what is that?
 	 * @return int
 	 */
-	 getProxyRule() {
-	 	return this.proxyRule;
+	 getProxyRuleId() {
+	 	return this.proxyRuleId;
 	 }
 	
 	/**
-	 * @param proxyRule int proxyRule - what is that?
+	 * @param proxyRuleId int proxyRuleId - what is that?
 	 */
-	 setProxyRule(proxyRule) {
-	 	this.proxyRule = proxyRule;
+	 setProxyRuleId(proxyRuleId) {
+	 	this.proxyRuleId = proxyRuleId;
 	 }
 	
 	/**
-	 * proxyLevel - what is that?
+	 * proxyRuleName - what is that?
+	 * @return string
+	 */
+	 getProxyRuleName() {
+	 	return this.proxyRuleName;
+	 }
+	
+	/**
+	 * @param proxyRuleName string proxyRuleName - what is that?
+	 */
+	 setProxyRuleName(proxyRuleName) {
+	 	this.proxyRuleName = proxyRuleName;
+	 }
+	
+	/**
+	 * proxyLevelId - what is that?
 	 * @return int
 	 */
-	 getProxyLevel() {
-	 	return this.proxyLevel;
+	 getProxyLevelId() {
+	 	return this.proxyLevelId;
 	 }
 	
 	/**
-	 * @param proxyLevel int proxyLevel - what is that?
+	 * @param proxyLevelId int proxyLevelId - what is that?
 	 */
-	 setProxyLevel(proxyLevel) {
-	 	this.proxyLevel = proxyLevel;
+	 setProxyLevelId(proxyLevelId) {
+	 	this.proxyLevelId = proxyLevelId;
+	 }
+	
+	/**
+	 * proxyLevelName - what is that?
+	 * @return string
+	 */
+	 getProxyLevelName() {
+	 	return this.proxyLevelName;
+	 }
+	
+	/**
+	 * @param proxyLevelName string proxyLevelName - what is that?
+	 */
+	 setProxyLevelName(proxyLevelName) {
+	 	this.proxyLevelName = proxyLevelName;
 	 }
 }
 module.exports.TvmGeoRule = TvmGeoRule;
