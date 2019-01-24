@@ -12817,6 +12817,33 @@ module.exports.TvmRuleListResponse = TvmRuleListResponse;
 /**
  *
  */
+class TvmDeviceRule extends TvmRule{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTvmDeviceRule';
+	}
+	
+	/**
+	 * Comma separated list of country Ids
+	 * @return string
+	 */
+	 getDeviceBrandIds() {
+	 	return this.deviceBrandIds;
+	 }
+	
+	/**
+	 * @param deviceBrandIds string Comma separated list of country Ids
+	 */
+	 setDeviceBrandIds(deviceBrandIds) {
+	 	this.deviceBrandIds = deviceBrandIds;
+	 }
+}
+module.exports.TvmDeviceRule = TvmDeviceRule;
+
+/**
+ *
+ */
 class TvmGeoRule extends TvmRule{
 	
 	constructor(object = null) {
