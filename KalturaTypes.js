@@ -957,6 +957,10 @@ SUBSCRIPTION : 'subscription',
 COLLECTION : 'collection',
 };
 
+module.exports.TvmRuleOrderBy = {
+NONE : 'NONE',
+};
+
 module.exports.UploadTokenStatus = {
 PENDING : 'PENDING',
 FULL_UPLOAD : 'FULL_UPLOAD',

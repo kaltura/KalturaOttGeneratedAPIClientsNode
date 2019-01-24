@@ -12712,136 +12712,6 @@ module.exports.AssetHistoryListResponse = AssetHistoryListResponse;
 /**
  *
  */
-class PlaybackProfile extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPlaybackProfile';
-	}
-	
-	/**
-	 * Playback profile identifier
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Playback profile name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Playback profile name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
-	 * Playback profile active status
-	 * @return bool
-	 */
-	 getIsActive() {
-	 	return this.isActive;
-	 }
-	
-	/**
-	 * @param isActive bool Playback profile active status
-	 */
-	 setIsActive(isActive) {
-	 	this.isActive = isActive;
-	 }
-	
-	/**
-	 * Playback profile URL
-	 * @return string
-	 */
-	 getAdapterUrl() {
-	 	return this.adapterUrl;
-	 }
-	
-	/**
-	 * @param adapterUrl string Playback profile URL
-	 */
-	 setAdapterUrl(adapterUrl) {
-	 	this.adapterUrl = adapterUrl;
-	 }
-	
-	/**
-	 * Playback profile settings
-	 * @return string
-	 */
-	 getSettings() {
-	 	return this.settings;
-	 }
-	
-	/**
-	 * @param settings string Playback profile settings
-	 */
-	 setSettings(settings) {
-	 	this.settings = settings;
-	 }
-	
-	/**
-	 * Playback profile alias
-	 * @return string
-	 */
-	 getSystemName() {
-	 	return this.systemName;
-	 }
-	
-	/**
-	 * @param systemName string Playback profile alias
-	 */
-	 setSystemName(systemName) {
-	 	this.systemName = systemName;
-	 }
-	
-	/**
-	 * Playback adapter shared secret
-	 * @return string
-	 */
-	 getSharedSecret() {
-	 	return this.sharedSecret;
-	 }
-}
-module.exports.PlaybackProfile = PlaybackProfile;
-
-/**
- *
- */
-class PlaybackProfileListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPlaybackProfileListResponse';
-	}
-	
-	/**
-	 * A list of Engagement adapter
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array A list of Engagement adapter
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.PlaybackProfileListResponse = PlaybackProfileListResponse;
-
-/**
- *
- */
 class Rule extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -12888,6 +12758,133 @@ class Rule extends kaltura.BaseObject{
 	 }
 }
 module.exports.Rule = Rule;
+
+/**
+ *
+ */
+class TvmRule extends Rule{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTvmRule';
+	}
+	
+	/**
+	 * Specifies when was the tvm rule was created. Date and time represented as epoch
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * Specifies the tvm rule type
+	 * @return string
+	 */
+	 getRuleType() {
+	 	return this.ruleType;
+	 }
+}
+module.exports.TvmRule = TvmRule;
+
+/**
+ *
+ */
+class TvmRuleListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTvmRuleListResponse';
+	}
+	
+	/**
+	 * tvm rules
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array tvm rules
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.TvmRuleListResponse = TvmRuleListResponse;
+
+/**
+ *
+ */
+class TvmGeoRule extends TvmRule{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTvmGeoRule';
+	}
+	
+	/**
+	 * Indicates if the rule is relevent ONLY for the country ids or except country ids here
+	 * @return bool
+	 */
+	 getOnlyOrBut() {
+	 	return this.onlyOrBut;
+	 }
+	
+	/**
+	 * @param onlyOrBut bool Indicates if the rule is relevent ONLY for the country ids or except country ids here
+	 */
+	 setOnlyOrBut(onlyOrBut) {
+	 	this.onlyOrBut = onlyOrBut;
+	 }
+	
+	/**
+	 * Comma separated list of country Ids
+	 * @return string
+	 */
+	 getCountryIds() {
+	 	return this.countryIds;
+	 }
+	
+	/**
+	 * @param countryIds string Comma separated list of country Ids
+	 */
+	 setCountryIds(countryIds) {
+	 	this.countryIds = countryIds;
+	 }
+	
+	/**
+	 * proxyRule - what is that?
+	 * @return int
+	 */
+	 getProxyRule() {
+	 	return this.proxyRule;
+	 }
+	
+	/**
+	 * @param proxyRule int proxyRule - what is that?
+	 */
+	 setProxyRule(proxyRule) {
+	 	this.proxyRule = proxyRule;
+	 }
+	
+	/**
+	 * proxyLevel - what is that?
+	 * @return int
+	 */
+	 getProxyLevel() {
+	 	return this.proxyLevel;
+	 }
+	
+	/**
+	 * @param proxyLevel int proxyLevel - what is that?
+	 */
+	 setProxyLevel(proxyLevel) {
+	 	this.proxyLevel = proxyLevel;
+	 }
+}
+module.exports.TvmGeoRule = TvmGeoRule;
 
 /**
  *
@@ -13043,126 +13040,6 @@ class BusinessModuleRule extends Rule{
 	 }
 }
 module.exports.BusinessModuleRule = BusinessModuleRule;
-
-/**
- *
- */
-class BusinessModuleRuleListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBusinessModuleRuleListResponse';
-	}
-	
-	/**
-	 * Asset rules
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array Asset rules
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.BusinessModuleRuleListResponse = BusinessModuleRuleListResponse;
-
-/**
- *
- */
-class AssetRuleBase extends Rule{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetRuleBase';
-	}
-}
-module.exports.AssetRuleBase = AssetRuleBase;
-
-/**
- *
- */
-class AssetCondition extends Condition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetCondition';
-	}
-	
-	/**
-	 * KSQL
-	 * @return string
-	 */
-	 getKsql() {
-	 	return this.ksql;
-	 }
-	
-	/**
-	 * @param ksql string KSQL
-	 */
-	 setKsql(ksql) {
-	 	this.ksql = ksql;
-	 }
-}
-module.exports.AssetCondition = AssetCondition;
-
-/**
- *
- */
-class AssetUserRuleAction extends RuleAction{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetUserRuleAction';
-	}
-}
-module.exports.AssetUserRuleAction = AssetUserRuleAction;
-
-/**
- *
- */
-class AssetUserRule extends AssetRuleBase{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetUserRule';
-	}
-	
-	/**
-	 * List of Ksql conditions for the user rule
-	 * @return array
-	 */
-	 getConditions() {
-	 	return this.conditions;
-	 }
-	
-	/**
-	 * @param conditions array List of Ksql conditions for the user rule
-	 */
-	 setConditions(conditions) {
-	 	this.conditions = conditions;
-	 }
-	
-	/**
-	 * List of actions for the user rule
-	 * @return array
-	 */
-	 getActions() {
-	 	return this.actions;
-	 }
-	
-	/**
-	 * @param actions array List of actions for the user rule
-	 */
-	 setActions(actions) {
-	 	this.actions = actions;
-	 }
-}
-module.exports.AssetUserRule = AssetUserRule;
 
 /**
  *
@@ -13328,6 +13205,33 @@ class HeaderCondition extends NotCondition{
 	 }
 }
 module.exports.HeaderCondition = HeaderCondition;
+
+/**
+ *
+ */
+class AssetCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetCondition';
+	}
+	
+	/**
+	 * KSQL
+	 * @return string
+	 */
+	 getKsql() {
+	 	return this.ksql;
+	 }
+	
+	/**
+	 * @param ksql string KSQL
+	 */
+	 setKsql(ksql) {
+	 	this.ksql = ksql;
+	 }
+}
+module.exports.AssetCondition = AssetCondition;
 
 /**
  *
@@ -13626,6 +13530,18 @@ module.exports.ApplyPlaybackAdapterAction = ApplyPlaybackAdapterAction;
 /**
  *
  */
+class AssetUserRuleAction extends RuleAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetUserRuleAction';
+	}
+}
+module.exports.AssetUserRuleAction = AssetUserRuleAction;
+
+/**
+ *
+ */
 class AssetUserRuleBlockAction extends AssetUserRuleAction{
 	
 	constructor(object = null) {
@@ -13634,6 +13550,60 @@ class AssetUserRuleBlockAction extends AssetUserRuleAction{
 	}
 }
 module.exports.AssetUserRuleBlockAction = AssetUserRuleBlockAction;
+
+/**
+ *
+ */
+class AssetRuleBase extends Rule{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetRuleBase';
+	}
+}
+module.exports.AssetRuleBase = AssetRuleBase;
+
+/**
+ *
+ */
+class AssetUserRule extends AssetRuleBase{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetUserRule';
+	}
+	
+	/**
+	 * List of Ksql conditions for the user rule
+	 * @return array
+	 */
+	 getConditions() {
+	 	return this.conditions;
+	 }
+	
+	/**
+	 * @param conditions array List of Ksql conditions for the user rule
+	 */
+	 setConditions(conditions) {
+	 	this.conditions = conditions;
+	 }
+	
+	/**
+	 * List of actions for the user rule
+	 * @return array
+	 */
+	 getActions() {
+	 	return this.actions;
+	 }
+	
+	/**
+	 * @param actions array List of actions for the user rule
+	 */
+	 setActions(actions) {
+	 	this.actions = actions;
+	 }
+}
+module.exports.AssetUserRule = AssetUserRule;
 
 /**
  *
@@ -13676,6 +13646,163 @@ class AssetRule extends AssetRuleBase{
 	 }
 }
 module.exports.AssetRule = AssetRule;
+
+/**
+ *
+ */
+class PlaybackProfile extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPlaybackProfile';
+	}
+	
+	/**
+	 * Playback profile identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Playback profile name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Playback profile name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Playback profile active status
+	 * @return bool
+	 */
+	 getIsActive() {
+	 	return this.isActive;
+	 }
+	
+	/**
+	 * @param isActive bool Playback profile active status
+	 */
+	 setIsActive(isActive) {
+	 	this.isActive = isActive;
+	 }
+	
+	/**
+	 * Playback profile URL
+	 * @return string
+	 */
+	 getAdapterUrl() {
+	 	return this.adapterUrl;
+	 }
+	
+	/**
+	 * @param adapterUrl string Playback profile URL
+	 */
+	 setAdapterUrl(adapterUrl) {
+	 	this.adapterUrl = adapterUrl;
+	 }
+	
+	/**
+	 * Playback profile settings
+	 * @return string
+	 */
+	 getSettings() {
+	 	return this.settings;
+	 }
+	
+	/**
+	 * @param settings string Playback profile settings
+	 */
+	 setSettings(settings) {
+	 	this.settings = settings;
+	 }
+	
+	/**
+	 * Playback profile alias
+	 * @return string
+	 */
+	 getSystemName() {
+	 	return this.systemName;
+	 }
+	
+	/**
+	 * @param systemName string Playback profile alias
+	 */
+	 setSystemName(systemName) {
+	 	this.systemName = systemName;
+	 }
+	
+	/**
+	 * Playback adapter shared secret
+	 * @return string
+	 */
+	 getSharedSecret() {
+	 	return this.sharedSecret;
+	 }
+}
+module.exports.PlaybackProfile = PlaybackProfile;
+
+/**
+ *
+ */
+class PlaybackProfileListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPlaybackProfileListResponse';
+	}
+	
+	/**
+	 * A list of Engagement adapter
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of Engagement adapter
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.PlaybackProfileListResponse = PlaybackProfileListResponse;
+
+/**
+ *
+ */
+class BusinessModuleRuleListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBusinessModuleRuleListResponse';
+	}
+	
+	/**
+	 * Asset rules
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Asset rules
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.BusinessModuleRuleListResponse = BusinessModuleRuleListResponse;
 
 /**
  *
@@ -19339,6 +19466,48 @@ class AssetHistoryFilter extends Filter{
 	 }
 }
 module.exports.AssetHistoryFilter = AssetHistoryFilter;
+
+/**
+ *
+ */
+class TvmRuleFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTvmRuleFilter';
+	}
+	
+	/**
+	 * Indicates which tvm rule list to return by their type
+	 * @return string
+	 */
+	 getRuleTypeEqual() {
+	 	return this.ruleTypeEqual;
+	 }
+	
+	/**
+	 * @param ruleTypeEqual string Indicates which tvm rule list to return by their type
+	 */
+	 setRuleTypeEqual(ruleTypeEqual) {
+	 	this.ruleTypeEqual = ruleTypeEqual;
+	 }
+	
+	/**
+	 * Indicates which tvm rule list to return by their name
+	 * @return string
+	 */
+	 getNameEqual() {
+	 	return this.nameEqual;
+	 }
+	
+	/**
+	 * @param nameEqual string Indicates which tvm rule list to return by their name
+	 */
+	 setNameEqual(nameEqual) {
+	 	this.nameEqual = nameEqual;
+	 }
+}
+module.exports.TvmRuleFilter = TvmRuleFilter;
 
 /**
  *

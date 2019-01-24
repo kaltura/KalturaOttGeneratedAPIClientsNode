@@ -5736,6 +5736,27 @@ module.exports.transactionHistory = transactionHistory;
 
 
 /**
+ *Class definition for the Kaltura service: tvmRule.
+ * The available service actions:
+ * @action list Get the list of tvm rules for the partner.
+ */
+class tvmRule{
+	
+	/**
+	 * Get the list of tvm rules for the partner.
+	 * @param filter TvmRuleFilter TvmRuleFilter Filter (optional, default: null)
+	 * @return KalturaTvmRuleListResponse
+	 */
+	static listAction(filter = null){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('tvmrule', 'list', kparams);
+	};
+}
+module.exports.tvmRule = tvmRule;
+
+
+/**
  *Class definition for the Kaltura service: unifiedPayment.
  * The available service actions:
  * @action getNextRenewal Returns the data about the next renewal.
