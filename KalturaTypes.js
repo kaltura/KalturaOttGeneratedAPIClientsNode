@@ -961,6 +961,11 @@ module.exports.TvmRuleOrderBy = {
 NONE : 'NONE',
 };
 
+module.exports.TvmRuleType = {
+GEO : 'Geo',
+DEVICE : 'Device',
+};
+
 module.exports.UploadTokenStatus = {
 PENDING : 'PENDING',
 FULL_UPLOAD : 'FULL_UPLOAD',

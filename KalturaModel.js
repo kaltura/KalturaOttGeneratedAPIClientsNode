@@ -9913,6 +9913,21 @@ class Recording extends kaltura.BaseObject{
 	 getUpdateDate() {
 	 	return this.updateDate;
 	 }
+	
+	/**
+	 * key/value map field for extra data
+	 * @return map
+	 */
+	 getMetaData() {
+	 	return this.metaData;
+	 }
+	
+	/**
+	 * @param metaData map key/value map field for extra data
+	 */
+	 setMetaData(metaData) {
+	 	this.metaData = metaData;
+	 }
 }
 module.exports.Recording = Recording;
 
@@ -24143,6 +24158,21 @@ class PurchaseBase extends kaltura.BaseObject{
 	 setProductType(productType) {
 	 	this.productType = productType;
 	 }
+	
+	/**
+	 * Additional data for the adapter
+	 * @return string
+	 */
+	 getAdapterData() {
+	 	return this.adapterData;
+	 }
+	
+	/**
+	 * @param adapterData string Additional data for the adapter
+	 */
+	 setAdapterData(adapterData) {
+	 	this.adapterData = adapterData;
+	 }
 }
 module.exports.PurchaseBase = PurchaseBase;
 
@@ -24229,21 +24259,6 @@ class Purchase extends PurchaseBase{
 	 */
 	 setCoupon(coupon) {
 	 	this.coupon = coupon;
-	 }
-	
-	/**
-	 * Additional data for the adapter
-	 * @return string
-	 */
-	 getAdapterData() {
-	 	return this.adapterData;
-	 }
-	
-	/**
-	 * @param adapterData string Additional data for the adapter
-	 */
-	 setAdapterData(adapterData) {
-	 	this.adapterData = adapterData;
 	 }
 }
 module.exports.Purchase = Purchase;
