@@ -3491,7 +3491,7 @@ module.exports.ottCategory = ottCategory;
  * @action delete Permanently delete a user. User to delete cannot be an exclusive household master, and cannot be default user.
  * @action get Retrieving users&#39; data.
  * @action getEncryptedUserId Returns the identifier of the user encrypted with SHA1 using configured key.
- * @action list Retrieve user by external identifier or username or if filter is null all user in the master or the user itself.
+ * @action list Returns list of OTTUser (limited to 500 items). Filters by username/external identifier/idIn or roleIdIn.
  * @action login login with user name and password.
  * @action loginWithPin User sign-in via a time-expired sign-in PIN.
  * @action logout Logout the calling user.
@@ -3573,7 +3573,7 @@ class ottUser{
 	};
 	
 	/**
-	 * Retrieve user by external identifier or username or if filter is null all user in the master or the user itself.
+	 * Returns list of OTTUser (limited to 500 items). Filters by username/external identifier/idIn or roleIdIn.
 	 * @param filter OTTUserFilter Filter request (optional, default: null)
 	 * @return KalturaOTTUserListResponse
 	 */

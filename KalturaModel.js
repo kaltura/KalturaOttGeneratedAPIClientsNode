@@ -9913,21 +9913,6 @@ class Recording extends kaltura.BaseObject{
 	 getUpdateDate() {
 	 	return this.updateDate;
 	 }
-	
-	/**
-	 * key/value map field for extra data
-	 * @return map
-	 */
-	 getMetaData() {
-	 	return this.metaData;
-	 }
-	
-	/**
-	 * @param metaData map key/value map field for extra data
-	 */
-	 setMetaData(metaData) {
-	 	this.metaData = metaData;
-	 }
 }
 module.exports.Recording = Recording;
 
@@ -9954,6 +9939,21 @@ class ExternalRecording extends Recording{
 	 */
 	 setExternalId(externalId) {
 	 	this.externalId = externalId;
+	 }
+	
+	/**
+	 * key/value map field for extra data
+	 * @return map
+	 */
+	 getMetaData() {
+	 	return this.metaData;
+	 }
+	
+	/**
+	 * @param metaData map key/value map field for extra data
+	 */
+	 setMetaData(metaData) {
+	 	this.metaData = metaData;
 	 }
 }
 module.exports.ExternalRecording = ExternalRecording;
@@ -18682,6 +18682,90 @@ module.exports.SubscriptionFilter = SubscriptionFilter;
 /**
  *
  */
+class RecordingFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRecordingFilter';
+	}
+	
+	/**
+	 * Recording Statuses
+	 * @return string
+	 */
+	 getStatusIn() {
+	 	return this.statusIn;
+	 }
+	
+	/**
+	 * @param statusIn string Recording Statuses
+	 */
+	 setStatusIn(statusIn) {
+	 	this.statusIn = statusIn;
+	 }
+	
+	/**
+	 * Comma separated external identifiers
+	 * @return string
+	 */
+	 getExternalRecordingIdIn() {
+	 	return this.externalRecordingIdIn;
+	 }
+	
+	/**
+	 * @param externalRecordingIdIn string Comma separated external identifiers
+	 */
+	 setExternalRecordingIdIn(externalRecordingIdIn) {
+	 	this.externalRecordingIdIn = externalRecordingIdIn;
+	 }
+	
+	/**
+	 * KSQL expression
+	 * @return string
+	 */
+	 getKSql() {
+	 	return this.kSql;
+	 }
+	
+	/**
+	 * @param kSql string KSQL expression
+	 */
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
+	 }
+}
+module.exports.RecordingFilter = RecordingFilter;
+
+/**
+ *
+ */
+class ExternalRecordingFilter extends RecordingFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaExternalRecordingFilter';
+	}
+	
+	/**
+	 * MetaData filtering
+	 * @return map
+	 */
+	 getMetaData() {
+	 	return this.metaData;
+	 }
+	
+	/**
+	 * @param metaData map MetaData filtering
+	 */
+	 setMetaData(metaData) {
+	 	this.metaData = metaData;
+	 }
+}
+module.exports.ExternalRecordingFilter = ExternalRecordingFilter;
+
+/**
+ *
+ */
 class SeriesRecordingFilter extends Filter{
 	
 	constructor(object = null) {
@@ -18918,63 +19002,6 @@ class RecordingContextFilter extends Filter{
 	 }
 }
 module.exports.RecordingContextFilter = RecordingContextFilter;
-
-/**
- *
- */
-class RecordingFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaRecordingFilter';
-	}
-	
-	/**
-	 * Recording Statuses
-	 * @return string
-	 */
-	 getStatusIn() {
-	 	return this.statusIn;
-	 }
-	
-	/**
-	 * @param statusIn string Recording Statuses
-	 */
-	 setStatusIn(statusIn) {
-	 	this.statusIn = statusIn;
-	 }
-	
-	/**
-	 * Comma separated external identifiers
-	 * @return string
-	 */
-	 getExternalRecordingIdIn() {
-	 	return this.externalRecordingIdIn;
-	 }
-	
-	/**
-	 * @param externalRecordingIdIn string Comma separated external identifiers
-	 */
-	 setExternalRecordingIdIn(externalRecordingIdIn) {
-	 	this.externalRecordingIdIn = externalRecordingIdIn;
-	 }
-	
-	/**
-	 * KSQL expression
-	 * @return string
-	 */
-	 getKSql() {
-	 	return this.kSql;
-	 }
-	
-	/**
-	 * @param kSql string KSQL expression
-	 */
-	 setKSql(kSql) {
-	 	this.kSql = kSql;
-	 }
-}
-module.exports.RecordingFilter = RecordingFilter;
 
 /**
  *
