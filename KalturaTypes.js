@@ -322,10 +322,20 @@ CODE_ASC : 'CODE_ASC',
 CODE_DESC : 'CODE_DESC',
 };
 
+module.exports.DeleteMediaPolicy = {
+DISABLE : 'Disable',
+DELETE : 'Delete',
+};
+
 module.exports.DeviceStatus = {
 PENDING : 'PENDING',
 ACTIVATED : 'ACTIVATED',
 NOT_ACTIVATED : 'NOT_ACTIVATED',
+};
+
+module.exports.DowngradePolicy = {
+LIFO : 'LIFO',
+FIFO : 'FIFO',
 };
 
 module.exports.DrmSchemeName = {
@@ -591,6 +601,7 @@ DEFAULTPAYMENTGATEWAY : 'DefaultPaymentGateway',
 ENABLEPAYMENTGATEWAYSELECTION : 'EnablePaymentGatewaySelection',
 OSSADAPTER : 'OSSAdapter',
 CONCURRENCY : 'Concurrency',
+GENERAL : 'General',
 };
 
 module.exports.PaymentMethodProfileOrderBy = {

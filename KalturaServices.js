@@ -2524,6 +2524,7 @@ module.exports.householdDevice = householdDevice;
  *Class definition for the Kaltura service: householdLimitations.
  * The available service actions:
  * @action get Get the limitation module by id.
+ * @action list Get the list of PartnerConfiguration.
  */
 class householdLimitations{
 	
@@ -2536,6 +2537,15 @@ class householdLimitations{
 		let kparams = {};
 		kparams.id = id;
 		return new kaltura.RequestBuilder('householdlimitations', 'get', kparams);
+	};
+	
+	/**
+	 * Get the list of PartnerConfiguration.
+	 * @return KalturaHouseholdLimitationsListResponse
+	 */
+	static listAction(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('householdlimitations', 'list', kparams);
 	};
 }
 module.exports.householdLimitations = householdLimitations;

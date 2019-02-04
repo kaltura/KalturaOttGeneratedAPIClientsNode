@@ -1436,466 +1436,6 @@ module.exports.IntegerValue = IntegerValue;
 /**
  *
  */
-class PluginData extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPluginData';
-	}
-}
-module.exports.PluginData = PluginData;
-
-/**
- *
- */
-class DrmPlaybackPluginData extends PluginData{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDrmPlaybackPluginData';
-	}
-	
-	/**
-	 * Scheme
-	 * @return string
-	 */
-	 getScheme() {
-	 	return this.scheme;
-	 }
-	
-	/**
-	 * @param scheme string Scheme
-	 */
-	 setScheme(scheme) {
-	 	this.scheme = scheme;
-	 }
-	
-	/**
-	 * License URL
-	 * @return string
-	 */
-	 getLicenseURL() {
-	 	return this.licenseURL;
-	 }
-	
-	/**
-	 * @param licenseURL string License URL
-	 */
-	 setLicenseURL(licenseURL) {
-	 	this.licenseURL = licenseURL;
-	 }
-}
-module.exports.DrmPlaybackPluginData = DrmPlaybackPluginData;
-
-/**
- *
- */
-class CustomDrmPlaybackPluginData extends DrmPlaybackPluginData{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCustomDrmPlaybackPluginData';
-	}
-	
-	/**
-	 * Custom DRM license data
-	 * @return string
-	 */
-	 getData() {
-	 	return this.data;
-	 }
-	
-	/**
-	 * @param data string Custom DRM license data
-	 */
-	 setData(data) {
-	 	this.data = data;
-	 }
-}
-module.exports.CustomDrmPlaybackPluginData = CustomDrmPlaybackPluginData;
-
-/**
- *
- */
-class HouseholdDevice extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdDevice';
-	}
-	
-	/**
-	 * Household identifier
-	 * @return int
-	 */
-	 getHouseholdId() {
-	 	return this.householdId;
-	 }
-	
-	/**
-	 * @param householdId int Household identifier
-	 */
-	 setHouseholdId(householdId) {
-	 	this.householdId = householdId;
-	 }
-	
-	/**
-	 * Device UDID
-	 * @return string
-	 */
-	 getUdid() {
-	 	return this.udid;
-	 }
-	
-	/**
-	 * @param udid string Device UDID
-	 */
-	 setUdid(udid) {
-	 	this.udid = udid;
-	 }
-	
-	/**
-	 * Device name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Device name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
-	 * Device brand identifier
-	 * @return int
-	 */
-	 getBrandId() {
-	 	return this.brandId;
-	 }
-	
-	/**
-	 * @param brandId int Device brand identifier
-	 */
-	 setBrandId(brandId) {
-	 	this.brandId = brandId;
-	 }
-	
-	/**
-	 * Device activation date (epoch)
-	 * @return int
-	 */
-	 getActivatedOn() {
-	 	return this.activatedOn;
-	 }
-	
-	/**
-	 * @param activatedOn int Device activation date (epoch)
-	 */
-	 setActivatedOn(activatedOn) {
-	 	this.activatedOn = activatedOn;
-	 }
-	
-	/**
-	 * Device state
-	 * @return string
-	 */
-	 getStatus() {
-	 	return this.status;
-	 }
-	
-	/**
-	 * Device family id
-	 * @return int
-	 */
-	 getDeviceFamilyId() {
-	 	return this.deviceFamilyId;
-	 }
-	
-	/**
-	 * Device DRM data
-	 * @return CustomDrmPlaybackPluginData
-	 */
-	 getDrm() {
-	 	return this.drm;
-	 }
-}
-module.exports.HouseholdDevice = HouseholdDevice;
-
-/**
- *
- */
-class HouseholdDeviceListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdDeviceListResponse';
-	}
-	
-	/**
-	 * Household devices
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array Household devices
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.HouseholdDeviceListResponse = HouseholdDeviceListResponse;
-
-/**
- *
- */
-class FairPlayPlaybackPluginData extends DrmPlaybackPluginData{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaFairPlayPlaybackPluginData';
-	}
-	
-	/**
-	 * Custom data string
-	 * @return string
-	 */
-	 getCertificate() {
-	 	return this.certificate;
-	 }
-	
-	/**
-	 * @param certificate string Custom data string
-	 */
-	 setCertificate(certificate) {
-	 	this.certificate = certificate;
-	 }
-}
-module.exports.FairPlayPlaybackPluginData = FairPlayPlaybackPluginData;
-
-/**
- *
- */
-class HouseholdUser extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdUser';
-	}
-	
-	/**
-	 * The identifier of the household
-	 * @return int
-	 */
-	 getHouseholdId() {
-	 	return this.householdId;
-	 }
-	
-	/**
-	 * @param householdId int The identifier of the household
-	 */
-	 setHouseholdId(householdId) {
-	 	this.householdId = householdId;
-	 }
-	
-	/**
-	 * The identifier of the user
-	 * @return string
-	 */
-	 getUserId() {
-	 	return this.userId;
-	 }
-	
-	/**
-	 * @param userId string The identifier of the user
-	 */
-	 setUserId(userId) {
-	 	this.userId = userId;
-	 }
-	
-	/**
-	 * True if the user added as master use
-	 * @return bool
-	 */
-	 getIsMaster() {
-	 	return this.isMaster;
-	 }
-	
-	/**
-	 * @param isMaster bool True if the user added as master use
-	 */
-	 setIsMaster(isMaster) {
-	 	this.isMaster = isMaster;
-	 }
-	
-	/**
-	 * The username of the household master for adding a user in status pending for the household master to approve
-	 * @return string
-	 */
-	 getHouseholdMasterUsername() {
-	 	return this.householdMasterUsername;
-	 }
-	
-	/**
-	 * @param householdMasterUsername string The username of the household master for adding a user in status pending for the household master to approve
-	 */
-	 setHouseholdMasterUsername(householdMasterUsername) {
-	 	this.householdMasterUsername = householdMasterUsername;
-	 }
-	
-	/**
-	 * The status of the user in the household
-	 * @return string
-	 */
-	 getStatus() {
-	 	return this.status;
-	 }
-	
-	/**
-	 * True if the user is a default user
-	 * @return bool
-	 */
-	 getIsDefault() {
-	 	return this.isDefault;
-	 }
-}
-module.exports.HouseholdUser = HouseholdUser;
-
-/**
- *
- */
-class HouseholdUserListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdUserListResponse';
-	}
-	
-	/**
-	 * Household users
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array Household users
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.HouseholdUserListResponse = HouseholdUserListResponse;
-
-/**
- *
- */
-class HomeNetwork extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHomeNetwork';
-	}
-	
-	/**
-	 * Home network identifier
-	 * @return string
-	 */
-	 getExternalId() {
-	 	return this.externalId;
-	 }
-	
-	/**
-	 * @param externalId string Home network identifier
-	 */
-	 setExternalId(externalId) {
-	 	this.externalId = externalId;
-	 }
-	
-	/**
-	 * Home network name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Home network name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
-	 * Home network description
-	 * @return string
-	 */
-	 getDescription() {
-	 	return this.description;
-	 }
-	
-	/**
-	 * @param description string Home network description
-	 */
-	 setDescription(description) {
-	 	this.description = description;
-	 }
-	
-	/**
-	 * Is home network is active
-	 * @return bool
-	 */
-	 getIsActive() {
-	 	return this.isActive;
-	 }
-	
-	/**
-	 * @param isActive bool Is home network is active
-	 */
-	 setIsActive(isActive) {
-	 	this.isActive = isActive;
-	 }
-}
-module.exports.HomeNetwork = HomeNetwork;
-
-/**
- *
- */
-class HomeNetworkListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHomeNetworkListResponse';
-	}
-	
-	/**
-	 * Home networks
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array Home networks
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.HomeNetworkListResponse = HomeNetworkListResponse;
-
-/**
- *
- */
 class Configurations extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -3357,6 +2897,60 @@ module.exports.FavoriteListResponse = FavoriteListResponse;
 /**
  *
  */
+class PluginData extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPluginData';
+	}
+}
+module.exports.PluginData = PluginData;
+
+/**
+ *
+ */
+class DrmPlaybackPluginData extends PluginData{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDrmPlaybackPluginData';
+	}
+	
+	/**
+	 * Scheme
+	 * @return string
+	 */
+	 getScheme() {
+	 	return this.scheme;
+	 }
+	
+	/**
+	 * @param scheme string Scheme
+	 */
+	 setScheme(scheme) {
+	 	this.scheme = scheme;
+	 }
+	
+	/**
+	 * License URL
+	 * @return string
+	 */
+	 getLicenseURL() {
+	 	return this.licenseURL;
+	 }
+	
+	/**
+	 * @param licenseURL string License URL
+	 */
+	 setLicenseURL(licenseURL) {
+	 	this.licenseURL = licenseURL;
+	 }
+}
+module.exports.DrmPlaybackPluginData = DrmPlaybackPluginData;
+
+/**
+ *
+ */
 class PlaybackSource extends MediaFile{
 	
 	constructor(object = null) {
@@ -3425,6 +3019,60 @@ class PlaybackSource extends MediaFile{
 	 }
 }
 module.exports.PlaybackSource = PlaybackSource;
+
+/**
+ *
+ */
+class FairPlayPlaybackPluginData extends DrmPlaybackPluginData{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaFairPlayPlaybackPluginData';
+	}
+	
+	/**
+	 * Custom data string
+	 * @return string
+	 */
+	 getCertificate() {
+	 	return this.certificate;
+	 }
+	
+	/**
+	 * @param certificate string Custom data string
+	 */
+	 setCertificate(certificate) {
+	 	this.certificate = certificate;
+	 }
+}
+module.exports.FairPlayPlaybackPluginData = FairPlayPlaybackPluginData;
+
+/**
+ *
+ */
+class CustomDrmPlaybackPluginData extends DrmPlaybackPluginData{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCustomDrmPlaybackPluginData';
+	}
+	
+	/**
+	 * Custom DRM license data
+	 * @return string
+	 */
+	 getData() {
+	 	return this.data;
+	 }
+	
+	/**
+	 * @param data string Custom DRM license data
+	 */
+	 setData(data) {
+	 	this.data = data;
+	 }
+}
+module.exports.CustomDrmPlaybackPluginData = CustomDrmPlaybackPluginData;
 
 /**
  *
@@ -5099,129 +4747,6 @@ class TopicListResponse extends ListResponse{
 	 }
 }
 module.exports.TopicListResponse = TopicListResponse;
-
-/**
- *
- */
-class PartnerConfiguration extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPartnerConfiguration';
-	}
-}
-module.exports.PartnerConfiguration = PartnerConfiguration;
-
-/**
- *
- */
-class PartnerConfigurationListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPartnerConfigurationListResponse';
-	}
-	
-	/**
-	 * Partner Configurations
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array Partner Configurations
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.PartnerConfigurationListResponse = PartnerConfigurationListResponse;
-
-/**
- *
- */
-class ConcurrencyPartnerConfig extends PartnerConfiguration{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaConcurrencyPartnerConfig';
-	}
-	
-	/**
-	 * Comma separated list of device Family Ids order by their priority
-	 * @return string
-	 */
-	 getDeviceFamilyIds() {
-	 	return this.deviceFamilyIds;
-	 }
-	
-	/**
-	 * @param deviceFamilyIds string Comma separated list of device Family Ids order by their priority
-	 */
-	 setDeviceFamilyIds(deviceFamilyIds) {
-	 	this.deviceFamilyIds = deviceFamilyIds;
-	 }
-	
-	/**
-	 * Policy of eviction devices
-	 * @return string
-	 */
-	 getEvictionPolicy() {
-	 	return this.evictionPolicy;
-	 }
-	
-	/**
-	 * @param evictionPolicy string Policy of eviction devices
-	 */
-	 setEvictionPolicy(evictionPolicy) {
-	 	this.evictionPolicy = evictionPolicy;
-	 }
-}
-module.exports.ConcurrencyPartnerConfig = ConcurrencyPartnerConfig;
-
-/**
- *
- */
-class BillingPartnerConfig extends PartnerConfiguration{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBillingPartnerConfig';
-	}
-	
-	/**
-	 * configuration value
-	 * @return string
-	 */
-	 getValue() {
-	 	return this.value;
-	 }
-	
-	/**
-	 * @param value string configuration value
-	 */
-	 setValue(value) {
-	 	this.value = value;
-	 }
-	
-	/**
-	 * partner configuration type
-	 * @return string
-	 */
-	 getType() {
-	 	return this.type;
-	 }
-	
-	/**
-	 * @param type string partner configuration type
-	 */
-	 setType(type) {
-	 	this.type = type;
-	 }
-}
-module.exports.BillingPartnerConfig = BillingPartnerConfig;
 
 /**
  *
@@ -9500,6 +9025,874 @@ class ProductsPriceListResponse extends ListResponse{
 	 }
 }
 module.exports.ProductsPriceListResponse = ProductsPriceListResponse;
+
+/**
+ *
+ */
+class PartnerConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPartnerConfiguration';
+	}
+}
+module.exports.PartnerConfiguration = PartnerConfiguration;
+
+/**
+ *
+ */
+class PartnerConfigurationListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPartnerConfigurationListResponse';
+	}
+	
+	/**
+	 * Partner Configurations
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Partner Configurations
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.PartnerConfigurationListResponse = PartnerConfigurationListResponse;
+
+/**
+ *
+ */
+class GeneralPartnerConfig extends PartnerConfiguration{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaGeneralPartnerConfig';
+	}
+	
+	/**
+	 * Partner name
+	 * @return string
+	 */
+	 getPartnerName() {
+	 	return this.partnerName;
+	 }
+	
+	/**
+	 * @param partnerName string Partner name
+	 */
+	 setPartnerName(partnerName) {
+	 	this.partnerName = partnerName;
+	 }
+	
+	/**
+	 * Main metadata language
+	 * @return int
+	 */
+	 getMainLanguage() {
+	 	return this.mainLanguage;
+	 }
+	
+	/**
+	 * @param mainLanguage int Main metadata language
+	 */
+	 setMainLanguage(mainLanguage) {
+	 	this.mainLanguage = mainLanguage;
+	 }
+	
+	/**
+	 * A list of comma separated languages ids
+	 * @return string
+	 */
+	 getSecondaryLanguages() {
+	 	return this.secondaryLanguages;
+	 }
+	
+	/**
+	 * @param secondaryLanguages string A list of comma separated languages ids
+	 */
+	 setSecondaryLanguages(secondaryLanguages) {
+	 	this.secondaryLanguages = secondaryLanguages;
+	 }
+	
+	/**
+	 * Delete media policy
+	 * @return string
+	 */
+	 getDeleteMediaPolicy() {
+	 	return this.deleteMediaPolicy;
+	 }
+	
+	/**
+	 * @param deleteMediaPolicy string Delete media policy
+	 */
+	 setDeleteMediaPolicy(deleteMediaPolicy) {
+	 	this.deleteMediaPolicy = deleteMediaPolicy;
+	 }
+	
+	/**
+	 * Main currency
+	 * @return int
+	 */
+	 getMainCurrency() {
+	 	return this.mainCurrency;
+	 }
+	
+	/**
+	 * @param mainCurrency int Main currency
+	 */
+	 setMainCurrency(mainCurrency) {
+	 	this.mainCurrency = mainCurrency;
+	 }
+	
+	/**
+	 * A list of comma separated currencys ids
+	 * @return string
+	 */
+	 getSecondaryCurrencys() {
+	 	return this.secondaryCurrencys;
+	 }
+	
+	/**
+	 * @param secondaryCurrencys string A list of comma separated currencys ids
+	 */
+	 setSecondaryCurrencys(secondaryCurrencys) {
+	 	this.secondaryCurrencys = secondaryCurrencys;
+	 }
+	
+	/**
+	 * Downgrade policy
+	 * @return string
+	 */
+	 getDowngradePolicy() {
+	 	return this.downgradePolicy;
+	 }
+	
+	/**
+	 * @param downgradePolicy string Downgrade policy
+	 */
+	 setDowngradePolicy(downgradePolicy) {
+	 	this.downgradePolicy = downgradePolicy;
+	 }
+	
+	/**
+	 * Mail settings
+	 * @return string
+	 */
+	 getMailSettings() {
+	 	return this.mailSettings;
+	 }
+	
+	/**
+	 * @param mailSettings string Mail settings
+	 */
+	 setMailSettings(mailSettings) {
+	 	this.mailSettings = mailSettings;
+	 }
+	
+	/**
+	 * Default Date Format for Email notifications (default should be: DD Month YYYY)
+	 * @return string
+	 */
+	 getDateFormat() {
+	 	return this.dateFormat;
+	 }
+	
+	/**
+	 * @param dateFormat string Default Date Format for Email notifications (default should be: DD Month YYYY)
+	 */
+	 setDateFormat(dateFormat) {
+	 	this.dateFormat = dateFormat;
+	 }
+	
+	/**
+	 * Household limitation&#160;module
+	 * @return int
+	 */
+	 getHouseholdLimitationModule() {
+	 	return this.householdLimitationModule;
+	 }
+	
+	/**
+	 * @param householdLimitationModule int Household limitation&#160;module
+	 */
+	 setHouseholdLimitationModule(householdLimitationModule) {
+	 	this.householdLimitationModule = householdLimitationModule;
+	 }
+}
+module.exports.GeneralPartnerConfig = GeneralPartnerConfig;
+
+/**
+ *
+ */
+class ConcurrencyPartnerConfig extends PartnerConfiguration{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaConcurrencyPartnerConfig';
+	}
+	
+	/**
+	 * Comma separated list of device Family Ids order by their priority
+	 * @return string
+	 */
+	 getDeviceFamilyIds() {
+	 	return this.deviceFamilyIds;
+	 }
+	
+	/**
+	 * @param deviceFamilyIds string Comma separated list of device Family Ids order by their priority
+	 */
+	 setDeviceFamilyIds(deviceFamilyIds) {
+	 	this.deviceFamilyIds = deviceFamilyIds;
+	 }
+	
+	/**
+	 * Policy of eviction devices
+	 * @return string
+	 */
+	 getEvictionPolicy() {
+	 	return this.evictionPolicy;
+	 }
+	
+	/**
+	 * @param evictionPolicy string Policy of eviction devices
+	 */
+	 setEvictionPolicy(evictionPolicy) {
+	 	this.evictionPolicy = evictionPolicy;
+	 }
+}
+module.exports.ConcurrencyPartnerConfig = ConcurrencyPartnerConfig;
+
+/**
+ *
+ */
+class BillingPartnerConfig extends PartnerConfiguration{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBillingPartnerConfig';
+	}
+	
+	/**
+	 * configuration value
+	 * @return string
+	 */
+	 getValue() {
+	 	return this.value;
+	 }
+	
+	/**
+	 * @param value string configuration value
+	 */
+	 setValue(value) {
+	 	this.value = value;
+	 }
+	
+	/**
+	 * partner configuration type
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * @param type string partner configuration type
+	 */
+	 setType(type) {
+	 	this.type = type;
+	 }
+}
+module.exports.BillingPartnerConfig = BillingPartnerConfig;
+
+/**
+ *
+ */
+class DeviceFamilyBase extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDeviceFamilyBase';
+	}
+	
+	/**
+	 * Device family identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Device family name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Device family name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+}
+module.exports.DeviceFamilyBase = DeviceFamilyBase;
+
+/**
+ *
+ */
+class HouseholdDeviceFamilyLimitations extends DeviceFamilyBase{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdDeviceFamilyLimitations';
+	}
+	
+	/**
+	 * Allowed device change frequency code
+	 * @return int
+	 */
+	 getFrequency() {
+	 	return this.frequency;
+	 }
+	
+	/**
+	 * @param frequency int Allowed device change frequency code
+	 */
+	 setFrequency(frequency) {
+	 	this.frequency = frequency;
+	 }
+	
+	/**
+	 * Max number of devices allowed for this family
+	 * @return int
+	 */
+	 getDeviceLimit() {
+	 	return this.deviceLimit;
+	 }
+	
+	/**
+	 * @param deviceLimit int Max number of devices allowed for this family
+	 */
+	 setDeviceLimit(deviceLimit) {
+	 	this.deviceLimit = deviceLimit;
+	 }
+	
+	/**
+	 * Max number of streams allowed for this family
+	 * @return int
+	 */
+	 getConcurrentLimit() {
+	 	return this.concurrentLimit;
+	 }
+	
+	/**
+	 * @param concurrentLimit int Max number of streams allowed for this family
+	 */
+	 setConcurrentLimit(concurrentLimit) {
+	 	this.concurrentLimit = concurrentLimit;
+	 }
+}
+module.exports.HouseholdDeviceFamilyLimitations = HouseholdDeviceFamilyLimitations;
+
+/**
+ *
+ */
+class HouseholdLimitations extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdLimitations';
+	}
+	
+	/**
+	 * Household limitation module identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Household limitation module name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * Max number of streams allowed for the household
+	 * @return int
+	 */
+	 getConcurrentLimit() {
+	 	return this.concurrentLimit;
+	 }
+	
+	/**
+	 * Max number of devices allowed for the household
+	 * @return int
+	 */
+	 getDeviceLimit() {
+	 	return this.deviceLimit;
+	 }
+	
+	/**
+	 * Allowed device change frequency code
+	 * @return int
+	 */
+	 getDeviceFrequency() {
+	 	return this.deviceFrequency;
+	 }
+	
+	/**
+	 * Allowed device change frequency description
+	 * @return string
+	 */
+	 getDeviceFrequencyDescription() {
+	 	return this.deviceFrequencyDescription;
+	 }
+	
+	/**
+	 * Allowed user change frequency code
+	 * @return int
+	 */
+	 getUserFrequency() {
+	 	return this.userFrequency;
+	 }
+	
+	/**
+	 * Allowed user change frequency description
+	 * @return string
+	 */
+	 getUserFrequencyDescription() {
+	 	return this.userFrequencyDescription;
+	 }
+	
+	/**
+	 * Allowed NPVR Quota in Seconds
+	 * @return int
+	 */
+	 getNpvrQuotaInSeconds() {
+	 	return this.npvrQuotaInSeconds;
+	 }
+	
+	/**
+	 * Max number of users allowed for the household
+	 * @return int
+	 */
+	 getUsersLimit() {
+	 	return this.usersLimit;
+	 }
+	
+	/**
+	 * Device families limitations
+	 * @return array
+	 */
+	 getDeviceFamiliesLimitations() {
+	 	return this.deviceFamiliesLimitations;
+	 }
+}
+module.exports.HouseholdLimitations = HouseholdLimitations;
+
+/**
+ *
+ */
+class HouseholdLimitationsListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdLimitationsListResponse';
+	}
+	
+	/**
+	 * Household limitations
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Household limitations
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.HouseholdLimitationsListResponse = HouseholdLimitationsListResponse;
+
+/**
+ *
+ */
+class HouseholdDevice extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdDevice';
+	}
+	
+	/**
+	 * Household identifier
+	 * @return int
+	 */
+	 getHouseholdId() {
+	 	return this.householdId;
+	 }
+	
+	/**
+	 * @param householdId int Household identifier
+	 */
+	 setHouseholdId(householdId) {
+	 	this.householdId = householdId;
+	 }
+	
+	/**
+	 * Device UDID
+	 * @return string
+	 */
+	 getUdid() {
+	 	return this.udid;
+	 }
+	
+	/**
+	 * @param udid string Device UDID
+	 */
+	 setUdid(udid) {
+	 	this.udid = udid;
+	 }
+	
+	/**
+	 * Device name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Device name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Device brand identifier
+	 * @return int
+	 */
+	 getBrandId() {
+	 	return this.brandId;
+	 }
+	
+	/**
+	 * @param brandId int Device brand identifier
+	 */
+	 setBrandId(brandId) {
+	 	this.brandId = brandId;
+	 }
+	
+	/**
+	 * Device activation date (epoch)
+	 * @return int
+	 */
+	 getActivatedOn() {
+	 	return this.activatedOn;
+	 }
+	
+	/**
+	 * @param activatedOn int Device activation date (epoch)
+	 */
+	 setActivatedOn(activatedOn) {
+	 	this.activatedOn = activatedOn;
+	 }
+	
+	/**
+	 * Device state
+	 * @return string
+	 */
+	 getStatus() {
+	 	return this.status;
+	 }
+	
+	/**
+	 * Device family id
+	 * @return int
+	 */
+	 getDeviceFamilyId() {
+	 	return this.deviceFamilyId;
+	 }
+	
+	/**
+	 * Device DRM data
+	 * @return CustomDrmPlaybackPluginData
+	 */
+	 getDrm() {
+	 	return this.drm;
+	 }
+}
+module.exports.HouseholdDevice = HouseholdDevice;
+
+/**
+ *
+ */
+class DeviceFamily extends DeviceFamilyBase{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDeviceFamily';
+	}
+}
+module.exports.DeviceFamily = DeviceFamily;
+
+/**
+ *
+ */
+class HouseholdDeviceListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdDeviceListResponse';
+	}
+	
+	/**
+	 * Household devices
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Household devices
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.HouseholdDeviceListResponse = HouseholdDeviceListResponse;
+
+/**
+ *
+ */
+class HouseholdUser extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdUser';
+	}
+	
+	/**
+	 * The identifier of the household
+	 * @return int
+	 */
+	 getHouseholdId() {
+	 	return this.householdId;
+	 }
+	
+	/**
+	 * @param householdId int The identifier of the household
+	 */
+	 setHouseholdId(householdId) {
+	 	this.householdId = householdId;
+	 }
+	
+	/**
+	 * The identifier of the user
+	 * @return string
+	 */
+	 getUserId() {
+	 	return this.userId;
+	 }
+	
+	/**
+	 * @param userId string The identifier of the user
+	 */
+	 setUserId(userId) {
+	 	this.userId = userId;
+	 }
+	
+	/**
+	 * True if the user added as master use
+	 * @return bool
+	 */
+	 getIsMaster() {
+	 	return this.isMaster;
+	 }
+	
+	/**
+	 * @param isMaster bool True if the user added as master use
+	 */
+	 setIsMaster(isMaster) {
+	 	this.isMaster = isMaster;
+	 }
+	
+	/**
+	 * The username of the household master for adding a user in status pending for the household master to approve
+	 * @return string
+	 */
+	 getHouseholdMasterUsername() {
+	 	return this.householdMasterUsername;
+	 }
+	
+	/**
+	 * @param householdMasterUsername string The username of the household master for adding a user in status pending for the household master to approve
+	 */
+	 setHouseholdMasterUsername(householdMasterUsername) {
+	 	this.householdMasterUsername = householdMasterUsername;
+	 }
+	
+	/**
+	 * The status of the user in the household
+	 * @return string
+	 */
+	 getStatus() {
+	 	return this.status;
+	 }
+	
+	/**
+	 * True if the user is a default user
+	 * @return bool
+	 */
+	 getIsDefault() {
+	 	return this.isDefault;
+	 }
+}
+module.exports.HouseholdUser = HouseholdUser;
+
+/**
+ *
+ */
+class HouseholdUserListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdUserListResponse';
+	}
+	
+	/**
+	 * Household users
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Household users
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.HouseholdUserListResponse = HouseholdUserListResponse;
+
+/**
+ *
+ */
+class HomeNetwork extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHomeNetwork';
+	}
+	
+	/**
+	 * Home network identifier
+	 * @return string
+	 */
+	 getExternalId() {
+	 	return this.externalId;
+	 }
+	
+	/**
+	 * @param externalId string Home network identifier
+	 */
+	 setExternalId(externalId) {
+	 	this.externalId = externalId;
+	 }
+	
+	/**
+	 * Home network name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Home network name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Home network description
+	 * @return string
+	 */
+	 getDescription() {
+	 	return this.description;
+	 }
+	
+	/**
+	 * @param description string Home network description
+	 */
+	 setDescription(description) {
+	 	this.description = description;
+	 }
+	
+	/**
+	 * Is home network is active
+	 * @return bool
+	 */
+	 getIsActive() {
+	 	return this.isActive;
+	 }
+	
+	/**
+	 * @param isActive bool Is home network is active
+	 */
+	 setIsActive(isActive) {
+	 	this.isActive = isActive;
+	 }
+}
+module.exports.HomeNetwork = HomeNetwork;
+
+/**
+ *
+ */
+class HomeNetworkListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHomeNetworkListResponse';
+	}
+	
+	/**
+	 * Home networks
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Home networks
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.HomeNetworkListResponse = HomeNetworkListResponse;
 
 /**
  *
@@ -14247,6 +14640,21 @@ class Currency extends kaltura.BaseObject{
 	}
 	
 	/**
+	 * Identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id int Identifier
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
 	 * Currency name
 	 * @return string
 	 */
@@ -14371,6 +14779,21 @@ class Language extends kaltura.BaseObject{
 		super(object);
 		this.objectType = 'KalturaLanguage';
 	}
+	
+	/**
+	 * Identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id int Identifier
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
 	
 	/**
 	 * Language name
@@ -15012,53 +15435,6 @@ module.exports.SearchHistoryListResponse = SearchHistoryListResponse;
 /**
  *
  */
-class DeviceFamilyBase extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDeviceFamilyBase';
-	}
-	
-	/**
-	 * Device family identifier
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Device family name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Device family name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-}
-module.exports.DeviceFamilyBase = DeviceFamilyBase;
-
-/**
- *
- */
-class DeviceFamily extends DeviceFamilyBase{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDeviceFamily';
-	}
-}
-module.exports.DeviceFamily = DeviceFamily;
-
-/**
- *
- */
 class DeviceFamilyListResponse extends ListResponse{
 	
 	constructor(object = null) {
@@ -15082,63 +15458,6 @@ class DeviceFamilyListResponse extends ListResponse{
 	 }
 }
 module.exports.DeviceFamilyListResponse = DeviceFamilyListResponse;
-
-/**
- *
- */
-class HouseholdDeviceFamilyLimitations extends DeviceFamilyBase{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdDeviceFamilyLimitations';
-	}
-	
-	/**
-	 * Allowed device change frequency code
-	 * @return int
-	 */
-	 getFrequency() {
-	 	return this.frequency;
-	 }
-	
-	/**
-	 * @param frequency int Allowed device change frequency code
-	 */
-	 setFrequency(frequency) {
-	 	this.frequency = frequency;
-	 }
-	
-	/**
-	 * Max number of devices allowed for this family
-	 * @return int
-	 */
-	 getDeviceLimit() {
-	 	return this.deviceLimit;
-	 }
-	
-	/**
-	 * @param deviceLimit int Max number of devices allowed for this family
-	 */
-	 setDeviceLimit(deviceLimit) {
-	 	this.deviceLimit = deviceLimit;
-	 }
-	
-	/**
-	 * Max number of streams allowed for this family
-	 * @return int
-	 */
-	 getConcurrentLimit() {
-	 	return this.concurrentLimit;
-	 }
-	
-	/**
-	 * @param concurrentLimit int Max number of streams allowed for this family
-	 */
-	 setConcurrentLimit(concurrentLimit) {
-	 	this.concurrentLimit = concurrentLimit;
-	 }
-}
-module.exports.HouseholdDeviceFamilyLimitations = HouseholdDeviceFamilyLimitations;
 
 /**
  *
@@ -16911,75 +17230,6 @@ module.exports.PaymentMethodProfileFilter = PaymentMethodProfileFilter;
 /**
  *
  */
-class HouseholdDeviceFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdDeviceFilter';
-	}
-	
-	/**
-	 * The identifier of the household
-	 * @return int
-	 */
-	 getHouseholdIdEqual() {
-	 	return this.householdIdEqual;
-	 }
-	
-	/**
-	 * @param householdIdEqual int The identifier of the household
-	 */
-	 setHouseholdIdEqual(householdIdEqual) {
-	 	this.householdIdEqual = householdIdEqual;
-	 }
-	
-	/**
-	 * Device family Ids
-	 * @return string
-	 */
-	 getDeviceFamilyIdIn() {
-	 	return this.deviceFamilyIdIn;
-	 }
-	
-	/**
-	 * @param deviceFamilyIdIn string Device family Ids
-	 */
-	 setDeviceFamilyIdIn(deviceFamilyIdIn) {
-	 	this.deviceFamilyIdIn = deviceFamilyIdIn;
-	 }
-}
-module.exports.HouseholdDeviceFilter = HouseholdDeviceFilter;
-
-/**
- *
- */
-class HouseholdUserFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdUserFilter';
-	}
-	
-	/**
-	 * The identifier of the household
-	 * @return int
-	 */
-	 getHouseholdIdEqual() {
-	 	return this.householdIdEqual;
-	 }
-	
-	/**
-	 * @param householdIdEqual int The identifier of the household
-	 */
-	 setHouseholdIdEqual(householdIdEqual) {
-	 	this.householdIdEqual = householdIdEqual;
-	 }
-}
-module.exports.HouseholdUserFilter = HouseholdUserFilter;
-
-/**
- *
- */
 class ConfigurationsFilter extends Filter{
 	
 	constructor(object = null) {
@@ -17524,33 +17774,6 @@ class TopicFilter extends Filter{
 	}
 }
 module.exports.TopicFilter = TopicFilter;
-
-/**
- *
- */
-class PartnerConfigurationFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPartnerConfigurationFilter';
-	}
-	
-	/**
-	 * Indicates which partner configuration list to return
-	 * @return string
-	 */
-	 getPartnerConfigurationTypeEqual() {
-	 	return this.partnerConfigurationTypeEqual;
-	 }
-	
-	/**
-	 * @param partnerConfigurationTypeEqual string Indicates which partner configuration list to return
-	 */
-	 setPartnerConfigurationTypeEqual(partnerConfigurationTypeEqual) {
-	 	this.partnerConfigurationTypeEqual = partnerConfigurationTypeEqual;
-	 }
-}
-module.exports.PartnerConfigurationFilter = PartnerConfigurationFilter;
 
 /**
  *
@@ -18678,6 +18901,102 @@ class SubscriptionFilter extends Filter{
 	 }
 }
 module.exports.SubscriptionFilter = SubscriptionFilter;
+
+/**
+ *
+ */
+class PartnerConfigurationFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPartnerConfigurationFilter';
+	}
+	
+	/**
+	 * Indicates which partner configuration list to return
+	 * @return string
+	 */
+	 getPartnerConfigurationTypeEqual() {
+	 	return this.partnerConfigurationTypeEqual;
+	 }
+	
+	/**
+	 * @param partnerConfigurationTypeEqual string Indicates which partner configuration list to return
+	 */
+	 setPartnerConfigurationTypeEqual(partnerConfigurationTypeEqual) {
+	 	this.partnerConfigurationTypeEqual = partnerConfigurationTypeEqual;
+	 }
+}
+module.exports.PartnerConfigurationFilter = PartnerConfigurationFilter;
+
+/**
+ *
+ */
+class HouseholdDeviceFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdDeviceFilter';
+	}
+	
+	/**
+	 * The identifier of the household
+	 * @return int
+	 */
+	 getHouseholdIdEqual() {
+	 	return this.householdIdEqual;
+	 }
+	
+	/**
+	 * @param householdIdEqual int The identifier of the household
+	 */
+	 setHouseholdIdEqual(householdIdEqual) {
+	 	this.householdIdEqual = householdIdEqual;
+	 }
+	
+	/**
+	 * Device family Ids
+	 * @return string
+	 */
+	 getDeviceFamilyIdIn() {
+	 	return this.deviceFamilyIdIn;
+	 }
+	
+	/**
+	 * @param deviceFamilyIdIn string Device family Ids
+	 */
+	 setDeviceFamilyIdIn(deviceFamilyIdIn) {
+	 	this.deviceFamilyIdIn = deviceFamilyIdIn;
+	 }
+}
+module.exports.HouseholdDeviceFilter = HouseholdDeviceFilter;
+
+/**
+ *
+ */
+class HouseholdUserFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdUserFilter';
+	}
+	
+	/**
+	 * The identifier of the household
+	 * @return int
+	 */
+	 getHouseholdIdEqual() {
+	 	return this.householdIdEqual;
+	 }
+	
+	/**
+	 * @param householdIdEqual int The identifier of the household
+	 */
+	 setHouseholdIdEqual(householdIdEqual) {
+	 	this.householdIdEqual = householdIdEqual;
+	 }
+}
+module.exports.HouseholdUserFilter = HouseholdUserFilter;
 
 /**
  *
@@ -23164,106 +23483,6 @@ class UserAssetsListItem extends kaltura.BaseObject{
 	 }
 }
 module.exports.UserAssetsListItem = UserAssetsListItem;
-
-/**
- *
- */
-class HouseholdLimitations extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdLimitations';
-	}
-	
-	/**
-	 * Household limitation module identifier
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Household limitation module name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * Max number of streams allowed for the household
-	 * @return int
-	 */
-	 getConcurrentLimit() {
-	 	return this.concurrentLimit;
-	 }
-	
-	/**
-	 * Max number of devices allowed for the household
-	 * @return int
-	 */
-	 getDeviceLimit() {
-	 	return this.deviceLimit;
-	 }
-	
-	/**
-	 * Allowed device change frequency code
-	 * @return int
-	 */
-	 getDeviceFrequency() {
-	 	return this.deviceFrequency;
-	 }
-	
-	/**
-	 * Allowed device change frequency description
-	 * @return string
-	 */
-	 getDeviceFrequencyDescription() {
-	 	return this.deviceFrequencyDescription;
-	 }
-	
-	/**
-	 * Allowed user change frequency code
-	 * @return int
-	 */
-	 getUserFrequency() {
-	 	return this.userFrequency;
-	 }
-	
-	/**
-	 * Allowed user change frequency description
-	 * @return string
-	 */
-	 getUserFrequencyDescription() {
-	 	return this.userFrequencyDescription;
-	 }
-	
-	/**
-	 * Allowed NPVR Quota in Seconds
-	 * @return int
-	 */
-	 getNpvrQuotaInSeconds() {
-	 	return this.npvrQuotaInSeconds;
-	 }
-	
-	/**
-	 * Max number of users allowed for the household
-	 * @return int
-	 */
-	 getUsersLimit() {
-	 	return this.usersLimit;
-	 }
-	
-	/**
-	 * Device families limitations
-	 * @return array
-	 */
-	 getDeviceFamiliesLimitations() {
-	 	return this.deviceFamiliesLimitations;
-	 }
-}
-module.exports.HouseholdLimitations = HouseholdLimitations;
 
 /**
  *
