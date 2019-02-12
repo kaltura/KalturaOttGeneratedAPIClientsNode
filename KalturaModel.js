@@ -5614,6 +5614,14 @@ class SingleSegmentValue extends BaseSegmentValue{
 	 getId() {
 	 	return this.id;
 	 }
+	
+	/**
+	 * The amount of users that are being affected by this Segmentation type
+	 * @return int
+	 */
+	 getAffectedUsers() {
+	 	return this.affectedUsers;
+	 }
 }
 module.exports.SingleSegmentValue = SingleSegmentValue;
 
