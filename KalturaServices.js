@@ -2458,10 +2458,12 @@ class householdDevice{
 	
 	/**
 	 * Returns device registration status to the supplied household.
+	 * @param udid string device id (optional, default: null)
 	 * @return KalturaHouseholdDevice
 	 */
-	static get(){
+	static get(udid = null){
 		let kparams = {};
+		kparams.udid = udid;
 		return new kaltura.RequestBuilder('householddevice', 'get', kparams);
 	};
 	
