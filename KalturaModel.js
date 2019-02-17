@@ -10285,6 +10285,13 @@ class Recording extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * @param viewableUntilDate int Specifies until when the recording is available for viewing. Date and time represented as epoch
+	 */
+	 setViewableUntilDate(viewableUntilDate) {
+	 	this.viewableUntilDate = viewableUntilDate;
+	 }
+	
+	/**
 	 * Specifies whether or not the recording is protected
 	 * @return bool
 	 */
@@ -10355,6 +10362,14 @@ class ExternalRecording extends Recording{
 	 */
 	 setMetaData(metaData) {
 	 	this.metaData = metaData;
+	 }
+	
+	/**
+	 * Specifies until when the recording is available. Date and time represented as epoch
+	 * @return int
+	 */
+	 getExpiryDate() {
+	 	return this.expiryDate;
 	 }
 }
 module.exports.ExternalRecording = ExternalRecording;
