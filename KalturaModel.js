@@ -14042,6 +14042,18 @@ module.exports.AssetUserRuleBlockAction = AssetUserRuleBlockAction;
 /**
  *
  */
+class AssetUserRuleFilterAction extends AssetUserRuleAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetUserRuleFilterAction';
+	}
+}
+module.exports.AssetUserRuleFilterAction = AssetUserRuleFilterAction;
+
+/**
+ *
+ */
 class AssetRuleBase extends Rule{
 	
 	constructor(object = null) {
