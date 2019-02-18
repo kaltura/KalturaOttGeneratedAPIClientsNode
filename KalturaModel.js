@@ -14048,6 +14048,21 @@ class AssetUserRuleFilterAction extends AssetUserRuleAction{
 		super(object);
 		this.objectType = 'KalturaAssetUserRuleFilterAction';
 	}
+	
+	/**
+	 * Indicates whether to apply on channel
+	 * @return bool
+	 */
+	 getApplyOnChannel() {
+	 	return this.applyOnChannel;
+	 }
+	
+	/**
+	 * @param applyOnChannel bool Indicates whether to apply on channel
+	 */
+	 setApplyOnChannel(applyOnChannel) {
+	 	this.applyOnChannel = applyOnChannel;
+	 }
 }
 module.exports.AssetUserRuleFilterAction = AssetUserRuleFilterAction;
 
