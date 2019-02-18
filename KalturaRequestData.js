@@ -241,6 +241,25 @@ class RequestData {
 		return this.requestData['skipCondition'];
 	};
 	
+	/**
+	 * Abort the Multireuqset call if any error occurs in one of the requests
+	 * 
+	 * @param bool abortOnError
+	 */
+	setAbortOnError(abortOnError){
+		this.requestData['abortOnError'] = abortOnError;
+		return this;
+	};
+	
+	/**
+	 * Abort the Multireuqset call if any error occurs in one of the requests
+	 * 
+	 * @return bool
+	 */
+	getAbortOnError(){
+		return this.requestData['abortOnError'];
+	};
+	
 }
 
 class VolatileRequestData extends RequestData {
