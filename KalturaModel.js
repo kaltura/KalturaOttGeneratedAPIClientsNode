@@ -9159,18 +9159,18 @@ class GeneralPartnerConfig extends PartnerConfiguration{
 	 }
 	
 	/**
-	 * A list of comma separated currencys ids
+	 * A list of comma separated currency ids
 	 * @return string
 	 */
-	 getSecondaryCurrencys() {
-	 	return this.secondaryCurrencys;
+	 getSecondaryCurrencies() {
+	 	return this.secondaryCurrencies;
 	 }
 	
 	/**
-	 * @param secondaryCurrencys string A list of comma separated currencys ids
+	 * @param secondaryCurrencies string A list of comma separated currency ids
 	 */
-	 setSecondaryCurrencys(secondaryCurrencys) {
-	 	this.secondaryCurrencys = secondaryCurrencys;
+	 setSecondaryCurrencies(secondaryCurrencies) {
+	 	this.secondaryCurrencies = secondaryCurrencies;
 	 }
 	
 	/**
@@ -20171,6 +20171,21 @@ class CurrencyFilter extends Filter{
 	 setCodeIn(codeIn) {
 	 	this.codeIn = codeIn;
 	 }
+	
+	/**
+	 * Exclude partner
+	 * @return bool
+	 */
+	 getExcludePartner() {
+	 	return this.excludePartner;
+	 }
+	
+	/**
+	 * @param excludePartner bool Exclude partner
+	 */
+	 setExcludePartner(excludePartner) {
+	 	this.excludePartner = excludePartner;
+	 }
 }
 module.exports.CurrencyFilter = CurrencyFilter;
 
@@ -20197,6 +20212,21 @@ class LanguageFilter extends Filter{
 	 */
 	 setCodeIn(codeIn) {
 	 	this.codeIn = codeIn;
+	 }
+	
+	/**
+	 * Exclude partner
+	 * @return bool
+	 */
+	 getExcludePartner() {
+	 	return this.excludePartner;
+	 }
+	
+	/**
+	 * @param excludePartner bool Exclude partner
+	 */
+	 setExcludePartner(excludePartner) {
+	 	this.excludePartner = excludePartner;
 	 }
 }
 module.exports.LanguageFilter = LanguageFilter;
@@ -20969,7 +20999,7 @@ class PlaybackContextOptions extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Playback streamer type: applehttp, mpegdash, url
+	 * Playback streamer type: applehttp, mpegdash, url, smothstreaming, none
 	 * @return string
 	 */
 	 getStreamerType() {
@@ -20977,7 +21007,7 @@ class PlaybackContextOptions extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param streamerType string Playback streamer type: applehttp, mpegdash, url
+	 * @param streamerType string Playback streamer type: applehttp, mpegdash, url, smothstreaming, none
 	 */
 	 setStreamerType(streamerType) {
 	 	this.streamerType = streamerType;
