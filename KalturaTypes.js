@@ -522,7 +522,6 @@ APPLE_HTTP : 'APPLE_HTTP',
 MPEG_DASH : 'MPEG_DASH',
 URL : 'URL',
 SMOOTH_STREAMING : 'SMOOTH_STREAMING',
-NONE : 'NONE',
 };
 
 module.exports.MediaFileTypeQuality = {
