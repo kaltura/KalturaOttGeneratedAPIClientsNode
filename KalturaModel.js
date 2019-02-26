@@ -4751,337 +4751,83 @@ module.exports.TopicListResponse = TopicListResponse;
 /**
  *
  */
-class T extends kaltura.BaseObject{
+class ResponseStatus extends kaltura.BaseObject{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaT';
-	}
-}
-module.exports.T = T;
-
-/**
- *
- */
-class GenericListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaGenericListResponse';
+		this.objectType = 'KalturaResponseStatus';
 	}
 	
 	/**
-	 * A list of objects
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array A list of objects
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.GenericListResponse = GenericListResponse;
-
-/**
- *
- */
-class IntegerValueListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaIntegerValueListResponse';
-	}
-	
-	/**
-	 * Interger value items
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array Interger value items
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.IntegerValueListResponse = IntegerValueListResponse;
-
-/**
- *
- */
-class Report extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaReport';
-	}
-}
-module.exports.Report = Report;
-
-/**
- *
- */
-class ReportListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaReportListResponse';
-	}
-	
-	/**
-	 * Reports
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array Reports
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.ReportListResponse = ReportListResponse;
-
-/**
- *
- */
-class PushParams extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPushParams';
-	}
-	
-	/**
-	 * Device-Application push token
-	 * @return string
-	 */
-	 getToken() {
-	 	return this.token;
-	 }
-	
-	/**
-	 * @param token string Device-Application push token
-	 */
-	 setToken(token) {
-	 	this.token = token;
-	 }
-	
-	/**
-	 * External device token as received from external push provider in exchange for the device token
-	 * @return string
-	 */
-	 getExternalToken() {
-	 	return this.externalToken;
-	 }
-	
-	/**
-	 * @param externalToken string External device token as received from external push provider in exchange for the device token
-	 */
-	 setExternalToken(externalToken) {
-	 	this.externalToken = externalToken;
-	 }
-}
-module.exports.PushParams = PushParams;
-
-/**
- *
- */
-class DeviceReport extends Report{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDeviceReport';
-	}
-	
-	/**
-	 * Partner unique identifier
+	 * Code
 	 * @return int
 	 */
-	 getPartnerId() {
-	 	return this.partnerId;
+	 getCode() {
+	 	return this.code;
 	 }
 	
 	/**
-	 * @param partnerId int Partner unique identifier
-	 */
-	 setPartnerId(partnerId) {
-	 	this.partnerId = partnerId;
-	 }
-	
-	/**
-	 * Configuration group identifier which the version configuration the device last received belongs to
+	 * Message
 	 * @return string
 	 */
-	 getConfigurationGroupId() {
-	 	return this.configurationGroupId;
-	 }
-	
-	/**
-	 * @param configurationGroupId string Configuration group identifier which the version configuration the device last received belongs to
-	 */
-	 setConfigurationGroupId(configurationGroupId) {
-	 	this.configurationGroupId = configurationGroupId;
-	 }
-	
-	/**
-	 * Device unique identifier
-	 * @return string
-	 */
-	 getUdid() {
-	 	return this.udid;
-	 }
-	
-	/**
-	 * @param udid string Device unique identifier
-	 */
-	 setUdid(udid) {
-	 	this.udid = udid;
-	 }
-	
-	/**
-	 * Device-Application push parameters
-	 * @return PushParams
-	 */
-	 getPushParameters() {
-	 	return this.pushParameters;
-	 }
-	
-	/**
-	 * @param pushParameters PushParams Device-Application push parameters
-	 */
-	 setPushParameters(pushParameters) {
-	 	this.pushParameters = pushParameters;
-	 }
-	
-	/**
-	 * Application version number
-	 * @return string
-	 */
-	 getVersionNumber() {
-	 	return this.versionNumber;
-	 }
-	
-	/**
-	 * @param versionNumber string Application version number
-	 */
-	 setVersionNumber(versionNumber) {
-	 	this.versionNumber = versionNumber;
-	 }
-	
-	/**
-	 * Application version type
-	 * @return string
-	 */
-	 getVersionPlatform() {
-	 	return this.versionPlatform;
-	 }
-	
-	/**
-	 * @param versionPlatform string Application version type
-	 */
-	 setVersionPlatform(versionPlatform) {
-	 	this.versionPlatform = versionPlatform;
-	 }
-	
-	/**
-	 * Application version name
-	 * @return string
-	 */
-	 getVersionAppName() {
-	 	return this.versionAppName;
-	 }
-	
-	/**
-	 * @param versionAppName string Application version name
-	 */
-	 setVersionAppName(versionAppName) {
-	 	this.versionAppName = versionAppName;
-	 }
-	
-	/**
-	 * Last access IP
-	 * @return string
-	 */
-	 getLastAccessIP() {
-	 	return this.lastAccessIP;
-	 }
-	
-	/**
-	 * @param lastAccessIP string Last access IP
-	 */
-	 setLastAccessIP(lastAccessIP) {
-	 	this.lastAccessIP = lastAccessIP;
-	 }
-	
-	/**
-	 * Last device configuration request date
-	 * @return int
-	 */
-	 getLastAccessDate() {
-	 	return this.lastAccessDate;
-	 }
-	
-	/**
-	 * @param lastAccessDate int Last device configuration request date
-	 */
-	 setLastAccessDate(lastAccessDate) {
-	 	this.lastAccessDate = lastAccessDate;
-	 }
-	
-	/**
-	 * request header property
-	 * @return string
-	 */
-	 getUserAgent() {
-	 	return this.userAgent;
-	 }
-	
-	/**
-	 * @param userAgent string request header property
-	 */
-	 setUserAgent(userAgent) {
-	 	this.userAgent = userAgent;
-	 }
-	
-	/**
-	 * Request header property
- * Incase value cannot be found - returns &quot;Unknown 0.0&quot;
-	 * @return string
-	 */
-	 getOperationSystem() {
-	 	return this.operationSystem;
-	 }
-	
-	/**
-	 * @param operationSystem string Request header property
- * Incase value cannot be found - returns &quot;Unknown 0.0&quot;
-	 */
-	 setOperationSystem(operationSystem) {
-	 	this.operationSystem = operationSystem;
+	 getMessage() {
+	 	return this.message;
 	 }
 }
-module.exports.DeviceReport = DeviceReport;
+module.exports.ResponseStatus = ResponseStatus;
 
 /**
  *
  */
-class Bulk extends kaltura.BaseObject{
+class BulkUploadResult extends kaltura.BaseObject{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaBulk';
+		this.objectType = 'KalturaBulkUploadResult';
+	}
+	
+	/**
+	 * the result ObjectId (assetId, userId etc)
+	 * @return int
+	 */
+	 getObjectId() {
+	 	return this.objectId;
+	 }
+	
+	/**
+	 * result index
+	 * @return int
+	 */
+	 getIndex() {
+	 	return this.index;
+	 }
+	
+	/**
+	 * Bulk upload identifier
+	 * @return int
+	 */
+	 getBulkUploadId() {
+	 	return this.bulkUploadId;
+	 }
+	
+	/**
+	 * status
+	 * @return ResponseStatus
+	 */
+	 getStatus() {
+	 	return this.status;
+	 }
+}
+module.exports.BulkUploadResult = BulkUploadResult;
+
+/**
+ *
+ */
+class BulkUpload extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUpload';
 	}
 	
 	/**
@@ -5115,21 +4861,45 @@ class Bulk extends kaltura.BaseObject{
 	 getUpdateDate() {
 	 	return this.updateDate;
 	 }
+	
+	/**
+	 * Upload Token Id
+	 * @return string
+	 */
+	 getUploadTokenId() {
+	 	return this.uploadTokenId;
+	 }
+	
+	/**
+	 * Action
+	 * @return string
+	 */
+	 getAction() {
+	 	return this.action;
+	 }
+	
+	/**
+	 * A list of results
+	 * @return array
+	 */
+	 getResults() {
+	 	return this.results;
+	 }
 }
-module.exports.Bulk = Bulk;
+module.exports.BulkUpload = BulkUpload;
 
 /**
  *
  */
-class BulkListResponse extends ListResponse{
+class BulkUploadListResponse extends ListResponse{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaBulkListResponse';
+		this.objectType = 'KalturaBulkUploadListResponse';
 	}
 	
 	/**
-	 * bulk items
+	 * bulk upload items
 	 * @return array
 	 */
 	 getObjects() {
@@ -5137,13 +4907,42 @@ class BulkListResponse extends ListResponse{
 	 }
 	
 	/**
-	 * @param objects array bulk items
+	 * @param objects array bulk upload items
 	 */
 	 setObjects(objects) {
 	 	this.objects = objects;
 	 }
 }
-module.exports.BulkListResponse = BulkListResponse;
+module.exports.BulkUploadListResponse = BulkUploadListResponse;
+
+/**
+ *
+ */
+class BulkUploadAssetResult extends BulkUploadResult{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUploadAssetResult';
+	}
+	
+	/**
+	 * Identifies the asset type (EPG, Recording, Movie, TV Series, etc).
+ * Possible values: 0 – EPG linear programs, 1 - Recording; or any asset type ID according to the asset types IDs defined in the system
+	 * @return int
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * External identifier for the asset
+	 * @return string
+	 */
+	 getExternalId() {
+	 	return this.externalId;
+	 }
+}
+module.exports.BulkUploadAssetResult = BulkUploadAssetResult;
 
 /**
  *
@@ -9318,6 +9117,332 @@ class BillingPartnerConfig extends PartnerConfiguration{
 	 }
 }
 module.exports.BillingPartnerConfig = BillingPartnerConfig;
+
+/**
+ *
+ */
+class T extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaT';
+	}
+}
+module.exports.T = T;
+
+/**
+ *
+ */
+class GenericListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaGenericListResponse';
+	}
+	
+	/**
+	 * A list of objects
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of objects
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.GenericListResponse = GenericListResponse;
+
+/**
+ *
+ */
+class IntegerValueListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIntegerValueListResponse';
+	}
+	
+	/**
+	 * Interger value items
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Interger value items
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.IntegerValueListResponse = IntegerValueListResponse;
+
+/**
+ *
+ */
+class Report extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaReport';
+	}
+}
+module.exports.Report = Report;
+
+/**
+ *
+ */
+class ReportListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaReportListResponse';
+	}
+	
+	/**
+	 * Reports
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Reports
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.ReportListResponse = ReportListResponse;
+
+/**
+ *
+ */
+class PushParams extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPushParams';
+	}
+	
+	/**
+	 * Device-Application push token
+	 * @return string
+	 */
+	 getToken() {
+	 	return this.token;
+	 }
+	
+	/**
+	 * @param token string Device-Application push token
+	 */
+	 setToken(token) {
+	 	this.token = token;
+	 }
+	
+	/**
+	 * External device token as received from external push provider in exchange for the device token
+	 * @return string
+	 */
+	 getExternalToken() {
+	 	return this.externalToken;
+	 }
+	
+	/**
+	 * @param externalToken string External device token as received from external push provider in exchange for the device token
+	 */
+	 setExternalToken(externalToken) {
+	 	this.externalToken = externalToken;
+	 }
+}
+module.exports.PushParams = PushParams;
+
+/**
+ *
+ */
+class DeviceReport extends Report{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDeviceReport';
+	}
+	
+	/**
+	 * Partner unique identifier
+	 * @return int
+	 */
+	 getPartnerId() {
+	 	return this.partnerId;
+	 }
+	
+	/**
+	 * @param partnerId int Partner unique identifier
+	 */
+	 setPartnerId(partnerId) {
+	 	this.partnerId = partnerId;
+	 }
+	
+	/**
+	 * Configuration group identifier which the version configuration the device last received belongs to
+	 * @return string
+	 */
+	 getConfigurationGroupId() {
+	 	return this.configurationGroupId;
+	 }
+	
+	/**
+	 * @param configurationGroupId string Configuration group identifier which the version configuration the device last received belongs to
+	 */
+	 setConfigurationGroupId(configurationGroupId) {
+	 	this.configurationGroupId = configurationGroupId;
+	 }
+	
+	/**
+	 * Device unique identifier
+	 * @return string
+	 */
+	 getUdid() {
+	 	return this.udid;
+	 }
+	
+	/**
+	 * @param udid string Device unique identifier
+	 */
+	 setUdid(udid) {
+	 	this.udid = udid;
+	 }
+	
+	/**
+	 * Device-Application push parameters
+	 * @return PushParams
+	 */
+	 getPushParameters() {
+	 	return this.pushParameters;
+	 }
+	
+	/**
+	 * @param pushParameters PushParams Device-Application push parameters
+	 */
+	 setPushParameters(pushParameters) {
+	 	this.pushParameters = pushParameters;
+	 }
+	
+	/**
+	 * Application version number
+	 * @return string
+	 */
+	 getVersionNumber() {
+	 	return this.versionNumber;
+	 }
+	
+	/**
+	 * @param versionNumber string Application version number
+	 */
+	 setVersionNumber(versionNumber) {
+	 	this.versionNumber = versionNumber;
+	 }
+	
+	/**
+	 * Application version type
+	 * @return string
+	 */
+	 getVersionPlatform() {
+	 	return this.versionPlatform;
+	 }
+	
+	/**
+	 * @param versionPlatform string Application version type
+	 */
+	 setVersionPlatform(versionPlatform) {
+	 	this.versionPlatform = versionPlatform;
+	 }
+	
+	/**
+	 * Application version name
+	 * @return string
+	 */
+	 getVersionAppName() {
+	 	return this.versionAppName;
+	 }
+	
+	/**
+	 * @param versionAppName string Application version name
+	 */
+	 setVersionAppName(versionAppName) {
+	 	this.versionAppName = versionAppName;
+	 }
+	
+	/**
+	 * Last access IP
+	 * @return string
+	 */
+	 getLastAccessIP() {
+	 	return this.lastAccessIP;
+	 }
+	
+	/**
+	 * @param lastAccessIP string Last access IP
+	 */
+	 setLastAccessIP(lastAccessIP) {
+	 	this.lastAccessIP = lastAccessIP;
+	 }
+	
+	/**
+	 * Last device configuration request date
+	 * @return int
+	 */
+	 getLastAccessDate() {
+	 	return this.lastAccessDate;
+	 }
+	
+	/**
+	 * @param lastAccessDate int Last device configuration request date
+	 */
+	 setLastAccessDate(lastAccessDate) {
+	 	this.lastAccessDate = lastAccessDate;
+	 }
+	
+	/**
+	 * request header property
+	 * @return string
+	 */
+	 getUserAgent() {
+	 	return this.userAgent;
+	 }
+	
+	/**
+	 * @param userAgent string request header property
+	 */
+	 setUserAgent(userAgent) {
+	 	this.userAgent = userAgent;
+	 }
+	
+	/**
+	 * Request header property
+ * Incase value cannot be found - returns &quot;Unknown 0.0&quot;
+	 * @return string
+	 */
+	 getOperationSystem() {
+	 	return this.operationSystem;
+	 }
+	
+	/**
+	 * @param operationSystem string Request header property
+ * Incase value cannot be found - returns &quot;Unknown 0.0&quot;
+	 */
+	 setOperationSystem(operationSystem) {
+	 	this.operationSystem = operationSystem;
+	 }
+}
+module.exports.DeviceReport = DeviceReport;
 
 /**
  *
@@ -17828,18 +17953,6 @@ module.exports.TopicFilter = TopicFilter;
 /**
  *
  */
-class AggregationCountFilter extends RelatedObjectFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAggregationCountFilter';
-	}
-}
-module.exports.AggregationCountFilter = AggregationCountFilter;
-
-/**
- *
- */
 class PersistedFilter extends Filter{
 	
 	constructor(object = null) {
@@ -17867,15 +17980,15 @@ module.exports.PersistedFilter = PersistedFilter;
 /**
  *
  */
-class BulkFilter extends PersistedFilter{
+class BulkUploadFilter extends PersistedFilter{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaBulkFilter';
+		this.objectType = 'KalturaBulkUploadFilter';
 	}
 	
 	/**
-	 * dynamicOrderBy - order by Meta
+	 * Indicates which Bulk Upload list to return by this KalturaBatchUploadJobStatus
 	 * @return string
 	 */
 	 getStatusEqual() {
@@ -17883,13 +17996,13 @@ class BulkFilter extends PersistedFilter{
 	 }
 	
 	/**
-	 * @param statusEqual string dynamicOrderBy - order by Meta
+	 * @param statusEqual string Indicates which Bulk Upload list to return by this KalturaBatchUploadJobStatus
 	 */
 	 setStatusEqual(statusEqual) {
 	 	this.statusEqual = statusEqual;
 	 }
 }
-module.exports.BulkFilter = BulkFilter;
+module.exports.BulkUploadFilter = BulkUploadFilter;
 
 /**
  *
@@ -18978,6 +19091,18 @@ class PartnerConfigurationFilter extends Filter{
 	 }
 }
 module.exports.PartnerConfigurationFilter = PartnerConfigurationFilter;
+
+/**
+ *
+ */
+class AggregationCountFilter extends RelatedObjectFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAggregationCountFilter';
+	}
+}
+module.exports.AggregationCountFilter = AggregationCountFilter;
 
 /**
  *
@@ -20144,6 +20269,21 @@ class AssetUserRuleFilter extends Filter{
 	 setAttachedUserIdEqualCurrent(attachedUserIdEqualCurrent) {
 	 	this.attachedUserIdEqualCurrent = attachedUserIdEqualCurrent;
 	 }
+	
+	/**
+	 * Indicates which asset rule list to return by this KalturaRuleActionType
+	 * @return string
+	 */
+	 getActionsContainType() {
+	 	return this.actionsContainType;
+	 }
+	
+	/**
+	 * @param actionsContainType string Indicates which asset rule list to return by this KalturaRuleActionType
+	 */
+	 setActionsContainType(actionsContainType) {
+	 	this.actionsContainType = actionsContainType;
+	 }
 }
 module.exports.AssetUserRuleFilter = AssetUserRuleFilter;
 
@@ -20425,7 +20565,7 @@ class UserAssetRuleFilter extends Filter{
 	 }
 	
 	/**
-	 * Asset type to filter by - 0 = EPG, 1 = media
+	 * Asset type to filter by - 0 = EPG, 1 = media, 2 = npvr
 	 * @return int
 	 */
 	 getAssetTypeEqual() {
@@ -20433,7 +20573,7 @@ class UserAssetRuleFilter extends Filter{
 	 }
 	
 	/**
-	 * @param assetTypeEqual int Asset type to filter by - 0 = EPG, 1 = media
+	 * @param assetTypeEqual int Asset type to filter by - 0 = EPG, 1 = media, 2 = npvr
 	 */
 	 setAssetTypeEqual(assetTypeEqual) {
 	 	this.assetTypeEqual = assetTypeEqual;
@@ -21406,6 +21546,105 @@ class AdsContext extends kaltura.BaseObject{
 	 }
 }
 module.exports.AdsContext = AdsContext;
+
+/**
+ *
+ */
+class BulkUploadEntryData extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUploadEntryData';
+	}
+}
+module.exports.BulkUploadEntryData = BulkUploadEntryData;
+
+/**
+ *
+ */
+class BulkUploadJobData extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUploadJobData';
+	}
+	
+	/**
+	 * EntryData
+	 * @return BulkUploadEntryData
+	 */
+	 getEntryData() {
+	 	return this.entryData;
+	 }
+	
+	/**
+	 * @param entryData BulkUploadEntryData EntryData
+	 */
+	 setEntryData(entryData) {
+	 	this.entryData = entryData;
+	 }
+}
+module.exports.BulkUploadJobData = BulkUploadJobData;
+
+/**
+ *
+ */
+class BulkUploadExcelJobData extends BulkUploadJobData{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUploadExcelJobData';
+	}
+}
+module.exports.BulkUploadExcelJobData = BulkUploadExcelJobData;
+
+/**
+ *
+ */
+class BulkUploadXmlJobData extends BulkUploadJobData{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUploadXmlJobData';
+	}
+}
+module.exports.BulkUploadXmlJobData = BulkUploadXmlJobData;
+
+/**
+ *
+ */
+class BulkUploadAssetEntryData extends BulkUploadEntryData{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUploadAssetEntryData';
+	}
+}
+module.exports.BulkUploadAssetEntryData = BulkUploadAssetEntryData;
+
+/**
+ *
+ */
+class BulkUploadMediaEntryData extends BulkUploadAssetEntryData{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUploadMediaEntryData';
+	}
+}
+module.exports.BulkUploadMediaEntryData = BulkUploadMediaEntryData;
+
+/**
+ *
+ */
+class BulkUploadEpgEntryData extends BulkUploadAssetEntryData{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUploadEpgEntryData';
+	}
+}
+module.exports.BulkUploadEpgEntryData = BulkUploadEpgEntryData;
 
 /**
  *

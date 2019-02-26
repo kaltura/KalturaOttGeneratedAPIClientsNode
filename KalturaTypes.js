@@ -144,7 +144,12 @@ module.exports.AssetUserRuleOrderBy = {
 NONE : 'NONE',
 };
 
-module.exports.BatchJobStatus = {
+module.exports.BatchUploadJobAction = {
+UPSERT : 'Upsert',
+DELETE : 'Delete',
+};
+
+module.exports.BatchUploadJobStatus = {
 PENDING : 'PENDING',
 QUEUED : 'QUEUED',
 PROCESSING : 'PROCESSING',
@@ -153,7 +158,6 @@ MOVEFILE : 'MOVEFILE',
 FINISHED : 'FINISHED',
 FAILED : 'FAILED',
 ABORTED : 'ABORTED',
-ALMOST_DONE : 'ALMOST_DONE',
 RETRY : 'RETRY',
 FATAL : 'FATAL',
 DONT_PROCESS : 'DONT_PROCESS',
@@ -205,8 +209,10 @@ POSITION_ASC : 'POSITION_ASC',
 POSITION_DESC : 'POSITION_DESC',
 };
 
-module.exports.BulkOrderBy = {
+module.exports.BulkUploadOrderBy = {
 NONE : 'NONE',
+UPDATE_DATE : 'UPDATE_DATE',
+STATUS : 'STATUS',
 };
 
 module.exports.BundleType = {

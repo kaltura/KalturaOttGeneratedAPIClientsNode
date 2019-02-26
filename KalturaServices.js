@@ -221,6 +221,7 @@ module.exports.assetComment = assetComment;
  * The available service actions:
  * @action add Add a new asset.
  * For metas of type bool-&gt; use kalturaBoolValue, type number-&gt; KalturaDoubleValue, type date -&gt; KalturaLongValue, type string -&gt; KalturaStringValue.
+ * @action addFromBulkUpload Add new bulk upload batch job Conversion profile id can be specified in the API.
  * @action count Returns a group-by result for media or EPG according to given filter. Lists values of each field and their respective count.
  * @action delete Delete an existing asset.
  * @action get Returns media or EPG asset by media / EPG internal or external identifier.
@@ -243,6 +244,20 @@ class asset{
 		let kparams = {};
 		kparams.asset = asset;
 		return new kaltura.RequestBuilder('asset', 'add', kparams);
+	};
+	
+	/**
+	 * Add new bulk upload batch job Conversion profile id can be specified in the API.
+	 * @param fileData file fileData
+	 * @param bulkUploadJobData BulkUploadJobData bulkUploadJobData
+	 * @return bigint
+	 */
+	static addFromBulkUpload(fileData, bulkUploadJobData){
+		let kparams = {};
+		let kfiles = {};
+		kfiles.fileData = fileData;
+		kparams.bulkUploadJobData = bulkUploadJobData;
+		return new kaltura.RequestBuilder('asset', 'addFromBulkUpload', kparams, kfiles);
 	};
 	
 	/**
@@ -795,38 +810,24 @@ module.exports.bookmark = bookmark;
 
 
 /**
- *Class definition for the Kaltura service: bulk.
+ *Class definition for the Kaltura service: bulkUpload.
  * The available service actions:
- * @action list List bulk actions.
- * @action serveLog ServeLog action returns the log file for the bulk action.
+ * @action list Get list of KalturaBulkUpload by filter.
  */
-class bulk{
+class bulkUpload{
 	
 	/**
-	 * List bulk actions.
-	 * @param filter BulkFilter Filtering the bulk action request (optional, default: null)
-	 * @param pager FilterPager Paging the request (optional, default: null)
-	 * @return KalturaBulkListResponse
+	 * Get list of KalturaBulkUpload by filter.
+	 * @param filter BulkUploadFilter Filtering the bulk action request (optional, default: null)
+	 * @return KalturaBulkUploadListResponse
 	 */
-	static listAction(filter = null, pager = null){
+	static listAction(filter = null){
 		let kparams = {};
 		kparams.filter = filter;
-		kparams.pager = pager;
-		return new kaltura.RequestBuilder('bulk', 'list', kparams);
-	};
-	
-	/**
-	 * ServeLog action returns the log file for the bulk action.
-	 * @param id int bulk action id
-	 * @return KalturaBulk
-	 */
-	static serveLog(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('bulk', 'serveLog', kparams);
+		return new kaltura.RequestBuilder('bulkupload', 'list', kparams);
 	};
 }
-module.exports.bulk = bulk;
+module.exports.bulkUpload = bulkUpload;
 
 
 /**
