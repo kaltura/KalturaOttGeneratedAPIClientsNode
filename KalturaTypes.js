@@ -144,26 +144,6 @@ module.exports.AssetUserRuleOrderBy = {
 NONE : 'NONE',
 };
 
-module.exports.BatchUploadJobAction = {
-UPSERT : 'Upsert',
-DELETE : 'Delete',
-};
-
-module.exports.BatchUploadJobStatus = {
-PENDING : 'PENDING',
-QUEUED : 'QUEUED',
-PROCESSING : 'PROCESSING',
-PROCESSED : 'PROCESSED',
-MOVEFILE : 'MOVEFILE',
-FINISHED : 'FINISHED',
-FAILED : 'FAILED',
-ABORTED : 'ABORTED',
-RETRY : 'RETRY',
-FATAL : 'FATAL',
-DONT_PROCESS : 'DONT_PROCESS',
-FINISHED_PARTIALLY : 'FINISHED_PARTIALLY',
-};
-
 module.exports.BillingAction = {
 UNKNOWN : 'unknown',
 PURCHASE : 'purchase',
@@ -209,10 +189,27 @@ POSITION_ASC : 'POSITION_ASC',
 POSITION_DESC : 'POSITION_DESC',
 };
 
+module.exports.BulkUploadJobAction = {
+UPSERT : 'Upsert',
+DELETE : 'Delete',
+};
+
+module.exports.BulkUploadJobStatus = {
+PENDING : 'PENDING',
+UPLOADED : 'UPLOADED',
+QUEUED : 'QUEUED',
+};
+
 module.exports.BulkUploadOrderBy = {
 NONE : 'NONE',
 UPDATE_DATE : 'UPDATE_DATE',
 STATUS : 'STATUS',
+};
+
+module.exports.BulkUploadResultStatus = {
+ERROR : 'ERROR',
+OK : 'OK',
+IN_PROGRESS : 'IN_PROGRESS',
 };
 
 module.exports.BundleType = {
