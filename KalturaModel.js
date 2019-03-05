@@ -21192,6 +21192,21 @@ class PlaybackContextOptions extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * key/value map field for extra data
+	 * @return map
+	 */
+	 getAdapterData() {
+	 	return this.adapterData;
+	 }
+	
+	/**
+	 * @param adapterData map key/value map field for extra data
+	 */
+	 setAdapterData(adapterData) {
+	 	this.adapterData = adapterData;
+	 }
+	
+	/**
 	 * Playback context type
 	 * @return string
 	 */
@@ -21605,6 +21620,47 @@ class BulkUploadXmlJobData extends BulkUploadJobData{
 	}
 }
 module.exports.BulkUploadXmlJobData = BulkUploadXmlJobData;
+
+/**
+ *
+ */
+class BulkUploadObjectData extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUploadObjectData';
+	}
+}
+module.exports.BulkUploadObjectData = BulkUploadObjectData;
+
+/**
+ *
+ */
+class BulkUploadAssetData extends BulkUploadObjectData{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUploadAssetData';
+	}
+	
+	/**
+	 * Identifies the asset type (EPG, Recording, Movie, TV Series, etc).
+ * Possible values: 0 – EPG linear programs, 1 - Recording; or any asset type ID according to the asset types IDs defined in the system
+	 * @return int
+	 */
+	 getTypeId() {
+	 	return this.typeId;
+	 }
+	
+	/**
+	 * @param typeId int Identifies the asset type (EPG, Recording, Movie, TV Series, etc).
+ * Possible values: 0 – EPG linear programs, 1 - Recording; or any asset type ID according to the asset types IDs defined in the system
+	 */
+	 setTypeId(typeId) {
+	 	this.typeId = typeId;
+	 }
+}
+module.exports.BulkUploadAssetData = BulkUploadAssetData;
 
 /**
  *

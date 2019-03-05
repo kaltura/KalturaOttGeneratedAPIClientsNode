@@ -195,9 +195,16 @@ DELETE : 'Delete',
 };
 
 module.exports.BulkUploadJobStatus = {
-PENDING : 'PENDING',
-UPLOADED : 'UPLOADED',
-QUEUED : 'QUEUED',
+PENDING : 'Pending',
+UPLOADED : 'Uploaded',
+QUEUED : 'Queued',
+PARSING : 'Parsing',
+PROCESSING : 'Processing',
+PROCESSED : 'Processed',
+SUCCESS : 'Success',
+PARTIAL : 'Partial',
+FAILED : 'Failed',
+FATAL : 'Fatal',
 };
 
 module.exports.BulkUploadOrderBy = {
@@ -207,9 +214,9 @@ STATUS : 'STATUS',
 };
 
 module.exports.BulkUploadResultStatus = {
-ERROR : 'ERROR',
-OK : 'OK',
-IN_PROGRESS : 'IN_PROGRESS',
+ERROR : 'Error',
+OK : 'Ok',
+INPROGRESS : 'InProgress',
 };
 
 module.exports.BundleType = {
@@ -771,6 +778,14 @@ SERIES : 'SERIES',
 
 module.exports.ReportOrderBy = {
 NONE : 'NONE',
+};
+
+module.exports.ResponseType = {
+JSON : 1,
+XML : 2,
+JSONP : 9,
+ASSET_XML : 30,
+EXCEL : 31,
 };
 
 module.exports.RuleActionType = {

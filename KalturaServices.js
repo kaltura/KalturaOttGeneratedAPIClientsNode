@@ -249,16 +249,16 @@ class asset{
 	/**
 	 * Add new bulk upload batch job Conversion profile id can be specified in the API.
 	 * @param fileData file fileData
-	 * @param assetType string assetType (enum: KalturaAssetType)
 	 * @param bulkUploadJobData BulkUploadJobData bulkUploadJobData
+	 * @param bulkUploadAssetData BulkUploadAssetData bulkUploadAssetData
 	 * @return KalturaBulkUpload
 	 */
-	static addFromBulkUpload(fileData, assetType, bulkUploadJobData){
+	static addFromBulkUpload(fileData, bulkUploadJobData, bulkUploadAssetData){
 		let kparams = {};
 		let kfiles = {};
 		kfiles.fileData = fileData;
-		kparams.assetType = assetType;
 		kparams.bulkUploadJobData = bulkUploadJobData;
+		kparams.bulkUploadAssetData = bulkUploadAssetData;
 		return new kaltura.RequestBuilder('asset', 'addFromBulkUpload', kparams, kfiles);
 	};
 	
@@ -603,6 +603,7 @@ module.exports.assetStatistics = assetStatistics;
  * The available service actions:
  * @action add Add a new assetStruct.
  * @action delete Delete an existing assetStruct.
+ * @action get Get AssetStruct by ID.
  * @action list Return a list of asset structs for the account with optional filter.
  * @action update Update an existing assetStruct.
  */
@@ -628,6 +629,17 @@ class assetStruct{
 		let kparams = {};
 		kparams.id = id;
 		return new kaltura.RequestBuilder('assetstruct', 'delete', kparams);
+	};
+	
+	/**
+	 * Get AssetStruct by ID.
+	 * @param id int ID to get
+	 * @return KalturaAssetStruct
+	 */
+	static get(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('assetstruct', 'get', kparams);
 	};
 	
 	/**
@@ -814,9 +826,21 @@ module.exports.bookmark = bookmark;
 /**
  *Class definition for the Kaltura service: bulkUpload.
  * The available service actions:
+ * @action get Get BulkUpload by ID.
  * @action list Get list of KalturaBulkUpload by filter.
  */
 class bulkUpload{
+	
+	/**
+	 * Get BulkUpload by ID.
+	 * @param id int ID to get
+	 * @return KalturaBulkUpload
+	 */
+	static get(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('bulkupload', 'get', kparams);
+	};
 	
 	/**
 	 * Get list of KalturaBulkUpload by filter.
