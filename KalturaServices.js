@@ -845,11 +845,13 @@ class bulkUpload{
 	/**
 	 * Get list of KalturaBulkUpload by filter.
 	 * @param filter BulkUploadFilter Filtering the bulk action request (optional, default: null)
+	 * @param pager FilterPager Paging the request (optional, default: null)
 	 * @return KalturaBulkUploadListResponse
 	 */
-	static listAction(filter = null){
+	static listAction(filter = null, pager = null){
 		let kparams = {};
 		kparams.filter = filter;
+		kparams.pager = pager;
 		return new kaltura.RequestBuilder('bulkupload', 'list', kparams);
 	};
 }

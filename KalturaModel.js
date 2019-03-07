@@ -4751,332 +4751,6 @@ module.exports.TopicListResponse = TopicListResponse;
 /**
  *
  */
-class T extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaT';
-	}
-}
-module.exports.T = T;
-
-/**
- *
- */
-class GenericListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaGenericListResponse';
-	}
-	
-	/**
-	 * A list of objects
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array A list of objects
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.GenericListResponse = GenericListResponse;
-
-/**
- *
- */
-class IntegerValueListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaIntegerValueListResponse';
-	}
-	
-	/**
-	 * Interger value items
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array Interger value items
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.IntegerValueListResponse = IntegerValueListResponse;
-
-/**
- *
- */
-class Report extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaReport';
-	}
-}
-module.exports.Report = Report;
-
-/**
- *
- */
-class ReportListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaReportListResponse';
-	}
-	
-	/**
-	 * Reports
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array Reports
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.ReportListResponse = ReportListResponse;
-
-/**
- *
- */
-class PushParams extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPushParams';
-	}
-	
-	/**
-	 * Device-Application push token
-	 * @return string
-	 */
-	 getToken() {
-	 	return this.token;
-	 }
-	
-	/**
-	 * @param token string Device-Application push token
-	 */
-	 setToken(token) {
-	 	this.token = token;
-	 }
-	
-	/**
-	 * External device token as received from external push provider in exchange for the device token
-	 * @return string
-	 */
-	 getExternalToken() {
-	 	return this.externalToken;
-	 }
-	
-	/**
-	 * @param externalToken string External device token as received from external push provider in exchange for the device token
-	 */
-	 setExternalToken(externalToken) {
-	 	this.externalToken = externalToken;
-	 }
-}
-module.exports.PushParams = PushParams;
-
-/**
- *
- */
-class DeviceReport extends Report{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDeviceReport';
-	}
-	
-	/**
-	 * Partner unique identifier
-	 * @return int
-	 */
-	 getPartnerId() {
-	 	return this.partnerId;
-	 }
-	
-	/**
-	 * @param partnerId int Partner unique identifier
-	 */
-	 setPartnerId(partnerId) {
-	 	this.partnerId = partnerId;
-	 }
-	
-	/**
-	 * Configuration group identifier which the version configuration the device last received belongs to
-	 * @return string
-	 */
-	 getConfigurationGroupId() {
-	 	return this.configurationGroupId;
-	 }
-	
-	/**
-	 * @param configurationGroupId string Configuration group identifier which the version configuration the device last received belongs to
-	 */
-	 setConfigurationGroupId(configurationGroupId) {
-	 	this.configurationGroupId = configurationGroupId;
-	 }
-	
-	/**
-	 * Device unique identifier
-	 * @return string
-	 */
-	 getUdid() {
-	 	return this.udid;
-	 }
-	
-	/**
-	 * @param udid string Device unique identifier
-	 */
-	 setUdid(udid) {
-	 	this.udid = udid;
-	 }
-	
-	/**
-	 * Device-Application push parameters
-	 * @return PushParams
-	 */
-	 getPushParameters() {
-	 	return this.pushParameters;
-	 }
-	
-	/**
-	 * @param pushParameters PushParams Device-Application push parameters
-	 */
-	 setPushParameters(pushParameters) {
-	 	this.pushParameters = pushParameters;
-	 }
-	
-	/**
-	 * Application version number
-	 * @return string
-	 */
-	 getVersionNumber() {
-	 	return this.versionNumber;
-	 }
-	
-	/**
-	 * @param versionNumber string Application version number
-	 */
-	 setVersionNumber(versionNumber) {
-	 	this.versionNumber = versionNumber;
-	 }
-	
-	/**
-	 * Application version type
-	 * @return string
-	 */
-	 getVersionPlatform() {
-	 	return this.versionPlatform;
-	 }
-	
-	/**
-	 * @param versionPlatform string Application version type
-	 */
-	 setVersionPlatform(versionPlatform) {
-	 	this.versionPlatform = versionPlatform;
-	 }
-	
-	/**
-	 * Application version name
-	 * @return string
-	 */
-	 getVersionAppName() {
-	 	return this.versionAppName;
-	 }
-	
-	/**
-	 * @param versionAppName string Application version name
-	 */
-	 setVersionAppName(versionAppName) {
-	 	this.versionAppName = versionAppName;
-	 }
-	
-	/**
-	 * Last access IP
-	 * @return string
-	 */
-	 getLastAccessIP() {
-	 	return this.lastAccessIP;
-	 }
-	
-	/**
-	 * @param lastAccessIP string Last access IP
-	 */
-	 setLastAccessIP(lastAccessIP) {
-	 	this.lastAccessIP = lastAccessIP;
-	 }
-	
-	/**
-	 * Last device configuration request date
-	 * @return int
-	 */
-	 getLastAccessDate() {
-	 	return this.lastAccessDate;
-	 }
-	
-	/**
-	 * @param lastAccessDate int Last device configuration request date
-	 */
-	 setLastAccessDate(lastAccessDate) {
-	 	this.lastAccessDate = lastAccessDate;
-	 }
-	
-	/**
-	 * request header property
-	 * @return string
-	 */
-	 getUserAgent() {
-	 	return this.userAgent;
-	 }
-	
-	/**
-	 * @param userAgent string request header property
-	 */
-	 setUserAgent(userAgent) {
-	 	this.userAgent = userAgent;
-	 }
-	
-	/**
-	 * Request header property
- * Incase value cannot be found - returns &quot;Unknown 0.0&quot;
-	 * @return string
-	 */
-	 getOperationSystem() {
-	 	return this.operationSystem;
-	 }
-	
-	/**
-	 * @param operationSystem string Request header property
- * Incase value cannot be found - returns &quot;Unknown 0.0&quot;
-	 */
-	 setOperationSystem(operationSystem) {
-	 	this.operationSystem = operationSystem;
-	 }
-}
-module.exports.DeviceReport = DeviceReport;
-
-/**
- *
- */
 class BulkUploadResult extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -9466,6 +9140,332 @@ class BillingPartnerConfig extends PartnerConfiguration{
 	 }
 }
 module.exports.BillingPartnerConfig = BillingPartnerConfig;
+
+/**
+ *
+ */
+class T extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaT';
+	}
+}
+module.exports.T = T;
+
+/**
+ *
+ */
+class GenericListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaGenericListResponse';
+	}
+	
+	/**
+	 * A list of objects
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of objects
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.GenericListResponse = GenericListResponse;
+
+/**
+ *
+ */
+class IntegerValueListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIntegerValueListResponse';
+	}
+	
+	/**
+	 * Interger value items
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Interger value items
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.IntegerValueListResponse = IntegerValueListResponse;
+
+/**
+ *
+ */
+class Report extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaReport';
+	}
+}
+module.exports.Report = Report;
+
+/**
+ *
+ */
+class ReportListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaReportListResponse';
+	}
+	
+	/**
+	 * Reports
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Reports
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.ReportListResponse = ReportListResponse;
+
+/**
+ *
+ */
+class PushParams extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPushParams';
+	}
+	
+	/**
+	 * Device-Application push token
+	 * @return string
+	 */
+	 getToken() {
+	 	return this.token;
+	 }
+	
+	/**
+	 * @param token string Device-Application push token
+	 */
+	 setToken(token) {
+	 	this.token = token;
+	 }
+	
+	/**
+	 * External device token as received from external push provider in exchange for the device token
+	 * @return string
+	 */
+	 getExternalToken() {
+	 	return this.externalToken;
+	 }
+	
+	/**
+	 * @param externalToken string External device token as received from external push provider in exchange for the device token
+	 */
+	 setExternalToken(externalToken) {
+	 	this.externalToken = externalToken;
+	 }
+}
+module.exports.PushParams = PushParams;
+
+/**
+ *
+ */
+class DeviceReport extends Report{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDeviceReport';
+	}
+	
+	/**
+	 * Partner unique identifier
+	 * @return int
+	 */
+	 getPartnerId() {
+	 	return this.partnerId;
+	 }
+	
+	/**
+	 * @param partnerId int Partner unique identifier
+	 */
+	 setPartnerId(partnerId) {
+	 	this.partnerId = partnerId;
+	 }
+	
+	/**
+	 * Configuration group identifier which the version configuration the device last received belongs to
+	 * @return string
+	 */
+	 getConfigurationGroupId() {
+	 	return this.configurationGroupId;
+	 }
+	
+	/**
+	 * @param configurationGroupId string Configuration group identifier which the version configuration the device last received belongs to
+	 */
+	 setConfigurationGroupId(configurationGroupId) {
+	 	this.configurationGroupId = configurationGroupId;
+	 }
+	
+	/**
+	 * Device unique identifier
+	 * @return string
+	 */
+	 getUdid() {
+	 	return this.udid;
+	 }
+	
+	/**
+	 * @param udid string Device unique identifier
+	 */
+	 setUdid(udid) {
+	 	this.udid = udid;
+	 }
+	
+	/**
+	 * Device-Application push parameters
+	 * @return PushParams
+	 */
+	 getPushParameters() {
+	 	return this.pushParameters;
+	 }
+	
+	/**
+	 * @param pushParameters PushParams Device-Application push parameters
+	 */
+	 setPushParameters(pushParameters) {
+	 	this.pushParameters = pushParameters;
+	 }
+	
+	/**
+	 * Application version number
+	 * @return string
+	 */
+	 getVersionNumber() {
+	 	return this.versionNumber;
+	 }
+	
+	/**
+	 * @param versionNumber string Application version number
+	 */
+	 setVersionNumber(versionNumber) {
+	 	this.versionNumber = versionNumber;
+	 }
+	
+	/**
+	 * Application version type
+	 * @return string
+	 */
+	 getVersionPlatform() {
+	 	return this.versionPlatform;
+	 }
+	
+	/**
+	 * @param versionPlatform string Application version type
+	 */
+	 setVersionPlatform(versionPlatform) {
+	 	this.versionPlatform = versionPlatform;
+	 }
+	
+	/**
+	 * Application version name
+	 * @return string
+	 */
+	 getVersionAppName() {
+	 	return this.versionAppName;
+	 }
+	
+	/**
+	 * @param versionAppName string Application version name
+	 */
+	 setVersionAppName(versionAppName) {
+	 	this.versionAppName = versionAppName;
+	 }
+	
+	/**
+	 * Last access IP
+	 * @return string
+	 */
+	 getLastAccessIP() {
+	 	return this.lastAccessIP;
+	 }
+	
+	/**
+	 * @param lastAccessIP string Last access IP
+	 */
+	 setLastAccessIP(lastAccessIP) {
+	 	this.lastAccessIP = lastAccessIP;
+	 }
+	
+	/**
+	 * Last device configuration request date
+	 * @return int
+	 */
+	 getLastAccessDate() {
+	 	return this.lastAccessDate;
+	 }
+	
+	/**
+	 * @param lastAccessDate int Last device configuration request date
+	 */
+	 setLastAccessDate(lastAccessDate) {
+	 	this.lastAccessDate = lastAccessDate;
+	 }
+	
+	/**
+	 * request header property
+	 * @return string
+	 */
+	 getUserAgent() {
+	 	return this.userAgent;
+	 }
+	
+	/**
+	 * @param userAgent string request header property
+	 */
+	 setUserAgent(userAgent) {
+	 	this.userAgent = userAgent;
+	 }
+	
+	/**
+	 * Request header property
+ * Incase value cannot be found - returns &quot;Unknown 0.0&quot;
+	 * @return string
+	 */
+	 getOperationSystem() {
+	 	return this.operationSystem;
+	 }
+	
+	/**
+	 * @param operationSystem string Request header property
+ * Incase value cannot be found - returns &quot;Unknown 0.0&quot;
+	 */
+	 setOperationSystem(operationSystem) {
+	 	this.operationSystem = operationSystem;
+	 }
+}
+module.exports.DeviceReport = DeviceReport;
 
 /**
  *
@@ -16353,6 +16353,21 @@ class ExternalChannelProfile extends kaltura.BaseObject{
 	 setEnrichments(enrichments) {
 	 	this.enrichments = enrichments;
 	 }
+	
+	/**
+	 * Asset user rule identifier
+	 * @return int
+	 */
+	 getAssetUserRuleId() {
+	 	return this.assetUserRuleId;
+	 }
+	
+	/**
+	 * @param assetUserRuleId int Asset user rule identifier
+	 */
+	 setAssetUserRuleId(assetUserRuleId) {
+	 	this.assetUserRuleId = assetUserRuleId;
+	 }
 }
 module.exports.ExternalChannelProfile = ExternalChannelProfile;
 
@@ -17976,6 +17991,492 @@ module.exports.TopicFilter = TopicFilter;
 /**
  *
  */
+class BulkUploadFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUploadFilter';
+	}
+	
+	/**
+	 * upload date to search within
+	 * @return int
+	 */
+	 getUploadedOnEqual() {
+	 	return this.uploadedOnEqual;
+	 }
+	
+	/**
+	 * @param uploadedOnEqual int upload date to search within
+	 */
+	 setUploadedOnEqual(uploadedOnEqual) {
+	 	this.uploadedOnEqual = uploadedOnEqual;
+	 }
+	
+	/**
+	 * Date Comparison Type
+	 * @return string
+	 */
+	 getDateComparisonType() {
+	 	return this.dateComparisonType;
+	 }
+	
+	/**
+	 * @param dateComparisonType string Date Comparison Type
+	 */
+	 setDateComparisonType(dateComparisonType) {
+	 	this.dateComparisonType = dateComparisonType;
+	 }
+	
+	/**
+	 * List of KalturaBulkUploadJobStatus to search within
+	 * @return string
+	 */
+	 getStatusIn() {
+	 	return this.statusIn;
+	 }
+	
+	/**
+	 * @param statusIn string List of KalturaBulkUploadJobStatus to search within
+	 */
+	 setStatusIn(statusIn) {
+	 	this.statusIn = statusIn;
+	 }
+	
+	/**
+	 * Indicates if to get the BulkUpload list that created by current user or by the entire group
+	 * @return bool
+	 */
+	 getUserIdEqualCurrent() {
+	 	return this.userIdEqualCurrent;
+	 }
+	
+	/**
+	 * @param userIdEqualCurrent bool Indicates if to get the BulkUpload list that created by current user or by the entire group
+	 */
+	 setUserIdEqualCurrent(userIdEqualCurrent) {
+	 	this.userIdEqualCurrent = userIdEqualCurrent;
+	 }
+}
+module.exports.BulkUploadFilter = BulkUploadFilter;
+
+/**
+ *
+ */
+class SegmentationTypeFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSegmentationTypeFilter';
+	}
+	
+	/**
+	 * Comma separated segmentation types identifieridentifiers
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated segmentation types identifieridentifiers
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.SegmentationTypeFilter = SegmentationTypeFilter;
+
+/**
+ *
+ */
+class UserSegmentFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUserSegmentFilter';
+	}
+	
+	/**
+	 * User ID
+	 * @return string
+	 */
+	 getUserIdEqual() {
+	 	return this.userIdEqual;
+	 }
+	
+	/**
+	 * @param userIdEqual string User ID
+	 */
+	 setUserIdEqual(userIdEqual) {
+	 	this.userIdEqual = userIdEqual;
+	 }
+}
+module.exports.UserSegmentFilter = UserSegmentFilter;
+
+/**
+ *
+ */
+class PpvFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPpvFilter';
+	}
+	
+	/**
+	 * Comma separated identifiers
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated identifiers
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.PpvFilter = PpvFilter;
+
+/**
+ *
+ */
+class AssetFilePpvFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetFilePpvFilter';
+	}
+	
+	/**
+	 * Filter Asset file ppvs that contain a specific asset id
+	 * @return int
+	 */
+	 getAssetIdEqual() {
+	 	return this.assetIdEqual;
+	 }
+	
+	/**
+	 * @param assetIdEqual int Filter Asset file ppvs that contain a specific asset id
+	 */
+	 setAssetIdEqual(assetIdEqual) {
+	 	this.assetIdEqual = assetIdEqual;
+	 }
+	
+	/**
+	 * Filter Asset file ppvs that contain a specific asset file id
+	 * @return int
+	 */
+	 getAssetFileIdEqual() {
+	 	return this.assetFileIdEqual;
+	 }
+	
+	/**
+	 * @param assetFileIdEqual int Filter Asset file ppvs that contain a specific asset file id
+	 */
+	 setAssetFileIdEqual(assetFileIdEqual) {
+	 	this.assetFileIdEqual = assetFileIdEqual;
+	 }
+}
+module.exports.AssetFilePpvFilter = AssetFilePpvFilter;
+
+/**
+ *
+ */
+class CollectionFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCollectionFilter';
+	}
+	
+	/**
+	 * Comma separated collection IDs
+	 * @return string
+	 */
+	 getCollectionIdIn() {
+	 	return this.collectionIdIn;
+	 }
+	
+	/**
+	 * @param collectionIdIn string Comma separated collection IDs
+	 */
+	 setCollectionIdIn(collectionIdIn) {
+	 	this.collectionIdIn = collectionIdIn;
+	 }
+	
+	/**
+	 * Media-file ID to get the subscriptions by
+	 * @return int
+	 */
+	 getMediaFileIdEqual() {
+	 	return this.mediaFileIdEqual;
+	 }
+	
+	/**
+	 * @param mediaFileIdEqual int Media-file ID to get the subscriptions by
+	 */
+	 setMediaFileIdEqual(mediaFileIdEqual) {
+	 	this.mediaFileIdEqual = mediaFileIdEqual;
+	 }
+}
+module.exports.CollectionFilter = CollectionFilter;
+
+/**
+ *
+ */
+class DiscountDetailsFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDiscountDetailsFilter';
+	}
+	
+	/**
+	 * Comma separated discount codes
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated discount codes
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.DiscountDetailsFilter = DiscountDetailsFilter;
+
+/**
+ *
+ */
+class PricePlanFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPricePlanFilter';
+	}
+	
+	/**
+	 * Comma separated price plans identifiers
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated price plans identifiers
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.PricePlanFilter = PricePlanFilter;
+
+/**
+ *
+ */
+class PriceDetailsFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPriceDetailsFilter';
+	}
+	
+	/**
+	 * Comma separated price identifiers
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated price identifiers
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.PriceDetailsFilter = PriceDetailsFilter;
+
+/**
+ *
+ */
+class SubscriptionSetFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSubscriptionSetFilter';
+	}
+	
+	/**
+	 * Comma separated identifiers
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated identifiers
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+	
+	/**
+	 * Comma separated subscription identifiers
+	 * @return string
+	 */
+	 getSubscriptionIdContains() {
+	 	return this.subscriptionIdContains;
+	 }
+	
+	/**
+	 * @param subscriptionIdContains string Comma separated subscription identifiers
+	 */
+	 setSubscriptionIdContains(subscriptionIdContains) {
+	 	this.subscriptionIdContains = subscriptionIdContains;
+	 }
+	
+	/**
+	 * Subscription Type
+	 * @return string
+	 */
+	 getTypeEqual() {
+	 	return this.typeEqual;
+	 }
+	
+	/**
+	 * @param typeEqual string Subscription Type
+	 */
+	 setTypeEqual(typeEqual) {
+	 	this.typeEqual = typeEqual;
+	 }
+}
+module.exports.SubscriptionSetFilter = SubscriptionSetFilter;
+
+/**
+ *
+ */
+class SubscriptionDependencySetFilter extends SubscriptionSetFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSubscriptionDependencySetFilter';
+	}
+	
+	/**
+	 * Comma separated identifiers
+	 * @return string
+	 */
+	 getBaseSubscriptionIdIn() {
+	 	return this.baseSubscriptionIdIn;
+	 }
+	
+	/**
+	 * @param baseSubscriptionIdIn string Comma separated identifiers
+	 */
+	 setBaseSubscriptionIdIn(baseSubscriptionIdIn) {
+	 	this.baseSubscriptionIdIn = baseSubscriptionIdIn;
+	 }
+}
+module.exports.SubscriptionDependencySetFilter = SubscriptionDependencySetFilter;
+
+/**
+ *
+ */
+class SubscriptionFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSubscriptionFilter';
+	}
+	
+	/**
+	 * Comma separated subscription IDs to get the subscriptions by
+	 * @return string
+	 */
+	 getSubscriptionIdIn() {
+	 	return this.subscriptionIdIn;
+	 }
+	
+	/**
+	 * @param subscriptionIdIn string Comma separated subscription IDs to get the subscriptions by
+	 */
+	 setSubscriptionIdIn(subscriptionIdIn) {
+	 	this.subscriptionIdIn = subscriptionIdIn;
+	 }
+	
+	/**
+	 * Media-file ID to get the subscriptions by
+	 * @return int
+	 */
+	 getMediaFileIdEqual() {
+	 	return this.mediaFileIdEqual;
+	 }
+	
+	/**
+	 * @param mediaFileIdEqual int Media-file ID to get the subscriptions by
+	 */
+	 setMediaFileIdEqual(mediaFileIdEqual) {
+	 	this.mediaFileIdEqual = mediaFileIdEqual;
+	 }
+	
+	/**
+	 * Comma separated subscription external IDs to get the subscriptions by
+	 * @return string
+	 */
+	 getExternalIdIn() {
+	 	return this.externalIdIn;
+	 }
+	
+	/**
+	 * @param externalIdIn string Comma separated subscription external IDs to get the subscriptions by
+	 */
+	 setExternalIdIn(externalIdIn) {
+	 	this.externalIdIn = externalIdIn;
+	 }
+}
+module.exports.SubscriptionFilter = SubscriptionFilter;
+
+/**
+ *
+ */
+class PartnerConfigurationFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPartnerConfigurationFilter';
+	}
+	
+	/**
+	 * Indicates which partner configuration list to return
+	 * @return string
+	 */
+	 getPartnerConfigurationTypeEqual() {
+	 	return this.partnerConfigurationTypeEqual;
+	 }
+	
+	/**
+	 * @param partnerConfigurationTypeEqual string Indicates which partner configuration list to return
+	 */
+	 setPartnerConfigurationTypeEqual(partnerConfigurationTypeEqual) {
+	 	this.partnerConfigurationTypeEqual = partnerConfigurationTypeEqual;
+	 }
+}
+module.exports.PartnerConfigurationFilter = PartnerConfigurationFilter;
+
+/**
+ *
+ */
 class AggregationCountFilter extends RelatedObjectFilter{
 	
 	constructor(object = null) {
@@ -18011,33 +18512,6 @@ class PersistedFilter extends Filter{
 	 }
 }
 module.exports.PersistedFilter = PersistedFilter;
-
-/**
- *
- */
-class BulkUploadFilter extends PersistedFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBulkUploadFilter';
-	}
-	
-	/**
-	 * Indicates which Bulk Upload list to return by this KalturaBatchUploadJobStatus
-	 * @return string
-	 */
-	 getStatusEqual() {
-	 	return this.statusEqual;
-	 }
-	
-	/**
-	 * @param statusEqual string Indicates which Bulk Upload list to return by this KalturaBatchUploadJobStatus
-	 */
-	 setStatusEqual(statusEqual) {
-	 	this.statusEqual = statusEqual;
-	 }
-}
-module.exports.BulkUploadFilter = BulkUploadFilter;
 
 /**
  *
@@ -18712,420 +19186,6 @@ class SearchExternalFilter extends AssetFilter{
 	 }
 }
 module.exports.SearchExternalFilter = SearchExternalFilter;
-
-/**
- *
- */
-class SegmentationTypeFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSegmentationTypeFilter';
-	}
-	
-	/**
-	 * Comma separated segmentation types identifieridentifiers
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Comma separated segmentation types identifieridentifiers
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.SegmentationTypeFilter = SegmentationTypeFilter;
-
-/**
- *
- */
-class UserSegmentFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaUserSegmentFilter';
-	}
-	
-	/**
-	 * User ID
-	 * @return string
-	 */
-	 getUserIdEqual() {
-	 	return this.userIdEqual;
-	 }
-	
-	/**
-	 * @param userIdEqual string User ID
-	 */
-	 setUserIdEqual(userIdEqual) {
-	 	this.userIdEqual = userIdEqual;
-	 }
-}
-module.exports.UserSegmentFilter = UserSegmentFilter;
-
-/**
- *
- */
-class PpvFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPpvFilter';
-	}
-	
-	/**
-	 * Comma separated identifiers
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Comma separated identifiers
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.PpvFilter = PpvFilter;
-
-/**
- *
- */
-class AssetFilePpvFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetFilePpvFilter';
-	}
-	
-	/**
-	 * Filter Asset file ppvs that contain a specific asset id
-	 * @return int
-	 */
-	 getAssetIdEqual() {
-	 	return this.assetIdEqual;
-	 }
-	
-	/**
-	 * @param assetIdEqual int Filter Asset file ppvs that contain a specific asset id
-	 */
-	 setAssetIdEqual(assetIdEqual) {
-	 	this.assetIdEqual = assetIdEqual;
-	 }
-	
-	/**
-	 * Filter Asset file ppvs that contain a specific asset file id
-	 * @return int
-	 */
-	 getAssetFileIdEqual() {
-	 	return this.assetFileIdEqual;
-	 }
-	
-	/**
-	 * @param assetFileIdEqual int Filter Asset file ppvs that contain a specific asset file id
-	 */
-	 setAssetFileIdEqual(assetFileIdEqual) {
-	 	this.assetFileIdEqual = assetFileIdEqual;
-	 }
-}
-module.exports.AssetFilePpvFilter = AssetFilePpvFilter;
-
-/**
- *
- */
-class CollectionFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCollectionFilter';
-	}
-	
-	/**
-	 * Comma separated collection IDs
-	 * @return string
-	 */
-	 getCollectionIdIn() {
-	 	return this.collectionIdIn;
-	 }
-	
-	/**
-	 * @param collectionIdIn string Comma separated collection IDs
-	 */
-	 setCollectionIdIn(collectionIdIn) {
-	 	this.collectionIdIn = collectionIdIn;
-	 }
-	
-	/**
-	 * Media-file ID to get the subscriptions by
-	 * @return int
-	 */
-	 getMediaFileIdEqual() {
-	 	return this.mediaFileIdEqual;
-	 }
-	
-	/**
-	 * @param mediaFileIdEqual int Media-file ID to get the subscriptions by
-	 */
-	 setMediaFileIdEqual(mediaFileIdEqual) {
-	 	this.mediaFileIdEqual = mediaFileIdEqual;
-	 }
-}
-module.exports.CollectionFilter = CollectionFilter;
-
-/**
- *
- */
-class DiscountDetailsFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDiscountDetailsFilter';
-	}
-	
-	/**
-	 * Comma separated discount codes
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Comma separated discount codes
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.DiscountDetailsFilter = DiscountDetailsFilter;
-
-/**
- *
- */
-class PricePlanFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPricePlanFilter';
-	}
-	
-	/**
-	 * Comma separated price plans identifiers
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Comma separated price plans identifiers
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.PricePlanFilter = PricePlanFilter;
-
-/**
- *
- */
-class PriceDetailsFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPriceDetailsFilter';
-	}
-	
-	/**
-	 * Comma separated price identifiers
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Comma separated price identifiers
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.PriceDetailsFilter = PriceDetailsFilter;
-
-/**
- *
- */
-class SubscriptionSetFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSubscriptionSetFilter';
-	}
-	
-	/**
-	 * Comma separated identifiers
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Comma separated identifiers
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-	
-	/**
-	 * Comma separated subscription identifiers
-	 * @return string
-	 */
-	 getSubscriptionIdContains() {
-	 	return this.subscriptionIdContains;
-	 }
-	
-	/**
-	 * @param subscriptionIdContains string Comma separated subscription identifiers
-	 */
-	 setSubscriptionIdContains(subscriptionIdContains) {
-	 	this.subscriptionIdContains = subscriptionIdContains;
-	 }
-	
-	/**
-	 * Subscription Type
-	 * @return string
-	 */
-	 getTypeEqual() {
-	 	return this.typeEqual;
-	 }
-	
-	/**
-	 * @param typeEqual string Subscription Type
-	 */
-	 setTypeEqual(typeEqual) {
-	 	this.typeEqual = typeEqual;
-	 }
-}
-module.exports.SubscriptionSetFilter = SubscriptionSetFilter;
-
-/**
- *
- */
-class SubscriptionDependencySetFilter extends SubscriptionSetFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSubscriptionDependencySetFilter';
-	}
-	
-	/**
-	 * Comma separated identifiers
-	 * @return string
-	 */
-	 getBaseSubscriptionIdIn() {
-	 	return this.baseSubscriptionIdIn;
-	 }
-	
-	/**
-	 * @param baseSubscriptionIdIn string Comma separated identifiers
-	 */
-	 setBaseSubscriptionIdIn(baseSubscriptionIdIn) {
-	 	this.baseSubscriptionIdIn = baseSubscriptionIdIn;
-	 }
-}
-module.exports.SubscriptionDependencySetFilter = SubscriptionDependencySetFilter;
-
-/**
- *
- */
-class SubscriptionFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSubscriptionFilter';
-	}
-	
-	/**
-	 * Comma separated subscription IDs to get the subscriptions by
-	 * @return string
-	 */
-	 getSubscriptionIdIn() {
-	 	return this.subscriptionIdIn;
-	 }
-	
-	/**
-	 * @param subscriptionIdIn string Comma separated subscription IDs to get the subscriptions by
-	 */
-	 setSubscriptionIdIn(subscriptionIdIn) {
-	 	this.subscriptionIdIn = subscriptionIdIn;
-	 }
-	
-	/**
-	 * Media-file ID to get the subscriptions by
-	 * @return int
-	 */
-	 getMediaFileIdEqual() {
-	 	return this.mediaFileIdEqual;
-	 }
-	
-	/**
-	 * @param mediaFileIdEqual int Media-file ID to get the subscriptions by
-	 */
-	 setMediaFileIdEqual(mediaFileIdEqual) {
-	 	this.mediaFileIdEqual = mediaFileIdEqual;
-	 }
-	
-	/**
-	 * Comma separated subscription external IDs to get the subscriptions by
-	 * @return string
-	 */
-	 getExternalIdIn() {
-	 	return this.externalIdIn;
-	 }
-	
-	/**
-	 * @param externalIdIn string Comma separated subscription external IDs to get the subscriptions by
-	 */
-	 setExternalIdIn(externalIdIn) {
-	 	this.externalIdIn = externalIdIn;
-	 }
-}
-module.exports.SubscriptionFilter = SubscriptionFilter;
-
-/**
- *
- */
-class PartnerConfigurationFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPartnerConfigurationFilter';
-	}
-	
-	/**
-	 * Indicates which partner configuration list to return
-	 * @return string
-	 */
-	 getPartnerConfigurationTypeEqual() {
-	 	return this.partnerConfigurationTypeEqual;
-	 }
-	
-	/**
-	 * @param partnerConfigurationTypeEqual string Indicates which partner configuration list to return
-	 */
-	 setPartnerConfigurationTypeEqual(partnerConfigurationTypeEqual) {
-	 	this.partnerConfigurationTypeEqual = partnerConfigurationTypeEqual;
-	 }
-}
-module.exports.PartnerConfigurationFilter = PartnerConfigurationFilter;
 
 /**
  *

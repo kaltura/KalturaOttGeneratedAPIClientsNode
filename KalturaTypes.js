@@ -210,7 +210,6 @@ FATAL : 'Fatal',
 module.exports.BulkUploadOrderBy = {
 NONE : 'NONE',
 UPDATE_DATE : 'UPDATE_DATE',
-STATUS : 'STATUS',
 };
 
 module.exports.BulkUploadResultStatus = {
@@ -330,6 +329,12 @@ NAME_ASC : 'NAME_ASC',
 NAME_DESC : 'NAME_DESC',
 CODE_ASC : 'CODE_ASC',
 CODE_DESC : 'CODE_DESC',
+};
+
+module.exports.DateComparisonType = {
+GREATERTHANOREQUAL : 'GreaterThanOrEqual',
+LESSTHANOREQUAL : 'LessThanOrEqual',
+EQUAL : 'Equal',
 };
 
 module.exports.DeleteMediaPolicy = {
