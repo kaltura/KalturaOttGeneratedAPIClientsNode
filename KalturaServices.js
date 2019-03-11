@@ -844,11 +844,11 @@ class bulkUpload{
 	
 	/**
 	 * Get list of KalturaBulkUpload by filter.
-	 * @param filter BulkUploadFilter Filtering the bulk action request (optional, default: null)
+	 * @param filter BulkUploadFilter Filtering the bulk action request
 	 * @param pager FilterPager Paging the request (optional, default: null)
 	 * @return KalturaBulkUploadListResponse
 	 */
-	static listAction(filter = null, pager = null){
+	static listAction(filter, pager = null){
 		let kparams = {};
 		kparams.filter = filter;
 		kparams.pager = pager;

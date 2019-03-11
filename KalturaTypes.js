@@ -209,7 +209,8 @@ FATAL : 'Fatal',
 
 module.exports.BulkUploadOrderBy = {
 NONE : 'NONE',
-UPDATE_DATE : 'UPDATE_DATE',
+UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
+UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
 };
 
 module.exports.BulkUploadResultStatus = {
@@ -231,11 +232,7 @@ DEVICEID : 'DeviceId',
 DEVICETYPE : 'DeviceType',
 UTCOFFSET : 'UTCOffset',
 LANGUAGE : 'Language',
-NPVRSUPPORT : 'NPVRSupport',
-CATCHUP : 'Catchup',
-PARENTAL : 'Parental',
 DTTREGION : 'DTTRegion',
-ATHOME : 'AtHome',
 };
 
 module.exports.ChannelOrderBy = {
@@ -329,12 +326,6 @@ NAME_ASC : 'NAME_ASC',
 NAME_DESC : 'NAME_DESC',
 CODE_ASC : 'CODE_ASC',
 CODE_DESC : 'CODE_DESC',
-};
-
-module.exports.DateComparisonType = {
-GREATERTHANOREQUAL : 'GreaterThanOrEqual',
-LESSTHANOREQUAL : 'LessThanOrEqual',
-EQUAL : 'Equal',
 };
 
 module.exports.DeleteMediaPolicy = {
