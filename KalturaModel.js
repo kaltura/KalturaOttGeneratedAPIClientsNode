@@ -4848,19 +4848,11 @@ class BulkUploadResult extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Error Code
-	 * @return int
+	 * Error details
+	 * @return Message
 	 */
-	 getErrorCode() {
-	 	return this.errorCode;
-	 }
-	
-	/**
-	 * Error Message
-	 * @return string
-	 */
-	 getErrorMessage() {
-	 	return this.errorMessage;
+	 getError() {
+	 	return this.error;
 	 }
 	
 	/**
@@ -18083,15 +18075,15 @@ class BulkUploadFilter extends Filter{
 	 * bulk objects Type name (must be type of KalturaOTTObject)
 	 * @return string
 	 */
-	 getBulkObjectNameEqual() {
-	 	return this.bulkObjectNameEqual;
+	 getBulkObjectTypeEqual() {
+	 	return this.bulkObjectTypeEqual;
 	 }
 	
 	/**
-	 * @param bulkObjectNameEqual string bulk objects Type name (must be type of KalturaOTTObject)
+	 * @param bulkObjectTypeEqual string bulk objects Type name (must be type of KalturaOTTObject)
 	 */
-	 setBulkObjectNameEqual(bulkObjectNameEqual) {
-	 	this.bulkObjectNameEqual = bulkObjectNameEqual;
+	 setBulkObjectTypeEqual(bulkObjectTypeEqual) {
+	 	this.bulkObjectTypeEqual = bulkObjectTypeEqual;
 	 }
 	
 	/**
