@@ -13364,6 +13364,173 @@ module.exports.AssetHistoryListResponse = AssetHistoryListResponse;
 /**
  *
  */
+class IngestProfile extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIngestProfile';
+	}
+	
+	/**
+	 * Ingest profile identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Ingest profile name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Ingest profile name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Ingest profile externalId
+	 * @return string
+	 */
+	 getExternalId() {
+	 	return this.externalId;
+	 }
+	
+	/**
+	 * @param externalId string Ingest profile externalId
+	 */
+	 setExternalId(externalId) {
+	 	this.externalId = externalId;
+	 }
+	
+	/**
+	 * Type of assets that this profile suppose to ingest: 0 - EPG, 1 - MEDIA
+	 * @return int
+	 */
+	 getAssetTypeId() {
+	 	return this.assetTypeId;
+	 }
+	
+	/**
+	 * @param assetTypeId int Type of assets that this profile suppose to ingest: 0 - EPG, 1 - MEDIA
+	 */
+	 setAssetTypeId(assetTypeId) {
+	 	this.assetTypeId = assetTypeId;
+	 }
+	
+	/**
+	 * Transformation Adapter URL
+	 * @return string
+	 */
+	 getTransformationAdapterUrl() {
+	 	return this.transformationAdapterUrl;
+	 }
+	
+	/**
+	 * @param transformationAdapterUrl string Transformation Adapter URL
+	 */
+	 setTransformationAdapterUrl(transformationAdapterUrl) {
+	 	this.transformationAdapterUrl = transformationAdapterUrl;
+	 }
+	
+	/**
+	 * Transformation Adapter settings
+	 * @return string
+	 */
+	 getTransformationAdapterSettings() {
+	 	return this.transformationAdapterSettings;
+	 }
+	
+	/**
+	 * @param transformationAdapterSettings string Transformation Adapter settings
+	 */
+	 setTransformationAdapterSettings(transformationAdapterSettings) {
+	 	this.transformationAdapterSettings = transformationAdapterSettings;
+	 }
+	
+	/**
+	 * Transformation Adapter shared secret
+	 * @return string
+	 */
+	 getTransformationAdapterSharedSecret() {
+	 	return this.transformationAdapterSharedSecret;
+	 }
+	
+	/**
+	 * @param transformationAdapterSharedSecret string Transformation Adapter shared secret
+	 */
+	 setTransformationAdapterSharedSecret(transformationAdapterSharedSecret) {
+	 	this.transformationAdapterSharedSecret = transformationAdapterSharedSecret;
+	 }
+	
+	/**
+	 * Ingest profile default Auto-fill policy
+	 * @return int
+	 */
+	 getDefaultAutoFillPolicy() {
+	 	return this.defaultAutoFillPolicy;
+	 }
+	
+	/**
+	 * @param defaultAutoFillPolicy int Ingest profile default Auto-fill policy
+	 */
+	 setDefaultAutoFillPolicy(defaultAutoFillPolicy) {
+	 	this.defaultAutoFillPolicy = defaultAutoFillPolicy;
+	 }
+	
+	/**
+	 * Ingest profile default Overlap policy
+	 * @return int
+	 */
+	 getDefaultOverlapPolicy() {
+	 	return this.defaultOverlapPolicy;
+	 }
+	
+	/**
+	 * @param defaultOverlapPolicy int Ingest profile default Overlap policy
+	 */
+	 setDefaultOverlapPolicy(defaultOverlapPolicy) {
+	 	this.defaultOverlapPolicy = defaultOverlapPolicy;
+	 }
+}
+module.exports.IngestProfile = IngestProfile;
+
+/**
+ *
+ */
+class IngestProfileListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIngestProfileListResponse';
+	}
+	
+	/**
+	 * Adapters
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Adapters
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.IngestProfileListResponse = IngestProfileListResponse;
+
+/**
+ *
+ */
 class Rule extends kaltura.BaseObject{
 	
 	constructor(object = null) {

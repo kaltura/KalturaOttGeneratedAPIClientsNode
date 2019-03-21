@@ -3012,6 +3012,63 @@ module.exports.inboxMessage = inboxMessage;
 
 
 /**
+ *Class definition for the Kaltura service: IngestProfile.
+ * The available service actions:
+ * @action add Insert new ingest profile for partner.
+ * @action delete Delete ingest profiles by ingest profiles id.
+ * @action list Returns all ingest profiles for partner.
+ * @action update Update ingest profile details.
+ */
+class IngestProfile{
+	
+	/**
+	 * Insert new ingest profile for partner.
+	 * @param ingestProfile IngestProfile ingest profile Object to be added
+	 * @return KalturaIngestProfile
+	 */
+	static add(ingestProfile){
+		let kparams = {};
+		kparams.ingestProfile = ingestProfile;
+		return new kaltura.RequestBuilder('ingestprofile', 'add', kparams);
+	};
+	
+	/**
+	 * Delete ingest profiles by ingest profiles id.
+	 * @param ingestProfileId int ingest profile Identifier
+	 * @return bool
+	 */
+	static deleteAction(ingestProfileId){
+		let kparams = {};
+		kparams.ingestProfileId = ingestProfileId;
+		return new kaltura.RequestBuilder('ingestprofile', 'delete', kparams);
+	};
+	
+	/**
+	 * Returns all ingest profiles for partner.
+	 * @return KalturaIngestProfileListResponse
+	 */
+	static listAction(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('ingestprofile', 'list', kparams);
+	};
+	
+	/**
+	 * Update ingest profile details.
+	 * @param ingestProfileId int ingest profile Identifier
+	 * @param ingestProfile IngestProfile ingest profile Object
+	 * @return KalturaIngestProfile
+	 */
+	static update(ingestProfileId, ingestProfile){
+		let kparams = {};
+		kparams.ingestProfileId = ingestProfileId;
+		kparams.ingestProfile = ingestProfile;
+		return new kaltura.RequestBuilder('ingestprofile', 'update', kparams);
+	};
+}
+module.exports.IngestProfile = IngestProfile;
+
+
+/**
  *Class definition for the Kaltura service: language.
  * The available service actions:
  * @action list Get the list of languages for the partner with option to filter by language codes.
