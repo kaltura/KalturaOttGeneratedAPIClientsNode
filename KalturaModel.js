@@ -21912,14 +21912,31 @@ module.exports.BulkUploadExcelJobData = BulkUploadExcelJobData;
 /**
  *
  */
-class BulkUploadXmlJobData extends BulkUploadJobData{
+class BulkUploadIngestJobData extends BulkUploadJobData{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaBulkUploadXmlJobData';
+		this.objectType = 'KalturaBulkUploadIngestJobData';
 	}
+	
+	/**
+	 * Identifies the ingest profile that will handle the ingest of programs
+ * Ingest profiles are created separately using the ingest profile service
+	 * @return int
+	 */
+	 getIngestProfileId() {
+	 	return this.ingestProfileId;
+	 }
+	
+	/**
+	 * @param ingestProfileId int Identifies the ingest profile that will handle the ingest of programs
+ * Ingest profiles are created separately using the ingest profile service
+	 */
+	 setIngestProfileId(ingestProfileId) {
+	 	this.ingestProfileId = ingestProfileId;
+	 }
 }
-module.exports.BulkUploadXmlJobData = BulkUploadXmlJobData;
+module.exports.BulkUploadIngestJobData = BulkUploadIngestJobData;
 
 /**
  *
