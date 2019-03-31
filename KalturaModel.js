@@ -13441,14 +13441,14 @@ class IngestProfile extends kaltura.BaseObject{
 	
 	/**
 	 * Transformation Adapter settings
-	 * @return string
+	 * @return map
 	 */
 	 getTransformationAdapterSettings() {
 	 	return this.transformationAdapterSettings;
 	 }
 	
 	/**
-	 * @param transformationAdapterSettings string Transformation Adapter settings
+	 * @param transformationAdapterSettings map Transformation Adapter settings
 	 */
 	 setTransformationAdapterSettings(transformationAdapterSettings) {
 	 	this.transformationAdapterSettings = transformationAdapterSettings;
@@ -21978,6 +21978,30 @@ class BulkUploadAssetData extends BulkUploadObjectData{
 	 }
 }
 module.exports.BulkUploadAssetData = BulkUploadAssetData;
+
+/**
+ *
+ */
+class BulkUploadMediaAssetData extends BulkUploadAssetData{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUploadMediaAssetData';
+	}
+}
+module.exports.BulkUploadMediaAssetData = BulkUploadMediaAssetData;
+
+/**
+ *
+ */
+class BulkUploadEpgAssetData extends BulkUploadAssetData{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUploadEpgAssetData';
+	}
+}
+module.exports.BulkUploadEpgAssetData = BulkUploadEpgAssetData;
 
 /**
  *
