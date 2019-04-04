@@ -24184,6 +24184,21 @@ class LoginSession extends kaltura.BaseObject{
 	 setKs(ks) {
 	 	this.ks = ks;
 	 }
+	
+	/**
+	 * Expiration
+	 * @return int
+	 */
+	 getExpiration() {
+	 	return this.expiration;
+	 }
+	
+	/**
+	 * @param expiration int Expiration
+	 */
+	 setExpiration(expiration) {
+	 	this.expiration = expiration;
+	 }
 }
 module.exports.LoginSession = LoginSession;
 
