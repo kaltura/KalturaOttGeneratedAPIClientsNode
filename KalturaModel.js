@@ -4848,11 +4848,11 @@ class BulkUploadResult extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Error details
-	 * @return Message
+	 * A list of errors
+	 * @return array
 	 */
-	 getError() {
-	 	return this.error;
+	 getErrors() {
+	 	return this.errors;
 	 }
 	
 	/**
@@ -21994,14 +21994,14 @@ module.exports.BulkUploadMediaAssetData = BulkUploadMediaAssetData;
 /**
  *
  */
-class BulkUploadEpgAssetData extends BulkUploadAssetData{
+class BulkUploadProgramAssetData extends BulkUploadAssetData{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaBulkUploadEpgAssetData';
+		this.objectType = 'KalturaBulkUploadProgramAssetData';
 	}
 }
-module.exports.BulkUploadEpgAssetData = BulkUploadEpgAssetData;
+module.exports.BulkUploadProgramAssetData = BulkUploadProgramAssetData;
 
 /**
  *
