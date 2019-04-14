@@ -144,22 +144,6 @@ module.exports.AssetUserRuleOrderBy = {
 NONE : 'NONE',
 };
 
-module.exports.BatchJobStatus = {
-PENDING : 'PENDING',
-QUEUED : 'QUEUED',
-PROCESSING : 'PROCESSING',
-PROCESSED : 'PROCESSED',
-MOVEFILE : 'MOVEFILE',
-FINISHED : 'FINISHED',
-FAILED : 'FAILED',
-ABORTED : 'ABORTED',
-ALMOST_DONE : 'ALMOST_DONE',
-RETRY : 'RETRY',
-FATAL : 'FATAL',
-DONT_PROCESS : 'DONT_PROCESS',
-FINISHED_PARTIALLY : 'FINISHED_PARTIALLY',
-};
-
 module.exports.BillingAction = {
 UNKNOWN : 'unknown',
 PURCHASE : 'purchase',
@@ -205,8 +189,34 @@ POSITION_ASC : 'POSITION_ASC',
 POSITION_DESC : 'POSITION_DESC',
 };
 
-module.exports.BulkOrderBy = {
+module.exports.BulkUploadJobAction = {
+UPSERT : 'Upsert',
+DELETE : 'Delete',
+};
+
+module.exports.BulkUploadJobStatus = {
+PENDING : 'Pending',
+UPLOADED : 'Uploaded',
+QUEUED : 'Queued',
+PARSING : 'Parsing',
+PROCESSING : 'Processing',
+PROCESSED : 'Processed',
+SUCCESS : 'Success',
+PARTIAL : 'Partial',
+FAILED : 'Failed',
+FATAL : 'Fatal',
+};
+
+module.exports.BulkUploadOrderBy = {
 NONE : 'NONE',
+UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
+UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
+};
+
+module.exports.BulkUploadResultStatus = {
+ERROR : 'Error',
+OK : 'Ok',
+INPROGRESS : 'InProgress',
 };
 
 module.exports.BundleType = {
@@ -222,11 +232,7 @@ DEVICEID : 'DeviceId',
 DEVICETYPE : 'DeviceType',
 UTCOFFSET : 'UTCOffset',
 LANGUAGE : 'Language',
-NPVRSUPPORT : 'NPVRSupport',
-CATCHUP : 'Catchup',
-PARENTAL : 'Parental',
 DTTREGION : 'DTTRegion',
-ATHOME : 'AtHome',
 };
 
 module.exports.ChannelOrderBy = {
@@ -768,6 +774,14 @@ SERIES : 'SERIES',
 
 module.exports.ReportOrderBy = {
 NONE : 'NONE',
+};
+
+module.exports.ResponseType = {
+JSON : 1,
+XML : 2,
+JSONP : 9,
+ASSET_XML : 30,
+EXCEL : 31,
 };
 
 module.exports.RuleActionType = {
