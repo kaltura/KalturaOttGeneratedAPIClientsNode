@@ -499,6 +499,18 @@ ENGAGEMENT : 'Engagement',
 INTEREST : 'Interest',
 };
 
+module.exports.IngestProfileAutofillPolicy = {
+REJECT : 'REJECT',
+AUTOFILL : 'AUTOFILL',
+KEEP_HOLES : 'KEEP_HOLES',
+};
+
+module.exports.IngestProfileOverlapPolicy = {
+REJECT : 'REJECT',
+CUT_SOURCE : 'CUT_SOURCE',
+CUT_TARGET : 'CUT_TARGET',
+};
+
 module.exports.LanguageOrderBy = {
 SYSTEM_NAME_ASC : 'SYSTEM_NAME_ASC',
 SYSTEM_NAME_DESC : 'SYSTEM_NAME_DESC',

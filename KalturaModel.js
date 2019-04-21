@@ -5020,6 +5020,86 @@ module.exports.BulkUploadMediaAssetResult = BulkUploadMediaAssetResult;
 /**
  *
  */
+class BulkUploadProgramAssetResult extends BulkUploadResult{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUploadProgramAssetResult';
+	}
+	
+	/**
+	 * The programID that was created
+	 * @return int
+	 */
+	 getProgramId() {
+	 	return this.programId;
+	 }
+	
+	/**
+	 * The external program Id as was sent in the bulk xml file
+	 * @return string
+	 */
+	 getProgramExternalId() {
+	 	return this.programExternalId;
+	 }
+	
+	/**
+	 * The  live asset Id that was identified according liveAssetExternalId that was sent in bulk xml file
+	 * @return int
+	 */
+	 getLiveAssetId() {
+	 	return this.liveAssetId;
+	 }
+	
+	/**
+	 * The external live asset Id as was sent in bulk xml file
+	 * @return string
+	 */
+	 getLiveAssetExternalId() {
+	 	return this.liveAssetExternalId;
+	 }
+}
+module.exports.BulkUploadProgramAssetResult = BulkUploadProgramAssetResult;
+
+/**
+ *
+ */
+class BulkUploadLiveAssetResult extends BulkUploadResult{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUploadLiveAssetResult';
+	}
+	
+	/**
+	 * The internal kaltura channel id
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Indicates the epg asset object id in the bulk file
+	 * @return string
+	 */
+	 getExternalEpgIngestId() {
+	 	return this.externalEpgIngestId;
+	 }
+	
+	/**
+	 * List of programs that were ingested to the channel
+	 * @return array
+	 */
+	 getPrograms() {
+	 	return this.programs;
+	 }
+}
+module.exports.BulkUploadLiveAssetResult = BulkUploadLiveAssetResult;
+
+/**
+ *
+ */
 class BaseSegmentCondition extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -7385,6 +7465,21 @@ class Channel extends BaseChannel{
 	 */
 	 setAssetUserRuleId(assetUserRuleId) {
 	 	this.assetUserRuleId = assetUserRuleId;
+	 }
+	
+	/**
+	 * key/value map field for extra data
+	 * @return map
+	 */
+	 getMetaData() {
+	 	return this.metaData;
+	 }
+	
+	/**
+	 * @param metaData map key/value map field for extra data
+	 */
+	 setMetaData(metaData) {
+	 	this.metaData = metaData;
 	 }
 }
 module.exports.Channel = Channel;
@@ -13471,14 +13566,14 @@ class IngestProfile extends kaltura.BaseObject{
 	
 	/**
 	 * Ingest profile default Auto-fill policy
-	 * @return int
+	 * @return string
 	 */
 	 getDefaultAutoFillPolicy() {
 	 	return this.defaultAutoFillPolicy;
 	 }
 	
 	/**
-	 * @param defaultAutoFillPolicy int Ingest profile default Auto-fill policy
+	 * @param defaultAutoFillPolicy string Ingest profile default Auto-fill policy
 	 */
 	 setDefaultAutoFillPolicy(defaultAutoFillPolicy) {
 	 	this.defaultAutoFillPolicy = defaultAutoFillPolicy;
@@ -13486,14 +13581,14 @@ class IngestProfile extends kaltura.BaseObject{
 	
 	/**
 	 * Ingest profile default Overlap policy
-	 * @return int
+	 * @return string
 	 */
 	 getDefaultOverlapPolicy() {
 	 	return this.defaultOverlapPolicy;
 	 }
 	
 	/**
-	 * @param defaultOverlapPolicy int Ingest profile default Overlap policy
+	 * @param defaultOverlapPolicy string Ingest profile default Overlap policy
 	 */
 	 setDefaultOverlapPolicy(defaultOverlapPolicy) {
 	 	this.defaultOverlapPolicy = defaultOverlapPolicy;
@@ -16607,6 +16702,21 @@ class ExternalChannelProfile extends kaltura.BaseObject{
 	 */
 	 setAssetUserRuleId(assetUserRuleId) {
 	 	this.assetUserRuleId = assetUserRuleId;
+	 }
+	
+	/**
+	 * key/value map field for extra data
+	 * @return map
+	 */
+	 getMetaData() {
+	 	return this.metaData;
+	 }
+	
+	/**
+	 * @param metaData map key/value map field for extra data
+	 */
+	 setMetaData(metaData) {
+	 	this.metaData = metaData;
 	 }
 }
 module.exports.ExternalChannelProfile = ExternalChannelProfile;
@@ -24189,15 +24299,15 @@ class LoginSession extends kaltura.BaseObject{
 	 * Expiration
 	 * @return int
 	 */
-	 getExpiration() {
-	 	return this.expiration;
+	 getExpiry() {
+	 	return this.expiry;
 	 }
 	
 	/**
-	 * @param expiration int Expiration
+	 * @param expiry int Expiration
 	 */
-	 setExpiration(expiration) {
-	 	this.expiration = expiration;
+	 setExpiry(expiry) {
+	 	this.expiry = expiry;
 	 }
 }
 module.exports.LoginSession = LoginSession;
