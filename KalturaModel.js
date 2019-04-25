@@ -21092,6 +21092,21 @@ class PermissionFilter extends Filter{
 	 setCurrentUserPermissionsContains(currentUserPermissionsContains) {
 	 	this.currentUserPermissionsContains = currentUserPermissionsContains;
 	 }
+	
+	/**
+	 * Return permissions by role ID
+	 * @return int
+	 */
+	 getRoleIdIn() {
+	 	return this.roleIdIn;
+	 }
+	
+	/**
+	 * @param roleIdIn int Return permissions by role ID
+	 */
+	 setRoleIdIn(roleIdIn) {
+	 	this.roleIdIn = roleIdIn;
+	 }
 }
 module.exports.PermissionFilter = PermissionFilter;
 
