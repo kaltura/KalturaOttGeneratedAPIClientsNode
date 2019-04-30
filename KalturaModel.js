@@ -5050,14 +5050,6 @@ class BulkUploadProgramAssetResult extends BulkUploadResult{
 	 getLiveAssetId() {
 	 	return this.liveAssetId;
 	 }
-	
-	/**
-	 * The external live asset Id as was sent in bulk xml file
-	 * @return string
-	 */
-	 getLiveAssetExternalId() {
-	 	return this.liveAssetExternalId;
-	 }
 }
 module.exports.BulkUploadProgramAssetResult = BulkUploadProgramAssetResult;
 
@@ -24201,6 +24193,21 @@ class TimeShiftedTvPartnerSettings extends kaltura.BaseObject{
 	 */
 	 setRecoveryGracePeriod(recoveryGracePeriod) {
 	 	this.recoveryGracePeriod = recoveryGracePeriod;
+	 }
+	
+	/**
+	 * Is private copy enabled for the account
+	 * @return bool
+	 */
+	 getPrivateCopyEnabled() {
+	 	return this.privateCopyEnabled;
+	 }
+	
+	/**
+	 * @param privateCopyEnabled bool Is private copy enabled for the account
+	 */
+	 setPrivateCopyEnabled(privateCopyEnabled) {
+	 	this.privateCopyEnabled = privateCopyEnabled;
 	 }
 }
 module.exports.TimeShiftedTvPartnerSettings = TimeShiftedTvPartnerSettings;
