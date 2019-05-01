@@ -119,6 +119,11 @@ module.exports.AssetRuleOrderBy = {
 NONE : 'NONE',
 };
 
+module.exports.AssetRuleStatus = {
+READY : 'READY',
+IN_PROGRESS : 'IN_PROGRESS',
+};
+
 module.exports.AssetStructMetaOrderBy = {
 NONE : 'NONE',
 };

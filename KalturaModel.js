@@ -14634,6 +14634,14 @@ class AssetRule extends AssetRuleBase{
 	 setActions(actions) {
 	 	this.actions = actions;
 	 }
+	
+	/**
+	 * List of actions for the rule
+	 * @return string
+	 */
+	 getStatus() {
+	 	return this.status;
+	 }
 }
 module.exports.AssetRule = AssetRule;
 
