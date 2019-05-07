@@ -11850,6 +11850,75 @@ module.exports.TagListResponse = TagListResponse;
 /**
  *
  */
+class RelatedEntity extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRelatedEntity';
+	}
+	
+	/**
+	 * Unique identifier for the related entry
+	 * @return string
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id string Unique identifier for the related entry
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
+	 * Defines related entry type
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * @param type string Defines related entry type
+	 */
+	 setType(type) {
+	 	this.type = type;
+	 }
+}
+module.exports.RelatedEntity = RelatedEntity;
+
+/**
+ *
+ */
+class RelatedEntityArray extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRelatedEntityArray';
+	}
+	
+	/**
+	 * List of related entities
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array List of related entities
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.RelatedEntityArray = RelatedEntityArray;
+
+/**
+ *
+ */
 class Asset extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -11972,6 +12041,21 @@ class Asset extends kaltura.BaseObject{
 	 */
 	 setTags(tags) {
 	 	this.tags = tags;
+	 }
+	
+	/**
+	 * Dynamic collection of key-value pairs according to the related entity defined in the system
+	 * @return map
+	 */
+	 getRelatedEntities() {
+	 	return this.relatedEntities;
+	 }
+	
+	/**
+	 * @param relatedEntities map Dynamic collection of key-value pairs according to the related entity defined in the system
+	 */
+	 setRelatedEntities(relatedEntities) {
+	 	this.relatedEntities = relatedEntities;
 	 }
 	
 	/**

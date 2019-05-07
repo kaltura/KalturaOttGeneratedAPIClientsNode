@@ -571,6 +571,7 @@ MULTILINGUAL_STRING : 'MULTILINGUAL_STRING',
 NUMBER : 'NUMBER',
 BOOLEAN : 'BOOLEAN',
 DATE : 'DATE',
+RELEATED_ENTITY : 'RELEATED_ENTITY',
 };
 
 module.exports.MetaOrderBy = {
@@ -782,6 +783,13 @@ SERIES : 'SERIES',
 module.exports.RegionOrderBy = {
 CREATE_DATE_ASC : 'CREATE_DATE_ASC',
 CREATE_DATE_DESC : 'CREATE_DATE_DESC',
+};
+
+module.exports.RelatedEntityType = {
+CHANNEL : 'CHANNEL',
+EXTERNAL_CHANNEL : 'EXTERNAL_CHANNEL',
+MEDIA : 'MEDIA',
+PROGRAM : 'PROGRAM',
 };
 
 module.exports.ReminderType = {
