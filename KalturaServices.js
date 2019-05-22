@@ -5712,6 +5712,144 @@ module.exports.topic = topic;
 
 
 /**
+ *Class definition for the Kaltura service: topicNotification.
+ * The available service actions:
+ * @action add Add a new topic notification.
+ * @action delete Delete an existing topic notification.
+ * @action list Lists all topic notifications in the system.
+ * @action subscribe Subscribe a user to a topic notification.
+ * @action unsubscribe Unubscribe a user from a topic notification.
+ * @action update Update an existing topic notification.
+ */
+class topicNotification{
+	
+	/**
+	 * Add a new topic notification.
+	 * @param topicNotification TopicNotification The topic notification to add
+	 * @return KalturaTopicNotification
+	 */
+	static add(topicNotification){
+		let kparams = {};
+		kparams.topicNotification = topicNotification;
+		return new kaltura.RequestBuilder('topicnotification', 'add', kparams);
+	};
+	
+	/**
+	 * Delete an existing topic notification.
+	 * @param id int ID of topic notification to delete
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('topicnotification', 'delete', kparams);
+	};
+	
+	/**
+	 * Lists all topic notifications in the system.
+	 * @param filter TopicNotificationFilter Filter options (optional, default: null)
+	 * @return KalturaTopicNotificationListResponse
+	 */
+	static listAction(filter = null){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('topicnotification', 'list', kparams);
+	};
+	
+	/**
+	 * Subscribe a user to a topic notification.
+	 * @param topicNotificationId int ID of topic notification to subscribe to
+	 */
+	static subscribe(topicNotificationId){
+		let kparams = {};
+		kparams.topicNotificationId = topicNotificationId;
+		return new kaltura.RequestBuilder('topicnotification', 'subscribe', kparams);
+	};
+	
+	/**
+	 * Unubscribe a user from a topic notification.
+	 * @param topicNotificationId int ID of topic notification to unsubscribe from
+	 */
+	static unsubscribe(topicNotificationId){
+		let kparams = {};
+		kparams.topicNotificationId = topicNotificationId;
+		return new kaltura.RequestBuilder('topicnotification', 'unsubscribe', kparams);
+	};
+	
+	/**
+	 * Update an existing topic notification.
+	 * @param id int The topic notification ID to update
+	 * @param topicNotification TopicNotification The topic notification to update
+	 * @return KalturaTopicNotification
+	 */
+	static update(id, topicNotification){
+		let kparams = {};
+		kparams.id = id;
+		kparams.topicNotification = topicNotification;
+		return new kaltura.RequestBuilder('topicnotification', 'update', kparams);
+	};
+}
+module.exports.topicNotification = topicNotification;
+
+
+/**
+ *Class definition for the Kaltura service: topicNotificationMessage.
+ * The available service actions:
+ * @action add Add a new topic notification message.
+ * @action delete Delete an existing topic notification message.
+ * @action list Lists all topic notifications in the system.
+ * @action update Update an existing topic notification message.
+ */
+class topicNotificationMessage{
+	
+	/**
+	 * Add a new topic notification message.
+	 * @param topicNotificationMessage TopicNotificationMessage The topic notification message to add
+	 * @return KalturaTopicNotificationMessage
+	 */
+	static add(topicNotificationMessage){
+		let kparams = {};
+		kparams.topicNotificationMessage = topicNotificationMessage;
+		return new kaltura.RequestBuilder('topicnotificationmessage', 'add', kparams);
+	};
+	
+	/**
+	 * Delete an existing topic notification message.
+	 * @param id int ID of topic notification message to delete
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('topicnotificationmessage', 'delete', kparams);
+	};
+	
+	/**
+	 * Lists all topic notifications in the system.
+	 * @param filter TopicNotificationMessageFilter Filter options (optional, default: null)
+	 * @return KalturaTopicNotificationMessageListResponse
+	 */
+	static listAction(filter = null){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('topicnotificationmessage', 'list', kparams);
+	};
+	
+	/**
+	 * Update an existing topic notification message.
+	 * @param id int The topic notification message ID to update
+	 * @param topicNotificationMessage TopicNotificationMessage The topic notification message to update
+	 * @return KalturaTopicNotificationMessage
+	 */
+	static update(id, topicNotificationMessage){
+		let kparams = {};
+		kparams.id = id;
+		kparams.topicNotificationMessage = topicNotificationMessage;
+		return new kaltura.RequestBuilder('topicnotificationmessage', 'update', kparams);
+	};
+}
+module.exports.topicNotificationMessage = topicNotificationMessage;
+
+
+/**
  *Class definition for the Kaltura service: transaction.
  * The available service actions:
  * @action downgrade downgrade specific subscription for a household. entitlements will be updated on the existing subscription end date.
