@@ -9497,6 +9497,21 @@ class TopicNotificationMessage extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * Topic notification message image URL
+	 * @return string
+	 */
+	 getImageUrl() {
+	 	return this.imageUrl;
+	 }
+	
+	/**
+	 * @param imageUrl string Topic notification message image URL
+	 */
+	 setImageUrl(imageUrl) {
+	 	this.imageUrl = imageUrl;
+	 }
+	
+	/**
 	 * Topic notification ID
 	 * @return int
 	 */
@@ -14145,6 +14160,21 @@ class Rule extends kaltura.BaseObject{
 	 */
 	 setDescription(description) {
 	 	this.description = description;
+	 }
+	
+	/**
+	 * Label
+	 * @return string
+	 */
+	 getLabel() {
+	 	return this.label;
+	 }
+	
+	/**
+	 * @param label string Label
+	 */
+	 setLabel(label) {
+	 	this.label = label;
 	 }
 }
 module.exports.Rule = Rule;
@@ -20910,6 +20940,21 @@ class TagFilter extends Filter{
 	 */
 	 setLanguageEqual(languageEqual) {
 	 	this.languageEqual = languageEqual;
+	 }
+	
+	/**
+	 * Comma separated identifiers
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated identifiers
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
 	 }
 }
 module.exports.TagFilter = TagFilter;
