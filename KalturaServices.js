@@ -5825,11 +5825,13 @@ class topicNotificationMessage{
 	/**
 	 * Lists all topic notifications in the system.
 	 * @param filter TopicNotificationMessageFilter Filter options (optional, default: null)
+	 * @param pager FilterPager Paging the request (optional, default: null)
 	 * @return KalturaTopicNotificationMessageListResponse
 	 */
-	static listAction(filter = null){
+	static listAction(filter = null, pager = null){
 		let kparams = {};
 		kparams.filter = filter;
+		kparams.pager = pager;
 		return new kaltura.RequestBuilder('topicnotificationmessage', 'list', kparams);
 	};
 	
