@@ -5746,10 +5746,10 @@ class topicNotification{
 	
 	/**
 	 * Lists all topic notifications in the system.
-	 * @param filter TopicNotificationFilter Filter options (optional, default: null)
+	 * @param filter TopicNotificationFilter Filter options
 	 * @return KalturaTopicNotificationListResponse
 	 */
-	static listAction(filter = null){
+	static listAction(filter){
 		let kparams = {};
 		kparams.filter = filter;
 		return new kaltura.RequestBuilder('topicnotification', 'list', kparams);

@@ -9555,6 +9555,14 @@ class TopicNotificationMessage extends kaltura.BaseObject{
 	 setDispatchers(dispatchers) {
 	 	this.dispatchers = dispatchers;
 	 }
+	
+	/**
+	 * Message status
+	 * @return string
+	 */
+	 getStatus() {
+	 	return this.status;
+	 }
 }
 module.exports.TopicNotificationMessage = TopicNotificationMessage;
 
@@ -21361,6 +21369,21 @@ class AssetRuleFilter extends Filter{
 	 */
 	 setActionsContainType(actionsContainType) {
 	 	this.actionsContainType = actionsContainType;
+	 }
+	
+	/**
+	 * Asset rule id
+	 * @return int
+	 */
+	 getAssetRuleIdEqual() {
+	 	return this.assetRuleIdEqual;
+	 }
+	
+	/**
+	 * @param assetRuleIdEqual int Asset rule id
+	 */
+	 setAssetRuleIdEqual(assetRuleIdEqual) {
+	 	this.assetRuleIdEqual = assetRuleIdEqual;
 	 }
 }
 module.exports.AssetRuleFilter = AssetRuleFilter;
