@@ -14464,6 +14464,33 @@ module.exports.BusinessModuleRuleAction = BusinessModuleRuleAction;
 /**
  *
  */
+class ApplyDiscountModuleAction extends BusinessModuleRuleAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaApplyDiscountModuleAction';
+	}
+	
+	/**
+	 * Discount module ID
+	 * @return int
+	 */
+	 getDiscountModuleId() {
+	 	return this.discountModuleId;
+	 }
+	
+	/**
+	 * @param discountModuleId int Discount module ID
+	 */
+	 setDiscountModuleId(discountModuleId) {
+	 	this.discountModuleId = discountModuleId;
+	 }
+}
+module.exports.ApplyDiscountModuleAction = ApplyDiscountModuleAction;
+
+/**
+ *
+ */
 class BusinessModuleRule extends Rule{
 	
 	constructor(object = null) {
@@ -14867,84 +14894,6 @@ module.exports.SegmentsCondition = SegmentsCondition;
 /**
  *
  */
-class SubscriptionCondition extends Condition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSubscriptionCondition';
-	}
-	
-	/**
-	 * Comma separated subscription IDs list
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Comma separated subscription IDs list
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.SubscriptionCondition = SubscriptionCondition;
-
-/**
- *
- */
-class UserSubscriptionCondition extends SubscriptionCondition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaUserSubscriptionCondition';
-	}
-}
-module.exports.UserSubscriptionCondition = UserSubscriptionCondition;
-
-/**
- *
- */
-class AssetSubscriptionCondition extends SubscriptionCondition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetSubscriptionCondition';
-	}
-}
-module.exports.AssetSubscriptionCondition = AssetSubscriptionCondition;
-
-/**
- *
- */
-class UserRoleCondition extends Condition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaUserRoleCondition';
-	}
-	
-	/**
-	 * Comma separated user role IDs list
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Comma separated user role IDs list
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.UserRoleCondition = UserRoleCondition;
-
-/**
- *
- */
 class AssetRuleAction extends RuleAction{
 	
 	constructor(object = null) {
@@ -15237,45 +15186,6 @@ class AssetUserRuleFilterAction extends AssetUserRuleAction{
 	 }
 }
 module.exports.AssetUserRuleFilterAction = AssetUserRuleFilterAction;
-
-/**
- *
- */
-class ApplyDiscountModuleAction extends BusinessModuleRuleAction{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaApplyDiscountModuleAction';
-	}
-	
-	/**
-	 * Discount module ID
-	 * @return int
-	 */
-	 getDiscountModuleId() {
-	 	return this.discountModuleId;
-	 }
-	
-	/**
-	 * @param discountModuleId int Discount module ID
-	 */
-	 setDiscountModuleId(discountModuleId) {
-	 	this.discountModuleId = discountModuleId;
-	 }
-}
-module.exports.ApplyDiscountModuleAction = ApplyDiscountModuleAction;
-
-/**
- *
- */
-class ApplyFreePlaybackAction extends BusinessModuleRuleAction{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaApplyFreePlaybackAction';
-	}
-}
-module.exports.ApplyFreePlaybackAction = ApplyFreePlaybackAction;
 
 /**
  *
@@ -20483,33 +20393,6 @@ module.exports.ExternalRecordingFilter = ExternalRecordingFilter;
 /**
  *
  */
-class CloudRecordingFilter extends ExternalRecordingFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCloudRecordingFilter';
-	}
-	
-	/**
-	 * Adapter Data
-	 * @return string
-	 */
-	 getAdapterData() {
-	 	return this.adapterData;
-	 }
-	
-	/**
-	 * @param adapterData string Adapter Data
-	 */
-	 setAdapterData(adapterData) {
-	 	this.adapterData = adapterData;
-	 }
-}
-module.exports.CloudRecordingFilter = CloudRecordingFilter;
-
-/**
- *
- */
 class SeriesRecordingFilter extends Filter{
 	
 	constructor(object = null) {
@@ -20518,33 +20401,6 @@ class SeriesRecordingFilter extends Filter{
 	}
 }
 module.exports.SeriesRecordingFilter = SeriesRecordingFilter;
-
-/**
- *
- */
-class CloudSeriesRecordingFilter extends SeriesRecordingFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCloudSeriesRecordingFilter';
-	}
-	
-	/**
-	 * Adapter Data
-	 * @return string
-	 */
-	 getAdapterData() {
-	 	return this.adapterData;
-	 }
-	
-	/**
-	 * @param adapterData string Adapter Data
-	 */
-	 setAdapterData(adapterData) {
-	 	this.adapterData = adapterData;
-	 }
-}
-module.exports.CloudSeriesRecordingFilter = CloudSeriesRecordingFilter;
 
 /**
  *

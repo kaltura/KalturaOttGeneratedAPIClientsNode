@@ -117,7 +117,6 @@ module.exports.AssetReferenceType = {
 MEDIA : 'media',
 EPG_INTERNAL : 'epg_internal',
 EPG_EXTERNAL : 'epg_external',
-NPVR : 'npvr',
 };
 
 module.exports.AssetReminderOrderBy = {
@@ -837,7 +836,6 @@ APPLY_DISCOUNT_MODULE : 'APPLY_DISCOUNT_MODULE',
 APPLY_PLAYBACK_ADAPTER : 'APPLY_PLAYBACK_ADAPTER',
 FILTER : 'FILTER',
 ASSET_LIFE_CYCLE_TRANSITION : 'ASSET_LIFE_CYCLE_TRANSITION',
-APPLY_FREE_PLAYBACK : 'APPLY_FREE_PLAYBACK',
 };
 
 module.exports.RuleConditionType = {
@@ -850,9 +848,6 @@ SEGMENTS : 'SEGMENTS',
 DATE : 'DATE',
 OR : 'OR',
 HEADER : 'HEADER',
-USER_SUBSCRIPTION : 'USER_SUBSCRIPTION',
-ASSET_SUBSCRIPTION : 'ASSET_SUBSCRIPTION',
-USER_ROLE : 'USER_ROLE',
 };
 
 module.exports.RuleLevel = {
