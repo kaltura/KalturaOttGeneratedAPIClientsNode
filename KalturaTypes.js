@@ -78,6 +78,12 @@ module.exports.AssetHistoryOrderBy = {
 NONE : 'NONE',
 };
 
+module.exports.AssetIndexStatus = {
+OK : 'Ok',
+DELETED : 'Deleted',
+NOTUPDATED : 'NotUpdated',
+};
+
 module.exports.AssetInheritancePolicy = {
 ENABLE : 'Enable',
 DISABLE : 'Disable',
@@ -111,6 +117,7 @@ module.exports.AssetReferenceType = {
 MEDIA : 'media',
 EPG_INTERNAL : 'epg_internal',
 EPG_EXTERNAL : 'epg_external',
+NPVR : 'npvr',
 };
 
 module.exports.AssetReminderOrderBy = {
@@ -664,6 +671,12 @@ module.exports.PermissionOrderBy = {
 NONE : 'NONE',
 };
 
+module.exports.PermissionType = {
+NORMAL : 'NORMAL',
+GROUP : 'GROUP',
+SPECIAL_FEATURE : 'SPECIAL_FEATURE',
+};
+
 module.exports.PersonalFeedOrderBy = {
 RELEVANCY_DESC : 'RELEVANCY_DESC',
 NAME_ASC : 'NAME_ASC',
@@ -830,6 +843,7 @@ APPLY_DISCOUNT_MODULE : 'APPLY_DISCOUNT_MODULE',
 APPLY_PLAYBACK_ADAPTER : 'APPLY_PLAYBACK_ADAPTER',
 FILTER : 'FILTER',
 ASSET_LIFE_CYCLE_TRANSITION : 'ASSET_LIFE_CYCLE_TRANSITION',
+APPLY_FREE_PLAYBACK : 'APPLY_FREE_PLAYBACK',
 };
 
 module.exports.RuleConditionType = {
@@ -842,6 +856,9 @@ SEGMENTS : 'SEGMENTS',
 DATE : 'DATE',
 OR : 'OR',
 HEADER : 'HEADER',
+USER_SUBSCRIPTION : 'USER_SUBSCRIPTION',
+ASSET_SUBSCRIPTION : 'ASSET_SUBSCRIPTION',
+USER_ROLE : 'USER_ROLE',
 };
 
 module.exports.RuleLevel = {

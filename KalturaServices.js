@@ -4136,10 +4136,33 @@ module.exports.paymentMethodProfile = paymentMethodProfile;
 /**
  *Class definition for the Kaltura service: permission.
  * The available service actions:
+ * @action add Adds new permission.
+ * @action delete Deletes an existing permission.
  * @action getCurrentPermissions Returns permission names as comma separated string.
  * @action list Retrieving permissions by identifiers, if filter is empty, returns all partner permissions.
  */
 class permission{
+	
+	/**
+	 * Adds new permission.
+	 * @param permission Permission Permission to insert
+	 * @return KalturaPermission
+	 */
+	static add(permission){
+		let kparams = {};
+		kparams.permission = permission;
+		return new kaltura.RequestBuilder('permission', 'add', kparams);
+	};
+	
+	/**
+	 * Deletes an existing permission.
+	 * @param id int Permission ID to delete
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('permission', 'delete', kparams);
+	};
 	
 	/**
 	 * Returns permission names as comma separated string.
@@ -5746,10 +5769,10 @@ class topicNotification{
 	
 	/**
 	 * Lists all topic notifications in the system.
-	 * @param filter TopicNotificationFilter Filter options (optional, default: null)
+	 * @param filter TopicNotificationFilter Filter options
 	 * @return KalturaTopicNotificationListResponse
 	 */
-	static listAction(filter = null){
+	static listAction(filter){
 		let kparams = {};
 		kparams.filter = filter;
 		return new kaltura.RequestBuilder('topicnotification', 'list', kparams);
