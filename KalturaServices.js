@@ -1518,6 +1518,7 @@ module.exports.country = country;
  *Class definition for the Kaltura service: coupon.
  * The available service actions:
  * @action get Returns information about a coupon.
+ * @action list Lists coupon codes.
  */
 class coupon{
 	
@@ -1530,6 +1531,17 @@ class coupon{
 		let kparams = {};
 		kparams.code = code;
 		return new kaltura.RequestBuilder('coupon', 'get', kparams);
+	};
+	
+	/**
+	 * Lists coupon codes.
+	 * @param filter CouponFilter Filter options
+	 * @return KalturaCouponListResponse
+	 */
+	static listAction(filter){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('coupon', 'list', kparams);
 	};
 }
 module.exports.coupon = coupon;
@@ -1879,6 +1891,7 @@ module.exports.engagement = engagement;
 /**
  *Class definition for the Kaltura service: entitlement.
  * The available service actions:
+ * @action applyCoupon Apply new coupon for existing subscription.
  * @action cancel Immediately cancel a subscription, PPV or collection. Cancel is possible only if within cancellation window and content not already consumed.
  * @action cancelRenewal Cancel a household service subscription at the next renewal. The subscription stays valid till the next renewal.
  * @action cancelScheduledSubscription Cancel Scheduled Subscription.
@@ -1891,6 +1904,18 @@ module.exports.engagement = engagement;
  * @action update Update Kaltura Entitelment by Purchase id.
  */
 class entitlement{
+	
+	/**
+	 * Apply new coupon for existing subscription.
+	 * @param purchaseId int purchase Id
+	 * @param couponCode string coupon Code
+	 */
+	static applyCoupon(purchaseId, couponCode){
+		let kparams = {};
+		kparams.purchaseId = purchaseId;
+		kparams.couponCode = couponCode;
+		return new kaltura.RequestBuilder('entitlement', 'applyCoupon', kparams);
+	};
 	
 	/**
 	 * Immediately cancel a subscription, PPV or collection. Cancel is possible only if within cancellation window and content not already consumed.
@@ -2420,6 +2445,50 @@ class household{
 	};
 }
 module.exports.household = household;
+
+
+/**
+ *Class definition for the Kaltura service: householdCoupon.
+ * The available service actions:
+ * @action list Gets all HouseholdCoupon items for a household.
+ * @action add householdCoupon add.
+ * @action delete Remove coupon from household.
+ */
+class householdCoupon{
+	
+	/**
+	 * Gets all HouseholdCoupon items for a household.
+	 * @param filter HouseholdCouponFilter Request filter (optional, default: null)
+	 * @return KalturaHouseholdCouponListResponse
+	 */
+	static listAction(filter = null){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('householdcoupon', 'list', kparams);
+	};
+	
+	/**
+	 * householdCoupon add.
+	 * @param objectToAdd HouseholdCoupon householdCoupon details
+	 * @return KalturaHouseholdCoupon
+	 */
+	static add(objectToAdd){
+		let kparams = {};
+		kparams.objectToAdd = objectToAdd;
+		return new kaltura.RequestBuilder('householdcoupon', 'add', kparams);
+	};
+	
+	/**
+	 * Remove coupon from household.
+	 * @param id string Coupon code
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('householdcoupon', 'delete', kparams);
+	};
+}
+module.exports.householdCoupon = householdCoupon;
 
 
 /**
@@ -3987,6 +4056,25 @@ class partnerConfiguration{
 	};
 }
 module.exports.partnerConfiguration = partnerConfiguration;
+
+
+/**
+ *Class definition for the Kaltura service: partner.
+ * The available service actions:
+ * @action externalLogin Returns a login session for external system (like OVP).
+ */
+class partner{
+	
+	/**
+	 * Returns a login session for external system (like OVP).
+	 * @return KalturaLoginSession
+	 */
+	static externalLogin(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('partner', 'externalLogin', kparams);
+	};
+}
+module.exports.partner = partner;
 
 
 /**
