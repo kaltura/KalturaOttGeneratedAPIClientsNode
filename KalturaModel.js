@@ -20482,14 +20482,14 @@ module.exports.HouseholdUserFilter = HouseholdUserFilter;
 /**
  *
  */
-class HouseoldCouponCodeFilter extends RelatedObjectFilter{
+class HouseholdCouponCodeFilter extends RelatedObjectFilter{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaHouseoldCouponCodeFilter';
+		this.objectType = 'KalturaHouseholdCouponCodeFilter';
 	}
 }
-module.exports.HouseoldCouponCodeFilter = HouseoldCouponCodeFilter;
+module.exports.HouseholdCouponCodeFilter = HouseholdCouponCodeFilter;
 
 /**
  *
