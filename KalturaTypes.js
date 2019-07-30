@@ -436,10 +436,6 @@ VALUE_ASC : 'value_asc',
 VALUE_DESC : 'value_desc',
 };
 
-module.exports.HouseholdCouponOrderBy = {
-NONE : 'NONE',
-};
-
 module.exports.HouseholdDeviceOrderBy = {
 NONE : 'NONE',
 };
