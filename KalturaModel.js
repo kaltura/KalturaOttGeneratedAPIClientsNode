@@ -4058,6 +4058,22 @@ class OTTUser extends BaseOTTUser{
 	 getUpdateDate() {
 	 	return this.updateDate;
 	 }
+	
+	/**
+	 * The date of the last successful login
+	 * @return int
+	 */
+	 getLastLoginDate() {
+	 	return this.lastLoginDate;
+	 }
+	
+	/**
+	 * The number of failed login attempts since the last successful login
+	 * @return int
+	 */
+	 getFailedLoginCount() {
+	 	return this.failedLoginCount;
+	 }
 }
 module.exports.OTTUser = OTTUser;
 
@@ -20613,6 +20629,21 @@ class IngestProfile extends kaltura.BaseObject{
 	 */
 	 setDefaultOverlapPolicy(defaultOverlapPolicy) {
 	 	this.defaultOverlapPolicy = defaultOverlapPolicy;
+	 }
+	
+	/**
+	 * Ingest profile overlap channels
+	 * @return string
+	 */
+	 getOverlapChannels() {
+	 	return this.overlapChannels;
+	 }
+	
+	/**
+	 * @param overlapChannels string Ingest profile overlap channels
+	 */
+	 setOverlapChannels(overlapChannels) {
+	 	this.overlapChannels = overlapChannels;
 	 }
 }
 module.exports.IngestProfile = IngestProfile;
