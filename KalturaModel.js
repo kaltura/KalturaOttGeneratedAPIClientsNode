@@ -12541,14 +12541,6 @@ class Asset extends kaltura.BaseObject{
 	 setExternalId(externalId) {
 	 	this.externalId = externalId;
 	 }
-	
-	/**
-	 * The media asset index status
-	 * @return string
-	 */
-	 getIndexStatus() {
-	 	return this.indexStatus;
-	 }
 }
 module.exports.Asset = Asset;
 
@@ -14464,33 +14456,6 @@ module.exports.BusinessModuleRuleAction = BusinessModuleRuleAction;
 /**
  *
  */
-class ApplyDiscountModuleAction extends BusinessModuleRuleAction{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaApplyDiscountModuleAction';
-	}
-	
-	/**
-	 * Discount module ID
-	 * @return int
-	 */
-	 getDiscountModuleId() {
-	 	return this.discountModuleId;
-	 }
-	
-	/**
-	 * @param discountModuleId int Discount module ID
-	 */
-	 setDiscountModuleId(discountModuleId) {
-	 	this.discountModuleId = discountModuleId;
-	 }
-}
-module.exports.ApplyDiscountModuleAction = ApplyDiscountModuleAction;
-
-/**
- *
- */
 class BusinessModuleRule extends Rule{
 	
 	constructor(object = null) {
@@ -15186,6 +15151,33 @@ class AssetUserRuleFilterAction extends AssetUserRuleAction{
 	 }
 }
 module.exports.AssetUserRuleFilterAction = AssetUserRuleFilterAction;
+
+/**
+ *
+ */
+class ApplyDiscountModuleAction extends BusinessModuleRuleAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaApplyDiscountModuleAction';
+	}
+	
+	/**
+	 * Discount module ID
+	 * @return int
+	 */
+	 getDiscountModuleId() {
+	 	return this.discountModuleId;
+	 }
+	
+	/**
+	 * @param discountModuleId int Discount module ID
+	 */
+	 setDiscountModuleId(discountModuleId) {
+	 	this.discountModuleId = discountModuleId;
+	 }
+}
+module.exports.ApplyDiscountModuleAction = ApplyDiscountModuleAction;
 
 /**
  *

@@ -78,12 +78,6 @@ module.exports.AssetHistoryOrderBy = {
 NONE : 'NONE',
 };
 
-module.exports.AssetIndexStatus = {
-OK : 'Ok',
-DELETED : 'Deleted',
-NOTUPDATED : 'NotUpdated',
-};
-
 module.exports.AssetInheritancePolicy = {
 ENABLE : 'Enable',
 DISABLE : 'Disable',
