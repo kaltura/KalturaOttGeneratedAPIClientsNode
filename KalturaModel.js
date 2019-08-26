@@ -9555,6 +9555,14 @@ class TopicNotificationMessage extends kaltura.BaseObject{
 	 setDispatchers(dispatchers) {
 	 	this.dispatchers = dispatchers;
 	 }
+	
+	/**
+	 * Message status
+	 * @return string
+	 */
+	 getStatus() {
+	 	return this.status;
+	 }
 }
 module.exports.TopicNotificationMessage = TopicNotificationMessage;
 
@@ -12533,6 +12541,14 @@ class Asset extends kaltura.BaseObject{
 	 setExternalId(externalId) {
 	 	this.externalId = externalId;
 	 }
+	
+	/**
+	 * The media asset index status
+	 * @return string
+	 */
+	 getIndexStatus() {
+	 	return this.indexStatus;
+	 }
 }
 module.exports.Asset = Asset;
 
@@ -14436,29 +14452,14 @@ module.exports.RuleAction = RuleAction;
 /**
  *
  */
-class ApplyDiscountModuleAction extends RuleAction{
+class BusinessModuleRuleAction extends RuleAction{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaApplyDiscountModuleAction';
+		this.objectType = 'KalturaBusinessModuleRuleAction';
 	}
-	
-	/**
-	 * Discount module ID
-	 * @return int
-	 */
-	 getDiscountModuleId() {
-	 	return this.discountModuleId;
-	 }
-	
-	/**
-	 * @param discountModuleId int Discount module ID
-	 */
-	 setDiscountModuleId(discountModuleId) {
-	 	this.discountModuleId = discountModuleId;
-	 }
 }
-module.exports.ApplyDiscountModuleAction = ApplyDiscountModuleAction;
+module.exports.BusinessModuleRuleAction = BusinessModuleRuleAction;
 
 /**
  *
@@ -14866,6 +14867,84 @@ module.exports.SegmentsCondition = SegmentsCondition;
 /**
  *
  */
+class SubscriptionCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSubscriptionCondition';
+	}
+	
+	/**
+	 * Comma separated subscription IDs list
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated subscription IDs list
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.SubscriptionCondition = SubscriptionCondition;
+
+/**
+ *
+ */
+class UserSubscriptionCondition extends SubscriptionCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUserSubscriptionCondition';
+	}
+}
+module.exports.UserSubscriptionCondition = UserSubscriptionCondition;
+
+/**
+ *
+ */
+class AssetSubscriptionCondition extends SubscriptionCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetSubscriptionCondition';
+	}
+}
+module.exports.AssetSubscriptionCondition = AssetSubscriptionCondition;
+
+/**
+ *
+ */
+class UserRoleCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUserRoleCondition';
+	}
+	
+	/**
+	 * Comma separated user role IDs list
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated user role IDs list
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.UserRoleCondition = UserRoleCondition;
+
+/**
+ *
+ */
 class AssetRuleAction extends RuleAction{
 	
 	constructor(object = null) {
@@ -15158,6 +15237,45 @@ class AssetUserRuleFilterAction extends AssetUserRuleAction{
 	 }
 }
 module.exports.AssetUserRuleFilterAction = AssetUserRuleFilterAction;
+
+/**
+ *
+ */
+class ApplyDiscountModuleAction extends BusinessModuleRuleAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaApplyDiscountModuleAction';
+	}
+	
+	/**
+	 * Discount module ID
+	 * @return int
+	 */
+	 getDiscountModuleId() {
+	 	return this.discountModuleId;
+	 }
+	
+	/**
+	 * @param discountModuleId int Discount module ID
+	 */
+	 setDiscountModuleId(discountModuleId) {
+	 	this.discountModuleId = discountModuleId;
+	 }
+}
+module.exports.ApplyDiscountModuleAction = ApplyDiscountModuleAction;
+
+/**
+ *
+ */
+class ApplyFreePlaybackAction extends BusinessModuleRuleAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaApplyFreePlaybackAction';
+	}
+}
+module.exports.ApplyFreePlaybackAction = ApplyFreePlaybackAction;
 
 /**
  *
@@ -15597,6 +15715,29 @@ class Permission extends kaltura.BaseObject{
 	 setFriendlyName(friendlyName) {
 	 	this.friendlyName = friendlyName;
 	 }
+	
+	/**
+	 * Comma separated permissions names from type SPECIAL_FEATURE
+	 * @return string
+	 */
+	 getDependsOnPermissionNames() {
+	 	return this.dependsOnPermissionNames;
+	 }
+	
+	/**
+	 * Comma separated permissions names from type SPECIAL_FEATURE
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * @param type string Comma separated permissions names from type SPECIAL_FEATURE
+	 */
+	 setType(type) {
+	 	this.type = type;
+	 }
 }
 module.exports.Permission = Permission;
 
@@ -15643,13 +15784,6 @@ class GroupPermission extends Permission{
 	 */
 	 getGroup() {
 	 	return this.group;
-	 }
-	
-	/**
-	 * @param group string Permission identifier
-	 */
-	 setGroup(group) {
-	 	this.group = group;
 	 }
 }
 module.exports.GroupPermission = GroupPermission;
@@ -20365,6 +20499,33 @@ module.exports.ExternalRecordingFilter = ExternalRecordingFilter;
 /**
  *
  */
+class CloudRecordingFilter extends ExternalRecordingFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCloudRecordingFilter';
+	}
+	
+	/**
+	 * Adapter Data
+	 * @return string
+	 */
+	 getAdapterData() {
+	 	return this.adapterData;
+	 }
+	
+	/**
+	 * @param adapterData string Adapter Data
+	 */
+	 setAdapterData(adapterData) {
+	 	this.adapterData = adapterData;
+	 }
+}
+module.exports.CloudRecordingFilter = CloudRecordingFilter;
+
+/**
+ *
+ */
 class SeriesRecordingFilter extends Filter{
 	
 	constructor(object = null) {
@@ -20373,6 +20534,33 @@ class SeriesRecordingFilter extends Filter{
 	}
 }
 module.exports.SeriesRecordingFilter = SeriesRecordingFilter;
+
+/**
+ *
+ */
+class CloudSeriesRecordingFilter extends SeriesRecordingFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCloudSeriesRecordingFilter';
+	}
+	
+	/**
+	 * Adapter Data
+	 * @return string
+	 */
+	 getAdapterData() {
+	 	return this.adapterData;
+	 }
+	
+	/**
+	 * @param adapterData string Adapter Data
+	 */
+	 setAdapterData(adapterData) {
+	 	this.adapterData = adapterData;
+	 }
+}
+module.exports.CloudSeriesRecordingFilter = CloudSeriesRecordingFilter;
 
 /**
  *
@@ -21276,6 +21464,21 @@ class BusinessModuleRuleFilter extends Filter{
 	 setSegmentIdsApplied(segmentIdsApplied) {
 	 	this.segmentIdsApplied = segmentIdsApplied;
 	 }
+	
+	/**
+	 * Indicates which business module rule list to return by their action
+	 * @return string
+	 */
+	 getActionsContainType() {
+	 	return this.actionsContainType;
+	 }
+	
+	/**
+	 * @param actionsContainType string Indicates which business module rule list to return by their action
+	 */
+	 setActionsContainType(actionsContainType) {
+	 	this.actionsContainType = actionsContainType;
+	 }
 }
 module.exports.BusinessModuleRuleFilter = BusinessModuleRuleFilter;
 
@@ -21361,6 +21564,21 @@ class AssetRuleFilter extends Filter{
 	 */
 	 setActionsContainType(actionsContainType) {
 	 	this.actionsContainType = actionsContainType;
+	 }
+	
+	/**
+	 * Asset rule id
+	 * @return int
+	 */
+	 getAssetRuleIdEqual() {
+	 	return this.assetRuleIdEqual;
+	 }
+	
+	/**
+	 * @param assetRuleIdEqual int Asset rule id
+	 */
+	 setAssetRuleIdEqual(assetRuleIdEqual) {
+	 	this.assetRuleIdEqual = assetRuleIdEqual;
 	 }
 }
 module.exports.AssetRuleFilter = AssetRuleFilter;
