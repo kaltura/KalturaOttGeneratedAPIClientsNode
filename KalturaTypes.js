@@ -83,16 +83,6 @@ ENABLE : 'Enable',
 DISABLE : 'Disable',
 };
 
-module.exports.AssetLifeCycleRuleActionType = {
-ADD : 'ADD',
-REMOVE : 'REMOVE',
-};
-
-module.exports.AssetLifeCycleRuleTransitionType = {
-TAG : 'TAG',
-BUSINESS_MODEL : 'BUSINESS_MODEL',
-};
-
 module.exports.AssetOrderBy = {
 RELEVANCY_DESC : 'RELEVANCY_DESC',
 NAME_ASC : 'NAME_ASC',
@@ -829,7 +819,6 @@ BLOCK_PLAYBACK : 'BLOCK_PLAYBACK',
 APPLY_DISCOUNT_MODULE : 'APPLY_DISCOUNT_MODULE',
 APPLY_PLAYBACK_ADAPTER : 'APPLY_PLAYBACK_ADAPTER',
 FILTER : 'FILTER',
-ASSET_LIFE_CYCLE_TRANSITION : 'ASSET_LIFE_CYCLE_TRANSITION',
 };
 
 module.exports.RuleConditionType = {
@@ -983,11 +972,6 @@ SWITCH : 'SWITCH',
 DEPENDENCY : 'DEPENDENCY',
 };
 
-module.exports.SubscriptionTriggerType = {
-START_DATE : 'START_DATE',
-END_DATE : 'END_DATE',
-};
-
 module.exports.TagOrderBy = {
 NONE : 'NONE',
 };
@@ -1002,14 +986,6 @@ module.exports.TopicAutomaticIssueNotification = {
 INHERIT : 'Inherit',
 YES : 'Yes',
 NO : 'No',
-};
-
-module.exports.TopicNotificationMessageOrderBy = {
-NONE : 'NONE',
-};
-
-module.exports.TopicNotificationOrderBy = {
-NONE : 'NONE',
 };
 
 module.exports.TopicOrderBy = {

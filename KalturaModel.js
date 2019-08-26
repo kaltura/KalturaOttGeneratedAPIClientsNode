@@ -8919,21 +8919,6 @@ class Subscription extends kaltura.BaseObject{
 	 setIsCancellationBlocked(isCancellationBlocked) {
 	 	this.isCancellationBlocked = isCancellationBlocked;
 	 }
-	
-	/**
-	 * The Pre-Sale date the subscription is available for purchasing
-	 * @return int
-	 */
-	 getPreSaleDate() {
-	 	return this.preSaleDate;
-	 }
-	
-	/**
-	 * @param preSaleDate int The Pre-Sale date the subscription is available for purchasing
-	 */
-	 setPreSaleDate(preSaleDate) {
-	 	this.preSaleDate = preSaleDate;
-	 }
 }
 module.exports.Subscription = Subscription;
 
@@ -9307,406 +9292,6 @@ class BillingPartnerConfig extends PartnerConfiguration{
 	 }
 }
 module.exports.BillingPartnerConfig = BillingPartnerConfig;
-
-/**
- *
- */
-class SubscribeReference extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSubscribeReference';
-	}
-}
-module.exports.SubscribeReference = SubscribeReference;
-
-/**
- *
- */
-class TopicNotification extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaTopicNotification';
-	}
-	
-	/**
-	 * Topic notification ID
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Topic notification name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Topic notification name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
-	 * Topic notification description
-	 * @return string
-	 */
-	 getDescription() {
-	 	return this.description;
-	 }
-	
-	/**
-	 * @param description string Topic notification description
-	 */
-	 setDescription(description) {
-	 	this.description = description;
-	 }
-	
-	/**
-	 * Announcement enabled
-	 * @return SubscribeReference
-	 */
-	 getSubscribeReference() {
-	 	return this.subscribeReference;
-	 }
-	
-	/**
-	 * @param subscribeReference SubscribeReference Announcement enabled
-	 */
-	 setSubscribeReference(subscribeReference) {
-	 	this.subscribeReference = subscribeReference;
-	 }
-}
-module.exports.TopicNotification = TopicNotification;
-
-/**
- *
- */
-class TopicNotificationListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaTopicNotificationListResponse';
-	}
-	
-	/**
-	 * Topic notifications
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array Topic notifications
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.TopicNotificationListResponse = TopicNotificationListResponse;
-
-/**
- *
- */
-class SubscriptionSubscribeReference extends SubscribeReference{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSubscriptionSubscribeReference';
-	}
-	
-	/**
-	 * Subscription ID
-	 * @return int
-	 */
-	 getSubscriptionId() {
-	 	return this.subscriptionId;
-	 }
-	
-	/**
-	 * @param subscriptionId int Subscription ID
-	 */
-	 setSubscriptionId(subscriptionId) {
-	 	this.subscriptionId = subscriptionId;
-	 }
-}
-module.exports.SubscriptionSubscribeReference = SubscriptionSubscribeReference;
-
-/**
- *
- */
-class Trigger extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaTrigger';
-	}
-}
-module.exports.Trigger = Trigger;
-
-/**
- *
- */
-class Dispatcher extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDispatcher';
-	}
-}
-module.exports.Dispatcher = Dispatcher;
-
-/**
- *
- */
-class TopicNotificationMessage extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaTopicNotificationMessage';
-	}
-	
-	/**
-	 * Topic notification message ID
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Topic notification message
-	 * @return string
-	 */
-	 getMessage() {
-	 	return this.message;
-	 }
-	
-	/**
-	 * @param message string Topic notification message
-	 */
-	 setMessage(message) {
-	 	this.message = message;
-	 }
-	
-	/**
-	 * Topic notification message image URL
-	 * @return string
-	 */
-	 getImageUrl() {
-	 	return this.imageUrl;
-	 }
-	
-	/**
-	 * @param imageUrl string Topic notification message image URL
-	 */
-	 setImageUrl(imageUrl) {
-	 	this.imageUrl = imageUrl;
-	 }
-	
-	/**
-	 * Topic notification ID
-	 * @return int
-	 */
-	 getTopicNotificationId() {
-	 	return this.topicNotificationId;
-	 }
-	
-	/**
-	 * @param topicNotificationId int Topic notification ID
-	 */
-	 setTopicNotificationId(topicNotificationId) {
-	 	this.topicNotificationId = topicNotificationId;
-	 }
-	
-	/**
-	 * Topic notification message trigger
-	 * @return Trigger
-	 */
-	 getTrigger() {
-	 	return this.trigger;
-	 }
-	
-	/**
-	 * @param trigger Trigger Topic notification message trigger
-	 */
-	 setTrigger(trigger) {
-	 	this.trigger = trigger;
-	 }
-	
-	/**
-	 * Topic notification message dispatchers
-	 * @return array
-	 */
-	 getDispatchers() {
-	 	return this.dispatchers;
-	 }
-	
-	/**
-	 * @param dispatchers array Topic notification message dispatchers
-	 */
-	 setDispatchers(dispatchers) {
-	 	this.dispatchers = dispatchers;
-	 }
-}
-module.exports.TopicNotificationMessage = TopicNotificationMessage;
-
-/**
- *
- */
-class TopicNotificationMessageListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaTopicNotificationMessageListResponse';
-	}
-	
-	/**
-	 * Topic notification messages
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array Topic notification messages
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.TopicNotificationMessageListResponse = TopicNotificationMessageListResponse;
-
-/**
- *
- */
-class DateTrigger extends Trigger{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDateTrigger';
-	}
-	
-	/**
-	 * Trigger date
-	 * @return int
-	 */
-	 getDate() {
-	 	return this.date;
-	 }
-	
-	/**
-	 * @param date int Trigger date
-	 */
-	 setDate(date) {
-	 	this.date = date;
-	 }
-}
-module.exports.DateTrigger = DateTrigger;
-
-/**
- *
- */
-class SubscriptionTrigger extends Trigger{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSubscriptionTrigger';
-	}
-	
-	/**
-	 * Subscription trigger type
-	 * @return string
-	 */
-	 getType() {
-	 	return this.type;
-	 }
-	
-	/**
-	 * @param type string Subscription trigger type
-	 */
-	 setType(type) {
-	 	this.type = type;
-	 }
-	
-	/**
-	 * Subscription trigger offset
-	 * @return int
-	 */
-	 getOffset() {
-	 	return this.offset;
-	 }
-	
-	/**
-	 * @param offset int Subscription trigger offset
-	 */
-	 setOffset(offset) {
-	 	this.offset = offset;
-	 }
-}
-module.exports.SubscriptionTrigger = SubscriptionTrigger;
-
-/**
- *
- */
-class SmsDispatcher extends Dispatcher{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSmsDispatcher';
-	}
-}
-module.exports.SmsDispatcher = SmsDispatcher;
-
-/**
- *
- */
-class MailDispatcher extends Dispatcher{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaMailDispatcher';
-	}
-	
-	/**
-	 * Mail body template
-	 * @return string
-	 */
-	 getBodyTemplate() {
-	 	return this.bodyTemplate;
-	 }
-	
-	/**
-	 * @param bodyTemplate string Mail body template
-	 */
-	 setBodyTemplate(bodyTemplate) {
-	 	this.bodyTemplate = bodyTemplate;
-	 }
-	
-	/**
-	 * Mail subjsct template
-	 * @return string
-	 */
-	 getSubjectTemplate() {
-	 	return this.subjectTemplate;
-	 }
-	
-	/**
-	 * @param subjectTemplate string Mail subjsct template
-	 */
-	 setSubjectTemplate(subjectTemplate) {
-	 	this.subjectTemplate = subjectTemplate;
-	 }
-}
-module.exports.MailDispatcher = MailDispatcher;
 
 /**
  *
@@ -14161,21 +13746,6 @@ class Rule extends kaltura.BaseObject{
 	 setDescription(description) {
 	 	this.description = description;
 	 }
-	
-	/**
-	 * Label
-	 * @return string
-	 */
-	 getLabel() {
-	 	return this.label;
-	 }
-	
-	/**
-	 * @param label string Label
-	 */
-	 setLabel(label) {
-	 	this.label = label;
-	 }
 }
 module.exports.Rule = Rule;
 
@@ -14436,29 +14006,14 @@ module.exports.RuleAction = RuleAction;
 /**
  *
  */
-class ApplyDiscountModuleAction extends RuleAction{
+class BusinessModuleRuleAction extends RuleAction{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaApplyDiscountModuleAction';
+		this.objectType = 'KalturaBusinessModuleRuleAction';
 	}
-	
-	/**
-	 * Discount module ID
-	 * @return int
-	 */
-	 getDiscountModuleId() {
-	 	return this.discountModuleId;
-	 }
-	
-	/**
-	 * @param discountModuleId int Discount module ID
-	 */
-	 setDiscountModuleId(discountModuleId) {
-	 	this.discountModuleId = discountModuleId;
-	 }
 }
-module.exports.ApplyDiscountModuleAction = ApplyDiscountModuleAction;
+module.exports.BusinessModuleRuleAction = BusinessModuleRuleAction;
 
 /**
  *
@@ -15007,110 +14562,6 @@ module.exports.ApplyPlaybackAdapterAction = ApplyPlaybackAdapterAction;
 /**
  *
  */
-class AssetLifeCycleTransitionAction extends AssetRuleAction{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetLifeCycleTransitionAction';
-	}
-	
-	/**
-	 * Asset LifeCycle Rule Action Type
-	 * @return string
-	 */
-	 getAssetLifeCycleRuleActionType() {
-	 	return this.assetLifeCycleRuleActionType;
-	 }
-	
-	/**
-	 * @param assetLifeCycleRuleActionType string Asset LifeCycle Rule Action Type
-	 */
-	 setAssetLifeCycleRuleActionType(assetLifeCycleRuleActionType) {
-	 	this.assetLifeCycleRuleActionType = assetLifeCycleRuleActionType;
-	 }
-	
-	/**
-	 * Asset LifeCycle Rule Transition Type
-	 * @return string
-	 */
-	 getAssetLifeCycleRuleTransitionType() {
-	 	return this.assetLifeCycleRuleTransitionType;
-	 }
-}
-module.exports.AssetLifeCycleTransitionAction = AssetLifeCycleTransitionAction;
-
-/**
- *
- */
-class AssetLifeCycleTagTransitionAction extends AssetLifeCycleTransitionAction{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetLifeCycleTagTransitionAction';
-	}
-	
-	/**
-	 * Comma separated list of tag Ids
-	 * @return string
-	 */
-	 getTagIds() {
-	 	return this.tagIds;
-	 }
-	
-	/**
-	 * @param tagIds string Comma separated list of tag Ids
-	 */
-	 setTagIds(tagIds) {
-	 	this.tagIds = tagIds;
-	 }
-}
-module.exports.AssetLifeCycleTagTransitionAction = AssetLifeCycleTagTransitionAction;
-
-/**
- *
- */
-class AssetLifeCycleBuisnessModuleTransitionAction extends AssetLifeCycleTransitionAction{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetLifeCycleBuisnessModuleTransitionAction';
-	}
-	
-	/**
-	 * Comma separated list of fileType Ids
-	 * @return string
-	 */
-	 getFileTypeIds() {
-	 	return this.fileTypeIds;
-	 }
-	
-	/**
-	 * @param fileTypeIds string Comma separated list of fileType Ids
-	 */
-	 setFileTypeIds(fileTypeIds) {
-	 	this.fileTypeIds = fileTypeIds;
-	 }
-	
-	/**
-	 * Comma separated list of ppv Ids
-	 * @return string
-	 */
-	 getPpvIds() {
-	 	return this.ppvIds;
-	 }
-	
-	/**
-	 * @param ppvIds string Comma separated list of ppv Ids
-	 */
-	 setPpvIds(ppvIds) {
-	 	this.ppvIds = ppvIds;
-	 }
-}
-module.exports.AssetLifeCycleBuisnessModuleTransitionAction = AssetLifeCycleBuisnessModuleTransitionAction;
-
-/**
- *
- */
 class AssetUserRuleAction extends RuleAction{
 	
 	constructor(object = null) {
@@ -15158,6 +14609,33 @@ class AssetUserRuleFilterAction extends AssetUserRuleAction{
 	 }
 }
 module.exports.AssetUserRuleFilterAction = AssetUserRuleFilterAction;
+
+/**
+ *
+ */
+class ApplyDiscountModuleAction extends BusinessModuleRuleAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaApplyDiscountModuleAction';
+	}
+	
+	/**
+	 * Discount module ID
+	 * @return int
+	 */
+	 getDiscountModuleId() {
+	 	return this.discountModuleId;
+	 }
+	
+	/**
+	 * @param discountModuleId int Discount module ID
+	 */
+	 setDiscountModuleId(discountModuleId) {
+	 	this.discountModuleId = discountModuleId;
+	 }
+}
+module.exports.ApplyDiscountModuleAction = ApplyDiscountModuleAction;
 
 /**
  *
@@ -19445,60 +18923,6 @@ module.exports.PartnerConfigurationFilter = PartnerConfigurationFilter;
 /**
  *
  */
-class TopicNotificationFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaTopicNotificationFilter';
-	}
-	
-	/**
-	 * Subscribe rreference
-	 * @return SubscribeReference
-	 */
-	 getSubscribeReference() {
-	 	return this.subscribeReference;
-	 }
-	
-	/**
-	 * @param subscribeReference SubscribeReference Subscribe rreference
-	 */
-	 setSubscribeReference(subscribeReference) {
-	 	this.subscribeReference = subscribeReference;
-	 }
-}
-module.exports.TopicNotificationFilter = TopicNotificationFilter;
-
-/**
- *
- */
-class TopicNotificationMessageFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaTopicNotificationMessageFilter';
-	}
-	
-	/**
-	 * Topic notification ID
-	 * @return int
-	 */
-	 getTopicNotificationIdEqual() {
-	 	return this.topicNotificationIdEqual;
-	 }
-	
-	/**
-	 * @param topicNotificationIdEqual int Topic notification ID
-	 */
-	 setTopicNotificationIdEqual(topicNotificationIdEqual) {
-	 	this.topicNotificationIdEqual = topicNotificationIdEqual;
-	 }
-}
-module.exports.TopicNotificationMessageFilter = TopicNotificationMessageFilter;
-
-/**
- *
- */
 class AggregationCountFilter extends RelatedObjectFilter{
 	
 	constructor(object = null) {
@@ -20941,21 +20365,6 @@ class TagFilter extends Filter{
 	 setLanguageEqual(languageEqual) {
 	 	this.languageEqual = languageEqual;
 	 }
-	
-	/**
-	 * Comma separated identifiers
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Comma separated identifiers
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
 }
 module.exports.TagFilter = TagFilter;
 
@@ -21275,6 +20684,21 @@ class BusinessModuleRuleFilter extends Filter{
 	 */
 	 setSegmentIdsApplied(segmentIdsApplied) {
 	 	this.segmentIdsApplied = segmentIdsApplied;
+	 }
+	
+	/**
+	 * Indicates which business module rule list to return by their action
+	 * @return string
+	 */
+	 getActionsContainType() {
+	 	return this.actionsContainType;
+	 }
+	
+	/**
+	 * @param actionsContainType string Indicates which business module rule list to return by their action
+	 */
+	 setActionsContainType(actionsContainType) {
+	 	this.actionsContainType = actionsContainType;
 	 }
 }
 module.exports.BusinessModuleRuleFilter = BusinessModuleRuleFilter;
