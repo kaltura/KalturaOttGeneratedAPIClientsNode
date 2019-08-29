@@ -528,6 +528,7 @@ UNKNOWN : 'UNKNOWN',
 DTT : 'DTT',
 OTT : 'OTT',
 DTT_AND_OTT : 'DTT_AND_OTT',
+VRM_EXPORT : 'VRM_EXPORT',
 };
 
 module.exports.MathemticalOperatorType = {
