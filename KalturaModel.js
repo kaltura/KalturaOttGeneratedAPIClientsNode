@@ -1947,15 +1947,15 @@ class EventNotificationFilter extends CrudFilter{
 	 * Indicates which objectType to return by their event notifications
 	 * @return string
 	 */
-	 getObjectTypeEqual() {
-	 	return this.objectTypeEqual;
+	 getEventObjectTypeEqual() {
+	 	return this.eventObjectTypeEqual;
 	 }
 	
 	/**
-	 * @param objectTypeEqual string Indicates which objectType to return by their event notifications
+	 * @param eventObjectTypeEqual string Indicates which objectType to return by their event notifications
 	 */
-	 setObjectTypeEqual(objectTypeEqual) {
-	 	this.objectTypeEqual = objectTypeEqual;
+	 setEventObjectTypeEqual(eventObjectTypeEqual) {
+	 	this.eventObjectTypeEqual = eventObjectTypeEqual;
 	 }
 }
 module.exports.EventNotificationFilter = EventNotificationFilter;
