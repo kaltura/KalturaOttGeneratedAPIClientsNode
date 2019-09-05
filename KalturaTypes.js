@@ -393,6 +393,17 @@ USER : 'user',
 HOUSEHOLD : 'household',
 };
 
+module.exports.EventNotificationOrderBy = {
+NONE : 'NONE',
+};
+
+module.exports.EventNotificationStatus = {
+SENT : 'SENT',
+FAILED : 'FAILED',
+SUCCESS : 'SUCCESS',
+FAILED_TO_SEND : 'FAILED_TO_SEND',
+};
+
 module.exports.EvictionPolicyType = {
 FIFO : 'FIFO',
 LIFO : 'LIFO',
@@ -549,6 +560,7 @@ UNKNOWN : 'UNKNOWN',
 DTT : 'DTT',
 OTT : 'OTT',
 DTT_AND_OTT : 'DTT_AND_OTT',
+VRM_EXPORT : 'VRM_EXPORT',
 };
 
 module.exports.MathemticalOperatorType = {

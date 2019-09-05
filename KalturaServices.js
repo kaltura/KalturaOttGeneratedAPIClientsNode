@@ -2046,6 +2046,41 @@ module.exports.entitlement = entitlement;
 
 
 /**
+ *Class definition for the Kaltura service: eventNotification.
+ * The available service actions:
+ * @action update eventNotification update.
+ * @action list Gets all EventNotification items for a given Object id and type.
+ */
+class eventNotification{
+	
+	/**
+	 * eventNotification update.
+	 * @param id string Object ID to update
+	 * @param objectToUpdate EventNotification eventNotification details
+	 * @return KalturaEventNotification
+	 */
+	static update(id, objectToUpdate){
+		let kparams = {};
+		kparams.id = id;
+		kparams.objectToUpdate = objectToUpdate;
+		return new kaltura.RequestBuilder('eventnotification', 'update', kparams);
+	};
+	
+	/**
+	 * Gets all EventNotification items for a given Object id and type.
+	 * @param filter EventNotificationFilter Request filter
+	 * @return KalturaEventNotificationListResponse
+	 */
+	static listAction(filter){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('eventnotification', 'list', kparams);
+	};
+}
+module.exports.eventNotification = eventNotification;
+
+
+/**
  *Class definition for the Kaltura service: exportTask.
  * The available service actions:
  * @action add Adds a new bulk export task.

@@ -1906,6 +1906,63 @@ module.exports.HouseholdCouponFilter = HouseholdCouponFilter;
 /**
  *
  */
+class EventNotificationFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEventNotificationFilter';
+	}
+	
+	/**
+	 * Indicates which event notification to return by their event notifications Id
+	 * @return string
+	 */
+	 getIdEqual() {
+	 	return this.idEqual;
+	 }
+	
+	/**
+	 * @param idEqual string Indicates which event notification to return by their event notifications Id
+	 */
+	 setIdEqual(idEqual) {
+	 	this.idEqual = idEqual;
+	 }
+	
+	/**
+	 * Indicates which objectId to return by their event notifications
+	 * @return int
+	 */
+	 getObjectIdEqual() {
+	 	return this.objectIdEqual;
+	 }
+	
+	/**
+	 * @param objectIdEqual int Indicates which objectId to return by their event notifications
+	 */
+	 setObjectIdEqual(objectIdEqual) {
+	 	this.objectIdEqual = objectIdEqual;
+	 }
+	
+	/**
+	 * Indicates which objectType to return by their event notifications
+	 * @return string
+	 */
+	 getObjectTypeEqual() {
+	 	return this.objectTypeEqual;
+	 }
+	
+	/**
+	 * @param objectTypeEqual string Indicates which objectType to return by their event notifications
+	 */
+	 setObjectTypeEqual(objectTypeEqual) {
+	 	this.objectTypeEqual = objectTypeEqual;
+	 }
+}
+module.exports.EventNotificationFilter = EventNotificationFilter;
+
+/**
+ *
+ */
 class PersistedFilter extends Filter{
 	
 	constructor(object = null) {
@@ -24017,6 +24074,190 @@ module.exports.EntitlementRenewal = EntitlementRenewal;
 /**
  *
  */
+class CrudObject extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCrudObject';
+	}
+}
+module.exports.CrudObject = CrudObject;
+
+/**
+ *
+ */
+class EventNotification extends CrudObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEventNotification';
+	}
+	
+	/**
+	 * Identifier
+	 * @return string
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id string Identifier
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
+	 * Object identifier
+	 * @return int
+	 */
+	 getObjectId() {
+	 	return this.objectId;
+	 }
+	
+	/**
+	 * @param objectId int Object identifier
+	 */
+	 setObjectId(objectId) {
+	 	this.objectId = objectId;
+	 }
+	
+	/**
+	 * Event object type
+	 * @return string
+	 */
+	 getEventObjectType() {
+	 	return this.eventObjectType;
+	 }
+	
+	/**
+	 * @param eventObjectType string Event object type
+	 */
+	 setEventObjectType(eventObjectType) {
+	 	this.eventObjectType = eventObjectType;
+	 }
+	
+	/**
+	 * Message
+	 * @return string
+	 */
+	 getMessage() {
+	 	return this.message;
+	 }
+	
+	/**
+	 * @param message string Message
+	 */
+	 setMessage(message) {
+	 	this.message = message;
+	 }
+	
+	/**
+	 * Status
+	 * @return string
+	 */
+	 getStatus() {
+	 	return this.status;
+	 }
+	
+	/**
+	 * @param status string Status
+	 */
+	 setStatus(status) {
+	 	this.status = status;
+	 }
+	
+	/**
+	 * Action type
+	 * @return string
+	 */
+	 getActionType() {
+	 	return this.actionType;
+	 }
+	
+	/**
+	 * @param actionType string Action type
+	 */
+	 setActionType(actionType) {
+	 	this.actionType = actionType;
+	 }
+	
+	/**
+	 * Create date
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * Update date
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
+}
+module.exports.EventNotification = EventNotification;
+
+/**
+ *
+ */
+class HouseholdCoupon extends CrudObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdCoupon';
+	}
+	
+	/**
+	 * Coupon code
+	 * @return string
+	 */
+	 getCode() {
+	 	return this.code;
+	 }
+	
+	/**
+	 * @param code string Coupon code
+	 */
+	 setCode(code) {
+	 	this.code = code;
+	 }
+}
+module.exports.HouseholdCoupon = HouseholdCoupon;
+
+/**
+ *
+ */
+class EventNotificationListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEventNotificationListResponse';
+	}
+	
+	/**
+	 * A list of objects
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of objects
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.EventNotificationListResponse = EventNotificationListResponse;
+
+/**
+ *
+ */
 class Household extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -24173,45 +24414,6 @@ class Household extends kaltura.BaseObject{
 	 }
 }
 module.exports.Household = Household;
-
-/**
- *
- */
-class CrudObject extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCrudObject';
-	}
-}
-module.exports.CrudObject = CrudObject;
-
-/**
- *
- */
-class HouseholdCoupon extends CrudObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdCoupon';
-	}
-	
-	/**
-	 * Coupon code
-	 * @return string
-	 */
-	 getCode() {
-	 	return this.code;
-	 }
-	
-	/**
-	 * @param code string Coupon code
-	 */
-	 setCode(code) {
-	 	this.code = code;
-	 }
-}
-module.exports.HouseholdCoupon = HouseholdCoupon;
 
 /**
  *
