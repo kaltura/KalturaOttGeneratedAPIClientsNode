@@ -5194,7 +5194,7 @@ class RegionFilter extends Filter{
 	}
 	
 	/**
-	 * List of comma separated regions external identifiers
+	 * List of comma separated regions external IDs
 	 * @return string
 	 */
 	 getExternalIdIn() {
@@ -5202,10 +5202,55 @@ class RegionFilter extends Filter{
 	 }
 	
 	/**
-	 * @param externalIdIn string List of comma separated regions external identifiers
+	 * @param externalIdIn string List of comma separated regions external IDs
 	 */
 	 setExternalIdIn(externalIdIn) {
 	 	this.externalIdIn = externalIdIn;
+	 }
+	
+	/**
+	 * List of comma separated regions Ids
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string List of comma separated regions Ids
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+	
+	/**
+	 * Region parent ID to filter by
+	 * @return int
+	 */
+	 getParentIdEqual() {
+	 	return this.parentIdEqual;
+	 }
+	
+	/**
+	 * @param parentIdEqual int Region parent ID to filter by
+	 */
+	 setParentIdEqual(parentIdEqual) {
+	 	this.parentIdEqual = parentIdEqual;
+	 }
+	
+	/**
+	 * Region parent ID to filter by
+	 * @return int
+	 */
+	 getLiveAssetIdEqual() {
+	 	return this.liveAssetIdEqual;
+	 }
+	
+	/**
+	 * @param liveAssetIdEqual int Region parent ID to filter by
+	 */
+	 setLiveAssetIdEqual(liveAssetIdEqual) {
+	 	this.liveAssetIdEqual = liveAssetIdEqual;
 	 }
 }
 module.exports.RegionFilter = RegionFilter;
@@ -11922,6 +11967,36 @@ class GeneralPartnerConfig extends PartnerConfiguration{
 	 */
 	 setHouseholdLimitationModule(householdLimitationModule) {
 	 	this.householdLimitationModule = householdLimitationModule;
+	 }
+	
+	/**
+	 * Enable Region Filtering
+	 * @return bool
+	 */
+	 getEnableRegionFiltering() {
+	 	return this.enableRegionFiltering;
+	 }
+	
+	/**
+	 * @param enableRegionFiltering bool Enable Region Filtering
+	 */
+	 setEnableRegionFiltering(enableRegionFiltering) {
+	 	this.enableRegionFiltering = enableRegionFiltering;
+	 }
+	
+	/**
+	 * Default Region
+	 * @return int
+	 */
+	 getDefaultRegion() {
+	 	return this.defaultRegion;
+	 }
+	
+	/**
+	 * @param defaultRegion int Default Region
+	 */
+	 setDefaultRegion(defaultRegion) {
+	 	this.defaultRegion = defaultRegion;
 	 }
 }
 module.exports.GeneralPartnerConfig = GeneralPartnerConfig;
@@ -22008,13 +22083,6 @@ class Region extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param isDefault bool Indicates whether this is the default region for the partner
-	 */
-	 setIsDefault(isDefault) {
-	 	this.isDefault = isDefault;
-	 }
-	
-	/**
 	 * List of associated linear channels
 	 * @return array
 	 */
@@ -22027,6 +22095,21 @@ class Region extends kaltura.BaseObject{
 	 */
 	 setLinearChannels(linearChannels) {
 	 	this.linearChannels = linearChannels;
+	 }
+	
+	/**
+	 * Parent region ID
+	 * @return int
+	 */
+	 getParentId() {
+	 	return this.parentId;
+	 }
+	
+	/**
+	 * @param parentId int Parent region ID
+	 */
+	 setParentId(parentId) {
+	 	this.parentId = parentId;
 	 }
 }
 module.exports.Region = Region;
