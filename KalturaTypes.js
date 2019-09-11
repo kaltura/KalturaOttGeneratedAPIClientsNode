@@ -662,10 +662,6 @@ CONCURRENCY : 'Concurrency',
 GENERAL : 'General',
 };
 
-module.exports.PasswordPolicyOrderBy = {
-NONE : 'NONE',
-};
-
 module.exports.PaymentMethodProfileOrderBy = {
 NONE : 'NONE',
 };
