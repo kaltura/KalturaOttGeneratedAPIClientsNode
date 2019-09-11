@@ -4113,6 +4113,64 @@ module.exports.partner = partner;
 
 
 /**
+ *Class definition for the Kaltura service: passwordPolicy.
+ * The available service actions:
+ * @action add Add an object.
+ * @action update Update an object.
+ * @action delete Delete an object.
+ * @action list .
+ */
+class passwordPolicy{
+	
+	/**
+	 * Add an object.
+	 * @param objectToAdd PasswordPolicy Object to add
+	 * @return KalturaPasswordPolicy
+	 */
+	static add(objectToAdd){
+		let kparams = {};
+		kparams.objectToAdd = objectToAdd;
+		return new kaltura.RequestBuilder('passwordpolicy', 'add', kparams);
+	};
+	
+	/**
+	 * Update an object.
+	 * @param id int Object ID to update
+	 * @param objectToUpdate PasswordPolicy Object to update
+	 * @return KalturaPasswordPolicy
+	 */
+	static update(id, objectToUpdate){
+		let kparams = {};
+		kparams.id = id;
+		kparams.objectToUpdate = objectToUpdate;
+		return new kaltura.RequestBuilder('passwordpolicy', 'update', kparams);
+	};
+	
+	/**
+	 * Delete an object.
+	 * @param id int Object ID to delete
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('passwordpolicy', 'delete', kparams);
+	};
+	
+	/**
+	 * .
+	 * @param filter PasswordPolicyFilter Request filter
+	 * @return KalturaPasswordPolicyListResponse
+	 */
+	static listAction(filter){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('passwordpolicy', 'list', kparams);
+	};
+}
+module.exports.passwordPolicy = passwordPolicy;
+
+
+/**
  *Class definition for the Kaltura service: paymentGatewayProfile.
  * The available service actions:
  * @action add Insert new payment gateway for partner.

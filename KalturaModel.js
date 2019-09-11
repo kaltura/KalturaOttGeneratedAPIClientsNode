@@ -749,6 +749,144 @@ module.exports.OTTUserFilter = OTTUserFilter;
 /**
  *
  */
+class CrudFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCrudFilter';
+	}
+}
+module.exports.CrudFilter = CrudFilter;
+
+/**
+ *
+ */
+class PasswordPolicyFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPasswordPolicyFilter';
+	}
+	
+	/**
+	 * Comma separated list of role Ids
+	 * @return string
+	 */
+	 getUserRoleIdIn() {
+	 	return this.userRoleIdIn;
+	 }
+	
+	/**
+	 * @param userRoleIdIn string Comma separated list of role Ids
+	 */
+	 setUserRoleIdIn(userRoleIdIn) {
+	 	this.userRoleIdIn = userRoleIdIn;
+	 }
+}
+module.exports.PasswordPolicyFilter = PasswordPolicyFilter;
+
+/**
+ *
+ */
+class HouseholdCouponFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdCouponFilter';
+	}
+	
+	/**
+	 * Indicates which household coupons list to return by their business module type
+	 * @return string
+	 */
+	 getBusinessModuleTypeEqual() {
+	 	return this.businessModuleTypeEqual;
+	 }
+	
+	/**
+	 * @param businessModuleTypeEqual string Indicates which household coupons list to return by their business module type
+	 */
+	 setBusinessModuleTypeEqual(businessModuleTypeEqual) {
+	 	this.businessModuleTypeEqual = businessModuleTypeEqual;
+	 }
+	
+	/**
+	 * Indicates which household coupons list to return by their business module ID
+	 * @return int
+	 */
+	 getBusinessModuleIdEqual() {
+	 	return this.businessModuleIdEqual;
+	 }
+	
+	/**
+	 * @param businessModuleIdEqual int Indicates which household coupons list to return by their business module ID
+	 */
+	 setBusinessModuleIdEqual(businessModuleIdEqual) {
+	 	this.businessModuleIdEqual = businessModuleIdEqual;
+	 }
+}
+module.exports.HouseholdCouponFilter = HouseholdCouponFilter;
+
+/**
+ *
+ */
+class EventNotificationFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEventNotificationFilter';
+	}
+	
+	/**
+	 * Indicates which event notification to return by their event notifications Id
+	 * @return string
+	 */
+	 getIdEqual() {
+	 	return this.idEqual;
+	 }
+	
+	/**
+	 * @param idEqual string Indicates which event notification to return by their event notifications Id
+	 */
+	 setIdEqual(idEqual) {
+	 	this.idEqual = idEqual;
+	 }
+	
+	/**
+	 * Indicates which objectId to return by their event notifications
+	 * @return int
+	 */
+	 getObjectIdEqual() {
+	 	return this.objectIdEqual;
+	 }
+	
+	/**
+	 * @param objectIdEqual int Indicates which objectId to return by their event notifications
+	 */
+	 setObjectIdEqual(objectIdEqual) {
+	 	this.objectIdEqual = objectIdEqual;
+	 }
+	
+	/**
+	 * Indicates which objectType to return by their event notifications
+	 * @return string
+	 */
+	 getEventObjectTypeEqual() {
+	 	return this.eventObjectTypeEqual;
+	 }
+	
+	/**
+	 * @param eventObjectTypeEqual string Indicates which objectType to return by their event notifications
+	 */
+	 setEventObjectTypeEqual(eventObjectTypeEqual) {
+	 	this.eventObjectTypeEqual = eventObjectTypeEqual;
+	 }
+}
+module.exports.EventNotificationFilter = EventNotificationFilter;
+
+/**
+ *
+ */
 class BulkUploadFilter extends Filter{
 	
 	constructor(object = null) {
@@ -1848,117 +1986,6 @@ class AggregationCountFilter extends RelatedObjectFilter{
 	}
 }
 module.exports.AggregationCountFilter = AggregationCountFilter;
-
-/**
- *
- */
-class CrudFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCrudFilter';
-	}
-}
-module.exports.CrudFilter = CrudFilter;
-
-/**
- *
- */
-class HouseholdCouponFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdCouponFilter';
-	}
-	
-	/**
-	 * Indicates which household coupons list to return by their business module type
-	 * @return string
-	 */
-	 getBusinessModuleTypeEqual() {
-	 	return this.businessModuleTypeEqual;
-	 }
-	
-	/**
-	 * @param businessModuleTypeEqual string Indicates which household coupons list to return by their business module type
-	 */
-	 setBusinessModuleTypeEqual(businessModuleTypeEqual) {
-	 	this.businessModuleTypeEqual = businessModuleTypeEqual;
-	 }
-	
-	/**
-	 * Indicates which household coupons list to return by their business module ID
-	 * @return int
-	 */
-	 getBusinessModuleIdEqual() {
-	 	return this.businessModuleIdEqual;
-	 }
-	
-	/**
-	 * @param businessModuleIdEqual int Indicates which household coupons list to return by their business module ID
-	 */
-	 setBusinessModuleIdEqual(businessModuleIdEqual) {
-	 	this.businessModuleIdEqual = businessModuleIdEqual;
-	 }
-}
-module.exports.HouseholdCouponFilter = HouseholdCouponFilter;
-
-/**
- *
- */
-class EventNotificationFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaEventNotificationFilter';
-	}
-	
-	/**
-	 * Indicates which event notification to return by their event notifications Id
-	 * @return string
-	 */
-	 getIdEqual() {
-	 	return this.idEqual;
-	 }
-	
-	/**
-	 * @param idEqual string Indicates which event notification to return by their event notifications Id
-	 */
-	 setIdEqual(idEqual) {
-	 	this.idEqual = idEqual;
-	 }
-	
-	/**
-	 * Indicates which objectId to return by their event notifications
-	 * @return int
-	 */
-	 getObjectIdEqual() {
-	 	return this.objectIdEqual;
-	 }
-	
-	/**
-	 * @param objectIdEqual int Indicates which objectId to return by their event notifications
-	 */
-	 setObjectIdEqual(objectIdEqual) {
-	 	this.objectIdEqual = objectIdEqual;
-	 }
-	
-	/**
-	 * Indicates which objectType to return by their event notifications
-	 * @return string
-	 */
-	 getEventObjectTypeEqual() {
-	 	return this.eventObjectTypeEqual;
-	 }
-	
-	/**
-	 * @param eventObjectTypeEqual string Indicates which objectType to return by their event notifications
-	 */
-	 setEventObjectTypeEqual(eventObjectTypeEqual) {
-	 	this.eventObjectTypeEqual = eventObjectTypeEqual;
-	 }
-}
-module.exports.EventNotificationFilter = EventNotificationFilter;
 
 /**
  *
@@ -24287,6 +24314,158 @@ module.exports.EventNotification = EventNotification;
 /**
  *
  */
+class Regex extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRegex';
+	}
+	
+	/**
+	 * regex expression
+	 * @return string
+	 */
+	 getExpression() {
+	 	return this.expression;
+	 }
+	
+	/**
+	 * @param expression string regex expression
+	 */
+	 setExpression(expression) {
+	 	this.expression = expression;
+	 }
+	
+	/**
+	 * description
+	 * @return string
+	 */
+	 getDescription() {
+	 	return this.description;
+	 }
+	
+	/**
+	 * @param description string description
+	 */
+	 setDescription(description) {
+	 	this.description = description;
+	 }
+}
+module.exports.Regex = Regex;
+
+/**
+ *
+ */
+class PasswordPolicy extends CrudObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPasswordPolicy';
+	}
+	
+	/**
+	 * id
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Comma separated UserRole Ids list which the policy is applied on
+	 * @return string
+	 */
+	 getUserRoleIds() {
+	 	return this.userRoleIds;
+	 }
+	
+	/**
+	 * @param userRoleIds string Comma separated UserRole Ids list which the policy is applied on
+	 */
+	 setUserRoleIds(userRoleIds) {
+	 	this.userRoleIds = userRoleIds;
+	 }
+	
+	/**
+	 * The number of passwords that should be remembered for each user so that they cannot be reused
+	 * @return int
+	 */
+	 getHistoryCount() {
+	 	return this.historyCount;
+	 }
+	
+	/**
+	 * @param historyCount int The number of passwords that should be remembered for each user so that they cannot be reused
+	 */
+	 setHistoryCount(historyCount) {
+	 	this.historyCount = historyCount;
+	 }
+	
+	/**
+	 * When should the password expire (will represent time as days)
+	 * @return int
+	 */
+	 getExpiration() {
+	 	return this.expiration;
+	 }
+	
+	/**
+	 * @param expiration int When should the password expire (will represent time as days)
+	 */
+	 setExpiration(expiration) {
+	 	this.expiration = expiration;
+	 }
+	
+	/**
+	 * array of  KalturaRegex
+	 * @return array
+	 */
+	 getComplexities() {
+	 	return this.complexities;
+	 }
+	
+	/**
+	 * @param complexities array array of  KalturaRegex
+	 */
+	 setComplexities(complexities) {
+	 	this.complexities = complexities;
+	 }
+	
+	/**
+	 * the number of passwords failures before the account is locked
+	 * @return int
+	 */
+	 getLockoutFailuresCount() {
+	 	return this.lockoutFailuresCount;
+	 }
+	
+	/**
+	 * @param lockoutFailuresCount int the number of passwords failures before the account is locked
+	 */
+	 setLockoutFailuresCount(lockoutFailuresCount) {
+	 	this.lockoutFailuresCount = lockoutFailuresCount;
+	 }
+}
+module.exports.PasswordPolicy = PasswordPolicy;
+
+/**
+ *
+ */
 class HouseholdCoupon extends CrudObject{
 	
 	constructor(object = null) {
@@ -25609,6 +25788,33 @@ class OTTUserDynamicData extends kaltura.BaseObject{
 	 }
 }
 module.exports.OTTUserDynamicData = OTTUserDynamicData;
+
+/**
+ *
+ */
+class PasswordPolicyListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPasswordPolicyListResponse';
+	}
+	
+	/**
+	 * A list of objects
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of objects
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.PasswordPolicyListResponse = PasswordPolicyListResponse;
 
 /**
  *
