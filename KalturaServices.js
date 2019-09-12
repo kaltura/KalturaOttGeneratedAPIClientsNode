@@ -2479,7 +2479,7 @@ class householdCoupon{
 	
 	/**
 	 * Gets all HouseholdCoupon items for a household.
-	 * @param filter HouseholdCouponFilter Request filter (optional)
+	 * @param filter HouseholdCouponFilter Request filter (optional, default: null)
 	 * @return KalturaHouseholdCouponListResponse
 	 */
 	static listAction(filter = null){
