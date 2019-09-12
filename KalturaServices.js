@@ -2514,7 +2514,7 @@ class householdCoupon{
 	
 	/**
 	 * Gets all HouseholdCoupon items for a household.
-	 * @param filter HouseholdCouponFilter Request filter (optional)
+	 * @param filter HouseholdCouponFilter Request filter (optional, default: null)
 	 * @return KalturaHouseholdCouponListResponse
 	 */
 	static listAction(filter = null){
@@ -4158,10 +4158,10 @@ class passwordPolicy{
 	
 	/**
 	 * .
-	 * @param filter PasswordPolicyFilter Request filter
+	 * @param filter PasswordPolicyFilter Request filter (optional, default: null)
 	 * @return KalturaPasswordPolicyListResponse
 	 */
-	static listAction(filter){
+	static listAction(filter = null){
 		let kparams = {};
 		kparams.filter = filter;
 		return new kaltura.RequestBuilder('passwordpolicy', 'list', kparams);
