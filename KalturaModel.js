@@ -3420,18 +3420,6 @@ module.exports.AssetCommentFilter = AssetCommentFilter;
 /**
  *
  */
-class AssetFirstImagePerRatioFilter extends RelatedObjectFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetFirstImagePerRatioFilter';
-	}
-}
-module.exports.AssetFirstImagePerRatioFilter = AssetFirstImagePerRatioFilter;
-
-/**
- *
- */
 class AssetHistoryFilter extends Filter{
 	
 	constructor(object = null) {
@@ -3508,6 +3496,18 @@ class AssetHistoryFilter extends Filter{
 	 }
 }
 module.exports.AssetHistoryFilter = AssetHistoryFilter;
+
+/**
+ *
+ */
+class AssetImagePerRatioFilter extends RelatedObjectFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetImagePerRatioFilter';
+	}
+}
+module.exports.AssetImagePerRatioFilter = AssetImagePerRatioFilter;
 
 /**
  *

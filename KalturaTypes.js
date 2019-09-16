@@ -74,11 +74,11 @@ module.exports.AssetFilePpvOrderBy = {
 NONE : 'NONE',
 };
 
-module.exports.AssetFirstImagePerRatioOrderBy = {
+module.exports.AssetHistoryOrderBy = {
 NONE : 'NONE',
 };
 
-module.exports.AssetHistoryOrderBy = {
+module.exports.AssetImagePerRatioOrderBy = {
 NONE : 'NONE',
 };
 
