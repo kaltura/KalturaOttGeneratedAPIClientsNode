@@ -3420,6 +3420,18 @@ module.exports.AssetCommentFilter = AssetCommentFilter;
 /**
  *
  */
+class AssetFirstImagePerRatioFilter extends RelatedObjectFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetFirstImagePerRatioFilter';
+	}
+}
+module.exports.AssetFirstImagePerRatioFilter = AssetFirstImagePerRatioFilter;
+
+/**
+ *
+ */
 class AssetHistoryFilter extends Filter{
 	
 	constructor(object = null) {
