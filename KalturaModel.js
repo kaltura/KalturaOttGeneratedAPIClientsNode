@@ -3500,6 +3500,18 @@ module.exports.AssetHistoryFilter = AssetHistoryFilter;
 /**
  *
  */
+class AssetImagePerRatioFilter extends RelatedObjectFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetImagePerRatioFilter';
+	}
+}
+module.exports.AssetImagePerRatioFilter = AssetImagePerRatioFilter;
+
+/**
+ *
+ */
 class AssetStructFilter extends Filter{
 	
 	constructor(object = null) {
@@ -7887,6 +7899,18 @@ module.exports.BaseSegmentCondition = BaseSegmentCondition;
 /**
  *
  */
+class BaseSegmentAction extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBaseSegmentAction';
+	}
+}
+module.exports.BaseSegmentAction = BaseSegmentAction;
+
+/**
+ *
+ */
 class BaseSegmentValue extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -7957,6 +7981,21 @@ class SegmentationType extends kaltura.BaseObject{
 	 */
 	 setConditions(conditions) {
 	 	this.conditions = conditions;
+	 }
+	
+	/**
+	 * Segmentation conditions - can be empty
+	 * @return array
+	 */
+	 getActions() {
+	 	return this.actions;
+	 }
+	
+	/**
+	 * @param actions array Segmentation conditions - can be empty
+	 */
+	 setActions(actions) {
+	 	this.actions = actions;
 	 }
 	
 	/**
@@ -8338,6 +8377,48 @@ class UserDataCondition extends BaseSegmentCondition{
 	 }
 }
 module.exports.UserDataCondition = UserDataCondition;
+
+/**
+ *
+ */
+class AssetOrderSegmentAction extends BaseSegmentAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetOrderSegmentAction';
+	}
+	
+	/**
+	 * Action name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Action name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Action values
+	 * @return array
+	 */
+	 getValues() {
+	 	return this.values;
+	 }
+	
+	/**
+	 * @param values array Action values
+	 */
+	 setValues(values) {
+	 	this.values = values;
+	 }
+}
+module.exports.AssetOrderSegmentAction = AssetOrderSegmentAction;
 
 /**
  *

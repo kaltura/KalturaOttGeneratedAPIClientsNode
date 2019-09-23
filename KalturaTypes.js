@@ -78,6 +78,10 @@ module.exports.AssetHistoryOrderBy = {
 NONE : 'NONE',
 };
 
+module.exports.AssetImagePerRatioOrderBy = {
+NONE : 'NONE',
+};
+
 module.exports.AssetIndexStatus = {
 OK : 'Ok',
 DELETED : 'Deleted',
