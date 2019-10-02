@@ -1,6 +1,6 @@
 {
   "name": "kaltura-ott-client",
-  "version": "5.2.6-6026",
+  "version": "5.2.6-13636",
   "description": "Kaltura OTT NodeJS client library",
   "main": "KalturaClient.js",
   "scripts": {
