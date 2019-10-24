@@ -24326,11 +24326,11 @@ module.exports.EventNotification = EventNotification;
 /**
  *
  */
-class Regex extends kaltura.BaseObject{
+class RegexExpression extends kaltura.BaseObject{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaRegex';
+		this.objectType = 'KalturaRegexExpression';
 	}
 	
 	/**
@@ -24363,7 +24363,7 @@ class Regex extends kaltura.BaseObject{
 	 	this.description = description;
 	 }
 }
-module.exports.Regex = Regex;
+module.exports.RegexExpression = RegexExpression;
 
 /**
  *
