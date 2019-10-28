@@ -824,6 +824,36 @@ class HouseholdCouponFilter extends CrudFilter{
 	 setBusinessModuleIdEqual(businessModuleIdEqual) {
 	 	this.businessModuleIdEqual = businessModuleIdEqual;
 	 }
+	
+	/**
+	 * Allow clients to inquiry if a specific coupon is part of an HH’s wallet or not
+	 * @return string
+	 */
+	 getCouponCode() {
+	 	return this.couponCode;
+	 }
+	
+	/**
+	 * @param couponCode string Allow clients to inquiry if a specific coupon is part of an HH’s wallet or not
+	 */
+	 setCouponCode(couponCode) {
+	 	this.couponCode = couponCode;
+	 }
+	
+	/**
+	 * Allow clients to filter out coupons which are valid/invalid
+	 * @return string
+	 */
+	 getStatus() {
+	 	return this.status;
+	 }
+	
+	/**
+	 * @param status string Allow clients to filter out coupons which are valid/invalid
+	 */
+	 setStatus(status) {
+	 	this.status = status;
+	 }
 }
 module.exports.HouseholdCouponFilter = HouseholdCouponFilter;
 
@@ -1277,6 +1307,21 @@ class CollectionFilter extends Filter{
 	 setMediaFileIdEqual(mediaFileIdEqual) {
 	 	this.mediaFileIdEqual = mediaFileIdEqual;
 	 }
+	
+	/**
+	 * couponGroupIdEqual
+	 * @return int
+	 */
+	 getCouponGroupIdEqual() {
+	 	return this.couponGroupIdEqual;
+	 }
+	
+	/**
+	 * @param couponGroupIdEqual int couponGroupIdEqual
+	 */
+	 setCouponGroupIdEqual(couponGroupIdEqual) {
+	 	this.couponGroupIdEqual = couponGroupIdEqual;
+	 }
 }
 module.exports.CollectionFilter = CollectionFilter;
 
@@ -1357,6 +1402,21 @@ class PpvFilter extends Filter{
 	 */
 	 setIdIn(idIn) {
 	 	this.idIn = idIn;
+	 }
+	
+	/**
+	 * couponGroupIdEqual
+	 * @return int
+	 */
+	 getCouponGroupIdEqual() {
+	 	return this.couponGroupIdEqual;
+	 }
+	
+	/**
+	 * @param couponGroupIdEqual int couponGroupIdEqual
+	 */
+	 setCouponGroupIdEqual(couponGroupIdEqual) {
+	 	this.couponGroupIdEqual = couponGroupIdEqual;
 	 }
 }
 module.exports.PpvFilter = PpvFilter;
@@ -1552,6 +1612,21 @@ class SubscriptionFilter extends Filter{
 	 */
 	 setExternalIdIn(externalIdIn) {
 	 	this.externalIdIn = externalIdIn;
+	 }
+	
+	/**
+	 * couponGroupIdEqual
+	 * @return int
+	 */
+	 getCouponGroupIdEqual() {
+	 	return this.couponGroupIdEqual;
+	 }
+	
+	/**
+	 * @param couponGroupIdEqual int couponGroupIdEqual
+	 */
+	 setCouponGroupIdEqual(couponGroupIdEqual) {
+	 	this.couponGroupIdEqual = couponGroupIdEqual;
 	 }
 }
 module.exports.SubscriptionFilter = SubscriptionFilter;
@@ -24265,6 +24340,30 @@ module.exports.EntitlementRenewal = EntitlementRenewal;
 /**
  *
  */
+class EventNotificationScope extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEventNotificationScope';
+	}
+}
+module.exports.EventNotificationScope = EventNotificationScope;
+
+/**
+ *
+ */
+class EventNotificationObjectScope extends EventNotificationScope{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEventNotificationObjectScope';
+	}
+}
+module.exports.EventNotificationObjectScope = EventNotificationObjectScope;
+
+/**
+ *
+ */
 class CrudObject extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -24395,11 +24494,11 @@ module.exports.EventNotification = EventNotification;
 /**
  *
  */
-class Regex extends kaltura.BaseObject{
+class RegexExpression extends kaltura.BaseObject{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaRegex';
+		this.objectType = 'KalturaRegexExpression';
 	}
 	
 	/**
@@ -24432,7 +24531,7 @@ class Regex extends kaltura.BaseObject{
 	 	this.description = description;
 	 }
 }
-module.exports.Regex = Regex;
+module.exports.RegexExpression = RegexExpression;
 
 /**
  *
@@ -24567,6 +24666,21 @@ class HouseholdCoupon extends CrudObject{
 	 */
 	 setCode(code) {
 	 	this.code = code;
+	 }
+	
+	/**
+	 * Last Usage Date
+	 * @return int
+	 */
+	 getLastUsageDate() {
+	 	return this.lastUsageDate;
+	 }
+	
+	/**
+	 * @param lastUsageDate int Last Usage Date
+	 */
+	 setLastUsageDate(lastUsageDate) {
+	 	this.lastUsageDate = lastUsageDate;
 	 }
 }
 module.exports.HouseholdCoupon = HouseholdCoupon;
