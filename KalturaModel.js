@@ -24340,30 +24340,6 @@ module.exports.EntitlementRenewal = EntitlementRenewal;
 /**
  *
  */
-class EventNotificationScope extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaEventNotificationScope';
-	}
-}
-module.exports.EventNotificationScope = EventNotificationScope;
-
-/**
- *
- */
-class EventNotificationObjectScope extends EventNotificationScope{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaEventNotificationObjectScope';
-	}
-}
-module.exports.EventNotificationObjectScope = EventNotificationObjectScope;
-
-/**
- *
- */
 class CrudObject extends kaltura.BaseObject{
 	
 	constructor(object = null) {

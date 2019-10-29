@@ -2046,27 +2046,6 @@ module.exports.entitlement = entitlement;
 
 
 /**
- *Class definition for the Kaltura service: eventNotificationAction.
- * The available service actions:
- * @action dispatch Dispatches event notification.
- */
-class eventNotificationAction{
-	
-	/**
-	 * Dispatches event notification.
-	 * @param scope EventNotificationScope Scope
-	 * @return bool
-	 */
-	static dispatch(scope){
-		let kparams = {};
-		kparams.scope = scope;
-		return new kaltura.RequestBuilder('eventnotificationaction', 'dispatch', kparams);
-	};
-}
-module.exports.eventNotificationAction = eventNotificationAction;
-
-
-/**
  *Class definition for the Kaltura service: eventNotification.
  * The available service actions:
  * @action update eventNotification update.
