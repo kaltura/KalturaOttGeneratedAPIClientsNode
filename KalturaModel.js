@@ -24340,6 +24340,159 @@ module.exports.EntitlementRenewal = EntitlementRenewal;
 /**
  *
  */
+class EventNotificationScope extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEventNotificationScope';
+	}
+}
+module.exports.EventNotificationScope = EventNotificationScope;
+
+/**
+ *
+ */
+class EventObject extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEventObject';
+	}
+}
+module.exports.EventObject = EventObject;
+
+/**
+ *
+ */
+class EventNotificationObjectScope extends EventNotificationScope{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEventNotificationObjectScope';
+	}
+	
+	/**
+	 * Event object to fire
+	 * @return EventObject
+	 */
+	 getEventObject() {
+	 	return this.eventObject;
+	 }
+	
+	/**
+	 * @param eventObject EventObject Event object to fire
+	 */
+	 setEventObject(eventObject) {
+	 	this.eventObject = eventObject;
+	 }
+}
+module.exports.EventNotificationObjectScope = EventNotificationObjectScope;
+
+/**
+ *
+ */
+class ConcurrencyViolation extends EventObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaConcurrencyViolation';
+	}
+	
+	/**
+	 * Timestamp
+	 * @return int
+	 */
+	 getTimestamp() {
+	 	return this.timestamp;
+	 }
+	
+	/**
+	 * @param timestamp int Timestamp
+	 */
+	 setTimestamp(timestamp) {
+	 	this.timestamp = timestamp;
+	 }
+	
+	/**
+	 * UDID
+	 * @return string
+	 */
+	 getUdid() {
+	 	return this.udid;
+	 }
+	
+	/**
+	 * @param udid string UDID
+	 */
+	 setUdid(udid) {
+	 	this.udid = udid;
+	 }
+	
+	/**
+	 * Asset Id
+	 * @return string
+	 */
+	 getAssetId() {
+	 	return this.assetId;
+	 }
+	
+	/**
+	 * @param assetId string Asset Id
+	 */
+	 setAssetId(assetId) {
+	 	this.assetId = assetId;
+	 }
+	
+	/**
+	 * Violation Rule
+	 * @return string
+	 */
+	 getViolationRule() {
+	 	return this.violationRule;
+	 }
+	
+	/**
+	 * @param violationRule string Violation Rule
+	 */
+	 setViolationRule(violationRule) {
+	 	this.violationRule = violationRule;
+	 }
+	
+	/**
+	 * Household Id
+	 * @return string
+	 */
+	 getHouseholdId() {
+	 	return this.householdId;
+	 }
+	
+	/**
+	 * @param householdId string Household Id
+	 */
+	 setHouseholdId(householdId) {
+	 	this.householdId = householdId;
+	 }
+	
+	/**
+	 * User Id
+	 * @return string
+	 */
+	 getUserId() {
+	 	return this.userId;
+	 }
+	
+	/**
+	 * @param userId string User Id
+	 */
+	 setUserId(userId) {
+	 	this.userId = userId;
+	 }
+}
+module.exports.ConcurrencyViolation = ConcurrencyViolation;
+
+/**
+ *
+ */
 class CrudObject extends kaltura.BaseObject{
 	
 	constructor(object = null) {
