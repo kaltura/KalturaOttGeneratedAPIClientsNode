@@ -319,13 +319,15 @@ class asset{
 	 * @param assetId string Asset identifier
 	 * @param assetType string Asset type (enum: KalturaAssetType)
 	 * @param contextDataParams PlaybackContextOptions Parameters for the request
+	 * @param sourceType string Filter sources by type (optional, default: null)
 	 * @return KalturaPlaybackContext
 	 */
-	static getPlaybackContext(assetId, assetType, contextDataParams){
+	static getPlaybackContext(assetId, assetType, contextDataParams, sourceType = null){
 		let kparams = {};
 		kparams.assetId = assetId;
 		kparams.assetType = assetType;
 		kparams.contextDataParams = contextDataParams;
+		kparams.sourceType = sourceType;
 		return new kaltura.RequestBuilder('asset', 'getPlaybackContext', kparams);
 	};
 	
