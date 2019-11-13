@@ -78,6 +78,16 @@ module.exports.AssetHistoryOrderBy = {
 NONE : 'NONE',
 };
 
+module.exports.AssetImagePerRatioOrderBy = {
+NONE : 'NONE',
+};
+
+module.exports.AssetIndexStatus = {
+OK : 'Ok',
+DELETED : 'Deleted',
+NOTUPDATED : 'NotUpdated',
+};
+
 module.exports.AssetInheritancePolicy = {
 ENABLE : 'Enable',
 DISABLE : 'Disable',
@@ -111,6 +121,7 @@ module.exports.AssetReferenceType = {
 MEDIA : 'media',
 EPG_INTERNAL : 'epg_internal',
 EPG_EXTERNAL : 'epg_external',
+NPVR : 'npvr',
 };
 
 module.exports.AssetReminderOrderBy = {
@@ -386,6 +397,17 @@ USER : 'user',
 HOUSEHOLD : 'household',
 };
 
+module.exports.EventNotificationOrderBy = {
+NONE : 'NONE',
+};
+
+module.exports.EventNotificationStatus = {
+SENT : 'SENT',
+FAILED : 'FAILED',
+SUCCESS : 'SUCCESS',
+FAILED_TO_SEND : 'FAILED_TO_SEND',
+};
+
 module.exports.EvictionPolicyType = {
 FIFO : 'FIFO',
 LIFO : 'LIFO',
@@ -427,6 +449,10 @@ COUNT_ASC : 'count_asc',
 COUNT_DESC : 'count_desc',
 VALUE_ASC : 'value_asc',
 VALUE_DESC : 'value_desc',
+};
+
+module.exports.HouseholdCouponOrderBy = {
+NONE : 'NONE',
 };
 
 module.exports.HouseholdDeviceOrderBy = {
@@ -538,6 +564,7 @@ UNKNOWN : 'UNKNOWN',
 DTT : 'DTT',
 OTT : 'OTT',
 DTT_AND_OTT : 'DTT_AND_OTT',
+VRM_EXPORT : 'VRM_EXPORT',
 };
 
 module.exports.MathemticalOperatorType = {
@@ -639,6 +666,10 @@ CONCURRENCY : 'Concurrency',
 GENERAL : 'General',
 };
 
+module.exports.PasswordPolicyOrderBy = {
+NONE : 'NONE',
+};
+
 module.exports.PaymentMethodProfileOrderBy = {
 NONE : 'NONE',
 };
@@ -662,6 +693,12 @@ OFFLINE : 'offline',
 
 module.exports.PermissionOrderBy = {
 NONE : 'NONE',
+};
+
+module.exports.PermissionType = {
+NORMAL : 'NORMAL',
+GROUP : 'GROUP',
+SPECIAL_FEATURE : 'SPECIAL_FEATURE',
 };
 
 module.exports.PersonalFeedOrderBy = {
@@ -830,6 +867,7 @@ APPLY_DISCOUNT_MODULE : 'APPLY_DISCOUNT_MODULE',
 APPLY_PLAYBACK_ADAPTER : 'APPLY_PLAYBACK_ADAPTER',
 FILTER : 'FILTER',
 ASSET_LIFE_CYCLE_TRANSITION : 'ASSET_LIFE_CYCLE_TRANSITION',
+APPLY_FREE_PLAYBACK : 'APPLY_FREE_PLAYBACK',
 };
 
 module.exports.RuleConditionType = {
@@ -842,6 +880,9 @@ SEGMENTS : 'SEGMENTS',
 DATE : 'DATE',
 OR : 'OR',
 HEADER : 'HEADER',
+USER_SUBSCRIPTION : 'USER_SUBSCRIPTION',
+ASSET_SUBSCRIPTION : 'ASSET_SUBSCRIPTION',
+USER_ROLE : 'USER_ROLE',
 };
 
 module.exports.RuleLevel = {

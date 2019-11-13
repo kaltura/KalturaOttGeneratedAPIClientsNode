@@ -319,13 +319,15 @@ class asset{
 	 * @param assetId string Asset identifier
 	 * @param assetType string Asset type (enum: KalturaAssetType)
 	 * @param contextDataParams PlaybackContextOptions Parameters for the request
+	 * @param sourceType string Filter sources by type (optional, default: null)
 	 * @return KalturaPlaybackContext
 	 */
-	static getPlaybackContext(assetId, assetType, contextDataParams){
+	static getPlaybackContext(assetId, assetType, contextDataParams, sourceType = null){
 		let kparams = {};
 		kparams.assetId = assetId;
 		kparams.assetType = assetType;
 		kparams.contextDataParams = contextDataParams;
+		kparams.sourceType = sourceType;
 		return new kaltura.RequestBuilder('asset', 'getPlaybackContext', kparams);
 	};
 	
@@ -1518,6 +1520,7 @@ module.exports.country = country;
  *Class definition for the Kaltura service: coupon.
  * The available service actions:
  * @action get Returns information about a coupon.
+ * @action list Lists coupon codes.
  */
 class coupon{
 	
@@ -1530,6 +1533,17 @@ class coupon{
 		let kparams = {};
 		kparams.code = code;
 		return new kaltura.RequestBuilder('coupon', 'get', kparams);
+	};
+	
+	/**
+	 * Lists coupon codes.
+	 * @param filter CouponFilter Filter options
+	 * @return KalturaCouponListResponse
+	 */
+	static listAction(filter){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('coupon', 'list', kparams);
 	};
 }
 module.exports.coupon = coupon;
@@ -1879,6 +1893,7 @@ module.exports.engagement = engagement;
 /**
  *Class definition for the Kaltura service: entitlement.
  * The available service actions:
+ * @action applyCoupon Apply new coupon for existing subscription.
  * @action cancel Immediately cancel a subscription, PPV or collection. Cancel is possible only if within cancellation window and content not already consumed.
  * @action cancelRenewal Cancel a household service subscription at the next renewal. The subscription stays valid till the next renewal.
  * @action cancelScheduledSubscription Cancel Scheduled Subscription.
@@ -1891,6 +1906,18 @@ module.exports.engagement = engagement;
  * @action update Update Kaltura Entitelment by Purchase id.
  */
 class entitlement{
+	
+	/**
+	 * Apply new coupon for existing subscription.
+	 * @param purchaseId int purchase Id
+	 * @param couponCode string coupon Code
+	 */
+	static applyCoupon(purchaseId, couponCode){
+		let kparams = {};
+		kparams.purchaseId = purchaseId;
+		kparams.couponCode = couponCode;
+		return new kaltura.RequestBuilder('entitlement', 'applyCoupon', kparams);
+	};
 	
 	/**
 	 * Immediately cancel a subscription, PPV or collection. Cancel is possible only if within cancellation window and content not already consumed.
@@ -2018,6 +2045,62 @@ class entitlement{
 	};
 }
 module.exports.entitlement = entitlement;
+
+
+/**
+ *Class definition for the Kaltura service: eventNotificationAction.
+ * The available service actions:
+ * @action dispatch Dispatches event notification.
+ */
+class eventNotificationAction{
+	
+	/**
+	 * Dispatches event notification.
+	 * @param scope EventNotificationScope Scope
+	 * @return bool
+	 */
+	static dispatch(scope){
+		let kparams = {};
+		kparams.scope = scope;
+		return new kaltura.RequestBuilder('eventnotificationaction', 'dispatch', kparams);
+	};
+}
+module.exports.eventNotificationAction = eventNotificationAction;
+
+
+/**
+ *Class definition for the Kaltura service: eventNotification.
+ * The available service actions:
+ * @action update eventNotification update.
+ * @action list Gets all EventNotification items for a given Object id and type.
+ */
+class eventNotification{
+	
+	/**
+	 * eventNotification update.
+	 * @param id string Object ID to update
+	 * @param objectToUpdate EventNotification eventNotification details
+	 * @return KalturaEventNotification
+	 */
+	static update(id, objectToUpdate){
+		let kparams = {};
+		kparams.id = id;
+		kparams.objectToUpdate = objectToUpdate;
+		return new kaltura.RequestBuilder('eventnotification', 'update', kparams);
+	};
+	
+	/**
+	 * Gets all EventNotification items for a given Object id and type.
+	 * @param filter EventNotificationFilter Request filter
+	 * @return KalturaEventNotificationListResponse
+	 */
+	static listAction(filter){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('eventnotification', 'list', kparams);
+	};
+}
+module.exports.eventNotification = eventNotification;
 
 
 /**
@@ -2420,6 +2503,50 @@ class household{
 	};
 }
 module.exports.household = household;
+
+
+/**
+ *Class definition for the Kaltura service: householdCoupon.
+ * The available service actions:
+ * @action add householdCoupon add.
+ * @action delete Remove coupon from household.
+ * @action list Gets all HouseholdCoupon items for a household.
+ */
+class householdCoupon{
+	
+	/**
+	 * householdCoupon add.
+	 * @param objectToAdd HouseholdCoupon householdCoupon details
+	 * @return KalturaHouseholdCoupon
+	 */
+	static add(objectToAdd){
+		let kparams = {};
+		kparams.objectToAdd = objectToAdd;
+		return new kaltura.RequestBuilder('householdcoupon', 'add', kparams);
+	};
+	
+	/**
+	 * Remove coupon from household.
+	 * @param id string Coupon code
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('householdcoupon', 'delete', kparams);
+	};
+	
+	/**
+	 * Gets all HouseholdCoupon items for a household.
+	 * @param filter HouseholdCouponFilter Request filter (optional, default: null)
+	 * @return KalturaHouseholdCouponListResponse
+	 */
+	static listAction(filter = null){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('householdcoupon', 'list', kparams);
+	};
+}
+module.exports.householdCoupon = householdCoupon;
 
 
 /**
@@ -3990,6 +4117,83 @@ module.exports.partnerConfiguration = partnerConfiguration;
 
 
 /**
+ *Class definition for the Kaltura service: partner.
+ * The available service actions:
+ * @action externalLogin Returns a login session for external system (like OVP).
+ */
+class partner{
+	
+	/**
+	 * Returns a login session for external system (like OVP).
+	 * @return KalturaLoginSession
+	 */
+	static externalLogin(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('partner', 'externalLogin', kparams);
+	};
+}
+module.exports.partner = partner;
+
+
+/**
+ *Class definition for the Kaltura service: passwordPolicy.
+ * The available service actions:
+ * @action add Add an object.
+ * @action update Update an object.
+ * @action delete Delete an object.
+ * @action list .
+ */
+class passwordPolicy{
+	
+	/**
+	 * Add an object.
+	 * @param objectToAdd PasswordPolicy Object to add
+	 * @return KalturaPasswordPolicy
+	 */
+	static add(objectToAdd){
+		let kparams = {};
+		kparams.objectToAdd = objectToAdd;
+		return new kaltura.RequestBuilder('passwordpolicy', 'add', kparams);
+	};
+	
+	/**
+	 * Update an object.
+	 * @param id int Object ID to update
+	 * @param objectToUpdate PasswordPolicy Object to update
+	 * @return KalturaPasswordPolicy
+	 */
+	static update(id, objectToUpdate){
+		let kparams = {};
+		kparams.id = id;
+		kparams.objectToUpdate = objectToUpdate;
+		return new kaltura.RequestBuilder('passwordpolicy', 'update', kparams);
+	};
+	
+	/**
+	 * Delete an object.
+	 * @param id int Object ID to delete
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('passwordpolicy', 'delete', kparams);
+	};
+	
+	/**
+	 * .
+	 * @param filter PasswordPolicyFilter Request filter (optional, default: null)
+	 * @return KalturaPasswordPolicyListResponse
+	 */
+	static listAction(filter = null){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('passwordpolicy', 'list', kparams);
+	};
+}
+module.exports.passwordPolicy = passwordPolicy;
+
+
+/**
  *Class definition for the Kaltura service: paymentGatewayProfile.
  * The available service actions:
  * @action add Insert new payment gateway for partner.
@@ -4136,10 +4340,33 @@ module.exports.paymentMethodProfile = paymentMethodProfile;
 /**
  *Class definition for the Kaltura service: permission.
  * The available service actions:
+ * @action add Adds new permission.
+ * @action delete Deletes an existing permission.
  * @action getCurrentPermissions Returns permission names as comma separated string.
  * @action list Retrieving permissions by identifiers, if filter is empty, returns all partner permissions.
  */
 class permission{
+	
+	/**
+	 * Adds new permission.
+	 * @param permission Permission Permission to insert
+	 * @return KalturaPermission
+	 */
+	static add(permission){
+		let kparams = {};
+		kparams.permission = permission;
+		return new kaltura.RequestBuilder('permission', 'add', kparams);
+	};
+	
+	/**
+	 * Deletes an existing permission.
+	 * @param id int Permission ID to delete
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('permission', 'delete', kparams);
+	};
 	
 	/**
 	 * Returns permission names as comma separated string.
@@ -4731,9 +4958,33 @@ module.exports.recording = recording;
 /**
  *Class definition for the Kaltura service: region.
  * The available service actions:
+ * @action add Adds a new region for partner.
+ * @action delete Delete an existing region.
  * @action list Returns all regions for the partner.
+ * @action update Update an existing region.
  */
 class region{
+	
+	/**
+	 * Adds a new region for partner.
+	 * @param region Region Region to add
+	 * @return KalturaRegion
+	 */
+	static add(region){
+		let kparams = {};
+		kparams.region = region;
+		return new kaltura.RequestBuilder('region', 'add', kparams);
+	};
+	
+	/**
+	 * Delete an existing region.
+	 * @param id int Region ID to delete
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('region', 'delete', kparams);
+	};
 	
 	/**
 	 * Returns all regions for the partner.
@@ -4744,6 +4995,19 @@ class region{
 		let kparams = {};
 		kparams.filter = filter;
 		return new kaltura.RequestBuilder('region', 'list', kparams);
+	};
+	
+	/**
+	 * Update an existing region.
+	 * @param id int Region ID to update
+	 * @param region Region Region to update
+	 * @return KalturaRegion
+	 */
+	static update(id, region){
+		let kparams = {};
+		kparams.id = id;
+		kparams.region = region;
+		return new kaltura.RequestBuilder('region', 'update', kparams);
 	};
 }
 module.exports.region = region;
@@ -5746,10 +6010,10 @@ class topicNotification{
 	
 	/**
 	 * Lists all topic notifications in the system.
-	 * @param filter TopicNotificationFilter Filter options (optional, default: null)
+	 * @param filter TopicNotificationFilter Filter options
 	 * @return KalturaTopicNotificationListResponse
 	 */
-	static listAction(filter = null){
+	static listAction(filter){
 		let kparams = {};
 		kparams.filter = filter;
 		return new kaltura.RequestBuilder('topicnotification', 'list', kparams);
