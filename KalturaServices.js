@@ -5783,11 +5783,22 @@ module.exports.subscriptionSet = subscriptionSet;
 /**
  *Class definition for the Kaltura service: system.
  * The available service actions:
+ * @action getLogLevel Gets the current level of the KLogger.
  * @action getTime Returns current server timestamp.
  * @action getVersion Returns current server version.
  * @action ping Returns true.
+ * @action setLogLevel Sets the current level of the KLogger.
  */
 class system{
+	
+	/**
+	 * Gets the current level of the KLogger.
+	 * @return string
+	 */
+	static getLogLevel(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('system', 'getLogLevel', kparams);
+	};
 	
 	/**
 	 * Returns current server timestamp.
@@ -5814,6 +5825,17 @@ class system{
 	static ping(){
 		let kparams = {};
 		return new kaltura.RequestBuilder('system', 'ping', kparams);
+	};
+	
+	/**
+	 * Sets the current level of the KLogger.
+	 * @param level string Possible levels: trace, debug, info, warning, error, all (enum: KalturaLogLevel)
+	 * @return bool
+	 */
+	static setLogLevel(level){
+		let kparams = {};
+		kparams.level = level;
+		return new kaltura.RequestBuilder('system', 'setLogLevel', kparams);
 	};
 }
 module.exports.system = system;
