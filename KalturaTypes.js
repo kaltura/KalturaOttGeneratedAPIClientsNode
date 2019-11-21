@@ -567,6 +567,15 @@ DTT_AND_OTT : 'DTT_AND_OTT',
 VRM_EXPORT : 'VRM_EXPORT',
 };
 
+module.exports.LogLevel = {
+TRACE : 'TRACE',
+DEBUG : 'DEBUG',
+INFO : 'INFO',
+WARN : 'WARN',
+ERROR : 'ERROR',
+ALL : 'ALL',
+};
+
 module.exports.MathemticalOperatorType = {
 COUNT : 'count',
 SUM : 'sum',
