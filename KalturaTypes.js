@@ -649,6 +649,11 @@ REMINDER : 'Reminder',
 SERIES_REMINDER : 'series_reminder',
 };
 
+module.exports.ObjectVirtualAssetInfoType = {
+SUBSCRIPTION : 'Subscription',
+SEGMENT : 'Segment',
+};
+
 module.exports.OTTUserOrderBy = {
 NONE : 'NONE',
 };
@@ -673,6 +678,7 @@ ENABLEPAYMENTGATEWAYSELECTION : 'EnablePaymentGatewaySelection',
 OSSADAPTER : 'OSSAdapter',
 CONCURRENCY : 'Concurrency',
 GENERAL : 'General',
+OBJECTVIRTUALASSET : 'ObjectVirtualAsset',
 };
 
 module.exports.PasswordPolicyOrderBy = {
