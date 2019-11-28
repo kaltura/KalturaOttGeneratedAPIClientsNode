@@ -5783,37 +5783,11 @@ module.exports.subscriptionSet = subscriptionSet;
 /**
  *Class definition for the Kaltura service: system.
  * The available service actions:
- * @action clearLocalServerCache Clear local server cache.
- * @action getLogLevel Gets the current level of the KLogger.
  * @action getTime Returns current server timestamp.
  * @action getVersion Returns current server version.
- * @action incrementLayeredCacheGroupConfigVersion Returns true if version has been incremented successfully or false otherwise. You need to send groupId only if you wish to increment for a specific groupId and not the one the KS belongs to.
  * @action ping Returns true.
- * @action setLogLevel Sets the current level of the KLogger.
  */
 class system{
-	
-	/**
-	 * Clear local server cache.
-	 * @param action string action to perform, possible values: clear_all / keys / getKey (optional, default: null)
-	 * @param key string key to get in case you send action getKey (optional, default: null)
-	 * @return bool
-	 */
-	static clearLocalServerCache(action = null, key = null){
-		let kparams = {};
-		kparams.action = action;
-		kparams.key = key;
-		return new kaltura.RequestBuilder('system', 'clearLocalServerCache', kparams);
-	};
-	
-	/**
-	 * Gets the current level of the KLogger.
-	 * @return string
-	 */
-	static getLogLevel(){
-		let kparams = {};
-		return new kaltura.RequestBuilder('system', 'getLogLevel', kparams);
-	};
 	
 	/**
 	 * Returns current server timestamp.
@@ -5834,34 +5808,12 @@ class system{
 	};
 	
 	/**
-	 * Returns true if version has been incremented successfully or false otherwise. You need to send groupId only if you wish to increment for a specific groupId and not the one the KS belongs to.
-	 * @param groupId int groupId (optional)
-	 * @return bool
-	 */
-	static incrementLayeredCacheGroupConfigVersion(groupId = 0){
-		let kparams = {};
-		kparams.groupId = groupId;
-		return new kaltura.RequestBuilder('system', 'incrementLayeredCacheGroupConfigVersion', kparams);
-	};
-	
-	/**
 	 * Returns true.
 	 * @return bool
 	 */
 	static ping(){
 		let kparams = {};
 		return new kaltura.RequestBuilder('system', 'ping', kparams);
-	};
-	
-	/**
-	 * Sets the current level of the KLogger.
-	 * @param level string Possible levels: trace, debug, info, warning, error, all (enum: KalturaLogLevel)
-	 * @return bool
-	 */
-	static setLogLevel(level){
-		let kparams = {};
-		kparams.level = level;
-		return new kaltura.RequestBuilder('system', 'setLogLevel', kparams);
 	};
 }
 module.exports.system = system;
