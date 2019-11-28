@@ -5366,6 +5366,21 @@ class RegionFilter extends Filter{
 	 setLiveAssetIdEqual(liveAssetIdEqual) {
 	 	this.liveAssetIdEqual = liveAssetIdEqual;
 	 }
+	
+	/**
+	 * Parent region to filter by
+	 * @return bool
+	 */
+	 getParentOnly() {
+	 	return this.parentOnly;
+	 }
+	
+	/**
+	 * @param parentOnly bool Parent region to filter by
+	 */
+	 setParentOnly(parentOnly) {
+	 	this.parentOnly = parentOnly;
+	 }
 }
 module.exports.RegionFilter = RegionFilter;
 
