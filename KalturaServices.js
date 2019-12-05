@@ -4989,11 +4989,13 @@ class region{
 	/**
 	 * Returns all regions for the partner.
 	 * @param filter RegionFilter Regions filter
+	 * @param pager FilterPager Paging the request (optional, default: null)
 	 * @return KalturaRegionListResponse
 	 */
-	static listAction(filter){
+	static listAction(filter, pager = null){
 		let kparams = {};
 		kparams.filter = filter;
+		kparams.pager = pager;
 		return new kaltura.RequestBuilder('region', 'list', kparams);
 	};
 	
