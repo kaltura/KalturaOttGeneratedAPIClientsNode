@@ -1196,6 +1196,21 @@ class SegmentationTypeFilter extends Filter{
 	 setIdIn(idIn) {
 	 	this.idIn = idIn;
 	 }
+	
+	/**
+	 * KSQL expression
+	 * @return string
+	 */
+	 getKSql() {
+	 	return this.kSql;
+	 }
+	
+	/**
+	 * @param kSql string KSQL expression
+	 */
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
+	 }
 }
 module.exports.SegmentationTypeFilter = SegmentationTypeFilter;
 
@@ -1627,6 +1642,21 @@ class SubscriptionFilter extends Filter{
 	 */
 	 setCouponGroupIdEqual(couponGroupIdEqual) {
 	 	this.couponGroupIdEqual = couponGroupIdEqual;
+	 }
+	
+	/**
+	 * KSQL expression
+	 * @return string
+	 */
+	 getKSql() {
+	 	return this.kSql;
+	 }
+	
+	/**
+	 * @param kSql string KSQL expression
+	 */
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
 	 }
 }
 module.exports.SubscriptionFilter = SubscriptionFilter;
@@ -5365,6 +5395,21 @@ class RegionFilter extends Filter{
 	 */
 	 setLiveAssetIdEqual(liveAssetIdEqual) {
 	 	this.liveAssetIdEqual = liveAssetIdEqual;
+	 }
+	
+	/**
+	 * Parent region to filter by
+	 * @return bool
+	 */
+	 getParentOnly() {
+	 	return this.parentOnly;
+	 }
+	
+	/**
+	 * @param parentOnly bool Parent region to filter by
+	 */
+	 setParentOnly(parentOnly) {
+	 	this.parentOnly = parentOnly;
 	 }
 }
 module.exports.RegionFilter = RegionFilter;
@@ -13407,6 +13452,90 @@ class GeneralPartnerConfig extends PartnerConfiguration{
 	 }
 }
 module.exports.GeneralPartnerConfig = GeneralPartnerConfig;
+
+/**
+ *
+ */
+class ObjectVirtualAssetInfo extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaObjectVirtualAssetInfo';
+	}
+	
+	/**
+	 * Asset struct identifier
+	 * @return int
+	 */
+	 getAssetStructId() {
+	 	return this.assetStructId;
+	 }
+	
+	/**
+	 * @param assetStructId int Asset struct identifier
+	 */
+	 setAssetStructId(assetStructId) {
+	 	this.assetStructId = assetStructId;
+	 }
+	
+	/**
+	 * Meta identifier
+	 * @return int
+	 */
+	 getMetaId() {
+	 	return this.metaId;
+	 }
+	
+	/**
+	 * @param metaId int Meta identifier
+	 */
+	 setMetaId(metaId) {
+	 	this.metaId = metaId;
+	 }
+	
+	/**
+	 * Object virtual asset info type
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * @param type string Object virtual asset info type
+	 */
+	 setType(type) {
+	 	this.type = type;
+	 }
+}
+module.exports.ObjectVirtualAssetInfo = ObjectVirtualAssetInfo;
+
+/**
+ *
+ */
+class ObjectVirtualAssetPartnerConfig extends PartnerConfiguration{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaObjectVirtualAssetPartnerConfig';
+	}
+	
+	/**
+	 * List of object virtual asset info
+	 * @return array
+	 */
+	 getObjectVirtualAssets() {
+	 	return this.objectVirtualAssets;
+	 }
+	
+	/**
+	 * @param objectVirtualAssets array List of object virtual asset info
+	 */
+	 setObjectVirtualAssets(objectVirtualAssets) {
+	 	this.objectVirtualAssets = objectVirtualAssets;
+	 }
+}
+module.exports.ObjectVirtualAssetPartnerConfig = ObjectVirtualAssetPartnerConfig;
 
 /**
  *
