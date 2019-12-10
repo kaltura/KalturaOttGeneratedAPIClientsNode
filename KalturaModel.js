@@ -7435,6 +7435,18 @@ module.exports.BulkUploadMediaAssetResult = BulkUploadMediaAssetResult;
 /**
  *
  */
+class BulkUploadLiveAssetResult extends BulkUploadMediaAssetResult{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUploadLiveAssetResult';
+	}
+}
+module.exports.BulkUploadLiveAssetResult = BulkUploadLiveAssetResult;
+
+/**
+ *
+ */
 class BulkUploadProgramAssetResult extends BulkUploadResult{
 	
 	constructor(object = null) {
@@ -7467,42 +7479,6 @@ class BulkUploadProgramAssetResult extends BulkUploadResult{
 	 }
 }
 module.exports.BulkUploadProgramAssetResult = BulkUploadProgramAssetResult;
-
-/**
- *
- */
-class BulkUploadLiveAssetResult extends BulkUploadResult{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBulkUploadLiveAssetResult';
-	}
-	
-	/**
-	 * The internal kaltura channel id
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Indicates the epg asset object id in the bulk file
-	 * @return string
-	 */
-	 getExternalEpgIngestId() {
-	 	return this.externalEpgIngestId;
-	 }
-	
-	/**
-	 * List of programs that were ingested to the channel
-	 * @return array
-	 */
-	 getPrograms() {
-	 	return this.programs;
-	 }
-}
-module.exports.BulkUploadLiveAssetResult = BulkUploadLiveAssetResult;
 
 /**
  *
@@ -23646,6 +23622,18 @@ class BulkUploadMediaAssetData extends BulkUploadAssetData{
 	}
 }
 module.exports.BulkUploadMediaAssetData = BulkUploadMediaAssetData;
+
+/**
+ *
+ */
+class BulkUploadLiveAssetData extends BulkUploadMediaAssetData{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUploadLiveAssetData';
+	}
+}
+module.exports.BulkUploadLiveAssetData = BulkUploadLiveAssetData;
 
 /**
  *
