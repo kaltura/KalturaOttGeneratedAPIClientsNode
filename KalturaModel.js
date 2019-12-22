@@ -8588,31 +8588,31 @@ module.exports.KsqlSegmentAction = KsqlSegmentAction;
 /**
  *
  */
-class SegementAssetFilterAction extends KsqlSegmentAction{
+class SegmentAssetFilterAction extends KsqlSegmentAction{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaSegementAssetFilterAction';
+		this.objectType = 'KalturaSegmentAssetFilterAction';
 	}
 }
-module.exports.SegementAssetFilterAction = SegementAssetFilterAction;
+module.exports.SegmentAssetFilterAction = SegmentAssetFilterAction;
 
 /**
  *
  */
-class SegementAssetFilterSegmentAction extends SegementAssetFilterAction{
+class SegmentAssetFilterSegmentAction extends SegmentAssetFilterAction{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaSegementAssetFilterSegmentAction';
+		this.objectType = 'KalturaSegmentAssetFilterSegmentAction';
 	}
 }
-module.exports.SegementAssetFilterSegmentAction = SegementAssetFilterSegmentAction;
+module.exports.SegmentAssetFilterSegmentAction = SegmentAssetFilterSegmentAction;
 
 /**
  *
  */
-class SegementAssetFilterSubscriptionAction extends SegementAssetFilterAction{
+class SegementAssetFilterSubscriptionAction extends SegmentAssetFilterAction{
 	
 	constructor(object = null) {
 		super(object);
