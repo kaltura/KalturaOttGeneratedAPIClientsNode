@@ -2930,42 +2930,41 @@ module.exports.householdQuota = householdQuota;
 /**
  *Class definition for the Kaltura service: householdSegment.
  * The available service actions:
- * @action add Adds a segment to a household.
- * @action delete Deletes a segment from a household.
- * @action list Retrieve all the segments that apply for given household.
+ * @action add householdSegment add.
+ * @action delete Remove segment from household.
+ * @action list Gets all HouseholdSegment items for a household.
  */
 class householdSegment{
 	
 	/**
-	 * Adds a segment to a household.
-	 * @param householdSegment HouseholdSegment Household segment
+	 * householdSegment add.
+	 * @param objectToAdd HouseholdSegment householdSegment details
 	 * @return KalturaHouseholdSegment
 	 */
-	static add(householdSegment){
+	static add(objectToAdd){
 		let kparams = {};
-		kparams.householdSegment = householdSegment;
+		kparams.objectToAdd = objectToAdd;
 		return new kaltura.RequestBuilder('householdsegment', 'add', kparams);
 	};
 	
 	/**
-	 * Deletes a segment from a household.
-	 * @param householdId int Household id
-	 * @param segmentId int Segemnt id
-	 * @return bool
+	 * Remove segment from household.
+	 * @param id int Segment identifier
 	 */
-	static deleteAction(householdId, segmentId){
+	static deleteAction(id){
 		let kparams = {};
-		kparams.householdId = householdId;
-		kparams.segmentId = segmentId;
+		kparams.id = id;
 		return new kaltura.RequestBuilder('householdsegment', 'delete', kparams);
 	};
 	
 	/**
-	 * Retrieve all the segments that apply for given household.
+	 * Gets all HouseholdSegment items for a household.
+	 * @param filter HouseholdSegmentFilter Request filter (optional, default: null)
 	 * @return KalturaHouseholdSegmentListResponse
 	 */
-	static listAction(){
+	static listAction(filter = null){
 		let kparams = {};
+		kparams.filter = filter;
 		return new kaltura.RequestBuilder('householdsegment', 'list', kparams);
 	};
 }

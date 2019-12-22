@@ -788,6 +788,33 @@ module.exports.PasswordPolicyFilter = PasswordPolicyFilter;
 /**
  *
  */
+class HouseholdSegmentFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdSegmentFilter';
+	}
+	
+	/**
+	 * KSQL expression
+	 * @return string
+	 */
+	 getKSql() {
+	 	return this.kSql;
+	 }
+	
+	/**
+	 * @param kSql string KSQL expression
+	 */
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
+	 }
+}
+module.exports.HouseholdSegmentFilter = HouseholdSegmentFilter;
+
+/**
+ *
+ */
 class HouseholdCouponFilter extends CrudFilter{
 	
 	constructor(object = null) {
@@ -7994,90 +8021,6 @@ class SocialFriendActivityListResponse extends ListResponse{
 	 }
 }
 module.exports.SocialFriendActivityListResponse = SocialFriendActivityListResponse;
-
-/**
- *
- */
-class HouseholdSegment extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdSegment';
-	}
-	
-	/**
-	 * Household SegmentId
-	 * @return int
-	 */
-	 getHouseholdId() {
-	 	return this.householdId;
-	 }
-	
-	/**
-	 * @param householdId int Household SegmentId
-	 */
-	 setHouseholdId(householdId) {
-	 	this.householdId = householdId;
-	 }
-	
-	/**
-	 * Segment Id
-	 * @return int
-	 */
-	 getHouseholdId() {
-	 	return this.householdId;
-	 }
-	
-	/**
-	 * @param householdId int Segment Id
-	 */
-	 setHouseholdId(householdId) {
-	 	this.householdId = householdId;
-	 }
-	
-	/**
-	 * Blocking segment Ids
-	 * @return string
-	 */
-	 getBlockingSegmentIds() {
-	 	return this.blockingSegmentIds;
-	 }
-	
-	/**
-	 * @param blockingSegmentIds string Blocking segment Ids
-	 */
-	 setBlockingSegmentIds(blockingSegmentIds) {
-	 	this.blockingSegmentIds = blockingSegmentIds;
-	 }
-}
-module.exports.HouseholdSegment = HouseholdSegment;
-
-/**
- *
- */
-class HouseholdSegmentListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdSegmentListResponse';
-	}
-	
-	/**
-	 * Segmentation Types
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array Segmentation Types
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.HouseholdSegmentListResponse = HouseholdSegmentListResponse;
 
 /**
  *
@@ -25102,6 +25045,48 @@ module.exports.PasswordPolicy = PasswordPolicy;
 /**
  *
  */
+class HouseholdSegment extends CrudObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdSegment';
+	}
+	
+	/**
+	 * Segment Id
+	 * @return int
+	 */
+	 getSegmentId() {
+	 	return this.segmentId;
+	 }
+	
+	/**
+	 * @param segmentId int Segment Id
+	 */
+	 setSegmentId(segmentId) {
+	 	this.segmentId = segmentId;
+	 }
+	
+	/**
+	 * Segment Id
+	 * @return int
+	 */
+	 getHouseholdId() {
+	 	return this.householdId;
+	 }
+	
+	/**
+	 * @param householdId int Segment Id
+	 */
+	 setHouseholdId(householdId) {
+	 	this.householdId = householdId;
+	 }
+}
+module.exports.HouseholdSegment = HouseholdSegment;
+
+/**
+ *
+ */
 class HouseholdCoupon extends CrudObject{
 	
 	constructor(object = null) {
@@ -25528,6 +25513,33 @@ class HouseholdQuota extends kaltura.BaseObject{
 	 }
 }
 module.exports.HouseholdQuota = HouseholdQuota;
+
+/**
+ *
+ */
+class HouseholdSegmentListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdSegmentListResponse';
+	}
+	
+	/**
+	 * A list of objects
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of objects
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.HouseholdSegmentListResponse = HouseholdSegmentListResponse;
 
 /**
  *
