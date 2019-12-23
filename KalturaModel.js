@@ -8612,14 +8612,14 @@ module.exports.SegmentAssetFilterSegmentAction = SegmentAssetFilterSegmentAction
 /**
  *
  */
-class SegementAssetFilterSubscriptionAction extends SegmentAssetFilterAction{
+class SegmentAssetFilterSubscriptionAction extends SegmentAssetFilterAction{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaSegementAssetFilterSubscriptionAction';
+		this.objectType = 'KalturaSegmentAssetFilterSubscriptionAction';
 	}
 }
-module.exports.SegementAssetFilterSubscriptionAction = SegementAssetFilterSubscriptionAction;
+module.exports.SegmentAssetFilterSubscriptionAction = SegmentAssetFilterSubscriptionAction;
 
 /**
  *
