@@ -2991,6 +2991,21 @@ class HouseholdDeviceFilter extends Filter{
 	 setDeviceFamilyIdIn(deviceFamilyIdIn) {
 	 	this.deviceFamilyIdIn = deviceFamilyIdIn;
 	 }
+	
+	/**
+	 * External Id
+	 * @return string
+	 */
+	 getExternalIdEqual() {
+	 	return this.externalIdEqual;
+	 }
+	
+	/**
+	 * @param externalIdEqual string External Id
+	 */
+	 setExternalIdEqual(externalIdEqual) {
+	 	this.externalIdEqual = externalIdEqual;
+	 }
 }
 module.exports.HouseholdDeviceFilter = HouseholdDeviceFilter;
 
@@ -9151,6 +9166,132 @@ module.exports.AssetFilePpvListResponse = AssetFilePpvListResponse;
 /**
  *
  */
+class HouseholdDevice extends OTTObjectSupportNullable{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdDevice';
+	}
+	
+	/**
+	 * Household identifier
+	 * @return int
+	 */
+	 getHouseholdId() {
+	 	return this.householdId;
+	 }
+	
+	/**
+	 * @param householdId int Household identifier
+	 */
+	 setHouseholdId(householdId) {
+	 	this.householdId = householdId;
+	 }
+	
+	/**
+	 * Device UDID
+	 * @return string
+	 */
+	 getUdid() {
+	 	return this.udid;
+	 }
+	
+	/**
+	 * @param udid string Device UDID
+	 */
+	 setUdid(udid) {
+	 	this.udid = udid;
+	 }
+	
+	/**
+	 * Device name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Device name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Device brand identifier
+	 * @return int
+	 */
+	 getBrandId() {
+	 	return this.brandId;
+	 }
+	
+	/**
+	 * @param brandId int Device brand identifier
+	 */
+	 setBrandId(brandId) {
+	 	this.brandId = brandId;
+	 }
+	
+	/**
+	 * Device activation date (epoch)
+	 * @return int
+	 */
+	 getActivatedOn() {
+	 	return this.activatedOn;
+	 }
+	
+	/**
+	 * @param activatedOn int Device activation date (epoch)
+	 */
+	 setActivatedOn(activatedOn) {
+	 	this.activatedOn = activatedOn;
+	 }
+	
+	/**
+	 * Device state
+	 * @return string
+	 */
+	 getStatus() {
+	 	return this.status;
+	 }
+	
+	/**
+	 * Device family id
+	 * @return int
+	 */
+	 getDeviceFamilyId() {
+	 	return this.deviceFamilyId;
+	 }
+	
+	/**
+	 * Device DRM data
+	 * @return CustomDrmPlaybackPluginData
+	 */
+	 getDrm() {
+	 	return this.drm;
+	 }
+	
+	/**
+	 * external Id
+	 * @return string
+	 */
+	 getExternalId() {
+	 	return this.externalId;
+	 }
+	
+	/**
+	 * @param externalId string external Id
+	 */
+	 setExternalId(externalId) {
+	 	this.externalId = externalId;
+	 }
+}
+module.exports.HouseholdDevice = HouseholdDevice;
+
+/**
+ *
+ */
 class Rule extends OTTObjectSupportNullable{
 	
 	constructor(object = null) {
@@ -15268,117 +15409,6 @@ class HomeNetworkListResponse extends ListResponse{
 	 }
 }
 module.exports.HomeNetworkListResponse = HomeNetworkListResponse;
-
-/**
- *
- */
-class HouseholdDevice extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdDevice';
-	}
-	
-	/**
-	 * Household identifier
-	 * @return int
-	 */
-	 getHouseholdId() {
-	 	return this.householdId;
-	 }
-	
-	/**
-	 * @param householdId int Household identifier
-	 */
-	 setHouseholdId(householdId) {
-	 	this.householdId = householdId;
-	 }
-	
-	/**
-	 * Device UDID
-	 * @return string
-	 */
-	 getUdid() {
-	 	return this.udid;
-	 }
-	
-	/**
-	 * @param udid string Device UDID
-	 */
-	 setUdid(udid) {
-	 	this.udid = udid;
-	 }
-	
-	/**
-	 * Device name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Device name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
-	 * Device brand identifier
-	 * @return int
-	 */
-	 getBrandId() {
-	 	return this.brandId;
-	 }
-	
-	/**
-	 * @param brandId int Device brand identifier
-	 */
-	 setBrandId(brandId) {
-	 	this.brandId = brandId;
-	 }
-	
-	/**
-	 * Device activation date (epoch)
-	 * @return int
-	 */
-	 getActivatedOn() {
-	 	return this.activatedOn;
-	 }
-	
-	/**
-	 * @param activatedOn int Device activation date (epoch)
-	 */
-	 setActivatedOn(activatedOn) {
-	 	this.activatedOn = activatedOn;
-	 }
-	
-	/**
-	 * Device state
-	 * @return string
-	 */
-	 getStatus() {
-	 	return this.status;
-	 }
-	
-	/**
-	 * Device family id
-	 * @return int
-	 */
-	 getDeviceFamilyId() {
-	 	return this.deviceFamilyId;
-	 }
-	
-	/**
-	 * Device DRM data
-	 * @return CustomDrmPlaybackPluginData
-	 */
-	 getDrm() {
-	 	return this.drm;
-	 }
-}
-module.exports.HouseholdDevice = HouseholdDevice;
 
 /**
  *
