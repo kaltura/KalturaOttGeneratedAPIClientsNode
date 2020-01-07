@@ -2928,6 +2928,50 @@ module.exports.householdQuota = householdQuota;
 
 
 /**
+ *Class definition for the Kaltura service: householdSegment.
+ * The available service actions:
+ * @action add householdSegment add.
+ * @action delete Remove segment from household.
+ * @action list Gets all HouseholdSegment items for a household.
+ */
+class householdSegment{
+	
+	/**
+	 * householdSegment add.
+	 * @param objectToAdd HouseholdSegment householdSegment details
+	 * @return KalturaHouseholdSegment
+	 */
+	static add(objectToAdd){
+		let kparams = {};
+		kparams.objectToAdd = objectToAdd;
+		return new kaltura.RequestBuilder('householdsegment', 'add', kparams);
+	};
+	
+	/**
+	 * Remove segment from household.
+	 * @param id int Segment identifier
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('householdsegment', 'delete', kparams);
+	};
+	
+	/**
+	 * Gets all HouseholdSegment items for a household.
+	 * @param filter HouseholdSegmentFilter Request filter (optional, default: null)
+	 * @return KalturaHouseholdSegmentListResponse
+	 */
+	static listAction(filter = null){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('householdsegment', 'list', kparams);
+	};
+}
+module.exports.householdSegment = householdSegment;
+
+
+/**
  *Class definition for the Kaltura service: householdUser.
  * The available service actions:
  * @action add Adds a user to household.
