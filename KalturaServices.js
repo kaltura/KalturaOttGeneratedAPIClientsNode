@@ -4128,7 +4128,7 @@ module.exports.parentalRule = parentalRule;
  *Class definition for the Kaltura service: partnerConfiguration.
  * The available service actions:
  * @action list Get the list of PartnerConfiguration.
- * @action update Update Partner Configuration.
+ * @action update Update/set Partner Configuration.
  */
 class partnerConfiguration{
 	
@@ -4144,11 +4144,8 @@ class partnerConfiguration{
 	};
 	
 	/**
-	 * Update Partner Configuration.
-	 * @param configuration PartnerConfiguration Partner Configuration
- * possible configuration type:
- * 'configuration': { 'value': 0, 'partner_configuration_type': { 'type': 'OSSAdapter', 'objectType': 'KalturaPartnerConfigurationHolder' },
- * 'objectType': 'KalturaBillingPartnerConfig'}
+	 * Update/set Partner Configuration.
+	 * @param configuration PartnerConfiguration Partner Configuration to update
 	 * @return bool
 	 */
 	static update(configuration){
@@ -5841,13 +5838,13 @@ class system{
 	
 	/**
 	 * Clear local server cache.
-	 * @param clearCacheAction string clear cache action to perform, possible values: clear_all / keys / getKey (optional, default: null)
+	 * @param action string action to perform, possible values: clear_all / keys / getKey (optional, default: null)
 	 * @param key string key to get in case you send action getKey (optional, default: null)
 	 * @return bool
 	 */
-	static clearLocalServerCache(clearCacheAction = null, key = null){
+	static clearLocalServerCache(action = null, key = null){
 		let kparams = {};
-		kparams.clearCacheAction = clearCacheAction;
+		kparams.action = action;
 		kparams.key = key;
 		return new kaltura.RequestBuilder('system', 'clearLocalServerCache', kparams);
 	};

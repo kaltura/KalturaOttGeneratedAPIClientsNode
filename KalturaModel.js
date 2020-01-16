@@ -13492,6 +13492,75 @@ module.exports.BillingPartnerConfig = BillingPartnerConfig;
 /**
  *
  */
+class BookmarkEventThreshold extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBookmarkEventThreshold';
+	}
+	
+	/**
+	 * bookmark transaction type
+	 * @return string
+	 */
+	 getTransactionType() {
+	 	return this.transactionType;
+	 }
+	
+	/**
+	 * @param transactionType string bookmark transaction type
+	 */
+	 setTransactionType(transactionType) {
+	 	this.transactionType = transactionType;
+	 }
+	
+	/**
+	 * event threshold in seconds
+	 * @return int
+	 */
+	 getThreshold() {
+	 	return this.threshold;
+	 }
+	
+	/**
+	 * @param threshold int event threshold in seconds
+	 */
+	 setThreshold(threshold) {
+	 	this.threshold = threshold;
+	 }
+}
+module.exports.BookmarkEventThreshold = BookmarkEventThreshold;
+
+/**
+ *
+ */
+class CommercePartnerConfig extends PartnerConfiguration{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCommercePartnerConfig';
+	}
+	
+	/**
+	 * configuration for bookmark event threshold (when to dispatch the event) in seconds
+	 * @return array
+	 */
+	 getBookmarkEventThresholds() {
+	 	return this.bookmarkEventThresholds;
+	 }
+	
+	/**
+	 * @param bookmarkEventThresholds array configuration for bookmark event threshold (when to dispatch the event) in seconds
+	 */
+	 setBookmarkEventThresholds(bookmarkEventThresholds) {
+	 	this.bookmarkEventThresholds = bookmarkEventThresholds;
+	 }
+}
+module.exports.CommercePartnerConfig = CommercePartnerConfig;
+
+/**
+ *
+ */
 class ConcurrencyPartnerConfig extends PartnerConfiguration{
 	
 	constructor(object = null) {
@@ -24687,6 +24756,108 @@ class EventNotificationObjectScope extends EventNotificationScope{
 	 }
 }
 module.exports.EventNotificationObjectScope = EventNotificationObjectScope;
+
+/**
+ *
+ */
+class BookmarkEvent extends EventObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBookmarkEvent';
+	}
+	
+	/**
+	 * User Id
+	 * @return int
+	 */
+	 getUserId() {
+	 	return this.userId;
+	 }
+	
+	/**
+	 * @param userId int User Id
+	 */
+	 setUserId(userId) {
+	 	this.userId = userId;
+	 }
+	
+	/**
+	 * Household Id
+	 * @return int
+	 */
+	 getHouseholdId() {
+	 	return this.householdId;
+	 }
+	
+	/**
+	 * @param householdId int Household Id
+	 */
+	 setHouseholdId(householdId) {
+	 	this.householdId = householdId;
+	 }
+	
+	/**
+	 * Asset Id
+	 * @return int
+	 */
+	 getAssetId() {
+	 	return this.assetId;
+	 }
+	
+	/**
+	 * @param assetId int Asset Id
+	 */
+	 setAssetId(assetId) {
+	 	this.assetId = assetId;
+	 }
+	
+	/**
+	 * File Id
+	 * @return int
+	 */
+	 getFileId() {
+	 	return this.fileId;
+	 }
+	
+	/**
+	 * @param fileId int File Id
+	 */
+	 setFileId(fileId) {
+	 	this.fileId = fileId;
+	 }
+	
+	/**
+	 * position
+	 * @return int
+	 */
+	 getPosition() {
+	 	return this.position;
+	 }
+	
+	/**
+	 * @param position int position
+	 */
+	 setPosition(position) {
+	 	this.position = position;
+	 }
+	
+	/**
+	 * Bookmark Action Type
+	 * @return string
+	 */
+	 getAction() {
+	 	return this.action;
+	 }
+	
+	/**
+	 * @param action string Bookmark Action Type
+	 */
+	 setAction(action) {
+	 	this.action = action;
+	 }
+}
+module.exports.BookmarkEvent = BookmarkEvent;
 
 /**
  *
