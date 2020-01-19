@@ -4965,7 +4965,7 @@ class region{
 	
 	/**
 	 * Returns all regions for the partner.
-	 * @param filter RegionFilter Regions filter
+	 * @param filter BaseRegionFilter Regions filter
 	 * @return KalturaRegionListResponse
 	 */
 	static listAction(filter){
