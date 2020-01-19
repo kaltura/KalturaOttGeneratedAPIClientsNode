@@ -4988,7 +4988,7 @@ class region{
 	
 	/**
 	 * Returns all regions for the partner.
-	 * @param filter RegionFilter Regions filter
+	 * @param filter BaseRegionFilter Regions filter
 	 * @param pager FilterPager Paging the request (optional, default: null)
 	 * @return KalturaRegionListResponse
 	 */

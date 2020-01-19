@@ -5330,7 +5330,19 @@ module.exports.PlaybackProfileFilter = PlaybackProfileFilter;
 /**
  *
  */
-class RegionFilter extends Filter{
+class BaseRegionFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBaseRegionFilter';
+	}
+}
+module.exports.BaseRegionFilter = BaseRegionFilter;
+
+/**
+ *
+ */
+class RegionFilter extends BaseRegionFilter{
 	
 	constructor(object = null) {
 		super(object);
@@ -5413,6 +5425,18 @@ class RegionFilter extends Filter{
 	 }
 }
 module.exports.RegionFilter = RegionFilter;
+
+/**
+ *
+ */
+class DefaultRegionFilter extends BaseRegionFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDefaultRegionFilter';
+	}
+}
+module.exports.DefaultRegionFilter = DefaultRegionFilter;
 
 /**
  *
