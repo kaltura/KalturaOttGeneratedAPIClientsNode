@@ -24856,6 +24856,36 @@ class BookmarkEvent extends EventObject{
 	 setAction(action) {
 	 	this.action = action;
 	 }
+	
+	/**
+	 * Product Type
+	 * @return string
+	 */
+	 getProductType() {
+	 	return this.productType;
+	 }
+	
+	/**
+	 * @param productType string Product Type
+	 */
+	 setProductType(productType) {
+	 	this.productType = productType;
+	 }
+	
+	/**
+	 * Product Id
+	 * @return int
+	 */
+	 getProductId() {
+	 	return this.productId;
+	 }
+	
+	/**
+	 * @param productId int Product Id
+	 */
+	 setProductId(productId) {
+	 	this.productId = productId;
+	 }
 }
 module.exports.BookmarkEvent = BookmarkEvent;
 
