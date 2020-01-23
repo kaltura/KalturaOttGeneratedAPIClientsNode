@@ -5262,7 +5262,7 @@ class segmentationType{
 	
 	/**
 	 * Lists all segmentation types in group.
-	 * @param filter SegmentationTypeFilter Segmentation type filter - basically empty (optional, default: null)
+	 * @param filter BaseSegmentationTypeFilter Segmentation type filter - basically empty (optional, default: null)
 	 * @param pager FilterPager Simple pager (optional, default: null)
 	 * @return KalturaSegmentationTypeListResponse
 	 */
