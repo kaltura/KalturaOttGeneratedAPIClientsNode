@@ -1202,7 +1202,19 @@ module.exports.SocialFriendActivityFilter = SocialFriendActivityFilter;
 /**
  *
  */
-class SegmentationTypeFilter extends Filter{
+class BaseSegmentationTypeFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBaseSegmentationTypeFilter';
+	}
+}
+module.exports.BaseSegmentationTypeFilter = BaseSegmentationTypeFilter;
+
+/**
+ *
+ */
+class SegmentationTypeFilter extends BaseSegmentationTypeFilter{
 	
 	constructor(object = null) {
 		super(object);
@@ -1210,7 +1222,7 @@ class SegmentationTypeFilter extends Filter{
 	}
 	
 	/**
-	 * Comma separated segmentation types identifieridentifiers
+	 * Comma separated segmentation types identifiers
 	 * @return string
 	 */
 	 getIdIn() {
@@ -1218,7 +1230,7 @@ class SegmentationTypeFilter extends Filter{
 	 }
 	
 	/**
-	 * @param idIn string Comma separated segmentation types identifieridentifiers
+	 * @param idIn string Comma separated segmentation types identifiers
 	 */
 	 setIdIn(idIn) {
 	 	this.idIn = idIn;
@@ -1240,6 +1252,33 @@ class SegmentationTypeFilter extends Filter{
 	 }
 }
 module.exports.SegmentationTypeFilter = SegmentationTypeFilter;
+
+/**
+ *
+ */
+class SegmentValueFilter extends BaseSegmentationTypeFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSegmentValueFilter';
+	}
+	
+	/**
+	 * Comma separated segmentation identifiers
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated segmentation identifiers
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.SegmentValueFilter = SegmentValueFilter;
 
 /**
  *
