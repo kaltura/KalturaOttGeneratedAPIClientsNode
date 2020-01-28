@@ -1202,19 +1202,7 @@ module.exports.SocialFriendActivityFilter = SocialFriendActivityFilter;
 /**
  *
  */
-class BaseSegmentationTypeFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBaseSegmentationTypeFilter';
-	}
-}
-module.exports.BaseSegmentationTypeFilter = BaseSegmentationTypeFilter;
-
-/**
- *
- */
-class SegmentationTypeFilter extends BaseSegmentationTypeFilter{
+class SegmentationTypeFilter extends Filter{
 	
 	constructor(object = null) {
 		super(object);
@@ -1222,7 +1210,7 @@ class SegmentationTypeFilter extends BaseSegmentationTypeFilter{
 	}
 	
 	/**
-	 * Comma separated segmentation types identifiers
+	 * Comma separated segmentation types identifieridentifiers
 	 * @return string
 	 */
 	 getIdIn() {
@@ -1230,7 +1218,7 @@ class SegmentationTypeFilter extends BaseSegmentationTypeFilter{
 	 }
 	
 	/**
-	 * @param idIn string Comma separated segmentation types identifiers
+	 * @param idIn string Comma separated segmentation types identifieridentifiers
 	 */
 	 setIdIn(idIn) {
 	 	this.idIn = idIn;
@@ -1252,33 +1240,6 @@ class SegmentationTypeFilter extends BaseSegmentationTypeFilter{
 	 }
 }
 module.exports.SegmentationTypeFilter = SegmentationTypeFilter;
-
-/**
- *
- */
-class SegmentValueFilter extends BaseSegmentationTypeFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSegmentValueFilter';
-	}
-	
-	/**
-	 * Comma separated segmentation identifiers
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Comma separated segmentation identifiers
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.SegmentValueFilter = SegmentValueFilter;
 
 /**
  *
@@ -5426,19 +5387,7 @@ module.exports.PlaybackProfileFilter = PlaybackProfileFilter;
 /**
  *
  */
-class BaseRegionFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBaseRegionFilter';
-	}
-}
-module.exports.BaseRegionFilter = BaseRegionFilter;
-
-/**
- *
- */
-class RegionFilter extends BaseRegionFilter{
+class RegionFilter extends Filter{
 	
 	constructor(object = null) {
 		super(object);
@@ -5521,18 +5470,6 @@ class RegionFilter extends BaseRegionFilter{
 	 }
 }
 module.exports.RegionFilter = RegionFilter;
-
-/**
- *
- */
-class DefaultRegionFilter extends BaseRegionFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDefaultRegionFilter';
-	}
-}
-module.exports.DefaultRegionFilter = DefaultRegionFilter;
 
 /**
  *

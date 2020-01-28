@@ -227,7 +227,6 @@ module.exports.assetComment = assetComment;
  * @action get Returns media or EPG asset by media / EPG internal or external identifier.
  * @action getAdsContext Returns the data for ads control.
  * @action getPlaybackContext This action delivers all data relevant for player.
- * @action getPlaybackManifest This action delivers all data relevant for player.
  * @action list Returns media or EPG assets. Filters by media identifiers or by EPG internal or external identifier.
  * @action removeMetasAndTags remove metas and tags from asset.
  * @action update update an existing asset.
@@ -330,23 +329,6 @@ class asset{
 		kparams.contextDataParams = contextDataParams;
 		kparams.sourceType = sourceType;
 		return new kaltura.RequestBuilder('asset', 'getPlaybackContext', kparams);
-	};
-	
-	/**
-	 * This action delivers all data relevant for player.
-	 * @param assetId string Asset identifier
-	 * @param assetType string Asset type (enum: KalturaAssetType)
-	 * @param contextDataParams PlaybackContextOptions Parameters for the request
-	 * @param sourceType string Filter sources by type (optional, default: null)
-	 * @return KalturaPlaybackContext
-	 */
-	static getPlaybackManifest(assetId, assetType, contextDataParams, sourceType = null){
-		let kparams = {};
-		kparams.assetId = assetId;
-		kparams.assetType = assetType;
-		kparams.contextDataParams = contextDataParams;
-		kparams.sourceType = sourceType;
-		return new kaltura.RequestBuilder('asset', 'getPlaybackManifest', kparams);
 	};
 	
 	/**
@@ -5050,7 +5032,7 @@ class region{
 	
 	/**
 	 * Returns all regions for the partner.
-	 * @param filter BaseRegionFilter Regions filter
+	 * @param filter RegionFilter Regions filter
 	 * @param pager FilterPager Paging the request (optional, default: null)
 	 * @return KalturaRegionListResponse
 	 */
@@ -5280,7 +5262,7 @@ class segmentationType{
 	
 	/**
 	 * Lists all segmentation types in group.
-	 * @param filter BaseSegmentationTypeFilter Segmentation type filter - basically empty (optional, default: null)
+	 * @param filter SegmentationTypeFilter Segmentation type filter - basically empty (optional, default: null)
 	 * @param pager FilterPager Simple pager (optional, default: null)
 	 * @return KalturaSegmentationTypeListResponse
 	 */
@@ -5859,13 +5841,13 @@ class system{
 	
 	/**
 	 * Clear local server cache.
-	 * @param clearCacheAction string clear cache action to perform, possible values: clear_all / keys / getKey (optional, default: null)
+	 * @param action string action to perform, possible values: clear_all / keys / getKey (optional, default: null)
 	 * @param key string key to get in case you send action getKey (optional, default: null)
 	 * @return bool
 	 */
-	static clearLocalServerCache(clearCacheAction = null, key = null){
+	static clearLocalServerCache(action = null, key = null){
 		let kparams = {};
-		kparams.clearCacheAction = clearCacheAction;
+		kparams.action = action;
 		kparams.key = key;
 		return new kaltura.RequestBuilder('system', 'clearLocalServerCache', kparams);
 	};
