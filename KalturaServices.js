@@ -4146,7 +4146,7 @@ module.exports.parentalRule = parentalRule;
  *Class definition for the Kaltura service: partnerConfiguration.
  * The available service actions:
  * @action list Get the list of PartnerConfiguration.
- * @action update Update Partner Configuration.
+ * @action update Update/set Partner Configuration.
  */
 class partnerConfiguration{
 	
@@ -4162,11 +4162,8 @@ class partnerConfiguration{
 	};
 	
 	/**
-	 * Update Partner Configuration.
-	 * @param configuration PartnerConfiguration Partner Configuration
- * possible configuration type:
- * 'configuration': { 'value': 0, 'partner_configuration_type': { 'type': 'OSSAdapter', 'objectType': 'KalturaPartnerConfigurationHolder' },
- * 'objectType': 'KalturaBillingPartnerConfig'}
+	 * Update/set Partner Configuration.
+	 * @param configuration PartnerConfiguration Partner Configuration to update
 	 * @return bool
 	 */
 	static update(configuration){
