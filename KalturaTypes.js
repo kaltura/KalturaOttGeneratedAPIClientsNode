@@ -477,10 +477,6 @@ DEVICE_MASTER_RESTRICTED : 'device_master_restricted',
 DEVICE_USER_MASTER_RESTRICTED : 'device_user_master_restricted',
 };
 
-module.exports.HouseholdSegmentOrderBy = {
-NONE : 'NONE',
-};
-
 module.exports.HouseholdState = {
 OK : 'ok',
 CREATED_WITHOUT_NPVR_ACCOUNT : 'created_without_npvr_account',
@@ -683,7 +679,6 @@ OSSADAPTER : 'OSSAdapter',
 CONCURRENCY : 'Concurrency',
 GENERAL : 'General',
 OBJECTVIRTUALASSET : 'ObjectVirtualAsset',
-COMMERCE : 'Commerce',
 };
 
 module.exports.PasswordPolicyOrderBy = {

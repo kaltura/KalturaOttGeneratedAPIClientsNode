@@ -788,33 +788,6 @@ module.exports.PasswordPolicyFilter = PasswordPolicyFilter;
 /**
  *
  */
-class HouseholdSegmentFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdSegmentFilter';
-	}
-	
-	/**
-	 * KSQL expression
-	 * @return string
-	 */
-	 getKSql() {
-	 	return this.kSql;
-	 }
-	
-	/**
-	 * @param kSql string KSQL expression
-	 */
-	 setKSql(kSql) {
-	 	this.kSql = kSql;
-	 }
-}
-module.exports.HouseholdSegmentFilter = HouseholdSegmentFilter;
-
-/**
- *
- */
 class HouseholdCouponFilter extends CrudFilter{
 	
 	constructor(object = null) {
@@ -1202,19 +1175,7 @@ module.exports.SocialFriendActivityFilter = SocialFriendActivityFilter;
 /**
  *
  */
-class BaseSegmentationTypeFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBaseSegmentationTypeFilter';
-	}
-}
-module.exports.BaseSegmentationTypeFilter = BaseSegmentationTypeFilter;
-
-/**
- *
- */
-class SegmentationTypeFilter extends BaseSegmentationTypeFilter{
+class SegmentationTypeFilter extends Filter{
 	
 	constructor(object = null) {
 		super(object);
@@ -1222,7 +1183,7 @@ class SegmentationTypeFilter extends BaseSegmentationTypeFilter{
 	}
 	
 	/**
-	 * Comma separated segmentation types identifiers
+	 * Comma separated segmentation types identifieridentifiers
 	 * @return string
 	 */
 	 getIdIn() {
@@ -1230,7 +1191,7 @@ class SegmentationTypeFilter extends BaseSegmentationTypeFilter{
 	 }
 	
 	/**
-	 * @param idIn string Comma separated segmentation types identifiers
+	 * @param idIn string Comma separated segmentation types identifieridentifiers
 	 */
 	 setIdIn(idIn) {
 	 	this.idIn = idIn;
@@ -1256,33 +1217,6 @@ module.exports.SegmentationTypeFilter = SegmentationTypeFilter;
 /**
  *
  */
-class SegmentValueFilter extends BaseSegmentationTypeFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSegmentValueFilter';
-	}
-	
-	/**
-	 * Comma separated segmentation identifiers
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Comma separated segmentation identifiers
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.SegmentValueFilter = SegmentValueFilter;
-
-/**
- *
- */
 class UserSegmentFilter extends Filter{
 	
 	constructor(object = null) {
@@ -1303,21 +1237,6 @@ class UserSegmentFilter extends Filter{
 	 */
 	 setUserIdEqual(userIdEqual) {
 	 	this.userIdEqual = userIdEqual;
-	 }
-	
-	/**
-	 * KSQL expression
-	 * @return string
-	 */
-	 getKSql() {
-	 	return this.kSql;
-	 }
-	
-	/**
-	 * @param kSql string KSQL expression
-	 */
-	 setKSql(kSql) {
-	 	this.kSql = kSql;
 	 }
 }
 module.exports.UserSegmentFilter = UserSegmentFilter;
@@ -5426,19 +5345,7 @@ module.exports.PlaybackProfileFilter = PlaybackProfileFilter;
 /**
  *
  */
-class BaseRegionFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBaseRegionFilter';
-	}
-}
-module.exports.BaseRegionFilter = BaseRegionFilter;
-
-/**
- *
- */
-class RegionFilter extends BaseRegionFilter{
+class RegionFilter extends Filter{
 	
 	constructor(object = null) {
 		super(object);
@@ -5521,18 +5428,6 @@ class RegionFilter extends BaseRegionFilter{
 	 }
 }
 module.exports.RegionFilter = RegionFilter;
-
-/**
- *
- */
-class DefaultRegionFilter extends BaseRegionFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDefaultRegionFilter';
-	}
-}
-module.exports.DefaultRegionFilter = DefaultRegionFilter;
 
 /**
  *
@@ -8635,117 +8530,6 @@ class AssetOrderSegmentAction extends BaseSegmentAction{
 	 }
 }
 module.exports.AssetOrderSegmentAction = AssetOrderSegmentAction;
-
-/**
- *
- */
-class KsqlSegmentAction extends BaseSegmentAction{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaKsqlSegmentAction';
-	}
-	
-	/**
-	 * KSQL
-	 * @return string
-	 */
-	 getKsql() {
-	 	return this.ksql;
-	 }
-	
-	/**
-	 * @param ksql string KSQL
-	 */
-	 setKsql(ksql) {
-	 	this.ksql = ksql;
-	 }
-}
-module.exports.KsqlSegmentAction = KsqlSegmentAction;
-
-/**
- *
- */
-class SegmentAssetFilterAction extends KsqlSegmentAction{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSegmentAssetFilterAction';
-	}
-}
-module.exports.SegmentAssetFilterAction = SegmentAssetFilterAction;
-
-/**
- *
- */
-class SegmentAssetFilterSegmentAction extends SegmentAssetFilterAction{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSegmentAssetFilterSegmentAction';
-	}
-}
-module.exports.SegmentAssetFilterSegmentAction = SegmentAssetFilterSegmentAction;
-
-/**
- *
- */
-class SegmentAssetFilterSubscriptionAction extends SegmentAssetFilterAction{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSegmentAssetFilterSubscriptionAction';
-	}
-}
-module.exports.SegmentAssetFilterSubscriptionAction = SegmentAssetFilterSubscriptionAction;
-
-/**
- *
- */
-class BlockSubscriptionSegmentAction extends KsqlSegmentAction{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBlockSubscriptionSegmentAction';
-	}
-}
-module.exports.BlockSubscriptionSegmentAction = BlockSubscriptionSegmentAction;
-
-/**
- *
- */
-class SegmentBlockPlaybackSubscriptionAction extends BlockSubscriptionSegmentAction{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSegmentBlockPlaybackSubscriptionAction';
-	}
-}
-module.exports.SegmentBlockPlaybackSubscriptionAction = SegmentBlockPlaybackSubscriptionAction;
-
-/**
- *
- */
-class SegmentBlockCancelSubscriptionAction extends BlockSubscriptionSegmentAction{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSegmentBlockCancelSubscriptionAction';
-	}
-}
-module.exports.SegmentBlockCancelSubscriptionAction = SegmentBlockCancelSubscriptionAction;
-
-/**
- *
- */
-class SegmentBlockPurchaseSubscriptionAction extends BlockSubscriptionSegmentAction{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSegmentBlockPurchaseSubscriptionAction';
-	}
-}
-module.exports.SegmentBlockPurchaseSubscriptionAction = SegmentBlockPurchaseSubscriptionAction;
 
 /**
  *
@@ -13551,75 +13335,6 @@ class BillingPartnerConfig extends PartnerConfiguration{
 	 }
 }
 module.exports.BillingPartnerConfig = BillingPartnerConfig;
-
-/**
- *
- */
-class BookmarkEventThreshold extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBookmarkEventThreshold';
-	}
-	
-	/**
-	 * bookmark transaction type
-	 * @return string
-	 */
-	 getTransactionType() {
-	 	return this.transactionType;
-	 }
-	
-	/**
-	 * @param transactionType string bookmark transaction type
-	 */
-	 setTransactionType(transactionType) {
-	 	this.transactionType = transactionType;
-	 }
-	
-	/**
-	 * event threshold in seconds
-	 * @return int
-	 */
-	 getThreshold() {
-	 	return this.threshold;
-	 }
-	
-	/**
-	 * @param threshold int event threshold in seconds
-	 */
-	 setThreshold(threshold) {
-	 	this.threshold = threshold;
-	 }
-}
-module.exports.BookmarkEventThreshold = BookmarkEventThreshold;
-
-/**
- *
- */
-class CommercePartnerConfig extends PartnerConfiguration{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCommercePartnerConfig';
-	}
-	
-	/**
-	 * configuration for bookmark event threshold (when to dispatch the event) in seconds
-	 * @return array
-	 */
-	 getBookmarkEventThresholds() {
-	 	return this.bookmarkEventThresholds;
-	 }
-	
-	/**
-	 * @param bookmarkEventThresholds array configuration for bookmark event threshold (when to dispatch the event) in seconds
-	 */
-	 setBookmarkEventThresholds(bookmarkEventThresholds) {
-	 	this.bookmarkEventThresholds = bookmarkEventThresholds;
-	 }
-}
-module.exports.CommercePartnerConfig = CommercePartnerConfig;
 
 /**
  *
@@ -24823,138 +24538,6 @@ module.exports.EventNotificationObjectScope = EventNotificationObjectScope;
 /**
  *
  */
-class BookmarkEvent extends EventObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBookmarkEvent';
-	}
-	
-	/**
-	 * User Id
-	 * @return int
-	 */
-	 getUserId() {
-	 	return this.userId;
-	 }
-	
-	/**
-	 * @param userId int User Id
-	 */
-	 setUserId(userId) {
-	 	this.userId = userId;
-	 }
-	
-	/**
-	 * Household Id
-	 * @return int
-	 */
-	 getHouseholdId() {
-	 	return this.householdId;
-	 }
-	
-	/**
-	 * @param householdId int Household Id
-	 */
-	 setHouseholdId(householdId) {
-	 	this.householdId = householdId;
-	 }
-	
-	/**
-	 * Asset Id
-	 * @return int
-	 */
-	 getAssetId() {
-	 	return this.assetId;
-	 }
-	
-	/**
-	 * @param assetId int Asset Id
-	 */
-	 setAssetId(assetId) {
-	 	this.assetId = assetId;
-	 }
-	
-	/**
-	 * File Id
-	 * @return int
-	 */
-	 getFileId() {
-	 	return this.fileId;
-	 }
-	
-	/**
-	 * @param fileId int File Id
-	 */
-	 setFileId(fileId) {
-	 	this.fileId = fileId;
-	 }
-	
-	/**
-	 * position
-	 * @return int
-	 */
-	 getPosition() {
-	 	return this.position;
-	 }
-	
-	/**
-	 * @param position int position
-	 */
-	 setPosition(position) {
-	 	this.position = position;
-	 }
-	
-	/**
-	 * Bookmark Action Type
-	 * @return string
-	 */
-	 getAction() {
-	 	return this.action;
-	 }
-	
-	/**
-	 * @param action string Bookmark Action Type
-	 */
-	 setAction(action) {
-	 	this.action = action;
-	 }
-	
-	/**
-	 * Product Type
-	 * @return string
-	 */
-	 getProductType() {
-	 	return this.productType;
-	 }
-	
-	/**
-	 * @param productType string Product Type
-	 */
-	 setProductType(productType) {
-	 	this.productType = productType;
-	 }
-	
-	/**
-	 * Product Id
-	 * @return int
-	 */
-	 getProductId() {
-	 	return this.productId;
-	 }
-	
-	/**
-	 * @param productId int Product Id
-	 */
-	 setProductId(productId) {
-	 	this.productId = productId;
-	 }
-}
-module.exports.BookmarkEvent = BookmarkEvent;
-
-/**
- *
- */
 class ConcurrencyViolation extends EventObject{
 	
 	constructor(object = null) {
@@ -25335,48 +24918,6 @@ class PasswordPolicy extends CrudObject{
 	 }
 }
 module.exports.PasswordPolicy = PasswordPolicy;
-
-/**
- *
- */
-class HouseholdSegment extends CrudObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdSegment';
-	}
-	
-	/**
-	 * Segment Id
-	 * @return int
-	 */
-	 getSegmentId() {
-	 	return this.segmentId;
-	 }
-	
-	/**
-	 * @param segmentId int Segment Id
-	 */
-	 setSegmentId(segmentId) {
-	 	this.segmentId = segmentId;
-	 }
-	
-	/**
-	 * Segment Id
-	 * @return int
-	 */
-	 getHouseholdId() {
-	 	return this.householdId;
-	 }
-	
-	/**
-	 * @param householdId int Segment Id
-	 */
-	 setHouseholdId(householdId) {
-	 	this.householdId = householdId;
-	 }
-}
-module.exports.HouseholdSegment = HouseholdSegment;
 
 /**
  *
@@ -25807,33 +25348,6 @@ class HouseholdQuota extends kaltura.BaseObject{
 	 }
 }
 module.exports.HouseholdQuota = HouseholdQuota;
-
-/**
- *
- */
-class HouseholdSegmentListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdSegmentListResponse';
-	}
-	
-	/**
-	 * A list of objects
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array A list of objects
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.HouseholdSegmentListResponse = HouseholdSegmentListResponse;
 
 /**
  *
