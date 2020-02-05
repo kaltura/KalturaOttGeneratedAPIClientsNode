@@ -683,7 +683,6 @@ OSSADAPTER : 'OSSAdapter',
 CONCURRENCY : 'Concurrency',
 GENERAL : 'General',
 OBJECTVIRTUALASSET : 'ObjectVirtualAsset',
-COMMERCE : 'Commerce',
 };
 
 module.exports.PasswordPolicyOrderBy = {

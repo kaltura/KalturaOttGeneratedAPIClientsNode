@@ -1202,19 +1202,7 @@ module.exports.SocialFriendActivityFilter = SocialFriendActivityFilter;
 /**
  *
  */
-class BaseSegmentationTypeFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBaseSegmentationTypeFilter';
-	}
-}
-module.exports.BaseSegmentationTypeFilter = BaseSegmentationTypeFilter;
-
-/**
- *
- */
-class SegmentationTypeFilter extends BaseSegmentationTypeFilter{
+class SegmentationTypeFilter extends Filter{
 	
 	constructor(object = null) {
 		super(object);
@@ -1222,7 +1210,7 @@ class SegmentationTypeFilter extends BaseSegmentationTypeFilter{
 	}
 	
 	/**
-	 * Comma separated segmentation types identifiers
+	 * Comma separated segmentation types identifieridentifiers
 	 * @return string
 	 */
 	 getIdIn() {
@@ -1230,7 +1218,7 @@ class SegmentationTypeFilter extends BaseSegmentationTypeFilter{
 	 }
 	
 	/**
-	 * @param idIn string Comma separated segmentation types identifiers
+	 * @param idIn string Comma separated segmentation types identifieridentifiers
 	 */
 	 setIdIn(idIn) {
 	 	this.idIn = idIn;
@@ -1252,33 +1240,6 @@ class SegmentationTypeFilter extends BaseSegmentationTypeFilter{
 	 }
 }
 module.exports.SegmentationTypeFilter = SegmentationTypeFilter;
-
-/**
- *
- */
-class SegmentValueFilter extends BaseSegmentationTypeFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSegmentValueFilter';
-	}
-	
-	/**
-	 * Comma separated segmentation identifiers
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Comma separated segmentation identifiers
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.SegmentValueFilter = SegmentValueFilter;
 
 /**
  *
@@ -13555,75 +13516,6 @@ module.exports.BillingPartnerConfig = BillingPartnerConfig;
 /**
  *
  */
-class BookmarkEventThreshold extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBookmarkEventThreshold';
-	}
-	
-	/**
-	 * bookmark transaction type
-	 * @return string
-	 */
-	 getTransactionType() {
-	 	return this.transactionType;
-	 }
-	
-	/**
-	 * @param transactionType string bookmark transaction type
-	 */
-	 setTransactionType(transactionType) {
-	 	this.transactionType = transactionType;
-	 }
-	
-	/**
-	 * event threshold in seconds
-	 * @return int
-	 */
-	 getThreshold() {
-	 	return this.threshold;
-	 }
-	
-	/**
-	 * @param threshold int event threshold in seconds
-	 */
-	 setThreshold(threshold) {
-	 	this.threshold = threshold;
-	 }
-}
-module.exports.BookmarkEventThreshold = BookmarkEventThreshold;
-
-/**
- *
- */
-class CommercePartnerConfig extends PartnerConfiguration{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCommercePartnerConfig';
-	}
-	
-	/**
-	 * configuration for bookmark event threshold (when to dispatch the event) in seconds
-	 * @return array
-	 */
-	 getBookmarkEventThresholds() {
-	 	return this.bookmarkEventThresholds;
-	 }
-	
-	/**
-	 * @param bookmarkEventThresholds array configuration for bookmark event threshold (when to dispatch the event) in seconds
-	 */
-	 setBookmarkEventThresholds(bookmarkEventThresholds) {
-	 	this.bookmarkEventThresholds = bookmarkEventThresholds;
-	 }
-}
-module.exports.CommercePartnerConfig = CommercePartnerConfig;
-
-/**
- *
- */
 class ConcurrencyPartnerConfig extends PartnerConfiguration{
 	
 	constructor(object = null) {
@@ -24819,138 +24711,6 @@ class EventNotificationObjectScope extends EventNotificationScope{
 	 }
 }
 module.exports.EventNotificationObjectScope = EventNotificationObjectScope;
-
-/**
- *
- */
-class BookmarkEvent extends EventObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBookmarkEvent';
-	}
-	
-	/**
-	 * User Id
-	 * @return int
-	 */
-	 getUserId() {
-	 	return this.userId;
-	 }
-	
-	/**
-	 * @param userId int User Id
-	 */
-	 setUserId(userId) {
-	 	this.userId = userId;
-	 }
-	
-	/**
-	 * Household Id
-	 * @return int
-	 */
-	 getHouseholdId() {
-	 	return this.householdId;
-	 }
-	
-	/**
-	 * @param householdId int Household Id
-	 */
-	 setHouseholdId(householdId) {
-	 	this.householdId = householdId;
-	 }
-	
-	/**
-	 * Asset Id
-	 * @return int
-	 */
-	 getAssetId() {
-	 	return this.assetId;
-	 }
-	
-	/**
-	 * @param assetId int Asset Id
-	 */
-	 setAssetId(assetId) {
-	 	this.assetId = assetId;
-	 }
-	
-	/**
-	 * File Id
-	 * @return int
-	 */
-	 getFileId() {
-	 	return this.fileId;
-	 }
-	
-	/**
-	 * @param fileId int File Id
-	 */
-	 setFileId(fileId) {
-	 	this.fileId = fileId;
-	 }
-	
-	/**
-	 * position
-	 * @return int
-	 */
-	 getPosition() {
-	 	return this.position;
-	 }
-	
-	/**
-	 * @param position int position
-	 */
-	 setPosition(position) {
-	 	this.position = position;
-	 }
-	
-	/**
-	 * Bookmark Action Type
-	 * @return string
-	 */
-	 getAction() {
-	 	return this.action;
-	 }
-	
-	/**
-	 * @param action string Bookmark Action Type
-	 */
-	 setAction(action) {
-	 	this.action = action;
-	 }
-	
-	/**
-	 * Product Type
-	 * @return string
-	 */
-	 getProductType() {
-	 	return this.productType;
-	 }
-	
-	/**
-	 * @param productType string Product Type
-	 */
-	 setProductType(productType) {
-	 	this.productType = productType;
-	 }
-	
-	/**
-	 * Product Id
-	 * @return int
-	 */
-	 getProductId() {
-	 	return this.productId;
-	 }
-	
-	/**
-	 * @param productId int Product Id
-	 */
-	 setProductId(productId) {
-	 	this.productId = productId;
-	 }
-}
-module.exports.BookmarkEvent = BookmarkEvent;
 
 /**
  *

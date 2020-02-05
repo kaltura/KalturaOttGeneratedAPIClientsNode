@@ -227,7 +227,6 @@ module.exports.assetComment = assetComment;
  * @action get Returns media or EPG asset by media / EPG internal or external identifier.
  * @action getAdsContext Returns the data for ads control.
  * @action getPlaybackContext This action delivers all data relevant for player.
- * @action getPlaybackManifest This action delivers all data relevant for player.
  * @action list Returns media or EPG assets. Filters by media identifiers or by EPG internal or external identifier.
  * @action removeMetasAndTags remove metas and tags from asset.
  * @action update update an existing asset.
@@ -330,23 +329,6 @@ class asset{
 		kparams.contextDataParams = contextDataParams;
 		kparams.sourceType = sourceType;
 		return new kaltura.RequestBuilder('asset', 'getPlaybackContext', kparams);
-	};
-	
-	/**
-	 * This action delivers all data relevant for player.
-	 * @param assetId string Asset identifier
-	 * @param assetType string Asset type (enum: KalturaAssetType)
-	 * @param contextDataParams PlaybackContextOptions Parameters for the request
-	 * @param sourceType string Filter sources by type (optional, default: null)
-	 * @return KalturaPlaybackContext
-	 */
-	static getPlaybackManifest(assetId, assetType, contextDataParams, sourceType = null){
-		let kparams = {};
-		kparams.assetId = assetId;
-		kparams.assetType = assetType;
-		kparams.contextDataParams = contextDataParams;
-		kparams.sourceType = sourceType;
-		return new kaltura.RequestBuilder('asset', 'getPlaybackManifest', kparams);
 	};
 	
 	/**
@@ -4146,7 +4128,7 @@ module.exports.parentalRule = parentalRule;
  *Class definition for the Kaltura service: partnerConfiguration.
  * The available service actions:
  * @action list Get the list of PartnerConfiguration.
- * @action update Update/set Partner Configuration.
+ * @action update Update Partner Configuration.
  */
 class partnerConfiguration{
 	
@@ -4162,8 +4144,11 @@ class partnerConfiguration{
 	};
 	
 	/**
-	 * Update/set Partner Configuration.
-	 * @param configuration PartnerConfiguration Partner Configuration to update
+	 * Update Partner Configuration.
+	 * @param configuration PartnerConfiguration Partner Configuration
+ * possible configuration type:
+ * 'configuration': { 'value': 0, 'partner_configuration_type': { 'type': 'OSSAdapter', 'objectType': 'KalturaPartnerConfigurationHolder' },
+ * 'objectType': 'KalturaBillingPartnerConfig'}
 	 * @return bool
 	 */
 	static update(configuration){
@@ -5277,7 +5262,7 @@ class segmentationType{
 	
 	/**
 	 * Lists all segmentation types in group.
-	 * @param filter BaseSegmentationTypeFilter Segmentation type filter - basically empty (optional, default: null)
+	 * @param filter SegmentationTypeFilter Segmentation type filter - basically empty (optional, default: null)
 	 * @param pager FilterPager Simple pager (optional, default: null)
 	 * @return KalturaSegmentationTypeListResponse
 	 */
