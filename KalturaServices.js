@@ -33,6 +33,7 @@ const kaltura = require('./KalturaClientBase');
  * @action add Add a new future scheduled system announcement push notification.
  * @action delete Delete an existing announcing. Announcement cannot be delete while being sent.
  * @action enableSystemAnnouncements Enable system announcements.
+ * @action get Get announcement by Id.
  * @action list Lists all announcements in the system.
  * @action update Update an existing future system announcement push notification. Announcement can only be updated only before sending.
  * @action updateStatus Update a system announcement status.
@@ -70,6 +71,17 @@ class announcement{
 	static enableSystemAnnouncements(){
 		let kparams = {};
 		return new kaltura.RequestBuilder('announcement', 'enableSystemAnnouncements', kparams);
+	};
+	
+	/**
+	 * Get announcement by Id.
+	 * @param id int Announcement id
+	 * @return KalturaAnnouncement
+	 */
+	static get(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('announcement', 'get', kparams);
 	};
 	
 	/**
