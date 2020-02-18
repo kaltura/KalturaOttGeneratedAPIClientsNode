@@ -949,6 +949,99 @@ module.exports.businessModuleRule = businessModuleRule;
 
 
 /**
+ *Class definition for the Kaltura service: categoryItem.
+ * The available service actions:
+ * @action add categoryItem add.
+ * @action update categoryItem update.
+ * @action delete Remove category.
+ * @action list Gets all categoryItem items.
+ */
+class categoryItem{
+	
+	/**
+	 * categoryItem add.
+	 * @param objectToAdd CategoryItem categoryItem details
+	 * @return KalturaCategoryItem
+	 */
+	static add(objectToAdd){
+		let kparams = {};
+		kparams.objectToAdd = objectToAdd;
+		return new kaltura.RequestBuilder('categoryitem', 'add', kparams);
+	};
+	
+	/**
+	 * categoryItem update.
+	 * @param id int Category identifier
+	 * @param objectToUpdate CategoryItem categoryItem details
+	 * @return KalturaCategoryItem
+	 */
+	static update(id, objectToUpdate){
+		let kparams = {};
+		kparams.id = id;
+		kparams.objectToUpdate = objectToUpdate;
+		return new kaltura.RequestBuilder('categoryitem', 'update', kparams);
+	};
+	
+	/**
+	 * Remove category.
+	 * @param id int Category identifier
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('categoryitem', 'delete', kparams);
+	};
+	
+	/**
+	 * Gets all categoryItem items.
+	 * @param filter CategoryItemFilter Request filter (optional, default: null)
+	 * @param pager FilterPager Request pager
+	 * @return KalturaCategoryItemListResponse
+	 */
+	static listAction(filter = null, pager){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('categoryitem', 'list', kparams);
+	};
+}
+module.exports.categoryItem = categoryItem;
+
+
+/**
+ *Class definition for the Kaltura service: categoryTree.
+ * The available service actions:
+ * @action duplicate Duplicate category Item.
+ * @action get Retrive category tree.
+ */
+class categoryTree{
+	
+	/**
+	 * Duplicate category Item.
+	 * @param categoryItemId int Category item identifier
+	 * @return KalturaCategoryTree
+	 */
+	static duplicate(categoryItemId){
+		let kparams = {};
+		kparams.categoryItemId = categoryItemId;
+		return new kaltura.RequestBuilder('categorytree', 'duplicate', kparams);
+	};
+	
+	/**
+	 * Retrive category tree.
+	 * @param categoryItemId int Category item identifier
+	 * @return KalturaCategoryTree
+	 */
+	static get(categoryItemId){
+		let kparams = {};
+		kparams.categoryItemId = categoryItemId;
+		return new kaltura.RequestBuilder('categorytree', 'get', kparams);
+	};
+}
+module.exports.categoryTree = categoryTree;
+
+
+/**
  *Class definition for the Kaltura service: cdnAdapterProfile.
  * The available service actions:
  * @action add Insert new CDN adapter for partner.
