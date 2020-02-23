@@ -926,11 +926,11 @@ module.exports.CategoryItemByIdInFilter = CategoryItemByIdInFilter;
 /**
  *
  */
-class CategoryItemByKsqlFilter extends CategoryItemFilter{
+class CategoryItemSearchFilter extends CategoryItemFilter{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaCategoryItemByKsqlFilter';
+		this.objectType = 'KalturaCategoryItemSearchFilter';
 	}
 	
 	/**
@@ -947,20 +947,23 @@ class CategoryItemByKsqlFilter extends CategoryItemFilter{
 	 setKSql(kSql) {
 	 	this.kSql = kSql;
 	 }
-}
-module.exports.CategoryItemByKsqlFilter = CategoryItemByKsqlFilter;
-
-/**
- *
- */
-class CategoryItemByRootFilter extends CategoryItemFilter{
 	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryItemByRootFilter';
-	}
+	/**
+	 * Root only
+	 * @return bool
+	 */
+	 getRootOnly() {
+	 	return this.rootOnly;
+	 }
+	
+	/**
+	 * @param rootOnly bool Root only
+	 */
+	 setRootOnly(rootOnly) {
+	 	this.rootOnly = rootOnly;
+	 }
 }
-module.exports.CategoryItemByRootFilter = CategoryItemByRootFilter;
+module.exports.CategoryItemSearchFilter = CategoryItemSearchFilter;
 
 /**
  *
@@ -24339,18 +24342,18 @@ class CategoryItem extends CrudObject{
 	 }
 	
 	/**
-	 * @param parentCategoryId int Category parent identifier
-	 */
-	 setParentCategoryId(parentCategoryId) {
-	 	this.parentCategoryId = parentCategoryId;
-	 }
-	
-	/**
 	 * Comma separated list of child categories&#39; Ids
 	 * @return string
 	 */
 	 getChildCategoriesIds() {
 	 	return this.childCategoriesIds;
+	 }
+	
+	/**
+	 * @param childCategoriesIds string Comma separated list of child categories&#39; Ids
+	 */
+	 setChildCategoriesIds(childCategoriesIds) {
+	 	this.childCategoriesIds = childCategoriesIds;
 	 }
 	
 	/**
