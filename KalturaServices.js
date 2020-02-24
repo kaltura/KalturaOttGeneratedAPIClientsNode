@@ -995,10 +995,10 @@ class categoryItem{
 	/**
 	 * Gets all categoryItem items.
 	 * @param filter CategoryItemFilter Request filter (optional, default: null)
-	 * @param pager FilterPager Request pager
+	 * @param pager FilterPager Request pager (optional, default: null)
 	 * @return KalturaCategoryItemListResponse
 	 */
-	static listAction(filter = null, pager){
+	static listAction(filter = null, pager = null){
 		let kparams = {};
 		kparams.filter = filter;
 		kparams.pager = pager;
@@ -1019,11 +1019,13 @@ class categoryTree{
 	/**
 	 * Duplicate category Item.
 	 * @param categoryItemId int Category item identifier
+	 * @param name string Root category name
 	 * @return KalturaCategoryTree
 	 */
-	static duplicate(categoryItemId){
+	static duplicate(categoryItemId, name){
 		let kparams = {};
 		kparams.categoryItemId = categoryItemId;
+		kparams.name = name;
 		return new kaltura.RequestBuilder('categorytree', 'duplicate', kparams);
 	};
 	
