@@ -968,6 +968,33 @@ module.exports.CategoryItemSearchFilter = CategoryItemSearchFilter;
 /**
  *
  */
+class CategoryItemAncestorsFilter extends CategoryItemFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCategoryItemAncestorsFilter';
+	}
+	
+	/**
+	 * KSQL expression
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id int KSQL expression
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+}
+module.exports.CategoryItemAncestorsFilter = CategoryItemAncestorsFilter;
+
+/**
+ *
+ */
 class EventNotificationFilter extends CrudFilter{
 	
 	constructor(object = null) {
@@ -24337,23 +24364,23 @@ class CategoryItem extends CrudObject{
 	 * Category parent identifier
 	 * @return int
 	 */
-	 getParentCategoryId() {
-	 	return this.parentCategoryId;
+	 getParentId() {
+	 	return this.parentId;
 	 }
 	
 	/**
 	 * Comma separated list of child categories&#39; Ids
 	 * @return string
 	 */
-	 getChildCategoriesIds() {
-	 	return this.childCategoriesIds;
+	 getChildrenIds() {
+	 	return this.childrenIds;
 	 }
 	
 	/**
-	 * @param childCategoriesIds string Comma separated list of child categories&#39; Ids
+	 * @param childrenIds string Comma separated list of child categories&#39; Ids
 	 */
-	 setChildCategoriesIds(childCategoriesIds) {
-	 	this.childCategoriesIds = childCategoriesIds;
+	 setChildrenIds(childrenIds) {
+	 	this.childrenIds = childrenIds;
 	 }
 	
 	/**
