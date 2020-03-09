@@ -2026,6 +2026,21 @@ class AnnouncementFilter extends Filter{
 		super(object);
 		this.objectType = 'KalturaAnnouncementFilter';
 	}
+	
+	/**
+	 * A list of comma separated announcement ids
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string A list of comma separated announcement ids
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
 }
 module.exports.AnnouncementFilter = AnnouncementFilter;
 
@@ -24419,6 +24434,14 @@ class CategoryItem extends CrudObject{
 	 */
 	 setDynamicData(dynamicData) {
 	 	this.dynamicData = dynamicData;
+	 }
+	
+	/**
+	 * Specifies when was the Category last updated. Date and time represented as epoch
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
 	 }
 }
 module.exports.CategoryItem = CategoryItem;
