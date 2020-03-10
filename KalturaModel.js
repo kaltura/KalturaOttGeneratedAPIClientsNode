@@ -887,6 +887,114 @@ module.exports.HouseholdCouponFilter = HouseholdCouponFilter;
 /**
  *
  */
+class CategoryItemFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCategoryItemFilter';
+	}
+}
+module.exports.CategoryItemFilter = CategoryItemFilter;
+
+/**
+ *
+ */
+class CategoryItemByIdInFilter extends CategoryItemFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCategoryItemByIdInFilter';
+	}
+	
+	/**
+	 * Category item identifiers
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Category item identifiers
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.CategoryItemByIdInFilter = CategoryItemByIdInFilter;
+
+/**
+ *
+ */
+class CategoryItemSearchFilter extends CategoryItemFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCategoryItemSearchFilter';
+	}
+	
+	/**
+	 * KSQL expression
+	 * @return string
+	 */
+	 getKSql() {
+	 	return this.kSql;
+	 }
+	
+	/**
+	 * @param kSql string KSQL expression
+	 */
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
+	 }
+	
+	/**
+	 * Root only
+	 * @return bool
+	 */
+	 getRootOnly() {
+	 	return this.rootOnly;
+	 }
+	
+	/**
+	 * @param rootOnly bool Root only
+	 */
+	 setRootOnly(rootOnly) {
+	 	this.rootOnly = rootOnly;
+	 }
+}
+module.exports.CategoryItemSearchFilter = CategoryItemSearchFilter;
+
+/**
+ *
+ */
+class CategoryItemAncestorsFilter extends CategoryItemFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCategoryItemAncestorsFilter';
+	}
+	
+	/**
+	 * KSQL expression
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id int KSQL expression
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+}
+module.exports.CategoryItemAncestorsFilter = CategoryItemAncestorsFilter;
+
+/**
+ *
+ */
 class EventNotificationFilter extends CrudFilter{
 	
 	constructor(object = null) {
@@ -24183,6 +24291,668 @@ module.exports.OTTCategory = OTTCategory;
 /**
  *
  */
+class CrudObject extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCrudObject';
+	}
+}
+module.exports.CrudObject = CrudObject;
+
+/**
+ *
+ */
+class UnifiedChannel extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUnifiedChannel';
+	}
+	
+	/**
+	 * Channel&#160;identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id int Channel&#160;identifier
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
+	 * Channel Type
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * @param type string Channel Type
+	 */
+	 setType(type) {
+	 	this.type = type;
+	 }
+}
+module.exports.UnifiedChannel = UnifiedChannel;
+
+/**
+ *
+ */
+class CategoryItem extends CrudObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCategoryItem';
+	}
+	
+	/**
+	 * Unique identifier for the category
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Category name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * Category name
+	 * @return array
+	 */
+	 getMultilingualName() {
+	 	return this.multilingualName;
+	 }
+	
+	/**
+	 * @param multilingualName array Category name
+	 */
+	 setMultilingualName(multilingualName) {
+	 	this.multilingualName = multilingualName;
+	 }
+	
+	/**
+	 * Category parent identifier
+	 * @return int
+	 */
+	 getParentId() {
+	 	return this.parentId;
+	 }
+	
+	/**
+	 * Comma separated list of child categories&#39; Ids
+	 * @return string
+	 */
+	 getChildrenIds() {
+	 	return this.childrenIds;
+	 }
+	
+	/**
+	 * @param childrenIds string Comma separated list of child categories&#39; Ids
+	 */
+	 setChildrenIds(childrenIds) {
+	 	this.childrenIds = childrenIds;
+	 }
+	
+	/**
+	 * List of unified Channels
+	 * @return array
+	 */
+	 getUnifiedChannels() {
+	 	return this.unifiedChannels;
+	 }
+	
+	/**
+	 * @param unifiedChannels array List of unified Channels
+	 */
+	 setUnifiedChannels(unifiedChannels) {
+	 	this.unifiedChannels = unifiedChannels;
+	 }
+	
+	/**
+	 * Dynamic data
+	 * @return map
+	 */
+	 getDynamicData() {
+	 	return this.dynamicData;
+	 }
+	
+	/**
+	 * @param dynamicData map Dynamic data
+	 */
+	 setDynamicData(dynamicData) {
+	 	this.dynamicData = dynamicData;
+	 }
+	
+	/**
+	 * Specifies when was the Category last updated. Date and time represented as epoch
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
+}
+module.exports.CategoryItem = CategoryItem;
+
+/**
+ *
+ */
+class RegexExpression extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRegexExpression';
+	}
+	
+	/**
+	 * regex expression
+	 * @return string
+	 */
+	 getExpression() {
+	 	return this.expression;
+	 }
+	
+	/**
+	 * @param expression string regex expression
+	 */
+	 setExpression(expression) {
+	 	this.expression = expression;
+	 }
+	
+	/**
+	 * description
+	 * @return string
+	 */
+	 getDescription() {
+	 	return this.description;
+	 }
+	
+	/**
+	 * @param description string description
+	 */
+	 setDescription(description) {
+	 	this.description = description;
+	 }
+}
+module.exports.RegexExpression = RegexExpression;
+
+/**
+ *
+ */
+class PasswordPolicy extends CrudObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPasswordPolicy';
+	}
+	
+	/**
+	 * id
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Comma separated UserRole Ids list which the policy is applied on
+	 * @return string
+	 */
+	 getUserRoleIds() {
+	 	return this.userRoleIds;
+	 }
+	
+	/**
+	 * @param userRoleIds string Comma separated UserRole Ids list which the policy is applied on
+	 */
+	 setUserRoleIds(userRoleIds) {
+	 	this.userRoleIds = userRoleIds;
+	 }
+	
+	/**
+	 * The number of passwords that should be remembered for each user so that they cannot be reused
+	 * @return int
+	 */
+	 getHistoryCount() {
+	 	return this.historyCount;
+	 }
+	
+	/**
+	 * @param historyCount int The number of passwords that should be remembered for each user so that they cannot be reused
+	 */
+	 setHistoryCount(historyCount) {
+	 	this.historyCount = historyCount;
+	 }
+	
+	/**
+	 * When should the password expire (will represent time as days)
+	 * @return int
+	 */
+	 getExpiration() {
+	 	return this.expiration;
+	 }
+	
+	/**
+	 * @param expiration int When should the password expire (will represent time as days)
+	 */
+	 setExpiration(expiration) {
+	 	this.expiration = expiration;
+	 }
+	
+	/**
+	 * array of  KalturaRegex
+	 * @return array
+	 */
+	 getComplexities() {
+	 	return this.complexities;
+	 }
+	
+	/**
+	 * @param complexities array array of  KalturaRegex
+	 */
+	 setComplexities(complexities) {
+	 	this.complexities = complexities;
+	 }
+	
+	/**
+	 * the number of passwords failures before the account is locked
+	 * @return int
+	 */
+	 getLockoutFailuresCount() {
+	 	return this.lockoutFailuresCount;
+	 }
+	
+	/**
+	 * @param lockoutFailuresCount int the number of passwords failures before the account is locked
+	 */
+	 setLockoutFailuresCount(lockoutFailuresCount) {
+	 	this.lockoutFailuresCount = lockoutFailuresCount;
+	 }
+}
+module.exports.PasswordPolicy = PasswordPolicy;
+
+/**
+ *
+ */
+class HouseholdSegment extends CrudObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdSegment';
+	}
+	
+	/**
+	 * Segment Id
+	 * @return int
+	 */
+	 getSegmentId() {
+	 	return this.segmentId;
+	 }
+	
+	/**
+	 * @param segmentId int Segment Id
+	 */
+	 setSegmentId(segmentId) {
+	 	this.segmentId = segmentId;
+	 }
+	
+	/**
+	 * Segment Id
+	 * @return int
+	 */
+	 getHouseholdId() {
+	 	return this.householdId;
+	 }
+	
+	/**
+	 * @param householdId int Segment Id
+	 */
+	 setHouseholdId(householdId) {
+	 	this.householdId = householdId;
+	 }
+}
+module.exports.HouseholdSegment = HouseholdSegment;
+
+/**
+ *
+ */
+class HouseholdCoupon extends CrudObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdCoupon';
+	}
+	
+	/**
+	 * Coupon code
+	 * @return string
+	 */
+	 getCode() {
+	 	return this.code;
+	 }
+	
+	/**
+	 * @param code string Coupon code
+	 */
+	 setCode(code) {
+	 	this.code = code;
+	 }
+	
+	/**
+	 * Last Usage Date
+	 * @return int
+	 */
+	 getLastUsageDate() {
+	 	return this.lastUsageDate;
+	 }
+	
+	/**
+	 * @param lastUsageDate int Last Usage Date
+	 */
+	 setLastUsageDate(lastUsageDate) {
+	 	this.lastUsageDate = lastUsageDate;
+	 }
+}
+module.exports.HouseholdCoupon = HouseholdCoupon;
+
+/**
+ *
+ */
+class EventNotification extends CrudObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEventNotification';
+	}
+	
+	/**
+	 * Identifier
+	 * @return string
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id string Identifier
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
+	 * Object identifier
+	 * @return int
+	 */
+	 getObjectId() {
+	 	return this.objectId;
+	 }
+	
+	/**
+	 * @param objectId int Object identifier
+	 */
+	 setObjectId(objectId) {
+	 	this.objectId = objectId;
+	 }
+	
+	/**
+	 * Event object type
+	 * @return string
+	 */
+	 getEventObjectType() {
+	 	return this.eventObjectType;
+	 }
+	
+	/**
+	 * @param eventObjectType string Event object type
+	 */
+	 setEventObjectType(eventObjectType) {
+	 	this.eventObjectType = eventObjectType;
+	 }
+	
+	/**
+	 * Message
+	 * @return string
+	 */
+	 getMessage() {
+	 	return this.message;
+	 }
+	
+	/**
+	 * @param message string Message
+	 */
+	 setMessage(message) {
+	 	this.message = message;
+	 }
+	
+	/**
+	 * Status
+	 * @return string
+	 */
+	 getStatus() {
+	 	return this.status;
+	 }
+	
+	/**
+	 * @param status string Status
+	 */
+	 setStatus(status) {
+	 	this.status = status;
+	 }
+	
+	/**
+	 * Action type
+	 * @return string
+	 */
+	 getActionType() {
+	 	return this.actionType;
+	 }
+	
+	/**
+	 * @param actionType string Action type
+	 */
+	 setActionType(actionType) {
+	 	this.actionType = actionType;
+	 }
+	
+	/**
+	 * Create date
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * Update date
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
+}
+module.exports.EventNotification = EventNotification;
+
+/**
+ *
+ */
+class UnifiedChannelInfo extends UnifiedChannel{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUnifiedChannelInfo';
+	}
+	
+	/**
+	 * Channel&#160;name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Channel&#160;name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+}
+module.exports.UnifiedChannelInfo = UnifiedChannelInfo;
+
+/**
+ *
+ */
+class CategoryItemListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCategoryItemListResponse';
+	}
+	
+	/**
+	 * A list of objects
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of objects
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.CategoryItemListResponse = CategoryItemListResponse;
+
+/**
+ *
+ */
+class CategoryTree extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCategoryTree';
+	}
+	
+	/**
+	 * Unique identifier for the category item
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Category name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * Category name
+	 * @return array
+	 */
+	 getMultilingualName() {
+	 	return this.multilingualName;
+	 }
+	
+	/**
+	 * @param multilingualName array Category name
+	 */
+	 setMultilingualName(multilingualName) {
+	 	this.multilingualName = multilingualName;
+	 }
+	
+	/**
+	 * List of category tree
+	 * @return array
+	 */
+	 getChildren() {
+	 	return this.children;
+	 }
+	
+	/**
+	 * List of unified Channels
+	 * @return array
+	 */
+	 getUnifiedChannels() {
+	 	return this.unifiedChannels;
+	 }
+	
+	/**
+	 * @param unifiedChannels array List of unified Channels
+	 */
+	 setUnifiedChannels(unifiedChannels) {
+	 	this.unifiedChannels = unifiedChannels;
+	 }
+	
+	/**
+	 * Dynamic data
+	 * @return map
+	 */
+	 getDynamicData() {
+	 	return this.dynamicData;
+	 }
+	
+	/**
+	 * @param dynamicData map Dynamic data
+	 */
+	 setDynamicData(dynamicData) {
+	 	this.dynamicData = dynamicData;
+	 }
+	
+	/**
+	 * Category images
+	 * @return array
+	 */
+	 getImages() {
+	 	return this.images;
+	 }
+	
+	/**
+	 * @param images array Category images
+	 */
+	 setImages(images) {
+	 	this.images = images;
+	 }
+}
+module.exports.CategoryTree = CategoryTree;
+
+/**
+ *
+ */
 class CDNPartnerSettings extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -25068,372 +25838,6 @@ class ConcurrencyViolation extends EventObject{
 	 }
 }
 module.exports.ConcurrencyViolation = ConcurrencyViolation;
-
-/**
- *
- */
-class CrudObject extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCrudObject';
-	}
-}
-module.exports.CrudObject = CrudObject;
-
-/**
- *
- */
-class EventNotification extends CrudObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaEventNotification';
-	}
-	
-	/**
-	 * Identifier
-	 * @return string
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * @param id string Identifier
-	 */
-	 setId(id) {
-	 	this.id = id;
-	 }
-	
-	/**
-	 * Object identifier
-	 * @return int
-	 */
-	 getObjectId() {
-	 	return this.objectId;
-	 }
-	
-	/**
-	 * @param objectId int Object identifier
-	 */
-	 setObjectId(objectId) {
-	 	this.objectId = objectId;
-	 }
-	
-	/**
-	 * Event object type
-	 * @return string
-	 */
-	 getEventObjectType() {
-	 	return this.eventObjectType;
-	 }
-	
-	/**
-	 * @param eventObjectType string Event object type
-	 */
-	 setEventObjectType(eventObjectType) {
-	 	this.eventObjectType = eventObjectType;
-	 }
-	
-	/**
-	 * Message
-	 * @return string
-	 */
-	 getMessage() {
-	 	return this.message;
-	 }
-	
-	/**
-	 * @param message string Message
-	 */
-	 setMessage(message) {
-	 	this.message = message;
-	 }
-	
-	/**
-	 * Status
-	 * @return string
-	 */
-	 getStatus() {
-	 	return this.status;
-	 }
-	
-	/**
-	 * @param status string Status
-	 */
-	 setStatus(status) {
-	 	this.status = status;
-	 }
-	
-	/**
-	 * Action type
-	 * @return string
-	 */
-	 getActionType() {
-	 	return this.actionType;
-	 }
-	
-	/**
-	 * @param actionType string Action type
-	 */
-	 setActionType(actionType) {
-	 	this.actionType = actionType;
-	 }
-	
-	/**
-	 * Create date
-	 * @return int
-	 */
-	 getCreateDate() {
-	 	return this.createDate;
-	 }
-	
-	/**
-	 * Update date
-	 * @return int
-	 */
-	 getUpdateDate() {
-	 	return this.updateDate;
-	 }
-}
-module.exports.EventNotification = EventNotification;
-
-/**
- *
- */
-class RegexExpression extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaRegexExpression';
-	}
-	
-	/**
-	 * regex expression
-	 * @return string
-	 */
-	 getExpression() {
-	 	return this.expression;
-	 }
-	
-	/**
-	 * @param expression string regex expression
-	 */
-	 setExpression(expression) {
-	 	this.expression = expression;
-	 }
-	
-	/**
-	 * description
-	 * @return string
-	 */
-	 getDescription() {
-	 	return this.description;
-	 }
-	
-	/**
-	 * @param description string description
-	 */
-	 setDescription(description) {
-	 	this.description = description;
-	 }
-}
-module.exports.RegexExpression = RegexExpression;
-
-/**
- *
- */
-class PasswordPolicy extends CrudObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPasswordPolicy';
-	}
-	
-	/**
-	 * id
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
-	 * Comma separated UserRole Ids list which the policy is applied on
-	 * @return string
-	 */
-	 getUserRoleIds() {
-	 	return this.userRoleIds;
-	 }
-	
-	/**
-	 * @param userRoleIds string Comma separated UserRole Ids list which the policy is applied on
-	 */
-	 setUserRoleIds(userRoleIds) {
-	 	this.userRoleIds = userRoleIds;
-	 }
-	
-	/**
-	 * The number of passwords that should be remembered for each user so that they cannot be reused
-	 * @return int
-	 */
-	 getHistoryCount() {
-	 	return this.historyCount;
-	 }
-	
-	/**
-	 * @param historyCount int The number of passwords that should be remembered for each user so that they cannot be reused
-	 */
-	 setHistoryCount(historyCount) {
-	 	this.historyCount = historyCount;
-	 }
-	
-	/**
-	 * When should the password expire (will represent time as days)
-	 * @return int
-	 */
-	 getExpiration() {
-	 	return this.expiration;
-	 }
-	
-	/**
-	 * @param expiration int When should the password expire (will represent time as days)
-	 */
-	 setExpiration(expiration) {
-	 	this.expiration = expiration;
-	 }
-	
-	/**
-	 * array of  KalturaRegex
-	 * @return array
-	 */
-	 getComplexities() {
-	 	return this.complexities;
-	 }
-	
-	/**
-	 * @param complexities array array of  KalturaRegex
-	 */
-	 setComplexities(complexities) {
-	 	this.complexities = complexities;
-	 }
-	
-	/**
-	 * the number of passwords failures before the account is locked
-	 * @return int
-	 */
-	 getLockoutFailuresCount() {
-	 	return this.lockoutFailuresCount;
-	 }
-	
-	/**
-	 * @param lockoutFailuresCount int the number of passwords failures before the account is locked
-	 */
-	 setLockoutFailuresCount(lockoutFailuresCount) {
-	 	this.lockoutFailuresCount = lockoutFailuresCount;
-	 }
-}
-module.exports.PasswordPolicy = PasswordPolicy;
-
-/**
- *
- */
-class HouseholdSegment extends CrudObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdSegment';
-	}
-	
-	/**
-	 * Segment Id
-	 * @return int
-	 */
-	 getSegmentId() {
-	 	return this.segmentId;
-	 }
-	
-	/**
-	 * @param segmentId int Segment Id
-	 */
-	 setSegmentId(segmentId) {
-	 	this.segmentId = segmentId;
-	 }
-	
-	/**
-	 * Segment Id
-	 * @return int
-	 */
-	 getHouseholdId() {
-	 	return this.householdId;
-	 }
-	
-	/**
-	 * @param householdId int Segment Id
-	 */
-	 setHouseholdId(householdId) {
-	 	this.householdId = householdId;
-	 }
-}
-module.exports.HouseholdSegment = HouseholdSegment;
-
-/**
- *
- */
-class HouseholdCoupon extends CrudObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdCoupon';
-	}
-	
-	/**
-	 * Coupon code
-	 * @return string
-	 */
-	 getCode() {
-	 	return this.code;
-	 }
-	
-	/**
-	 * @param code string Coupon code
-	 */
-	 setCode(code) {
-	 	this.code = code;
-	 }
-	
-	/**
-	 * Last Usage Date
-	 * @return int
-	 */
-	 getLastUsageDate() {
-	 	return this.lastUsageDate;
-	 }
-	
-	/**
-	 * @param lastUsageDate int Last Usage Date
-	 */
-	 setLastUsageDate(lastUsageDate) {
-	 	this.lastUsageDate = lastUsageDate;
-	 }
-}
-module.exports.HouseholdCoupon = HouseholdCoupon;
 
 /**
  *

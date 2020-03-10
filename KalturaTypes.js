@@ -250,6 +250,14 @@ SUBSCRIPTION : 'subscription',
 COLLECTION : 'collection',
 };
 
+module.exports.CategoryItemOrderBy = {
+NAME_ASC : 'NAME_ASC',
+NAME_DESC : 'NAME_DESC',
+CREATE_DATE_ASC : 'CREATE_DATE_ASC',
+CREATE_DATE_DESC : 'CREATE_DATE_DESC',
+NONE : 'NONE',
+};
+
 module.exports.ChannelEnrichment = {
 CLIENTLOCATION : 'ClientLocation',
 USERID : 'UserId',
@@ -282,6 +290,11 @@ NAME_ASC : 'NAME_ASC',
 NAME_DESC : 'NAME_DESC',
 CREATE_DATE_ASC : 'CREATE_DATE_ASC',
 CREATE_DATE_DESC : 'CREATE_DATE_DESC',
+};
+
+module.exports.ChannelType = {
+INTERNAL : 'Internal',
+EXTERNAL : 'External',
 };
 
 module.exports.CollectionOrderBy = {
@@ -656,6 +669,7 @@ SERIES_REMINDER : 'series_reminder',
 module.exports.ObjectVirtualAssetInfoType = {
 SUBSCRIPTION : 'Subscription',
 SEGMENT : 'Segment',
+CATEGORY : 'Category',
 };
 
 module.exports.OTTUserOrderBy = {
