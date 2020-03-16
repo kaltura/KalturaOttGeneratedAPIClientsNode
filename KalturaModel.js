@@ -13783,6 +13783,21 @@ class ConcurrencyPartnerConfig extends PartnerConfiguration{
 	 setEvictionPolicy(evictionPolicy) {
 	 	this.evictionPolicy = evictionPolicy;
 	 }
+	
+	/**
+	 * Device play data expiration TTL
+	 * @return int
+	 */
+	 getDevicePlayDataExpirationTTL() {
+	 	return this.devicePlayDataExpirationTTL;
+	 }
+	
+	/**
+	 * @param devicePlayDataExpirationTTL int Device play data expiration TTL
+	 */
+	 setDevicePlayDataExpirationTTL(devicePlayDataExpirationTTL) {
+	 	this.devicePlayDataExpirationTTL = devicePlayDataExpirationTTL;
+	 }
 }
 module.exports.ConcurrencyPartnerConfig = ConcurrencyPartnerConfig;
 
