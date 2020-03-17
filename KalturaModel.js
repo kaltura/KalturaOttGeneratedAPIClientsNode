@@ -13783,6 +13783,21 @@ class ConcurrencyPartnerConfig extends PartnerConfiguration{
 	 setEvictionPolicy(evictionPolicy) {
 	 	this.evictionPolicy = evictionPolicy;
 	 }
+	
+	/**
+	 * Concurrency threshold in seconds
+	 * @return int
+	 */
+	 getConcurrencyThresholdInSeconds() {
+	 	return this.concurrencyThresholdInSeconds;
+	 }
+	
+	/**
+	 * @param concurrencyThresholdInSeconds int Concurrency threshold in seconds
+	 */
+	 setConcurrencyThresholdInSeconds(concurrencyThresholdInSeconds) {
+	 	this.concurrencyThresholdInSeconds = concurrencyThresholdInSeconds;
+	 }
 }
 module.exports.ConcurrencyPartnerConfig = ConcurrencyPartnerConfig;
 
