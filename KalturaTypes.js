@@ -890,6 +890,13 @@ ASSET_XML : 30,
 EXCEL : 31,
 };
 
+module.exports.RollingDevicePolicy = {
+NONE : 'NONE',
+LIFO : 'LIFO',
+FIFO : 'FIFO',
+ACTIVE_DEVICE_ASCENDING : 'ACTIVE_DEVICE_ASCENDING',
+};
+
 module.exports.RuleActionType = {
 BLOCK : 'BLOCK',
 START_DATE_OFFSET : 'START_DATE_OFFSET',

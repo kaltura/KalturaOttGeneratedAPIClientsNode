@@ -13804,6 +13804,48 @@ module.exports.ConcurrencyPartnerConfig = ConcurrencyPartnerConfig;
 /**
  *
  */
+class RollingDeviceRemovalData extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRollingDeviceRemovalData';
+	}
+	
+	/**
+	 * Rolling Device Policy
+	 * @return string
+	 */
+	 getRollingDeviceRemovalPolicy() {
+	 	return this.rollingDeviceRemovalPolicy;
+	 }
+	
+	/**
+	 * @param rollingDeviceRemovalPolicy string Rolling Device Policy
+	 */
+	 setRollingDeviceRemovalPolicy(rollingDeviceRemovalPolicy) {
+	 	this.rollingDeviceRemovalPolicy = rollingDeviceRemovalPolicy;
+	 }
+	
+	/**
+	 * Rolling Device Policy in a CSV style
+	 * @return string
+	 */
+	 getRollingDeviceRemovalFamilyIds() {
+	 	return this.rollingDeviceRemovalFamilyIds;
+	 }
+	
+	/**
+	 * @param rollingDeviceRemovalFamilyIds string Rolling Device Policy in a CSV style
+	 */
+	 setRollingDeviceRemovalFamilyIds(rollingDeviceRemovalFamilyIds) {
+	 	this.rollingDeviceRemovalFamilyIds = rollingDeviceRemovalFamilyIds;
+	 }
+}
+module.exports.RollingDeviceRemovalData = RollingDeviceRemovalData;
+
+/**
+ *
+ */
 class GeneralPartnerConfig extends PartnerConfiguration{
 	
 	constructor(object = null) {
@@ -13989,6 +14031,21 @@ class GeneralPartnerConfig extends PartnerConfiguration{
 	 */
 	 setDefaultRegion(defaultRegion) {
 	 	this.defaultRegion = defaultRegion;
+	 }
+	
+	/**
+	 * Rolling Device Policy
+	 * @return RollingDeviceRemovalData
+	 */
+	 getRollingDeviceData() {
+	 	return this.rollingDeviceData;
+	 }
+	
+	/**
+	 * @param rollingDeviceData RollingDeviceRemovalData Rolling Device Policy
+	 */
+	 setRollingDeviceData(rollingDeviceData) {
+	 	this.rollingDeviceData = rollingDeviceData;
 	 }
 }
 module.exports.GeneralPartnerConfig = GeneralPartnerConfig;
