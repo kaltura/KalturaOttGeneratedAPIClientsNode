@@ -569,6 +569,14 @@ CUT_SOURCE : 'CUT_SOURCE',
 CUT_TARGET : 'CUT_TARGET',
 };
 
+module.exports.IotOrderBy = {
+NONE : 'NONE',
+};
+
+module.exports.IotProfileOrderBy = {
+NONE : 'NONE',
+};
+
 module.exports.LanguageOrderBy = {
 SYSTEM_NAME_ASC : 'SYSTEM_NAME_ASC',
 SYSTEM_NAME_DESC : 'SYSTEM_NAME_DESC',

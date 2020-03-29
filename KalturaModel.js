@@ -1052,6 +1052,30 @@ module.exports.EventNotificationFilter = EventNotificationFilter;
 /**
  *
  */
+class IotFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIotFilter';
+	}
+}
+module.exports.IotFilter = IotFilter;
+
+/**
+ *
+ */
+class IotProfileFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIotProfileFilter';
+	}
+}
+module.exports.IotProfileFilter = IotProfileFilter;
+
+/**
+ *
+ */
 class BulkUploadFilter extends Filter{
 	
 	constructor(object = null) {
@@ -6095,6 +6119,21 @@ class Announcement extends kaltura.BaseObject{
 	 */
 	 setIncludeSms(includeSms) {
 	 	this.includeSms = includeSms;
+	 }
+	
+	/**
+	 * Include IOT
+	 * @return bool
+	 */
+	 getIncludeIot() {
+	 	return this.includeIot;
+	 }
+	
+	/**
+	 * @param includeIot bool Include IOT
+	 */
+	 setIncludeIot(includeIot) {
+	 	this.includeIot = includeIot;
 	 }
 }
 module.exports.Announcement = Announcement;
@@ -24818,6 +24857,462 @@ module.exports.EventNotification = EventNotification;
 /**
  *
  */
+class Iot extends CrudObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIot';
+	}
+	
+	/**
+	 * id
+	 * @return string
+	 */
+	 getUdid() {
+	 	return this.udid;
+	 }
+	
+	/**
+	 * @param udid string id
+	 */
+	 setUdid(udid) {
+	 	this.udid = udid;
+	 }
+	
+	/**
+	 * accessKey
+	 * @return string
+	 */
+	 getAccessKey() {
+	 	return this.accessKey;
+	 }
+	
+	/**
+	 * @param accessKey string accessKey
+	 */
+	 setAccessKey(accessKey) {
+	 	this.accessKey = accessKey;
+	 }
+	
+	/**
+	 * accessSecretKey
+	 * @return string
+	 */
+	 getAccessSecretKey() {
+	 	return this.accessSecretKey;
+	 }
+	
+	/**
+	 * @param accessSecretKey string accessSecretKey
+	 */
+	 setAccessSecretKey(accessSecretKey) {
+	 	this.accessSecretKey = accessSecretKey;
+	 }
+	
+	/**
+	 * Username
+	 * @return string
+	 */
+	 getUsername() {
+	 	return this.username;
+	 }
+	
+	/**
+	 * @param username string Username
+	 */
+	 setUsername(username) {
+	 	this.username = username;
+	 }
+	
+	/**
+	 * UserPassword
+	 * @return string
+	 */
+	 getUserPassword() {
+	 	return this.userPassword;
+	 }
+	
+	/**
+	 * @param userPassword string UserPassword
+	 */
+	 setUserPassword(userPassword) {
+	 	this.userPassword = userPassword;
+	 }
+	
+	/**
+	 * IdentityId
+	 * @return string
+	 */
+	 getIdentityId() {
+	 	return this.identityId;
+	 }
+	
+	/**
+	 * @param identityId string IdentityId
+	 */
+	 setIdentityId(identityId) {
+	 	this.identityId = identityId;
+	 }
+	
+	/**
+	 * ThingArn
+	 * @return string
+	 */
+	 getThingArn() {
+	 	return this.thingArn;
+	 }
+	
+	/**
+	 * @param thingArn string ThingArn
+	 */
+	 setThingArn(thingArn) {
+	 	this.thingArn = thingArn;
+	 }
+	
+	/**
+	 * ThingId
+	 * @return string
+	 */
+	 getThingId() {
+	 	return this.thingId;
+	 }
+	
+	/**
+	 * @param thingId string ThingId
+	 */
+	 setThingId(thingId) {
+	 	this.thingId = thingId;
+	 }
+	
+	/**
+	 * Principal
+	 * @return string
+	 */
+	 getPrincipal() {
+	 	return this.principal;
+	 }
+	
+	/**
+	 * @param principal string Principal
+	 */
+	 setPrincipal(principal) {
+	 	this.principal = principal;
+	 }
+	
+	/**
+	 * EndPoint
+	 * @return string
+	 */
+	 getEndPoint() {
+	 	return this.endPoint;
+	 }
+	
+	/**
+	 * @param endPoint string EndPoint
+	 */
+	 setEndPoint(endPoint) {
+	 	this.endPoint = endPoint;
+	 }
+	
+	/**
+	 * ExtendedEndPoint
+	 * @return string
+	 */
+	 getExtendedEndPoint() {
+	 	return this.extendedEndPoint;
+	 }
+	
+	/**
+	 * @param extendedEndPoint string ExtendedEndPoint
+	 */
+	 setExtendedEndPoint(extendedEndPoint) {
+	 	this.extendedEndPoint = extendedEndPoint;
+	 }
+	
+	/**
+	 * IdentityPoolId
+	 * @return string
+	 */
+	 getIdentityPoolId() {
+	 	return this.identityPoolId;
+	 }
+	
+	/**
+	 * @param identityPoolId string IdentityPoolId
+	 */
+	 setIdentityPoolId(identityPoolId) {
+	 	this.identityPoolId = identityPoolId;
+	 }
+}
+module.exports.Iot = Iot;
+
+/**
+ *
+ */
+class IotProfileAws extends CrudObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIotProfileAws';
+	}
+	
+	/**
+	 * iotEndPoint
+	 * @return string
+	 */
+	 getIotEndPoint() {
+	 	return this.iotEndPoint;
+	 }
+	
+	/**
+	 * @param iotEndPoint string iotEndPoint
+	 */
+	 setIotEndPoint(iotEndPoint) {
+	 	this.iotEndPoint = iotEndPoint;
+	 }
+	
+	/**
+	 * pfxPath
+	 * @return string
+	 */
+	 getPfxPath() {
+	 	return this.pfxPath;
+	 }
+	
+	/**
+	 * @param pfxPath string pfxPath
+	 */
+	 setPfxPath(pfxPath) {
+	 	this.pfxPath = pfxPath;
+	 }
+	
+	/**
+	 * pfxPassword
+	 * @return string
+	 */
+	 getPfxPassword() {
+	 	return this.pfxPassword;
+	 }
+	
+	/**
+	 * @param pfxPassword string pfxPassword
+	 */
+	 setPfxPassword(pfxPassword) {
+	 	this.pfxPassword = pfxPassword;
+	 }
+	
+	/**
+	 * certificatePath
+	 * @return string
+	 */
+	 getCertificatePath() {
+	 	return this.certificatePath;
+	 }
+	
+	/**
+	 * @param certificatePath string certificatePath
+	 */
+	 setCertificatePath(certificatePath) {
+	 	this.certificatePath = certificatePath;
+	 }
+	
+	/**
+	 * brokerPort
+	 * @return int
+	 */
+	 getBrokerPort() {
+	 	return this.brokerPort;
+	 }
+	
+	/**
+	 * @param brokerPort int brokerPort
+	 */
+	 setBrokerPort(brokerPort) {
+	 	this.brokerPort = brokerPort;
+	 }
+	
+	/**
+	 * accessKeyId
+	 * @return string
+	 */
+	 getAccessKeyId() {
+	 	return this.accessKeyId;
+	 }
+	
+	/**
+	 * @param accessKeyId string accessKeyId
+	 */
+	 setAccessKeyId(accessKeyId) {
+	 	this.accessKeyId = accessKeyId;
+	 }
+	
+	/**
+	 * secretAccessKey
+	 * @return string
+	 */
+	 getSecretAccessKey() {
+	 	return this.secretAccessKey;
+	 }
+	
+	/**
+	 * @param secretAccessKey string secretAccessKey
+	 */
+	 setSecretAccessKey(secretAccessKey) {
+	 	this.secretAccessKey = secretAccessKey;
+	 }
+	
+	/**
+	 * tTL
+	 * @return string
+	 */
+	 getTTL() {
+	 	return this.tTL;
+	 }
+	
+	/**
+	 * @param tTL string tTL
+	 */
+	 setTTL(tTL) {
+	 	this.tTL = tTL;
+	 }
+	
+	/**
+	 * iotPolicyName
+	 * @return string
+	 */
+	 getIotPolicyName() {
+	 	return this.iotPolicyName;
+	 }
+	
+	/**
+	 * @param iotPolicyName string iotPolicyName
+	 */
+	 setIotPolicyName(iotPolicyName) {
+	 	this.iotPolicyName = iotPolicyName;
+	 }
+	
+	/**
+	 * userPoolId
+	 * @return string
+	 */
+	 getUserPoolId() {
+	 	return this.userPoolId;
+	 }
+	
+	/**
+	 * @param userPoolId string userPoolId
+	 */
+	 setUserPoolId(userPoolId) {
+	 	this.userPoolId = userPoolId;
+	 }
+	
+	/**
+	 * clientId
+	 * @return string
+	 */
+	 getClientId() {
+	 	return this.clientId;
+	 }
+	
+	/**
+	 * @param clientId string clientId
+	 */
+	 setClientId(clientId) {
+	 	this.clientId = clientId;
+	 }
+	
+	/**
+	 * identityPoolId
+	 * @return string
+	 */
+	 getIdentityPoolId() {
+	 	return this.identityPoolId;
+	 }
+	
+	/**
+	 * @param identityPoolId string identityPoolId
+	 */
+	 setIdentityPoolId(identityPoolId) {
+	 	this.identityPoolId = identityPoolId;
+	 }
+	
+	/**
+	 * region
+	 * @return string
+	 */
+	 getRegion() {
+	 	return this.region;
+	 }
+	
+	/**
+	 * @param region string region
+	 */
+	 setRegion(region) {
+	 	this.region = region;
+	 }
+	
+	/**
+	 * updateDate
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
+	
+	/**
+	 * @param updateDate int updateDate
+	 */
+	 setUpdateDate(updateDate) {
+	 	this.updateDate = updateDate;
+	 }
+}
+module.exports.IotProfileAws = IotProfileAws;
+
+/**
+ *
+ */
+class IotProfile extends CrudObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIotProfile';
+	}
+	
+	/**
+	 * adapterUrl
+	 * @return string
+	 */
+	 getAdapterUrl() {
+	 	return this.adapterUrl;
+	 }
+	
+	/**
+	 * @param adapterUrl string adapterUrl
+	 */
+	 setAdapterUrl(adapterUrl) {
+	 	this.adapterUrl = adapterUrl;
+	 }
+	
+	/**
+	 * kalturaIotProfileAws
+	 * @return IotProfileAws
+	 */
+	 getIotProfileAws() {
+	 	return this.iotProfileAws;
+	 }
+	
+	/**
+	 * @param iotProfileAws IotProfileAws kalturaIotProfileAws
+	 */
+	 setIotProfileAws(iotProfileAws) {
+	 	this.iotProfileAws = iotProfileAws;
+	 }
+}
+module.exports.IotProfile = IotProfile;
+
+/**
+ *
+ */
 class UnifiedChannelInfo extends UnifiedChannel{
 	
 	constructor(object = null) {
@@ -26338,6 +26833,216 @@ module.exports.UrlResource = UrlResource;
 /**
  *
  */
+class Default extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDefault';
+	}
+	
+	/**
+	 * PoolId
+	 * @return string
+	 */
+	 getPoolId() {
+	 	return this.poolId;
+	 }
+	
+	/**
+	 * @param poolId string PoolId
+	 */
+	 setPoolId(poolId) {
+	 	this.poolId = poolId;
+	 }
+	
+	/**
+	 * Region
+	 * @return string
+	 */
+	 getRegion() {
+	 	return this.region;
+	 }
+	
+	/**
+	 * @param region string Region
+	 */
+	 setRegion(region) {
+	 	this.region = region;
+	 }
+	
+	/**
+	 * AppClientId
+	 * @return string
+	 */
+	 getAppClientId() {
+	 	return this.appClientId;
+	 }
+	
+	/**
+	 * @param appClientId string AppClientId
+	 */
+	 setAppClientId(appClientId) {
+	 	this.appClientId = appClientId;
+	 }
+}
+module.exports.Default = Default;
+
+/**
+ *
+ */
+class CognitoIdentity extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCognitoIdentity';
+	}
+	
+	/**
+	 * Default
+	 * @return Default
+	 */
+	 getDefault() {
+	 	return this.default;
+	 }
+	
+	/**
+	 * @param default Default Default
+	 */
+	 setDefault(default) {
+	 	this.default = default;
+	 }
+}
+module.exports.CognitoIdentity = CognitoIdentity;
+
+/**
+ *
+ */
+class CredentialsProvider extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCredentialsProvider';
+	}
+	
+	/**
+	 * KalturaCognitoIdentity
+	 * @return CognitoIdentity
+	 */
+	 getCognitoIdentity() {
+	 	return this.cognitoIdentity;
+	 }
+	
+	/**
+	 * @param cognitoIdentity CognitoIdentity KalturaCognitoIdentity
+	 */
+	 setCognitoIdentity(cognitoIdentity) {
+	 	this.cognitoIdentity = cognitoIdentity;
+	 }
+}
+module.exports.CredentialsProvider = CredentialsProvider;
+
+/**
+ *
+ */
+class CognitoUserPool extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCognitoUserPool';
+	}
+	
+	/**
+	 * Default
+	 * @return Default
+	 */
+	 getDefault() {
+	 	return this.default;
+	 }
+	
+	/**
+	 * @param default Default Default
+	 */
+	 setDefault(default) {
+	 	this.default = default;
+	 }
+}
+module.exports.CognitoUserPool = CognitoUserPool;
+
+/**
+ *
+ */
+class IotClientConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIotClientConfiguration';
+	}
+	
+	/**
+	 * announcementTopic
+	 * @return string
+	 */
+	 getAnnouncementTopic() {
+	 	return this.announcementTopic;
+	 }
+	
+	/**
+	 * @param announcementTopic string announcementTopic
+	 */
+	 setAnnouncementTopic(announcementTopic) {
+	 	this.announcementTopic = announcementTopic;
+	 }
+	
+	/**
+	 * KalturaCredentialsProvider
+	 * @return CredentialsProvider
+	 */
+	 getCredentialsProvider() {
+	 	return this.credentialsProvider;
+	 }
+	
+	/**
+	 * @param credentialsProvider CredentialsProvider KalturaCredentialsProvider
+	 */
+	 setCredentialsProvider(credentialsProvider) {
+	 	this.credentialsProvider = credentialsProvider;
+	 }
+	
+	/**
+	 * CognitoUserPool
+	 * @return CognitoUserPool
+	 */
+	 getCognitoUserPool() {
+	 	return this.cognitoUserPool;
+	 }
+	
+	/**
+	 * @param cognitoUserPool CognitoUserPool CognitoUserPool
+	 */
+	 setCognitoUserPool(cognitoUserPool) {
+	 	this.cognitoUserPool = cognitoUserPool;
+	 }
+	
+	/**
+	 * json
+	 * @return string
+	 */
+	 getJson() {
+	 	return this.json;
+	 }
+	
+	/**
+	 * @param json string json
+	 */
+	 setJson(json) {
+	 	this.json = json;
+	 }
+}
+module.exports.IotClientConfiguration = IotClientConfiguration;
+
+/**
+ *
+ */
 class LicensedUrl extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -26788,6 +27493,36 @@ class PushMessage extends kaltura.BaseObject{
 	 setUrl(url) {
 	 	this.url = url;
 	 }
+	
+	/**
+	 * Device unique identifier
+	 * @return string
+	 */
+	 getUdid() {
+	 	return this.udid;
+	 }
+	
+	/**
+	 * @param udid string Device unique identifier
+	 */
+	 setUdid(udid) {
+	 	this.udid = udid;
+	 }
+	
+	/**
+	 * PushChannels - separated with comma
+	 * @return string
+	 */
+	 getPushChannels() {
+	 	return this.pushChannels;
+	 }
+	
+	/**
+	 * @param pushChannels string PushChannels - separated with comma
+	 */
+	 setPushChannels(pushChannels) {
+	 	this.pushChannels = pushChannels;
+	 }
 }
 module.exports.PushMessage = PushMessage;
 
@@ -27054,6 +27789,36 @@ class NotificationsPartnerSettings extends kaltura.BaseObject{
 	 */
 	 setSmsEnabled(smsEnabled) {
 	 	this.smsEnabled = smsEnabled;
+	 }
+	
+	/**
+	 * IOT capability is enabled for the account
+	 * @return bool
+	 */
+	 getIotEnabled() {
+	 	return this.iotEnabled;
+	 }
+	
+	/**
+	 * @param iotEnabled bool IOT capability is enabled for the account
+	 */
+	 setIotEnabled(iotEnabled) {
+	 	this.iotEnabled = iotEnabled;
+	 }
+	
+	/**
+	 * IOT adapter url and port
+	 * @return string
+	 */
+	 getIotAdapterUrl() {
+	 	return this.iotAdapterUrl;
+	 }
+	
+	/**
+	 * @param iotAdapterUrl string IOT adapter url and port
+	 */
+	 setIotAdapterUrl(iotAdapterUrl) {
+	 	this.iotAdapterUrl = iotAdapterUrl;
 	 }
 }
 module.exports.NotificationsPartnerSettings = NotificationsPartnerSettings;

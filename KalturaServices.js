@@ -3353,6 +3353,82 @@ module.exports.IngestProfile = IngestProfile;
 
 
 /**
+ *Class definition for the Kaltura service: iot.
+ * The available service actions:
+ * @action getClientConfiguration Get iot Client Configuration.
+ * @action register Register IOT device.
+ */
+class iot{
+	
+	/**
+	 * Get iot Client Configuration.
+	 * @return KalturaIotClientConfiguration
+	 */
+	static getClientConfiguration(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('iot', 'getClientConfiguration', kparams);
+	};
+	
+	/**
+	 * Register IOT device.
+	 * @return KalturaIot
+	 */
+	static register(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('iot', 'register', kparams);
+	};
+}
+module.exports.iot = iot;
+
+
+/**
+ *Class definition for the Kaltura service: iotProfile.
+ * The available service actions:
+ * @action add Add an object.
+ * @action update Update an object.
+ * @action get Get an object.
+ */
+class iotProfile{
+	
+	/**
+	 * Add an object.
+	 * @param objectToAdd IotProfile Object to add
+	 * @return KalturaIotProfile
+	 */
+	static add(objectToAdd){
+		let kparams = {};
+		kparams.objectToAdd = objectToAdd;
+		return new kaltura.RequestBuilder('iotprofile', 'add', kparams);
+	};
+	
+	/**
+	 * Update an object.
+	 * @param id int Object ID to update
+	 * @param objectToUpdate IotProfile Object to update
+	 * @return KalturaIotProfile
+	 */
+	static update(id, objectToUpdate){
+		let kparams = {};
+		kparams.id = id;
+		kparams.objectToUpdate = objectToUpdate;
+		return new kaltura.RequestBuilder('iotprofile', 'update', kparams);
+	};
+	
+	/**
+	 * Get an object.
+	 * @param id int Object ID to get
+	 * @return KalturaIotProfile
+	 */
+	static get(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('iotprofile', 'get', kparams);
+	};
+}
+module.exports.iotProfile = iotProfile;
+
+
+/**
  *Class definition for the Kaltura service: language.
  * The available service actions:
  * @action list Get the list of languages for the partner with option to filter by language codes.
