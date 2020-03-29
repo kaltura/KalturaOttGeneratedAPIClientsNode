@@ -25162,21 +25162,6 @@ class IotProfileAws extends CrudObject{
 	 }
 	
 	/**
-	 * tTL
-	 * @return string
-	 */
-	 getTTL() {
-	 	return this.tTL;
-	 }
-	
-	/**
-	 * @param tTL string tTL
-	 */
-	 setTTL(tTL) {
-	 	this.tTL = tTL;
-	 }
-	
-	/**
 	 * iotPolicyName
 	 * @return string
 	 */
