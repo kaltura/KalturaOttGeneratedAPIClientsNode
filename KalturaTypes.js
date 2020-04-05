@@ -569,6 +569,14 @@ CUT_SOURCE : 'CUT_SOURCE',
 CUT_TARGET : 'CUT_TARGET',
 };
 
+module.exports.IotOrderBy = {
+NONE : 'NONE',
+};
+
+module.exports.IotProfileOrderBy = {
+NONE : 'NONE',
+};
+
 module.exports.LanguageOrderBy = {
 SYSTEM_NAME_ASC : 'SYSTEM_NAME_ASC',
 SYSTEM_NAME_DESC : 'SYSTEM_NAME_DESC',
@@ -698,6 +706,7 @@ CONCURRENCY : 'Concurrency',
 GENERAL : 'General',
 OBJECTVIRTUALASSET : 'ObjectVirtualAsset',
 COMMERCE : 'Commerce',
+PLAYBACK : 'Playback',
 };
 
 module.exports.PasswordPolicyOrderBy = {
@@ -888,6 +897,13 @@ XML : 2,
 JSONP : 9,
 ASSET_XML : 30,
 EXCEL : 31,
+};
+
+module.exports.RollingDevicePolicy = {
+NONE : 'NONE',
+LIFO : 'LIFO',
+FIFO : 'FIFO',
+ACTIVE_DEVICE_ASCENDING : 'ACTIVE_DEVICE_ASCENDING',
 };
 
 module.exports.RuleActionType = {
