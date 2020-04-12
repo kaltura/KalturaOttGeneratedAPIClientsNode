@@ -26959,11 +26959,11 @@ module.exports.UrlResource = UrlResource;
 /**
  *
  */
-class Default extends kaltura.BaseObject{
+class IotDefault extends kaltura.BaseObject{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaDefault';
+		this.objectType = 'KalturaIotDefault';
 	}
 	
 	/**
@@ -27011,7 +27011,7 @@ class Default extends kaltura.BaseObject{
 	 	this.appClientId = appClientId;
 	 }
 }
-module.exports.Default = Default;
+module.exports.IotDefault = IotDefault;
 
 /**
  *
@@ -27025,17 +27025,17 @@ class CognitoIdentity extends kaltura.BaseObject{
 	
 	/**
 	 * Default
-	 * @return Default
+	 * @return IotDefault
 	 */
-	 getDefault() {
-	 	return this.default;
+	 getIotDefault() {
+	 	return this.iotDefault;
 	 }
 	
 	/**
-	 * @param default Default Default
+	 * @param iotDefault IotDefault Default
 	 */
-	 setDefault(default) {
-	 	this.default = default;
+	 setIotDefault(iotDefault) {
+	 	this.iotDefault = iotDefault;
 	 }
 }
 module.exports.CognitoIdentity = CognitoIdentity;
@@ -27079,17 +27079,17 @@ class CognitoUserPool extends kaltura.BaseObject{
 	
 	/**
 	 * Default
-	 * @return Default
+	 * @return IotDefault
 	 */
-	 getDefault() {
-	 	return this.default;
+	 getIotDefault() {
+	 	return this.iotDefault;
 	 }
 	
 	/**
-	 * @param default Default Default
+	 * @param iotDefault IotDefault Default
 	 */
-	 setDefault(default) {
-	 	this.default = default;
+	 setIotDefault(iotDefault) {
+	 	this.iotDefault = iotDefault;
 	 }
 }
 module.exports.CognitoUserPool = CognitoUserPool;
