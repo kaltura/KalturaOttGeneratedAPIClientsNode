@@ -868,6 +868,7 @@ module.exports.RecordingType = {
 SINGLE : 'SINGLE',
 SEASON : 'SEASON',
 SERIES : 'SERIES',
+ORIGINALBROADCAST : 'OriginalBroadcast',
 };
 
 module.exports.RegionOrderBy = {
