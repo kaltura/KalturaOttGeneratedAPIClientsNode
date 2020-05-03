@@ -25213,66 +25213,6 @@ class IotProfileAws extends CrudObject{
 	 }
 	
 	/**
-	 * pfxPath
-	 * @return string
-	 */
-	 getPfxPath() {
-	 	return this.pfxPath;
-	 }
-	
-	/**
-	 * @param pfxPath string pfxPath
-	 */
-	 setPfxPath(pfxPath) {
-	 	this.pfxPath = pfxPath;
-	 }
-	
-	/**
-	 * pfxPassword
-	 * @return string
-	 */
-	 getPfxPassword() {
-	 	return this.pfxPassword;
-	 }
-	
-	/**
-	 * @param pfxPassword string pfxPassword
-	 */
-	 setPfxPassword(pfxPassword) {
-	 	this.pfxPassword = pfxPassword;
-	 }
-	
-	/**
-	 * certificatePath
-	 * @return string
-	 */
-	 getCertificatePath() {
-	 	return this.certificatePath;
-	 }
-	
-	/**
-	 * @param certificatePath string certificatePath
-	 */
-	 setCertificatePath(certificatePath) {
-	 	this.certificatePath = certificatePath;
-	 }
-	
-	/**
-	 * brokerPort
-	 * @return int
-	 */
-	 getBrokerPort() {
-	 	return this.brokerPort;
-	 }
-	
-	/**
-	 * @param brokerPort int brokerPort
-	 */
-	 setBrokerPort(brokerPort) {
-	 	this.brokerPort = brokerPort;
-	 }
-	
-	/**
 	 * accessKeyId
 	 * @return string
 	 */
@@ -25300,21 +25240,6 @@ class IotProfileAws extends CrudObject{
 	 */
 	 setSecretAccessKey(secretAccessKey) {
 	 	this.secretAccessKey = secretAccessKey;
-	 }
-	
-	/**
-	 * iotPolicyName
-	 * @return string
-	 */
-	 getIotPolicyName() {
-	 	return this.iotPolicyName;
-	 }
-	
-	/**
-	 * @param iotPolicyName string iotPolicyName
-	 */
-	 setIotPolicyName(iotPolicyName) {
-	 	this.iotPolicyName = iotPolicyName;
 	 }
 	
 	/**
