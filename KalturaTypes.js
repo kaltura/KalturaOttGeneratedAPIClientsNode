@@ -442,6 +442,10 @@ FULL : 'full',
 INCREMENTAL : 'incremental',
 };
 
+module.exports.ExternalRecordingResponseProfileOrderBy = {
+NONE : 'NONE',
+};
+
 module.exports.FavoriteOrderBy = {
 CREATE_DATE_ASC : 'CREATE_DATE_ASC',
 CREATE_DATE_DESC : 'CREATE_DATE_DESC',

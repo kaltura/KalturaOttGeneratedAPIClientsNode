@@ -3555,6 +3555,18 @@ module.exports.EntitlementFilter = EntitlementFilter;
 /**
  *
  */
+class ExternalRecordingResponseProfileFilter extends RelatedObjectFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaExternalRecordingResponseProfileFilter';
+	}
+}
+module.exports.ExternalRecordingResponseProfileFilter = ExternalRecordingResponseProfileFilter;
+
+/**
+ *
+ */
 class ProductPriceFilter extends Filter{
 	
 	constructor(object = null) {
