@@ -28561,6 +28561,63 @@ module.exports.SocialUserConfig = SocialUserConfig;
 /**
  *
  */
+class SSOAdapterProfileInvoke extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSSOAdapterProfileInvoke';
+	}
+	
+	/**
+	 * key/value map field for adapter data
+	 * @return map
+	 */
+	 getAdapterData() {
+	 	return this.adapterData;
+	 }
+	
+	/**
+	 * @param adapterData map key/value map field for adapter data
+	 */
+	 setAdapterData(adapterData) {
+	 	this.adapterData = adapterData;
+	 }
+	
+	/**
+	 * code
+	 * @return string
+	 */
+	 getCode() {
+	 	return this.code;
+	 }
+	
+	/**
+	 * @param code string code
+	 */
+	 setCode(code) {
+	 	this.code = code;
+	 }
+	
+	/**
+	 * message
+	 * @return string
+	 */
+	 getMessage() {
+	 	return this.message;
+	 }
+	
+	/**
+	 * @param message string message
+	 */
+	 setMessage(message) {
+	 	this.message = message;
+	 }
+}
+module.exports.SSOAdapterProfileInvoke = SSOAdapterProfileInvoke;
+
+/**
+ *
+ */
 class TimeShiftedTvPartnerSettings extends kaltura.BaseObject{
 	
 	constructor(object = null) {

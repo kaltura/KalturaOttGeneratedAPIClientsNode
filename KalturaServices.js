@@ -5841,6 +5841,7 @@ module.exports.socialFriendActivity = socialFriendActivity;
  * @action add Insert new sso adapter for partner.
  * @action delete Delete sso adapters by sso adapters id.
  * @action generateSharedSecret Generate SSO Adapter shared secret.
+ * @action invoke Request validation against 3rd party.
  * @action list Returns all sso adapters for partner : id + name.
  * @action update Update sso adapter details.
  */
@@ -5877,6 +5878,19 @@ class ssoAdapterProfile{
 		let kparams = {};
 		kparams.ssoAdapterId = ssoAdapterId;
 		return new kaltura.RequestBuilder('ssoadapterprofile', 'generateSharedSecret', kparams);
+	};
+	
+	/**
+	 * Request validation against 3rd party.
+	 * @param intent string intent
+	 * @param adapterData array adapter Data
+	 * @return KalturaSSOAdapterProfileInvoke
+	 */
+	static invoke(intent, adapterData){
+		let kparams = {};
+		kparams.intent = intent;
+		kparams.adapterData = adapterData;
+		return new kaltura.RequestBuilder('ssoadapterprofile', 'invoke', kparams);
 	};
 	
 	/**
