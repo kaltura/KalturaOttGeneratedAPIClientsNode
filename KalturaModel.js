@@ -24638,6 +24638,51 @@ class CategoryItem extends CrudObject{
 	 getUpdateDate() {
 	 	return this.updateDate;
 	 }
+	
+	/**
+	 * Category active status
+	 * @return bool
+	 */
+	 getIsActive() {
+	 	return this.isActive;
+	 }
+	
+	/**
+	 * @param isActive bool Category active status
+	 */
+	 setIsActive(isActive) {
+	 	this.isActive = isActive;
+	 }
+	
+	/**
+	 * Start date in seconds
+	 * @return int
+	 */
+	 getStartDateInSeconds() {
+	 	return this.startDateInSeconds;
+	 }
+	
+	/**
+	 * @param startDateInSeconds int Start date in seconds
+	 */
+	 setStartDateInSeconds(startDateInSeconds) {
+	 	this.startDateInSeconds = startDateInSeconds;
+	 }
+	
+	/**
+	 * End date in seconds
+	 * @return int
+	 */
+	 getEndDateInSeconds() {
+	 	return this.endDateInSeconds;
+	 }
+	
+	/**
+	 * @param endDateInSeconds int End date in seconds
+	 */
+	 setEndDateInSeconds(endDateInSeconds) {
+	 	this.endDateInSeconds = endDateInSeconds;
+	 }
 }
 module.exports.CategoryItem = CategoryItem;
 
@@ -25460,6 +25505,36 @@ class UnifiedChannelInfo extends UnifiedChannel{
 	 setName(name) {
 	 	this.name = name;
 	 }
+	
+	/**
+	 * Start date in seconds
+	 * @return int
+	 */
+	 getStartDateInSeconds() {
+	 	return this.startDateInSeconds;
+	 }
+	
+	/**
+	 * @param startDateInSeconds int Start date in seconds
+	 */
+	 setStartDateInSeconds(startDateInSeconds) {
+	 	this.startDateInSeconds = startDateInSeconds;
+	 }
+	
+	/**
+	 * End date in seconds
+	 * @return int
+	 */
+	 getEndDateInSeconds() {
+	 	return this.endDateInSeconds;
+	 }
+	
+	/**
+	 * @param endDateInSeconds int End date in seconds
+	 */
+	 setEndDateInSeconds(endDateInSeconds) {
+	 	this.endDateInSeconds = endDateInSeconds;
+	 }
 }
 module.exports.UnifiedChannelInfo = UnifiedChannelInfo;
 
@@ -25582,6 +25657,51 @@ class CategoryTree extends kaltura.BaseObject{
 	 */
 	 setImages(images) {
 	 	this.images = images;
+	 }
+	
+	/**
+	 * Category active status
+	 * @return bool
+	 */
+	 getIsActive() {
+	 	return this.isActive;
+	 }
+	
+	/**
+	 * @param isActive bool Category active status
+	 */
+	 setIsActive(isActive) {
+	 	this.isActive = isActive;
+	 }
+	
+	/**
+	 * Start date in seconds
+	 * @return int
+	 */
+	 getStartDateInSeconds() {
+	 	return this.startDateInSeconds;
+	 }
+	
+	/**
+	 * @param startDateInSeconds int Start date in seconds
+	 */
+	 setStartDateInSeconds(startDateInSeconds) {
+	 	this.startDateInSeconds = startDateInSeconds;
+	 }
+	
+	/**
+	 * End date in seconds
+	 * @return int
+	 */
+	 getEndDateInSeconds() {
+	 	return this.endDateInSeconds;
+	 }
+	
+	/**
+	 * @param endDateInSeconds int End date in seconds
+	 */
+	 setEndDateInSeconds(endDateInSeconds) {
+	 	this.endDateInSeconds = endDateInSeconds;
 	 }
 }
 module.exports.CategoryTree = CategoryTree;
