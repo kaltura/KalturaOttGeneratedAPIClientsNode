@@ -14176,6 +14176,132 @@ module.exports.ObjectVirtualAssetPartnerConfig = ObjectVirtualAssetPartnerConfig
 /**
  *
  */
+class Duration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDuration';
+	}
+	
+	/**
+	 * duration unit
+	 * @return string
+	 */
+	 getUnit() {
+	 	return this.unit;
+	 }
+	
+	/**
+	 * @param unit string duration unit
+	 */
+	 setUnit(unit) {
+	 	this.unit = unit;
+	 }
+	
+	/**
+	 * duration value
+	 * @return int
+	 */
+	 getValue() {
+	 	return this.value;
+	 }
+	
+	/**
+	 * @param value int duration value
+	 */
+	 setValue(value) {
+	 	this.value = value;
+	 }
+}
+module.exports.Duration = Duration;
+
+/**
+ *
+ */
+class UnifiedBillingCycle extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUnifiedBillingCycle';
+	}
+	
+	/**
+	 * UnifiedBillingCycle name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string UnifiedBillingCycle name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * cycle duration
+	 * @return Duration
+	 */
+	 getDuration() {
+	 	return this.duration;
+	 }
+	
+	/**
+	 * @param duration Duration cycle duration
+	 */
+	 setDuration(duration) {
+	 	this.duration = duration;
+	 }
+	
+	/**
+	 * paymentGateway Id
+	 * @return int
+	 */
+	 getPaymentGatewayId() {
+	 	return this.paymentGatewayId;
+	 }
+	
+	/**
+	 * @param paymentGatewayId int paymentGateway Id
+	 */
+	 setPaymentGatewayId(paymentGatewayId) {
+	 	this.paymentGatewayId = paymentGatewayId;
+	 }
+}
+module.exports.UnifiedBillingCycle = UnifiedBillingCycle;
+
+/**
+ *
+ */
+class PaymentPartnerConfig extends PartnerConfiguration{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPaymentPartnerConfig';
+	}
+	
+	/**
+	 * configuration for unified billing cycles
+	 * @return array
+	 */
+	 getUnifiedBillingCycles() {
+	 	return this.unifiedBillingCycles;
+	 }
+	
+	/**
+	 * @param unifiedBillingCycles array configuration for unified billing cycles
+	 */
+	 setUnifiedBillingCycles(unifiedBillingCycles) {
+	 	this.unifiedBillingCycles = unifiedBillingCycles;
+	 }
+}
+module.exports.PaymentPartnerConfig = PaymentPartnerConfig;
+
+/**
+ *
+ */
 class DefaultPlaybackAdapters extends kaltura.BaseObject{
 	
 	constructor(object = null) {

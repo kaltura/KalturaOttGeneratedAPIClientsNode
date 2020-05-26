@@ -392,6 +392,14 @@ PLAYREADY : 'PLAYREADY',
 CUSTOM_DRM : 'CUSTOM_DRM',
 };
 
+module.exports.DurationUnit = {
+MINUTES : 'Minutes',
+HOURS : 'Hours',
+DAYS : 'Days',
+MONTHS : 'Months',
+YEARS : 'Years',
+};
+
 module.exports.EngagementOrderBy = {
 NONE : 'NONE',
 };
@@ -707,6 +715,7 @@ GENERAL : 'General',
 OBJECTVIRTUALASSET : 'ObjectVirtualAsset',
 COMMERCE : 'Commerce',
 PLAYBACK : 'Playback',
+PAYMENT : 'Payment',
 };
 
 module.exports.PasswordPolicyOrderBy = {
