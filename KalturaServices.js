@@ -2321,10 +2321,12 @@ class externalChannelProfile{
 	
 	/**
 	 * Returns all External channels for partner.
+	 * @param filter ExternalChannelProfileFilter External channel profile filter (optional, default: null)
 	 * @return KalturaExternalChannelProfileListResponse
 	 */
-	static listAction(){
+	static listAction(filter = null){
 		let kparams = {};
+		kparams.filter = filter;
 		return new kaltura.RequestBuilder('externalchannelprofile', 'list', kparams);
 	};
 	

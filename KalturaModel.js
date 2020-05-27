@@ -3555,6 +3555,18 @@ module.exports.EntitlementFilter = EntitlementFilter;
 /**
  *
  */
+class ExternalRecordingResponseProfileFilter extends RelatedObjectFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaExternalRecordingResponseProfileFilter';
+	}
+}
+module.exports.ExternalRecordingResponseProfileFilter = ExternalRecordingResponseProfileFilter;
+
+/**
+ *
+ */
 class ProductPriceFilter extends Filter{
 	
 	constructor(object = null) {
@@ -4773,6 +4785,21 @@ class ChannelsFilter extends Filter{
 	 setNameStartsWith(nameStartsWith) {
 	 	this.nameStartsWith = nameStartsWith;
 	 }
+	
+	/**
+	 * Comma separated channel ids
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated channel ids
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
 }
 module.exports.ChannelsFilter = ChannelsFilter;
 
@@ -4844,6 +4871,21 @@ class ImageFilter extends Filter{
 	 */
 	 setIsDefaultEqual(isDefaultEqual) {
 	 	this.isDefaultEqual = isDefaultEqual;
+	 }
+	
+	/**
+	 * Comma separated imageObject ids list
+	 * @return string
+	 */
+	 getImageObjectIdIn() {
+	 	return this.imageObjectIdIn;
+	 }
+	
+	/**
+	 * @param imageObjectIdIn string Comma separated imageObject ids list
+	 */
+	 setImageObjectIdIn(imageObjectIdIn) {
+	 	this.imageObjectIdIn = imageObjectIdIn;
 	 }
 }
 module.exports.ImageFilter = ImageFilter;
@@ -5359,6 +5401,45 @@ class ExportTaskFilter extends Filter{
 	 }
 }
 module.exports.ExportTaskFilter = ExportTaskFilter;
+
+/**
+ *
+ */
+class ExternalChannelProfileFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaExternalChannelProfileFilter';
+	}
+}
+module.exports.ExternalChannelProfileFilter = ExternalChannelProfileFilter;
+
+/**
+ *
+ */
+class ExternalChannelProfileByIdInFilter extends ExternalChannelProfileFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaExternalChannelProfileByIdInFilter';
+	}
+	
+	/**
+	 * Comma separated external channel profile ids
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated external channel profile ids
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.ExternalChannelProfileByIdInFilter = ExternalChannelProfileByIdInFilter;
 
 /**
  *
@@ -25213,66 +25294,6 @@ class IotProfileAws extends CrudObject{
 	 }
 	
 	/**
-	 * pfxPath
-	 * @return string
-	 */
-	 getPfxPath() {
-	 	return this.pfxPath;
-	 }
-	
-	/**
-	 * @param pfxPath string pfxPath
-	 */
-	 setPfxPath(pfxPath) {
-	 	this.pfxPath = pfxPath;
-	 }
-	
-	/**
-	 * pfxPassword
-	 * @return string
-	 */
-	 getPfxPassword() {
-	 	return this.pfxPassword;
-	 }
-	
-	/**
-	 * @param pfxPassword string pfxPassword
-	 */
-	 setPfxPassword(pfxPassword) {
-	 	this.pfxPassword = pfxPassword;
-	 }
-	
-	/**
-	 * certificatePath
-	 * @return string
-	 */
-	 getCertificatePath() {
-	 	return this.certificatePath;
-	 }
-	
-	/**
-	 * @param certificatePath string certificatePath
-	 */
-	 setCertificatePath(certificatePath) {
-	 	this.certificatePath = certificatePath;
-	 }
-	
-	/**
-	 * brokerPort
-	 * @return int
-	 */
-	 getBrokerPort() {
-	 	return this.brokerPort;
-	 }
-	
-	/**
-	 * @param brokerPort int brokerPort
-	 */
-	 setBrokerPort(brokerPort) {
-	 	this.brokerPort = brokerPort;
-	 }
-	
-	/**
 	 * accessKeyId
 	 * @return string
 	 */
@@ -25300,21 +25321,6 @@ class IotProfileAws extends CrudObject{
 	 */
 	 setSecretAccessKey(secretAccessKey) {
 	 	this.secretAccessKey = secretAccessKey;
-	 }
-	
-	/**
-	 * iotPolicyName
-	 * @return string
-	 */
-	 getIotPolicyName() {
-	 	return this.iotPolicyName;
-	 }
-	
-	/**
-	 * @param iotPolicyName string iotPolicyName
-	 */
-	 setIotPolicyName(iotPolicyName) {
-	 	this.iotPolicyName = iotPolicyName;
 	 }
 	
 	/**
