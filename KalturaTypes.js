@@ -256,6 +256,8 @@ NAME_DESC : 'NAME_DESC',
 CREATE_DATE_ASC : 'CREATE_DATE_ASC',
 CREATE_DATE_DESC : 'CREATE_DATE_DESC',
 NONE : 'NONE',
+UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
+UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
 };
 
 module.exports.ChannelEnrichment = {
@@ -440,6 +442,14 @@ CREATE_DATE_DESC : 'CREATE_DATE_DESC',
 module.exports.ExportType = {
 FULL : 'full',
 INCREMENTAL : 'incremental',
+};
+
+module.exports.ExternalChannelProfileOrderBy = {
+NONE : 'NONE',
+};
+
+module.exports.ExternalRecordingResponseProfileOrderBy = {
+NONE : 'NONE',
 };
 
 module.exports.FavoriteOrderBy = {
