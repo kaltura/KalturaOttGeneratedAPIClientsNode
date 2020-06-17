@@ -14256,7 +14256,7 @@ class UnifiedBillingCycle extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * paymentGateway Id
+	 * Payment Gateway Id
 	 * @return int
 	 */
 	 getPaymentGatewayId() {
@@ -14264,7 +14264,7 @@ class UnifiedBillingCycle extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param paymentGatewayId int paymentGateway Id
+	 * @param paymentGatewayId int Payment Gateway Id
 	 */
 	 setPaymentGatewayId(paymentGatewayId) {
 	 	this.paymentGatewayId = paymentGatewayId;
@@ -20120,6 +20120,148 @@ module.exports.AssetHistoryListResponse = AssetHistoryListResponse;
 /**
  *
  */
+class SuspendSettings extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSuspendSettings';
+	}
+	
+	/**
+	 * revoke entitlements
+	 * @return bool
+	 */
+	 getRevokeEntitlements() {
+	 	return this.revokeEntitlements;
+	 }
+	
+	/**
+	 * @param revokeEntitlements bool revoke entitlements
+	 */
+	 setRevokeEntitlements(revokeEntitlements) {
+	 	this.revokeEntitlements = revokeEntitlements;
+	 }
+	
+	/**
+	 * stop renew
+	 * @return bool
+	 */
+	 getStopRenew() {
+	 	return this.stopRenew;
+	 }
+	
+	/**
+	 * @param stopRenew bool stop renew
+	 */
+	 setStopRenew(stopRenew) {
+	 	this.stopRenew = stopRenew;
+	 }
+}
+module.exports.SuspendSettings = SuspendSettings;
+
+/**
+ *
+ */
+class HouseholdPaymentGateway extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdPaymentGateway';
+	}
+	
+	/**
+	 * payment gateway id
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * payment gateway name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string payment gateway name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Payment gateway default (true/false)
+	 * @return bool
+	 */
+	 getIsDefault() {
+	 	return this.isDefault;
+	 }
+	
+	/**
+	 * @param isDefault bool Payment gateway default (true/false)
+	 */
+	 setIsDefault(isDefault) {
+	 	this.isDefault = isDefault;
+	 }
+	
+	/**
+	 * distinction payment gateway selected by account or household
+	 * @return string
+	 */
+	 getSelectedBy() {
+	 	return this.selectedBy;
+	 }
+	
+	/**
+	 * @param selectedBy string distinction payment gateway selected by account or household
+	 */
+	 setSelectedBy(selectedBy) {
+	 	this.selectedBy = selectedBy;
+	 }
+	
+	/**
+	 * suspend settings
+	 * @return SuspendSettings
+	 */
+	 getSuspendSettings() {
+	 	return this.suspendSettings;
+	 }
+}
+module.exports.HouseholdPaymentGateway = HouseholdPaymentGateway;
+
+/**
+ *
+ */
+class HouseholdPaymentGatewayListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdPaymentGatewayListResponse';
+	}
+	
+	/**
+	 * Follow data list
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Follow data list
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.HouseholdPaymentGatewayListResponse = HouseholdPaymentGatewayListResponse;
+
+/**
+ *
+ */
 class HouseholdPaymentMethod extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -20231,98 +20373,6 @@ class HouseholdPaymentMethodListResponse extends ListResponse{
 	 }
 }
 module.exports.HouseholdPaymentMethodListResponse = HouseholdPaymentMethodListResponse;
-
-/**
- *
- */
-class HouseholdPaymentGateway extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdPaymentGateway';
-	}
-	
-	/**
-	 * payment gateway id
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * payment gateway name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string payment gateway name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
-	 * Payment gateway default (true/false)
-	 * @return bool
-	 */
-	 getIsDefault() {
-	 	return this.isDefault;
-	 }
-	
-	/**
-	 * @param isDefault bool Payment gateway default (true/false)
-	 */
-	 setIsDefault(isDefault) {
-	 	this.isDefault = isDefault;
-	 }
-	
-	/**
-	 * distinction payment gateway selected by account or household
-	 * @return string
-	 */
-	 getSelectedBy() {
-	 	return this.selectedBy;
-	 }
-	
-	/**
-	 * @param selectedBy string distinction payment gateway selected by account or household
-	 */
-	 setSelectedBy(selectedBy) {
-	 	this.selectedBy = selectedBy;
-	 }
-}
-module.exports.HouseholdPaymentGateway = HouseholdPaymentGateway;
-
-/**
- *
- */
-class HouseholdPaymentGatewayListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdPaymentGatewayListResponse';
-	}
-	
-	/**
-	 * Follow data list
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array Follow data list
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.HouseholdPaymentGatewayListResponse = HouseholdPaymentGatewayListResponse;
 
 /**
  *

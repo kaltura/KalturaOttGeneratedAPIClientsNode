@@ -2896,10 +2896,12 @@ class householdPaymentGateway{
 	/**
 	 * Resumes all the entitlements of the given payment gateway.
 	 * @param paymentGatewayId int Payment gateway ID
+	 * @param adapterData array Adapter data (optional, default: null)
 	 */
-	static resume(paymentGatewayId){
+	static resume(paymentGatewayId, adapterData = null){
 		let kparams = {};
 		kparams.paymentGatewayId = paymentGatewayId;
+		kparams.adapterData = adapterData;
 		return new kaltura.RequestBuilder('householdpaymentgateway', 'resume', kparams);
 	};
 	
@@ -2919,10 +2921,12 @@ class householdPaymentGateway{
 	/**
 	 * Suspends all the entitlements of the given payment gateway.
 	 * @param paymentGatewayId int Payment gateway ID
+	 * @param suspendSettings SuspendSettings suspend settings (optional, default: null)
 	 */
-	static suspend(paymentGatewayId){
+	static suspend(paymentGatewayId, suspendSettings = null){
 		let kparams = {};
 		kparams.paymentGatewayId = paymentGatewayId;
+		kparams.suspendSettings = suspendSettings;
 		return new kaltura.RequestBuilder('householdpaymentgateway', 'suspend', kparams);
 	};
 }
