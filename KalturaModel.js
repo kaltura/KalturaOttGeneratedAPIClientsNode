@@ -15147,6 +15147,21 @@ class GeneralPartnerConfig extends PartnerConfiguration{
 	 setRollingDeviceData(rollingDeviceData) {
 	 	this.rollingDeviceData = rollingDeviceData;
 	 }
+	
+	/**
+	 * Finished PercentThreshold
+	 * @return int
+	 */
+	 getFinishedPercentThreshold() {
+	 	return this.finishedPercentThreshold;
+	 }
+	
+	/**
+	 * @param finishedPercentThreshold int Finished PercentThreshold
+	 */
+	 setFinishedPercentThreshold(finishedPercentThreshold) {
+	 	this.finishedPercentThreshold = finishedPercentThreshold;
+	 }
 }
 module.exports.GeneralPartnerConfig = GeneralPartnerConfig;
 
@@ -20207,6 +20222,21 @@ class AssetStructMeta extends kaltura.BaseObject{
 	 */
 	 setIsInherited(isInherited) {
 	 	this.isInherited = isInherited;
+	 }
+	
+	/**
+	 * Is Location Tag
+	 * @return bool
+	 */
+	 getIsLocationTag() {
+	 	return this.isLocationTag;
+	 }
+	
+	/**
+	 * @param isLocationTag bool Is Location Tag
+	 */
+	 setIsLocationTag(isLocationTag) {
+	 	this.isLocationTag = isLocationTag;
 	 }
 }
 module.exports.AssetStructMeta = AssetStructMeta;
