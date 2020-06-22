@@ -1032,13 +1032,11 @@ class categoryTree{
 	/**
 	 * Retrive category tree.
 	 * @param categoryItemId int Category item identifier
-	 * @param filter bool filter categories dates (optional, default: false)
 	 * @return KalturaCategoryTree
 	 */
-	static get(categoryItemId, filter = false){
+	static get(categoryItemId){
 		let kparams = {};
 		kparams.categoryItemId = categoryItemId;
-		kparams.filter = filter;
 		return new kaltura.RequestBuilder('categorytree', 'get', kparams);
 	};
 }
