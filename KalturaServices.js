@@ -1032,10 +1032,10 @@ class categoryTree{
 	/**
 	 * Retrive category tree.
 	 * @param categoryItemId int Category item identifier
-	 * @param filter bool filter categories dates
+	 * @param filter bool filter categories dates (optional, default: false)
 	 * @return KalturaCategoryTree
 	 */
-	static get(categoryItemId, filter){
+	static get(categoryItemId, filter = false){
 		let kparams = {};
 		kparams.categoryItemId = categoryItemId;
 		kparams.filter = filter;
