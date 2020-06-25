@@ -3860,6 +3860,18 @@ module.exports.AssetHistoryFilter = AssetHistoryFilter;
 /**
  *
  */
+class AssetHistorySuppressFilter extends RelatedObjectFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetHistorySuppressFilter';
+	}
+}
+module.exports.AssetHistorySuppressFilter = AssetHistorySuppressFilter;
+
+/**
+ *
+ */
 class AssetImagePerRatioFilter extends RelatedObjectFilter{
 	
 	constructor(object = null) {

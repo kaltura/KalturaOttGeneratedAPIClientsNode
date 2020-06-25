@@ -508,6 +508,7 @@ module.exports.assetFilePpv = assetFilePpv;
  *Class definition for the Kaltura service: assetHistory.
  * The available service actions:
  * @action clean Clean the user’s viewing history.
+ * @action getNextEpisode Get next episode by last watch asset in given seriesId.
  * @action list Get recently watched media for user, ordered by recently watched first.
  */
 class assetHistory{
@@ -520,6 +521,17 @@ class assetHistory{
 		let kparams = {};
 		kparams.filter = filter;
 		return new kaltura.RequestBuilder('assethistory', 'clean', kparams);
+	};
+	
+	/**
+	 * Get next episode by last watch asset in given seriesId.
+	 * @param seriesId string series Id to search for next episode
+	 * @return KalturaAssetHistory
+	 */
+	static getNextEpisode(seriesId){
+		let kparams = {};
+		kparams.seriesId = seriesId;
+		return new kaltura.RequestBuilder('assethistory', 'getNextEpisode', kparams);
 	};
 	
 	/**
