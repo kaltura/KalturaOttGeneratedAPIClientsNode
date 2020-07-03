@@ -250,16 +250,6 @@ SUBSCRIPTION : 'subscription',
 COLLECTION : 'collection',
 };
 
-module.exports.CategoryItemOrderBy = {
-NAME_ASC : 'NAME_ASC',
-NAME_DESC : 'NAME_DESC',
-CREATE_DATE_ASC : 'CREATE_DATE_ASC',
-CREATE_DATE_DESC : 'CREATE_DATE_DESC',
-NONE : 'NONE',
-UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
-UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
-};
-
 module.exports.ChannelEnrichment = {
 CLIENTLOCATION : 'ClientLocation',
 USERID : 'UserId',
@@ -292,11 +282,6 @@ NAME_ASC : 'NAME_ASC',
 NAME_DESC : 'NAME_DESC',
 CREATE_DATE_ASC : 'CREATE_DATE_ASC',
 CREATE_DATE_DESC : 'CREATE_DATE_DESC',
-};
-
-module.exports.ChannelType = {
-INTERNAL : 'Internal',
-EXTERNAL : 'External',
 };
 
 module.exports.CollectionOrderBy = {
@@ -444,14 +429,6 @@ FULL : 'full',
 INCREMENTAL : 'incremental',
 };
 
-module.exports.ExternalChannelProfileOrderBy = {
-NONE : 'NONE',
-};
-
-module.exports.ExternalRecordingResponseProfileOrderBy = {
-NONE : 'NONE',
-};
-
 module.exports.FavoriteOrderBy = {
 CREATE_DATE_ASC : 'CREATE_DATE_ASC',
 CREATE_DATE_DESC : 'CREATE_DATE_DESC',
@@ -579,14 +556,6 @@ CUT_SOURCE : 'CUT_SOURCE',
 CUT_TARGET : 'CUT_TARGET',
 };
 
-module.exports.IotOrderBy = {
-NONE : 'NONE',
-};
-
-module.exports.IotProfileOrderBy = {
-NONE : 'NONE',
-};
-
 module.exports.LanguageOrderBy = {
 SYSTEM_NAME_ASC : 'SYSTEM_NAME_ASC',
 SYSTEM_NAME_DESC : 'SYSTEM_NAME_DESC',
@@ -687,7 +656,6 @@ SERIES_REMINDER : 'series_reminder',
 module.exports.ObjectVirtualAssetInfoType = {
 SUBSCRIPTION : 'Subscription',
 SEGMENT : 'Segment',
-CATEGORY : 'Category',
 };
 
 module.exports.OTTUserOrderBy = {
@@ -716,7 +684,6 @@ CONCURRENCY : 'Concurrency',
 GENERAL : 'General',
 OBJECTVIRTUALASSET : 'ObjectVirtualAsset',
 COMMERCE : 'Commerce',
-PLAYBACK : 'Playback',
 };
 
 module.exports.PasswordPolicyOrderBy = {
@@ -878,7 +845,6 @@ module.exports.RecordingType = {
 SINGLE : 'SINGLE',
 SEASON : 'SEASON',
 SERIES : 'SERIES',
-ORIGINALBROADCAST : 'OriginalBroadcast',
 };
 
 module.exports.RegionOrderBy = {
@@ -908,13 +874,6 @@ XML : 2,
 JSONP : 9,
 ASSET_XML : 30,
 EXCEL : 31,
-};
-
-module.exports.RollingDevicePolicy = {
-NONE : 'NONE',
-LIFO : 'LIFO',
-FIFO : 'FIFO',
-ACTIVE_DEVICE_ASCENDING : 'ACTIVE_DEVICE_ASCENDING',
 };
 
 module.exports.RuleActionType = {

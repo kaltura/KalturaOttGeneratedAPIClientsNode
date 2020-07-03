@@ -949,103 +949,6 @@ module.exports.businessModuleRule = businessModuleRule;
 
 
 /**
- *Class definition for the Kaltura service: categoryItem.
- * The available service actions:
- * @action add categoryItem add.
- * @action update categoryItem update.
- * @action delete Remove category.
- * @action list Gets all categoryItem items.
- */
-class categoryItem{
-	
-	/**
-	 * categoryItem add.
-	 * @param objectToAdd CategoryItem categoryItem details
-	 * @return KalturaCategoryItem
-	 */
-	static add(objectToAdd){
-		let kparams = {};
-		kparams.objectToAdd = objectToAdd;
-		return new kaltura.RequestBuilder('categoryitem', 'add', kparams);
-	};
-	
-	/**
-	 * categoryItem update.
-	 * @param id int Category identifier
-	 * @param objectToUpdate CategoryItem categoryItem details
-	 * @return KalturaCategoryItem
-	 */
-	static update(id, objectToUpdate){
-		let kparams = {};
-		kparams.id = id;
-		kparams.objectToUpdate = objectToUpdate;
-		return new kaltura.RequestBuilder('categoryitem', 'update', kparams);
-	};
-	
-	/**
-	 * Remove category.
-	 * @param id int Category identifier
-	 */
-	static deleteAction(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('categoryitem', 'delete', kparams);
-	};
-	
-	/**
-	 * Gets all categoryItem items.
-	 * @param filter CategoryItemFilter Request filter (optional, default: null)
-	 * @param pager FilterPager Request pager (optional, default: null)
-	 * @return KalturaCategoryItemListResponse
-	 */
-	static listAction(filter = null, pager = null){
-		let kparams = {};
-		kparams.filter = filter;
-		kparams.pager = pager;
-		return new kaltura.RequestBuilder('categoryitem', 'list', kparams);
-	};
-}
-module.exports.categoryItem = categoryItem;
-
-
-/**
- *Class definition for the Kaltura service: categoryTree.
- * The available service actions:
- * @action duplicate Duplicate category Item.
- * @action get Retrive category tree.
- */
-class categoryTree{
-	
-	/**
-	 * Duplicate category Item.
-	 * @param categoryItemId int Category item identifier
-	 * @param name string Root category name
-	 * @return KalturaCategoryTree
-	 */
-	static duplicate(categoryItemId, name){
-		let kparams = {};
-		kparams.categoryItemId = categoryItemId;
-		kparams.name = name;
-		return new kaltura.RequestBuilder('categorytree', 'duplicate', kparams);
-	};
-	
-	/**
-	 * Retrive category tree.
-	 * @param categoryItemId int Category item identifier
-	 * @param filter bool filter categories dates (optional, default: false)
-	 * @return KalturaCategoryTree
-	 */
-	static get(categoryItemId, filter = false){
-		let kparams = {};
-		kparams.categoryItemId = categoryItemId;
-		kparams.filter = filter;
-		return new kaltura.RequestBuilder('categorytree', 'get', kparams);
-	};
-}
-module.exports.categoryTree = categoryTree;
-
-
-/**
  *Class definition for the Kaltura service: cdnAdapterProfile.
  * The available service actions:
  * @action add Insert new CDN adapter for partner.
@@ -2323,12 +2226,10 @@ class externalChannelProfile{
 	
 	/**
 	 * Returns all External channels for partner.
-	 * @param filter ExternalChannelProfileFilter External channel profile filter (optional, default: null)
 	 * @return KalturaExternalChannelProfileListResponse
 	 */
-	static listAction(filter = null){
+	static listAction(){
 		let kparams = {};
-		kparams.filter = filter;
 		return new kaltura.RequestBuilder('externalchannelprofile', 'list', kparams);
 	};
 	
@@ -3354,82 +3255,6 @@ class IngestProfile{
 	};
 }
 module.exports.IngestProfile = IngestProfile;
-
-
-/**
- *Class definition for the Kaltura service: iot.
- * The available service actions:
- * @action getClientConfiguration Get iot Client Configuration.
- * @action register Register IOT device.
- */
-class iot{
-	
-	/**
-	 * Get iot Client Configuration.
-	 * @return KalturaIotClientConfiguration
-	 */
-	static getClientConfiguration(){
-		let kparams = {};
-		return new kaltura.RequestBuilder('iot', 'getClientConfiguration', kparams);
-	};
-	
-	/**
-	 * Register IOT device.
-	 * @return KalturaIot
-	 */
-	static register(){
-		let kparams = {};
-		return new kaltura.RequestBuilder('iot', 'register', kparams);
-	};
-}
-module.exports.iot = iot;
-
-
-/**
- *Class definition for the Kaltura service: iotProfile.
- * The available service actions:
- * @action add Add an object.
- * @action update Update an object.
- * @action get Get an object.
- */
-class iotProfile{
-	
-	/**
-	 * Add an object.
-	 * @param objectToAdd IotProfile Object to add
-	 * @return KalturaIotProfile
-	 */
-	static add(objectToAdd){
-		let kparams = {};
-		kparams.objectToAdd = objectToAdd;
-		return new kaltura.RequestBuilder('iotprofile', 'add', kparams);
-	};
-	
-	/**
-	 * Update an object.
-	 * @param id int Object ID to update
-	 * @param objectToUpdate IotProfile Object to update
-	 * @return KalturaIotProfile
-	 */
-	static update(id, objectToUpdate){
-		let kparams = {};
-		kparams.id = id;
-		kparams.objectToUpdate = objectToUpdate;
-		return new kaltura.RequestBuilder('iotprofile', 'update', kparams);
-	};
-	
-	/**
-	 * Get an object.
-	 * @param id int Object ID to get
-	 * @return KalturaIotProfile
-	 */
-	static get(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('iotprofile', 'get', kparams);
-	};
-}
-module.exports.iotProfile = iotProfile;
 
 
 /**
@@ -5845,7 +5670,6 @@ module.exports.socialFriendActivity = socialFriendActivity;
  * @action add Insert new sso adapter for partner.
  * @action delete Delete sso adapters by sso adapters id.
  * @action generateSharedSecret Generate SSO Adapter shared secret.
- * @action invoke Request validation against 3rd party.
  * @action list Returns all sso adapters for partner : id + name.
  * @action update Update sso adapter details.
  */
@@ -5882,19 +5706,6 @@ class ssoAdapterProfile{
 		let kparams = {};
 		kparams.ssoAdapterId = ssoAdapterId;
 		return new kaltura.RequestBuilder('ssoadapterprofile', 'generateSharedSecret', kparams);
-	};
-	
-	/**
-	 * Request validation against 3rd party.
-	 * @param intent string intent
-	 * @param adapterData array adapter Data
-	 * @return KalturaSSOAdapterProfileInvoke
-	 */
-	static invoke(intent, adapterData){
-		let kparams = {};
-		kparams.intent = intent;
-		kparams.adapterData = adapterData;
-		return new kaltura.RequestBuilder('ssoadapterprofile', 'invoke', kparams);
 	};
 	
 	/**
