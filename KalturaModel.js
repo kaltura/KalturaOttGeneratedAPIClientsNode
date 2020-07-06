@@ -2514,6 +2514,48 @@ module.exports.BaseSearchAssetFilter = BaseSearchAssetFilter;
 /**
  *
  */
+class ChannelFilter extends BaseSearchAssetFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaChannelFilter';
+	}
+	
+	/**
+	 * Channel Id
+	 * @return int
+	 */
+	 getIdEqual() {
+	 	return this.idEqual;
+	 }
+	
+	/**
+	 * @param idEqual int Channel Id
+	 */
+	 setIdEqual(idEqual) {
+	 	this.idEqual = idEqual;
+	 }
+	
+	/**
+	 * Exclude watched asset
+	 * @return bool
+	 */
+	 getExcludeWatched() {
+	 	return this.excludeWatched;
+	 }
+	
+	/**
+	 * @param excludeWatched bool Exclude watched asset
+	 */
+	 setExcludeWatched(excludeWatched) {
+	 	this.excludeWatched = excludeWatched;
+	 }
+}
+module.exports.ChannelFilter = ChannelFilter;
+
+/**
+ *
+ */
 class PersonalListSearchFilter extends BaseSearchAssetFilter{
 	
 	constructor(object = null) {
@@ -2836,165 +2878,6 @@ module.exports.ChannelExternalFilter = ChannelExternalFilter;
 /**
  *
  */
-class ChannelFilter extends AssetFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaChannelFilter';
-	}
-	
-	/**
-	 * Channel Id
-	 * @return int
-	 */
-	 getIdEqual() {
-	 	return this.idEqual;
-	 }
-	
-	/**
-	 * @param idEqual int Channel Id
-	 */
-	 setIdEqual(idEqual) {
-	 	this.idEqual = idEqual;
-	 }
-	
-	/**
-	 * ///
- * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
- * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
- * epg_id, media_id - for specific asset IDs.
- * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restricted to the user by geo-block rules will return.
- * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
- * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
- * epg_channel_id – the channel identifier of the EPG program. *****Deprecated, please use linear_media_id instead*****
- * linear_media_id – the linear media identifier of the EPG program.
- * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
- * asset_type - valid values: &quot;media&quot;, &quot;epg&quot;, &quot;recording&quot; or any number that represents media type in group.
- * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
- * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
- * Logical conjunction: and, or.
- * Search values are limited to 20 characters each for the next operators: ~, !~, ^, ^=
- * (maximum length of entire filter is 4096 characters)
-	 * @return string
-	 */
-	 getKSql() {
-	 	return this.kSql;
-	 }
-	
-	/**
-	 * @param kSql string ///
- * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
- * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
- * epg_id, media_id - for specific asset IDs.
- * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restricted to the user by geo-block rules will return.
- * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
- * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
- * epg_channel_id – the channel identifier of the EPG program. *****Deprecated, please use linear_media_id instead*****
- * linear_media_id – the linear media identifier of the EPG program.
- * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
- * asset_type - valid values: &quot;media&quot;, &quot;epg&quot;, &quot;recording&quot; or any number that represents media type in group.
- * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
- * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
- * Logical conjunction: and, or.
- * Search values are limited to 20 characters each for the next operators: ~, !~, ^, ^=
- * (maximum length of entire filter is 4096 characters)
-	 */
-	 setKSql(kSql) {
-	 	this.kSql = kSql;
-	 }
-	
-	/**
-	 * Exclude watched asset
-	 * @return bool
-	 */
-	 getExcludeWatched() {
-	 	return this.excludeWatched;
-	 }
-	
-	/**
-	 * @param excludeWatched bool Exclude watched asset
-	 */
-	 setExcludeWatched(excludeWatched) {
-	 	this.excludeWatched = excludeWatched;
-	 }
-}
-module.exports.ChannelFilter = ChannelFilter;
-
-/**
- *
- */
-class ScheduledRecordingProgramFilter extends AssetFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaScheduledRecordingProgramFilter';
-	}
-	
-	/**
-	 * The type of recordings to return
-	 * @return string
-	 */
-	 getRecordingTypeEqual() {
-	 	return this.recordingTypeEqual;
-	 }
-	
-	/**
-	 * @param recordingTypeEqual string The type of recordings to return
-	 */
-	 setRecordingTypeEqual(recordingTypeEqual) {
-	 	this.recordingTypeEqual = recordingTypeEqual;
-	 }
-	
-	/**
-	 * Channels to filter by
-	 * @return string
-	 */
-	 getChannelsIn() {
-	 	return this.channelsIn;
-	 }
-	
-	/**
-	 * @param channelsIn string Channels to filter by
-	 */
-	 setChannelsIn(channelsIn) {
-	 	this.channelsIn = channelsIn;
-	 }
-	
-	/**
-	 * start date
-	 * @return int
-	 */
-	 getStartDateGreaterThanOrNull() {
-	 	return this.startDateGreaterThanOrNull;
-	 }
-	
-	/**
-	 * @param startDateGreaterThanOrNull int start date
-	 */
-	 setStartDateGreaterThanOrNull(startDateGreaterThanOrNull) {
-	 	this.startDateGreaterThanOrNull = startDateGreaterThanOrNull;
-	 }
-	
-	/**
-	 * end date
-	 * @return int
-	 */
-	 getEndDateLessThanOrNull() {
-	 	return this.endDateLessThanOrNull;
-	 }
-	
-	/**
-	 * @param endDateLessThanOrNull int end date
-	 */
-	 setEndDateLessThanOrNull(endDateLessThanOrNull) {
-	 	this.endDateLessThanOrNull = endDateLessThanOrNull;
-	 }
-}
-module.exports.ScheduledRecordingProgramFilter = ScheduledRecordingProgramFilter;
-
-/**
- *
- */
 class RelatedExternalFilter extends AssetFilter{
 	
 	constructor(object = null) {
@@ -3067,6 +2950,78 @@ class RelatedExternalFilter extends AssetFilter{
 	 }
 }
 module.exports.RelatedExternalFilter = RelatedExternalFilter;
+
+/**
+ *
+ */
+class ScheduledRecordingProgramFilter extends AssetFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaScheduledRecordingProgramFilter';
+	}
+	
+	/**
+	 * The type of recordings to return
+	 * @return string
+	 */
+	 getRecordingTypeEqual() {
+	 	return this.recordingTypeEqual;
+	 }
+	
+	/**
+	 * @param recordingTypeEqual string The type of recordings to return
+	 */
+	 setRecordingTypeEqual(recordingTypeEqual) {
+	 	this.recordingTypeEqual = recordingTypeEqual;
+	 }
+	
+	/**
+	 * Channels to filter by
+	 * @return string
+	 */
+	 getChannelsIn() {
+	 	return this.channelsIn;
+	 }
+	
+	/**
+	 * @param channelsIn string Channels to filter by
+	 */
+	 setChannelsIn(channelsIn) {
+	 	this.channelsIn = channelsIn;
+	 }
+	
+	/**
+	 * start date
+	 * @return int
+	 */
+	 getStartDateGreaterThanOrNull() {
+	 	return this.startDateGreaterThanOrNull;
+	 }
+	
+	/**
+	 * @param startDateGreaterThanOrNull int start date
+	 */
+	 setStartDateGreaterThanOrNull(startDateGreaterThanOrNull) {
+	 	this.startDateGreaterThanOrNull = startDateGreaterThanOrNull;
+	 }
+	
+	/**
+	 * end date
+	 * @return int
+	 */
+	 getEndDateLessThanOrNull() {
+	 	return this.endDateLessThanOrNull;
+	 }
+	
+	/**
+	 * @param endDateLessThanOrNull int end date
+	 */
+	 setEndDateLessThanOrNull(endDateLessThanOrNull) {
+	 	this.endDateLessThanOrNull = endDateLessThanOrNull;
+	 }
+}
+module.exports.ScheduledRecordingProgramFilter = ScheduledRecordingProgramFilter;
 
 /**
  *
