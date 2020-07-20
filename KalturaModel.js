@@ -2514,48 +2514,6 @@ module.exports.BaseSearchAssetFilter = BaseSearchAssetFilter;
 /**
  *
  */
-class ChannelFilter extends BaseSearchAssetFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaChannelFilter';
-	}
-	
-	/**
-	 * Channel Id
-	 * @return int
-	 */
-	 getIdEqual() {
-	 	return this.idEqual;
-	 }
-	
-	/**
-	 * @param idEqual int Channel Id
-	 */
-	 setIdEqual(idEqual) {
-	 	this.idEqual = idEqual;
-	 }
-	
-	/**
-	 * Exclude watched asset
-	 * @return bool
-	 */
-	 getExcludeWatched() {
-	 	return this.excludeWatched;
-	 }
-	
-	/**
-	 * @param excludeWatched bool Exclude watched asset
-	 */
-	 setExcludeWatched(excludeWatched) {
-	 	this.excludeWatched = excludeWatched;
-	 }
-}
-module.exports.ChannelFilter = ChannelFilter;
-
-/**
- *
- */
 class PersonalListSearchFilter extends BaseSearchAssetFilter{
 	
 	constructor(object = null) {
@@ -2878,15 +2836,15 @@ module.exports.ChannelExternalFilter = ChannelExternalFilter;
 /**
  *
  */
-class RelatedExternalFilter extends AssetFilter{
+class ChannelFilter extends AssetFilter{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaRelatedExternalFilter';
+		this.objectType = 'KalturaChannelFilter';
 	}
 	
 	/**
-	 * the External ID of the asset for which to return related assets
+	 * Channel Id
 	 * @return int
 	 */
 	 getIdEqual() {
@@ -2894,62 +2852,73 @@ class RelatedExternalFilter extends AssetFilter{
 	 }
 	
 	/**
-	 * @param idEqual int the External ID of the asset for which to return related assets
+	 * @param idEqual int Channel Id
 	 */
 	 setIdEqual(idEqual) {
 	 	this.idEqual = idEqual;
 	 }
 	
 	/**
-	 * Comma separated list of asset types to search within.
- * Possible values: 0 – EPG linear programs entries, any media type ID (according to media type IDs defined dynamically in the system).
- * If omitted – all types should be included
+	 * ///
+ * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
+ * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
+ * epg_id, media_id - for specific asset IDs.
+ * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restricted to the user by geo-block rules will return.
+ * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
+ * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
+ * epg_channel_id – the channel identifier of the EPG program. *****Deprecated, please use linear_media_id instead*****
+ * linear_media_id – the linear media identifier of the EPG program.
+ * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * asset_type - valid values: &quot;media&quot;, &quot;epg&quot;, &quot;recording&quot; or any number that represents media type in group.
+ * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
+ * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
+ * Logical conjunction: and, or.
+ * Search values are limited to 20 characters each for the next operators: ~, !~, ^, ^=
+ * (maximum length of entire filter is 4096 characters)
 	 * @return string
 	 */
-	 getTypeIn() {
-	 	return this.typeIn;
+	 getKSql() {
+	 	return this.kSql;
 	 }
 	
 	/**
-	 * @param typeIn string Comma separated list of asset types to search within.
- * Possible values: 0 – EPG linear programs entries, any media type ID (according to media type IDs defined dynamically in the system).
- * If omitted – all types should be included
+	 * @param kSql string ///
+ * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
+ * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
+ * epg_id, media_id - for specific asset IDs.
+ * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restricted to the user by geo-block rules will return.
+ * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
+ * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
+ * epg_channel_id – the channel identifier of the EPG program. *****Deprecated, please use linear_media_id instead*****
+ * linear_media_id – the linear media identifier of the EPG program.
+ * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * asset_type - valid values: &quot;media&quot;, &quot;epg&quot;, &quot;recording&quot; or any number that represents media type in group.
+ * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
+ * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
+ * Logical conjunction: and, or.
+ * Search values are limited to 20 characters each for the next operators: ~, !~, ^, ^=
+ * (maximum length of entire filter is 4096 characters)
 	 */
-	 setTypeIn(typeIn) {
-	 	this.typeIn = typeIn;
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
 	 }
 	
 	/**
-	 * UtcOffsetEqual
-	 * @return int
+	 * Exclude watched asset
+	 * @return bool
 	 */
-	 getUtcOffsetEqual() {
-	 	return this.utcOffsetEqual;
+	 getExcludeWatched() {
+	 	return this.excludeWatched;
 	 }
 	
 	/**
-	 * @param utcOffsetEqual int UtcOffsetEqual
+	 * @param excludeWatched bool Exclude watched asset
 	 */
-	 setUtcOffsetEqual(utcOffsetEqual) {
-	 	this.utcOffsetEqual = utcOffsetEqual;
-	 }
-	
-	/**
-	 * FreeText
-	 * @return string
-	 */
-	 getFreeText() {
-	 	return this.freeText;
-	 }
-	
-	/**
-	 * @param freeText string FreeText
-	 */
-	 setFreeText(freeText) {
-	 	this.freeText = freeText;
+	 setExcludeWatched(excludeWatched) {
+	 	this.excludeWatched = excludeWatched;
 	 }
 }
-module.exports.RelatedExternalFilter = RelatedExternalFilter;
+module.exports.ChannelFilter = ChannelFilter;
 
 /**
  *
@@ -3022,6 +2991,82 @@ class ScheduledRecordingProgramFilter extends AssetFilter{
 	 }
 }
 module.exports.ScheduledRecordingProgramFilter = ScheduledRecordingProgramFilter;
+
+/**
+ *
+ */
+class RelatedExternalFilter extends AssetFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRelatedExternalFilter';
+	}
+	
+	/**
+	 * the External ID of the asset for which to return related assets
+	 * @return int
+	 */
+	 getIdEqual() {
+	 	return this.idEqual;
+	 }
+	
+	/**
+	 * @param idEqual int the External ID of the asset for which to return related assets
+	 */
+	 setIdEqual(idEqual) {
+	 	this.idEqual = idEqual;
+	 }
+	
+	/**
+	 * Comma separated list of asset types to search within.
+ * Possible values: 0 – EPG linear programs entries, any media type ID (according to media type IDs defined dynamically in the system).
+ * If omitted – all types should be included
+	 * @return string
+	 */
+	 getTypeIn() {
+	 	return this.typeIn;
+	 }
+	
+	/**
+	 * @param typeIn string Comma separated list of asset types to search within.
+ * Possible values: 0 – EPG linear programs entries, any media type ID (according to media type IDs defined dynamically in the system).
+ * If omitted – all types should be included
+	 */
+	 setTypeIn(typeIn) {
+	 	this.typeIn = typeIn;
+	 }
+	
+	/**
+	 * UtcOffsetEqual
+	 * @return int
+	 */
+	 getUtcOffsetEqual() {
+	 	return this.utcOffsetEqual;
+	 }
+	
+	/**
+	 * @param utcOffsetEqual int UtcOffsetEqual
+	 */
+	 setUtcOffsetEqual(utcOffsetEqual) {
+	 	this.utcOffsetEqual = utcOffsetEqual;
+	 }
+	
+	/**
+	 * FreeText
+	 * @return string
+	 */
+	 getFreeText() {
+	 	return this.freeText;
+	 }
+	
+	/**
+	 * @param freeText string FreeText
+	 */
+	 setFreeText(freeText) {
+	 	this.freeText = freeText;
+	 }
+}
+module.exports.RelatedExternalFilter = RelatedExternalFilter;
 
 /**
  *
@@ -3811,18 +3856,6 @@ class AssetHistoryFilter extends Filter{
 	 }
 }
 module.exports.AssetHistoryFilter = AssetHistoryFilter;
-
-/**
- *
- */
-class AssetHistorySuppressFilter extends RelatedObjectFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetHistorySuppressFilter';
-	}
-}
-module.exports.AssetHistorySuppressFilter = AssetHistorySuppressFilter;
 
 /**
  *
@@ -6755,6 +6788,21 @@ class MediaFile extends AssetFile{
 	 */
 	 setCatalogEndDate(catalogEndDate) {
 	 	this.catalogEndDate = catalogEndDate;
+	 }
+	
+	/**
+	 * OPL
+	 * @return string
+	 */
+	 getOpl() {
+	 	return this.opl;
+	 }
+	
+	/**
+	 * @param opl string OPL
+	 */
+	 setOpl(opl) {
+	 	this.opl = opl;
 	 }
 }
 module.exports.MediaFile = MediaFile;
@@ -10691,21 +10739,6 @@ class HouseholdDevice extends OTTObjectSupportNullable{
 	 */
 	 setExternalId(externalId) {
 	 	this.externalId = externalId;
-	 }
-	
-	/**
-	 * mac address
-	 * @return string
-	 */
-	 getMacAddress() {
-	 	return this.macAddress;
-	 }
-	
-	/**
-	 * @param macAddress string mac address
-	 */
-	 setMacAddress(macAddress) {
-	 	this.macAddress = macAddress;
 	 }
 }
 module.exports.HouseholdDevice = HouseholdDevice;
@@ -15129,21 +15162,6 @@ class GeneralPartnerConfig extends PartnerConfiguration{
 	 setRollingDeviceData(rollingDeviceData) {
 	 	this.rollingDeviceData = rollingDeviceData;
 	 }
-	
-	/**
-	 * Finished PercentThreshold
-	 * @return int
-	 */
-	 getFinishedPercentThreshold() {
-	 	return this.finishedPercentThreshold;
-	 }
-	
-	/**
-	 * @param finishedPercentThreshold int Finished PercentThreshold
-	 */
-	 setFinishedPercentThreshold(finishedPercentThreshold) {
-	 	this.finishedPercentThreshold = finishedPercentThreshold;
-	 }
 }
 module.exports.GeneralPartnerConfig = GeneralPartnerConfig;
 
@@ -15230,132 +15248,6 @@ class ObjectVirtualAssetPartnerConfig extends PartnerConfiguration{
 	 }
 }
 module.exports.ObjectVirtualAssetPartnerConfig = ObjectVirtualAssetPartnerConfig;
-
-/**
- *
- */
-class Duration extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDuration';
-	}
-	
-	/**
-	 * duration unit
-	 * @return string
-	 */
-	 getUnit() {
-	 	return this.unit;
-	 }
-	
-	/**
-	 * @param unit string duration unit
-	 */
-	 setUnit(unit) {
-	 	this.unit = unit;
-	 }
-	
-	/**
-	 * duration value
-	 * @return int
-	 */
-	 getValue() {
-	 	return this.value;
-	 }
-	
-	/**
-	 * @param value int duration value
-	 */
-	 setValue(value) {
-	 	this.value = value;
-	 }
-}
-module.exports.Duration = Duration;
-
-/**
- *
- */
-class UnifiedBillingCycle extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaUnifiedBillingCycle';
-	}
-	
-	/**
-	 * UnifiedBillingCycle name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string UnifiedBillingCycle name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
-	 * cycle duration
-	 * @return Duration
-	 */
-	 getDuration() {
-	 	return this.duration;
-	 }
-	
-	/**
-	 * @param duration Duration cycle duration
-	 */
-	 setDuration(duration) {
-	 	this.duration = duration;
-	 }
-	
-	/**
-	 * Payment Gateway Id
-	 * @return int
-	 */
-	 getPaymentGatewayId() {
-	 	return this.paymentGatewayId;
-	 }
-	
-	/**
-	 * @param paymentGatewayId int Payment Gateway Id
-	 */
-	 setPaymentGatewayId(paymentGatewayId) {
-	 	this.paymentGatewayId = paymentGatewayId;
-	 }
-}
-module.exports.UnifiedBillingCycle = UnifiedBillingCycle;
-
-/**
- *
- */
-class PaymentPartnerConfig extends PartnerConfiguration{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPaymentPartnerConfig';
-	}
-	
-	/**
-	 * configuration for unified billing cycles
-	 * @return array
-	 */
-	 getUnifiedBillingCycles() {
-	 	return this.unifiedBillingCycles;
-	 }
-	
-	/**
-	 * @param unifiedBillingCycles array configuration for unified billing cycles
-	 */
-	 setUnifiedBillingCycles(unifiedBillingCycles) {
-	 	this.unifiedBillingCycles = unifiedBillingCycles;
-	 }
-}
-module.exports.PaymentPartnerConfig = PaymentPartnerConfig;
 
 /**
  *
@@ -20331,21 +20223,6 @@ class AssetStructMeta extends kaltura.BaseObject{
 	 setIsInherited(isInherited) {
 	 	this.isInherited = isInherited;
 	 }
-	
-	/**
-	 * Is Location Tag
-	 * @return bool
-	 */
-	 getIsLocationTag() {
-	 	return this.isLocationTag;
-	 }
-	
-	/**
-	 * @param isLocationTag bool Is Location Tag
-	 */
-	 setIsLocationTag(isLocationTag) {
-	 	this.isLocationTag = isLocationTag;
-	 }
 }
 module.exports.AssetStructMeta = AssetStructMeta;
 
@@ -21193,148 +21070,6 @@ module.exports.AssetHistoryListResponse = AssetHistoryListResponse;
 /**
  *
  */
-class SuspendSettings extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSuspendSettings';
-	}
-	
-	/**
-	 * revoke entitlements
-	 * @return bool
-	 */
-	 getRevokeEntitlements() {
-	 	return this.revokeEntitlements;
-	 }
-	
-	/**
-	 * @param revokeEntitlements bool revoke entitlements
-	 */
-	 setRevokeEntitlements(revokeEntitlements) {
-	 	this.revokeEntitlements = revokeEntitlements;
-	 }
-	
-	/**
-	 * stop renew
-	 * @return bool
-	 */
-	 getStopRenew() {
-	 	return this.stopRenew;
-	 }
-	
-	/**
-	 * @param stopRenew bool stop renew
-	 */
-	 setStopRenew(stopRenew) {
-	 	this.stopRenew = stopRenew;
-	 }
-}
-module.exports.SuspendSettings = SuspendSettings;
-
-/**
- *
- */
-class HouseholdPaymentGateway extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdPaymentGateway';
-	}
-	
-	/**
-	 * payment gateway id
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * payment gateway name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string payment gateway name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
-	 * Payment gateway default (true/false)
-	 * @return bool
-	 */
-	 getIsDefault() {
-	 	return this.isDefault;
-	 }
-	
-	/**
-	 * @param isDefault bool Payment gateway default (true/false)
-	 */
-	 setIsDefault(isDefault) {
-	 	this.isDefault = isDefault;
-	 }
-	
-	/**
-	 * distinction payment gateway selected by account or household
-	 * @return string
-	 */
-	 getSelectedBy() {
-	 	return this.selectedBy;
-	 }
-	
-	/**
-	 * @param selectedBy string distinction payment gateway selected by account or household
-	 */
-	 setSelectedBy(selectedBy) {
-	 	this.selectedBy = selectedBy;
-	 }
-	
-	/**
-	 * suspend settings
-	 * @return SuspendSettings
-	 */
-	 getSuspendSettings() {
-	 	return this.suspendSettings;
-	 }
-}
-module.exports.HouseholdPaymentGateway = HouseholdPaymentGateway;
-
-/**
- *
- */
-class HouseholdPaymentGatewayListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdPaymentGatewayListResponse';
-	}
-	
-	/**
-	 * Follow data list
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array Follow data list
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.HouseholdPaymentGatewayListResponse = HouseholdPaymentGatewayListResponse;
-
-/**
- *
- */
 class HouseholdPaymentMethod extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -21446,6 +21181,98 @@ class HouseholdPaymentMethodListResponse extends ListResponse{
 	 }
 }
 module.exports.HouseholdPaymentMethodListResponse = HouseholdPaymentMethodListResponse;
+
+/**
+ *
+ */
+class HouseholdPaymentGateway extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdPaymentGateway';
+	}
+	
+	/**
+	 * payment gateway id
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * payment gateway name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string payment gateway name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Payment gateway default (true/false)
+	 * @return bool
+	 */
+	 getIsDefault() {
+	 	return this.isDefault;
+	 }
+	
+	/**
+	 * @param isDefault bool Payment gateway default (true/false)
+	 */
+	 setIsDefault(isDefault) {
+	 	this.isDefault = isDefault;
+	 }
+	
+	/**
+	 * distinction payment gateway selected by account or household
+	 * @return string
+	 */
+	 getSelectedBy() {
+	 	return this.selectedBy;
+	 }
+	
+	/**
+	 * @param selectedBy string distinction payment gateway selected by account or household
+	 */
+	 setSelectedBy(selectedBy) {
+	 	this.selectedBy = selectedBy;
+	 }
+}
+module.exports.HouseholdPaymentGateway = HouseholdPaymentGateway;
+
+/**
+ *
+ */
+class HouseholdPaymentGatewayListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdPaymentGatewayListResponse';
+	}
+	
+	/**
+	 * Follow data list
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Follow data list
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.HouseholdPaymentGatewayListResponse = HouseholdPaymentGatewayListResponse;
 
 /**
  *
