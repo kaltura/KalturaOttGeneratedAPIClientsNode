@@ -508,7 +508,6 @@ module.exports.assetFilePpv = assetFilePpv;
  *Class definition for the Kaltura service: assetHistory.
  * The available service actions:
  * @action clean Clean the user’s viewing history.
- * @action getNextEpisode Get next episode by last watch asset in given assetId.
  * @action list Get recently watched media for user, ordered by recently watched first.
  */
 class assetHistory{
@@ -521,17 +520,6 @@ class assetHistory{
 		let kparams = {};
 		kparams.filter = filter;
 		return new kaltura.RequestBuilder('assethistory', 'clean', kparams);
-	};
-	
-	/**
-	 * Get next episode by last watch asset in given assetId.
-	 * @param assetId int asset Id of series to search for next episode
-	 * @return KalturaAssetHistory
-	 */
-	static getNextEpisode(assetId){
-		let kparams = {};
-		kparams.assetId = assetId;
-		return new kaltura.RequestBuilder('assethistory', 'getNextEpisode', kparams);
 	};
 	
 	/**
@@ -2912,12 +2900,10 @@ class householdPaymentGateway{
 	/**
 	 * Resumes all the entitlements of the given payment gateway.
 	 * @param paymentGatewayId int Payment gateway ID
-	 * @param adapterData array Adapter data (optional, default: null)
 	 */
-	static resume(paymentGatewayId, adapterData = null){
+	static resume(paymentGatewayId){
 		let kparams = {};
 		kparams.paymentGatewayId = paymentGatewayId;
-		kparams.adapterData = adapterData;
 		return new kaltura.RequestBuilder('householdpaymentgateway', 'resume', kparams);
 	};
 	
@@ -2937,12 +2923,10 @@ class householdPaymentGateway{
 	/**
 	 * Suspends all the entitlements of the given payment gateway.
 	 * @param paymentGatewayId int Payment gateway ID
-	 * @param suspendSettings SuspendSettings suspend settings (optional, default: null)
 	 */
-	static suspend(paymentGatewayId, suspendSettings = null){
+	static suspend(paymentGatewayId){
 		let kparams = {};
 		kparams.paymentGatewayId = paymentGatewayId;
-		kparams.suspendSettings = suspendSettings;
 		return new kaltura.RequestBuilder('householdpaymentgateway', 'suspend', kparams);
 	};
 }
