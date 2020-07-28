@@ -25769,6 +25769,21 @@ class CategoryTree extends kaltura.BaseObject{
 	 setEndDateInSeconds(endDateInSeconds) {
 	 	this.endDateInSeconds = endDateInSeconds;
 	 }
+	
+	/**
+	 * Category type
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * @param type string Category type
+	 */
+	 setType(type) {
+	 	this.type = type;
+	 }
 }
 module.exports.CategoryTree = CategoryTree;
 
