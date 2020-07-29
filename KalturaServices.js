@@ -4591,9 +4591,11 @@ module.exports.paymentMethodProfile = paymentMethodProfile;
  *Class definition for the Kaltura service: permission.
  * The available service actions:
  * @action add Adds new permission.
+ * @action addPermissionItem Adds permission item to permission.
  * @action delete Deletes an existing permission.
  * @action getCurrentPermissions Returns permission names as comma separated string.
  * @action list Retrieving permissions by identifiers, if filter is empty, returns all partner permissions.
+ * @action removePermissionItem Removes permission item from permission.
  */
 class permission{
 	
@@ -4606,6 +4608,18 @@ class permission{
 		let kparams = {};
 		kparams.permission = permission;
 		return new kaltura.RequestBuilder('permission', 'add', kparams);
+	};
+	
+	/**
+	 * Adds permission item to permission.
+	 * @param permissionId int Permission ID to add to
+	 * @param permissionItemId int Permission item ID to add
+	 */
+	static addPermissionItem(permissionId, permissionItemId){
+		let kparams = {};
+		kparams.permissionId = permissionId;
+		kparams.permissionItemId = permissionItemId;
+		return new kaltura.RequestBuilder('permission', 'addPermissionItem', kparams);
 	};
 	
 	/**
@@ -4637,8 +4651,43 @@ class permission{
 		kparams.filter = filter;
 		return new kaltura.RequestBuilder('permission', 'list', kparams);
 	};
+	
+	/**
+	 * Removes permission item from permission.
+	 * @param permissionId int Permission ID to remove from
+	 * @param permissionItemId int Permission item ID to remove
+	 */
+	static removePermissionItem(permissionId, permissionItemId){
+		let kparams = {};
+		kparams.permissionId = permissionId;
+		kparams.permissionItemId = permissionItemId;
+		return new kaltura.RequestBuilder('permission', 'removePermissionItem', kparams);
+	};
 }
 module.exports.permission = permission;
+
+
+/**
+ *Class definition for the Kaltura service: permissionItem.
+ * The available service actions:
+ * @action list Return a list of permission items with filtering options.
+ */
+class permissionItem{
+	
+	/**
+	 * Return a list of permission items with filtering options.
+	 * @param filter PermissionItemFilter Filter (optional, default: null)
+	 * @param pager FilterPager Pager (optional, default: null)
+	 * @return KalturaPermissionItemListResponse
+	 */
+	static listAction(filter = null, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('permissionitem', 'list', kparams);
+	};
+}
+module.exports.permissionItem = permissionItem;
 
 
 /**
