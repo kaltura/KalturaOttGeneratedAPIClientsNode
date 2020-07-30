@@ -962,6 +962,21 @@ class CategoryItemSearchFilter extends CategoryItemFilter{
 	 setRootOnly(rootOnly) {
 	 	this.rootOnly = rootOnly;
 	 }
+	
+	/**
+	 * Indicates which category to return by their type
+	 * @return string
+	 */
+	 getTypeEqual() {
+	 	return this.typeEqual;
+	 }
+	
+	/**
+	 * @param typeEqual string Indicates which category to return by their type
+	 */
+	 setTypeEqual(typeEqual) {
+	 	this.typeEqual = typeEqual;
+	 }
 }
 module.exports.CategoryItemSearchFilter = CategoryItemSearchFilter;
 
@@ -6756,6 +6771,21 @@ class MediaFile extends AssetFile{
 	 setCatalogEndDate(catalogEndDate) {
 	 	this.catalogEndDate = catalogEndDate;
 	 }
+	
+	/**
+	 * OPL
+	 * @return string
+	 */
+	 getOpl() {
+	 	return this.opl;
+	 }
+	
+	/**
+	 * @param opl string OPL
+	 */
+	 setOpl(opl) {
+	 	this.opl = opl;
+	 }
 }
 module.exports.MediaFile = MediaFile;
 
@@ -10024,6 +10054,21 @@ class CategoryItem extends CrudObject{
 	 */
 	 setEndDateInSeconds(endDateInSeconds) {
 	 	this.endDateInSeconds = endDateInSeconds;
+	 }
+	
+	/**
+	 * Category type
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * @param type string Category type
+	 */
+	 setType(type) {
+	 	this.type = type;
 	 }
 }
 module.exports.CategoryItem = CategoryItem;
@@ -15200,6 +15245,21 @@ class ObjectVirtualAssetInfo extends kaltura.BaseObject{
 	 */
 	 setType(type) {
 	 	this.type = type;
+	 }
+	
+	/**
+	 * Extended types mapping
+	 * @return map
+	 */
+	 getExtendedTypes() {
+	 	return this.extendedTypes;
+	 }
+	
+	/**
+	 * @param extendedTypes map Extended types mapping
+	 */
+	 setExtendedTypes(extendedTypes) {
+	 	this.extendedTypes = extendedTypes;
 	 }
 }
 module.exports.ObjectVirtualAssetInfo = ObjectVirtualAssetInfo;
@@ -25896,6 +25956,21 @@ class CategoryTree extends kaltura.BaseObject{
 	 */
 	 setEndDateInSeconds(endDateInSeconds) {
 	 	this.endDateInSeconds = endDateInSeconds;
+	 }
+	
+	/**
+	 * Category type
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * @param type string Category type
+	 */
+	 setType(type) {
+	 	this.type = type;
 	 }
 }
 module.exports.CategoryTree = CategoryTree;

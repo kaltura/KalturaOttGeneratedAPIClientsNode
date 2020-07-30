@@ -4099,10 +4099,12 @@ class ottUser{
 	
 	/**
 	 * Logout the calling user.
+	 * @param adapterData map adapter data (optional, default: null)
 	 * @return bool
 	 */
-	static logout(){
+	static logout(adapterData = null){
 		let kparams = {};
+		kparams.adapterData = adapterData;
 		return new kaltura.RequestBuilder('ottuser', 'logout', kparams);
 	};
 	
@@ -6762,7 +6764,8 @@ module.exports.userInterest = userInterest;
 /**
  *Class definition for the Kaltura service: userLoginPin.
  * The available service actions:
- * @action add Generate a time and usage expiry login-PIN that can allow a single login per PIN. If an active login-PIN already exists. Calling this API again for same user will add another login-PIN.
+ * @action add Generate a time and usage expiry login-PIN that can allow a single/multiple login/s per PIN.
+ * If an active login-PIN already exists. Calling this API again for same user will add another login-PIN.
  * @action delete Immediately deletes a given pre set login pin code for the user.
  * @action deleteAll Immediately expire all active login-PINs for a user.
  * @action update Set a time and usage expiry login-PIN that can allow a single login per PIN. If an active login-PIN already exists. Calling this API again for same user will add another login-PIN.
@@ -6770,13 +6773,18 @@ module.exports.userInterest = userInterest;
 class userLoginPin{
 	
 	/**
-	 * Generate a time and usage expiry login-PIN that can allow a single login per PIN. If an active login-PIN already exists. Calling this API again for same user will add another login-PIN.
+	 * Generate a time and usage expiry login-PIN that can allow a single/multiple login/s per PIN.
+ * If an active login-PIN already exists. Calling this API again for same user will add another login-PIN.
 	 * @param secret string Additional security parameter for optional enhanced security (optional, default: null)
+	 * @param pinUsages int Optional number of pin usages (optional, default: null)
+	 * @param pinDuration int Optional duration in minutes of the pin (optional, default: null)
 	 * @return KalturaUserLoginPin
 	 */
-	static add(secret = null){
+	static add(secret = null, pinUsages = null, pinDuration = null){
 		let kparams = {};
 		kparams.secret = secret;
+		kparams.pinUsages = pinUsages;
+		kparams.pinDuration = pinDuration;
 		return new kaltura.RequestBuilder('userloginpin', 'add', kparams);
 	};
 	
@@ -6804,12 +6812,16 @@ class userLoginPin{
 	 * Set a time and usage expiry login-PIN that can allow a single login per PIN. If an active login-PIN already exists. Calling this API again for same user will add another login-PIN.
 	 * @param pinCode string Device Identifier
 	 * @param secret string Additional security parameter to validate the login (optional, default: null)
+	 * @param pinUsages int Optional number of pin usages (optional, default: null)
+	 * @param pinDuration int Optional duration in seconds of the pin (optional, default: null)
 	 * @return KalturaUserLoginPin
 	 */
-	static update(pinCode, secret = null){
+	static update(pinCode, secret = null, pinUsages = null, pinDuration = null){
 		let kparams = {};
 		kparams.pinCode = pinCode;
 		kparams.secret = secret;
+		kparams.pinUsages = pinUsages;
+		kparams.pinDuration = pinDuration;
 		return new kaltura.RequestBuilder('userloginpin', 'update', kparams);
 	};
 }
