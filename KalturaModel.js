@@ -5609,6 +5609,156 @@ module.exports.PermissionFilter = PermissionFilter;
 /**
  *
  */
+class PermissionItemFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPermissionItemFilter';
+	}
+}
+module.exports.PermissionItemFilter = PermissionItemFilter;
+
+/**
+ *
+ */
+class PermissionItemByIdInFilter extends PermissionItemFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPermissionItemByIdInFilter';
+	}
+	
+	/**
+	 * Permission item identifiers
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Permission item identifiers
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.PermissionItemByIdInFilter = PermissionItemByIdInFilter;
+
+/**
+ *
+ */
+class PermissionItemByApiActionFilter extends PermissionItemFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPermissionItemByApiActionFilter';
+	}
+	
+	/**
+	 * API service name
+	 * @return string
+	 */
+	 getServiceEqual() {
+	 	return this.serviceEqual;
+	 }
+	
+	/**
+	 * @param serviceEqual string API service name
+	 */
+	 setServiceEqual(serviceEqual) {
+	 	this.serviceEqual = serviceEqual;
+	 }
+	
+	/**
+	 * API action name
+	 * @return string
+	 */
+	 getActionEqual() {
+	 	return this.actionEqual;
+	 }
+	
+	/**
+	 * @param actionEqual string API action name
+	 */
+	 setActionEqual(actionEqual) {
+	 	this.actionEqual = actionEqual;
+	 }
+}
+module.exports.PermissionItemByApiActionFilter = PermissionItemByApiActionFilter;
+
+/**
+ *
+ */
+class PermissionItemByArgumentFilter extends PermissionItemByApiActionFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPermissionItemByArgumentFilter';
+	}
+	
+	/**
+	 * Parameter name
+	 * @return string
+	 */
+	 getParameterEqual() {
+	 	return this.parameterEqual;
+	 }
+	
+	/**
+	 * @param parameterEqual string Parameter name
+	 */
+	 setParameterEqual(parameterEqual) {
+	 	this.parameterEqual = parameterEqual;
+	 }
+}
+module.exports.PermissionItemByArgumentFilter = PermissionItemByArgumentFilter;
+
+/**
+ *
+ */
+class PermissionItemByParameterFilter extends PermissionItemFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPermissionItemByParameterFilter';
+	}
+	
+	/**
+	 * Parameter name
+	 * @return string
+	 */
+	 getParameterEqual() {
+	 	return this.parameterEqual;
+	 }
+	
+	/**
+	 * @param parameterEqual string Parameter name
+	 */
+	 setParameterEqual(parameterEqual) {
+	 	this.parameterEqual = parameterEqual;
+	 }
+	
+	/**
+	 * Parameter name
+	 * @return string
+	 */
+	 getObjectEqual() {
+	 	return this.objectEqual;
+	 }
+	
+	/**
+	 * @param objectEqual string Parameter name
+	 */
+	 setObjectEqual(objectEqual) {
+	 	this.objectEqual = objectEqual;
+	 }
+}
+module.exports.PermissionItemByParameterFilter = PermissionItemByParameterFilter;
+
+/**
+ *
+ */
 class PlaybackProfileFilter extends Filter{
 	
 	constructor(object = null) {
@@ -5878,6 +6028,36 @@ class UserRoleFilter extends Filter{
 	 */
 	 setCurrentUserRoleIdsContains(currentUserRoleIdsContains) {
 	 	this.currentUserRoleIdsContains = currentUserRoleIdsContains;
+	 }
+	
+	/**
+	 * User role type
+	 * @return string
+	 */
+	 getTypeEqual() {
+	 	return this.typeEqual;
+	 }
+	
+	/**
+	 * @param typeEqual string User role type
+	 */
+	 setTypeEqual(typeEqual) {
+	 	this.typeEqual = typeEqual;
+	 }
+	
+	/**
+	 * User role profile
+	 * @return string
+	 */
+	 getProfileEqual() {
+	 	return this.profileEqual;
+	 }
+	
+	/**
+	 * @param profileEqual string User role profile
+	 */
+	 setProfileEqual(profileEqual) {
+	 	this.profileEqual = profileEqual;
 	 }
 }
 module.exports.UserRoleFilter = UserRoleFilter;
@@ -23897,6 +24077,14 @@ class Permission extends kaltura.BaseObject{
 	 setType(type) {
 	 	this.type = type;
 	 }
+	
+	/**
+	 * Comma separated assosiated permission items IDs
+	 * @return string
+	 */
+	 getPermissionItemsIds() {
+	 	return this.permissionItemsIds;
+	 }
 }
 module.exports.Permission = Permission;
 
@@ -24723,6 +24911,29 @@ class UserRole extends kaltura.BaseObject{
 	 */
 	 setExcludedPermissionNames(excludedPermissionNames) {
 	 	this.excludedPermissionNames = excludedPermissionNames;
+	 }
+	
+	/**
+	 * Role type
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * Role profile
+	 * @return string
+	 */
+	 getProfile() {
+	 	return this.profile;
+	 }
+	
+	/**
+	 * @param profile string Role profile
+	 */
+	 setProfile(profile) {
+	 	this.profile = profile;
 	 }
 }
 module.exports.UserRole = UserRole;
@@ -28471,6 +28682,281 @@ class PasswordPolicyListResponse extends ListResponse{
 	 }
 }
 module.exports.PasswordPolicyListResponse = PasswordPolicyListResponse;
+
+/**
+ *
+ */
+class PermissionItem extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPermissionItem';
+	}
+	
+	/**
+	 * Permission item identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Permission item name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Permission item name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Permission isExcluded
+	 * @return bool
+	 */
+	 getIsExcluded() {
+	 	return this.isExcluded;
+	 }
+	
+	/**
+	 * @param isExcluded bool Permission isExcluded
+	 */
+	 setIsExcluded(isExcluded) {
+	 	this.isExcluded = isExcluded;
+	 }
+}
+module.exports.PermissionItem = PermissionItem;
+
+/**
+ *
+ */
+class PermissionItemListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPermissionItemListResponse';
+	}
+	
+	/**
+	 * A list of objects
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of objects
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.PermissionItemListResponse = PermissionItemListResponse;
+
+/**
+ *
+ */
+class ApiActionPermissionItem extends PermissionItem{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaApiActionPermissionItem';
+	}
+	
+	/**
+	 * API service name
+	 * @return string
+	 */
+	 getService() {
+	 	return this.service;
+	 }
+	
+	/**
+	 * @param service string API service name
+	 */
+	 setService(service) {
+	 	this.service = service;
+	 }
+	
+	/**
+	 * API action name
+	 * @return string
+	 */
+	 getAction() {
+	 	return this.action;
+	 }
+	
+	/**
+	 * @param action string API action name
+	 */
+	 setAction(action) {
+	 	this.action = action;
+	 }
+}
+module.exports.ApiActionPermissionItem = ApiActionPermissionItem;
+
+/**
+ *
+ */
+class ApiArgumentPermissionItem extends PermissionItem{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaApiArgumentPermissionItem';
+	}
+	
+	/**
+	 * API service name
+	 * @return string
+	 */
+	 getService() {
+	 	return this.service;
+	 }
+	
+	/**
+	 * @param service string API service name
+	 */
+	 setService(service) {
+	 	this.service = service;
+	 }
+	
+	/**
+	 * API action name
+	 * @return string
+	 */
+	 getAction() {
+	 	return this.action;
+	 }
+	
+	/**
+	 * @param action string API action name
+	 */
+	 setAction(action) {
+	 	this.action = action;
+	 }
+	
+	/**
+	 * API parameter name
+	 * @return string
+	 */
+	 getParameter() {
+	 	return this.parameter;
+	 }
+	
+	/**
+	 * @param parameter string API parameter name
+	 */
+	 setParameter(parameter) {
+	 	this.parameter = parameter;
+	 }
+}
+module.exports.ApiArgumentPermissionItem = ApiArgumentPermissionItem;
+
+/**
+ *
+ */
+class ApiParameterPermissionItem extends PermissionItem{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaApiParameterPermissionItem';
+	}
+	
+	/**
+	 * API object name
+	 * @return string
+	 */
+	 getObject() {
+	 	return this.object;
+	 }
+	
+	/**
+	 * @param object string API object name
+	 */
+	 setObject(object) {
+	 	this.object = object;
+	 }
+	
+	/**
+	 * API parameter name
+	 * @return string
+	 */
+	 getParameter() {
+	 	return this.parameter;
+	 }
+	
+	/**
+	 * @param parameter string API parameter name
+	 */
+	 setParameter(parameter) {
+	 	this.parameter = parameter;
+	 }
+	
+	/**
+	 * API action type
+	 * @return string
+	 */
+	 getAction() {
+	 	return this.action;
+	 }
+	
+	/**
+	 * @param action string API action type
+	 */
+	 setAction(action) {
+	 	this.action = action;
+	 }
+}
+module.exports.ApiParameterPermissionItem = ApiParameterPermissionItem;
+
+/**
+ *
+ */
+class ApiPriviligesPermissionItem extends PermissionItem{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaApiPriviligesPermissionItem';
+	}
+	
+	/**
+	 * API object name
+	 * @return string
+	 */
+	 getObject() {
+	 	return this.object;
+	 }
+	
+	/**
+	 * @param object string API object name
+	 */
+	 setObject(object) {
+	 	this.object = object;
+	 }
+	
+	/**
+	 * API parameter name
+	 * @return string
+	 */
+	 getParameter() {
+	 	return this.parameter;
+	 }
+	
+	/**
+	 * @param parameter string API parameter name
+	 */
+	 setParameter(parameter) {
+	 	this.parameter = parameter;
+	 }
+}
+module.exports.ApiPriviligesPermissionItem = ApiPriviligesPermissionItem;
 
 /**
  *
