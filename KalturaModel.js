@@ -10938,6 +10938,389 @@ module.exports.HouseholdDevice = HouseholdDevice;
 /**
  *
  */
+class BaseChannel extends OTTObjectSupportNullable{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBaseChannel';
+	}
+	
+	/**
+	 * Unique identifier for the channel
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+}
+module.exports.BaseChannel = BaseChannel;
+
+/**
+ *
+ */
+class ChannelOrder extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaChannelOrder';
+	}
+	
+	/**
+	 * Channel dynamic order by (meta)
+	 * @return DynamicOrderBy
+	 */
+	 getDynamicOrderBy() {
+	 	return this.dynamicOrderBy;
+	 }
+	
+	/**
+	 * @param dynamicOrderBy DynamicOrderBy Channel dynamic order by (meta)
+	 */
+	 setDynamicOrderBy(dynamicOrderBy) {
+	 	this.dynamicOrderBy = dynamicOrderBy;
+	 }
+	
+	/**
+	 * Channel order by
+	 * @return string
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy string Channel order by
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+	
+	/**
+	 * Sliding window period in minutes, used only when ordering by LIKES_DESC / VOTES_DESC / RATINGS_DESC / VIEWS_DESC
+	 * @return int
+	 */
+	 getPeriod() {
+	 	return this.period;
+	 }
+	
+	/**
+	 * @param period int Sliding window period in minutes, used only when ordering by LIKES_DESC / VOTES_DESC / RATINGS_DESC / VIEWS_DESC
+	 */
+	 setPeriod(period) {
+	 	this.period = period;
+	 }
+}
+module.exports.ChannelOrder = ChannelOrder;
+
+/**
+ *
+ */
+class Channel extends BaseChannel{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaChannel';
+	}
+	
+	/**
+	 * Channel name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * Channel name
+	 * @return array
+	 */
+	 getMultilingualName() {
+	 	return this.multilingualName;
+	 }
+	
+	/**
+	 * @param multilingualName array Channel name
+	 */
+	 setMultilingualName(multilingualName) {
+	 	this.multilingualName = multilingualName;
+	 }
+	
+	/**
+	 * Channel name
+	 * @return string
+	 */
+	 getOldName() {
+	 	return this.oldName;
+	 }
+	
+	/**
+	 * @param oldName string Channel name
+	 */
+	 setOldName(oldName) {
+	 	this.oldName = oldName;
+	 }
+	
+	/**
+	 * Channel system name
+	 * @return string
+	 */
+	 getSystemName() {
+	 	return this.systemName;
+	 }
+	
+	/**
+	 * @param systemName string Channel system name
+	 */
+	 setSystemName(systemName) {
+	 	this.systemName = systemName;
+	 }
+	
+	/**
+	 * Cannel description
+	 * @return string
+	 */
+	 getDescription() {
+	 	return this.description;
+	 }
+	
+	/**
+	 * Cannel description
+	 * @return array
+	 */
+	 getMultilingualDescription() {
+	 	return this.multilingualDescription;
+	 }
+	
+	/**
+	 * @param multilingualDescription array Cannel description
+	 */
+	 setMultilingualDescription(multilingualDescription) {
+	 	this.multilingualDescription = multilingualDescription;
+	 }
+	
+	/**
+	 * Cannel description
+	 * @return string
+	 */
+	 getOldDescription() {
+	 	return this.oldDescription;
+	 }
+	
+	/**
+	 * @param oldDescription string Cannel description
+	 */
+	 setOldDescription(oldDescription) {
+	 	this.oldDescription = oldDescription;
+	 }
+	
+	/**
+	 * active status
+	 * @return bool
+	 */
+	 getIsActive() {
+	 	return this.isActive;
+	 }
+	
+	/**
+	 * @param isActive bool active status
+	 */
+	 setIsActive(isActive) {
+	 	this.isActive = isActive;
+	 }
+	
+	/**
+	 * Channel order by
+	 * @return ChannelOrder
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy ChannelOrder Channel order by
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+	
+	/**
+	 * Specifies when was the Channel was created. Date and time represented as epoch
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * Specifies when was the Channel last updated. Date and time represented as epoch
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
+	
+	/**
+	 * Specifies whether the assets in this channel will be ordered based on their match to the user&#39;s segments (see BEO-5524)
+	 * @return bool
+	 */
+	 getSupportSegmentBasedOrdering() {
+	 	return this.supportSegmentBasedOrdering;
+	 }
+	
+	/**
+	 * @param supportSegmentBasedOrdering bool Specifies whether the assets in this channel will be ordered based on their match to the user&#39;s segments (see BEO-5524)
+	 */
+	 setSupportSegmentBasedOrdering(supportSegmentBasedOrdering) {
+	 	this.supportSegmentBasedOrdering = supportSegmentBasedOrdering;
+	 }
+	
+	/**
+	 * Asset user rule identifier
+	 * @return int
+	 */
+	 getAssetUserRuleId() {
+	 	return this.assetUserRuleId;
+	 }
+	
+	/**
+	 * @param assetUserRuleId int Asset user rule identifier
+	 */
+	 setAssetUserRuleId(assetUserRuleId) {
+	 	this.assetUserRuleId = assetUserRuleId;
+	 }
+	
+	/**
+	 * key/value map field for extra data
+	 * @return map
+	 */
+	 getMetaData() {
+	 	return this.metaData;
+	 }
+	
+	/**
+	 * @param metaData map key/value map field for extra data
+	 */
+	 setMetaData(metaData) {
+	 	this.metaData = metaData;
+	 }
+}
+module.exports.Channel = Channel;
+
+/**
+ *
+ */
+class DynamicChannel extends Channel{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDynamicChannel';
+	}
+	
+	/**
+	 * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
+ * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
+ * epg_id, media_id - for specific asset IDs.
+ * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restriced to the user by geo-block rules will return.
+ * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
+ * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
+ * epg_channel_id – the channel identifier of the EPG program. *****Deprecated, please use linear_media_id instead*****
+ * linear_media_id – the linear media identifier of the EPG program.
+ * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
+ * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
+ * Logical conjunction: and, or.
+ * Search values are limited to 20 characters each.
+ * (maximum length of entire filter is 4096 characters)
+	 * @return string
+	 */
+	 getKSql() {
+	 	return this.kSql;
+	 }
+	
+	/**
+	 * @param kSql string Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
+ * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
+ * epg_id, media_id - for specific asset IDs.
+ * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restriced to the user by geo-block rules will return.
+ * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
+ * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
+ * epg_channel_id – the channel identifier of the EPG program. *****Deprecated, please use linear_media_id instead*****
+ * linear_media_id – the linear media identifier of the EPG program.
+ * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
+ * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
+ * Logical conjunction: and, or.
+ * Search values are limited to 20 characters each.
+ * (maximum length of entire filter is 4096 characters)
+	 */
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
+	 }
+	
+	/**
+	 * Asset types in the channel.
+ * -26 is EPG
+	 * @return array
+	 */
+	 getAssetTypes() {
+	 	return this.assetTypes;
+	 }
+	
+	/**
+	 * @param assetTypes array Asset types in the channel.
+ * -26 is EPG
+	 */
+	 setAssetTypes(assetTypes) {
+	 	this.assetTypes = assetTypes;
+	 }
+	
+	/**
+	 * Channel group by
+	 * @return AssetGroupBy
+	 */
+	 getGroupBy() {
+	 	return this.groupBy;
+	 }
+	
+	/**
+	 * @param groupBy AssetGroupBy Channel group by
+	 */
+	 setGroupBy(groupBy) {
+	 	this.groupBy = groupBy;
+	 }
+}
+module.exports.DynamicChannel = DynamicChannel;
+
+/**
+ *
+ */
+class ManualChannel extends Channel{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaManualChannel';
+	}
+	
+	/**
+	 * A list of comma separated media ids associated with this channel, according to the order of the medias in the channel
+	 * @return string
+	 */
+	 getMediaIds() {
+	 	return this.mediaIds;
+	 }
+	
+	/**
+	 * @param mediaIds string A list of comma separated media ids associated with this channel, according to the order of the medias in the channel
+	 */
+	 setMediaIds(mediaIds) {
+	 	this.mediaIds = mediaIds;
+	 }
+}
+module.exports.ManualChannel = ManualChannel;
+
+/**
+ *
+ */
 class Rule extends OTTObjectSupportNullable{
 	
 	constructor(object = null) {
@@ -12162,26 +12545,6 @@ module.exports.TvmGeoRule = TvmGeoRule;
 /**
  *
  */
-class BaseChannel extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBaseChannel';
-	}
-	
-	/**
-	 * Unique identifier for the channel
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-}
-module.exports.BaseChannel = BaseChannel;
-
-/**
- *
- */
 class DiscountModule extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -12736,369 +13099,6 @@ class CollectionListResponse extends ListResponse{
 	 }
 }
 module.exports.CollectionListResponse = CollectionListResponse;
-
-/**
- *
- */
-class ChannelOrder extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaChannelOrder';
-	}
-	
-	/**
-	 * Channel dynamic order by (meta)
-	 * @return DynamicOrderBy
-	 */
-	 getDynamicOrderBy() {
-	 	return this.dynamicOrderBy;
-	 }
-	
-	/**
-	 * @param dynamicOrderBy DynamicOrderBy Channel dynamic order by (meta)
-	 */
-	 setDynamicOrderBy(dynamicOrderBy) {
-	 	this.dynamicOrderBy = dynamicOrderBy;
-	 }
-	
-	/**
-	 * Channel order by
-	 * @return string
-	 */
-	 getOrderBy() {
-	 	return this.orderBy;
-	 }
-	
-	/**
-	 * @param orderBy string Channel order by
-	 */
-	 setOrderBy(orderBy) {
-	 	this.orderBy = orderBy;
-	 }
-	
-	/**
-	 * Sliding window period in minutes, used only when ordering by LIKES_DESC / VOTES_DESC / RATINGS_DESC / VIEWS_DESC
-	 * @return int
-	 */
-	 getPeriod() {
-	 	return this.period;
-	 }
-	
-	/**
-	 * @param period int Sliding window period in minutes, used only when ordering by LIKES_DESC / VOTES_DESC / RATINGS_DESC / VIEWS_DESC
-	 */
-	 setPeriod(period) {
-	 	this.period = period;
-	 }
-}
-module.exports.ChannelOrder = ChannelOrder;
-
-/**
- *
- */
-class Channel extends BaseChannel{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaChannel';
-	}
-	
-	/**
-	 * Channel name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * Channel name
-	 * @return array
-	 */
-	 getMultilingualName() {
-	 	return this.multilingualName;
-	 }
-	
-	/**
-	 * @param multilingualName array Channel name
-	 */
-	 setMultilingualName(multilingualName) {
-	 	this.multilingualName = multilingualName;
-	 }
-	
-	/**
-	 * Channel name
-	 * @return string
-	 */
-	 getOldName() {
-	 	return this.oldName;
-	 }
-	
-	/**
-	 * @param oldName string Channel name
-	 */
-	 setOldName(oldName) {
-	 	this.oldName = oldName;
-	 }
-	
-	/**
-	 * Channel system name
-	 * @return string
-	 */
-	 getSystemName() {
-	 	return this.systemName;
-	 }
-	
-	/**
-	 * @param systemName string Channel system name
-	 */
-	 setSystemName(systemName) {
-	 	this.systemName = systemName;
-	 }
-	
-	/**
-	 * Cannel description
-	 * @return string
-	 */
-	 getDescription() {
-	 	return this.description;
-	 }
-	
-	/**
-	 * Cannel description
-	 * @return array
-	 */
-	 getMultilingualDescription() {
-	 	return this.multilingualDescription;
-	 }
-	
-	/**
-	 * @param multilingualDescription array Cannel description
-	 */
-	 setMultilingualDescription(multilingualDescription) {
-	 	this.multilingualDescription = multilingualDescription;
-	 }
-	
-	/**
-	 * Cannel description
-	 * @return string
-	 */
-	 getOldDescription() {
-	 	return this.oldDescription;
-	 }
-	
-	/**
-	 * @param oldDescription string Cannel description
-	 */
-	 setOldDescription(oldDescription) {
-	 	this.oldDescription = oldDescription;
-	 }
-	
-	/**
-	 * active status
-	 * @return bool
-	 */
-	 getIsActive() {
-	 	return this.isActive;
-	 }
-	
-	/**
-	 * @param isActive bool active status
-	 */
-	 setIsActive(isActive) {
-	 	this.isActive = isActive;
-	 }
-	
-	/**
-	 * Channel order by
-	 * @return ChannelOrder
-	 */
-	 getOrderBy() {
-	 	return this.orderBy;
-	 }
-	
-	/**
-	 * @param orderBy ChannelOrder Channel order by
-	 */
-	 setOrderBy(orderBy) {
-	 	this.orderBy = orderBy;
-	 }
-	
-	/**
-	 * Specifies when was the Channel was created. Date and time represented as epoch
-	 * @return int
-	 */
-	 getCreateDate() {
-	 	return this.createDate;
-	 }
-	
-	/**
-	 * Specifies when was the Channel last updated. Date and time represented as epoch
-	 * @return int
-	 */
-	 getUpdateDate() {
-	 	return this.updateDate;
-	 }
-	
-	/**
-	 * Specifies whether the assets in this channel will be ordered based on their match to the user&#39;s segments (see BEO-5524)
-	 * @return bool
-	 */
-	 getSupportSegmentBasedOrdering() {
-	 	return this.supportSegmentBasedOrdering;
-	 }
-	
-	/**
-	 * @param supportSegmentBasedOrdering bool Specifies whether the assets in this channel will be ordered based on their match to the user&#39;s segments (see BEO-5524)
-	 */
-	 setSupportSegmentBasedOrdering(supportSegmentBasedOrdering) {
-	 	this.supportSegmentBasedOrdering = supportSegmentBasedOrdering;
-	 }
-	
-	/**
-	 * Asset user rule identifier
-	 * @return int
-	 */
-	 getAssetUserRuleId() {
-	 	return this.assetUserRuleId;
-	 }
-	
-	/**
-	 * @param assetUserRuleId int Asset user rule identifier
-	 */
-	 setAssetUserRuleId(assetUserRuleId) {
-	 	this.assetUserRuleId = assetUserRuleId;
-	 }
-	
-	/**
-	 * key/value map field for extra data
-	 * @return map
-	 */
-	 getMetaData() {
-	 	return this.metaData;
-	 }
-	
-	/**
-	 * @param metaData map key/value map field for extra data
-	 */
-	 setMetaData(metaData) {
-	 	this.metaData = metaData;
-	 }
-}
-module.exports.Channel = Channel;
-
-/**
- *
- */
-class DynamicChannel extends Channel{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDynamicChannel';
-	}
-	
-	/**
-	 * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
- * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
- * epg_id, media_id - for specific asset IDs.
- * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restriced to the user by geo-block rules will return.
- * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
- * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
- * epg_channel_id – the channel identifier of the EPG program. *****Deprecated, please use linear_media_id instead*****
- * linear_media_id – the linear media identifier of the EPG program.
- * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
- * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
- * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
- * Logical conjunction: and, or.
- * Search values are limited to 20 characters each.
- * (maximum length of entire filter is 4096 characters)
-	 * @return string
-	 */
-	 getKSql() {
-	 	return this.kSql;
-	 }
-	
-	/**
-	 * @param kSql string Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
- * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
- * epg_id, media_id - for specific asset IDs.
- * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restriced to the user by geo-block rules will return.
- * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
- * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
- * epg_channel_id – the channel identifier of the EPG program. *****Deprecated, please use linear_media_id instead*****
- * linear_media_id – the linear media identifier of the EPG program.
- * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
- * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
- * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
- * Logical conjunction: and, or.
- * Search values are limited to 20 characters each.
- * (maximum length of entire filter is 4096 characters)
-	 */
-	 setKSql(kSql) {
-	 	this.kSql = kSql;
-	 }
-	
-	/**
-	 * Asset types in the channel.
- * -26 is EPG
-	 * @return array
-	 */
-	 getAssetTypes() {
-	 	return this.assetTypes;
-	 }
-	
-	/**
-	 * @param assetTypes array Asset types in the channel.
- * -26 is EPG
-	 */
-	 setAssetTypes(assetTypes) {
-	 	this.assetTypes = assetTypes;
-	 }
-	
-	/**
-	 * Channel group by
-	 * @return AssetGroupBy
-	 */
-	 getGroupBy() {
-	 	return this.groupBy;
-	 }
-	
-	/**
-	 * @param groupBy AssetGroupBy Channel group by
-	 */
-	 setGroupBy(groupBy) {
-	 	this.groupBy = groupBy;
-	 }
-}
-module.exports.DynamicChannel = DynamicChannel;
-
-/**
- *
- */
-class ManualChannel extends Channel{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaManualChannel';
-	}
-	
-	/**
-	 * A list of comma separated media ids associated with this channel, according to the order of the medias in the channel
-	 * @return string
-	 */
-	 getMediaIds() {
-	 	return this.mediaIds;
-	 }
-	
-	/**
-	 * @param mediaIds string A list of comma separated media ids associated with this channel, according to the order of the medias in the channel
-	 */
-	 setMediaIds(mediaIds) {
-	 	this.mediaIds = mediaIds;
-	 }
-}
-module.exports.ManualChannel = ManualChannel;
 
 /**
  *
