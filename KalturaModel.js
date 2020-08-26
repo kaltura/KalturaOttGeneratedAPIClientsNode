@@ -369,6 +369,33 @@ module.exports.DetachedResponseProfile = DetachedResponseProfile;
 /**
  *
  */
+class OnDemandResponseProfile extends DetachedResponseProfile{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaOnDemandResponseProfile';
+	}
+	
+	/**
+	 * Comma seperated properties names
+	 * @return string
+	 */
+	 getRetrievedProperties() {
+	 	return this.retrievedProperties;
+	 }
+	
+	/**
+	 * @param retrievedProperties string Comma seperated properties names
+	 */
+	 setRetrievedProperties(retrievedProperties) {
+	 	this.retrievedProperties = retrievedProperties;
+	 }
+}
+module.exports.OnDemandResponseProfile = OnDemandResponseProfile;
+
+/**
+ *
+ */
 class RelatedObjectFilter extends Filter{
 	
 	constructor(object = null) {
@@ -15566,6 +15593,21 @@ class UnifiedBillingCycle extends kaltura.BaseObject{
 	 */
 	 setPaymentGatewayId(paymentGatewayId) {
 	 	this.paymentGatewayId = paymentGatewayId;
+	 }
+	
+	/**
+	 * Define if partial billing shall be calculated or not
+	 * @return bool
+	 */
+	 getIgnorePartialBilling() {
+	 	return this.ignorePartialBilling;
+	 }
+	
+	/**
+	 * @param ignorePartialBilling bool Define if partial billing shall be calculated or not
+	 */
+	 setIgnorePartialBilling(ignorePartialBilling) {
+	 	this.ignorePartialBilling = ignorePartialBilling;
 	 }
 }
 module.exports.UnifiedBillingCycle = UnifiedBillingCycle;
