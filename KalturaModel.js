@@ -369,33 +369,6 @@ module.exports.DetachedResponseProfile = DetachedResponseProfile;
 /**
  *
  */
-class OnDemandResponseProfile extends DetachedResponseProfile{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaOnDemandResponseProfile';
-	}
-	
-	/**
-	 * Comma seperated properties names
-	 * @return string
-	 */
-	 getRetrievedProperties() {
-	 	return this.retrievedProperties;
-	 }
-	
-	/**
-	 * @param retrievedProperties string Comma seperated properties names
-	 */
-	 setRetrievedProperties(retrievedProperties) {
-	 	this.retrievedProperties = retrievedProperties;
-	 }
-}
-module.exports.OnDemandResponseProfile = OnDemandResponseProfile;
-
-/**
- *
- */
 class RelatedObjectFilter extends Filter{
 	
 	constructor(object = null) {
@@ -838,6 +811,18 @@ class HouseholdSegmentFilter extends CrudFilter{
 	 }
 }
 module.exports.HouseholdSegmentFilter = HouseholdSegmentFilter;
+
+/**
+ *
+ */
+class SmsAdapterProfileFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSmsAdapterProfileFilter';
+	}
+}
+module.exports.SmsAdapterProfileFilter = SmsAdapterProfileFilter;
 
 /**
  *
@@ -10035,6 +10020,116 @@ module.exports.HouseholdSegment = HouseholdSegment;
 /**
  *
  */
+class SmsAdapterProfile extends CrudObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSmsAdapterProfile';
+	}
+	
+	/**
+	 * id
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * adapter url
+	 * @return string
+	 */
+	 getAdapterUrl() {
+	 	return this.adapterUrl;
+	 }
+	
+	/**
+	 * @param adapterUrl string adapter url
+	 */
+	 setAdapterUrl(adapterUrl) {
+	 	this.adapterUrl = adapterUrl;
+	 }
+	
+	/**
+	 * Shared Secret
+	 * @return string
+	 */
+	 getSharedSecret() {
+	 	return this.sharedSecret;
+	 }
+	
+	/**
+	 * @param sharedSecret string Shared Secret
+	 */
+	 setSharedSecret(sharedSecret) {
+	 	this.sharedSecret = sharedSecret;
+	 }
+	
+	/**
+	 * SSO Adapter is active status
+	 * @return int
+	 */
+	 getIsActive() {
+	 	return this.isActive;
+	 }
+	
+	/**
+	 * @param isActive int SSO Adapter is active status
+	 */
+	 setIsActive(isActive) {
+	 	this.isActive = isActive;
+	 }
+	
+	/**
+	 * SSO Adapter extra parameters
+	 * @return map
+	 */
+	 getSettings() {
+	 	return this.settings;
+	 }
+	
+	/**
+	 * @param settings map SSO Adapter extra parameters
+	 */
+	 setSettings(settings) {
+	 	this.settings = settings;
+	 }
+	
+	/**
+	 * SSO Adapter external identifier
+	 * @return string
+	 */
+	 getExternalIdentifier() {
+	 	return this.externalIdentifier;
+	 }
+	
+	/**
+	 * @param externalIdentifier string SSO Adapter external identifier
+	 */
+	 setExternalIdentifier(externalIdentifier) {
+	 	this.externalIdentifier = externalIdentifier;
+	 }
+	
+	/**
+	 * Name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+}
+module.exports.SmsAdapterProfile = SmsAdapterProfile;
+
+/**
+ *
+ */
 class HouseholdCoupon extends CrudObject{
 	
 	constructor(object = null) {
@@ -15593,21 +15688,6 @@ class UnifiedBillingCycle extends kaltura.BaseObject{
 	 */
 	 setPaymentGatewayId(paymentGatewayId) {
 	 	this.paymentGatewayId = paymentGatewayId;
-	 }
-	
-	/**
-	 * Define if partial billing shall be calculated or not
-	 * @return bool
-	 */
-	 getIgnorePartialBilling() {
-	 	return this.ignorePartialBilling;
-	 }
-	
-	/**
-	 * @param ignorePartialBilling bool Define if partial billing shall be calculated or not
-	 */
-	 setIgnorePartialBilling(ignorePartialBilling) {
-	 	this.ignorePartialBilling = ignorePartialBilling;
 	 }
 }
 module.exports.UnifiedBillingCycle = UnifiedBillingCycle;
@@ -29083,6 +29163,33 @@ class PurchaseSettings extends Pin{
 	 }
 }
 module.exports.PurchaseSettings = PurchaseSettings;
+
+/**
+ *
+ */
+class SmsAdapterProfileListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSmsAdapterProfileListResponse';
+	}
+	
+	/**
+	 * A list of objects
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of objects
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.SmsAdapterProfileListResponse = SmsAdapterProfileListResponse;
 
 /**
  *

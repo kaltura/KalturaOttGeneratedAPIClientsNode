@@ -1019,6 +1019,10 @@ PREVIOUS : 'Previous',
 ANY : 'Any',
 };
 
+module.exports.SmsAdapterProfileOrderBy = {
+NONE : 'NONE',
+};
+
 module.exports.SocialActionOrderBy = {
 NONE : 'NONE',
 };
