@@ -59,14 +59,6 @@ SENT : 'Sent',
 ABORTED : 'Aborted',
 };
 
-module.exports.ApiParameterPermissionItemAction = {
-READ : 'READ',
-INSERT : 'INSERT',
-UPDATE : 'UPDATE',
-WRITE : 'WRITE',
-ALL : 'ALL',
-};
-
 module.exports.AppTokenHashType = {
 SHA1 : 'SHA1',
 SHA256 : 'SHA256',
@@ -761,10 +753,6 @@ CHANGE_SUBSCRIPTION : 'change_subscription',
 OFFLINE : 'offline',
 };
 
-module.exports.PermissionItemOrderBy = {
-NONE : 'NONE',
-};
-
 module.exports.PermissionOrderBy = {
 NONE : 'NONE',
 };
@@ -1195,18 +1183,6 @@ LIBRARY : 'library',
 
 module.exports.UserRoleOrderBy = {
 NONE : 'NONE',
-};
-
-module.exports.UserRoleProfile = {
-USER : 'USER',
-PARTNER : 'PARTNER',
-PROFILE : 'PROFILE',
-SYSTEM : 'SYSTEM',
-};
-
-module.exports.UserRoleType = {
-SYSTEM : 'SYSTEM',
-CUSTOM : 'CUSTOM',
 };
 
 module.exports.UserState = {

@@ -4099,12 +4099,10 @@ class ottUser{
 	
 	/**
 	 * Logout the calling user.
-	 * @param adapterData map adapter data (optional, default: null)
 	 * @return bool
 	 */
-	static logout(adapterData = null){
+	static logout(){
 		let kparams = {};
-		kparams.adapterData = adapterData;
 		return new kaltura.RequestBuilder('ottuser', 'logout', kparams);
 	};
 	
@@ -4593,11 +4591,9 @@ module.exports.paymentMethodProfile = paymentMethodProfile;
  *Class definition for the Kaltura service: permission.
  * The available service actions:
  * @action add Adds new permission.
- * @action addPermissionItem Adds permission item to permission.
  * @action delete Deletes an existing permission.
  * @action getCurrentPermissions Returns permission names as comma separated string.
  * @action list Retrieving permissions by identifiers, if filter is empty, returns all partner permissions.
- * @action removePermissionItem Removes permission item from permission.
  */
 class permission{
 	
@@ -4610,18 +4606,6 @@ class permission{
 		let kparams = {};
 		kparams.permission = permission;
 		return new kaltura.RequestBuilder('permission', 'add', kparams);
-	};
-	
-	/**
-	 * Adds permission item to permission.
-	 * @param permissionId int Permission ID to add to
-	 * @param permissionItemId int Permission item ID to add
-	 */
-	static addPermissionItem(permissionId, permissionItemId){
-		let kparams = {};
-		kparams.permissionId = permissionId;
-		kparams.permissionItemId = permissionItemId;
-		return new kaltura.RequestBuilder('permission', 'addPermissionItem', kparams);
 	};
 	
 	/**
@@ -4653,43 +4637,8 @@ class permission{
 		kparams.filter = filter;
 		return new kaltura.RequestBuilder('permission', 'list', kparams);
 	};
-	
-	/**
-	 * Removes permission item from permission.
-	 * @param permissionId int Permission ID to remove from
-	 * @param permissionItemId int Permission item ID to remove
-	 */
-	static removePermissionItem(permissionId, permissionItemId){
-		let kparams = {};
-		kparams.permissionId = permissionId;
-		kparams.permissionItemId = permissionItemId;
-		return new kaltura.RequestBuilder('permission', 'removePermissionItem', kparams);
-	};
 }
 module.exports.permission = permission;
-
-
-/**
- *Class definition for the Kaltura service: permissionItem.
- * The available service actions:
- * @action list Return a list of permission items with filtering options.
- */
-class permissionItem{
-	
-	/**
-	 * Return a list of permission items with filtering options.
-	 * @param filter PermissionItemFilter Filter (optional, default: null)
-	 * @param pager FilterPager Pager (optional, default: null)
-	 * @return KalturaPermissionItemListResponse
-	 */
-	static listAction(filter = null, pager = null){
-		let kparams = {};
-		kparams.filter = filter;
-		kparams.pager = pager;
-		return new kaltura.RequestBuilder('permissionitem', 'list', kparams);
-	};
-}
-module.exports.permissionItem = permissionItem;
 
 
 /**
@@ -6813,8 +6762,7 @@ module.exports.userInterest = userInterest;
 /**
  *Class definition for the Kaltura service: userLoginPin.
  * The available service actions:
- * @action add Generate a time and usage expiry login-PIN that can allow a single/multiple login/s per PIN.
- * If an active login-PIN already exists. Calling this API again for same user will add another login-PIN.
+ * @action add Generate a time and usage expiry login-PIN that can allow a single login per PIN. If an active login-PIN already exists. Calling this API again for same user will add another login-PIN.
  * @action delete Immediately deletes a given pre set login pin code for the user.
  * @action deleteAll Immediately expire all active login-PINs for a user.
  * @action update Set a time and usage expiry login-PIN that can allow a single login per PIN. If an active login-PIN already exists. Calling this API again for same user will add another login-PIN.
@@ -6822,18 +6770,13 @@ module.exports.userInterest = userInterest;
 class userLoginPin{
 	
 	/**
-	 * Generate a time and usage expiry login-PIN that can allow a single/multiple login/s per PIN.
- * If an active login-PIN already exists. Calling this API again for same user will add another login-PIN.
+	 * Generate a time and usage expiry login-PIN that can allow a single login per PIN. If an active login-PIN already exists. Calling this API again for same user will add another login-PIN.
 	 * @param secret string Additional security parameter for optional enhanced security (optional, default: null)
-	 * @param pinUsages int Optional number of pin usages (optional, default: null)
-	 * @param pinDuration int Optional duration in minutes of the pin (optional, default: null)
 	 * @return KalturaUserLoginPin
 	 */
-	static add(secret = null, pinUsages = null, pinDuration = null){
+	static add(secret = null){
 		let kparams = {};
 		kparams.secret = secret;
-		kparams.pinUsages = pinUsages;
-		kparams.pinDuration = pinDuration;
 		return new kaltura.RequestBuilder('userloginpin', 'add', kparams);
 	};
 	
@@ -6861,16 +6804,12 @@ class userLoginPin{
 	 * Set a time and usage expiry login-PIN that can allow a single login per PIN. If an active login-PIN already exists. Calling this API again for same user will add another login-PIN.
 	 * @param pinCode string Device Identifier
 	 * @param secret string Additional security parameter to validate the login (optional, default: null)
-	 * @param pinUsages int Optional number of pin usages (optional, default: null)
-	 * @param pinDuration int Optional duration in seconds of the pin (optional, default: null)
 	 * @return KalturaUserLoginPin
 	 */
-	static update(pinCode, secret = null, pinUsages = null, pinDuration = null){
+	static update(pinCode, secret = null){
 		let kparams = {};
 		kparams.pinCode = pinCode;
 		kparams.secret = secret;
-		kparams.pinUsages = pinUsages;
-		kparams.pinDuration = pinDuration;
 		return new kaltura.RequestBuilder('userloginpin', 'update', kparams);
 	};
 }
