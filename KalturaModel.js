@@ -3237,6 +3237,33 @@ module.exports.HouseholdDeviceFilter = HouseholdDeviceFilter;
 /**
  *
  */
+class HouseholdFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdFilter';
+	}
+	
+	/**
+	 * Household external identifier to search by
+	 * @return string
+	 */
+	 getExternalIdEqual() {
+	 	return this.externalIdEqual;
+	 }
+	
+	/**
+	 * @param externalIdEqual string Household external identifier to search by
+	 */
+	 setExternalIdEqual(externalIdEqual) {
+	 	this.externalIdEqual = externalIdEqual;
+	 }
+}
+module.exports.HouseholdFilter = HouseholdFilter;
+
+/**
+ *
+ */
 class HouseholdUserFilter extends Filter{
 	
 	constructor(object = null) {
@@ -3728,6 +3755,66 @@ class TransactionHistoryFilter extends Filter{
 	 */
 	 setEndDateLessThanOrEqual(endDateLessThanOrEqual) {
 	 	this.endDateLessThanOrEqual = endDateLessThanOrEqual;
+	 }
+	
+	/**
+	 * Filter transaction by entitlement id
+	 * @return int
+	 */
+	 getEntitlementIdEqual() {
+	 	return this.entitlementIdEqual;
+	 }
+	
+	/**
+	 * @param entitlementIdEqual int Filter transaction by entitlement id
+	 */
+	 setEntitlementIdEqual(entitlementIdEqual) {
+	 	this.entitlementIdEqual = entitlementIdEqual;
+	 }
+	
+	/**
+	 * Filter transaction by external Id
+	 * @return string
+	 */
+	 getExternalIdEqual() {
+	 	return this.externalIdEqual;
+	 }
+	
+	/**
+	 * @param externalIdEqual string Filter transaction by external Id
+	 */
+	 setExternalIdEqual(externalIdEqual) {
+	 	this.externalIdEqual = externalIdEqual;
+	 }
+	
+	/**
+	 * Filter transaction by billing item type
+	 * @return string
+	 */
+	 getBillingItemsTypeEqual() {
+	 	return this.billingItemsTypeEqual;
+	 }
+	
+	/**
+	 * @param billingItemsTypeEqual string Filter transaction by billing item type
+	 */
+	 setBillingItemsTypeEqual(billingItemsTypeEqual) {
+	 	this.billingItemsTypeEqual = billingItemsTypeEqual;
+	 }
+	
+	/**
+	 * Filter transaction by billing action
+	 * @return string
+	 */
+	 getBillingActionEqual() {
+	 	return this.billingActionEqual;
+	 }
+	
+	/**
+	 * @param billingActionEqual string Filter transaction by billing action
+	 */
+	 setBillingActionEqual(billingActionEqual) {
+	 	this.billingActionEqual = billingActionEqual;
 	 }
 }
 module.exports.TransactionHistoryFilter = TransactionHistoryFilter;
@@ -18680,6 +18767,13 @@ class Entitlement extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * @param endDate int The end date of the entitlement
+	 */
+	 setEndDate(endDate) {
+	 	this.endDate = endDate;
+	 }
+	
+	/**
 	 * Current date
 	 * @return int
 	 */
@@ -27301,8 +27395,51 @@ class Household extends kaltura.BaseObject{
 	 getRoleId() {
 	 	return this.roleId;
 	 }
+	
+	/**
+	 * create date
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * update date
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
 }
 module.exports.Household = Household;
+
+/**
+ *
+ */
+class HouseholdListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdListResponse';
+	}
+	
+	/**
+	 * A list of objects
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of objects
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.HouseholdListResponse = HouseholdListResponse;
 
 /**
  *

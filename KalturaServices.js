@@ -2536,6 +2536,7 @@ module.exports.homeNetwork = homeNetwork;
  * @action add Creates a household for the user.
  * @action delete Fully delete a household. Delete all of the household information, including users, devices, entitlements, payment methods and notification date.
  * @action get Returns the household model.
+ * @action list Get recently watched media for user, ordered by recently watched first.
  * @action purge Purge a household. Delete all of the household information, including users, devices, entitlements, payment methods and notification date.
  * @action resetFrequency Reset a household’s time limitation for removing user or device.
  * @action resume Resumed a given household service to its previous service settings.
@@ -2575,6 +2576,19 @@ class household{
 		let kparams = {};
 		kparams.id = id;
 		return new kaltura.RequestBuilder('household', 'get', kparams);
+	};
+	
+	/**
+	 * Get recently watched media for user, ordered by recently watched first.
+	 * @param filter HouseholdFilter Filter parameters for filtering out the result
+	 * @param pager FilterPager Page size and index. Number of assets to return per page. Possible range 5 ≤ size ≥ 50. If omitted - will be set to 25. If a value > 50 provided – will set to 50 (optional, default: null)
+	 * @return KalturaHouseholdListResponse
+	 */
+	static listAction(filter, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('household', 'list', kparams);
 	};
 	
 	/**
