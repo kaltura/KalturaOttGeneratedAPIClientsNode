@@ -1819,6 +1819,64 @@ module.exports.deviceFamily = deviceFamily;
 
 
 /**
+ *Class definition for the Kaltura service: deviceReferenceData.
+ * The available service actions:
+ * @action add Add an object.
+ * @action update Update an object.
+ * @action delete Delete an object.
+ * @action list .
+ */
+class deviceReferenceData{
+	
+	/**
+	 * Add an object.
+	 * @param objectToAdd DeviceReferenceData Object to add
+	 * @return KalturaDeviceReferenceData
+	 */
+	static add(objectToAdd){
+		let kparams = {};
+		kparams.objectToAdd = objectToAdd;
+		return new kaltura.RequestBuilder('devicereferencedata', 'add', kparams);
+	};
+	
+	/**
+	 * Update an object.
+	 * @param id int Object ID to update
+	 * @param objectToUpdate DeviceReferenceData Object to update
+	 * @return KalturaDeviceReferenceData
+	 */
+	static update(id, objectToUpdate){
+		let kparams = {};
+		kparams.id = id;
+		kparams.objectToUpdate = objectToUpdate;
+		return new kaltura.RequestBuilder('devicereferencedata', 'update', kparams);
+	};
+	
+	/**
+	 * Delete an object.
+	 * @param id int Object ID to delete
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('devicereferencedata', 'delete', kparams);
+	};
+	
+	/**
+	 * .
+	 * @param filter DeviceReferenceDataFilter Request filter (optional, default: null)
+	 * @return KalturaDeviceReferenceDataListResponse
+	 */
+	static listAction(filter = null){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('devicereferencedata', 'list', kparams);
+	};
+}
+module.exports.deviceReferenceData = deviceReferenceData;
+
+
+/**
  *Class definition for the Kaltura service: discountDetails.
  * The available service actions:
  * @action list Returns the list of available discounts details, can be filtered by discount codes.
@@ -2536,7 +2594,6 @@ module.exports.homeNetwork = homeNetwork;
  * @action add Creates a household for the user.
  * @action delete Fully delete a household. Delete all of the household information, including users, devices, entitlements, payment methods and notification date.
  * @action get Returns the household model.
- * @action list Get recently watched media for user, ordered by recently watched first.
  * @action purge Purge a household. Delete all of the household information, including users, devices, entitlements, payment methods and notification date.
  * @action resetFrequency Reset a household’s time limitation for removing user or device.
  * @action resume Resumed a given household service to its previous service settings.
@@ -2576,19 +2633,6 @@ class household{
 		let kparams = {};
 		kparams.id = id;
 		return new kaltura.RequestBuilder('household', 'get', kparams);
-	};
-	
-	/**
-	 * Get recently watched media for user, ordered by recently watched first.
-	 * @param filter HouseholdFilter Filter parameters for filtering out the result
-	 * @param pager FilterPager Page size and index. Number of assets to return per page. Possible range 5 ≤ size ≥ 50. If omitted - will be set to 25. If a value > 50 provided – will set to 50 (optional, default: null)
-	 * @return KalturaHouseholdListResponse
-	 */
-	static listAction(filter, pager = null){
-		let kparams = {};
-		kparams.filter = filter;
-		kparams.pager = pager;
-		return new kaltura.RequestBuilder('household', 'list', kparams);
 	};
 	
 	/**
@@ -3772,15 +3816,11 @@ class notification{
 	/**
 	 * Sends SMS notification to user.
 	 * @param message string Message to send
-	 * @param phoneNumber string Optional phoneNumber (optional, default: null)
-	 * @param adapterData map Data used by the adapter (optional, default: null)
 	 * @return bool
 	 */
-	static sendSms(message, phoneNumber = null, adapterData = null){
+	static sendSms(message){
 		let kparams = {};
 		kparams.message = message;
-		kparams.phoneNumber = phoneNumber;
-		kparams.adapterData = adapterData;
 		return new kaltura.RequestBuilder('notification', 'sendSms', kparams);
 	};
 	
@@ -5704,88 +5744,6 @@ class session{
 	};
 }
 module.exports.session = session;
-
-
-/**
- *Class definition for the Kaltura service: smsAdapterProfile.
- * The available service actions:
- * @action add Add an object.
- * @action update Update an object.
- * @action get Get an object.
- * @action list .
- * @action delete Delete an object.
- * @action generateSharedSecret Generate Sms Adapter shared secret.
- */
-class smsAdapterProfile{
-	
-	/**
-	 * Add an object.
-	 * @param objectToAdd SmsAdapterProfile Object to add
-	 * @return KalturaSmsAdapterProfile
-	 */
-	static add(objectToAdd){
-		let kparams = {};
-		kparams.objectToAdd = objectToAdd;
-		return new kaltura.RequestBuilder('smsadapterprofile', 'add', kparams);
-	};
-	
-	/**
-	 * Update an object.
-	 * @param id int Object ID to update
-	 * @param objectToUpdate SmsAdapterProfile Object to update
-	 * @return KalturaSmsAdapterProfile
-	 */
-	static update(id, objectToUpdate){
-		let kparams = {};
-		kparams.id = id;
-		kparams.objectToUpdate = objectToUpdate;
-		return new kaltura.RequestBuilder('smsadapterprofile', 'update', kparams);
-	};
-	
-	/**
-	 * Get an object.
-	 * @param id int Object ID to get
-	 * @return KalturaSmsAdapterProfile
-	 */
-	static get(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('smsadapterprofile', 'get', kparams);
-	};
-	
-	/**
-	 * .
-	 * @param filter SmsAdapterProfileFilter Request filter
-	 * @return KalturaSmsAdapterProfileListResponse
-	 */
-	static listAction(filter){
-		let kparams = {};
-		kparams.filter = filter;
-		return new kaltura.RequestBuilder('smsadapterprofile', 'list', kparams);
-	};
-	
-	/**
-	 * Delete an object.
-	 * @param id int Object ID to delete
-	 */
-	static deleteAction(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('smsadapterprofile', 'delete', kparams);
-	};
-	
-	/**
-	 * Generate Sms Adapter shared secret.
-	 * @param smsAdapterId int Sms Adapter identifier
-	 * @return KalturaSmsAdapterProfile
-	 */
-	static generateSharedSecret(smsAdapterId){
-		let kparams = {};
-		kparams.smsAdapterId = smsAdapterId;
-		return new kaltura.RequestBuilder('smsadapterprofile', 'generateSharedSecret', kparams);
-	};
-}
-module.exports.smsAdapterProfile = smsAdapterProfile;
 
 
 /**

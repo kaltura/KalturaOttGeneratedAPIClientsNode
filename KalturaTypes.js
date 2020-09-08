@@ -382,6 +382,10 @@ DISABLE : 'Disable',
 DELETE : 'Delete',
 };
 
+module.exports.DeviceReferenceDataOrderBy = {
+NONE : 'NONE',
+};
+
 module.exports.DeviceStatus = {
 PENDING : 'PENDING',
 ACTIVATED : 'ACTIVATED',
@@ -496,17 +500,11 @@ NONE : 'NONE',
 
 module.exports.HouseholdDeviceOrderBy = {
 NONE : 'NONE',
-CREATED_DATE_ASC : 'CREATED_DATE_ASC',
-CREATED_DATE_DESC : 'CREATED_DATE_DESC',
 };
 
 module.exports.HouseholdFrequencyType = {
 DEVICES : 'devices',
 USERS : 'users',
-};
-
-module.exports.HouseholdOrderBy = {
-CREATE_DATE_DESC : 'CREATE_DATE_DESC',
 };
 
 module.exports.HouseholdPaymentGatewaySelectedBy = {
@@ -1023,10 +1021,6 @@ module.exports.SkipOptions = {
 NO : 'No',
 PREVIOUS : 'Previous',
 ANY : 'Any',
-};
-
-module.exports.SmsAdapterProfileOrderBy = {
-NONE : 'NONE',
 };
 
 module.exports.SocialActionOrderBy = {
