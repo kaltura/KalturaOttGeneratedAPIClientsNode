@@ -59,12 +59,21 @@ SENT : 'Sent',
 ABORTED : 'Aborted',
 };
 
+module.exports.ApiAction = {
+INSERT : 'INSERT',
+UPDATE : 'UPDATE',
+};
+
 module.exports.ApiParameterPermissionItemAction = {
 READ : 'READ',
 INSERT : 'INSERT',
 UPDATE : 'UPDATE',
 WRITE : 'WRITE',
 ALL : 'ALL',
+};
+
+module.exports.ApiService = {
+HOUSEHOLD_DEVICE : 'HOUSEHOLD_DEVICE',
 };
 
 module.exports.AppTokenHashType = {
@@ -258,6 +267,10 @@ SUBSCRIPTION : 'subscription',
 COLLECTION : 'collection',
 };
 
+module.exports.CampaignOrderBy = {
+NONE : 'NONE',
+};
+
 module.exports.CategoryItemOrderBy = {
 NAME_ASC : 'NAME_ASC',
 NAME_DESC : 'NAME_DESC',
@@ -382,6 +395,10 @@ DISABLE : 'Disable',
 DELETE : 'Delete',
 };
 
+module.exports.DeviceReferenceDataOrderBy = {
+NONE : 'NONE',
+};
+
 module.exports.DeviceStatus = {
 PENDING : 'PENDING',
 ACTIVATED : 'ACTIVATED',
@@ -408,6 +425,10 @@ HOURS : 'Hours',
 DAYS : 'Days',
 MONTHS : 'Months',
 YEARS : 'Years',
+};
+
+module.exports.DynamicListOrderBy = {
+NONE : 'NONE',
 };
 
 module.exports.EngagementOrderBy = {
@@ -587,6 +608,7 @@ SYSTEMANNOUNCEMENT : 'SystemAnnouncement',
 FOLLOWED : 'Followed',
 ENGAGEMENT : 'Engagement',
 INTEREST : 'Interest',
+CAMPAIGN : 'Campaign',
 };
 
 module.exports.IngestProfileAutofillPolicy = {
@@ -704,6 +726,12 @@ ANNOUNCEMENT : 'announcement',
 SYSTEM : 'system',
 REMINDER : 'Reminder',
 SERIES_REMINDER : 'series_reminder',
+};
+
+module.exports.ObjectState = {
+INACTIVE : 'INACTIVE',
+ACTIVE : 'ACTIVE',
+ARCHIVE : 'ARCHIVE',
 };
 
 module.exports.ObjectVirtualAssetInfoType = {
@@ -971,6 +999,11 @@ HEADER : 'HEADER',
 USER_SUBSCRIPTION : 'USER_SUBSCRIPTION',
 ASSET_SUBSCRIPTION : 'ASSET_SUBSCRIPTION',
 USER_ROLE : 'USER_ROLE',
+DEVICE_BRAND : 'DEVICE_BRAND',
+DEVICE_FAMILY : 'DEVICE_FAMILY',
+DEVICE_MANUFACTURER : 'DEVICE_MANUFACTURER',
+DEVICE_MODEL : 'DEVICE_MODEL',
+DEVICE_UDID : 'DEVICE_UDID',
 };
 
 module.exports.RuleLevel = {

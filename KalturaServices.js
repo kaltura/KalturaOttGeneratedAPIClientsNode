@@ -961,6 +961,77 @@ module.exports.businessModuleRule = businessModuleRule;
 
 
 /**
+ *Class definition for the Kaltura service: campaign.
+ * The available service actions:
+ * @action add Add an object.
+ * @action update Update an object.
+ * @action delete Delete an object.
+ * @action list .
+ * @action setState Set campaign&#39;s state.
+ */
+class campaign{
+	
+	/**
+	 * Add an object.
+	 * @param objectToAdd Campaign Object to add
+	 * @return KalturaCampaign
+	 */
+	static add(objectToAdd){
+		let kparams = {};
+		kparams.objectToAdd = objectToAdd;
+		return new kaltura.RequestBuilder('campaign', 'add', kparams);
+	};
+	
+	/**
+	 * Update an object.
+	 * @param id int Object ID to update
+	 * @param objectToUpdate Campaign Object to update
+	 * @return KalturaCampaign
+	 */
+	static update(id, objectToUpdate){
+		let kparams = {};
+		kparams.id = id;
+		kparams.objectToUpdate = objectToUpdate;
+		return new kaltura.RequestBuilder('campaign', 'update', kparams);
+	};
+	
+	/**
+	 * Delete an object.
+	 * @param id int Object ID to delete
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('campaign', 'delete', kparams);
+	};
+	
+	/**
+	 * .
+	 * @param filter CampaignFilter Request filter
+	 * @return KalturaCampaignListResponse
+	 */
+	static listAction(filter){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('campaign', 'list', kparams);
+	};
+	
+	/**
+	 * Set campaign&#39;s state.
+	 * @param campaignId int campaign Id
+	 * @param newState string new campaign state (enum: KalturaObjectState)
+	 */
+	static setState(campaignId, newState){
+		let kparams = {};
+		kparams.campaignId = campaignId;
+		kparams.newState = newState;
+		return new kaltura.RequestBuilder('campaign', 'setState', kparams);
+	};
+}
+module.exports.campaign = campaign;
+
+
+/**
  *Class definition for the Kaltura service: categoryItem.
  * The available service actions:
  * @action add categoryItem add.
@@ -1819,6 +1890,64 @@ module.exports.deviceFamily = deviceFamily;
 
 
 /**
+ *Class definition for the Kaltura service: deviceReferenceData.
+ * The available service actions:
+ * @action add Add an object.
+ * @action update Update an object.
+ * @action delete Delete an object.
+ * @action list .
+ */
+class deviceReferenceData{
+	
+	/**
+	 * Add an object.
+	 * @param objectToAdd DeviceReferenceData Object to add
+	 * @return KalturaDeviceReferenceData
+	 */
+	static add(objectToAdd){
+		let kparams = {};
+		kparams.objectToAdd = objectToAdd;
+		return new kaltura.RequestBuilder('devicereferencedata', 'add', kparams);
+	};
+	
+	/**
+	 * Update an object.
+	 * @param id int Object ID to update
+	 * @param objectToUpdate DeviceReferenceData Object to update
+	 * @return KalturaDeviceReferenceData
+	 */
+	static update(id, objectToUpdate){
+		let kparams = {};
+		kparams.id = id;
+		kparams.objectToUpdate = objectToUpdate;
+		return new kaltura.RequestBuilder('devicereferencedata', 'update', kparams);
+	};
+	
+	/**
+	 * Delete an object.
+	 * @param id int Object ID to delete
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('devicereferencedata', 'delete', kparams);
+	};
+	
+	/**
+	 * .
+	 * @param filter DeviceReferenceDataFilter Request filter (optional, default: null)
+	 * @return KalturaDeviceReferenceDataListResponse
+	 */
+	static listAction(filter = null){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('devicereferencedata', 'list', kparams);
+	};
+}
+module.exports.deviceReferenceData = deviceReferenceData;
+
+
+/**
  *Class definition for the Kaltura service: discountDetails.
  * The available service actions:
  * @action list Returns the list of available discounts details, can be filtered by discount codes.
@@ -1856,6 +1985,66 @@ class drmProfile{
 	};
 }
 module.exports.drmProfile = drmProfile;
+
+
+/**
+ *Class definition for the Kaltura service: dynamicList.
+ * The available service actions:
+ * @action add Add an object.
+ * @action update Update an object.
+ * @action delete Delete an object.
+ * @action list .
+ */
+class dynamicList{
+	
+	/**
+	 * Add an object.
+	 * @param objectToAdd DynamicList Object to add
+	 * @return KalturaDynamicList
+	 */
+	static add(objectToAdd){
+		let kparams = {};
+		kparams.objectToAdd = objectToAdd;
+		return new kaltura.RequestBuilder('dynamiclist', 'add', kparams);
+	};
+	
+	/**
+	 * Update an object.
+	 * @param id int Object ID to update
+	 * @param objectToUpdate DynamicList Object to update
+	 * @return KalturaDynamicList
+	 */
+	static update(id, objectToUpdate){
+		let kparams = {};
+		kparams.id = id;
+		kparams.objectToUpdate = objectToUpdate;
+		return new kaltura.RequestBuilder('dynamiclist', 'update', kparams);
+	};
+	
+	/**
+	 * Delete an object.
+	 * @param id int Object ID to delete
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('dynamiclist', 'delete', kparams);
+	};
+	
+	/**
+	 * .
+	 * @param filter DynamicListFilter Request filter
+	 * @param pager FilterPager Request pager (optional, default: null)
+	 * @return KalturaDynamicListListResponse
+	 */
+	static listAction(filter, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('dynamiclist', 'list', kparams);
+	};
+}
+module.exports.dynamicList = dynamicList;
 
 
 /**
