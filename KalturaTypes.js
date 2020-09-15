@@ -59,14 +59,6 @@ SENT : 'Sent',
 ABORTED : 'Aborted',
 };
 
-module.exports.ApiParameterPermissionItemAction = {
-READ : 'READ',
-INSERT : 'INSERT',
-UPDATE : 'UPDATE',
-WRITE : 'WRITE',
-ALL : 'ALL',
-};
-
 module.exports.AppTokenHashType = {
 SHA1 : 'SHA1',
 SHA256 : 'SHA256',
@@ -258,16 +250,6 @@ SUBSCRIPTION : 'subscription',
 COLLECTION : 'collection',
 };
 
-module.exports.CategoryItemOrderBy = {
-NAME_ASC : 'NAME_ASC',
-NAME_DESC : 'NAME_DESC',
-CREATE_DATE_ASC : 'CREATE_DATE_ASC',
-CREATE_DATE_DESC : 'CREATE_DATE_DESC',
-NONE : 'NONE',
-UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
-UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
-};
-
 module.exports.ChannelEnrichment = {
 CLIENTLOCATION : 'ClientLocation',
 USERID : 'UserId',
@@ -300,11 +282,6 @@ NAME_ASC : 'NAME_ASC',
 NAME_DESC : 'NAME_DESC',
 CREATE_DATE_ASC : 'CREATE_DATE_ASC',
 CREATE_DATE_DESC : 'CREATE_DATE_DESC',
-};
-
-module.exports.ChannelType = {
-INTERNAL : 'Internal',
-EXTERNAL : 'External',
 };
 
 module.exports.CollectionOrderBy = {
@@ -402,14 +379,6 @@ PLAYREADY : 'PLAYREADY',
 CUSTOM_DRM : 'CUSTOM_DRM',
 };
 
-module.exports.DurationUnit = {
-MINUTES : 'Minutes',
-HOURS : 'Hours',
-DAYS : 'Days',
-MONTHS : 'Months',
-YEARS : 'Years',
-};
-
 module.exports.EngagementOrderBy = {
 NONE : 'NONE',
 };
@@ -460,14 +429,6 @@ FULL : 'full',
 INCREMENTAL : 'incremental',
 };
 
-module.exports.ExternalChannelProfileOrderBy = {
-NONE : 'NONE',
-};
-
-module.exports.ExternalRecordingResponseProfileOrderBy = {
-NONE : 'NONE',
-};
-
 module.exports.FavoriteOrderBy = {
 CREATE_DATE_ASC : 'CREATE_DATE_ASC',
 CREATE_DATE_DESC : 'CREATE_DATE_DESC',
@@ -496,17 +457,11 @@ NONE : 'NONE',
 
 module.exports.HouseholdDeviceOrderBy = {
 NONE : 'NONE',
-CREATED_DATE_ASC : 'CREATED_DATE_ASC',
-CREATED_DATE_DESC : 'CREATED_DATE_DESC',
 };
 
 module.exports.HouseholdFrequencyType = {
 DEVICES : 'devices',
 USERS : 'users',
-};
-
-module.exports.HouseholdOrderBy = {
-CREATE_DATE_DESC : 'CREATE_DATE_DESC',
 };
 
 module.exports.HouseholdPaymentGatewaySelectedBy = {
@@ -599,14 +554,6 @@ module.exports.IngestProfileOverlapPolicy = {
 REJECT : 'REJECT',
 CUT_SOURCE : 'CUT_SOURCE',
 CUT_TARGET : 'CUT_TARGET',
-};
-
-module.exports.IotOrderBy = {
-NONE : 'NONE',
-};
-
-module.exports.IotProfileOrderBy = {
-NONE : 'NONE',
 };
 
 module.exports.LanguageOrderBy = {
@@ -709,7 +656,6 @@ SERIES_REMINDER : 'series_reminder',
 module.exports.ObjectVirtualAssetInfoType = {
 SUBSCRIPTION : 'Subscription',
 SEGMENT : 'Segment',
-CATEGORY : 'Category',
 };
 
 module.exports.OTTUserOrderBy = {
@@ -738,8 +684,6 @@ CONCURRENCY : 'Concurrency',
 GENERAL : 'General',
 OBJECTVIRTUALASSET : 'ObjectVirtualAsset',
 COMMERCE : 'Commerce',
-PLAYBACK : 'Playback',
-PAYMENT : 'Payment',
 };
 
 module.exports.PasswordPolicyOrderBy = {
@@ -765,10 +709,6 @@ IN_APP : 'in_app',
 M1 : 'm1',
 CHANGE_SUBSCRIPTION : 'change_subscription',
 OFFLINE : 'offline',
-};
-
-module.exports.PermissionItemOrderBy = {
-NONE : 'NONE',
 };
 
 module.exports.PermissionOrderBy = {
@@ -905,7 +845,6 @@ module.exports.RecordingType = {
 SINGLE : 'SINGLE',
 SEASON : 'SEASON',
 SERIES : 'SERIES',
-ORIGINALBROADCAST : 'OriginalBroadcast',
 };
 
 module.exports.RegionOrderBy = {
@@ -935,13 +874,6 @@ XML : 2,
 JSONP : 9,
 ASSET_XML : 30,
 EXCEL : 31,
-};
-
-module.exports.RollingDevicePolicy = {
-NONE : 'NONE',
-LIFO : 'LIFO',
-FIFO : 'FIFO',
-ACTIVE_DEVICE_ASCENDING : 'ACTIVE_DEVICE_ASCENDING',
 };
 
 module.exports.RuleActionType = {
@@ -1023,10 +955,6 @@ module.exports.SkipOptions = {
 NO : 'No',
 PREVIOUS : 'Previous',
 ANY : 'Any',
-};
-
-module.exports.SmsAdapterProfileOrderBy = {
-NONE : 'NONE',
 };
 
 module.exports.SocialActionOrderBy = {
@@ -1205,18 +1133,6 @@ LIBRARY : 'library',
 
 module.exports.UserRoleOrderBy = {
 NONE : 'NONE',
-};
-
-module.exports.UserRoleProfile = {
-USER : 'USER',
-PARTNER : 'PARTNER',
-PROFILE : 'PROFILE',
-SYSTEM : 'SYSTEM',
-};
-
-module.exports.UserRoleType = {
-SYSTEM : 'SYSTEM',
-CUSTOM : 'CUSTOM',
 };
 
 module.exports.UserState = {
