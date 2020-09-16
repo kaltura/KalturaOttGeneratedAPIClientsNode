@@ -60,8 +60,7 @@ ABORTED : 'Aborted',
 };
 
 module.exports.ApiAction = {
-INSERT : 'INSERT',
-UPDATE : 'UPDATE',
+ADD : 'ADD',
 };
 
 module.exports.ApiParameterPermissionItemAction = {

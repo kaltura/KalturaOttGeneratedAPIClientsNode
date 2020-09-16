@@ -1994,6 +1994,7 @@ module.exports.drmProfile = drmProfile;
  * @action update Update an object.
  * @action delete Delete an object.
  * @action list .
+ * @action addFromBulkUpload Add new bulk upload batch job Conversion profile id can be specified in the API.
  */
 class dynamicList{
 	
@@ -2042,6 +2043,22 @@ class dynamicList{
 		kparams.filter = filter;
 		kparams.pager = pager;
 		return new kaltura.RequestBuilder('dynamiclist', 'list', kparams);
+	};
+	
+	/**
+	 * Add new bulk upload batch job Conversion profile id can be specified in the API.
+	 * @param fileData file fileData
+	 * @param jobData BulkUploadExcelJobData jobData
+	 * @param bulkUploadAssetData BulkUploadAssetData bulkUploadAssetData
+	 * @return KalturaBulkUpload
+	 */
+	static addFromBulkUpload(fileData, jobData, bulkUploadAssetData){
+		let kparams = {};
+		let kfiles = {};
+		kfiles.fileData = fileData;
+		kparams.jobData = jobData;
+		kparams.bulkUploadAssetData = bulkUploadAssetData;
+		return new kaltura.RequestBuilder('dynamiclist', 'addFromBulkUpload', kparams, kfiles);
 	};
 }
 module.exports.dynamicList = dynamicList;
