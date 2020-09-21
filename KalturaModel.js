@@ -369,33 +369,6 @@ module.exports.DetachedResponseProfile = DetachedResponseProfile;
 /**
  *
  */
-class OnDemandResponseProfile extends DetachedResponseProfile{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaOnDemandResponseProfile';
-	}
-	
-	/**
-	 * Comma seperated properties names
-	 * @return string
-	 */
-	 getRetrievedProperties() {
-	 	return this.retrievedProperties;
-	 }
-	
-	/**
-	 * @param retrievedProperties string Comma seperated properties names
-	 */
-	 setRetrievedProperties(retrievedProperties) {
-	 	this.retrievedProperties = retrievedProperties;
-	 }
-}
-module.exports.OnDemandResponseProfile = OnDemandResponseProfile;
-
-/**
- *
- */
 class RelatedObjectFilter extends Filter{
 	
 	constructor(object = null) {
@@ -842,18 +815,6 @@ module.exports.HouseholdSegmentFilter = HouseholdSegmentFilter;
 /**
  *
  */
-class SmsAdapterProfileFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSmsAdapterProfileFilter';
-	}
-}
-module.exports.SmsAdapterProfileFilter = SmsAdapterProfileFilter;
-
-/**
- *
- */
 class HouseholdCouponFilter extends CrudFilter{
 	
 	constructor(object = null) {
@@ -1000,21 +961,6 @@ class CategoryItemSearchFilter extends CategoryItemFilter{
 	 */
 	 setRootOnly(rootOnly) {
 	 	this.rootOnly = rootOnly;
-	 }
-	
-	/**
-	 * Indicates which category to return by their type
-	 * @return string
-	 */
-	 getTypeEqual() {
-	 	return this.typeEqual;
-	 }
-	
-	/**
-	 * @param typeEqual string Indicates which category to return by their type
-	 */
-	 setTypeEqual(typeEqual) {
-	 	this.typeEqual = typeEqual;
 	 }
 }
 module.exports.CategoryItemSearchFilter = CategoryItemSearchFilter;
@@ -3249,33 +3195,6 @@ module.exports.HouseholdDeviceFilter = HouseholdDeviceFilter;
 /**
  *
  */
-class HouseholdFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdFilter';
-	}
-	
-	/**
-	 * Household external identifier to search by
-	 * @return string
-	 */
-	 getExternalIdEqual() {
-	 	return this.externalIdEqual;
-	 }
-	
-	/**
-	 * @param externalIdEqual string Household external identifier to search by
-	 */
-	 setExternalIdEqual(externalIdEqual) {
-	 	this.externalIdEqual = externalIdEqual;
-	 }
-}
-module.exports.HouseholdFilter = HouseholdFilter;
-
-/**
- *
- */
 class HouseholdUserFilter extends Filter{
 	
 	constructor(object = null) {
@@ -3767,66 +3686,6 @@ class TransactionHistoryFilter extends Filter{
 	 */
 	 setEndDateLessThanOrEqual(endDateLessThanOrEqual) {
 	 	this.endDateLessThanOrEqual = endDateLessThanOrEqual;
-	 }
-	
-	/**
-	 * Filter transaction by entitlement id
-	 * @return int
-	 */
-	 getEntitlementIdEqual() {
-	 	return this.entitlementIdEqual;
-	 }
-	
-	/**
-	 * @param entitlementIdEqual int Filter transaction by entitlement id
-	 */
-	 setEntitlementIdEqual(entitlementIdEqual) {
-	 	this.entitlementIdEqual = entitlementIdEqual;
-	 }
-	
-	/**
-	 * Filter transaction by external Id
-	 * @return string
-	 */
-	 getExternalIdEqual() {
-	 	return this.externalIdEqual;
-	 }
-	
-	/**
-	 * @param externalIdEqual string Filter transaction by external Id
-	 */
-	 setExternalIdEqual(externalIdEqual) {
-	 	this.externalIdEqual = externalIdEqual;
-	 }
-	
-	/**
-	 * Filter transaction by billing item type
-	 * @return string
-	 */
-	 getBillingItemsTypeEqual() {
-	 	return this.billingItemsTypeEqual;
-	 }
-	
-	/**
-	 * @param billingItemsTypeEqual string Filter transaction by billing item type
-	 */
-	 setBillingItemsTypeEqual(billingItemsTypeEqual) {
-	 	this.billingItemsTypeEqual = billingItemsTypeEqual;
-	 }
-	
-	/**
-	 * Filter transaction by billing action
-	 * @return string
-	 */
-	 getBillingActionEqual() {
-	 	return this.billingActionEqual;
-	 }
-	
-	/**
-	 * @param billingActionEqual string Filter transaction by billing action
-	 */
-	 setBillingActionEqual(billingActionEqual) {
-	 	this.billingActionEqual = billingActionEqual;
 	 }
 }
 module.exports.TransactionHistoryFilter = TransactionHistoryFilter;
@@ -5735,156 +5594,6 @@ module.exports.PermissionFilter = PermissionFilter;
 /**
  *
  */
-class PermissionItemFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPermissionItemFilter';
-	}
-}
-module.exports.PermissionItemFilter = PermissionItemFilter;
-
-/**
- *
- */
-class PermissionItemByIdInFilter extends PermissionItemFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPermissionItemByIdInFilter';
-	}
-	
-	/**
-	 * Permission item identifiers
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Permission item identifiers
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.PermissionItemByIdInFilter = PermissionItemByIdInFilter;
-
-/**
- *
- */
-class PermissionItemByApiActionFilter extends PermissionItemFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPermissionItemByApiActionFilter';
-	}
-	
-	/**
-	 * API service name
-	 * @return string
-	 */
-	 getServiceEqual() {
-	 	return this.serviceEqual;
-	 }
-	
-	/**
-	 * @param serviceEqual string API service name
-	 */
-	 setServiceEqual(serviceEqual) {
-	 	this.serviceEqual = serviceEqual;
-	 }
-	
-	/**
-	 * API action name
-	 * @return string
-	 */
-	 getActionEqual() {
-	 	return this.actionEqual;
-	 }
-	
-	/**
-	 * @param actionEqual string API action name
-	 */
-	 setActionEqual(actionEqual) {
-	 	this.actionEqual = actionEqual;
-	 }
-}
-module.exports.PermissionItemByApiActionFilter = PermissionItemByApiActionFilter;
-
-/**
- *
- */
-class PermissionItemByArgumentFilter extends PermissionItemByApiActionFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPermissionItemByArgumentFilter';
-	}
-	
-	/**
-	 * Parameter name
-	 * @return string
-	 */
-	 getParameterEqual() {
-	 	return this.parameterEqual;
-	 }
-	
-	/**
-	 * @param parameterEqual string Parameter name
-	 */
-	 setParameterEqual(parameterEqual) {
-	 	this.parameterEqual = parameterEqual;
-	 }
-}
-module.exports.PermissionItemByArgumentFilter = PermissionItemByArgumentFilter;
-
-/**
- *
- */
-class PermissionItemByParameterFilter extends PermissionItemFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPermissionItemByParameterFilter';
-	}
-	
-	/**
-	 * Parameter name
-	 * @return string
-	 */
-	 getParameterEqual() {
-	 	return this.parameterEqual;
-	 }
-	
-	/**
-	 * @param parameterEqual string Parameter name
-	 */
-	 setParameterEqual(parameterEqual) {
-	 	this.parameterEqual = parameterEqual;
-	 }
-	
-	/**
-	 * Parameter name
-	 * @return string
-	 */
-	 getObjectEqual() {
-	 	return this.objectEqual;
-	 }
-	
-	/**
-	 * @param objectEqual string Parameter name
-	 */
-	 setObjectEqual(objectEqual) {
-	 	this.objectEqual = objectEqual;
-	 }
-}
-module.exports.PermissionItemByParameterFilter = PermissionItemByParameterFilter;
-
-/**
- *
- */
 class PlaybackProfileFilter extends Filter{
 	
 	constructor(object = null) {
@@ -6154,36 +5863,6 @@ class UserRoleFilter extends Filter{
 	 */
 	 setCurrentUserRoleIdsContains(currentUserRoleIdsContains) {
 	 	this.currentUserRoleIdsContains = currentUserRoleIdsContains;
-	 }
-	
-	/**
-	 * User role type
-	 * @return string
-	 */
-	 getTypeEqual() {
-	 	return this.typeEqual;
-	 }
-	
-	/**
-	 * @param typeEqual string User role type
-	 */
-	 setTypeEqual(typeEqual) {
-	 	this.typeEqual = typeEqual;
-	 }
-	
-	/**
-	 * User role profile
-	 * @return string
-	 */
-	 getProfileEqual() {
-	 	return this.profileEqual;
-	 }
-	
-	/**
-	 * @param profileEqual string User role profile
-	 */
-	 setProfileEqual(profileEqual) {
-	 	this.profileEqual = profileEqual;
 	 }
 }
 module.exports.UserRoleFilter = UserRoleFilter;
@@ -7076,21 +6755,6 @@ class MediaFile extends AssetFile{
 	 */
 	 setCatalogEndDate(catalogEndDate) {
 	 	this.catalogEndDate = catalogEndDate;
-	 }
-	
-	/**
-	 * OPL
-	 * @return string
-	 */
-	 getOpl() {
-	 	return this.opl;
-	 }
-	
-	/**
-	 * @param opl string OPL
-	 */
-	 setOpl(opl) {
-	 	this.opl = opl;
 	 }
 }
 module.exports.MediaFile = MediaFile;
@@ -10134,116 +9798,6 @@ module.exports.HouseholdSegment = HouseholdSegment;
 /**
  *
  */
-class SmsAdapterProfile extends CrudObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSmsAdapterProfile';
-	}
-	
-	/**
-	 * id
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * adapter url
-	 * @return string
-	 */
-	 getAdapterUrl() {
-	 	return this.adapterUrl;
-	 }
-	
-	/**
-	 * @param adapterUrl string adapter url
-	 */
-	 setAdapterUrl(adapterUrl) {
-	 	this.adapterUrl = adapterUrl;
-	 }
-	
-	/**
-	 * Shared Secret
-	 * @return string
-	 */
-	 getSharedSecret() {
-	 	return this.sharedSecret;
-	 }
-	
-	/**
-	 * @param sharedSecret string Shared Secret
-	 */
-	 setSharedSecret(sharedSecret) {
-	 	this.sharedSecret = sharedSecret;
-	 }
-	
-	/**
-	 * SSO Adapter is active status
-	 * @return int
-	 */
-	 getIsActive() {
-	 	return this.isActive;
-	 }
-	
-	/**
-	 * @param isActive int SSO Adapter is active status
-	 */
-	 setIsActive(isActive) {
-	 	this.isActive = isActive;
-	 }
-	
-	/**
-	 * SSO Adapter extra parameters
-	 * @return map
-	 */
-	 getSettings() {
-	 	return this.settings;
-	 }
-	
-	/**
-	 * @param settings map SSO Adapter extra parameters
-	 */
-	 setSettings(settings) {
-	 	this.settings = settings;
-	 }
-	
-	/**
-	 * SSO Adapter external identifier
-	 * @return string
-	 */
-	 getExternalIdentifier() {
-	 	return this.externalIdentifier;
-	 }
-	
-	/**
-	 * @param externalIdentifier string SSO Adapter external identifier
-	 */
-	 setExternalIdentifier(externalIdentifier) {
-	 	this.externalIdentifier = externalIdentifier;
-	 }
-	
-	/**
-	 * Name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-}
-module.exports.SmsAdapterProfile = SmsAdapterProfile;
-
-/**
- *
- */
 class HouseholdCoupon extends CrudObject{
 	
 	constructor(object = null) {
@@ -10470,21 +10024,6 @@ class CategoryItem extends CrudObject{
 	 */
 	 setEndDateInSeconds(endDateInSeconds) {
 	 	this.endDateInSeconds = endDateInSeconds;
-	 }
-	
-	/**
-	 * Category type
-	 * @return string
-	 */
-	 getType() {
-	 	return this.type;
-	 }
-	
-	/**
-	 * @param type string Category type
-	 */
-	 setType(type) {
-	 	this.type = type;
 	 }
 }
 module.exports.CategoryItem = CategoryItem;
@@ -11170,389 +10709,6 @@ class HouseholdDevice extends OTTObjectSupportNullable{
 	 }
 }
 module.exports.HouseholdDevice = HouseholdDevice;
-
-/**
- *
- */
-class BaseChannel extends OTTObjectSupportNullable{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBaseChannel';
-	}
-	
-	/**
-	 * Unique identifier for the channel
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-}
-module.exports.BaseChannel = BaseChannel;
-
-/**
- *
- */
-class ChannelOrder extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaChannelOrder';
-	}
-	
-	/**
-	 * Channel dynamic order by (meta)
-	 * @return DynamicOrderBy
-	 */
-	 getDynamicOrderBy() {
-	 	return this.dynamicOrderBy;
-	 }
-	
-	/**
-	 * @param dynamicOrderBy DynamicOrderBy Channel dynamic order by (meta)
-	 */
-	 setDynamicOrderBy(dynamicOrderBy) {
-	 	this.dynamicOrderBy = dynamicOrderBy;
-	 }
-	
-	/**
-	 * Channel order by
-	 * @return string
-	 */
-	 getOrderBy() {
-	 	return this.orderBy;
-	 }
-	
-	/**
-	 * @param orderBy string Channel order by
-	 */
-	 setOrderBy(orderBy) {
-	 	this.orderBy = orderBy;
-	 }
-	
-	/**
-	 * Sliding window period in minutes, used only when ordering by LIKES_DESC / VOTES_DESC / RATINGS_DESC / VIEWS_DESC
-	 * @return int
-	 */
-	 getPeriod() {
-	 	return this.period;
-	 }
-	
-	/**
-	 * @param period int Sliding window period in minutes, used only when ordering by LIKES_DESC / VOTES_DESC / RATINGS_DESC / VIEWS_DESC
-	 */
-	 setPeriod(period) {
-	 	this.period = period;
-	 }
-}
-module.exports.ChannelOrder = ChannelOrder;
-
-/**
- *
- */
-class Channel extends BaseChannel{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaChannel';
-	}
-	
-	/**
-	 * Channel name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * Channel name
-	 * @return array
-	 */
-	 getMultilingualName() {
-	 	return this.multilingualName;
-	 }
-	
-	/**
-	 * @param multilingualName array Channel name
-	 */
-	 setMultilingualName(multilingualName) {
-	 	this.multilingualName = multilingualName;
-	 }
-	
-	/**
-	 * Channel name
-	 * @return string
-	 */
-	 getOldName() {
-	 	return this.oldName;
-	 }
-	
-	/**
-	 * @param oldName string Channel name
-	 */
-	 setOldName(oldName) {
-	 	this.oldName = oldName;
-	 }
-	
-	/**
-	 * Channel system name
-	 * @return string
-	 */
-	 getSystemName() {
-	 	return this.systemName;
-	 }
-	
-	/**
-	 * @param systemName string Channel system name
-	 */
-	 setSystemName(systemName) {
-	 	this.systemName = systemName;
-	 }
-	
-	/**
-	 * Cannel description
-	 * @return string
-	 */
-	 getDescription() {
-	 	return this.description;
-	 }
-	
-	/**
-	 * Cannel description
-	 * @return array
-	 */
-	 getMultilingualDescription() {
-	 	return this.multilingualDescription;
-	 }
-	
-	/**
-	 * @param multilingualDescription array Cannel description
-	 */
-	 setMultilingualDescription(multilingualDescription) {
-	 	this.multilingualDescription = multilingualDescription;
-	 }
-	
-	/**
-	 * Cannel description
-	 * @return string
-	 */
-	 getOldDescription() {
-	 	return this.oldDescription;
-	 }
-	
-	/**
-	 * @param oldDescription string Cannel description
-	 */
-	 setOldDescription(oldDescription) {
-	 	this.oldDescription = oldDescription;
-	 }
-	
-	/**
-	 * active status
-	 * @return bool
-	 */
-	 getIsActive() {
-	 	return this.isActive;
-	 }
-	
-	/**
-	 * @param isActive bool active status
-	 */
-	 setIsActive(isActive) {
-	 	this.isActive = isActive;
-	 }
-	
-	/**
-	 * Channel order by
-	 * @return ChannelOrder
-	 */
-	 getOrderBy() {
-	 	return this.orderBy;
-	 }
-	
-	/**
-	 * @param orderBy ChannelOrder Channel order by
-	 */
-	 setOrderBy(orderBy) {
-	 	this.orderBy = orderBy;
-	 }
-	
-	/**
-	 * Specifies when was the Channel was created. Date and time represented as epoch
-	 * @return int
-	 */
-	 getCreateDate() {
-	 	return this.createDate;
-	 }
-	
-	/**
-	 * Specifies when was the Channel last updated. Date and time represented as epoch
-	 * @return int
-	 */
-	 getUpdateDate() {
-	 	return this.updateDate;
-	 }
-	
-	/**
-	 * Specifies whether the assets in this channel will be ordered based on their match to the user&#39;s segments (see BEO-5524)
-	 * @return bool
-	 */
-	 getSupportSegmentBasedOrdering() {
-	 	return this.supportSegmentBasedOrdering;
-	 }
-	
-	/**
-	 * @param supportSegmentBasedOrdering bool Specifies whether the assets in this channel will be ordered based on their match to the user&#39;s segments (see BEO-5524)
-	 */
-	 setSupportSegmentBasedOrdering(supportSegmentBasedOrdering) {
-	 	this.supportSegmentBasedOrdering = supportSegmentBasedOrdering;
-	 }
-	
-	/**
-	 * Asset user rule identifier
-	 * @return int
-	 */
-	 getAssetUserRuleId() {
-	 	return this.assetUserRuleId;
-	 }
-	
-	/**
-	 * @param assetUserRuleId int Asset user rule identifier
-	 */
-	 setAssetUserRuleId(assetUserRuleId) {
-	 	this.assetUserRuleId = assetUserRuleId;
-	 }
-	
-	/**
-	 * key/value map field for extra data
-	 * @return map
-	 */
-	 getMetaData() {
-	 	return this.metaData;
-	 }
-	
-	/**
-	 * @param metaData map key/value map field for extra data
-	 */
-	 setMetaData(metaData) {
-	 	this.metaData = metaData;
-	 }
-}
-module.exports.Channel = Channel;
-
-/**
- *
- */
-class DynamicChannel extends Channel{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDynamicChannel';
-	}
-	
-	/**
-	 * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
- * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
- * epg_id, media_id - for specific asset IDs.
- * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restriced to the user by geo-block rules will return.
- * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
- * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
- * epg_channel_id – the channel identifier of the EPG program. *****Deprecated, please use linear_media_id instead*****
- * linear_media_id – the linear media identifier of the EPG program.
- * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
- * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
- * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
- * Logical conjunction: and, or.
- * Search values are limited to 20 characters each.
- * (maximum length of entire filter is 4096 characters)
-	 * @return string
-	 */
-	 getKSql() {
-	 	return this.kSql;
-	 }
-	
-	/**
-	 * @param kSql string Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
- * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
- * epg_id, media_id - for specific asset IDs.
- * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restriced to the user by geo-block rules will return.
- * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
- * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
- * epg_channel_id – the channel identifier of the EPG program. *****Deprecated, please use linear_media_id instead*****
- * linear_media_id – the linear media identifier of the EPG program.
- * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
- * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
- * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
- * Logical conjunction: and, or.
- * Search values are limited to 20 characters each.
- * (maximum length of entire filter is 4096 characters)
-	 */
-	 setKSql(kSql) {
-	 	this.kSql = kSql;
-	 }
-	
-	/**
-	 * Asset types in the channel.
- * -26 is EPG
-	 * @return array
-	 */
-	 getAssetTypes() {
-	 	return this.assetTypes;
-	 }
-	
-	/**
-	 * @param assetTypes array Asset types in the channel.
- * -26 is EPG
-	 */
-	 setAssetTypes(assetTypes) {
-	 	this.assetTypes = assetTypes;
-	 }
-	
-	/**
-	 * Channel group by
-	 * @return AssetGroupBy
-	 */
-	 getGroupBy() {
-	 	return this.groupBy;
-	 }
-	
-	/**
-	 * @param groupBy AssetGroupBy Channel group by
-	 */
-	 setGroupBy(groupBy) {
-	 	this.groupBy = groupBy;
-	 }
-}
-module.exports.DynamicChannel = DynamicChannel;
-
-/**
- *
- */
-class ManualChannel extends Channel{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaManualChannel';
-	}
-	
-	/**
-	 * A list of comma separated media ids associated with this channel, according to the order of the medias in the channel
-	 * @return string
-	 */
-	 getMediaIds() {
-	 	return this.mediaIds;
-	 }
-	
-	/**
-	 * @param mediaIds string A list of comma separated media ids associated with this channel, according to the order of the medias in the channel
-	 */
-	 setMediaIds(mediaIds) {
-	 	this.mediaIds = mediaIds;
-	 }
-}
-module.exports.ManualChannel = ManualChannel;
 
 /**
  *
@@ -12781,6 +11937,26 @@ module.exports.TvmGeoRule = TvmGeoRule;
 /**
  *
  */
+class BaseChannel extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBaseChannel';
+	}
+	
+	/**
+	 * Unique identifier for the channel
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+}
+module.exports.BaseChannel = BaseChannel;
+
+/**
+ *
+ */
 class DiscountModule extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -13335,6 +12511,369 @@ class CollectionListResponse extends ListResponse{
 	 }
 }
 module.exports.CollectionListResponse = CollectionListResponse;
+
+/**
+ *
+ */
+class ChannelOrder extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaChannelOrder';
+	}
+	
+	/**
+	 * Channel dynamic order by (meta)
+	 * @return DynamicOrderBy
+	 */
+	 getDynamicOrderBy() {
+	 	return this.dynamicOrderBy;
+	 }
+	
+	/**
+	 * @param dynamicOrderBy DynamicOrderBy Channel dynamic order by (meta)
+	 */
+	 setDynamicOrderBy(dynamicOrderBy) {
+	 	this.dynamicOrderBy = dynamicOrderBy;
+	 }
+	
+	/**
+	 * Channel order by
+	 * @return string
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy string Channel order by
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+	
+	/**
+	 * Sliding window period in minutes, used only when ordering by LIKES_DESC / VOTES_DESC / RATINGS_DESC / VIEWS_DESC
+	 * @return int
+	 */
+	 getPeriod() {
+	 	return this.period;
+	 }
+	
+	/**
+	 * @param period int Sliding window period in minutes, used only when ordering by LIKES_DESC / VOTES_DESC / RATINGS_DESC / VIEWS_DESC
+	 */
+	 setPeriod(period) {
+	 	this.period = period;
+	 }
+}
+module.exports.ChannelOrder = ChannelOrder;
+
+/**
+ *
+ */
+class Channel extends BaseChannel{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaChannel';
+	}
+	
+	/**
+	 * Channel name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * Channel name
+	 * @return array
+	 */
+	 getMultilingualName() {
+	 	return this.multilingualName;
+	 }
+	
+	/**
+	 * @param multilingualName array Channel name
+	 */
+	 setMultilingualName(multilingualName) {
+	 	this.multilingualName = multilingualName;
+	 }
+	
+	/**
+	 * Channel name
+	 * @return string
+	 */
+	 getOldName() {
+	 	return this.oldName;
+	 }
+	
+	/**
+	 * @param oldName string Channel name
+	 */
+	 setOldName(oldName) {
+	 	this.oldName = oldName;
+	 }
+	
+	/**
+	 * Channel system name
+	 * @return string
+	 */
+	 getSystemName() {
+	 	return this.systemName;
+	 }
+	
+	/**
+	 * @param systemName string Channel system name
+	 */
+	 setSystemName(systemName) {
+	 	this.systemName = systemName;
+	 }
+	
+	/**
+	 * Cannel description
+	 * @return string
+	 */
+	 getDescription() {
+	 	return this.description;
+	 }
+	
+	/**
+	 * Cannel description
+	 * @return array
+	 */
+	 getMultilingualDescription() {
+	 	return this.multilingualDescription;
+	 }
+	
+	/**
+	 * @param multilingualDescription array Cannel description
+	 */
+	 setMultilingualDescription(multilingualDescription) {
+	 	this.multilingualDescription = multilingualDescription;
+	 }
+	
+	/**
+	 * Cannel description
+	 * @return string
+	 */
+	 getOldDescription() {
+	 	return this.oldDescription;
+	 }
+	
+	/**
+	 * @param oldDescription string Cannel description
+	 */
+	 setOldDescription(oldDescription) {
+	 	this.oldDescription = oldDescription;
+	 }
+	
+	/**
+	 * active status
+	 * @return bool
+	 */
+	 getIsActive() {
+	 	return this.isActive;
+	 }
+	
+	/**
+	 * @param isActive bool active status
+	 */
+	 setIsActive(isActive) {
+	 	this.isActive = isActive;
+	 }
+	
+	/**
+	 * Channel order by
+	 * @return ChannelOrder
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy ChannelOrder Channel order by
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+	
+	/**
+	 * Specifies when was the Channel was created. Date and time represented as epoch
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * Specifies when was the Channel last updated. Date and time represented as epoch
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
+	
+	/**
+	 * Specifies whether the assets in this channel will be ordered based on their match to the user&#39;s segments (see BEO-5524)
+	 * @return bool
+	 */
+	 getSupportSegmentBasedOrdering() {
+	 	return this.supportSegmentBasedOrdering;
+	 }
+	
+	/**
+	 * @param supportSegmentBasedOrdering bool Specifies whether the assets in this channel will be ordered based on their match to the user&#39;s segments (see BEO-5524)
+	 */
+	 setSupportSegmentBasedOrdering(supportSegmentBasedOrdering) {
+	 	this.supportSegmentBasedOrdering = supportSegmentBasedOrdering;
+	 }
+	
+	/**
+	 * Asset user rule identifier
+	 * @return int
+	 */
+	 getAssetUserRuleId() {
+	 	return this.assetUserRuleId;
+	 }
+	
+	/**
+	 * @param assetUserRuleId int Asset user rule identifier
+	 */
+	 setAssetUserRuleId(assetUserRuleId) {
+	 	this.assetUserRuleId = assetUserRuleId;
+	 }
+	
+	/**
+	 * key/value map field for extra data
+	 * @return map
+	 */
+	 getMetaData() {
+	 	return this.metaData;
+	 }
+	
+	/**
+	 * @param metaData map key/value map field for extra data
+	 */
+	 setMetaData(metaData) {
+	 	this.metaData = metaData;
+	 }
+}
+module.exports.Channel = Channel;
+
+/**
+ *
+ */
+class DynamicChannel extends Channel{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDynamicChannel';
+	}
+	
+	/**
+	 * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
+ * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
+ * epg_id, media_id - for specific asset IDs.
+ * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restriced to the user by geo-block rules will return.
+ * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
+ * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
+ * epg_channel_id – the channel identifier of the EPG program. *****Deprecated, please use linear_media_id instead*****
+ * linear_media_id – the linear media identifier of the EPG program.
+ * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
+ * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
+ * Logical conjunction: and, or.
+ * Search values are limited to 20 characters each.
+ * (maximum length of entire filter is 4096 characters)
+	 * @return string
+	 */
+	 getKSql() {
+	 	return this.kSql;
+	 }
+	
+	/**
+	 * @param kSql string Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
+ * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
+ * epg_id, media_id - for specific asset IDs.
+ * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restriced to the user by geo-block rules will return.
+ * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
+ * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
+ * epg_channel_id – the channel identifier of the EPG program. *****Deprecated, please use linear_media_id instead*****
+ * linear_media_id – the linear media identifier of the EPG program.
+ * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
+ * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
+ * Logical conjunction: and, or.
+ * Search values are limited to 20 characters each.
+ * (maximum length of entire filter is 4096 characters)
+	 */
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
+	 }
+	
+	/**
+	 * Asset types in the channel.
+ * -26 is EPG
+	 * @return array
+	 */
+	 getAssetTypes() {
+	 	return this.assetTypes;
+	 }
+	
+	/**
+	 * @param assetTypes array Asset types in the channel.
+ * -26 is EPG
+	 */
+	 setAssetTypes(assetTypes) {
+	 	this.assetTypes = assetTypes;
+	 }
+	
+	/**
+	 * Channel group by
+	 * @return AssetGroupBy
+	 */
+	 getGroupBy() {
+	 	return this.groupBy;
+	 }
+	
+	/**
+	 * @param groupBy AssetGroupBy Channel group by
+	 */
+	 setGroupBy(groupBy) {
+	 	this.groupBy = groupBy;
+	 }
+}
+module.exports.DynamicChannel = DynamicChannel;
+
+/**
+ *
+ */
+class ManualChannel extends Channel{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaManualChannel';
+	}
+	
+	/**
+	 * A list of comma separated media ids associated with this channel, according to the order of the medias in the channel
+	 * @return string
+	 */
+	 getMediaIds() {
+	 	return this.mediaIds;
+	 }
+	
+	/**
+	 * @param mediaIds string A list of comma separated media ids associated with this channel, according to the order of the medias in the channel
+	 */
+	 setMediaIds(mediaIds) {
+	 	this.mediaIds = mediaIds;
+	 }
+}
+module.exports.ManualChannel = ManualChannel;
 
 /**
  *
@@ -15662,21 +15201,6 @@ class ObjectVirtualAssetInfo extends kaltura.BaseObject{
 	 setType(type) {
 	 	this.type = type;
 	 }
-	
-	/**
-	 * Extended types mapping
-	 * @return map
-	 */
-	 getExtendedTypes() {
-	 	return this.extendedTypes;
-	 }
-	
-	/**
-	 * @param extendedTypes map Extended types mapping
-	 */
-	 setExtendedTypes(extendedTypes) {
-	 	this.extendedTypes = extendedTypes;
-	 }
 }
 module.exports.ObjectVirtualAssetInfo = ObjectVirtualAssetInfo;
 
@@ -15802,21 +15326,6 @@ class UnifiedBillingCycle extends kaltura.BaseObject{
 	 */
 	 setPaymentGatewayId(paymentGatewayId) {
 	 	this.paymentGatewayId = paymentGatewayId;
-	 }
-	
-	/**
-	 * Define if partial billing shall be calculated or not
-	 * @return bool
-	 */
-	 getIgnorePartialBilling() {
-	 	return this.ignorePartialBilling;
-	 }
-	
-	/**
-	 * @param ignorePartialBilling bool Define if partial billing shall be calculated or not
-	 */
-	 setIgnorePartialBilling(ignorePartialBilling) {
-	 	this.ignorePartialBilling = ignorePartialBilling;
 	 }
 }
 module.exports.UnifiedBillingCycle = UnifiedBillingCycle;
@@ -18886,13 +18395,6 @@ class Entitlement extends kaltura.BaseObject{
 	 */
 	 getEndDate() {
 	 	return this.endDate;
-	 }
-	
-	/**
-	 * @param endDate int The end date of the entitlement
-	 */
-	 setEndDate(endDate) {
-	 	this.endDate = endDate;
 	 }
 	
 	/**
@@ -24335,14 +23837,6 @@ class Permission extends kaltura.BaseObject{
 	 setType(type) {
 	 	this.type = type;
 	 }
-	
-	/**
-	 * Comma separated assosiated permission items IDs
-	 * @return string
-	 */
-	 getPermissionItemsIds() {
-	 	return this.permissionItemsIds;
-	 }
 }
 module.exports.Permission = Permission;
 
@@ -25169,29 +24663,6 @@ class UserRole extends kaltura.BaseObject{
 	 */
 	 setExcludedPermissionNames(excludedPermissionNames) {
 	 	this.excludedPermissionNames = excludedPermissionNames;
-	 }
-	
-	/**
-	 * Role type
-	 * @return string
-	 */
-	 getType() {
-	 	return this.type;
-	 }
-	
-	/**
-	 * Role profile
-	 * @return string
-	 */
-	 getProfile() {
-	 	return this.profile;
-	 }
-	
-	/**
-	 * @param profile string Role profile
-	 */
-	 setProfile(profile) {
-	 	this.profile = profile;
 	 }
 }
 module.exports.UserRole = UserRole;
@@ -26426,21 +25897,6 @@ class CategoryTree extends kaltura.BaseObject{
 	 setEndDateInSeconds(endDateInSeconds) {
 	 	this.endDateInSeconds = endDateInSeconds;
 	 }
-	
-	/**
-	 * Category type
-	 * @return string
-	 */
-	 getType() {
-	 	return this.type;
-	 }
-	
-	/**
-	 * @param type string Category type
-	 */
-	 setType(type) {
-	 	this.type = type;
-	 }
 }
 module.exports.CategoryTree = CategoryTree;
 
@@ -27517,51 +26973,8 @@ class Household extends kaltura.BaseObject{
 	 getRoleId() {
 	 	return this.roleId;
 	 }
-	
-	/**
-	 * create date
-	 * @return int
-	 */
-	 getCreateDate() {
-	 	return this.createDate;
-	 }
-	
-	/**
-	 * update date
-	 * @return int
-	 */
-	 getUpdateDate() {
-	 	return this.updateDate;
-	 }
 }
 module.exports.Household = Household;
-
-/**
- *
- */
-class HouseholdListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdListResponse';
-	}
-	
-	/**
-	 * A list of objects
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array A list of objects
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.HouseholdListResponse = HouseholdListResponse;
 
 /**
  *
@@ -28987,281 +28400,6 @@ module.exports.PasswordPolicyListResponse = PasswordPolicyListResponse;
 /**
  *
  */
-class PermissionItem extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPermissionItem';
-	}
-	
-	/**
-	 * Permission item identifier
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Permission item name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Permission item name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
-	 * Permission isExcluded
-	 * @return bool
-	 */
-	 getIsExcluded() {
-	 	return this.isExcluded;
-	 }
-	
-	/**
-	 * @param isExcluded bool Permission isExcluded
-	 */
-	 setIsExcluded(isExcluded) {
-	 	this.isExcluded = isExcluded;
-	 }
-}
-module.exports.PermissionItem = PermissionItem;
-
-/**
- *
- */
-class PermissionItemListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPermissionItemListResponse';
-	}
-	
-	/**
-	 * A list of objects
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array A list of objects
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.PermissionItemListResponse = PermissionItemListResponse;
-
-/**
- *
- */
-class ApiActionPermissionItem extends PermissionItem{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaApiActionPermissionItem';
-	}
-	
-	/**
-	 * API service name
-	 * @return string
-	 */
-	 getService() {
-	 	return this.service;
-	 }
-	
-	/**
-	 * @param service string API service name
-	 */
-	 setService(service) {
-	 	this.service = service;
-	 }
-	
-	/**
-	 * API action name
-	 * @return string
-	 */
-	 getAction() {
-	 	return this.action;
-	 }
-	
-	/**
-	 * @param action string API action name
-	 */
-	 setAction(action) {
-	 	this.action = action;
-	 }
-}
-module.exports.ApiActionPermissionItem = ApiActionPermissionItem;
-
-/**
- *
- */
-class ApiArgumentPermissionItem extends PermissionItem{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaApiArgumentPermissionItem';
-	}
-	
-	/**
-	 * API service name
-	 * @return string
-	 */
-	 getService() {
-	 	return this.service;
-	 }
-	
-	/**
-	 * @param service string API service name
-	 */
-	 setService(service) {
-	 	this.service = service;
-	 }
-	
-	/**
-	 * API action name
-	 * @return string
-	 */
-	 getAction() {
-	 	return this.action;
-	 }
-	
-	/**
-	 * @param action string API action name
-	 */
-	 setAction(action) {
-	 	this.action = action;
-	 }
-	
-	/**
-	 * API parameter name
-	 * @return string
-	 */
-	 getParameter() {
-	 	return this.parameter;
-	 }
-	
-	/**
-	 * @param parameter string API parameter name
-	 */
-	 setParameter(parameter) {
-	 	this.parameter = parameter;
-	 }
-}
-module.exports.ApiArgumentPermissionItem = ApiArgumentPermissionItem;
-
-/**
- *
- */
-class ApiParameterPermissionItem extends PermissionItem{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaApiParameterPermissionItem';
-	}
-	
-	/**
-	 * API object name
-	 * @return string
-	 */
-	 getObject() {
-	 	return this.object;
-	 }
-	
-	/**
-	 * @param object string API object name
-	 */
-	 setObject(object) {
-	 	this.object = object;
-	 }
-	
-	/**
-	 * API parameter name
-	 * @return string
-	 */
-	 getParameter() {
-	 	return this.parameter;
-	 }
-	
-	/**
-	 * @param parameter string API parameter name
-	 */
-	 setParameter(parameter) {
-	 	this.parameter = parameter;
-	 }
-	
-	/**
-	 * API action type
-	 * @return string
-	 */
-	 getAction() {
-	 	return this.action;
-	 }
-	
-	/**
-	 * @param action string API action type
-	 */
-	 setAction(action) {
-	 	this.action = action;
-	 }
-}
-module.exports.ApiParameterPermissionItem = ApiParameterPermissionItem;
-
-/**
- *
- */
-class ApiPriviligesPermissionItem extends PermissionItem{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaApiPriviligesPermissionItem';
-	}
-	
-	/**
-	 * API object name
-	 * @return string
-	 */
-	 getObject() {
-	 	return this.object;
-	 }
-	
-	/**
-	 * @param object string API object name
-	 */
-	 setObject(object) {
-	 	this.object = object;
-	 }
-	
-	/**
-	 * API parameter name
-	 * @return string
-	 */
-	 getParameter() {
-	 	return this.parameter;
-	 }
-	
-	/**
-	 * @param parameter string API parameter name
-	 */
-	 setParameter(parameter) {
-	 	this.parameter = parameter;
-	 }
-}
-module.exports.ApiPriviligesPermissionItem = ApiPriviligesPermissionItem;
-
-/**
- *
- */
 class Pin extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -29342,33 +28480,6 @@ class PurchaseSettings extends Pin{
 	 }
 }
 module.exports.PurchaseSettings = PurchaseSettings;
-
-/**
- *
- */
-class SmsAdapterProfileListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSmsAdapterProfileListResponse';
-	}
-	
-	/**
-	 * A list of objects
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array A list of objects
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.SmsAdapterProfileListResponse = SmsAdapterProfileListResponse;
 
 /**
  *

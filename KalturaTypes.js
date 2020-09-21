@@ -59,14 +59,6 @@ SENT : 'Sent',
 ABORTED : 'Aborted',
 };
 
-module.exports.ApiParameterPermissionItemAction = {
-READ : 'READ',
-INSERT : 'INSERT',
-UPDATE : 'UPDATE',
-WRITE : 'WRITE',
-ALL : 'ALL',
-};
-
 module.exports.AppTokenHashType = {
 SHA1 : 'SHA1',
 SHA256 : 'SHA256',
@@ -496,17 +488,11 @@ NONE : 'NONE',
 
 module.exports.HouseholdDeviceOrderBy = {
 NONE : 'NONE',
-CREATED_DATE_ASC : 'CREATED_DATE_ASC',
-CREATED_DATE_DESC : 'CREATED_DATE_DESC',
 };
 
 module.exports.HouseholdFrequencyType = {
 DEVICES : 'devices',
 USERS : 'users',
-};
-
-module.exports.HouseholdOrderBy = {
-CREATE_DATE_DESC : 'CREATE_DATE_DESC',
 };
 
 module.exports.HouseholdPaymentGatewaySelectedBy = {
@@ -767,10 +753,6 @@ CHANGE_SUBSCRIPTION : 'change_subscription',
 OFFLINE : 'offline',
 };
 
-module.exports.PermissionItemOrderBy = {
-NONE : 'NONE',
-};
-
 module.exports.PermissionOrderBy = {
 NONE : 'NONE',
 };
@@ -1025,10 +1007,6 @@ PREVIOUS : 'Previous',
 ANY : 'Any',
 };
 
-module.exports.SmsAdapterProfileOrderBy = {
-NONE : 'NONE',
-};
-
 module.exports.SocialActionOrderBy = {
 NONE : 'NONE',
 };
@@ -1205,18 +1183,6 @@ LIBRARY : 'library',
 
 module.exports.UserRoleOrderBy = {
 NONE : 'NONE',
-};
-
-module.exports.UserRoleProfile = {
-USER : 'USER',
-PARTNER : 'PARTNER',
-PROFILE : 'PROFILE',
-SYSTEM : 'SYSTEM',
-};
-
-module.exports.UserRoleType = {
-SYSTEM : 'SYSTEM',
-CUSTOM : 'CUSTOM',
 };
 
 module.exports.UserState = {
