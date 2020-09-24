@@ -267,7 +267,7 @@ COLLECTION : 'collection',
 };
 
 module.exports.CampaignOrderBy = {
-NONE : 'NONE',
+START_DATE_DESC : 'START_DATE_DESC',
 };
 
 module.exports.CategoryItemOrderBy = {
@@ -1002,7 +1002,7 @@ DEVICE_BRAND : 'DEVICE_BRAND',
 DEVICE_FAMILY : 'DEVICE_FAMILY',
 DEVICE_MANUFACTURER : 'DEVICE_MANUFACTURER',
 DEVICE_MODEL : 'DEVICE_MODEL',
-DEVICE_UDID : 'DEVICE_UDID',
+DEVICE_UDID_DYNAMIC_LIST : 'DEVICE_UDID_DYNAMIC_LIST',
 };
 
 module.exports.RuleLevel = {

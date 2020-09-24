@@ -572,18 +572,33 @@ class DynamicListSearchFilter extends DynamicListFilter{
 	}
 	
 	/**
-	 * Comma-separated String which represent List of objects that is in the dynamicList
-	 * @return string
+	 * DynamicList id to search by
+	 * @return int
 	 */
-	 getValueIn() {
-	 	return this.valueIn;
+	 getIdEqual() {
+	 	return this.idEqual;
 	 }
 	
 	/**
-	 * @param valueIn string Comma-separated String which represent List of objects that is in the dynamicList
+	 * @param idEqual int DynamicList id to search by
 	 */
-	 setValueIn(valueIn) {
-	 	this.valueIn = valueIn;
+	 setIdEqual(idEqual) {
+	 	this.idEqual = idEqual;
+	 }
+	
+	/**
+	 * udid value that should be in the DynamicList
+	 * @return string
+	 */
+	 getValueEqual() {
+	 	return this.valueEqual;
+	 }
+	
+	/**
+	 * @param valueEqual string udid value that should be in the DynamicList
+	 */
+	 setValueEqual(valueEqual) {
+	 	this.valueEqual = valueEqual;
 	 }
 }
 module.exports.DynamicListSearchFilter = DynamicListSearchFilter;
@@ -591,7 +606,7 @@ module.exports.DynamicListSearchFilter = DynamicListSearchFilter;
 /**
  *
  */
-class UdidDynamicListSearchFilter extends DynamicListFilter{
+class UdidDynamicListSearchFilter extends DynamicListSearchFilter{
 	
 	constructor(object = null) {
 		super(object);
@@ -8401,6 +8416,38 @@ module.exports.BulkUploadProgramAssetResult = BulkUploadProgramAssetResult;
 /**
  *
  */
+class BulkUploadDynamicListResult extends BulkUploadResult{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUploadDynamicListResult';
+	}
+}
+module.exports.BulkUploadDynamicListResult = BulkUploadDynamicListResult;
+
+/**
+ *
+ */
+class BulkUploadUdidDynamicListResult extends BulkUploadDynamicListResult{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUploadUdidDynamicListResult';
+	}
+	
+	/**
+	 * The udid from the excel to add to DynamicLis values
+	 * @return string
+	 */
+	 getUdid() {
+	 	return this.udid;
+	 }
+}
+module.exports.BulkUploadUdidDynamicListResult = BulkUploadUdidDynamicListResult;
+
+/**
+ *
+ */
 class SocialAction extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -11797,29 +11844,29 @@ module.exports.DeviceModelCondition = DeviceModelCondition;
 /**
  *
  */
-class DeviceUdidCondition extends Condition{
+class UdidDynamicListCondition extends Condition{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaDeviceUdidCondition';
+		this.objectType = 'KalturaUdidDynamicListCondition';
 	}
 	
 	/**
-	 * Comma separated Device Udid IDs list
-	 * @return string
+	 * KalturaUdidDynamicList.id
+	 * @return int
 	 */
-	 getUdidIn() {
-	 	return this.udidIn;
+	 getId() {
+	 	return this.id;
 	 }
 	
 	/**
-	 * @param udidIn string Comma separated Device Udid IDs list
+	 * @param id int KalturaUdidDynamicList.id
 	 */
-	 setUdidIn(udidIn) {
-	 	this.udidIn = udidIn;
+	 setId(id) {
+	 	this.id = id;
 	 }
 }
-module.exports.DeviceUdidCondition = DeviceUdidCondition;
+module.exports.UdidDynamicListCondition = UdidDynamicListCondition;
 
 /**
  *
@@ -26954,6 +27001,45 @@ class BulkUploadProgramAssetData extends BulkUploadAssetData{
 	}
 }
 module.exports.BulkUploadProgramAssetData = BulkUploadProgramAssetData;
+
+/**
+ *
+ */
+class BulkUploadDynamicListData extends BulkUploadObjectData{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUploadDynamicListData';
+	}
+	
+	/**
+	 * Identifies the dynamicList Id
+	 * @return int
+	 */
+	 getDynamicListId() {
+	 	return this.dynamicListId;
+	 }
+	
+	/**
+	 * @param dynamicListId int Identifies the dynamicList Id
+	 */
+	 setDynamicListId(dynamicListId) {
+	 	this.dynamicListId = dynamicListId;
+	 }
+}
+module.exports.BulkUploadDynamicListData = BulkUploadDynamicListData;
+
+/**
+ *
+ */
+class BulkUploadUdidDynamicListData extends BulkUploadDynamicListData{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUploadUdidDynamicListData';
+	}
+}
+module.exports.BulkUploadUdidDynamicListData = BulkUploadUdidDynamicListData;
 
 /**
  *

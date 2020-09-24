@@ -2049,15 +2049,15 @@ class dynamicList{
 	 * Add new bulk upload batch job Conversion profile id can be specified in the API.
 	 * @param fileData file fileData
 	 * @param jobData BulkUploadExcelJobData jobData
-	 * @param bulkUploadAssetData BulkUploadAssetData bulkUploadAssetData
+	 * @param bulkUploadData BulkUploadDynamicListData bulkUploadData
 	 * @return KalturaBulkUpload
 	 */
-	static addFromBulkUpload(fileData, jobData, bulkUploadAssetData){
+	static addFromBulkUpload(fileData, jobData, bulkUploadData){
 		let kparams = {};
 		let kfiles = {};
 		kfiles.fileData = fileData;
 		kparams.jobData = jobData;
-		kparams.bulkUploadAssetData = bulkUploadAssetData;
+		kparams.bulkUploadData = bulkUploadData;
 		return new kaltura.RequestBuilder('dynamiclist', 'addFromBulkUpload', kparams, kfiles);
 	};
 }
