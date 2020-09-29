@@ -185,6 +185,7 @@ RENEW_PAYMENT : 'renew_payment',
 RENEW_CANCELED_SUBSCRIPTION : 'renew_canceled_subscription',
 CANCEL_SUBSCRIPTION_ORDER : 'cancel_subscription_order',
 SUBSCRIPTION_DATE_CHANGED : 'subscription_date_changed',
+PENDING : 'pending',
 };
 
 module.exports.BillingItemsType = {
@@ -874,6 +875,7 @@ USER_SUSPENDED : 'user_suspended',
 NOT_FOR_PURCHASE : 'not_for_purchase',
 INVALID_CURRENCY : 'invalid_currency',
 CURRENCY_NOT_DEFINED_ON_PRICE_CODE : 'currency_not_defined_on_price_code',
+PENDING_ENTITLEMENT : 'pending_entitlement',
 };
 
 module.exports.QuotaOveragePolicy = {

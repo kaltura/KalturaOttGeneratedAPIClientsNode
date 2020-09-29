@@ -6005,6 +6005,21 @@ class RegionFilter extends BaseRegionFilter{
 	 setParentOnly(parentOnly) {
 	 	this.parentOnly = parentOnly;
 	 }
+	
+	/**
+	 * Retrieves only the channels belonging specifically to the child region
+	 * @return bool
+	 */
+	 getExclusiveLcn() {
+	 	return this.exclusiveLcn;
+	 }
+	
+	/**
+	 * @param exclusiveLcn bool Retrieves only the channels belonging specifically to the child region
+	 */
+	 setExclusiveLcn(exclusiveLcn) {
+	 	this.exclusiveLcn = exclusiveLcn;
+	 }
 }
 module.exports.RegionFilter = RegionFilter;
 
@@ -18974,6 +18989,21 @@ class Entitlement extends kaltura.BaseObject{
 	 getHouseholdId() {
 	 	return this.householdId;
 	 }
+	
+	/**
+	 * Indicates whether the asynchronous purchase is pending
+	 * @return bool
+	 */
+	 getIsPending() {
+	 	return this.isPending;
+	 }
+	
+	/**
+	 * @param isPending bool Indicates whether the asynchronous purchase is pending
+	 */
+	 setIsPending(isPending) {
+	 	this.isPending = isPending;
+	 }
 }
 module.exports.Entitlement = Entitlement;
 
@@ -22213,6 +22243,21 @@ class PaymentGatewayProfile extends PaymentGatewayBaseProfile{
 	 */
 	 setExternalVerification(externalVerification) {
 	 	this.externalVerification = externalVerification;
+	 }
+	
+	/**
+	 * Payment gateway - Support asynchronous purchase
+	 * @return bool
+	 */
+	 getIsAsyncPolicy() {
+	 	return this.isAsyncPolicy;
+	 }
+	
+	/**
+	 * @param isAsyncPolicy bool Payment gateway - Support asynchronous purchase
+	 */
+	 setIsAsyncPolicy(isAsyncPolicy) {
+	 	this.isAsyncPolicy = isAsyncPolicy;
 	 }
 }
 module.exports.PaymentGatewayProfile = PaymentGatewayProfile;
