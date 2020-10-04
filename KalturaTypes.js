@@ -767,6 +767,7 @@ OBJECTVIRTUALASSET : 'ObjectVirtualAsset',
 COMMERCE : 'Commerce',
 PLAYBACK : 'Playback',
 PAYMENT : 'Payment',
+CATALOG : 'Catalog',
 };
 
 module.exports.PasswordPolicyOrderBy = {

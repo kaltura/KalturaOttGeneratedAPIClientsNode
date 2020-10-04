@@ -1008,11 +1008,13 @@ class campaign{
 	/**
 	 * .
 	 * @param filter CampaignFilter Request filter
+	 * @param pager FilterPager Request pager (optional, default: null)
 	 * @return KalturaCampaignListResponse
 	 */
-	static listAction(filter){
+	static listAction(filter, pager = null){
 		let kparams = {};
 		kparams.filter = filter;
+		kparams.pager = pager;
 		return new kaltura.RequestBuilder('campaign', 'list', kparams);
 	};
 	
@@ -1935,12 +1937,14 @@ class deviceReferenceData{
 	
 	/**
 	 * .
-	 * @param filter DeviceReferenceDataFilter Request filter (optional, default: null)
+	 * @param filter DeviceReferenceDataFilter Request filter
+	 * @param pager FilterPager Request pager (optional, default: null)
 	 * @return KalturaDeviceReferenceDataListResponse
 	 */
-	static listAction(filter = null){
+	static listAction(filter, pager = null){
 		let kparams = {};
 		kparams.filter = filter;
+		kparams.pager = pager;
 		return new kaltura.RequestBuilder('devicereferencedata', 'list', kparams);
 	};
 }

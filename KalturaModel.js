@@ -453,6 +453,21 @@ class DeviceManufacturersReferenceDataFilter extends DeviceReferenceDataFilter{
 		super(object);
 		this.objectType = 'KalturaDeviceManufacturersReferenceDataFilter';
 	}
+	
+	/**
+	 * name equal
+	 * @return string
+	 */
+	 getNameEqual() {
+	 	return this.nameEqual;
+	 }
+	
+	/**
+	 * @param nameEqual string name equal
+	 */
+	 setNameEqual(nameEqual) {
+	 	this.nameEqual = nameEqual;
+	 }
 }
 module.exports.DeviceManufacturersReferenceDataFilter = DeviceManufacturersReferenceDataFilter;
 
@@ -6271,6 +6286,21 @@ class RegionFilter extends BaseRegionFilter{
 	 */
 	 setParentOnly(parentOnly) {
 	 	this.parentOnly = parentOnly;
+	 }
+	
+	/**
+	 * Retrieves only the channels belonging specifically to the child region
+	 * @return bool
+	 */
+	 getExclusiveLcn() {
+	 	return this.exclusiveLcn;
+	 }
+	
+	/**
+	 * @param exclusiveLcn bool Retrieves only the channels belonging specifically to the child region
+	 */
+	 setExclusiveLcn(exclusiveLcn) {
+	 	this.exclusiveLcn = exclusiveLcn;
 	 }
 }
 module.exports.RegionFilter = RegionFilter;
@@ -12508,17 +12538,25 @@ class HouseholdDevice extends OTTObjectSupportNullable{
 	
 	/**
 	 * manufacturer
+	 * @return string
+	 */
+	 getManufacturer() {
+	 	return this.manufacturer;
+	 }
+	
+	/**
+	 * @param manufacturer string manufacturer
+	 */
+	 setManufacturer(manufacturer) {
+	 	this.manufacturer = manufacturer;
+	 }
+	
+	/**
+	 * manufacturer Id, read only
 	 * @return int
 	 */
 	 getManufacturerId() {
 	 	return this.manufacturerId;
-	 }
-	
-	/**
-	 * @param manufacturerId int manufacturer
-	 */
-	 setManufacturerId(manufacturerId) {
-	 	this.manufacturerId = manufacturerId;
 	 }
 }
 module.exports.HouseholdDevice = HouseholdDevice;
@@ -16153,6 +16191,33 @@ class BillingPartnerConfig extends PartnerConfiguration{
 	 }
 }
 module.exports.BillingPartnerConfig = BillingPartnerConfig;
+
+/**
+ *
+ */
+class CatalogPartnerConfig extends PartnerConfiguration{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCatalogPartnerConfig';
+	}
+	
+	/**
+	 * Single multilingual mode
+	 * @return bool
+	 */
+	 getSingleMultilingualMode() {
+	 	return this.singleMultilingualMode;
+	 }
+	
+	/**
+	 * @param singleMultilingualMode bool Single multilingual mode
+	 */
+	 setSingleMultilingualMode(singleMultilingualMode) {
+	 	this.singleMultilingualMode = singleMultilingualMode;
+	 }
+}
+module.exports.CatalogPartnerConfig = CatalogPartnerConfig;
 
 /**
  *
