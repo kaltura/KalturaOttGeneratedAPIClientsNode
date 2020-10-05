@@ -59,20 +59,12 @@ SENT : 'Sent',
 ABORTED : 'Aborted',
 };
 
-module.exports.ApiAction = {
-ADD : 'ADD',
-};
-
 module.exports.ApiParameterPermissionItemAction = {
 READ : 'READ',
 INSERT : 'INSERT',
 UPDATE : 'UPDATE',
 WRITE : 'WRITE',
 ALL : 'ALL',
-};
-
-module.exports.ApiService = {
-HOUSEHOLD_DEVICE : 'HOUSEHOLD_DEVICE',
 };
 
 module.exports.AppTokenHashType = {
@@ -193,6 +185,7 @@ RENEW_PAYMENT : 'renew_payment',
 RENEW_CANCELED_SUBSCRIPTION : 'renew_canceled_subscription',
 CANCEL_SUBSCRIPTION_ORDER : 'cancel_subscription_order',
 SUBSCRIPTION_DATE_CHANGED : 'subscription_date_changed',
+PENDING : 'pending',
 };
 
 module.exports.BillingItemsType = {
@@ -264,10 +257,6 @@ INPROGRESS : 'InProgress',
 module.exports.BundleType = {
 SUBSCRIPTION : 'subscription',
 COLLECTION : 'collection',
-};
-
-module.exports.CampaignOrderBy = {
-NONE : 'NONE',
 };
 
 module.exports.CategoryItemOrderBy = {
@@ -394,10 +383,6 @@ DISABLE : 'Disable',
 DELETE : 'Delete',
 };
 
-module.exports.DeviceReferenceDataOrderBy = {
-NONE : 'NONE',
-};
-
 module.exports.DeviceStatus = {
 PENDING : 'PENDING',
 ACTIVATED : 'ACTIVATED',
@@ -424,10 +409,6 @@ HOURS : 'Hours',
 DAYS : 'Days',
 MONTHS : 'Months',
 YEARS : 'Years',
-};
-
-module.exports.DynamicListOrderBy = {
-NONE : 'NONE',
 };
 
 module.exports.EngagementOrderBy = {
@@ -607,7 +588,6 @@ SYSTEMANNOUNCEMENT : 'SystemAnnouncement',
 FOLLOWED : 'Followed',
 ENGAGEMENT : 'Engagement',
 INTEREST : 'Interest',
-CAMPAIGN : 'Campaign',
 };
 
 module.exports.IngestProfileAutofillPolicy = {
@@ -727,12 +707,6 @@ REMINDER : 'Reminder',
 SERIES_REMINDER : 'series_reminder',
 };
 
-module.exports.ObjectState = {
-INACTIVE : 'INACTIVE',
-ACTIVE : 'ACTIVE',
-ARCHIVE : 'ARCHIVE',
-};
-
 module.exports.ObjectVirtualAssetInfoType = {
 SUBSCRIPTION : 'Subscription',
 SEGMENT : 'Segment',
@@ -767,6 +741,7 @@ OBJECTVIRTUALASSET : 'ObjectVirtualAsset',
 COMMERCE : 'Commerce',
 PLAYBACK : 'Playback',
 PAYMENT : 'Payment',
+CATALOG : 'Catalog',
 };
 
 module.exports.PasswordPolicyOrderBy = {
@@ -901,6 +876,7 @@ USER_SUSPENDED : 'user_suspended',
 NOT_FOR_PURCHASE : 'not_for_purchase',
 INVALID_CURRENCY : 'invalid_currency',
 CURRENCY_NOT_DEFINED_ON_PRICE_CODE : 'currency_not_defined_on_price_code',
+PENDING_ENTITLEMENT : 'pending_entitlement',
 };
 
 module.exports.QuotaOveragePolicy = {
@@ -998,11 +974,6 @@ HEADER : 'HEADER',
 USER_SUBSCRIPTION : 'USER_SUBSCRIPTION',
 ASSET_SUBSCRIPTION : 'ASSET_SUBSCRIPTION',
 USER_ROLE : 'USER_ROLE',
-DEVICE_BRAND : 'DEVICE_BRAND',
-DEVICE_FAMILY : 'DEVICE_FAMILY',
-DEVICE_MANUFACTURER : 'DEVICE_MANUFACTURER',
-DEVICE_MODEL : 'DEVICE_MODEL',
-DEVICE_UDID : 'DEVICE_UDID',
 };
 
 module.exports.RuleLevel = {
