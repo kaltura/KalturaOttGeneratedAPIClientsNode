@@ -408,6 +408,642 @@ module.exports.RelatedObjectFilter = RelatedObjectFilter;
 /**
  *
  */
+class CrudFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCrudFilter';
+	}
+}
+module.exports.CrudFilter = CrudFilter;
+
+/**
+ *
+ */
+class DeviceReferenceDataFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDeviceReferenceDataFilter';
+	}
+	
+	/**
+	 * IdIn
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string IdIn
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.DeviceReferenceDataFilter = DeviceReferenceDataFilter;
+
+/**
+ *
+ */
+class DeviceManufacturersReferenceDataFilter extends DeviceReferenceDataFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDeviceManufacturersReferenceDataFilter';
+	}
+	
+	/**
+	 * name equal
+	 * @return string
+	 */
+	 getNameEqual() {
+	 	return this.nameEqual;
+	 }
+	
+	/**
+	 * @param nameEqual string name equal
+	 */
+	 setNameEqual(nameEqual) {
+	 	this.nameEqual = nameEqual;
+	 }
+}
+module.exports.DeviceManufacturersReferenceDataFilter = DeviceManufacturersReferenceDataFilter;
+
+/**
+ *
+ */
+class PasswordPolicyFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPasswordPolicyFilter';
+	}
+	
+	/**
+	 * Comma separated list of role Ids
+	 * @return string
+	 */
+	 getUserRoleIdIn() {
+	 	return this.userRoleIdIn;
+	 }
+	
+	/**
+	 * @param userRoleIdIn string Comma separated list of role Ids
+	 */
+	 setUserRoleIdIn(userRoleIdIn) {
+	 	this.userRoleIdIn = userRoleIdIn;
+	 }
+}
+module.exports.PasswordPolicyFilter = PasswordPolicyFilter;
+
+/**
+ *
+ */
+class HouseholdSegmentFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdSegmentFilter';
+	}
+	
+	/**
+	 * KSQL expression
+	 * @return string
+	 */
+	 getKSql() {
+	 	return this.kSql;
+	 }
+	
+	/**
+	 * @param kSql string KSQL expression
+	 */
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
+	 }
+}
+module.exports.HouseholdSegmentFilter = HouseholdSegmentFilter;
+
+/**
+ *
+ */
+class SmsAdapterProfileFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSmsAdapterProfileFilter';
+	}
+}
+module.exports.SmsAdapterProfileFilter = SmsAdapterProfileFilter;
+
+/**
+ *
+ */
+class DynamicListFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDynamicListFilter';
+	}
+}
+module.exports.DynamicListFilter = DynamicListFilter;
+
+/**
+ *
+ */
+class DynamicListIdInFilter extends DynamicListFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDynamicListIdInFilter';
+	}
+	
+	/**
+	 * DynamicList identifiers
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string DynamicList identifiers
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.DynamicListIdInFilter = DynamicListIdInFilter;
+
+/**
+ *
+ */
+class DynamicListSearchFilter extends DynamicListFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDynamicListSearchFilter';
+	}
+	
+	/**
+	 * DynamicList id to search by
+	 * @return int
+	 */
+	 getIdEqual() {
+	 	return this.idEqual;
+	 }
+	
+	/**
+	 * @param idEqual int DynamicList id to search by
+	 */
+	 setIdEqual(idEqual) {
+	 	this.idEqual = idEqual;
+	 }
+	
+	/**
+	 * udid value that should be in the DynamicList
+	 * @return string
+	 */
+	 getValueEqual() {
+	 	return this.valueEqual;
+	 }
+	
+	/**
+	 * @param valueEqual string udid value that should be in the DynamicList
+	 */
+	 setValueEqual(valueEqual) {
+	 	this.valueEqual = valueEqual;
+	 }
+}
+module.exports.DynamicListSearchFilter = DynamicListSearchFilter;
+
+/**
+ *
+ */
+class UdidDynamicListSearchFilter extends DynamicListSearchFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUdidDynamicListSearchFilter';
+	}
+}
+module.exports.UdidDynamicListSearchFilter = UdidDynamicListSearchFilter;
+
+/**
+ *
+ */
+class HouseholdCouponFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdCouponFilter';
+	}
+	
+	/**
+	 * Indicates which household coupons list to return by their business module type
+	 * @return string
+	 */
+	 getBusinessModuleTypeEqual() {
+	 	return this.businessModuleTypeEqual;
+	 }
+	
+	/**
+	 * @param businessModuleTypeEqual string Indicates which household coupons list to return by their business module type
+	 */
+	 setBusinessModuleTypeEqual(businessModuleTypeEqual) {
+	 	this.businessModuleTypeEqual = businessModuleTypeEqual;
+	 }
+	
+	/**
+	 * Indicates which household coupons list to return by their business module ID
+	 * @return int
+	 */
+	 getBusinessModuleIdEqual() {
+	 	return this.businessModuleIdEqual;
+	 }
+	
+	/**
+	 * @param businessModuleIdEqual int Indicates which household coupons list to return by their business module ID
+	 */
+	 setBusinessModuleIdEqual(businessModuleIdEqual) {
+	 	this.businessModuleIdEqual = businessModuleIdEqual;
+	 }
+	
+	/**
+	 * Allow clients to inquiry if a specific coupon is part of an HH’s wallet or not
+	 * @return string
+	 */
+	 getCouponCode() {
+	 	return this.couponCode;
+	 }
+	
+	/**
+	 * @param couponCode string Allow clients to inquiry if a specific coupon is part of an HH’s wallet or not
+	 */
+	 setCouponCode(couponCode) {
+	 	this.couponCode = couponCode;
+	 }
+	
+	/**
+	 * Allow clients to filter out coupons which are valid/invalid
+	 * @return string
+	 */
+	 getStatus() {
+	 	return this.status;
+	 }
+	
+	/**
+	 * @param status string Allow clients to filter out coupons which are valid/invalid
+	 */
+	 setStatus(status) {
+	 	this.status = status;
+	 }
+}
+module.exports.HouseholdCouponFilter = HouseholdCouponFilter;
+
+/**
+ *
+ */
+class CategoryItemFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCategoryItemFilter';
+	}
+}
+module.exports.CategoryItemFilter = CategoryItemFilter;
+
+/**
+ *
+ */
+class CategoryItemByIdInFilter extends CategoryItemFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCategoryItemByIdInFilter';
+	}
+	
+	/**
+	 * Category item identifiers
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Category item identifiers
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.CategoryItemByIdInFilter = CategoryItemByIdInFilter;
+
+/**
+ *
+ */
+class CategoryItemSearchFilter extends CategoryItemFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCategoryItemSearchFilter';
+	}
+	
+	/**
+	 * KSQL expression
+	 * @return string
+	 */
+	 getKSql() {
+	 	return this.kSql;
+	 }
+	
+	/**
+	 * @param kSql string KSQL expression
+	 */
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
+	 }
+	
+	/**
+	 * Root only
+	 * @return bool
+	 */
+	 getRootOnly() {
+	 	return this.rootOnly;
+	 }
+	
+	/**
+	 * @param rootOnly bool Root only
+	 */
+	 setRootOnly(rootOnly) {
+	 	this.rootOnly = rootOnly;
+	 }
+	
+	/**
+	 * Indicates which category to return by their type
+	 * @return string
+	 */
+	 getTypeEqual() {
+	 	return this.typeEqual;
+	 }
+	
+	/**
+	 * @param typeEqual string Indicates which category to return by their type
+	 */
+	 setTypeEqual(typeEqual) {
+	 	this.typeEqual = typeEqual;
+	 }
+}
+module.exports.CategoryItemSearchFilter = CategoryItemSearchFilter;
+
+/**
+ *
+ */
+class CategoryItemAncestorsFilter extends CategoryItemFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCategoryItemAncestorsFilter';
+	}
+	
+	/**
+	 * KSQL expression
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id int KSQL expression
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+}
+module.exports.CategoryItemAncestorsFilter = CategoryItemAncestorsFilter;
+
+/**
+ *
+ */
+class CampaignFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCampaignFilter';
+	}
+}
+module.exports.CampaignFilter = CampaignFilter;
+
+/**
+ *
+ */
+class CampaignIdInFilter extends CampaignFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCampaignIdInFilter';
+	}
+	
+	/**
+	 * campaign identifiers
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string campaign identifiers
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.CampaignIdInFilter = CampaignIdInFilter;
+
+/**
+ *
+ */
+class CampaignSearchFilter extends CampaignFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCampaignSearchFilter';
+	}
+	
+	/**
+	 * start Date Greater Than Or Equal
+	 * @return int
+	 */
+	 getStartDateGreaterThanOrEqual() {
+	 	return this.startDateGreaterThanOrEqual;
+	 }
+	
+	/**
+	 * @param startDateGreaterThanOrEqual int start Date Greater Than Or Equal
+	 */
+	 setStartDateGreaterThanOrEqual(startDateGreaterThanOrEqual) {
+	 	this.startDateGreaterThanOrEqual = startDateGreaterThanOrEqual;
+	 }
+	
+	/**
+	 * end Date Greater Than Or Equal
+	 * @return int
+	 */
+	 getEndDateLessThanOrEqual() {
+	 	return this.endDateLessThanOrEqual;
+	 }
+	
+	/**
+	 * @param endDateLessThanOrEqual int end Date Greater Than Or Equal
+	 */
+	 setEndDateLessThanOrEqual(endDateLessThanOrEqual) {
+	 	this.endDateLessThanOrEqual = endDateLessThanOrEqual;
+	 }
+	
+	/**
+	 * state Equal
+	 * @return string
+	 */
+	 getStateEqual() {
+	 	return this.stateEqual;
+	 }
+	
+	/**
+	 * @param stateEqual string state Equal
+	 */
+	 setStateEqual(stateEqual) {
+	 	this.stateEqual = stateEqual;
+	 }
+	
+	/**
+	 * has Promotion
+	 * @return bool
+	 */
+	 getHasPromotion() {
+	 	return this.hasPromotion;
+	 }
+	
+	/**
+	 * @param hasPromotion bool has Promotion
+	 */
+	 setHasPromotion(hasPromotion) {
+	 	this.hasPromotion = hasPromotion;
+	 }
+}
+module.exports.CampaignSearchFilter = CampaignSearchFilter;
+
+/**
+ *
+ */
+class TriggerCampaignSearchFilter extends CampaignSearchFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTriggerCampaignSearchFilter';
+	}
+}
+module.exports.TriggerCampaignSearchFilter = TriggerCampaignSearchFilter;
+
+/**
+ *
+ */
+class BatchCampaignSearchFilter extends CampaignSearchFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBatchCampaignSearchFilter';
+	}
+}
+module.exports.BatchCampaignSearchFilter = BatchCampaignSearchFilter;
+
+/**
+ *
+ */
+class EventNotificationFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEventNotificationFilter';
+	}
+	
+	/**
+	 * Indicates which event notification to return by their event notifications Id
+	 * @return string
+	 */
+	 getIdEqual() {
+	 	return this.idEqual;
+	 }
+	
+	/**
+	 * @param idEqual string Indicates which event notification to return by their event notifications Id
+	 */
+	 setIdEqual(idEqual) {
+	 	this.idEqual = idEqual;
+	 }
+	
+	/**
+	 * Indicates which objectId to return by their event notifications
+	 * @return int
+	 */
+	 getObjectIdEqual() {
+	 	return this.objectIdEqual;
+	 }
+	
+	/**
+	 * @param objectIdEqual int Indicates which objectId to return by their event notifications
+	 */
+	 setObjectIdEqual(objectIdEqual) {
+	 	this.objectIdEqual = objectIdEqual;
+	 }
+	
+	/**
+	 * Indicates which objectType to return by their event notifications
+	 * @return string
+	 */
+	 getEventObjectTypeEqual() {
+	 	return this.eventObjectTypeEqual;
+	 }
+	
+	/**
+	 * @param eventObjectTypeEqual string Indicates which objectType to return by their event notifications
+	 */
+	 setEventObjectTypeEqual(eventObjectTypeEqual) {
+	 	this.eventObjectTypeEqual = eventObjectTypeEqual;
+	 }
+}
+module.exports.EventNotificationFilter = EventNotificationFilter;
+
+/**
+ *
+ */
+class IotFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIotFilter';
+	}
+}
+module.exports.IotFilter = IotFilter;
+
+/**
+ *
+ */
+class IotProfileFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIotProfileFilter';
+	}
+}
+module.exports.IotProfileFilter = IotProfileFilter;
+
+/**
+ *
+ */
 class Value extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -772,360 +1408,6 @@ class OTTUserFilter extends Filter{
 	 }
 }
 module.exports.OTTUserFilter = OTTUserFilter;
-
-/**
- *
- */
-class CrudFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCrudFilter';
-	}
-}
-module.exports.CrudFilter = CrudFilter;
-
-/**
- *
- */
-class PasswordPolicyFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPasswordPolicyFilter';
-	}
-	
-	/**
-	 * Comma separated list of role Ids
-	 * @return string
-	 */
-	 getUserRoleIdIn() {
-	 	return this.userRoleIdIn;
-	 }
-	
-	/**
-	 * @param userRoleIdIn string Comma separated list of role Ids
-	 */
-	 setUserRoleIdIn(userRoleIdIn) {
-	 	this.userRoleIdIn = userRoleIdIn;
-	 }
-}
-module.exports.PasswordPolicyFilter = PasswordPolicyFilter;
-
-/**
- *
- */
-class HouseholdSegmentFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdSegmentFilter';
-	}
-	
-	/**
-	 * KSQL expression
-	 * @return string
-	 */
-	 getKSql() {
-	 	return this.kSql;
-	 }
-	
-	/**
-	 * @param kSql string KSQL expression
-	 */
-	 setKSql(kSql) {
-	 	this.kSql = kSql;
-	 }
-}
-module.exports.HouseholdSegmentFilter = HouseholdSegmentFilter;
-
-/**
- *
- */
-class SmsAdapterProfileFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSmsAdapterProfileFilter';
-	}
-}
-module.exports.SmsAdapterProfileFilter = SmsAdapterProfileFilter;
-
-/**
- *
- */
-class HouseholdCouponFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdCouponFilter';
-	}
-	
-	/**
-	 * Indicates which household coupons list to return by their business module type
-	 * @return string
-	 */
-	 getBusinessModuleTypeEqual() {
-	 	return this.businessModuleTypeEqual;
-	 }
-	
-	/**
-	 * @param businessModuleTypeEqual string Indicates which household coupons list to return by their business module type
-	 */
-	 setBusinessModuleTypeEqual(businessModuleTypeEqual) {
-	 	this.businessModuleTypeEqual = businessModuleTypeEqual;
-	 }
-	
-	/**
-	 * Indicates which household coupons list to return by their business module ID
-	 * @return int
-	 */
-	 getBusinessModuleIdEqual() {
-	 	return this.businessModuleIdEqual;
-	 }
-	
-	/**
-	 * @param businessModuleIdEqual int Indicates which household coupons list to return by their business module ID
-	 */
-	 setBusinessModuleIdEqual(businessModuleIdEqual) {
-	 	this.businessModuleIdEqual = businessModuleIdEqual;
-	 }
-	
-	/**
-	 * Allow clients to inquiry if a specific coupon is part of an HH’s wallet or not
-	 * @return string
-	 */
-	 getCouponCode() {
-	 	return this.couponCode;
-	 }
-	
-	/**
-	 * @param couponCode string Allow clients to inquiry if a specific coupon is part of an HH’s wallet or not
-	 */
-	 setCouponCode(couponCode) {
-	 	this.couponCode = couponCode;
-	 }
-	
-	/**
-	 * Allow clients to filter out coupons which are valid/invalid
-	 * @return string
-	 */
-	 getStatus() {
-	 	return this.status;
-	 }
-	
-	/**
-	 * @param status string Allow clients to filter out coupons which are valid/invalid
-	 */
-	 setStatus(status) {
-	 	this.status = status;
-	 }
-}
-module.exports.HouseholdCouponFilter = HouseholdCouponFilter;
-
-/**
- *
- */
-class CategoryItemFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryItemFilter';
-	}
-}
-module.exports.CategoryItemFilter = CategoryItemFilter;
-
-/**
- *
- */
-class CategoryItemByIdInFilter extends CategoryItemFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryItemByIdInFilter';
-	}
-	
-	/**
-	 * Category item identifiers
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Category item identifiers
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.CategoryItemByIdInFilter = CategoryItemByIdInFilter;
-
-/**
- *
- */
-class CategoryItemSearchFilter extends CategoryItemFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryItemSearchFilter';
-	}
-	
-	/**
-	 * KSQL expression
-	 * @return string
-	 */
-	 getKSql() {
-	 	return this.kSql;
-	 }
-	
-	/**
-	 * @param kSql string KSQL expression
-	 */
-	 setKSql(kSql) {
-	 	this.kSql = kSql;
-	 }
-	
-	/**
-	 * Root only
-	 * @return bool
-	 */
-	 getRootOnly() {
-	 	return this.rootOnly;
-	 }
-	
-	/**
-	 * @param rootOnly bool Root only
-	 */
-	 setRootOnly(rootOnly) {
-	 	this.rootOnly = rootOnly;
-	 }
-	
-	/**
-	 * Indicates which category to return by their type
-	 * @return string
-	 */
-	 getTypeEqual() {
-	 	return this.typeEqual;
-	 }
-	
-	/**
-	 * @param typeEqual string Indicates which category to return by their type
-	 */
-	 setTypeEqual(typeEqual) {
-	 	this.typeEqual = typeEqual;
-	 }
-}
-module.exports.CategoryItemSearchFilter = CategoryItemSearchFilter;
-
-/**
- *
- */
-class CategoryItemAncestorsFilter extends CategoryItemFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryItemAncestorsFilter';
-	}
-	
-	/**
-	 * KSQL expression
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * @param id int KSQL expression
-	 */
-	 setId(id) {
-	 	this.id = id;
-	 }
-}
-module.exports.CategoryItemAncestorsFilter = CategoryItemAncestorsFilter;
-
-/**
- *
- */
-class EventNotificationFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaEventNotificationFilter';
-	}
-	
-	/**
-	 * Indicates which event notification to return by their event notifications Id
-	 * @return string
-	 */
-	 getIdEqual() {
-	 	return this.idEqual;
-	 }
-	
-	/**
-	 * @param idEqual string Indicates which event notification to return by their event notifications Id
-	 */
-	 setIdEqual(idEqual) {
-	 	this.idEqual = idEqual;
-	 }
-	
-	/**
-	 * Indicates which objectId to return by their event notifications
-	 * @return int
-	 */
-	 getObjectIdEqual() {
-	 	return this.objectIdEqual;
-	 }
-	
-	/**
-	 * @param objectIdEqual int Indicates which objectId to return by their event notifications
-	 */
-	 setObjectIdEqual(objectIdEqual) {
-	 	this.objectIdEqual = objectIdEqual;
-	 }
-	
-	/**
-	 * Indicates which objectType to return by their event notifications
-	 * @return string
-	 */
-	 getEventObjectTypeEqual() {
-	 	return this.eventObjectTypeEqual;
-	 }
-	
-	/**
-	 * @param eventObjectTypeEqual string Indicates which objectType to return by their event notifications
-	 */
-	 setEventObjectTypeEqual(eventObjectTypeEqual) {
-	 	this.eventObjectTypeEqual = eventObjectTypeEqual;
-	 }
-}
-module.exports.EventNotificationFilter = EventNotificationFilter;
-
-/**
- *
- */
-class IotFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaIotFilter';
-	}
-}
-module.exports.IotFilter = IotFilter;
-
-/**
- *
- */
-class IotProfileFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaIotProfileFilter';
-	}
-}
-module.exports.IotProfileFilter = IotProfileFilter;
 
 /**
  *
@@ -7424,6 +7706,21 @@ class DrmPlaybackPluginData extends PluginData{
 	 setLicenseURL(licenseURL) {
 	 	this.licenseURL = licenseURL;
 	 }
+	
+	/**
+	 * Dynamic data
+	 * @return map
+	 */
+	 getDynamicData() {
+	 	return this.dynamicData;
+	 }
+	
+	/**
+	 * @param dynamicData map Dynamic data
+	 */
+	 setDynamicData(dynamicData) {
+	 	this.dynamicData = dynamicData;
+	 }
 }
 module.exports.DrmPlaybackPluginData = DrmPlaybackPluginData;
 
@@ -8160,6 +8457,38 @@ class BulkUploadProgramAssetResult extends BulkUploadResult{
 	 }
 }
 module.exports.BulkUploadProgramAssetResult = BulkUploadProgramAssetResult;
+
+/**
+ *
+ */
+class BulkUploadDynamicListResult extends BulkUploadResult{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUploadDynamicListResult';
+	}
+}
+module.exports.BulkUploadDynamicListResult = BulkUploadDynamicListResult;
+
+/**
+ *
+ */
+class BulkUploadUdidDynamicListResult extends BulkUploadDynamicListResult{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUploadUdidDynamicListResult';
+	}
+	
+	/**
+	 * The udid from the excel to add to DynamicLis values
+	 * @return string
+	 */
+	 getUdid() {
+	 	return this.udid;
+	 }
+}
+module.exports.BulkUploadUdidDynamicListResult = BulkUploadUdidDynamicListResult;
 
 /**
  *
@@ -9955,6 +10284,68 @@ module.exports.CrudObject = CrudObject;
 /**
  *
  */
+class DeviceReferenceData extends CrudObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDeviceReferenceData';
+	}
+	
+	/**
+	 * id
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Status
+	 * @return bool
+	 */
+	 getStatus() {
+	 	return this.status;
+	 }
+	
+	/**
+	 * @param status bool Status
+	 */
+	 setStatus(status) {
+	 	this.status = status;
+	 }
+}
+module.exports.DeviceReferenceData = DeviceReferenceData;
+
+/**
+ *
+ */
+class DeviceManufacturerInformation extends DeviceReferenceData{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDeviceManufacturerInformation';
+	}
+}
+module.exports.DeviceManufacturerInformation = DeviceManufacturerInformation;
+
+/**
+ *
+ */
 class RegexExpression extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -10255,6 +10646,69 @@ class SmsAdapterProfile extends CrudObject{
 	 }
 }
 module.exports.SmsAdapterProfile = SmsAdapterProfile;
+
+/**
+ *
+ */
+class DynamicList extends CrudObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDynamicList';
+	}
+	
+	/**
+	 * ID
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Create date of the DynamicList
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * Update date of the DynamicList
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
+	
+	/**
+	 * Name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+}
+module.exports.DynamicList = DynamicList;
+
+/**
+ *
+ */
+class UdidDynamicList extends DynamicList{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUdidDynamicList';
+	}
+}
+module.exports.UdidDynamicList = UdidDynamicList;
 
 /**
  *
@@ -10560,6 +11014,904 @@ class UnifiedChannelInfo extends UnifiedChannel{
 	 }
 }
 module.exports.UnifiedChannelInfo = UnifiedChannelInfo;
+
+/**
+ *
+ */
+class Condition extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCondition';
+	}
+	
+	/**
+	 * The type of the condition
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * Description
+	 * @return string
+	 */
+	 getDescription() {
+	 	return this.description;
+	 }
+	
+	/**
+	 * @param description string Description
+	 */
+	 setDescription(description) {
+	 	this.description = description;
+	 }
+}
+module.exports.Condition = Condition;
+
+/**
+ *
+ */
+class Promotion extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPromotion';
+	}
+	
+	/**
+	 * The discount module id that is promoted to the user
+	 * @return int
+	 */
+	 getDiscountModuleId() {
+	 	return this.discountModuleId;
+	 }
+	
+	/**
+	 * @param discountModuleId int The discount module id that is promoted to the user
+	 */
+	 setDiscountModuleId(discountModuleId) {
+	 	this.discountModuleId = discountModuleId;
+	 }
+	
+	/**
+	 * These conditions define the Promotion that applies on
+	 * @return array
+	 */
+	 getConditions() {
+	 	return this.conditions;
+	 }
+	
+	/**
+	 * @param conditions array These conditions define the Promotion that applies on
+	 */
+	 setConditions(conditions) {
+	 	this.conditions = conditions;
+	 }
+	
+	/**
+	 * the numer of recurring for this promotion
+	 * @return int
+	 */
+	 getNumberOfRecurring() {
+	 	return this.numberOfRecurring;
+	 }
+	
+	/**
+	 * @param numberOfRecurring int the numer of recurring for this promotion
+	 */
+	 setNumberOfRecurring(numberOfRecurring) {
+	 	this.numberOfRecurring = numberOfRecurring;
+	 }
+}
+module.exports.Promotion = Promotion;
+
+/**
+ *
+ */
+class Campaign extends CrudObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCampaign';
+	}
+	
+	/**
+	 * ID
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Create date of the rule
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * Update date of the rule
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
+	
+	/**
+	 * Start date of the rule
+	 * @return int
+	 */
+	 getStartDate() {
+	 	return this.startDate;
+	 }
+	
+	/**
+	 * @param startDate int Start date of the rule
+	 */
+	 setStartDate(startDate) {
+	 	this.startDate = startDate;
+	 }
+	
+	/**
+	 * End date of the rule
+	 * @return int
+	 */
+	 getEndDate() {
+	 	return this.endDate;
+	 }
+	
+	/**
+	 * @param endDate int End date of the rule
+	 */
+	 setEndDate(endDate) {
+	 	this.endDate = endDate;
+	 }
+	
+	/**
+	 * Name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * systemName
+	 * @return string
+	 */
+	 getSystemName() {
+	 	return this.systemName;
+	 }
+	
+	/**
+	 * @param systemName string systemName
+	 */
+	 setSystemName(systemName) {
+	 	this.systemName = systemName;
+	 }
+	
+	/**
+	 * Description
+	 * @return string
+	 */
+	 getDescription() {
+	 	return this.description;
+	 }
+	
+	/**
+	 * @param description string Description
+	 */
+	 setDescription(description) {
+	 	this.description = description;
+	 }
+	
+	/**
+	 * state
+	 * @return string
+	 */
+	 getState() {
+	 	return this.state;
+	 }
+	
+	/**
+	 * The Promotion that is promoted to the user
+	 * @return Promotion
+	 */
+	 getPromotion() {
+	 	return this.promotion;
+	 }
+	
+	/**
+	 * @param promotion Promotion The Promotion that is promoted to the user
+	 */
+	 setPromotion(promotion) {
+	 	this.promotion = promotion;
+	 }
+	
+	/**
+	 * Free text message to the user that gives information about the campaign
+	 * @return string
+	 */
+	 getMessage() {
+	 	return this.message;
+	 }
+	
+	/**
+	 * @param message string Free text message to the user that gives information about the campaign
+	 */
+	 setMessage(message) {
+	 	this.message = message;
+	 }
+	
+	/**
+	 * Comma separated collection IDs list
+	 * @return string
+	 */
+	 getCollectionIdIn() {
+	 	return this.collectionIdIn;
+	 }
+	
+	/**
+	 * @param collectionIdIn string Comma separated collection IDs list
+	 */
+	 setCollectionIdIn(collectionIdIn) {
+	 	this.collectionIdIn = collectionIdIn;
+	 }
+}
+module.exports.Campaign = Campaign;
+
+/**
+ *
+ */
+class BatchCampaign extends Campaign{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBatchCampaign';
+	}
+	
+	/**
+	 * These conditions define the population that apply one the campaign
+	 * @return array
+	 */
+	 getPopulationConditions() {
+	 	return this.populationConditions;
+	 }
+	
+	/**
+	 * @param populationConditions array These conditions define the population that apply one the campaign
+	 */
+	 setPopulationConditions(populationConditions) {
+	 	this.populationConditions = populationConditions;
+	 }
+}
+module.exports.BatchCampaign = BatchCampaign;
+
+/**
+ *
+ */
+class TriggerCampaign extends Campaign{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTriggerCampaign';
+	}
+	
+	/**
+	 * service
+	 * @return string
+	 */
+	 getService() {
+	 	return this.service;
+	 }
+	
+	/**
+	 * @param service string service
+	 */
+	 setService(service) {
+	 	this.service = service;
+	 }
+	
+	/**
+	 * action
+	 * @return string
+	 */
+	 getAction() {
+	 	return this.action;
+	 }
+	
+	/**
+	 * @param action string action
+	 */
+	 setAction(action) {
+	 	this.action = action;
+	 }
+	
+	/**
+	 * List of conditions for the trigger (conditions on the object)
+	 * @return array
+	 */
+	 getTriggerConditions() {
+	 	return this.triggerConditions;
+	 }
+	
+	/**
+	 * @param triggerConditions array List of conditions for the trigger (conditions on the object)
+	 */
+	 setTriggerConditions(triggerConditions) {
+	 	this.triggerConditions = triggerConditions;
+	 }
+}
+module.exports.TriggerCampaign = TriggerCampaign;
+
+/**
+ *
+ */
+class NotCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaNotCondition';
+	}
+	
+	/**
+	 * Indicates whether to apply not on the other properties in the condition
+	 * @return bool
+	 */
+	 getNot() {
+	 	return this.not;
+	 }
+	
+	/**
+	 * @param not bool Indicates whether to apply not on the other properties in the condition
+	 */
+	 setNot(not) {
+	 	this.not = not;
+	 }
+}
+module.exports.NotCondition = NotCondition;
+
+/**
+ *
+ */
+class OrCondition extends NotCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaOrCondition';
+	}
+	
+	/**
+	 * List of conditions with or between them
+	 * @return array
+	 */
+	 getConditions() {
+	 	return this.conditions;
+	 }
+	
+	/**
+	 * @param conditions array List of conditions with or between them
+	 */
+	 setConditions(conditions) {
+	 	this.conditions = conditions;
+	 }
+}
+module.exports.OrCondition = OrCondition;
+
+/**
+ *
+ */
+class CountryCondition extends NotCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCountryCondition';
+	}
+	
+	/**
+	 * Comma separated countries IDs list
+	 * @return string
+	 */
+	 getCountries() {
+	 	return this.countries;
+	 }
+	
+	/**
+	 * @param countries string Comma separated countries IDs list
+	 */
+	 setCountries(countries) {
+	 	this.countries = countries;
+	 }
+}
+module.exports.CountryCondition = CountryCondition;
+
+/**
+ *
+ */
+class DateCondition extends NotCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDateCondition';
+	}
+	
+	/**
+	 * Start date
+	 * @return int
+	 */
+	 getStartDate() {
+	 	return this.startDate;
+	 }
+	
+	/**
+	 * @param startDate int Start date
+	 */
+	 setStartDate(startDate) {
+	 	this.startDate = startDate;
+	 }
+	
+	/**
+	 * End date
+	 * @return int
+	 */
+	 getEndDate() {
+	 	return this.endDate;
+	 }
+	
+	/**
+	 * @param endDate int End date
+	 */
+	 setEndDate(endDate) {
+	 	this.endDate = endDate;
+	 }
+}
+module.exports.DateCondition = DateCondition;
+
+/**
+ *
+ */
+class HeaderCondition extends NotCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHeaderCondition';
+	}
+	
+	/**
+	 * Header key
+	 * @return string
+	 */
+	 getKey() {
+	 	return this.key;
+	 }
+	
+	/**
+	 * @param key string Header key
+	 */
+	 setKey(key) {
+	 	this.key = key;
+	 }
+	
+	/**
+	 * Header value
+	 * @return string
+	 */
+	 getValue() {
+	 	return this.value;
+	 }
+	
+	/**
+	 * @param value string Header value
+	 */
+	 setValue(value) {
+	 	this.value = value;
+	 }
+}
+module.exports.HeaderCondition = HeaderCondition;
+
+/**
+ *
+ */
+class AssetCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetCondition';
+	}
+	
+	/**
+	 * KSQL
+	 * @return string
+	 */
+	 getKsql() {
+	 	return this.ksql;
+	 }
+	
+	/**
+	 * @param ksql string KSQL
+	 */
+	 setKsql(ksql) {
+	 	this.ksql = ksql;
+	 }
+}
+module.exports.AssetCondition = AssetCondition;
+
+/**
+ *
+ */
+class ConcurrencyCondition extends AssetCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaConcurrencyCondition';
+	}
+	
+	/**
+	 * Concurrency limitation
+	 * @return int
+	 */
+	 getLimit() {
+	 	return this.limit;
+	 }
+	
+	/**
+	 * @param limit int Concurrency limitation
+	 */
+	 setLimit(limit) {
+	 	this.limit = limit;
+	 }
+	
+	/**
+	 * Concurrency limitation type
+	 * @return string
+	 */
+	 getConcurrencyLimitationType() {
+	 	return this.concurrencyLimitationType;
+	 }
+	
+	/**
+	 * @param concurrencyLimitationType string Concurrency limitation type
+	 */
+	 setConcurrencyLimitationType(concurrencyLimitationType) {
+	 	this.concurrencyLimitationType = concurrencyLimitationType;
+	 }
+}
+module.exports.ConcurrencyCondition = ConcurrencyCondition;
+
+/**
+ *
+ */
+class IpRangeCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIpRangeCondition';
+	}
+	
+	/**
+	 * From IP address range
+	 * @return string
+	 */
+	 getFromIP() {
+	 	return this.fromIP;
+	 }
+	
+	/**
+	 * @param fromIP string From IP address range
+	 */
+	 setFromIP(fromIP) {
+	 	this.fromIP = fromIP;
+	 }
+	
+	/**
+	 * TO IP address range
+	 * @return string
+	 */
+	 getToIP() {
+	 	return this.toIP;
+	 }
+	
+	/**
+	 * @param toIP string TO IP address range
+	 */
+	 setToIP(toIP) {
+	 	this.toIP = toIP;
+	 }
+}
+module.exports.IpRangeCondition = IpRangeCondition;
+
+/**
+ *
+ */
+class BusinessModuleCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBusinessModuleCondition';
+	}
+	
+	/**
+	 * Business module type
+	 * @return string
+	 */
+	 getBusinessModuleType() {
+	 	return this.businessModuleType;
+	 }
+	
+	/**
+	 * @param businessModuleType string Business module type
+	 */
+	 setBusinessModuleType(businessModuleType) {
+	 	this.businessModuleType = businessModuleType;
+	 }
+	
+	/**
+	 * Business module ID
+	 * @return int
+	 */
+	 getBusinessModuleId() {
+	 	return this.businessModuleId;
+	 }
+	
+	/**
+	 * @param businessModuleId int Business module ID
+	 */
+	 setBusinessModuleId(businessModuleId) {
+	 	this.businessModuleId = businessModuleId;
+	 }
+}
+module.exports.BusinessModuleCondition = BusinessModuleCondition;
+
+/**
+ *
+ */
+class SegmentsCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSegmentsCondition';
+	}
+	
+	/**
+	 * Comma separated segments IDs list
+	 * @return string
+	 */
+	 getSegmentsIds() {
+	 	return this.segmentsIds;
+	 }
+	
+	/**
+	 * @param segmentsIds string Comma separated segments IDs list
+	 */
+	 setSegmentsIds(segmentsIds) {
+	 	this.segmentsIds = segmentsIds;
+	 }
+}
+module.exports.SegmentsCondition = SegmentsCondition;
+
+/**
+ *
+ */
+class SubscriptionCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSubscriptionCondition';
+	}
+	
+	/**
+	 * Comma separated subscription IDs list
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated subscription IDs list
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.SubscriptionCondition = SubscriptionCondition;
+
+/**
+ *
+ */
+class UserSubscriptionCondition extends SubscriptionCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUserSubscriptionCondition';
+	}
+}
+module.exports.UserSubscriptionCondition = UserSubscriptionCondition;
+
+/**
+ *
+ */
+class AssetSubscriptionCondition extends SubscriptionCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetSubscriptionCondition';
+	}
+}
+module.exports.AssetSubscriptionCondition = AssetSubscriptionCondition;
+
+/**
+ *
+ */
+class UserRoleCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUserRoleCondition';
+	}
+	
+	/**
+	 * Comma separated user role IDs list
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated user role IDs list
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.UserRoleCondition = UserRoleCondition;
+
+/**
+ *
+ */
+class DeviceBrandCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDeviceBrandCondition';
+	}
+	
+	/**
+	 * Comma separated Device Brand IDs list
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated Device Brand IDs list
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.DeviceBrandCondition = DeviceBrandCondition;
+
+/**
+ *
+ */
+class DeviceFamilyCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDeviceFamilyCondition';
+	}
+	
+	/**
+	 * Comma separated Device Family IDs list
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated Device Family IDs list
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.DeviceFamilyCondition = DeviceFamilyCondition;
+
+/**
+ *
+ */
+class DeviceManufacturerCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDeviceManufacturerCondition';
+	}
+	
+	/**
+	 * Comma separated Device Manufacturer IDs list
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated Device Manufacturer IDs list
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.DeviceManufacturerCondition = DeviceManufacturerCondition;
+
+/**
+ *
+ */
+class DeviceModelCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDeviceModelCondition';
+	}
+	
+	/**
+	 * regex of device model that is compared to
+	 * @return string
+	 */
+	 getRegexEqual() {
+	 	return this.regexEqual;
+	 }
+	
+	/**
+	 * @param regexEqual string regex of device model that is compared to
+	 */
+	 setRegexEqual(regexEqual) {
+	 	this.regexEqual = regexEqual;
+	 }
+}
+module.exports.DeviceModelCondition = DeviceModelCondition;
+
+/**
+ *
+ */
+class UdidDynamicListCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUdidDynamicListCondition';
+	}
+	
+	/**
+	 * KalturaUdidDynamicList.id
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id int KalturaUdidDynamicList.id
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+}
+module.exports.UdidDynamicListCondition = UdidDynamicListCondition;
 
 /**
  *
@@ -11183,6 +12535,44 @@ class HouseholdDevice extends OTTObjectSupportNullable{
 	 setMacAddress(macAddress) {
 	 	this.macAddress = macAddress;
 	 }
+	
+	/**
+	 * model
+	 * @return string
+	 */
+	 getModel() {
+	 	return this.model;
+	 }
+	
+	/**
+	 * @param model string model
+	 */
+	 setModel(model) {
+	 	this.model = model;
+	 }
+	
+	/**
+	 * manufacturer
+	 * @return string
+	 */
+	 getManufacturer() {
+	 	return this.manufacturer;
+	 }
+	
+	/**
+	 * @param manufacturer string manufacturer
+	 */
+	 setManufacturer(manufacturer) {
+	 	this.manufacturer = manufacturer;
+	 }
+	
+	/**
+	 * manufacturer Id, read only
+	 * @return int
+	 */
+	 getManufacturerId() {
+	 	return this.manufacturerId;
+	 }
 }
 module.exports.HouseholdDevice = HouseholdDevice;
 
@@ -11649,41 +13039,6 @@ module.exports.AssetRuleBase = AssetRuleBase;
 /**
  *
  */
-class Condition extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCondition';
-	}
-	
-	/**
-	 * The type of the condition
-	 * @return string
-	 */
-	 getType() {
-	 	return this.type;
-	 }
-	
-	/**
-	 * Description
-	 * @return string
-	 */
-	 getDescription() {
-	 	return this.description;
-	 }
-	
-	/**
-	 * @param description string Description
-	 */
-	 setDescription(description) {
-	 	this.description = description;
-	 }
-}
-module.exports.Condition = Condition;
-
-/**
- *
- */
 class RuleAction extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -11781,33 +13136,6 @@ module.exports.AssetRule = AssetRule;
 /**
  *
  */
-class AssetCondition extends Condition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetCondition';
-	}
-	
-	/**
-	 * KSQL
-	 * @return string
-	 */
-	 getKsql() {
-	 	return this.ksql;
-	 }
-	
-	/**
-	 * @param ksql string KSQL
-	 */
-	 setKsql(ksql) {
-	 	this.ksql = ksql;
-	 }
-}
-module.exports.AssetCondition = AssetCondition;
-
-/**
- *
- */
 class AssetUserRuleAction extends RuleAction{
 	
 	constructor(object = null) {
@@ -11858,402 +13186,6 @@ class AssetUserRule extends AssetRuleBase{
 	 }
 }
 module.exports.AssetUserRule = AssetUserRule;
-
-/**
- *
- */
-class NotCondition extends Condition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaNotCondition';
-	}
-	
-	/**
-	 * Indicates whether to apply not on the other properties in the condition
-	 * @return bool
-	 */
-	 getNot() {
-	 	return this.not;
-	 }
-	
-	/**
-	 * @param not bool Indicates whether to apply not on the other properties in the condition
-	 */
-	 setNot(not) {
-	 	this.not = not;
-	 }
-}
-module.exports.NotCondition = NotCondition;
-
-/**
- *
- */
-class OrCondition extends NotCondition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaOrCondition';
-	}
-	
-	/**
-	 * List of conditions with or between them
-	 * @return array
-	 */
-	 getConditions() {
-	 	return this.conditions;
-	 }
-	
-	/**
-	 * @param conditions array List of conditions with or between them
-	 */
-	 setConditions(conditions) {
-	 	this.conditions = conditions;
-	 }
-}
-module.exports.OrCondition = OrCondition;
-
-/**
- *
- */
-class CountryCondition extends NotCondition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCountryCondition';
-	}
-	
-	/**
-	 * Comma separated countries IDs list
-	 * @return string
-	 */
-	 getCountries() {
-	 	return this.countries;
-	 }
-	
-	/**
-	 * @param countries string Comma separated countries IDs list
-	 */
-	 setCountries(countries) {
-	 	this.countries = countries;
-	 }
-}
-module.exports.CountryCondition = CountryCondition;
-
-/**
- *
- */
-class DateCondition extends NotCondition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDateCondition';
-	}
-	
-	/**
-	 * Start date
-	 * @return int
-	 */
-	 getStartDate() {
-	 	return this.startDate;
-	 }
-	
-	/**
-	 * @param startDate int Start date
-	 */
-	 setStartDate(startDate) {
-	 	this.startDate = startDate;
-	 }
-	
-	/**
-	 * End date
-	 * @return int
-	 */
-	 getEndDate() {
-	 	return this.endDate;
-	 }
-	
-	/**
-	 * @param endDate int End date
-	 */
-	 setEndDate(endDate) {
-	 	this.endDate = endDate;
-	 }
-}
-module.exports.DateCondition = DateCondition;
-
-/**
- *
- */
-class HeaderCondition extends NotCondition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHeaderCondition';
-	}
-	
-	/**
-	 * Header key
-	 * @return string
-	 */
-	 getKey() {
-	 	return this.key;
-	 }
-	
-	/**
-	 * @param key string Header key
-	 */
-	 setKey(key) {
-	 	this.key = key;
-	 }
-	
-	/**
-	 * Header value
-	 * @return string
-	 */
-	 getValue() {
-	 	return this.value;
-	 }
-	
-	/**
-	 * @param value string Header value
-	 */
-	 setValue(value) {
-	 	this.value = value;
-	 }
-}
-module.exports.HeaderCondition = HeaderCondition;
-
-/**
- *
- */
-class ConcurrencyCondition extends AssetCondition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaConcurrencyCondition';
-	}
-	
-	/**
-	 * Concurrency limitation
-	 * @return int
-	 */
-	 getLimit() {
-	 	return this.limit;
-	 }
-	
-	/**
-	 * @param limit int Concurrency limitation
-	 */
-	 setLimit(limit) {
-	 	this.limit = limit;
-	 }
-	
-	/**
-	 * Concurrency limitation type
-	 * @return string
-	 */
-	 getConcurrencyLimitationType() {
-	 	return this.concurrencyLimitationType;
-	 }
-	
-	/**
-	 * @param concurrencyLimitationType string Concurrency limitation type
-	 */
-	 setConcurrencyLimitationType(concurrencyLimitationType) {
-	 	this.concurrencyLimitationType = concurrencyLimitationType;
-	 }
-}
-module.exports.ConcurrencyCondition = ConcurrencyCondition;
-
-/**
- *
- */
-class IpRangeCondition extends Condition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaIpRangeCondition';
-	}
-	
-	/**
-	 * From IP address range
-	 * @return string
-	 */
-	 getFromIP() {
-	 	return this.fromIP;
-	 }
-	
-	/**
-	 * @param fromIP string From IP address range
-	 */
-	 setFromIP(fromIP) {
-	 	this.fromIP = fromIP;
-	 }
-	
-	/**
-	 * TO IP address range
-	 * @return string
-	 */
-	 getToIP() {
-	 	return this.toIP;
-	 }
-	
-	/**
-	 * @param toIP string TO IP address range
-	 */
-	 setToIP(toIP) {
-	 	this.toIP = toIP;
-	 }
-}
-module.exports.IpRangeCondition = IpRangeCondition;
-
-/**
- *
- */
-class BusinessModuleCondition extends Condition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBusinessModuleCondition';
-	}
-	
-	/**
-	 * Business module type
-	 * @return string
-	 */
-	 getBusinessModuleType() {
-	 	return this.businessModuleType;
-	 }
-	
-	/**
-	 * @param businessModuleType string Business module type
-	 */
-	 setBusinessModuleType(businessModuleType) {
-	 	this.businessModuleType = businessModuleType;
-	 }
-	
-	/**
-	 * Business module ID
-	 * @return int
-	 */
-	 getBusinessModuleId() {
-	 	return this.businessModuleId;
-	 }
-	
-	/**
-	 * @param businessModuleId int Business module ID
-	 */
-	 setBusinessModuleId(businessModuleId) {
-	 	this.businessModuleId = businessModuleId;
-	 }
-}
-module.exports.BusinessModuleCondition = BusinessModuleCondition;
-
-/**
- *
- */
-class SegmentsCondition extends Condition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSegmentsCondition';
-	}
-	
-	/**
-	 * Comma separated segments IDs list
-	 * @return string
-	 */
-	 getSegmentsIds() {
-	 	return this.segmentsIds;
-	 }
-	
-	/**
-	 * @param segmentsIds string Comma separated segments IDs list
-	 */
-	 setSegmentsIds(segmentsIds) {
-	 	this.segmentsIds = segmentsIds;
-	 }
-}
-module.exports.SegmentsCondition = SegmentsCondition;
-
-/**
- *
- */
-class SubscriptionCondition extends Condition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSubscriptionCondition';
-	}
-	
-	/**
-	 * Comma separated subscription IDs list
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Comma separated subscription IDs list
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.SubscriptionCondition = SubscriptionCondition;
-
-/**
- *
- */
-class UserSubscriptionCondition extends SubscriptionCondition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaUserSubscriptionCondition';
-	}
-}
-module.exports.UserSubscriptionCondition = UserSubscriptionCondition;
-
-/**
- *
- */
-class AssetSubscriptionCondition extends SubscriptionCondition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetSubscriptionCondition';
-	}
-}
-module.exports.AssetSubscriptionCondition = AssetSubscriptionCondition;
-
-/**
- *
- */
-class UserRoleCondition extends Condition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaUserRoleCondition';
-	}
-	
-	/**
-	 * Comma separated user role IDs list
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Comma separated user role IDs list
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.UserRoleCondition = UserRoleCondition;
 
 /**
  *
@@ -13631,6 +14563,33 @@ module.exports.DiscountDetailsListResponse = DiscountDetailsListResponse;
 /**
  *
  */
+class PromotionInfo extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPromotionInfo';
+	}
+	
+	/**
+	 * Campaign Id
+	 * @return int
+	 */
+	 getCampaignId() {
+	 	return this.campaignId;
+	 }
+	
+	/**
+	 * @param campaignId int Campaign Id
+	 */
+	 setCampaignId(campaignId) {
+	 	this.campaignId = campaignId;
+	 }
+}
+module.exports.PromotionInfo = PromotionInfo;
+
+/**
+ *
+ */
 class ProductPrice extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -13684,6 +14643,21 @@ class ProductPrice extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * The full price of the item (with no discounts)
+	 * @return Price
+	 */
+	 getFullPrice() {
+	 	return this.fullPrice;
+	 }
+	
+	/**
+	 * @param fullPrice Price The full price of the item (with no discounts)
+	 */
+	 setFullPrice(fullPrice) {
+	 	this.fullPrice = fullPrice;
+	 }
+	
+	/**
 	 * Product purchase status
 	 * @return string
 	 */
@@ -13696,6 +14670,21 @@ class ProductPrice extends kaltura.BaseObject{
 	 */
 	 setPurchaseStatus(purchaseStatus) {
 	 	this.purchaseStatus = purchaseStatus;
+	 }
+	
+	/**
+	 * Promotion Info
+	 * @return PromotionInfo
+	 */
+	 getPromotionInfo() {
+	 	return this.promotionInfo;
+	 }
+	
+	/**
+	 * @param promotionInfo PromotionInfo Promotion Info
+	 */
+	 setPromotionInfo(promotionInfo) {
+	 	this.promotionInfo = promotionInfo;
 	 }
 }
 module.exports.ProductPrice = ProductPrice;
@@ -13765,21 +14754,6 @@ class PpvPrice extends ProductPrice{
 	 */
 	 setIsSubscriptionOnly(isSubscriptionOnly) {
 	 	this.isSubscriptionOnly = isSubscriptionOnly;
-	 }
-	
-	/**
-	 * The full price of the item (with no discounts)
-	 * @return Price
-	 */
-	 getFullPrice() {
-	 	return this.fullPrice;
-	 }
-	
-	/**
-	 * @param fullPrice Price The full price of the item (with no discounts)
-	 */
-	 setFullPrice(fullPrice) {
-	 	this.fullPrice = fullPrice;
 	 }
 	
 	/**
@@ -16479,6 +17453,14 @@ class InboxMessage extends kaltura.BaseObject{
 	 */
 	 setUrl(url) {
 	 	this.url = url;
+	 }
+	
+	/**
+	 * campaignId
+	 * @return int
+	 */
+	 getCampaignId() {
+	 	return this.campaignId;
 	 }
 }
 module.exports.InboxMessage = InboxMessage;
@@ -26133,6 +27115,45 @@ module.exports.BulkUploadProgramAssetData = BulkUploadProgramAssetData;
 /**
  *
  */
+class BulkUploadDynamicListData extends BulkUploadObjectData{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUploadDynamicListData';
+	}
+	
+	/**
+	 * Identifies the dynamicList Id
+	 * @return int
+	 */
+	 getDynamicListId() {
+	 	return this.dynamicListId;
+	 }
+	
+	/**
+	 * @param dynamicListId int Identifies the dynamicList Id
+	 */
+	 setDynamicListId(dynamicListId) {
+	 	this.dynamicListId = dynamicListId;
+	 }
+}
+module.exports.BulkUploadDynamicListData = BulkUploadDynamicListData;
+
+/**
+ *
+ */
+class BulkUploadUdidDynamicListData extends BulkUploadDynamicListData{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUploadUdidDynamicListData';
+	}
+}
+module.exports.BulkUploadUdidDynamicListData = BulkUploadUdidDynamicListData;
+
+/**
+ *
+ */
 class AssetFileContext extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -26237,6 +27258,33 @@ class AssetStatisticsQuery extends kaltura.BaseObject{
 	 }
 }
 module.exports.AssetStatisticsQuery = AssetStatisticsQuery;
+
+/**
+ *
+ */
+class CampaignListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCampaignListResponse';
+	}
+	
+	/**
+	 * A list of objects
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of objects
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.CampaignListResponse = CampaignListResponse;
 
 /**
  *
@@ -26843,6 +27891,60 @@ class RandomCouponGenerationOptions extends CouponGenerationOptions{
 	 }
 }
 module.exports.RandomCouponGenerationOptions = RandomCouponGenerationOptions;
+
+/**
+ *
+ */
+class DeviceReferenceDataListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDeviceReferenceDataListResponse';
+	}
+	
+	/**
+	 * A list of objects
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of objects
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.DeviceReferenceDataListResponse = DeviceReferenceDataListResponse;
+
+/**
+ *
+ */
+class DynamicListListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDynamicListListResponse';
+	}
+	
+	/**
+	 * A list of objects
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of objects
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.DynamicListListResponse = DynamicListListResponse;
 
 /**
  *
