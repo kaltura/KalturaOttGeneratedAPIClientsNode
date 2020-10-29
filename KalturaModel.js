@@ -28276,6 +28276,71 @@ module.exports.EventNotificationObjectScope = EventNotificationObjectScope;
 /**
  *
  */
+class AssetEvent extends EventObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetEvent';
+	}
+	
+	/**
+	 * User Id
+	 * @return int
+	 */
+	 getUserId() {
+	 	return this.userId;
+	 }
+	
+	/**
+	 * Asset Id
+	 * @return int
+	 */
+	 getAssetId() {
+	 	return this.assetId;
+	 }
+	
+	/**
+	 * Identifies the asset type (EPG, Recording, Movie, TV Series, etc).
+ * Possible values: 0 – EPG linear programs, 1 - Recording; or any asset type ID according to the asset types IDs defined in the system
+	 * @return int
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * External identifier for the asset
+	 * @return string
+	 */
+	 getExternalId() {
+	 	return this.externalId;
+	 }
+}
+module.exports.AssetEvent = AssetEvent;
+
+/**
+ *
+ */
+class ProgramAssetEvent extends AssetEvent{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaProgramAssetEvent';
+	}
+	
+	/**
+	 * The  live asset Id that was identified according liveAssetExternalId
+	 * @return int
+	 */
+	 getLiveAssetId() {
+	 	return this.liveAssetId;
+	 }
+}
+module.exports.ProgramAssetEvent = ProgramAssetEvent;
+
+/**
+ *
+ */
 class BookmarkEvent extends EventObject{
 	
 	constructor(object = null) {
