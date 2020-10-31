@@ -7067,6 +7067,48 @@ module.exports.StringValueArray = StringValueArray;
 /**
  *
  */
+class BusinessModuleDetails extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBusinessModuleDetails';
+	}
+	
+	/**
+	 * BusinessModuleId
+	 * @return int
+	 */
+	 getBusinessModuleId() {
+	 	return this.businessModuleId;
+	 }
+	
+	/**
+	 * @param businessModuleId int BusinessModuleId
+	 */
+	 setBusinessModuleId(businessModuleId) {
+	 	this.businessModuleId = businessModuleId;
+	 }
+	
+	/**
+	 * BusinessModuleType
+	 * @return string
+	 */
+	 getBusinessModuleType() {
+	 	return this.businessModuleType;
+	 }
+	
+	/**
+	 * @param businessModuleType string BusinessModuleType
+	 */
+	 setBusinessModuleType(businessModuleType) {
+	 	this.businessModuleType = businessModuleType;
+	 }
+}
+module.exports.BusinessModuleDetails = BusinessModuleDetails;
+
+/**
+ *
+ */
 class MediaFile extends AssetFile{
 	
 	constructor(object = null) {
@@ -7388,6 +7430,21 @@ class MediaFile extends AssetFile{
 	 */
 	 setOpl(opl) {
 	 	this.opl = opl;
+	 }
+	
+	/**
+	 * businessModuleDetails
+	 * @return BusinessModuleDetails
+	 */
+	 getBusinessModuleDetails() {
+	 	return this.businessModuleDetails;
+	 }
+	
+	/**
+	 * @param businessModuleDetails BusinessModuleDetails businessModuleDetails
+	 */
+	 setBusinessModuleDetails(businessModuleDetails) {
+	 	this.businessModuleDetails = businessModuleDetails;
 	 }
 }
 module.exports.MediaFile = MediaFile;
@@ -7792,6 +7849,22 @@ class PlaybackSource extends MediaFile{
 	 */
 	 setIsTokenized(isTokenized) {
 	 	this.isTokenized = isTokenized;
+	 }
+	
+	/**
+	 * Business Module Id
+	 * @return int
+	 */
+	 getBusinessModuleId() {
+	 	return this.businessModuleId;
+	 }
+	
+	/**
+	 * Business Module Type
+	 * @return string
+	 */
+	 getBusinessModuleType() {
+	 	return this.businessModuleType;
 	 }
 }
 module.exports.PlaybackSource = PlaybackSource;
