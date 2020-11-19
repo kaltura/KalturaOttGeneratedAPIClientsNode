@@ -12646,6 +12646,14 @@ class HouseholdDevice extends OTTObjectSupportNullable{
 	 getManufacturerId() {
 	 	return this.manufacturerId;
 	 }
+	
+	/**
+	 * Last Activity Time, read only
+	 * @return int
+	 */
+	 getLastActivityTime() {
+	 	return this.lastActivityTime;
+	 }
 }
 module.exports.HouseholdDevice = HouseholdDevice;
 
