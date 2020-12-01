@@ -431,6 +431,10 @@ module.exports.DynamicListOrderBy = {
 NONE : 'NONE',
 };
 
+module.exports.EncryptionType = {
+AES256 : 'AES256',
+};
+
 module.exports.EngagementOrderBy = {
 NONE : 'NONE',
 };
@@ -769,6 +773,7 @@ COMMERCE : 'Commerce',
 PLAYBACK : 'Playback',
 PAYMENT : 'Payment',
 CATALOG : 'Catalog',
+SECURITY : 'Security',
 };
 
 module.exports.PasswordPolicyOrderBy = {
@@ -1122,6 +1127,10 @@ ASSET_ALREADY_RATED : 'asset_already_rated',
 ASSET_DOSE_NOT_EXISTS : 'asset_dose_not_exists',
 INVALID_PLATFORM_REQUEST : 'invalid_platform_request',
 INVALID_ACCESS_TOKEN : 'invalid_access_token',
+};
+
+module.exports.StreamingDeviceOrderBy = {
+NONE : 'NONE',
 };
 
 module.exports.StreamType = {

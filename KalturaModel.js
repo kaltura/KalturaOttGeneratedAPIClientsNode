@@ -5367,6 +5367,33 @@ module.exports.MediaFileFilter = MediaFileFilter;
 /**
  *
  */
+class StreamingDeviceFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaStreamingDeviceFilter';
+	}
+	
+	/**
+	 * filter by asset type
+	 * @return string
+	 */
+	 getAssetTypeEqual() {
+	 	return this.assetTypeEqual;
+	 }
+	
+	/**
+	 * @param assetTypeEqual string filter by asset type
+	 */
+	 setAssetTypeEqual(assetTypeEqual) {
+	 	this.assetTypeEqual = assetTypeEqual;
+	 }
+}
+module.exports.StreamingDeviceFilter = StreamingDeviceFilter;
+
+/**
+ *
+ */
 class TagFilter extends Filter{
 	
 	constructor(object = null) {
@@ -17032,6 +17059,87 @@ module.exports.PlaybackPartnerConfig = PlaybackPartnerConfig;
 /**
  *
  */
+class Encryption extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEncryption';
+	}
+	
+	/**
+	 * Encryption type
+	 * @return string
+	 */
+	 getEncryptionType() {
+	 	return this.encryptionType;
+	 }
+	
+	/**
+	 * @param encryptionType string Encryption type
+	 */
+	 setEncryptionType(encryptionType) {
+	 	this.encryptionType = encryptionType;
+	 }
+}
+module.exports.Encryption = Encryption;
+
+/**
+ *
+ */
+class DataEncryption extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDataEncryption';
+	}
+	
+	/**
+	 * Username encryption config
+	 * @return Encryption
+	 */
+	 getUsername() {
+	 	return this.username;
+	 }
+	
+	/**
+	 * @param username Encryption Username encryption config
+	 */
+	 setUsername(username) {
+	 	this.username = username;
+	 }
+}
+module.exports.DataEncryption = DataEncryption;
+
+/**
+ *
+ */
+class SecurityPartnerConfig extends PartnerConfiguration{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSecurityPartnerConfig';
+	}
+	
+	/**
+	 * Encryption config
+	 * @return DataEncryption
+	 */
+	 getEncryption() {
+	 	return this.encryption;
+	 }
+	
+	/**
+	 * @param encryption DataEncryption Encryption config
+	 */
+	 setEncryption(encryption) {
+	 	this.encryption = encryption;
+	 }
+}
+module.exports.SecurityPartnerConfig = SecurityPartnerConfig;
+
+/**
+ *
+ */
 class PersonalList extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -20167,6 +20275,70 @@ module.exports.PpvEntitlement = PpvEntitlement;
 /**
  *
  */
+class EntitlementDiscountDetails extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEntitlementDiscountDetails';
+	}
+	
+	/**
+	 * Amount
+	 * @return float
+	 */
+	 getAmount() {
+	 	return this.amount;
+	 }
+	
+	/**
+	 * Start date
+	 * @return int
+	 */
+	 getStartDate() {
+	 	return this.startDate;
+	 }
+	
+	/**
+	 * End date
+	 * @return int
+	 */
+	 getEndDate() {
+	 	return this.endDate;
+	 }
+}
+module.exports.EntitlementDiscountDetails = EntitlementDiscountDetails;
+
+/**
+ *
+ */
+class EntitlementPriceDetails extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEntitlementPriceDetails';
+	}
+	
+	/**
+	 * Full price
+	 * @return Price
+	 */
+	 getFullPrice() {
+	 	return this.fullPrice;
+	 }
+	
+	/**
+	 * List of the season numbers to exclude
+	 * @return array
+	 */
+	 getDiscountDetails() {
+	 	return this.discountDetails;
+	 }
+}
+module.exports.EntitlementPriceDetails = EntitlementPriceDetails;
+
+/**
+ *
+ */
 class SubscriptionEntitlement extends Entitlement{
 	
 	constructor(object = null) {
@@ -20259,8 +20431,112 @@ class SubscriptionEntitlement extends Entitlement{
 	 getIsSuspended() {
 	 	return this.isSuspended;
 	 }
+	
+	/**
+	 * Price details
+	 * @return EntitlementPriceDetails
+	 */
+	 getPriceDetails() {
+	 	return this.priceDetails;
+	 }
 }
 module.exports.SubscriptionEntitlement = SubscriptionEntitlement;
+
+/**
+ *
+ */
+class CouponEntitlementDiscountDetails extends EntitlementDiscountDetails{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCouponEntitlementDiscountDetails';
+	}
+	
+	/**
+	 * Coupon Code
+	 * @return string
+	 */
+	 getCouponCode() {
+	 	return this.couponCode;
+	 }
+	
+	/**
+	 * Endless coupon
+	 * @return bool
+	 */
+	 getEndlessCoupon() {
+	 	return this.endlessCoupon;
+	 }
+}
+module.exports.CouponEntitlementDiscountDetails = CouponEntitlementDiscountDetails;
+
+/**
+ *
+ */
+class EntitlementDiscountDetailsIdentifier extends EntitlementDiscountDetails{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEntitlementDiscountDetailsIdentifier';
+	}
+	
+	/**
+	 * Identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+}
+module.exports.EntitlementDiscountDetailsIdentifier = EntitlementDiscountDetailsIdentifier;
+
+/**
+ *
+ */
+class CompensationEntitlementDiscountDetails extends EntitlementDiscountDetailsIdentifier{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCompensationEntitlementDiscountDetails';
+	}
+}
+module.exports.CompensationEntitlementDiscountDetails = CompensationEntitlementDiscountDetails;
+
+/**
+ *
+ */
+class CampaignEntitlementDiscountDetails extends EntitlementDiscountDetailsIdentifier{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCampaignEntitlementDiscountDetails';
+	}
+}
+module.exports.CampaignEntitlementDiscountDetails = CampaignEntitlementDiscountDetails;
+
+/**
+ *
+ */
+class DiscountEntitlementDiscountDetails extends EntitlementDiscountDetailsIdentifier{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDiscountEntitlementDiscountDetails';
+	}
+}
+module.exports.DiscountEntitlementDiscountDetails = DiscountEntitlementDiscountDetails;
+
+/**
+ *
+ */
+class TrailEntitlementDiscountDetails extends EntitlementDiscountDetailsIdentifier{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTrailEntitlementDiscountDetails';
+	}
+}
+module.exports.TrailEntitlementDiscountDetails = TrailEntitlementDiscountDetails;
 
 /**
  *
@@ -22635,6 +22911,76 @@ class RatioListResponse extends ListResponse{
 	 }
 }
 module.exports.RatioListResponse = RatioListResponse;
+
+/**
+ *
+ */
+class StreamingDevice extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaStreamingDevice';
+	}
+	
+	/**
+	 * Asset
+	 * @return SlimAsset
+	 */
+	 getAsset() {
+	 	return this.asset;
+	 }
+	
+	/**
+	 * User identifier
+	 * @return string
+	 */
+	 getUserId() {
+	 	return this.userId;
+	 }
+	
+	/**
+	 * Device UDID
+	 * @return string
+	 */
+	 getUdid() {
+	 	return this.udid;
+	 }
+	
+	/**
+	 * @param udid string Device UDID
+	 */
+	 setUdid(udid) {
+	 	this.udid = udid;
+	 }
+}
+module.exports.StreamingDevice = StreamingDevice;
+
+/**
+ *
+ */
+class StreamingDeviceListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaStreamingDeviceListResponse';
+	}
+	
+	/**
+	 * Streaming devices
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Streaming devices
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.StreamingDeviceListResponse = StreamingDeviceListResponse;
 
 /**
  *

@@ -6300,6 +6300,27 @@ module.exports.ssoAdapterProfile = ssoAdapterProfile;
 
 
 /**
+ *Class definition for the Kaltura service: streamingDevice.
+ * The available service actions:
+ * @action list Lists of devices that are streaming at that moment.
+ */
+class streamingDevice{
+	
+	/**
+	 * Lists of devices that are streaming at that moment.
+	 * @param filter StreamingDeviceFilter Segmentation type filter - basically empty (optional, default: null)
+	 * @return KalturaStreamingDeviceListResponse
+	 */
+	static listAction(filter = null){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('streamingdevice', 'list', kparams);
+	};
+}
+module.exports.streamingDevice = streamingDevice;
+
+
+/**
  *Class definition for the Kaltura service: subscription.
  * The available service actions:
  * @action list Returns a list of subscriptions requested by Subscription ID or file ID.
