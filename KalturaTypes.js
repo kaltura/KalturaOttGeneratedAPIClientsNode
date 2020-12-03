@@ -431,10 +431,6 @@ module.exports.DynamicListOrderBy = {
 NONE : 'NONE',
 };
 
-module.exports.EncryptionType = {
-AES256 : 'AES256',
-};
-
 module.exports.EngagementOrderBy = {
 NONE : 'NONE',
 };
@@ -773,7 +769,6 @@ COMMERCE : 'Commerce',
 PLAYBACK : 'Playback',
 PAYMENT : 'Payment',
 CATALOG : 'Catalog',
-SECURITY : 'Security',
 };
 
 module.exports.PasswordPolicyOrderBy = {
