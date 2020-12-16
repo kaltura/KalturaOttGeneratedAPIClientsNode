@@ -27459,6 +27459,23 @@ class BulkUploadIngestJobData extends BulkUploadJobData{
 	 setIngestProfileId(ingestProfileId) {
 	 	this.ingestProfileId = ingestProfileId;
 	 }
+	
+	/**
+	 * By default, after the successful ingest, devices will be notified about changes in epg channels.
+ * This parameter disables this notification
+	 * @return bool
+	 */
+	 getDisableEpgNotification() {
+	 	return this.disableEpgNotification;
+	 }
+	
+	/**
+	 * @param disableEpgNotification bool By default, after the successful ingest, devices will be notified about changes in epg channels.
+ * This parameter disables this notification
+	 */
+	 setDisableEpgNotification(disableEpgNotification) {
+	 	this.disableEpgNotification = disableEpgNotification;
+	 }
 }
 module.exports.BulkUploadIngestJobData = BulkUploadIngestJobData;
 
@@ -29730,6 +29747,21 @@ class IotClientConfiguration extends kaltura.BaseObject{
 	 setJson(json) {
 	 	this.json = json;
 	 }
+	
+	/**
+	 * topics
+	 * @return string
+	 */
+	 getTopics() {
+	 	return this.topics;
+	 }
+	
+	/**
+	 * @param topics string topics
+	 */
+	 setTopics(topics) {
+	 	this.topics = topics;
+	 }
 }
 module.exports.IotClientConfiguration = IotClientConfiguration;
 
@@ -30222,6 +30254,80 @@ module.exports.PushMessage = PushMessage;
 /**
  *
  */
+class EpgNotificationSettings extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEpgNotificationSettings';
+	}
+	
+	/**
+	 * EPG notification capability is enabled for the account
+	 * @return bool
+	 */
+	 getEnabled() {
+	 	return this.enabled;
+	 }
+	
+	/**
+	 * @param enabled bool EPG notification capability is enabled for the account
+	 */
+	 setEnabled(enabled) {
+	 	this.enabled = enabled;
+	 }
+	
+	/**
+	 * Specify which devices should receive notifications
+	 * @return string
+	 */
+	 getDeviceFamilyIds() {
+	 	return this.deviceFamilyIds;
+	 }
+	
+	/**
+	 * @param deviceFamilyIds string Specify which devices should receive notifications
+	 */
+	 setDeviceFamilyIds(deviceFamilyIds) {
+	 	this.deviceFamilyIds = deviceFamilyIds;
+	 }
+	
+	/**
+	 * Specify which live assets should fire notifications
+	 * @return string
+	 */
+	 getLiveAssetIds() {
+	 	return this.liveAssetIds;
+	 }
+	
+	/**
+	 * @param liveAssetIds string Specify which live assets should fire notifications
+	 */
+	 setLiveAssetIds(liveAssetIds) {
+	 	this.liveAssetIds = liveAssetIds;
+	 }
+	
+	/**
+	 * The range (in hours), in which, EPG updates triggers a notification,
+ * every program that is updated and it’s starts time falls within this range shall trigger a notification
+	 * @return int
+	 */
+	 getTimeRange() {
+	 	return this.timeRange;
+	 }
+	
+	/**
+	 * @param timeRange int The range (in hours), in which, EPG updates triggers a notification,
+ * every program that is updated and it’s starts time falls within this range shall trigger a notification
+	 */
+	 setTimeRange(timeRange) {
+	 	this.timeRange = timeRange;
+	 }
+}
+module.exports.EpgNotificationSettings = EpgNotificationSettings;
+
+/**
+ *
+ */
 class NotificationsPartnerSettings extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -30497,6 +30603,21 @@ class NotificationsPartnerSettings extends kaltura.BaseObject{
 	 */
 	 setIotEnabled(iotEnabled) {
 	 	this.iotEnabled = iotEnabled;
+	 }
+	
+	/**
+	 * Settings for epg notifications
+	 * @return EpgNotificationSettings
+	 */
+	 getEpgNotification() {
+	 	return this.epgNotification;
+	 }
+	
+	/**
+	 * @param epgNotification EpgNotificationSettings Settings for epg notifications
+	 */
+	 setEpgNotification(epgNotification) {
+	 	this.epgNotification = epgNotification;
 	 }
 }
 module.exports.NotificationsPartnerSettings = NotificationsPartnerSettings;
