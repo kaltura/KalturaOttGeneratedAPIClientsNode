@@ -7034,6 +7034,21 @@ class MediaImage extends kaltura.BaseObject{
 	 setIsDefault(isDefault) {
 	 	this.isDefault = isDefault;
 	 }
+	
+	/**
+	 * Image type identifier
+	 * @return int
+	 */
+	 getImageTypeId() {
+	 	return this.imageTypeId;
+	 }
+	
+	/**
+	 * @param imageTypeId int Image type identifier
+	 */
+	 setImageTypeId(imageTypeId) {
+	 	this.imageTypeId = imageTypeId;
+	 }
 }
 module.exports.MediaImage = MediaImage;
 
