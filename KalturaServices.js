@@ -8,7 +8,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2020  Kaltura Inc.
+// Copyright (C) 2006-2021  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -961,79 +961,6 @@ module.exports.businessModuleRule = businessModuleRule;
 
 
 /**
- *Class definition for the Kaltura service: campaign.
- * The available service actions:
- * @action add Add an object.
- * @action update Update an object.
- * @action delete Delete an object.
- * @action list .
- * @action setState Set campaign&#39;s state.
- */
-class campaign{
-	
-	/**
-	 * Add an object.
-	 * @param objectToAdd Campaign Object to add
-	 * @return KalturaCampaign
-	 */
-	static add(objectToAdd){
-		let kparams = {};
-		kparams.objectToAdd = objectToAdd;
-		return new kaltura.RequestBuilder('campaign', 'add', kparams);
-	};
-	
-	/**
-	 * Update an object.
-	 * @param id int Object ID to update
-	 * @param objectToUpdate Campaign Object to update
-	 * @return KalturaCampaign
-	 */
-	static update(id, objectToUpdate){
-		let kparams = {};
-		kparams.id = id;
-		kparams.objectToUpdate = objectToUpdate;
-		return new kaltura.RequestBuilder('campaign', 'update', kparams);
-	};
-	
-	/**
-	 * Delete an object.
-	 * @param id int Object ID to delete
-	 */
-	static deleteAction(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('campaign', 'delete', kparams);
-	};
-	
-	/**
-	 * .
-	 * @param filter CampaignFilter Request filter
-	 * @param pager FilterPager Request pager (optional, default: null)
-	 * @return KalturaCampaignListResponse
-	 */
-	static listAction(filter, pager = null){
-		let kparams = {};
-		kparams.filter = filter;
-		kparams.pager = pager;
-		return new kaltura.RequestBuilder('campaign', 'list', kparams);
-	};
-	
-	/**
-	 * Set campaign&#39;s state.
-	 * @param campaignId int campaign Id
-	 * @param newState string new campaign state (enum: KalturaObjectState)
-	 */
-	static setState(campaignId, newState){
-		let kparams = {};
-		kparams.campaignId = campaignId;
-		kparams.newState = newState;
-		return new kaltura.RequestBuilder('campaign', 'setState', kparams);
-	};
-}
-module.exports.campaign = campaign;
-
-
-/**
  *Class definition for the Kaltura service: categoryItem.
  * The available service actions:
  * @action add categoryItem add.
@@ -1892,66 +1819,6 @@ module.exports.deviceFamily = deviceFamily;
 
 
 /**
- *Class definition for the Kaltura service: deviceReferenceData.
- * The available service actions:
- * @action add Add an object.
- * @action update Update an object.
- * @action delete Delete an object.
- * @action list .
- */
-class deviceReferenceData{
-	
-	/**
-	 * Add an object.
-	 * @param objectToAdd DeviceReferenceData Object to add
-	 * @return KalturaDeviceReferenceData
-	 */
-	static add(objectToAdd){
-		let kparams = {};
-		kparams.objectToAdd = objectToAdd;
-		return new kaltura.RequestBuilder('devicereferencedata', 'add', kparams);
-	};
-	
-	/**
-	 * Update an object.
-	 * @param id int Object ID to update
-	 * @param objectToUpdate DeviceReferenceData Object to update
-	 * @return KalturaDeviceReferenceData
-	 */
-	static update(id, objectToUpdate){
-		let kparams = {};
-		kparams.id = id;
-		kparams.objectToUpdate = objectToUpdate;
-		return new kaltura.RequestBuilder('devicereferencedata', 'update', kparams);
-	};
-	
-	/**
-	 * Delete an object.
-	 * @param id int Object ID to delete
-	 */
-	static deleteAction(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('devicereferencedata', 'delete', kparams);
-	};
-	
-	/**
-	 * .
-	 * @param filter DeviceReferenceDataFilter Request filter
-	 * @param pager FilterPager Request pager (optional, default: null)
-	 * @return KalturaDeviceReferenceDataListResponse
-	 */
-	static listAction(filter, pager = null){
-		let kparams = {};
-		kparams.filter = filter;
-		kparams.pager = pager;
-		return new kaltura.RequestBuilder('devicereferencedata', 'list', kparams);
-	};
-}
-module.exports.deviceReferenceData = deviceReferenceData;
-
-
-/**
  *Class definition for the Kaltura service: discountDetails.
  * The available service actions:
  * @action list Returns the list of available discounts details, can be filtered by discount codes.
@@ -1989,83 +1856,6 @@ class drmProfile{
 	};
 }
 module.exports.drmProfile = drmProfile;
-
-
-/**
- *Class definition for the Kaltura service: dynamicList.
- * The available service actions:
- * @action add Add an object.
- * @action update Update an object.
- * @action delete Delete an object.
- * @action list .
- * @action addFromBulkUpload Add new bulk upload batch job Conversion profile id can be specified in the API.
- */
-class dynamicList{
-	
-	/**
-	 * Add an object.
-	 * @param objectToAdd DynamicList Object to add
-	 * @return KalturaDynamicList
-	 */
-	static add(objectToAdd){
-		let kparams = {};
-		kparams.objectToAdd = objectToAdd;
-		return new kaltura.RequestBuilder('dynamiclist', 'add', kparams);
-	};
-	
-	/**
-	 * Update an object.
-	 * @param id int Object ID to update
-	 * @param objectToUpdate DynamicList Object to update
-	 * @return KalturaDynamicList
-	 */
-	static update(id, objectToUpdate){
-		let kparams = {};
-		kparams.id = id;
-		kparams.objectToUpdate = objectToUpdate;
-		return new kaltura.RequestBuilder('dynamiclist', 'update', kparams);
-	};
-	
-	/**
-	 * Delete an object.
-	 * @param id int Object ID to delete
-	 */
-	static deleteAction(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('dynamiclist', 'delete', kparams);
-	};
-	
-	/**
-	 * .
-	 * @param filter DynamicListFilter Request filter
-	 * @param pager FilterPager Request pager (optional, default: null)
-	 * @return KalturaDynamicListListResponse
-	 */
-	static listAction(filter, pager = null){
-		let kparams = {};
-		kparams.filter = filter;
-		kparams.pager = pager;
-		return new kaltura.RequestBuilder('dynamiclist', 'list', kparams);
-	};
-	
-	/**
-	 * Add new bulk upload batch job Conversion profile id can be specified in the API.
-	 * @param fileData file fileData
-	 * @param jobData BulkUploadExcelJobData jobData
-	 * @param bulkUploadData BulkUploadDynamicListData bulkUploadData
-	 * @return KalturaBulkUpload
-	 */
-	static addFromBulkUpload(fileData, jobData, bulkUploadData){
-		let kparams = {};
-		let kfiles = {};
-		kfiles.fileData = fileData;
-		kparams.jobData = jobData;
-		kparams.bulkUploadData = bulkUploadData;
-		return new kaltura.RequestBuilder('dynamiclist', 'addFromBulkUpload', kparams, kfiles);
-	};
-}
-module.exports.dynamicList = dynamicList;
 
 
 /**
@@ -2746,7 +2536,6 @@ module.exports.homeNetwork = homeNetwork;
  * @action add Creates a household for the user.
  * @action delete Fully delete a household. Delete all of the household information, including users, devices, entitlements, payment methods and notification date.
  * @action get Returns the household model.
- * @action list Get recently watched media for user, ordered by recently watched first.
  * @action purge Purge a household. Delete all of the household information, including users, devices, entitlements, payment methods and notification date.
  * @action resetFrequency Reset a household’s time limitation for removing user or device.
  * @action resume Resumed a given household service to its previous service settings.
@@ -2786,19 +2575,6 @@ class household{
 		let kparams = {};
 		kparams.id = id;
 		return new kaltura.RequestBuilder('household', 'get', kparams);
-	};
-	
-	/**
-	 * Get recently watched media for user, ordered by recently watched first.
-	 * @param filter HouseholdFilter Filter parameters for filtering out the result
-	 * @param pager FilterPager Page size and index. Number of assets to return per page. Possible range 5 ≤ size ≥ 50. If omitted - will be set to 25. If a value > 50 provided – will set to 50 (optional, default: null)
-	 * @return KalturaHouseholdListResponse
-	 */
-	static listAction(filter, pager = null){
-		let kparams = {};
-		kparams.filter = filter;
-		kparams.pager = pager;
-		return new kaltura.RequestBuilder('household', 'list', kparams);
 	};
 	
 	/**
@@ -3982,15 +3758,11 @@ class notification{
 	/**
 	 * Sends SMS notification to user.
 	 * @param message string Message to send
-	 * @param phoneNumber string Optional phoneNumber (optional, default: null)
-	 * @param adapterData map Data used by the adapter (optional, default: null)
 	 * @return bool
 	 */
-	static sendSms(message, phoneNumber = null, adapterData = null){
+	static sendSms(message){
 		let kparams = {};
 		kparams.message = message;
-		kparams.phoneNumber = phoneNumber;
-		kparams.adapterData = adapterData;
 		return new kaltura.RequestBuilder('notification', 'sendSms', kparams);
 	};
 	
@@ -4327,12 +4099,10 @@ class ottUser{
 	
 	/**
 	 * Logout the calling user.
-	 * @param adapterData map adapter data (optional, default: null)
 	 * @return bool
 	 */
-	static logout(adapterData = null){
+	static logout(){
 		let kparams = {};
-		kparams.adapterData = adapterData;
 		return new kaltura.RequestBuilder('ottuser', 'logout', kparams);
 	};
 	
@@ -4821,11 +4591,9 @@ module.exports.paymentMethodProfile = paymentMethodProfile;
  *Class definition for the Kaltura service: permission.
  * The available service actions:
  * @action add Adds new permission.
- * @action addPermissionItem Adds permission item to permission.
  * @action delete Deletes an existing permission.
  * @action getCurrentPermissions Returns permission names as comma separated string.
  * @action list Retrieving permissions by identifiers, if filter is empty, returns all partner permissions.
- * @action removePermissionItem Removes permission item from permission.
  */
 class permission{
 	
@@ -4838,18 +4606,6 @@ class permission{
 		let kparams = {};
 		kparams.permission = permission;
 		return new kaltura.RequestBuilder('permission', 'add', kparams);
-	};
-	
-	/**
-	 * Adds permission item to permission.
-	 * @param permissionId int Permission ID to add to
-	 * @param permissionItemId int Permission item ID to add
-	 */
-	static addPermissionItem(permissionId, permissionItemId){
-		let kparams = {};
-		kparams.permissionId = permissionId;
-		kparams.permissionItemId = permissionItemId;
-		return new kaltura.RequestBuilder('permission', 'addPermissionItem', kparams);
 	};
 	
 	/**
@@ -4881,43 +4637,8 @@ class permission{
 		kparams.filter = filter;
 		return new kaltura.RequestBuilder('permission', 'list', kparams);
 	};
-	
-	/**
-	 * Removes permission item from permission.
-	 * @param permissionId int Permission ID to remove from
-	 * @param permissionItemId int Permission item ID to remove
-	 */
-	static removePermissionItem(permissionId, permissionItemId){
-		let kparams = {};
-		kparams.permissionId = permissionId;
-		kparams.permissionItemId = permissionItemId;
-		return new kaltura.RequestBuilder('permission', 'removePermissionItem', kparams);
-	};
 }
 module.exports.permission = permission;
-
-
-/**
- *Class definition for the Kaltura service: permissionItem.
- * The available service actions:
- * @action list Return a list of permission items with filtering options.
- */
-class permissionItem{
-	
-	/**
-	 * Return a list of permission items with filtering options.
-	 * @param filter PermissionItemFilter Filter (optional, default: null)
-	 * @param pager FilterPager Pager (optional, default: null)
-	 * @return KalturaPermissionItemListResponse
-	 */
-	static listAction(filter = null, pager = null){
-		let kparams = {};
-		kparams.filter = filter;
-		kparams.pager = pager;
-		return new kaltura.RequestBuilder('permissionitem', 'list', kparams);
-	};
-}
-module.exports.permissionItem = permissionItem;
 
 
 /**
@@ -5917,88 +5638,6 @@ module.exports.session = session;
 
 
 /**
- *Class definition for the Kaltura service: smsAdapterProfile.
- * The available service actions:
- * @action add Add an object.
- * @action update Update an object.
- * @action get Get an object.
- * @action list .
- * @action delete Delete an object.
- * @action generateSharedSecret Generate Sms Adapter shared secret.
- */
-class smsAdapterProfile{
-	
-	/**
-	 * Add an object.
-	 * @param objectToAdd SmsAdapterProfile Object to add
-	 * @return KalturaSmsAdapterProfile
-	 */
-	static add(objectToAdd){
-		let kparams = {};
-		kparams.objectToAdd = objectToAdd;
-		return new kaltura.RequestBuilder('smsadapterprofile', 'add', kparams);
-	};
-	
-	/**
-	 * Update an object.
-	 * @param id int Object ID to update
-	 * @param objectToUpdate SmsAdapterProfile Object to update
-	 * @return KalturaSmsAdapterProfile
-	 */
-	static update(id, objectToUpdate){
-		let kparams = {};
-		kparams.id = id;
-		kparams.objectToUpdate = objectToUpdate;
-		return new kaltura.RequestBuilder('smsadapterprofile', 'update', kparams);
-	};
-	
-	/**
-	 * Get an object.
-	 * @param id int Object ID to get
-	 * @return KalturaSmsAdapterProfile
-	 */
-	static get(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('smsadapterprofile', 'get', kparams);
-	};
-	
-	/**
-	 * .
-	 * @param filter SmsAdapterProfileFilter Request filter
-	 * @return KalturaSmsAdapterProfileListResponse
-	 */
-	static listAction(filter){
-		let kparams = {};
-		kparams.filter = filter;
-		return new kaltura.RequestBuilder('smsadapterprofile', 'list', kparams);
-	};
-	
-	/**
-	 * Delete an object.
-	 * @param id int Object ID to delete
-	 */
-	static deleteAction(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('smsadapterprofile', 'delete', kparams);
-	};
-	
-	/**
-	 * Generate Sms Adapter shared secret.
-	 * @param smsAdapterId int Sms Adapter identifier
-	 * @return KalturaSmsAdapterProfile
-	 */
-	static generateSharedSecret(smsAdapterId){
-		let kparams = {};
-		kparams.smsAdapterId = smsAdapterId;
-		return new kaltura.RequestBuilder('smsadapterprofile', 'generateSharedSecret', kparams);
-	};
-}
-module.exports.smsAdapterProfile = smsAdapterProfile;
-
-
-/**
  *Class definition for the Kaltura service: socialAction.
  * The available service actions:
  * @action add Insert new user social action.
@@ -6297,27 +5936,6 @@ class ssoAdapterProfile{
 	};
 }
 module.exports.ssoAdapterProfile = ssoAdapterProfile;
-
-
-/**
- *Class definition for the Kaltura service: streamingDevice.
- * The available service actions:
- * @action list Lists of devices that are streaming at that moment.
- */
-class streamingDevice{
-	
-	/**
-	 * Lists of devices that are streaming at that moment.
-	 * @param filter StreamingDeviceFilter Segmentation type filter - basically empty (optional, default: null)
-	 * @return KalturaStreamingDeviceListResponse
-	 */
-	static listAction(filter = null){
-		let kparams = {};
-		kparams.filter = filter;
-		return new kaltura.RequestBuilder('streamingdevice', 'list', kparams);
-	};
-}
-module.exports.streamingDevice = streamingDevice;
 
 
 /**
@@ -7144,8 +6762,7 @@ module.exports.userInterest = userInterest;
 /**
  *Class definition for the Kaltura service: userLoginPin.
  * The available service actions:
- * @action add Generate a time and usage expiry login-PIN that can allow a single/multiple login/s per PIN.
- * If an active login-PIN already exists. Calling this API again for same user will add another login-PIN.
+ * @action add Generate a time and usage expiry login-PIN that can allow a single login per PIN. If an active login-PIN already exists. Calling this API again for same user will add another login-PIN.
  * @action delete Immediately deletes a given pre set login pin code for the user.
  * @action deleteAll Immediately expire all active login-PINs for a user.
  * @action update Set a time and usage expiry login-PIN that can allow a single login per PIN. If an active login-PIN already exists. Calling this API again for same user will add another login-PIN.
@@ -7153,18 +6770,13 @@ module.exports.userInterest = userInterest;
 class userLoginPin{
 	
 	/**
-	 * Generate a time and usage expiry login-PIN that can allow a single/multiple login/s per PIN.
- * If an active login-PIN already exists. Calling this API again for same user will add another login-PIN.
+	 * Generate a time and usage expiry login-PIN that can allow a single login per PIN. If an active login-PIN already exists. Calling this API again for same user will add another login-PIN.
 	 * @param secret string Additional security parameter for optional enhanced security (optional, default: null)
-	 * @param pinUsages int Optional number of pin usages (optional, default: null)
-	 * @param pinDuration int Optional duration in minutes of the pin (optional, default: null)
 	 * @return KalturaUserLoginPin
 	 */
-	static add(secret = null, pinUsages = null, pinDuration = null){
+	static add(secret = null){
 		let kparams = {};
 		kparams.secret = secret;
-		kparams.pinUsages = pinUsages;
-		kparams.pinDuration = pinDuration;
 		return new kaltura.RequestBuilder('userloginpin', 'add', kparams);
 	};
 	
@@ -7192,16 +6804,12 @@ class userLoginPin{
 	 * Set a time and usage expiry login-PIN that can allow a single login per PIN. If an active login-PIN already exists. Calling this API again for same user will add another login-PIN.
 	 * @param pinCode string Device Identifier
 	 * @param secret string Additional security parameter to validate the login (optional, default: null)
-	 * @param pinUsages int Optional number of pin usages (optional, default: null)
-	 * @param pinDuration int Optional duration in seconds of the pin (optional, default: null)
 	 * @return KalturaUserLoginPin
 	 */
-	static update(pinCode, secret = null, pinUsages = null, pinDuration = null){
+	static update(pinCode, secret = null){
 		let kparams = {};
 		kparams.pinCode = pinCode;
 		kparams.secret = secret;
-		kparams.pinUsages = pinUsages;
-		kparams.pinDuration = pinDuration;
 		return new kaltura.RequestBuilder('userloginpin', 'update', kparams);
 	};
 }
