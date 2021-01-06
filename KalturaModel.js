@@ -8,7 +8,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2020  Kaltura Inc.
+// Copyright (C) 2006-2021  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -7033,6 +7033,21 @@ class MediaImage extends kaltura.BaseObject{
 	 */
 	 setIsDefault(isDefault) {
 	 	this.isDefault = isDefault;
+	 }
+	
+	/**
+	 * Image type identifier
+	 * @return int
+	 */
+	 getImageTypeId() {
+	 	return this.imageTypeId;
+	 }
+	
+	/**
+	 * @param imageTypeId int Image type identifier
+	 */
+	 setImageTypeId(imageTypeId) {
+	 	this.imageTypeId = imageTypeId;
 	 }
 }
 module.exports.MediaImage = MediaImage;
@@ -16464,6 +16479,21 @@ class ConcurrencyPartnerConfig extends PartnerConfiguration{
 	 */
 	 setConcurrencyThresholdInSeconds(concurrencyThresholdInSeconds) {
 	 	this.concurrencyThresholdInSeconds = concurrencyThresholdInSeconds;
+	 }
+	
+	/**
+	 * Revoke on device delete
+	 * @return bool
+	 */
+	 getRevokeOnDeviceDelete() {
+	 	return this.revokeOnDeviceDelete;
+	 }
+	
+	/**
+	 * @param revokeOnDeviceDelete bool Revoke on device delete
+	 */
+	 setRevokeOnDeviceDelete(revokeOnDeviceDelete) {
+	 	this.revokeOnDeviceDelete = revokeOnDeviceDelete;
 	 }
 }
 module.exports.ConcurrencyPartnerConfig = ConcurrencyPartnerConfig;
