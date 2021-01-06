@@ -1098,6 +1098,7 @@ module.exports.categoryItem = categoryItem;
  * The available service actions:
  * @action duplicate Duplicate category Item.
  * @action get Retrive category tree.
+ * @action getByVersion  Retrieve default category tree of deviceFamilyId by KS or specific one if versionId is set.
  */
 class categoryTree{
 	
@@ -1126,8 +1127,108 @@ class categoryTree{
 		kparams.filter = filter;
 		return new kaltura.RequestBuilder('categorytree', 'get', kparams);
 	};
+	
+	/**
+	 * Retrieve default category tree of deviceFamilyId by KS or specific one if versionId is set.
+	 * @param versionId int Category version id of tree (optional, default: null)
+	 * @return KalturaCategoryTree
+	 */
+	static getByVersion (versionId = null){
+		let kparams = {};
+		kparams.versionId = versionId;
+		return new kaltura.RequestBuilder('categorytree', 'getByVersion ', kparams);
+	};
 }
 module.exports.categoryTree = categoryTree;
+
+
+/**
+ *Class definition for the Kaltura service: categoryVersion.
+ * The available service actions:
+ * @action add categoryVersion add.
+ * @action update categoryVersion update.
+ * @action delete Remove category version.
+ * @action list Gets all category versions.
+ * @action createTree Acreate new tree for this categoryItem.
+ * @action setDefault Set new default category version.
+ */
+class categoryVersion{
+	
+	/**
+	 * categoryVersion add.
+	 * @param objectToAdd CategoryVersion categoryVersion details
+	 * @return KalturaCategoryVersion
+	 */
+	static add(objectToAdd){
+		let kparams = {};
+		kparams.objectToAdd = objectToAdd;
+		return new kaltura.RequestBuilder('categoryversion', 'add', kparams);
+	};
+	
+	/**
+	 * categoryVersion update.
+	 * @param id int Category version identifier
+	 * @param objectToUpdate CategoryVersion categoryVersion details
+	 * @return KalturaCategoryVersion
+	 */
+	static update(id, objectToUpdate){
+		let kparams = {};
+		kparams.id = id;
+		kparams.objectToUpdate = objectToUpdate;
+		return new kaltura.RequestBuilder('categoryversion', 'update', kparams);
+	};
+	
+	/**
+	 * Remove category version.
+	 * @param id int Category version identifier
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('categoryversion', 'delete', kparams);
+	};
+	
+	/**
+	 * Gets all category versions.
+	 * @param filter CategoryVersionFilter Request filter
+	 * @param pager FilterPager Request pager (optional, default: null)
+	 * @return KalturaCategoryVersionListResponse
+	 */
+	static listAction(filter, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('categoryversion', 'list', kparams);
+	};
+	
+	/**
+	 * Acreate new tree for this categoryItem.
+	 * @param categoryItemId int the categoryItemId to create the tree accordingly
+	 * @param name string Name of version
+	 * @param comment string Comment of version
+	 * @return KalturaCategoryVersion
+	 */
+	static createTree(categoryItemId, name, comment){
+		let kparams = {};
+		kparams.categoryItemId = categoryItemId;
+		kparams.name = name;
+		kparams.comment = comment;
+		return new kaltura.RequestBuilder('categoryversion', 'createTree', kparams);
+	};
+	
+	/**
+	 * Set new default category version.
+	 * @param id int category version id to set as default
+	 * @param force bool force to set even if version is older then currenct version (optional, default: false)
+	 */
+	static setDefault(id, force = false){
+		let kparams = {};
+		kparams.id = id;
+		kparams.force = force;
+		return new kaltura.RequestBuilder('categoryversion', 'setDefault', kparams);
+	};
+}
+module.exports.categoryVersion = categoryVersion;
 
 
 /**

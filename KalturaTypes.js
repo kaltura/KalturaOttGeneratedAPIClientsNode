@@ -281,6 +281,17 @@ UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
 UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
 };
 
+module.exports.CategoryVersionOrderBy = {
+UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
+NONE : 'NONE',
+};
+
+module.exports.CategoryVersionState = {
+DRAFT : 'DRAFT',
+DEFAULT : 'DEFAULT',
+RELEASED : 'RELEASED',
+};
+
 module.exports.ChannelEnrichment = {
 CLIENTLOCATION : 'ClientLocation',
 USERID : 'UserId',
