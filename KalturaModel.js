@@ -828,60 +828,6 @@ module.exports.CategoryItemAncestorsFilter = CategoryItemAncestorsFilter;
 /**
  *
  */
-class CategoryVersionFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryVersionFilter';
-	}
-}
-module.exports.CategoryVersionFilter = CategoryVersionFilter;
-
-/**
- *
- */
-class CategoryVersionFilterByTree extends CategoryVersionFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryVersionFilterByTree';
-	}
-	
-	/**
-	 * Category version tree identifier
-	 * @return int
-	 */
-	 getTreeIdEqual() {
-	 	return this.treeIdEqual;
-	 }
-	
-	/**
-	 * @param treeIdEqual int Category version tree identifier
-	 */
-	 setTreeIdEqual(treeIdEqual) {
-	 	this.treeIdEqual = treeIdEqual;
-	 }
-	
-	/**
-	 * Category version state
-	 * @return string
-	 */
-	 getStateEqual() {
-	 	return this.stateEqual;
-	 }
-	
-	/**
-	 * @param stateEqual string Category version state
-	 */
-	 setStateEqual(stateEqual) {
-	 	this.stateEqual = stateEqual;
-	 }
-}
-module.exports.CategoryVersionFilterByTree = CategoryVersionFilterByTree;
-
-/**
- *
- */
 class CampaignFilter extends CrudFilter{
 	
 	constructor(object = null) {
@@ -11124,14 +11070,6 @@ class CategoryItem extends CrudObject{
 	 setType(type) {
 	 	this.type = type;
 	 }
-	
-	/**
-	 * Unique identifier for the category version
-	 * @return int
-	 */
-	 getVersionId() {
-	 	return this.versionId;
-	 }
 }
 module.exports.CategoryItem = CategoryItem;
 
@@ -11191,127 +11129,6 @@ class UnifiedChannelInfo extends UnifiedChannel{
 	 }
 }
 module.exports.UnifiedChannelInfo = UnifiedChannelInfo;
-
-/**
- *
- */
-class CategoryVersion extends CrudObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryVersion';
-	}
-	
-	/**
-	 * Unique identifier for the category version
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Category version name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Category version name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
-	 * Category tree identifier
-	 * @return int
-	 */
-	 getTreeId() {
-	 	return this.treeId;
-	 }
-	
-	/**
-	 * The category version state
-	 * @return string
-	 */
-	 getState() {
-	 	return this.state;
-	 }
-	
-	/**
-	 * The version id that this version was created from
-	 * @return int
-	 */
-	 getBaseVersionId() {
-	 	return this.baseVersionId;
-	 }
-	
-	/**
-	 * @param baseVersionId int The version id that this version was created from
-	 */
-	 setBaseVersionId(baseVersionId) {
-	 	this.baseVersionId = baseVersionId;
-	 }
-	
-	/**
-	 * The root of category item id that was created for this version
-	 * @return int
-	 */
-	 getCategoryRootId() {
-	 	return this.categoryRootId;
-	 }
-	
-	/**
-	 * The date that this version became default represented as epoch
-	 * @return int
-	 */
-	 getDefaultDate() {
-	 	return this.defaultDate;
-	 }
-	
-	/**
-	 * Last updater user id
-	 * @return int
-	 */
-	 getUpdaterId() {
-	 	return this.updaterId;
-	 }
-	
-	/**
-	 * Comment
-	 * @return string
-	 */
-	 getComment() {
-	 	return this.comment;
-	 }
-	
-	/**
-	 * @param comment string Comment
-	 */
-	 setComment(comment) {
-	 	this.comment = comment;
-	 }
-	
-	/**
-	 * The date that this version was created represented as epoch
-	 * @return int
-	 */
-	 getCreateDate() {
-	 	return this.createDate;
-	 }
-	
-	/**
-	 * The date that this version was last updated represented as epoch
-	 * @return int
-	 */
-	 getUpdateDate() {
-	 	return this.updateDate;
-	 }
-}
-module.exports.CategoryVersion = CategoryVersion;
 
 /**
  *
@@ -16516,48 +16333,6 @@ module.exports.BillingPartnerConfig = BillingPartnerConfig;
 /**
  *
  */
-class CategoryManagement extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryManagement';
-	}
-	
-	/**
-	 * Default CategoryVersion tree id
-	 * @return int
-	 */
-	 getDefaultTreeId() {
-	 	return this.defaultTreeId;
-	 }
-	
-	/**
-	 * @param defaultTreeId int Default CategoryVersion tree id
-	 */
-	 setDefaultTreeId(defaultTreeId) {
-	 	this.defaultTreeId = defaultTreeId;
-	 }
-	
-	/**
-	 * Device family to Category TreeId mapping
-	 * @return map
-	 */
-	 getDeviceFamilyToCategoryTree() {
-	 	return this.deviceFamilyToCategoryTree;
-	 }
-	
-	/**
-	 * @param deviceFamilyToCategoryTree map Device family to Category TreeId mapping
-	 */
-	 setDeviceFamilyToCategoryTree(deviceFamilyToCategoryTree) {
-	 	this.deviceFamilyToCategoryTree = deviceFamilyToCategoryTree;
-	 }
-}
-module.exports.CategoryManagement = CategoryManagement;
-
-/**
- *
- */
 class CatalogPartnerConfig extends PartnerConfiguration{
 	
 	constructor(object = null) {
@@ -16578,21 +16353,6 @@ class CatalogPartnerConfig extends PartnerConfiguration{
 	 */
 	 setSingleMultilingualMode(singleMultilingualMode) {
 	 	this.singleMultilingualMode = singleMultilingualMode;
-	 }
-	
-	/**
-	 * Category management
-	 * @return CategoryManagement
-	 */
-	 getCategoryManagement() {
-	 	return this.categoryManagement;
-	 }
-	
-	/**
-	 * @param categoryManagement CategoryManagement Category management
-	 */
-	 setCategoryManagement(categoryManagement) {
-	 	this.categoryManagement = categoryManagement;
 	 }
 }
 module.exports.CatalogPartnerConfig = CatalogPartnerConfig;
@@ -27729,6 +27489,23 @@ class BulkUploadIngestJobData extends BulkUploadJobData{
 	 setIngestProfileId(ingestProfileId) {
 	 	this.ingestProfileId = ingestProfileId;
 	 }
+	
+	/**
+	 * By default, after the successful ingest, devices will be notified about changes in epg channels.
+ * This parameter disables this notification
+	 * @return bool
+	 */
+	 getDisableEpgNotification() {
+	 	return this.disableEpgNotification;
+	 }
+	
+	/**
+	 * @param disableEpgNotification bool By default, after the successful ingest, devices will be notified about changes in epg channels.
+ * This parameter disables this notification
+	 */
+	 setDisableEpgNotification(disableEpgNotification) {
+	 	this.disableEpgNotification = disableEpgNotification;
+	 }
 }
 module.exports.BulkUploadIngestJobData = BulkUploadIngestJobData;
 
@@ -28258,43 +28035,8 @@ class CategoryTree extends kaltura.BaseObject{
 	 setType(type) {
 	 	this.type = type;
 	 }
-	
-	/**
-	 * Unique identifier for the category version
-	 * @return int
-	 */
-	 getVersionId() {
-	 	return this.versionId;
-	 }
 }
 module.exports.CategoryTree = CategoryTree;
-
-/**
- *
- */
-class CategoryVersionListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryVersionListResponse';
-	}
-	
-	/**
-	 * A list of objects
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array A list of objects
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.CategoryVersionListResponse = CategoryVersionListResponse;
 
 /**
  *
@@ -30035,6 +29777,21 @@ class IotClientConfiguration extends kaltura.BaseObject{
 	 setJson(json) {
 	 	this.json = json;
 	 }
+	
+	/**
+	 * topics
+	 * @return string
+	 */
+	 getTopics() {
+	 	return this.topics;
+	 }
+	
+	/**
+	 * @param topics string topics
+	 */
+	 setTopics(topics) {
+	 	this.topics = topics;
+	 }
 }
 module.exports.IotClientConfiguration = IotClientConfiguration;
 
@@ -30527,6 +30284,80 @@ module.exports.PushMessage = PushMessage;
 /**
  *
  */
+class EpgNotificationSettings extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEpgNotificationSettings';
+	}
+	
+	/**
+	 * EPG notification capability is enabled for the account
+	 * @return bool
+	 */
+	 getEnabled() {
+	 	return this.enabled;
+	 }
+	
+	/**
+	 * @param enabled bool EPG notification capability is enabled for the account
+	 */
+	 setEnabled(enabled) {
+	 	this.enabled = enabled;
+	 }
+	
+	/**
+	 * Specify which devices should receive notifications
+	 * @return string
+	 */
+	 getDeviceFamilyIds() {
+	 	return this.deviceFamilyIds;
+	 }
+	
+	/**
+	 * @param deviceFamilyIds string Specify which devices should receive notifications
+	 */
+	 setDeviceFamilyIds(deviceFamilyIds) {
+	 	this.deviceFamilyIds = deviceFamilyIds;
+	 }
+	
+	/**
+	 * Specify which live assets should fire notifications
+	 * @return string
+	 */
+	 getLiveAssetIds() {
+	 	return this.liveAssetIds;
+	 }
+	
+	/**
+	 * @param liveAssetIds string Specify which live assets should fire notifications
+	 */
+	 setLiveAssetIds(liveAssetIds) {
+	 	this.liveAssetIds = liveAssetIds;
+	 }
+	
+	/**
+	 * The range (in hours), in which, EPG updates triggers a notification,
+ * every program that is updated and it’s starts time falls within this range shall trigger a notification
+	 * @return int
+	 */
+	 getTimeRange() {
+	 	return this.timeRange;
+	 }
+	
+	/**
+	 * @param timeRange int The range (in hours), in which, EPG updates triggers a notification,
+ * every program that is updated and it’s starts time falls within this range shall trigger a notification
+	 */
+	 setTimeRange(timeRange) {
+	 	this.timeRange = timeRange;
+	 }
+}
+module.exports.EpgNotificationSettings = EpgNotificationSettings;
+
+/**
+ *
+ */
 class NotificationsPartnerSettings extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -30802,6 +30633,21 @@ class NotificationsPartnerSettings extends kaltura.BaseObject{
 	 */
 	 setIotEnabled(iotEnabled) {
 	 	this.iotEnabled = iotEnabled;
+	 }
+	
+	/**
+	 * Settings for epg notifications
+	 * @return EpgNotificationSettings
+	 */
+	 getEpgNotification() {
+	 	return this.epgNotification;
+	 }
+	
+	/**
+	 * @param epgNotification EpgNotificationSettings Settings for epg notifications
+	 */
+	 setEpgNotification(epgNotification) {
+	 	this.epgNotification = epgNotification;
 	 }
 }
 module.exports.NotificationsPartnerSettings = NotificationsPartnerSettings;
