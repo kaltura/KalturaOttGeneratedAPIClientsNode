@@ -11070,6 +11070,14 @@ class CategoryItem extends CrudObject{
 	 setType(type) {
 	 	this.type = type;
 	 }
+	
+	/**
+	 * Virtual asset id
+	 * @return int
+	 */
+	 getVirtualAssetId() {
+	 	return this.virtualAssetId;
+	 }
 }
 module.exports.CategoryItem = CategoryItem;
 
