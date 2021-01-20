@@ -11070,6 +11070,14 @@ class CategoryItem extends CrudObject{
 	 setType(type) {
 	 	this.type = type;
 	 }
+	
+	/**
+	 * Virtual asset id
+	 * @return int
+	 */
+	 getVirtualAssetId() {
+	 	return this.virtualAssetId;
+	 }
 }
 module.exports.CategoryItem = CategoryItem;
 
@@ -21675,6 +21683,8 @@ class LiveAsset extends MediaAsset{
 	
 	/**
 	 * Is CDVR enabled for this asset
+ * Please, note that value of this property is strictly connected with CDV-R setting on Partner level.
+ * In order to enable CDV-R for KalturaLiveAsset, Partner CDV-R setting should be enabled
 	 * @return bool
 	 */
 	 getEnableCdvr() {
@@ -21683,6 +21693,8 @@ class LiveAsset extends MediaAsset{
 	
 	/**
 	 * Is catch-up enabled for this asset
+ * Please, note that value of this property is strictly connected with Catch Up setting on Partner level.
+ * In order to enable Catch Up for KalturaLiveAsset, Partner Catch Up setting should be enabled
 	 * @return bool
 	 */
 	 getEnableCatchUp() {
@@ -21691,6 +21703,8 @@ class LiveAsset extends MediaAsset{
 	
 	/**
 	 * Is start over enabled for this asset
+ * Please, note that value of this property is strictly connected with Start Over setting on Partner level.
+ * In order to enable Start Over for KalturaLiveAsset, Partner Start Over setting should be enabled
 	 * @return bool
 	 */
 	 getEnableStartOver() {
@@ -21723,6 +21737,8 @@ class LiveAsset extends MediaAsset{
 	
 	/**
 	 * Is trick-play enabled for this asset
+ * Please, note that value of this property is strictly connected with Trick Play setting on Partner level.
+ * In order to enable Trick Play for KalturaLiveAsset, Partner Trick Play setting should be enabled
 	 * @return bool
 	 */
 	 getEnableTrickPlay() {
@@ -21819,6 +21835,8 @@ class ProgramAsset extends Asset{
 	
 	/**
 	 * Is CDVR enabled for this asset
+ * Please, note that value of this property is strictly connected with CDV-R setting on Partner and KalturaLiveAsset levels.
+ * In order to enable CDV-R for KalturaProgramAsset, Partner and KalturaLiveAsset CDV-R settings should be enabled
 	 * @return bool
 	 */
 	 getEnableCdvr() {
@@ -21827,6 +21845,8 @@ class ProgramAsset extends Asset{
 	
 	/**
 	 * @param enableCdvr bool Is CDVR enabled for this asset
+ * Please, note that value of this property is strictly connected with CDV-R setting on Partner and KalturaLiveAsset levels.
+ * In order to enable CDV-R for KalturaProgramAsset, Partner and KalturaLiveAsset CDV-R settings should be enabled
 	 */
 	 setEnableCdvr(enableCdvr) {
 	 	this.enableCdvr = enableCdvr;
@@ -21834,6 +21854,8 @@ class ProgramAsset extends Asset{
 	
 	/**
 	 * Is catch-up enabled for this asset
+ * Please, note that value of this property is strictly connected with Catch Up setting on Partner and KalturaLiveAsset levels.
+ * In order to enable Catch Up for KalturaProgramAsset, Partner and KalturaLiveAsset Catch Up settings should be enabled
 	 * @return bool
 	 */
 	 getEnableCatchUp() {
@@ -21842,6 +21864,8 @@ class ProgramAsset extends Asset{
 	
 	/**
 	 * @param enableCatchUp bool Is catch-up enabled for this asset
+ * Please, note that value of this property is strictly connected with Catch Up setting on Partner and KalturaLiveAsset levels.
+ * In order to enable Catch Up for KalturaProgramAsset, Partner and KalturaLiveAsset Catch Up settings should be enabled
 	 */
 	 setEnableCatchUp(enableCatchUp) {
 	 	this.enableCatchUp = enableCatchUp;
@@ -21849,6 +21873,8 @@ class ProgramAsset extends Asset{
 	
 	/**
 	 * Is start over enabled for this asset
+ * Please, note that value of this property is strictly connected with Start Over setting on Partner and KalturaLiveAsset levels.
+ * In order to enable Start Over for KalturaProgramAsset, Partner and KalturaLiveAsset Start Over settings should be enabled
 	 * @return bool
 	 */
 	 getEnableStartOver() {
@@ -21857,6 +21883,8 @@ class ProgramAsset extends Asset{
 	
 	/**
 	 * @param enableStartOver bool Is start over enabled for this asset
+ * Please, note that value of this property is strictly connected with Start Over setting on Partner and KalturaLiveAsset levels.
+ * In order to enable Start Over for KalturaProgramAsset, Partner and KalturaLiveAsset Start Over settings should be enabled
 	 */
 	 setEnableStartOver(enableStartOver) {
 	 	this.enableStartOver = enableStartOver;
@@ -21864,6 +21892,8 @@ class ProgramAsset extends Asset{
 	
 	/**
 	 * Is trick-play enabled for this asset
+ * Please, note that value of this property is strictly connected with Trick Play setting on Partner and KalturaLiveAsset levels.
+ * In order to enable Trick Play for KalturaProgramAsset, Partner and KalturaLiveAsset Trick Play settings should be enabled
 	 * @return bool
 	 */
 	 getEnableTrickPlay() {
@@ -21872,6 +21902,8 @@ class ProgramAsset extends Asset{
 	
 	/**
 	 * @param enableTrickPlay bool Is trick-play enabled for this asset
+ * Please, note that value of this property is strictly connected with Trick Play setting on Partner and KalturaLiveAsset levels.
+ * In order to enable Trick Play for KalturaProgramAsset, Partner and KalturaLiveAsset Trick Play settings should be enabled
 	 */
 	 setEnableTrickPlay(enableTrickPlay) {
 	 	this.enableTrickPlay = enableTrickPlay;
@@ -28227,33 +28259,6 @@ class Coupon extends kaltura.BaseObject{
 	 }
 }
 module.exports.Coupon = Coupon;
-
-/**
- *
- */
-class CouponListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCouponListResponse';
-	}
-	
-	/**
-	 * Coupons
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array Coupons
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.CouponListResponse = CouponListResponse;
 
 /**
  *

@@ -1720,7 +1720,6 @@ module.exports.country = country;
  *Class definition for the Kaltura service: coupon.
  * The available service actions:
  * @action get Returns information about a coupon.
- * @action list Lists coupon codes.
  */
 class coupon{
 	
@@ -1733,17 +1732,6 @@ class coupon{
 		let kparams = {};
 		kparams.code = code;
 		return new kaltura.RequestBuilder('coupon', 'get', kparams);
-	};
-	
-	/**
-	 * Lists coupon codes.
-	 * @param filter CouponFilter Filter options
-	 * @return KalturaCouponListResponse
-	 */
-	static listAction(filter){
-		let kparams = {};
-		kparams.filter = filter;
-		return new kaltura.RequestBuilder('coupon', 'list', kparams);
 	};
 }
 module.exports.coupon = coupon;
