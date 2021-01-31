@@ -774,6 +774,7 @@ PLAYBACK : 'Playback',
 PAYMENT : 'Payment',
 CATALOG : 'Catalog',
 SECURITY : 'Security',
+OPC : 'Opc',
 };
 
 module.exports.PasswordPolicyOrderBy = {
