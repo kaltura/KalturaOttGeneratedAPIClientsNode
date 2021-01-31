@@ -1406,6 +1406,21 @@ class OTTUserFilter extends Filter{
 	 setRoleIdsIn(roleIdsIn) {
 	 	this.roleIdsIn = roleIdsIn;
 	 }
+	
+	/**
+	 * User email
+	 * @return string
+	 */
+	 getEmailEqual() {
+	 	return this.emailEqual;
+	 }
+	
+	/**
+	 * @param emailEqual string User email
+	 */
+	 setEmailEqual(emailEqual) {
+	 	this.emailEqual = emailEqual;
+	 }
 }
 module.exports.OTTUserFilter = OTTUserFilter;
 
