@@ -828,60 +828,6 @@ module.exports.CategoryItemAncestorsFilter = CategoryItemAncestorsFilter;
 /**
  *
  */
-class CategoryVersionFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryVersionFilter';
-	}
-}
-module.exports.CategoryVersionFilter = CategoryVersionFilter;
-
-/**
- *
- */
-class CategoryVersionFilterByTree extends CategoryVersionFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryVersionFilterByTree';
-	}
-	
-	/**
-	 * Category version tree identifier
-	 * @return int
-	 */
-	 getTreeIdEqual() {
-	 	return this.treeIdEqual;
-	 }
-	
-	/**
-	 * @param treeIdEqual int Category version tree identifier
-	 */
-	 setTreeIdEqual(treeIdEqual) {
-	 	this.treeIdEqual = treeIdEqual;
-	 }
-	
-	/**
-	 * Category version state
-	 * @return string
-	 */
-	 getStateEqual() {
-	 	return this.stateEqual;
-	 }
-	
-	/**
-	 * @param stateEqual string Category version state
-	 */
-	 setStateEqual(stateEqual) {
-	 	this.stateEqual = stateEqual;
-	 }
-}
-module.exports.CategoryVersionFilterByTree = CategoryVersionFilterByTree;
-
-/**
- *
- */
 class CampaignFilter extends CrudFilter{
 	
 	constructor(object = null) {
@@ -11141,14 +11087,6 @@ class CategoryItem extends CrudObject{
 	 }
 	
 	/**
-	 * Unique identifier for the category version
-	 * @return int
-	 */
-	 getVersionId() {
-	 	return this.versionId;
-	 }
-	
-	/**
 	 * Virtual asset id
 	 * @return int
 	 */
@@ -11214,127 +11152,6 @@ class UnifiedChannelInfo extends UnifiedChannel{
 	 }
 }
 module.exports.UnifiedChannelInfo = UnifiedChannelInfo;
-
-/**
- *
- */
-class CategoryVersion extends CrudObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryVersion';
-	}
-	
-	/**
-	 * Unique identifier for the category version
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Category version name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Category version name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
-	 * Category tree identifier
-	 * @return int
-	 */
-	 getTreeId() {
-	 	return this.treeId;
-	 }
-	
-	/**
-	 * The category version state
-	 * @return string
-	 */
-	 getState() {
-	 	return this.state;
-	 }
-	
-	/**
-	 * The version id that this version was created from
-	 * @return int
-	 */
-	 getBaseVersionId() {
-	 	return this.baseVersionId;
-	 }
-	
-	/**
-	 * @param baseVersionId int The version id that this version was created from
-	 */
-	 setBaseVersionId(baseVersionId) {
-	 	this.baseVersionId = baseVersionId;
-	 }
-	
-	/**
-	 * The root of category item id that was created for this version
-	 * @return int
-	 */
-	 getCategoryRootId() {
-	 	return this.categoryRootId;
-	 }
-	
-	/**
-	 * The date that this version became default represented as epoch
-	 * @return int
-	 */
-	 getDefaultDate() {
-	 	return this.defaultDate;
-	 }
-	
-	/**
-	 * Last updater user id
-	 * @return int
-	 */
-	 getUpdaterId() {
-	 	return this.updaterId;
-	 }
-	
-	/**
-	 * Comment
-	 * @return string
-	 */
-	 getComment() {
-	 	return this.comment;
-	 }
-	
-	/**
-	 * @param comment string Comment
-	 */
-	 setComment(comment) {
-	 	this.comment = comment;
-	 }
-	
-	/**
-	 * The date that this version was created represented as epoch
-	 * @return int
-	 */
-	 getCreateDate() {
-	 	return this.createDate;
-	 }
-	
-	/**
-	 * The date that this version was last updated represented as epoch
-	 * @return int
-	 */
-	 getUpdateDate() {
-	 	return this.updateDate;
-	 }
-}
-module.exports.CategoryVersion = CategoryVersion;
 
 /**
  *
@@ -16539,48 +16356,6 @@ module.exports.BillingPartnerConfig = BillingPartnerConfig;
 /**
  *
  */
-class CategoryManagement extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryManagement';
-	}
-	
-	/**
-	 * Default CategoryVersion tree id
-	 * @return int
-	 */
-	 getDefaultTreeId() {
-	 	return this.defaultTreeId;
-	 }
-	
-	/**
-	 * @param defaultTreeId int Default CategoryVersion tree id
-	 */
-	 setDefaultTreeId(defaultTreeId) {
-	 	this.defaultTreeId = defaultTreeId;
-	 }
-	
-	/**
-	 * Device family to Category TreeId mapping
-	 * @return map
-	 */
-	 getDeviceFamilyToCategoryTree() {
-	 	return this.deviceFamilyToCategoryTree;
-	 }
-	
-	/**
-	 * @param deviceFamilyToCategoryTree map Device family to Category TreeId mapping
-	 */
-	 setDeviceFamilyToCategoryTree(deviceFamilyToCategoryTree) {
-	 	this.deviceFamilyToCategoryTree = deviceFamilyToCategoryTree;
-	 }
-}
-module.exports.CategoryManagement = CategoryManagement;
-
-/**
- *
- */
 class CatalogPartnerConfig extends PartnerConfiguration{
 	
 	constructor(object = null) {
@@ -16601,21 +16376,6 @@ class CatalogPartnerConfig extends PartnerConfiguration{
 	 */
 	 setSingleMultilingualMode(singleMultilingualMode) {
 	 	this.singleMultilingualMode = singleMultilingualMode;
-	 }
-	
-	/**
-	 * Category management
-	 * @return CategoryManagement
-	 */
-	 getCategoryManagement() {
-	 	return this.categoryManagement;
-	 }
-	
-	/**
-	 * @param categoryManagement CategoryManagement Category management
-	 */
-	 setCategoryManagement(categoryManagement) {
-	 	this.categoryManagement = categoryManagement;
 	 }
 }
 module.exports.CatalogPartnerConfig = CatalogPartnerConfig;
@@ -28448,51 +28208,8 @@ class CategoryTree extends kaltura.BaseObject{
 	 setType(type) {
 	 	this.type = type;
 	 }
-	
-	/**
-	 * Unique identifier for the category version
-	 * @return int
-	 */
-	 getVersionId() {
-	 	return this.versionId;
-	 }
-	
-	/**
-	 * Virtual asset id
-	 * @return int
-	 */
-	 getVirtualAssetId() {
-	 	return this.virtualAssetId;
-	 }
 }
 module.exports.CategoryTree = CategoryTree;
-
-/**
- *
- */
-class CategoryVersionListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryVersionListResponse';
-	}
-	
-	/**
-	 * A list of objects
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array A list of objects
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.CategoryVersionListResponse = CategoryVersionListResponse;
 
 /**
  *
