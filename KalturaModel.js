@@ -828,60 +828,6 @@ module.exports.CategoryItemAncestorsFilter = CategoryItemAncestorsFilter;
 /**
  *
  */
-class CategoryVersionFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryVersionFilter';
-	}
-}
-module.exports.CategoryVersionFilter = CategoryVersionFilter;
-
-/**
- *
- */
-class CategoryVersionFilterByTree extends CategoryVersionFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryVersionFilterByTree';
-	}
-	
-	/**
-	 * Category version tree identifier
-	 * @return int
-	 */
-	 getTreeIdEqual() {
-	 	return this.treeIdEqual;
-	 }
-	
-	/**
-	 * @param treeIdEqual int Category version tree identifier
-	 */
-	 setTreeIdEqual(treeIdEqual) {
-	 	this.treeIdEqual = treeIdEqual;
-	 }
-	
-	/**
-	 * Category version state
-	 * @return string
-	 */
-	 getStateEqual() {
-	 	return this.stateEqual;
-	 }
-	
-	/**
-	 * @param stateEqual string Category version state
-	 */
-	 setStateEqual(stateEqual) {
-	 	this.stateEqual = stateEqual;
-	 }
-}
-module.exports.CategoryVersionFilterByTree = CategoryVersionFilterByTree;
-
-/**
- *
- */
 class CampaignFilter extends CrudFilter{
 	
 	constructor(object = null) {
@@ -1459,21 +1405,6 @@ class OTTUserFilter extends Filter{
 	 */
 	 setRoleIdsIn(roleIdsIn) {
 	 	this.roleIdsIn = roleIdsIn;
-	 }
-	
-	/**
-	 * User email
-	 * @return string
-	 */
-	 getEmailEqual() {
-	 	return this.emailEqual;
-	 }
-	
-	/**
-	 * @param emailEqual string User email
-	 */
-	 setEmailEqual(emailEqual) {
-	 	this.emailEqual = emailEqual;
 	 }
 }
 module.exports.OTTUserFilter = OTTUserFilter;
@@ -7103,21 +7034,6 @@ class MediaImage extends kaltura.BaseObject{
 	 setIsDefault(isDefault) {
 	 	this.isDefault = isDefault;
 	 }
-	
-	/**
-	 * Image type identifier
-	 * @return int
-	 */
-	 getImageTypeId() {
-	 	return this.imageTypeId;
-	 }
-	
-	/**
-	 * @param imageTypeId int Image type identifier
-	 */
-	 setImageTypeId(imageTypeId) {
-	 	this.imageTypeId = imageTypeId;
-	 }
 }
 module.exports.MediaImage = MediaImage;
 
@@ -11139,22 +11055,6 @@ class CategoryItem extends CrudObject{
 	 setType(type) {
 	 	this.type = type;
 	 }
-	
-	/**
-	 * Unique identifier for the category version
-	 * @return int
-	 */
-	 getVersionId() {
-	 	return this.versionId;
-	 }
-	
-	/**
-	 * Virtual asset id
-	 * @return int
-	 */
-	 getVirtualAssetId() {
-	 	return this.virtualAssetId;
-	 }
 }
 module.exports.CategoryItem = CategoryItem;
 
@@ -11214,127 +11114,6 @@ class UnifiedChannelInfo extends UnifiedChannel{
 	 }
 }
 module.exports.UnifiedChannelInfo = UnifiedChannelInfo;
-
-/**
- *
- */
-class CategoryVersion extends CrudObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryVersion';
-	}
-	
-	/**
-	 * Unique identifier for the category version
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Category version name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Category version name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
-	 * Category tree identifier
-	 * @return int
-	 */
-	 getTreeId() {
-	 	return this.treeId;
-	 }
-	
-	/**
-	 * The category version state
-	 * @return string
-	 */
-	 getState() {
-	 	return this.state;
-	 }
-	
-	/**
-	 * The version id that this version was created from
-	 * @return int
-	 */
-	 getBaseVersionId() {
-	 	return this.baseVersionId;
-	 }
-	
-	/**
-	 * @param baseVersionId int The version id that this version was created from
-	 */
-	 setBaseVersionId(baseVersionId) {
-	 	this.baseVersionId = baseVersionId;
-	 }
-	
-	/**
-	 * The root of category item id that was created for this version
-	 * @return int
-	 */
-	 getCategoryRootId() {
-	 	return this.categoryRootId;
-	 }
-	
-	/**
-	 * The date that this version became default represented as epoch
-	 * @return int
-	 */
-	 getDefaultDate() {
-	 	return this.defaultDate;
-	 }
-	
-	/**
-	 * Last updater user id
-	 * @return int
-	 */
-	 getUpdaterId() {
-	 	return this.updaterId;
-	 }
-	
-	/**
-	 * Comment
-	 * @return string
-	 */
-	 getComment() {
-	 	return this.comment;
-	 }
-	
-	/**
-	 * @param comment string Comment
-	 */
-	 setComment(comment) {
-	 	this.comment = comment;
-	 }
-	
-	/**
-	 * The date that this version was created represented as epoch
-	 * @return int
-	 */
-	 getCreateDate() {
-	 	return this.createDate;
-	 }
-	
-	/**
-	 * The date that this version was last updated represented as epoch
-	 * @return int
-	 */
-	 getUpdateDate() {
-	 	return this.updateDate;
-	 }
-}
-module.exports.CategoryVersion = CategoryVersion;
 
 /**
  *
@@ -16539,48 +16318,6 @@ module.exports.BillingPartnerConfig = BillingPartnerConfig;
 /**
  *
  */
-class CategoryManagement extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryManagement';
-	}
-	
-	/**
-	 * Default CategoryVersion tree id
-	 * @return int
-	 */
-	 getDefaultTreeId() {
-	 	return this.defaultTreeId;
-	 }
-	
-	/**
-	 * @param defaultTreeId int Default CategoryVersion tree id
-	 */
-	 setDefaultTreeId(defaultTreeId) {
-	 	this.defaultTreeId = defaultTreeId;
-	 }
-	
-	/**
-	 * Device family to Category TreeId mapping
-	 * @return map
-	 */
-	 getDeviceFamilyToCategoryTree() {
-	 	return this.deviceFamilyToCategoryTree;
-	 }
-	
-	/**
-	 * @param deviceFamilyToCategoryTree map Device family to Category TreeId mapping
-	 */
-	 setDeviceFamilyToCategoryTree(deviceFamilyToCategoryTree) {
-	 	this.deviceFamilyToCategoryTree = deviceFamilyToCategoryTree;
-	 }
-}
-module.exports.CategoryManagement = CategoryManagement;
-
-/**
- *
- */
 class CatalogPartnerConfig extends PartnerConfiguration{
 	
 	constructor(object = null) {
@@ -16601,21 +16338,6 @@ class CatalogPartnerConfig extends PartnerConfiguration{
 	 */
 	 setSingleMultilingualMode(singleMultilingualMode) {
 	 	this.singleMultilingualMode = singleMultilingualMode;
-	 }
-	
-	/**
-	 * Category management
-	 * @return CategoryManagement
-	 */
-	 getCategoryManagement() {
-	 	return this.categoryManagement;
-	 }
-	
-	/**
-	 * @param categoryManagement CategoryManagement Category management
-	 */
-	 setCategoryManagement(categoryManagement) {
-	 	this.categoryManagement = categoryManagement;
 	 }
 }
 module.exports.CatalogPartnerConfig = CatalogPartnerConfig;
@@ -16742,21 +16464,6 @@ class ConcurrencyPartnerConfig extends PartnerConfiguration{
 	 */
 	 setConcurrencyThresholdInSeconds(concurrencyThresholdInSeconds) {
 	 	this.concurrencyThresholdInSeconds = concurrencyThresholdInSeconds;
-	 }
-	
-	/**
-	 * Revoke on device delete
-	 * @return bool
-	 */
-	 getRevokeOnDeviceDelete() {
-	 	return this.revokeOnDeviceDelete;
-	 }
-	
-	/**
-	 * @param revokeOnDeviceDelete bool Revoke on device delete
-	 */
-	 setRevokeOnDeviceDelete(revokeOnDeviceDelete) {
-	 	this.revokeOnDeviceDelete = revokeOnDeviceDelete;
 	 }
 }
 module.exports.ConcurrencyPartnerConfig = ConcurrencyPartnerConfig;
@@ -17123,132 +16830,6 @@ class ObjectVirtualAssetPartnerConfig extends PartnerConfiguration{
 	 }
 }
 module.exports.ObjectVirtualAssetPartnerConfig = ObjectVirtualAssetPartnerConfig;
-
-/**
- *
- */
-class ResetPasswordPartnerConfigTemplate extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaResetPasswordPartnerConfigTemplate';
-	}
-	
-	/**
-	 * id
-	 * @return string
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * @param id string id
-	 */
-	 setId(id) {
-	 	this.id = id;
-	 }
-	
-	/**
-	 * label
-	 * @return string
-	 */
-	 getLabel() {
-	 	return this.label;
-	 }
-	
-	/**
-	 * @param label string label
-	 */
-	 setLabel(label) {
-	 	this.label = label;
-	 }
-	
-	/**
-	 * is Default
-	 * @return bool
-	 */
-	 getIsDefault() {
-	 	return this.isDefault;
-	 }
-	
-	/**
-	 * @param isDefault bool is Default
-	 */
-	 setIsDefault(isDefault) {
-	 	this.isDefault = isDefault;
-	 }
-}
-module.exports.ResetPasswordPartnerConfigTemplate = ResetPasswordPartnerConfigTemplate;
-
-/**
- *
- */
-class ResetPasswordPartnerConfig extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaResetPasswordPartnerConfig';
-	}
-	
-	/**
-	 * template List Label
-	 * @return string
-	 */
-	 getTemplateListLabel() {
-	 	return this.templateListLabel;
-	 }
-	
-	/**
-	 * @param templateListLabel string template List Label
-	 */
-	 setTemplateListLabel(templateListLabel) {
-	 	this.templateListLabel = templateListLabel;
-	 }
-	
-	/**
-	 * templates
-	 * @return array
-	 */
-	 getTemplates() {
-	 	return this.templates;
-	 }
-	
-	/**
-	 * @param templates array templates
-	 */
-	 setTemplates(templates) {
-	 	this.templates = templates;
-	 }
-}
-module.exports.ResetPasswordPartnerConfig = ResetPasswordPartnerConfig;
-
-/**
- *
- */
-class OpcPartnerConfiguration extends PartnerConfiguration{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaOpcPartnerConfiguration';
-	}
-	
-	/**
-	 * Reset Password
-	 * @return ResetPasswordPartnerConfig
-	 */
-	 getResetPassword() {
-	 	return this.resetPassword;
-	 }
-	
-	/**
-	 * @param resetPassword ResetPasswordPartnerConfig Reset Password
-	 */
-	 setResetPassword(resetPassword) {
-	 	this.resetPassword = resetPassword;
-	 }
-}
-module.exports.OpcPartnerConfiguration = OpcPartnerConfiguration;
 
 /**
  *
@@ -22064,8 +21645,6 @@ class LiveAsset extends MediaAsset{
 	
 	/**
 	 * Is CDVR enabled for this asset
- * Please, note that value of this property is strictly connected with CDV-R setting on Partner level.
- * In order to enable CDV-R for KalturaLiveAsset, Partner CDV-R setting should be enabled
 	 * @return bool
 	 */
 	 getEnableCdvr() {
@@ -22074,8 +21653,6 @@ class LiveAsset extends MediaAsset{
 	
 	/**
 	 * Is catch-up enabled for this asset
- * Please, note that value of this property is strictly connected with Catch Up setting on Partner level.
- * In order to enable Catch Up for KalturaLiveAsset, Partner Catch Up setting should be enabled
 	 * @return bool
 	 */
 	 getEnableCatchUp() {
@@ -22084,8 +21661,6 @@ class LiveAsset extends MediaAsset{
 	
 	/**
 	 * Is start over enabled for this asset
- * Please, note that value of this property is strictly connected with Start Over setting on Partner level.
- * In order to enable Start Over for KalturaLiveAsset, Partner Start Over setting should be enabled
 	 * @return bool
 	 */
 	 getEnableStartOver() {
@@ -22118,8 +21693,6 @@ class LiveAsset extends MediaAsset{
 	
 	/**
 	 * Is trick-play enabled for this asset
- * Please, note that value of this property is strictly connected with Trick Play setting on Partner level.
- * In order to enable Trick Play for KalturaLiveAsset, Partner Trick Play setting should be enabled
 	 * @return bool
 	 */
 	 getEnableTrickPlay() {
@@ -22216,8 +21789,6 @@ class ProgramAsset extends Asset{
 	
 	/**
 	 * Is CDVR enabled for this asset
- * Please, note that value of this property is strictly connected with CDV-R setting on Partner and KalturaLiveAsset levels.
- * In order to enable CDV-R for KalturaProgramAsset, Partner and KalturaLiveAsset CDV-R settings should be enabled
 	 * @return bool
 	 */
 	 getEnableCdvr() {
@@ -22226,8 +21797,6 @@ class ProgramAsset extends Asset{
 	
 	/**
 	 * @param enableCdvr bool Is CDVR enabled for this asset
- * Please, note that value of this property is strictly connected with CDV-R setting on Partner and KalturaLiveAsset levels.
- * In order to enable CDV-R for KalturaProgramAsset, Partner and KalturaLiveAsset CDV-R settings should be enabled
 	 */
 	 setEnableCdvr(enableCdvr) {
 	 	this.enableCdvr = enableCdvr;
@@ -22235,8 +21804,6 @@ class ProgramAsset extends Asset{
 	
 	/**
 	 * Is catch-up enabled for this asset
- * Please, note that value of this property is strictly connected with Catch Up setting on Partner and KalturaLiveAsset levels.
- * In order to enable Catch Up for KalturaProgramAsset, Partner and KalturaLiveAsset Catch Up settings should be enabled
 	 * @return bool
 	 */
 	 getEnableCatchUp() {
@@ -22245,8 +21812,6 @@ class ProgramAsset extends Asset{
 	
 	/**
 	 * @param enableCatchUp bool Is catch-up enabled for this asset
- * Please, note that value of this property is strictly connected with Catch Up setting on Partner and KalturaLiveAsset levels.
- * In order to enable Catch Up for KalturaProgramAsset, Partner and KalturaLiveAsset Catch Up settings should be enabled
 	 */
 	 setEnableCatchUp(enableCatchUp) {
 	 	this.enableCatchUp = enableCatchUp;
@@ -22254,8 +21819,6 @@ class ProgramAsset extends Asset{
 	
 	/**
 	 * Is start over enabled for this asset
- * Please, note that value of this property is strictly connected with Start Over setting on Partner and KalturaLiveAsset levels.
- * In order to enable Start Over for KalturaProgramAsset, Partner and KalturaLiveAsset Start Over settings should be enabled
 	 * @return bool
 	 */
 	 getEnableStartOver() {
@@ -22264,8 +21827,6 @@ class ProgramAsset extends Asset{
 	
 	/**
 	 * @param enableStartOver bool Is start over enabled for this asset
- * Please, note that value of this property is strictly connected with Start Over setting on Partner and KalturaLiveAsset levels.
- * In order to enable Start Over for KalturaProgramAsset, Partner and KalturaLiveAsset Start Over settings should be enabled
 	 */
 	 setEnableStartOver(enableStartOver) {
 	 	this.enableStartOver = enableStartOver;
@@ -22273,8 +21834,6 @@ class ProgramAsset extends Asset{
 	
 	/**
 	 * Is trick-play enabled for this asset
- * Please, note that value of this property is strictly connected with Trick Play setting on Partner and KalturaLiveAsset levels.
- * In order to enable Trick Play for KalturaProgramAsset, Partner and KalturaLiveAsset Trick Play settings should be enabled
 	 * @return bool
 	 */
 	 getEnableTrickPlay() {
@@ -22283,8 +21842,6 @@ class ProgramAsset extends Asset{
 	
 	/**
 	 * @param enableTrickPlay bool Is trick-play enabled for this asset
- * Please, note that value of this property is strictly connected with Trick Play setting on Partner and KalturaLiveAsset levels.
- * In order to enable Trick Play for KalturaProgramAsset, Partner and KalturaLiveAsset Trick Play settings should be enabled
 	 */
 	 setEnableTrickPlay(enableTrickPlay) {
 	 	this.enableTrickPlay = enableTrickPlay;
@@ -27902,23 +27459,6 @@ class BulkUploadIngestJobData extends BulkUploadJobData{
 	 setIngestProfileId(ingestProfileId) {
 	 	this.ingestProfileId = ingestProfileId;
 	 }
-	
-	/**
-	 * By default, after the successful ingest, devices will be notified about changes in epg channels.
- * This parameter disables this notification
-	 * @return bool
-	 */
-	 getDisableEpgNotification() {
-	 	return this.disableEpgNotification;
-	 }
-	
-	/**
-	 * @param disableEpgNotification bool By default, after the successful ingest, devices will be notified about changes in epg channels.
- * This parameter disables this notification
-	 */
-	 setDisableEpgNotification(disableEpgNotification) {
-	 	this.disableEpgNotification = disableEpgNotification;
-	 }
 }
 module.exports.BulkUploadIngestJobData = BulkUploadIngestJobData;
 
@@ -28448,51 +27988,8 @@ class CategoryTree extends kaltura.BaseObject{
 	 setType(type) {
 	 	this.type = type;
 	 }
-	
-	/**
-	 * Unique identifier for the category version
-	 * @return int
-	 */
-	 getVersionId() {
-	 	return this.versionId;
-	 }
-	
-	/**
-	 * Virtual asset id
-	 * @return int
-	 */
-	 getVirtualAssetId() {
-	 	return this.virtualAssetId;
-	 }
 }
 module.exports.CategoryTree = CategoryTree;
-
-/**
- *
- */
-class CategoryVersionListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryVersionListResponse';
-	}
-	
-	/**
-	 * A list of objects
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array A list of objects
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.CategoryVersionListResponse = CategoryVersionListResponse;
 
 /**
  *
@@ -30233,21 +29730,6 @@ class IotClientConfiguration extends kaltura.BaseObject{
 	 setJson(json) {
 	 	this.json = json;
 	 }
-	
-	/**
-	 * topics
-	 * @return string
-	 */
-	 getTopics() {
-	 	return this.topics;
-	 }
-	
-	/**
-	 * @param topics string topics
-	 */
-	 setTopics(topics) {
-	 	this.topics = topics;
-	 }
 }
 module.exports.IotClientConfiguration = IotClientConfiguration;
 
@@ -30740,80 +30222,6 @@ module.exports.PushMessage = PushMessage;
 /**
  *
  */
-class EpgNotificationSettings extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaEpgNotificationSettings';
-	}
-	
-	/**
-	 * EPG notification capability is enabled for the account
-	 * @return bool
-	 */
-	 getEnabled() {
-	 	return this.enabled;
-	 }
-	
-	/**
-	 * @param enabled bool EPG notification capability is enabled for the account
-	 */
-	 setEnabled(enabled) {
-	 	this.enabled = enabled;
-	 }
-	
-	/**
-	 * Specify which devices should receive notifications
-	 * @return string
-	 */
-	 getDeviceFamilyIds() {
-	 	return this.deviceFamilyIds;
-	 }
-	
-	/**
-	 * @param deviceFamilyIds string Specify which devices should receive notifications
-	 */
-	 setDeviceFamilyIds(deviceFamilyIds) {
-	 	this.deviceFamilyIds = deviceFamilyIds;
-	 }
-	
-	/**
-	 * Specify which live assets should fire notifications
-	 * @return string
-	 */
-	 getLiveAssetIds() {
-	 	return this.liveAssetIds;
-	 }
-	
-	/**
-	 * @param liveAssetIds string Specify which live assets should fire notifications
-	 */
-	 setLiveAssetIds(liveAssetIds) {
-	 	this.liveAssetIds = liveAssetIds;
-	 }
-	
-	/**
-	 * The range (in hours), in which, EPG updates triggers a notification,
- * every program that is updated and it’s starts time falls within this range shall trigger a notification
-	 * @return int
-	 */
-	 getTimeRange() {
-	 	return this.timeRange;
-	 }
-	
-	/**
-	 * @param timeRange int The range (in hours), in which, EPG updates triggers a notification,
- * every program that is updated and it’s starts time falls within this range shall trigger a notification
-	 */
-	 setTimeRange(timeRange) {
-	 	this.timeRange = timeRange;
-	 }
-}
-module.exports.EpgNotificationSettings = EpgNotificationSettings;
-
-/**
- *
- */
 class NotificationsPartnerSettings extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -31089,21 +30497,6 @@ class NotificationsPartnerSettings extends kaltura.BaseObject{
 	 */
 	 setIotEnabled(iotEnabled) {
 	 	this.iotEnabled = iotEnabled;
-	 }
-	
-	/**
-	 * Settings for epg notifications
-	 * @return EpgNotificationSettings
-	 */
-	 getEpgNotification() {
-	 	return this.epgNotification;
-	 }
-	
-	/**
-	 * @param epgNotification EpgNotificationSettings Settings for epg notifications
-	 */
-	 setEpgNotification(epgNotification) {
-	 	this.epgNotification = epgNotification;
 	 }
 }
 module.exports.NotificationsPartnerSettings = NotificationsPartnerSettings;
