@@ -464,6 +464,9 @@ USER : 'user',
 HOUSEHOLD : 'household',
 };
 
+module.exports.EpgOrderBy = {
+};
+
 module.exports.EventNotificationOrderBy = {
 NONE : 'NONE',
 };

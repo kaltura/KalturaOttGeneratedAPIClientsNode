@@ -6623,6 +6623,48 @@ module.exports.UserRoleFilter = UserRoleFilter;
 /**
  *
  */
+class EpgFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEpgFilter';
+	}
+	
+	/**
+	 * date in unix timestamp, e.g. 1610928000(January 18, 2021 0:00:00), 1611014400(January 19, 2021 0:00:00)
+	 * @return int
+	 */
+	 getDateEqual() {
+	 	return this.dateEqual;
+	 }
+	
+	/**
+	 * @param dateEqual int date in unix timestamp, e.g. 1610928000(January 18, 2021 0:00:00), 1611014400(January 19, 2021 0:00:00)
+	 */
+	 setDateEqual(dateEqual) {
+	 	this.dateEqual = dateEqual;
+	 }
+	
+	/**
+	 * EPG live asset identifier
+	 * @return int
+	 */
+	 getLiveAssetIdEqual() {
+	 	return this.liveAssetIdEqual;
+	 }
+	
+	/**
+	 * @param liveAssetIdEqual int EPG live asset identifier
+	 */
+	 setLiveAssetIdEqual(liveAssetIdEqual) {
+	 	this.liveAssetIdEqual = liveAssetIdEqual;
+	 }
+}
+module.exports.EpgFilter = EpgFilter;
+
+/**
+ *
+ */
 class SkipOnErrorCondition extends SkipCondition{
 	
 	constructor(object = null) {
@@ -22376,6 +22418,18 @@ module.exports.RecordingAsset = RecordingAsset;
 /**
  *
  */
+class Epg extends Asset{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEpg';
+	}
+}
+module.exports.Epg = Epg;
+
+/**
+ *
+ */
 class AssetStatisticsListResponse extends ListResponse{
 	
 	constructor(object = null) {
@@ -27192,6 +27246,33 @@ class UserRoleListResponse extends ListResponse{
 	 }
 }
 module.exports.UserRoleListResponse = UserRoleListResponse;
+
+/**
+ *
+ */
+class EpgListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEpgListResponse';
+	}
+	
+	/**
+	 * Assets
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Assets
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.EpgListResponse = EpgListResponse;
 
 /**
  *
