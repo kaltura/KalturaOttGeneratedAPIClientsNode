@@ -4927,6 +4927,7 @@ module.exports.paymentMethodProfile = paymentMethodProfile;
  * @action getCurrentPermissions Returns permission names as comma separated string.
  * @action list Retrieving permissions by identifiers, if filter is empty, returns all partner permissions.
  * @action removePermissionItem Removes permission item from permission.
+ * @action update Update an existing permission.
  */
 class permission{
 	
@@ -4974,7 +4975,7 @@ class permission{
 	
 	/**
 	 * Retrieving permissions by identifiers, if filter is empty, returns all partner permissions.
-	 * @param filter PermissionFilter Filter for permissions (optional, default: null)
+	 * @param filter BasePermissionFilter Filter for permissions (optional, default: null)
 	 * @return KalturaPermissionListResponse
 	 */
 	static listAction(filter = null){
@@ -4993,6 +4994,19 @@ class permission{
 		kparams.permissionId = permissionId;
 		kparams.permissionItemId = permissionItemId;
 		return new kaltura.RequestBuilder('permission', 'removePermissionItem', kparams);
+	};
+	
+	/**
+	 * Update an existing permission.
+	 * @param id int Permission  Identifier
+	 * @param permission Permission Permission object
+	 * @return KalturaPermission
+	 */
+	static update(id, permission){
+		let kparams = {};
+		kparams.id = id;
+		kparams.permission = permission;
+		return new kaltura.RequestBuilder('permission', 'update', kparams);
 	};
 }
 module.exports.permission = permission;
@@ -6533,12 +6547,10 @@ module.exports.subscriptionSet = subscriptionSet;
  *Class definition for the Kaltura service: system.
  * The available service actions:
  * @action clearLocalServerCache Clear local server cache.
- * @action getLogLevel Gets the current level of the KLogger.
  * @action getTime Returns current server timestamp.
  * @action getVersion Returns current server version.
  * @action incrementLayeredCacheGroupConfigVersion Returns true if version has been incremented successfully or false otherwise. You need to send groupId only if you wish to increment for a specific groupId and not the one the KS belongs to.
  * @action ping Returns true.
- * @action setLogLevel Sets the current level of the KLogger.
  */
 class system{
 	
@@ -6553,15 +6565,6 @@ class system{
 		kparams.clearCacheAction = clearCacheAction;
 		kparams.key = key;
 		return new kaltura.RequestBuilder('system', 'clearLocalServerCache', kparams);
-	};
-	
-	/**
-	 * Gets the current level of the KLogger.
-	 * @return string
-	 */
-	static getLogLevel(){
-		let kparams = {};
-		return new kaltura.RequestBuilder('system', 'getLogLevel', kparams);
 	};
 	
 	/**
@@ -6600,17 +6603,6 @@ class system{
 	static ping(){
 		let kparams = {};
 		return new kaltura.RequestBuilder('system', 'ping', kparams);
-	};
-	
-	/**
-	 * Sets the current level of the KLogger.
-	 * @param level string Possible levels: trace, debug, info, warning, error, all (enum: KalturaLogLevel)
-	 * @return bool
-	 */
-	static setLogLevel(level){
-		let kparams = {};
-		kparams.level = level;
-		return new kaltura.RequestBuilder('system', 'setLogLevel', kparams);
 	};
 }
 module.exports.system = system;
