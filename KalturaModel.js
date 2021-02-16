@@ -28687,33 +28687,6 @@ module.exports.Coupon = Coupon;
 /**
  *
  */
-class CouponListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCouponListResponse';
-	}
-	
-	/**
-	 * Coupons
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array Coupons
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.CouponListResponse = CouponListResponse;
-
-/**
- *
- */
 class CouponGenerationOptions extends kaltura.BaseObject{
 	
 	constructor(object = null) {
