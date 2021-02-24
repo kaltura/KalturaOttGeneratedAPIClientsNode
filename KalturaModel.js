@@ -22418,7 +22418,7 @@ module.exports.RecordingAsset = RecordingAsset;
 /**
  *
  */
-class Epg extends Asset{
+class Epg extends ProgramAsset{
 	
 	constructor(object = null) {
 		super(object);
@@ -28810,33 +28810,6 @@ class Coupon extends kaltura.BaseObject{
 	 }
 }
 module.exports.Coupon = Coupon;
-
-/**
- *
- */
-class CouponListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCouponListResponse';
-	}
-	
-	/**
-	 * Coupons
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array Coupons
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.CouponListResponse = CouponListResponse;
 
 /**
  *
