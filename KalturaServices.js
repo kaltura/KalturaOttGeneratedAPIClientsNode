@@ -4915,7 +4915,6 @@ module.exports.paymentMethodProfile = paymentMethodProfile;
  * @action getCurrentPermissions Returns permission names as comma separated string.
  * @action list Retrieving permissions by identifiers, if filter is empty, returns all partner permissions.
  * @action removePermissionItem Removes permission item from permission.
- * @action update Update an existing permission.
  */
 class permission{
 	
@@ -4963,7 +4962,7 @@ class permission{
 	
 	/**
 	 * Retrieving permissions by identifiers, if filter is empty, returns all partner permissions.
-	 * @param filter BasePermissionFilter Filter for permissions (optional, default: null)
+	 * @param filter PermissionFilter Filter for permissions (optional, default: null)
 	 * @return KalturaPermissionListResponse
 	 */
 	static listAction(filter = null){
@@ -4982,19 +4981,6 @@ class permission{
 		kparams.permissionId = permissionId;
 		kparams.permissionItemId = permissionItemId;
 		return new kaltura.RequestBuilder('permission', 'removePermissionItem', kparams);
-	};
-	
-	/**
-	 * Update an existing permission.
-	 * @param id int Permission  Identifier
-	 * @param permission Permission Permission object
-	 * @return KalturaPermission
-	 */
-	static update(id, permission){
-		let kparams = {};
-		kparams.id = id;
-		kparams.permission = permission;
-		return new kaltura.RequestBuilder('permission', 'update', kparams);
 	};
 }
 module.exports.permission = permission;
