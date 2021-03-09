@@ -59,20 +59,12 @@ SENT : 'Sent',
 ABORTED : 'Aborted',
 };
 
-module.exports.ApiAction = {
-ADD : 'ADD',
-};
-
 module.exports.ApiParameterPermissionItemAction = {
 READ : 'READ',
 INSERT : 'INSERT',
 UPDATE : 'UPDATE',
 WRITE : 'WRITE',
 ALL : 'ALL',
-};
-
-module.exports.ApiService = {
-HOUSEHOLD_DEVICE : 'HOUSEHOLD_DEVICE',
 };
 
 module.exports.AppTokenHashType = {
@@ -267,10 +259,6 @@ SUBSCRIPTION : 'subscription',
 COLLECTION : 'collection',
 };
 
-module.exports.CampaignOrderBy = {
-START_DATE_DESC : 'START_DATE_DESC',
-};
-
 module.exports.CategoryItemOrderBy = {
 NAME_ASC : 'NAME_ASC',
 NAME_DESC : 'NAME_DESC',
@@ -279,17 +267,6 @@ CREATE_DATE_DESC : 'CREATE_DATE_DESC',
 NONE : 'NONE',
 UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
 UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
-};
-
-module.exports.CategoryVersionOrderBy = {
-UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
-NONE : 'NONE',
-};
-
-module.exports.CategoryVersionState = {
-DRAFT : 'DRAFT',
-DEFAULT : 'DEFAULT',
-RELEASED : 'RELEASED',
 };
 
 module.exports.ChannelEnrichment = {
@@ -406,10 +383,6 @@ DISABLE : 'Disable',
 DELETE : 'Delete',
 };
 
-module.exports.DeviceReferenceDataOrderBy = {
-NONE : 'NONE',
-};
-
 module.exports.DeviceStatus = {
 PENDING : 'PENDING',
 ACTIVATED : 'ACTIVATED',
@@ -436,14 +409,6 @@ HOURS : 'Hours',
 DAYS : 'Days',
 MONTHS : 'Months',
 YEARS : 'Years',
-};
-
-module.exports.DynamicListOrderBy = {
-NONE : 'NONE',
-};
-
-module.exports.EncryptionType = {
-AES256 : 'AES256',
 };
 
 module.exports.EngagementOrderBy = {
@@ -623,7 +588,6 @@ SYSTEMANNOUNCEMENT : 'SystemAnnouncement',
 FOLLOWED : 'Followed',
 ENGAGEMENT : 'Engagement',
 INTEREST : 'Interest',
-CAMPAIGN : 'Campaign',
 };
 
 module.exports.IngestProfileAutofillPolicy = {
@@ -659,6 +623,15 @@ DTT : 'DTT',
 OTT : 'OTT',
 DTT_AND_OTT : 'DTT_AND_OTT',
 VRM_EXPORT : 'VRM_EXPORT',
+};
+
+module.exports.LogLevel = {
+TRACE : 'TRACE',
+DEBUG : 'DEBUG',
+INFO : 'INFO',
+WARN : 'WARN',
+ERROR : 'ERROR',
+ALL : 'ALL',
 };
 
 module.exports.MathemticalOperatorType = {
@@ -734,12 +707,6 @@ REMINDER : 'Reminder',
 SERIES_REMINDER : 'series_reminder',
 };
 
-module.exports.ObjectState = {
-INACTIVE : 'INACTIVE',
-ACTIVE : 'ACTIVE',
-ARCHIVE : 'ARCHIVE',
-};
-
 module.exports.ObjectVirtualAssetInfoType = {
 SUBSCRIPTION : 'Subscription',
 SEGMENT : 'Segment',
@@ -775,8 +742,6 @@ COMMERCE : 'Commerce',
 PLAYBACK : 'Playback',
 PAYMENT : 'Payment',
 CATALOG : 'Catalog',
-SECURITY : 'Security',
-OPC : 'Opc',
 };
 
 module.exports.PasswordPolicyOrderBy = {
@@ -1009,11 +974,6 @@ HEADER : 'HEADER',
 USER_SUBSCRIPTION : 'USER_SUBSCRIPTION',
 ASSET_SUBSCRIPTION : 'ASSET_SUBSCRIPTION',
 USER_ROLE : 'USER_ROLE',
-DEVICE_BRAND : 'DEVICE_BRAND',
-DEVICE_FAMILY : 'DEVICE_FAMILY',
-DEVICE_MANUFACTURER : 'DEVICE_MANUFACTURER',
-DEVICE_MODEL : 'DEVICE_MODEL',
-DEVICE_UDID_DYNAMIC_LIST : 'DEVICE_UDID_DYNAMIC_LIST',
 };
 
 module.exports.RuleLevel = {
@@ -1130,10 +1090,6 @@ ASSET_ALREADY_RATED : 'asset_already_rated',
 ASSET_DOSE_NOT_EXISTS : 'asset_dose_not_exists',
 INVALID_PLATFORM_REQUEST : 'invalid_platform_request',
 INVALID_ACCESS_TOKEN : 'invalid_access_token',
-};
-
-module.exports.StreamingDeviceOrderBy = {
-NONE : 'NONE',
 };
 
 module.exports.StreamType = {

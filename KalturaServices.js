@@ -961,79 +961,6 @@ module.exports.businessModuleRule = businessModuleRule;
 
 
 /**
- *Class definition for the Kaltura service: campaign.
- * The available service actions:
- * @action add Add an object.
- * @action update Update an object.
- * @action delete Delete an object.
- * @action list .
- * @action setState Set campaign&#39;s state.
- */
-class campaign{
-	
-	/**
-	 * Add an object.
-	 * @param objectToAdd Campaign Object to add
-	 * @return KalturaCampaign
-	 */
-	static add(objectToAdd){
-		let kparams = {};
-		kparams.objectToAdd = objectToAdd;
-		return new kaltura.RequestBuilder('campaign', 'add', kparams);
-	};
-	
-	/**
-	 * Update an object.
-	 * @param id int Object ID to update
-	 * @param objectToUpdate Campaign Object to update
-	 * @return KalturaCampaign
-	 */
-	static update(id, objectToUpdate){
-		let kparams = {};
-		kparams.id = id;
-		kparams.objectToUpdate = objectToUpdate;
-		return new kaltura.RequestBuilder('campaign', 'update', kparams);
-	};
-	
-	/**
-	 * Delete an object.
-	 * @param id int Object ID to delete
-	 */
-	static deleteAction(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('campaign', 'delete', kparams);
-	};
-	
-	/**
-	 * .
-	 * @param filter CampaignFilter Request filter
-	 * @param pager FilterPager Request pager (optional, default: null)
-	 * @return KalturaCampaignListResponse
-	 */
-	static listAction(filter, pager = null){
-		let kparams = {};
-		kparams.filter = filter;
-		kparams.pager = pager;
-		return new kaltura.RequestBuilder('campaign', 'list', kparams);
-	};
-	
-	/**
-	 * Set campaign&#39;s state.
-	 * @param campaignId int campaign Id
-	 * @param newState string new campaign state (enum: KalturaObjectState)
-	 */
-	static setState(campaignId, newState){
-		let kparams = {};
-		kparams.campaignId = campaignId;
-		kparams.newState = newState;
-		return new kaltura.RequestBuilder('campaign', 'setState', kparams);
-	};
-}
-module.exports.campaign = campaign;
-
-
-/**
  *Class definition for the Kaltura service: categoryItem.
  * The available service actions:
  * @action add categoryItem add.
@@ -1098,7 +1025,6 @@ module.exports.categoryItem = categoryItem;
  * The available service actions:
  * @action duplicate Duplicate category Item.
  * @action get Retrive category tree.
- * @action getByVersion Retrieve default category tree of deviceFamilyId by KS or specific one if versionId is set.
  */
 class categoryTree{
 	
@@ -1127,108 +1053,8 @@ class categoryTree{
 		kparams.filter = filter;
 		return new kaltura.RequestBuilder('categorytree', 'get', kparams);
 	};
-	
-	/**
-	 * Retrieve default category tree of deviceFamilyId by KS or specific one if versionId is set.
-	 * @param versionId int Category version id of tree (optional, default: null)
-	 * @return KalturaCategoryTree
-	 */
-	static getByVersion(versionId = null){
-		let kparams = {};
-		kparams.versionId = versionId;
-		return new kaltura.RequestBuilder('categorytree', 'getByVersion', kparams);
-	};
 }
 module.exports.categoryTree = categoryTree;
-
-
-/**
- *Class definition for the Kaltura service: categoryVersion.
- * The available service actions:
- * @action add categoryVersion add.
- * @action update categoryVersion update.
- * @action delete Remove category version.
- * @action list Gets all category versions.
- * @action createTree Acreate new tree for this categoryItem.
- * @action setDefault Set new default category version.
- */
-class categoryVersion{
-	
-	/**
-	 * categoryVersion add.
-	 * @param objectToAdd CategoryVersion categoryVersion details
-	 * @return KalturaCategoryVersion
-	 */
-	static add(objectToAdd){
-		let kparams = {};
-		kparams.objectToAdd = objectToAdd;
-		return new kaltura.RequestBuilder('categoryversion', 'add', kparams);
-	};
-	
-	/**
-	 * categoryVersion update.
-	 * @param id int Category version identifier
-	 * @param objectToUpdate CategoryVersion categoryVersion details
-	 * @return KalturaCategoryVersion
-	 */
-	static update(id, objectToUpdate){
-		let kparams = {};
-		kparams.id = id;
-		kparams.objectToUpdate = objectToUpdate;
-		return new kaltura.RequestBuilder('categoryversion', 'update', kparams);
-	};
-	
-	/**
-	 * Remove category version.
-	 * @param id int Category version identifier
-	 */
-	static deleteAction(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('categoryversion', 'delete', kparams);
-	};
-	
-	/**
-	 * Gets all category versions.
-	 * @param filter CategoryVersionFilter Request filter
-	 * @param pager FilterPager Request pager (optional, default: null)
-	 * @return KalturaCategoryVersionListResponse
-	 */
-	static listAction(filter, pager = null){
-		let kparams = {};
-		kparams.filter = filter;
-		kparams.pager = pager;
-		return new kaltura.RequestBuilder('categoryversion', 'list', kparams);
-	};
-	
-	/**
-	 * Acreate new tree for this categoryItem.
-	 * @param categoryItemId int the categoryItemId to create the tree accordingly
-	 * @param name string Name of version
-	 * @param comment string Comment of version
-	 * @return KalturaCategoryVersion
-	 */
-	static createTree(categoryItemId, name, comment){
-		let kparams = {};
-		kparams.categoryItemId = categoryItemId;
-		kparams.name = name;
-		kparams.comment = comment;
-		return new kaltura.RequestBuilder('categoryversion', 'createTree', kparams);
-	};
-	
-	/**
-	 * Set new default category version.
-	 * @param id int category version id to set as default
-	 * @param force bool force to set even if version is older then currenct version (optional, default: false)
-	 */
-	static setDefault(id, force = false){
-		let kparams = {};
-		kparams.id = id;
-		kparams.force = force;
-		return new kaltura.RequestBuilder('categoryversion', 'setDefault', kparams);
-	};
-}
-module.exports.categoryVersion = categoryVersion;
 
 
 /**
@@ -1821,6 +1647,7 @@ module.exports.country = country;
  *Class definition for the Kaltura service: coupon.
  * The available service actions:
  * @action get Returns information about a coupon.
+ * @action list Lists coupon codes.
  */
 class coupon{
 	
@@ -1833,6 +1660,17 @@ class coupon{
 		let kparams = {};
 		kparams.code = code;
 		return new kaltura.RequestBuilder('coupon', 'get', kparams);
+	};
+	
+	/**
+	 * Lists coupon codes.
+	 * @param filter CouponFilter Filter options
+	 * @return KalturaCouponListResponse
+	 */
+	static listAction(filter){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('coupon', 'list', kparams);
 	};
 }
 module.exports.coupon = coupon;
@@ -1981,66 +1819,6 @@ module.exports.deviceFamily = deviceFamily;
 
 
 /**
- *Class definition for the Kaltura service: deviceReferenceData.
- * The available service actions:
- * @action add Add an object.
- * @action update Update an object.
- * @action delete Delete an object.
- * @action list .
- */
-class deviceReferenceData{
-	
-	/**
-	 * Add an object.
-	 * @param objectToAdd DeviceReferenceData Object to add
-	 * @return KalturaDeviceReferenceData
-	 */
-	static add(objectToAdd){
-		let kparams = {};
-		kparams.objectToAdd = objectToAdd;
-		return new kaltura.RequestBuilder('devicereferencedata', 'add', kparams);
-	};
-	
-	/**
-	 * Update an object.
-	 * @param id int Object ID to update
-	 * @param objectToUpdate DeviceReferenceData Object to update
-	 * @return KalturaDeviceReferenceData
-	 */
-	static update(id, objectToUpdate){
-		let kparams = {};
-		kparams.id = id;
-		kparams.objectToUpdate = objectToUpdate;
-		return new kaltura.RequestBuilder('devicereferencedata', 'update', kparams);
-	};
-	
-	/**
-	 * Delete an object.
-	 * @param id int Object ID to delete
-	 */
-	static deleteAction(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('devicereferencedata', 'delete', kparams);
-	};
-	
-	/**
-	 * .
-	 * @param filter DeviceReferenceDataFilter Request filter
-	 * @param pager FilterPager Request pager (optional, default: null)
-	 * @return KalturaDeviceReferenceDataListResponse
-	 */
-	static listAction(filter, pager = null){
-		let kparams = {};
-		kparams.filter = filter;
-		kparams.pager = pager;
-		return new kaltura.RequestBuilder('devicereferencedata', 'list', kparams);
-	};
-}
-module.exports.deviceReferenceData = deviceReferenceData;
-
-
-/**
  *Class definition for the Kaltura service: discountDetails.
  * The available service actions:
  * @action list Returns the list of available discounts details, can be filtered by discount codes.
@@ -2078,83 +1856,6 @@ class drmProfile{
 	};
 }
 module.exports.drmProfile = drmProfile;
-
-
-/**
- *Class definition for the Kaltura service: dynamicList.
- * The available service actions:
- * @action add Add an object.
- * @action update Update an object.
- * @action delete Delete an object.
- * @action list .
- * @action addFromBulkUpload Add new bulk upload batch job Conversion profile id can be specified in the API.
- */
-class dynamicList{
-	
-	/**
-	 * Add an object.
-	 * @param objectToAdd DynamicList Object to add
-	 * @return KalturaDynamicList
-	 */
-	static add(objectToAdd){
-		let kparams = {};
-		kparams.objectToAdd = objectToAdd;
-		return new kaltura.RequestBuilder('dynamiclist', 'add', kparams);
-	};
-	
-	/**
-	 * Update an object.
-	 * @param id int Object ID to update
-	 * @param objectToUpdate DynamicList Object to update
-	 * @return KalturaDynamicList
-	 */
-	static update(id, objectToUpdate){
-		let kparams = {};
-		kparams.id = id;
-		kparams.objectToUpdate = objectToUpdate;
-		return new kaltura.RequestBuilder('dynamiclist', 'update', kparams);
-	};
-	
-	/**
-	 * Delete an object.
-	 * @param id int Object ID to delete
-	 */
-	static deleteAction(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('dynamiclist', 'delete', kparams);
-	};
-	
-	/**
-	 * .
-	 * @param filter DynamicListFilter Request filter
-	 * @param pager FilterPager Request pager (optional, default: null)
-	 * @return KalturaDynamicListListResponse
-	 */
-	static listAction(filter, pager = null){
-		let kparams = {};
-		kparams.filter = filter;
-		kparams.pager = pager;
-		return new kaltura.RequestBuilder('dynamiclist', 'list', kparams);
-	};
-	
-	/**
-	 * Add new bulk upload batch job Conversion profile id can be specified in the API.
-	 * @param fileData file fileData
-	 * @param jobData BulkUploadExcelJobData jobData
-	 * @param bulkUploadData BulkUploadDynamicListData bulkUploadData
-	 * @return KalturaBulkUpload
-	 */
-	static addFromBulkUpload(fileData, jobData, bulkUploadData){
-		let kparams = {};
-		let kfiles = {};
-		kfiles.fileData = fileData;
-		kparams.jobData = jobData;
-		kparams.bulkUploadData = bulkUploadData;
-		return new kaltura.RequestBuilder('dynamiclist', 'addFromBulkUpload', kparams, kfiles);
-	};
-}
-module.exports.dynamicList = dynamicList;
 
 
 /**
@@ -4915,7 +4616,6 @@ module.exports.paymentMethodProfile = paymentMethodProfile;
  * @action getCurrentPermissions Returns permission names as comma separated string.
  * @action list Retrieving permissions by identifiers, if filter is empty, returns all partner permissions.
  * @action removePermissionItem Removes permission item from permission.
- * @action update Update an existing permission.
  */
 class permission{
 	
@@ -4963,7 +4663,7 @@ class permission{
 	
 	/**
 	 * Retrieving permissions by identifiers, if filter is empty, returns all partner permissions.
-	 * @param filter BasePermissionFilter Filter for permissions (optional, default: null)
+	 * @param filter PermissionFilter Filter for permissions (optional, default: null)
 	 * @return KalturaPermissionListResponse
 	 */
 	static listAction(filter = null){
@@ -4982,19 +4682,6 @@ class permission{
 		kparams.permissionId = permissionId;
 		kparams.permissionItemId = permissionItemId;
 		return new kaltura.RequestBuilder('permission', 'removePermissionItem', kparams);
-	};
-	
-	/**
-	 * Update an existing permission.
-	 * @param id int Permission  Identifier
-	 * @param permission Permission Permission object
-	 * @return KalturaPermission
-	 */
-	static update(id, permission){
-		let kparams = {};
-		kparams.id = id;
-		kparams.permission = permission;
-		return new kaltura.RequestBuilder('permission', 'update', kparams);
 	};
 }
 module.exports.permission = permission;
@@ -6403,27 +6090,6 @@ module.exports.ssoAdapterProfile = ssoAdapterProfile;
 
 
 /**
- *Class definition for the Kaltura service: streamingDevice.
- * The available service actions:
- * @action list Lists of devices that are streaming at that moment.
- */
-class streamingDevice{
-	
-	/**
-	 * Lists of devices that are streaming at that moment.
-	 * @param filter StreamingDeviceFilter Segmentation type filter - basically empty (optional, default: null)
-	 * @return KalturaStreamingDeviceListResponse
-	 */
-	static listAction(filter = null){
-		let kparams = {};
-		kparams.filter = filter;
-		return new kaltura.RequestBuilder('streamingdevice', 'list', kparams);
-	};
-}
-module.exports.streamingDevice = streamingDevice;
-
-
-/**
  *Class definition for the Kaltura service: subscription.
  * The available service actions:
  * @action list Returns a list of subscriptions requested by Subscription ID or file ID.
@@ -6535,10 +6201,12 @@ module.exports.subscriptionSet = subscriptionSet;
  *Class definition for the Kaltura service: system.
  * The available service actions:
  * @action clearLocalServerCache Clear local server cache.
+ * @action getLogLevel Gets the current level of the KLogger.
  * @action getTime Returns current server timestamp.
  * @action getVersion Returns current server version.
  * @action incrementLayeredCacheGroupConfigVersion Returns true if version has been incremented successfully or false otherwise. You need to send groupId only if you wish to increment for a specific groupId and not the one the KS belongs to.
  * @action ping Returns true.
+ * @action setLogLevel Sets the current level of the KLogger.
  */
 class system{
 	
@@ -6553,6 +6221,15 @@ class system{
 		kparams.clearCacheAction = clearCacheAction;
 		kparams.key = key;
 		return new kaltura.RequestBuilder('system', 'clearLocalServerCache', kparams);
+	};
+	
+	/**
+	 * Gets the current level of the KLogger.
+	 * @return string
+	 */
+	static getLogLevel(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('system', 'getLogLevel', kparams);
 	};
 	
 	/**
@@ -6591,6 +6268,17 @@ class system{
 	static ping(){
 		let kparams = {};
 		return new kaltura.RequestBuilder('system', 'ping', kparams);
+	};
+	
+	/**
+	 * Sets the current level of the KLogger.
+	 * @param level string Possible levels: trace, debug, info, warning, error, all (enum: KalturaLogLevel)
+	 * @return bool
+	 */
+	static setLogLevel(level){
+		let kparams = {};
+		kparams.level = level;
+		return new kaltura.RequestBuilder('system', 'setLogLevel', kparams);
 	};
 }
 module.exports.system = system;
