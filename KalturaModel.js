@@ -6071,19 +6071,7 @@ module.exports.ParentalRuleFilter = ParentalRuleFilter;
 /**
  *
  */
-class BasePermissionFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBasePermissionFilter';
-	}
-}
-module.exports.BasePermissionFilter = BasePermissionFilter;
-
-/**
- *
- */
-class PermissionFilter extends BasePermissionFilter{
+class PermissionFilter extends Filter{
 	
 	constructor(object = null) {
 		super(object);
@@ -6121,33 +6109,6 @@ class PermissionFilter extends BasePermissionFilter{
 	 }
 }
 module.exports.PermissionFilter = PermissionFilter;
-
-/**
- *
- */
-class PermissionByIdInFilter extends BasePermissionFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPermissionByIdInFilter';
-	}
-	
-	/**
-	 * Category item identifiers
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Category item identifiers
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.PermissionByIdInFilter = PermissionByIdInFilter;
 
 /**
  *
@@ -26300,18 +26261,11 @@ class Permission extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Comma separated associated permission items IDs
+	 * Comma separated assosiated permission items IDs
 	 * @return string
 	 */
 	 getPermissionItemsIds() {
 	 	return this.permissionItemsIds;
-	 }
-	
-	/**
-	 * @param permissionItemsIds string Comma separated associated permission items IDs
-	 */
-	 setPermissionItemsIds(permissionItemsIds) {
-	 	this.permissionItemsIds = permissionItemsIds;
 	 }
 }
 module.exports.Permission = Permission;
