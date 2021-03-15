@@ -2474,6 +2474,27 @@ module.exports.entitlement = entitlement;
 
 
 /**
+ *Class definition for the Kaltura service: epg.
+ * The available service actions:
+ * @action list Returns EPG assets.
+ */
+class epg{
+	
+	/**
+	 * Returns EPG assets.
+	 * @param filter EpgFilter Filters by EPG live asset identifier and date in unix timestamp, e.g. 1610928000(January 18, 2021 0:00:00), 1611014400(January 19, 2021 0:00:00) (optional, default: null)
+	 * @return KalturaEpgListResponse
+	 */
+	static listAction(filter = null){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('epg', 'list', kparams);
+	};
+}
+module.exports.epg = epg;
+
+
+/**
  *Class definition for the Kaltura service: eventNotificationAction.
  * The available service actions:
  * @action dispatch Dispatches event notification.
