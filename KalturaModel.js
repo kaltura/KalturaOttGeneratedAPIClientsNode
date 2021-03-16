@@ -4301,6 +4301,21 @@ class AssetHistoryFilter extends Filter{
 	 setDaysLessThanOrEqual(daysLessThanOrEqual) {
 	 	this.daysLessThanOrEqual = daysLessThanOrEqual;
 	 }
+	
+	/**
+	 * KSQL expression
+	 * @return string
+	 */
+	 getKSql() {
+	 	return this.kSql;
+	 }
+	
+	/**
+	 * @param kSql string KSQL expression
+	 */
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
+	 }
 }
 module.exports.AssetHistoryFilter = AssetHistoryFilter;
 
