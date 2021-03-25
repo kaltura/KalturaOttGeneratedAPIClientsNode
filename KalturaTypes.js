@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platfroms allow them to do with
+// to do with audio, video, and animation what Wiki platforms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -57,22 +57,6 @@ NOTSENT : 'NotSent',
 SENDING : 'Sending',
 SENT : 'Sent',
 ABORTED : 'Aborted',
-};
-
-module.exports.ApiAction = {
-ADD : 'ADD',
-};
-
-module.exports.ApiParameterPermissionItemAction = {
-READ : 'READ',
-INSERT : 'INSERT',
-UPDATE : 'UPDATE',
-WRITE : 'WRITE',
-ALL : 'ALL',
-};
-
-module.exports.ApiService = {
-HOUSEHOLD_DEVICE : 'HOUSEHOLD_DEVICE',
 };
 
 module.exports.AppTokenHashType = {
@@ -193,7 +177,6 @@ RENEW_PAYMENT : 'renew_payment',
 RENEW_CANCELED_SUBSCRIPTION : 'renew_canceled_subscription',
 CANCEL_SUBSCRIPTION_ORDER : 'cancel_subscription_order',
 SUBSCRIPTION_DATE_CHANGED : 'subscription_date_changed',
-PENDING : 'pending',
 };
 
 module.exports.BillingItemsType = {
@@ -267,10 +250,6 @@ SUBSCRIPTION : 'subscription',
 COLLECTION : 'collection',
 };
 
-module.exports.CampaignOrderBy = {
-START_DATE_DESC : 'START_DATE_DESC',
-};
-
 module.exports.CategoryItemOrderBy = {
 NAME_ASC : 'NAME_ASC',
 NAME_DESC : 'NAME_DESC',
@@ -279,17 +258,6 @@ CREATE_DATE_DESC : 'CREATE_DATE_DESC',
 NONE : 'NONE',
 UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
 UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
-};
-
-module.exports.CategoryVersionOrderBy = {
-UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
-NONE : 'NONE',
-};
-
-module.exports.CategoryVersionState = {
-DRAFT : 'DRAFT',
-DEFAULT : 'DEFAULT',
-RELEASED : 'RELEASED',
 };
 
 module.exports.ChannelEnrichment = {
@@ -406,10 +374,6 @@ DISABLE : 'Disable',
 DELETE : 'Delete',
 };
 
-module.exports.DeviceReferenceDataOrderBy = {
-NONE : 'NONE',
-};
-
 module.exports.DeviceStatus = {
 PENDING : 'PENDING',
 ACTIVATED : 'ACTIVATED',
@@ -438,14 +402,6 @@ MONTHS : 'Months',
 YEARS : 'Years',
 };
 
-module.exports.DynamicListOrderBy = {
-NONE : 'NONE',
-};
-
-module.exports.EncryptionType = {
-AES256 : 'AES256',
-};
-
 module.exports.EngagementOrderBy = {
 NONE : 'NONE',
 };
@@ -462,9 +418,6 @@ PURCHASE_DATE_DESC : 'PURCHASE_DATE_DESC',
 module.exports.EntityReferenceBy = {
 USER : 'user',
 HOUSEHOLD : 'household',
-};
-
-module.exports.EpgOrderBy = {
 };
 
 module.exports.EventNotificationOrderBy = {
@@ -535,17 +488,11 @@ NONE : 'NONE',
 
 module.exports.HouseholdDeviceOrderBy = {
 NONE : 'NONE',
-CREATED_DATE_ASC : 'CREATED_DATE_ASC',
-CREATED_DATE_DESC : 'CREATED_DATE_DESC',
 };
 
 module.exports.HouseholdFrequencyType = {
 DEVICES : 'devices',
 USERS : 'users',
-};
-
-module.exports.HouseholdOrderBy = {
-CREATE_DATE_DESC : 'CREATE_DATE_DESC',
 };
 
 module.exports.HouseholdPaymentGatewaySelectedBy = {
@@ -626,7 +573,6 @@ SYSTEMANNOUNCEMENT : 'SystemAnnouncement',
 FOLLOWED : 'Followed',
 ENGAGEMENT : 'Engagement',
 INTEREST : 'Interest',
-CAMPAIGN : 'Campaign',
 };
 
 module.exports.IngestProfileAutofillPolicy = {
@@ -662,6 +608,15 @@ DTT : 'DTT',
 OTT : 'OTT',
 DTT_AND_OTT : 'DTT_AND_OTT',
 VRM_EXPORT : 'VRM_EXPORT',
+};
+
+module.exports.LogLevel = {
+TRACE : 'TRACE',
+DEBUG : 'DEBUG',
+INFO : 'INFO',
+WARN : 'WARN',
+ERROR : 'ERROR',
+ALL : 'ALL',
 };
 
 module.exports.MathemticalOperatorType = {
@@ -737,12 +692,6 @@ REMINDER : 'Reminder',
 SERIES_REMINDER : 'series_reminder',
 };
 
-module.exports.ObjectState = {
-INACTIVE : 'INACTIVE',
-ACTIVE : 'ACTIVE',
-ARCHIVE : 'ARCHIVE',
-};
-
 module.exports.ObjectVirtualAssetInfoType = {
 SUBSCRIPTION : 'Subscription',
 SEGMENT : 'Segment',
@@ -777,9 +726,6 @@ OBJECTVIRTUALASSET : 'ObjectVirtualAsset',
 COMMERCE : 'Commerce',
 PLAYBACK : 'Playback',
 PAYMENT : 'Payment',
-CATALOG : 'Catalog',
-SECURITY : 'Security',
-OPC : 'Opc',
 };
 
 module.exports.PasswordPolicyOrderBy = {
@@ -805,10 +751,6 @@ IN_APP : 'in_app',
 M1 : 'm1',
 CHANGE_SUBSCRIPTION : 'change_subscription',
 OFFLINE : 'offline',
-};
-
-module.exports.PermissionItemOrderBy = {
-NONE : 'NONE',
 };
 
 module.exports.PermissionOrderBy = {
@@ -914,7 +856,6 @@ USER_SUSPENDED : 'user_suspended',
 NOT_FOR_PURCHASE : 'not_for_purchase',
 INVALID_CURRENCY : 'invalid_currency',
 CURRENCY_NOT_DEFINED_ON_PRICE_CODE : 'currency_not_defined_on_price_code',
-PENDING_ENTITLEMENT : 'pending_entitlement',
 };
 
 module.exports.QuotaOveragePolicy = {
@@ -1012,11 +953,6 @@ HEADER : 'HEADER',
 USER_SUBSCRIPTION : 'USER_SUBSCRIPTION',
 ASSET_SUBSCRIPTION : 'ASSET_SUBSCRIPTION',
 USER_ROLE : 'USER_ROLE',
-DEVICE_BRAND : 'DEVICE_BRAND',
-DEVICE_FAMILY : 'DEVICE_FAMILY',
-DEVICE_MANUFACTURER : 'DEVICE_MANUFACTURER',
-DEVICE_MODEL : 'DEVICE_MODEL',
-DEVICE_UDID_DYNAMIC_LIST : 'DEVICE_UDID_DYNAMIC_LIST',
 };
 
 module.exports.RuleLevel = {
@@ -1069,10 +1005,6 @@ module.exports.SkipOptions = {
 NO : 'No',
 PREVIOUS : 'Previous',
 ANY : 'Any',
-};
-
-module.exports.SmsAdapterProfileOrderBy = {
-NONE : 'NONE',
 };
 
 module.exports.SocialActionOrderBy = {
@@ -1133,10 +1065,6 @@ ASSET_ALREADY_RATED : 'asset_already_rated',
 ASSET_DOSE_NOT_EXISTS : 'asset_dose_not_exists',
 INVALID_PLATFORM_REQUEST : 'invalid_platform_request',
 INVALID_ACCESS_TOKEN : 'invalid_access_token',
-};
-
-module.exports.StreamingDeviceOrderBy = {
-NONE : 'NONE',
 };
 
 module.exports.StreamType = {
@@ -1255,18 +1183,6 @@ LIBRARY : 'library',
 
 module.exports.UserRoleOrderBy = {
 NONE : 'NONE',
-};
-
-module.exports.UserRoleProfile = {
-USER : 'USER',
-PARTNER : 'PARTNER',
-PROFILE : 'PROFILE',
-SYSTEM : 'SYSTEM',
-};
-
-module.exports.UserRoleType = {
-SYSTEM : 'SYSTEM',
-CUSTOM : 'CUSTOM',
 };
 
 module.exports.UserState = {

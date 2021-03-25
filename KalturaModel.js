@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platfroms allow them to do with
+// to do with audio, video, and animation what Wiki platforms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -369,33 +369,6 @@ module.exports.DetachedResponseProfile = DetachedResponseProfile;
 /**
  *
  */
-class OnDemandResponseProfile extends DetachedResponseProfile{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaOnDemandResponseProfile';
-	}
-	
-	/**
-	 * Comma seperated properties names
-	 * @return string
-	 */
-	 getRetrievedProperties() {
-	 	return this.retrievedProperties;
-	 }
-	
-	/**
-	 * @param retrievedProperties string Comma seperated properties names
-	 */
-	 setRetrievedProperties(retrievedProperties) {
-	 	this.retrievedProperties = retrievedProperties;
-	 }
-}
-module.exports.OnDemandResponseProfile = OnDemandResponseProfile;
-
-/**
- *
- */
 class RelatedObjectFilter extends Filter{
 	
 	constructor(object = null) {
@@ -404,696 +377,6 @@ class RelatedObjectFilter extends Filter{
 	}
 }
 module.exports.RelatedObjectFilter = RelatedObjectFilter;
-
-/**
- *
- */
-class CrudFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCrudFilter';
-	}
-}
-module.exports.CrudFilter = CrudFilter;
-
-/**
- *
- */
-class DeviceReferenceDataFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDeviceReferenceDataFilter';
-	}
-	
-	/**
-	 * IdIn
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string IdIn
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.DeviceReferenceDataFilter = DeviceReferenceDataFilter;
-
-/**
- *
- */
-class DeviceManufacturersReferenceDataFilter extends DeviceReferenceDataFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDeviceManufacturersReferenceDataFilter';
-	}
-	
-	/**
-	 * name equal
-	 * @return string
-	 */
-	 getNameEqual() {
-	 	return this.nameEqual;
-	 }
-	
-	/**
-	 * @param nameEqual string name equal
-	 */
-	 setNameEqual(nameEqual) {
-	 	this.nameEqual = nameEqual;
-	 }
-}
-module.exports.DeviceManufacturersReferenceDataFilter = DeviceManufacturersReferenceDataFilter;
-
-/**
- *
- */
-class PasswordPolicyFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPasswordPolicyFilter';
-	}
-	
-	/**
-	 * Comma separated list of role Ids
-	 * @return string
-	 */
-	 getUserRoleIdIn() {
-	 	return this.userRoleIdIn;
-	 }
-	
-	/**
-	 * @param userRoleIdIn string Comma separated list of role Ids
-	 */
-	 setUserRoleIdIn(userRoleIdIn) {
-	 	this.userRoleIdIn = userRoleIdIn;
-	 }
-}
-module.exports.PasswordPolicyFilter = PasswordPolicyFilter;
-
-/**
- *
- */
-class HouseholdSegmentFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdSegmentFilter';
-	}
-	
-	/**
-	 * KSQL expression
-	 * @return string
-	 */
-	 getKSql() {
-	 	return this.kSql;
-	 }
-	
-	/**
-	 * @param kSql string KSQL expression
-	 */
-	 setKSql(kSql) {
-	 	this.kSql = kSql;
-	 }
-}
-module.exports.HouseholdSegmentFilter = HouseholdSegmentFilter;
-
-/**
- *
- */
-class SmsAdapterProfileFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSmsAdapterProfileFilter';
-	}
-}
-module.exports.SmsAdapterProfileFilter = SmsAdapterProfileFilter;
-
-/**
- *
- */
-class DynamicListFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDynamicListFilter';
-	}
-}
-module.exports.DynamicListFilter = DynamicListFilter;
-
-/**
- *
- */
-class DynamicListIdInFilter extends DynamicListFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDynamicListIdInFilter';
-	}
-	
-	/**
-	 * DynamicList identifiers
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string DynamicList identifiers
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.DynamicListIdInFilter = DynamicListIdInFilter;
-
-/**
- *
- */
-class DynamicListSearchFilter extends DynamicListFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDynamicListSearchFilter';
-	}
-	
-	/**
-	 * DynamicList id to search by
-	 * @return int
-	 */
-	 getIdEqual() {
-	 	return this.idEqual;
-	 }
-	
-	/**
-	 * @param idEqual int DynamicList id to search by
-	 */
-	 setIdEqual(idEqual) {
-	 	this.idEqual = idEqual;
-	 }
-	
-	/**
-	 * udid value that should be in the DynamicList
-	 * @return string
-	 */
-	 getValueEqual() {
-	 	return this.valueEqual;
-	 }
-	
-	/**
-	 * @param valueEqual string udid value that should be in the DynamicList
-	 */
-	 setValueEqual(valueEqual) {
-	 	this.valueEqual = valueEqual;
-	 }
-}
-module.exports.DynamicListSearchFilter = DynamicListSearchFilter;
-
-/**
- *
- */
-class UdidDynamicListSearchFilter extends DynamicListSearchFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaUdidDynamicListSearchFilter';
-	}
-}
-module.exports.UdidDynamicListSearchFilter = UdidDynamicListSearchFilter;
-
-/**
- *
- */
-class HouseholdCouponFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdCouponFilter';
-	}
-	
-	/**
-	 * Indicates which household coupons list to return by their business module type
-	 * @return string
-	 */
-	 getBusinessModuleTypeEqual() {
-	 	return this.businessModuleTypeEqual;
-	 }
-	
-	/**
-	 * @param businessModuleTypeEqual string Indicates which household coupons list to return by their business module type
-	 */
-	 setBusinessModuleTypeEqual(businessModuleTypeEqual) {
-	 	this.businessModuleTypeEqual = businessModuleTypeEqual;
-	 }
-	
-	/**
-	 * Indicates which household coupons list to return by their business module ID
-	 * @return int
-	 */
-	 getBusinessModuleIdEqual() {
-	 	return this.businessModuleIdEqual;
-	 }
-	
-	/**
-	 * @param businessModuleIdEqual int Indicates which household coupons list to return by their business module ID
-	 */
-	 setBusinessModuleIdEqual(businessModuleIdEqual) {
-	 	this.businessModuleIdEqual = businessModuleIdEqual;
-	 }
-	
-	/**
-	 * Allow clients to inquiry if a specific coupon is part of an HH’s wallet or not
-	 * @return string
-	 */
-	 getCouponCode() {
-	 	return this.couponCode;
-	 }
-	
-	/**
-	 * @param couponCode string Allow clients to inquiry if a specific coupon is part of an HH’s wallet or not
-	 */
-	 setCouponCode(couponCode) {
-	 	this.couponCode = couponCode;
-	 }
-	
-	/**
-	 * Allow clients to filter out coupons which are valid/invalid
-	 * @return string
-	 */
-	 getStatus() {
-	 	return this.status;
-	 }
-	
-	/**
-	 * @param status string Allow clients to filter out coupons which are valid/invalid
-	 */
-	 setStatus(status) {
-	 	this.status = status;
-	 }
-}
-module.exports.HouseholdCouponFilter = HouseholdCouponFilter;
-
-/**
- *
- */
-class CategoryItemFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryItemFilter';
-	}
-}
-module.exports.CategoryItemFilter = CategoryItemFilter;
-
-/**
- *
- */
-class CategoryItemByIdInFilter extends CategoryItemFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryItemByIdInFilter';
-	}
-	
-	/**
-	 * Category item identifiers
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Category item identifiers
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.CategoryItemByIdInFilter = CategoryItemByIdInFilter;
-
-/**
- *
- */
-class CategoryItemSearchFilter extends CategoryItemFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryItemSearchFilter';
-	}
-	
-	/**
-	 * KSQL expression
-	 * @return string
-	 */
-	 getKSql() {
-	 	return this.kSql;
-	 }
-	
-	/**
-	 * @param kSql string KSQL expression
-	 */
-	 setKSql(kSql) {
-	 	this.kSql = kSql;
-	 }
-	
-	/**
-	 * Root only
-	 * @return bool
-	 */
-	 getRootOnly() {
-	 	return this.rootOnly;
-	 }
-	
-	/**
-	 * @param rootOnly bool Root only
-	 */
-	 setRootOnly(rootOnly) {
-	 	this.rootOnly = rootOnly;
-	 }
-	
-	/**
-	 * Indicates which category to return by their type
-	 * @return string
-	 */
-	 getTypeEqual() {
-	 	return this.typeEqual;
-	 }
-	
-	/**
-	 * @param typeEqual string Indicates which category to return by their type
-	 */
-	 setTypeEqual(typeEqual) {
-	 	this.typeEqual = typeEqual;
-	 }
-}
-module.exports.CategoryItemSearchFilter = CategoryItemSearchFilter;
-
-/**
- *
- */
-class CategoryItemAncestorsFilter extends CategoryItemFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryItemAncestorsFilter';
-	}
-	
-	/**
-	 * KSQL expression
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * @param id int KSQL expression
-	 */
-	 setId(id) {
-	 	this.id = id;
-	 }
-}
-module.exports.CategoryItemAncestorsFilter = CategoryItemAncestorsFilter;
-
-/**
- *
- */
-class CategoryVersionFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryVersionFilter';
-	}
-}
-module.exports.CategoryVersionFilter = CategoryVersionFilter;
-
-/**
- *
- */
-class CategoryVersionFilterByTree extends CategoryVersionFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryVersionFilterByTree';
-	}
-	
-	/**
-	 * Category version tree identifier
-	 * @return int
-	 */
-	 getTreeIdEqual() {
-	 	return this.treeIdEqual;
-	 }
-	
-	/**
-	 * @param treeIdEqual int Category version tree identifier
-	 */
-	 setTreeIdEqual(treeIdEqual) {
-	 	this.treeIdEqual = treeIdEqual;
-	 }
-	
-	/**
-	 * Category version state
-	 * @return string
-	 */
-	 getStateEqual() {
-	 	return this.stateEqual;
-	 }
-	
-	/**
-	 * @param stateEqual string Category version state
-	 */
-	 setStateEqual(stateEqual) {
-	 	this.stateEqual = stateEqual;
-	 }
-}
-module.exports.CategoryVersionFilterByTree = CategoryVersionFilterByTree;
-
-/**
- *
- */
-class CampaignFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCampaignFilter';
-	}
-}
-module.exports.CampaignFilter = CampaignFilter;
-
-/**
- *
- */
-class CampaignIdInFilter extends CampaignFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCampaignIdInFilter';
-	}
-	
-	/**
-	 * campaign identifiers
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string campaign identifiers
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.CampaignIdInFilter = CampaignIdInFilter;
-
-/**
- *
- */
-class CampaignSearchFilter extends CampaignFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCampaignSearchFilter';
-	}
-	
-	/**
-	 * start Date Greater Than Or Equal
-	 * @return int
-	 */
-	 getStartDateGreaterThanOrEqual() {
-	 	return this.startDateGreaterThanOrEqual;
-	 }
-	
-	/**
-	 * @param startDateGreaterThanOrEqual int start Date Greater Than Or Equal
-	 */
-	 setStartDateGreaterThanOrEqual(startDateGreaterThanOrEqual) {
-	 	this.startDateGreaterThanOrEqual = startDateGreaterThanOrEqual;
-	 }
-	
-	/**
-	 * end Date Greater Than Or Equal
-	 * @return int
-	 */
-	 getEndDateLessThanOrEqual() {
-	 	return this.endDateLessThanOrEqual;
-	 }
-	
-	/**
-	 * @param endDateLessThanOrEqual int end Date Greater Than Or Equal
-	 */
-	 setEndDateLessThanOrEqual(endDateLessThanOrEqual) {
-	 	this.endDateLessThanOrEqual = endDateLessThanOrEqual;
-	 }
-	
-	/**
-	 * state Equal
-	 * @return string
-	 */
-	 getStateEqual() {
-	 	return this.stateEqual;
-	 }
-	
-	/**
-	 * @param stateEqual string state Equal
-	 */
-	 setStateEqual(stateEqual) {
-	 	this.stateEqual = stateEqual;
-	 }
-	
-	/**
-	 * has Promotion
-	 * @return bool
-	 */
-	 getHasPromotion() {
-	 	return this.hasPromotion;
-	 }
-	
-	/**
-	 * @param hasPromotion bool has Promotion
-	 */
-	 setHasPromotion(hasPromotion) {
-	 	this.hasPromotion = hasPromotion;
-	 }
-}
-module.exports.CampaignSearchFilter = CampaignSearchFilter;
-
-/**
- *
- */
-class TriggerCampaignSearchFilter extends CampaignSearchFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaTriggerCampaignSearchFilter';
-	}
-}
-module.exports.TriggerCampaignSearchFilter = TriggerCampaignSearchFilter;
-
-/**
- *
- */
-class BatchCampaignSearchFilter extends CampaignSearchFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBatchCampaignSearchFilter';
-	}
-}
-module.exports.BatchCampaignSearchFilter = BatchCampaignSearchFilter;
-
-/**
- *
- */
-class EventNotificationFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaEventNotificationFilter';
-	}
-	
-	/**
-	 * Indicates which event notification to return by their event notifications Id
-	 * @return string
-	 */
-	 getIdEqual() {
-	 	return this.idEqual;
-	 }
-	
-	/**
-	 * @param idEqual string Indicates which event notification to return by their event notifications Id
-	 */
-	 setIdEqual(idEqual) {
-	 	this.idEqual = idEqual;
-	 }
-	
-	/**
-	 * Indicates which objectId to return by their event notifications
-	 * @return int
-	 */
-	 getObjectIdEqual() {
-	 	return this.objectIdEqual;
-	 }
-	
-	/**
-	 * @param objectIdEqual int Indicates which objectId to return by their event notifications
-	 */
-	 setObjectIdEqual(objectIdEqual) {
-	 	this.objectIdEqual = objectIdEqual;
-	 }
-	
-	/**
-	 * Indicates which objectType to return by their event notifications
-	 * @return string
-	 */
-	 getEventObjectTypeEqual() {
-	 	return this.eventObjectTypeEqual;
-	 }
-	
-	/**
-	 * @param eventObjectTypeEqual string Indicates which objectType to return by their event notifications
-	 */
-	 setEventObjectTypeEqual(eventObjectTypeEqual) {
-	 	this.eventObjectTypeEqual = eventObjectTypeEqual;
-	 }
-}
-module.exports.EventNotificationFilter = EventNotificationFilter;
-
-/**
- *
- */
-class IotFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaIotFilter';
-	}
-}
-module.exports.IotFilter = IotFilter;
-
-/**
- *
- */
-class IotProfileFilter extends CrudFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaIotProfileFilter';
-	}
-}
-module.exports.IotProfileFilter = IotProfileFilter;
 
 /**
  *
@@ -1460,23 +743,335 @@ class OTTUserFilter extends Filter{
 	 setRoleIdsIn(roleIdsIn) {
 	 	this.roleIdsIn = roleIdsIn;
 	 }
-	
-	/**
-	 * User email
-	 * @return string
-	 */
-	 getEmailEqual() {
-	 	return this.emailEqual;
-	 }
-	
-	/**
-	 * @param emailEqual string User email
-	 */
-	 setEmailEqual(emailEqual) {
-	 	this.emailEqual = emailEqual;
-	 }
 }
 module.exports.OTTUserFilter = OTTUserFilter;
+
+/**
+ *
+ */
+class CrudFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCrudFilter';
+	}
+}
+module.exports.CrudFilter = CrudFilter;
+
+/**
+ *
+ */
+class PasswordPolicyFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPasswordPolicyFilter';
+	}
+	
+	/**
+	 * Comma separated list of role Ids
+	 * @return string
+	 */
+	 getUserRoleIdIn() {
+	 	return this.userRoleIdIn;
+	 }
+	
+	/**
+	 * @param userRoleIdIn string Comma separated list of role Ids
+	 */
+	 setUserRoleIdIn(userRoleIdIn) {
+	 	this.userRoleIdIn = userRoleIdIn;
+	 }
+}
+module.exports.PasswordPolicyFilter = PasswordPolicyFilter;
+
+/**
+ *
+ */
+class HouseholdSegmentFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdSegmentFilter';
+	}
+	
+	/**
+	 * KSQL expression
+	 * @return string
+	 */
+	 getKSql() {
+	 	return this.kSql;
+	 }
+	
+	/**
+	 * @param kSql string KSQL expression
+	 */
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
+	 }
+}
+module.exports.HouseholdSegmentFilter = HouseholdSegmentFilter;
+
+/**
+ *
+ */
+class HouseholdCouponFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdCouponFilter';
+	}
+	
+	/**
+	 * Indicates which household coupons list to return by their business module type
+	 * @return string
+	 */
+	 getBusinessModuleTypeEqual() {
+	 	return this.businessModuleTypeEqual;
+	 }
+	
+	/**
+	 * @param businessModuleTypeEqual string Indicates which household coupons list to return by their business module type
+	 */
+	 setBusinessModuleTypeEqual(businessModuleTypeEqual) {
+	 	this.businessModuleTypeEqual = businessModuleTypeEqual;
+	 }
+	
+	/**
+	 * Indicates which household coupons list to return by their business module ID
+	 * @return int
+	 */
+	 getBusinessModuleIdEqual() {
+	 	return this.businessModuleIdEqual;
+	 }
+	
+	/**
+	 * @param businessModuleIdEqual int Indicates which household coupons list to return by their business module ID
+	 */
+	 setBusinessModuleIdEqual(businessModuleIdEqual) {
+	 	this.businessModuleIdEqual = businessModuleIdEqual;
+	 }
+	
+	/**
+	 * Allow clients to inquiry if a specific coupon is part of an HH’s wallet or not
+	 * @return string
+	 */
+	 getCouponCode() {
+	 	return this.couponCode;
+	 }
+	
+	/**
+	 * @param couponCode string Allow clients to inquiry if a specific coupon is part of an HH’s wallet or not
+	 */
+	 setCouponCode(couponCode) {
+	 	this.couponCode = couponCode;
+	 }
+	
+	/**
+	 * Allow clients to filter out coupons which are valid/invalid
+	 * @return string
+	 */
+	 getStatus() {
+	 	return this.status;
+	 }
+	
+	/**
+	 * @param status string Allow clients to filter out coupons which are valid/invalid
+	 */
+	 setStatus(status) {
+	 	this.status = status;
+	 }
+}
+module.exports.HouseholdCouponFilter = HouseholdCouponFilter;
+
+/**
+ *
+ */
+class CategoryItemFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCategoryItemFilter';
+	}
+}
+module.exports.CategoryItemFilter = CategoryItemFilter;
+
+/**
+ *
+ */
+class CategoryItemByIdInFilter extends CategoryItemFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCategoryItemByIdInFilter';
+	}
+	
+	/**
+	 * Category item identifiers
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Category item identifiers
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.CategoryItemByIdInFilter = CategoryItemByIdInFilter;
+
+/**
+ *
+ */
+class CategoryItemSearchFilter extends CategoryItemFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCategoryItemSearchFilter';
+	}
+	
+	/**
+	 * KSQL expression
+	 * @return string
+	 */
+	 getKSql() {
+	 	return this.kSql;
+	 }
+	
+	/**
+	 * @param kSql string KSQL expression
+	 */
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
+	 }
+	
+	/**
+	 * Root only
+	 * @return bool
+	 */
+	 getRootOnly() {
+	 	return this.rootOnly;
+	 }
+	
+	/**
+	 * @param rootOnly bool Root only
+	 */
+	 setRootOnly(rootOnly) {
+	 	this.rootOnly = rootOnly;
+	 }
+}
+module.exports.CategoryItemSearchFilter = CategoryItemSearchFilter;
+
+/**
+ *
+ */
+class CategoryItemAncestorsFilter extends CategoryItemFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCategoryItemAncestorsFilter';
+	}
+	
+	/**
+	 * KSQL expression
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id int KSQL expression
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+}
+module.exports.CategoryItemAncestorsFilter = CategoryItemAncestorsFilter;
+
+/**
+ *
+ */
+class EventNotificationFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEventNotificationFilter';
+	}
+	
+	/**
+	 * Indicates which event notification to return by their event notifications Id
+	 * @return string
+	 */
+	 getIdEqual() {
+	 	return this.idEqual;
+	 }
+	
+	/**
+	 * @param idEqual string Indicates which event notification to return by their event notifications Id
+	 */
+	 setIdEqual(idEqual) {
+	 	this.idEqual = idEqual;
+	 }
+	
+	/**
+	 * Indicates which objectId to return by their event notifications
+	 * @return int
+	 */
+	 getObjectIdEqual() {
+	 	return this.objectIdEqual;
+	 }
+	
+	/**
+	 * @param objectIdEqual int Indicates which objectId to return by their event notifications
+	 */
+	 setObjectIdEqual(objectIdEqual) {
+	 	this.objectIdEqual = objectIdEqual;
+	 }
+	
+	/**
+	 * Indicates which objectType to return by their event notifications
+	 * @return string
+	 */
+	 getEventObjectTypeEqual() {
+	 	return this.eventObjectTypeEqual;
+	 }
+	
+	/**
+	 * @param eventObjectTypeEqual string Indicates which objectType to return by their event notifications
+	 */
+	 setEventObjectTypeEqual(eventObjectTypeEqual) {
+	 	this.eventObjectTypeEqual = eventObjectTypeEqual;
+	 }
+}
+module.exports.EventNotificationFilter = EventNotificationFilter;
+
+/**
+ *
+ */
+class IotFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIotFilter';
+	}
+}
+module.exports.IotFilter = IotFilter;
+
+/**
+ *
+ */
+class IotProfileFilter extends CrudFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIotProfileFilter';
+	}
+}
+module.exports.IotProfileFilter = IotProfileFilter;
 
 /**
  *
@@ -3600,33 +3195,6 @@ module.exports.HouseholdDeviceFilter = HouseholdDeviceFilter;
 /**
  *
  */
-class HouseholdFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdFilter';
-	}
-	
-	/**
-	 * Household external identifier to search by
-	 * @return string
-	 */
-	 getExternalIdEqual() {
-	 	return this.externalIdEqual;
-	 }
-	
-	/**
-	 * @param externalIdEqual string Household external identifier to search by
-	 */
-	 setExternalIdEqual(externalIdEqual) {
-	 	this.externalIdEqual = externalIdEqual;
-	 }
-}
-module.exports.HouseholdFilter = HouseholdFilter;
-
-/**
- *
- */
 class HouseholdUserFilter extends Filter{
 	
 	constructor(object = null) {
@@ -4118,66 +3686,6 @@ class TransactionHistoryFilter extends Filter{
 	 */
 	 setEndDateLessThanOrEqual(endDateLessThanOrEqual) {
 	 	this.endDateLessThanOrEqual = endDateLessThanOrEqual;
-	 }
-	
-	/**
-	 * Filter transaction by entitlement id
-	 * @return int
-	 */
-	 getEntitlementIdEqual() {
-	 	return this.entitlementIdEqual;
-	 }
-	
-	/**
-	 * @param entitlementIdEqual int Filter transaction by entitlement id
-	 */
-	 setEntitlementIdEqual(entitlementIdEqual) {
-	 	this.entitlementIdEqual = entitlementIdEqual;
-	 }
-	
-	/**
-	 * Filter transaction by external Id
-	 * @return string
-	 */
-	 getExternalIdEqual() {
-	 	return this.externalIdEqual;
-	 }
-	
-	/**
-	 * @param externalIdEqual string Filter transaction by external Id
-	 */
-	 setExternalIdEqual(externalIdEqual) {
-	 	this.externalIdEqual = externalIdEqual;
-	 }
-	
-	/**
-	 * Filter transaction by billing item type
-	 * @return string
-	 */
-	 getBillingItemsTypeEqual() {
-	 	return this.billingItemsTypeEqual;
-	 }
-	
-	/**
-	 * @param billingItemsTypeEqual string Filter transaction by billing item type
-	 */
-	 setBillingItemsTypeEqual(billingItemsTypeEqual) {
-	 	this.billingItemsTypeEqual = billingItemsTypeEqual;
-	 }
-	
-	/**
-	 * Filter transaction by billing action
-	 * @return string
-	 */
-	 getBillingActionEqual() {
-	 	return this.billingActionEqual;
-	 }
-	
-	/**
-	 * @param billingActionEqual string Filter transaction by billing action
-	 */
-	 setBillingActionEqual(billingActionEqual) {
-	 	this.billingActionEqual = billingActionEqual;
 	 }
 }
 module.exports.TransactionHistoryFilter = TransactionHistoryFilter;
@@ -5436,33 +4944,6 @@ module.exports.MediaFileFilter = MediaFileFilter;
 /**
  *
  */
-class StreamingDeviceFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaStreamingDeviceFilter';
-	}
-	
-	/**
-	 * filter by asset type
-	 * @return string
-	 */
-	 getAssetTypeEqual() {
-	 	return this.assetTypeEqual;
-	 }
-	
-	/**
-	 * @param assetTypeEqual string filter by asset type
-	 */
-	 setAssetTypeEqual(assetTypeEqual) {
-	 	this.assetTypeEqual = assetTypeEqual;
-	 }
-}
-module.exports.StreamingDeviceFilter = StreamingDeviceFilter;
-
-/**
- *
- */
 class TagFilter extends Filter{
 	
 	constructor(object = null) {
@@ -6071,19 +5552,7 @@ module.exports.ParentalRuleFilter = ParentalRuleFilter;
 /**
  *
  */
-class BasePermissionFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBasePermissionFilter';
-	}
-}
-module.exports.BasePermissionFilter = BasePermissionFilter;
-
-/**
- *
- */
-class PermissionFilter extends BasePermissionFilter{
+class PermissionFilter extends Filter{
 	
 	constructor(object = null) {
 		super(object);
@@ -6121,183 +5590,6 @@ class PermissionFilter extends BasePermissionFilter{
 	 }
 }
 module.exports.PermissionFilter = PermissionFilter;
-
-/**
- *
- */
-class PermissionByIdInFilter extends BasePermissionFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPermissionByIdInFilter';
-	}
-	
-	/**
-	 * Category item identifiers
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Category item identifiers
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.PermissionByIdInFilter = PermissionByIdInFilter;
-
-/**
- *
- */
-class PermissionItemFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPermissionItemFilter';
-	}
-}
-module.exports.PermissionItemFilter = PermissionItemFilter;
-
-/**
- *
- */
-class PermissionItemByIdInFilter extends PermissionItemFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPermissionItemByIdInFilter';
-	}
-	
-	/**
-	 * Permission item identifiers
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Permission item identifiers
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.PermissionItemByIdInFilter = PermissionItemByIdInFilter;
-
-/**
- *
- */
-class PermissionItemByApiActionFilter extends PermissionItemFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPermissionItemByApiActionFilter';
-	}
-	
-	/**
-	 * API service name
-	 * @return string
-	 */
-	 getServiceEqual() {
-	 	return this.serviceEqual;
-	 }
-	
-	/**
-	 * @param serviceEqual string API service name
-	 */
-	 setServiceEqual(serviceEqual) {
-	 	this.serviceEqual = serviceEqual;
-	 }
-	
-	/**
-	 * API action name
-	 * @return string
-	 */
-	 getActionEqual() {
-	 	return this.actionEqual;
-	 }
-	
-	/**
-	 * @param actionEqual string API action name
-	 */
-	 setActionEqual(actionEqual) {
-	 	this.actionEqual = actionEqual;
-	 }
-}
-module.exports.PermissionItemByApiActionFilter = PermissionItemByApiActionFilter;
-
-/**
- *
- */
-class PermissionItemByArgumentFilter extends PermissionItemByApiActionFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPermissionItemByArgumentFilter';
-	}
-	
-	/**
-	 * Parameter name
-	 * @return string
-	 */
-	 getParameterEqual() {
-	 	return this.parameterEqual;
-	 }
-	
-	/**
-	 * @param parameterEqual string Parameter name
-	 */
-	 setParameterEqual(parameterEqual) {
-	 	this.parameterEqual = parameterEqual;
-	 }
-}
-module.exports.PermissionItemByArgumentFilter = PermissionItemByArgumentFilter;
-
-/**
- *
- */
-class PermissionItemByParameterFilter extends PermissionItemFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPermissionItemByParameterFilter';
-	}
-	
-	/**
-	 * Parameter name
-	 * @return string
-	 */
-	 getParameterEqual() {
-	 	return this.parameterEqual;
-	 }
-	
-	/**
-	 * @param parameterEqual string Parameter name
-	 */
-	 setParameterEqual(parameterEqual) {
-	 	this.parameterEqual = parameterEqual;
-	 }
-	
-	/**
-	 * Parameter name
-	 * @return string
-	 */
-	 getObjectEqual() {
-	 	return this.objectEqual;
-	 }
-	
-	/**
-	 * @param objectEqual string Parameter name
-	 */
-	 setObjectEqual(objectEqual) {
-	 	this.objectEqual = objectEqual;
-	 }
-}
-module.exports.PermissionItemByParameterFilter = PermissionItemByParameterFilter;
 
 /**
  *
@@ -6421,21 +5713,6 @@ class RegionFilter extends BaseRegionFilter{
 	 */
 	 setParentOnly(parentOnly) {
 	 	this.parentOnly = parentOnly;
-	 }
-	
-	/**
-	 * Retrieves only the channels belonging specifically to the child region
-	 * @return bool
-	 */
-	 getExclusiveLcn() {
-	 	return this.exclusiveLcn;
-	 }
-	
-	/**
-	 * @param exclusiveLcn bool Retrieves only the channels belonging specifically to the child region
-	 */
-	 setExclusiveLcn(exclusiveLcn) {
-	 	this.exclusiveLcn = exclusiveLcn;
 	 }
 }
 module.exports.RegionFilter = RegionFilter;
@@ -6587,80 +5864,8 @@ class UserRoleFilter extends Filter{
 	 setCurrentUserRoleIdsContains(currentUserRoleIdsContains) {
 	 	this.currentUserRoleIdsContains = currentUserRoleIdsContains;
 	 }
-	
-	/**
-	 * User role type
-	 * @return string
-	 */
-	 getTypeEqual() {
-	 	return this.typeEqual;
-	 }
-	
-	/**
-	 * @param typeEqual string User role type
-	 */
-	 setTypeEqual(typeEqual) {
-	 	this.typeEqual = typeEqual;
-	 }
-	
-	/**
-	 * User role profile
-	 * @return string
-	 */
-	 getProfileEqual() {
-	 	return this.profileEqual;
-	 }
-	
-	/**
-	 * @param profileEqual string User role profile
-	 */
-	 setProfileEqual(profileEqual) {
-	 	this.profileEqual = profileEqual;
-	 }
 }
 module.exports.UserRoleFilter = UserRoleFilter;
-
-/**
- *
- */
-class EpgFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaEpgFilter';
-	}
-	
-	/**
-	 * date in unix timestamp, e.g. 1610928000(January 18, 2021 0:00:00), 1611014400(January 19, 2021 0:00:00)
-	 * @return int
-	 */
-	 getDateEqual() {
-	 	return this.dateEqual;
-	 }
-	
-	/**
-	 * @param dateEqual int date in unix timestamp, e.g. 1610928000(January 18, 2021 0:00:00), 1611014400(January 19, 2021 0:00:00)
-	 */
-	 setDateEqual(dateEqual) {
-	 	this.dateEqual = dateEqual;
-	 }
-	
-	/**
-	 * EPG live asset identifier
-	 * @return int
-	 */
-	 getLiveAssetIdEqual() {
-	 	return this.liveAssetIdEqual;
-	 }
-	
-	/**
-	 * @param liveAssetIdEqual int EPG live asset identifier
-	 */
-	 setLiveAssetIdEqual(liveAssetIdEqual) {
-	 	this.liveAssetIdEqual = liveAssetIdEqual;
-	 }
-}
-module.exports.EpgFilter = EpgFilter;
 
 /**
  *
@@ -7184,21 +6389,6 @@ class MediaImage extends kaltura.BaseObject{
 	 setIsDefault(isDefault) {
 	 	this.isDefault = isDefault;
 	 }
-	
-	/**
-	 * Image type identifier
-	 * @return int
-	 */
-	 getImageTypeId() {
-	 	return this.imageTypeId;
-	 }
-	
-	/**
-	 * @param imageTypeId int Image type identifier
-	 */
-	 setImageTypeId(imageTypeId) {
-	 	this.imageTypeId = imageTypeId;
-	 }
 }
 module.exports.MediaImage = MediaImage;
 
@@ -7255,48 +6445,6 @@ class StringValueArray extends kaltura.BaseObject{
 	 }
 }
 module.exports.StringValueArray = StringValueArray;
-
-/**
- *
- */
-class BusinessModuleDetails extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBusinessModuleDetails';
-	}
-	
-	/**
-	 * BusinessModuleId
-	 * @return int
-	 */
-	 getBusinessModuleId() {
-	 	return this.businessModuleId;
-	 }
-	
-	/**
-	 * @param businessModuleId int BusinessModuleId
-	 */
-	 setBusinessModuleId(businessModuleId) {
-	 	this.businessModuleId = businessModuleId;
-	 }
-	
-	/**
-	 * BusinessModuleType
-	 * @return string
-	 */
-	 getBusinessModuleType() {
-	 	return this.businessModuleType;
-	 }
-	
-	/**
-	 * @param businessModuleType string BusinessModuleType
-	 */
-	 setBusinessModuleType(businessModuleType) {
-	 	this.businessModuleType = businessModuleType;
-	 }
-}
-module.exports.BusinessModuleDetails = BusinessModuleDetails;
 
 /**
  *
@@ -7607,36 +6755,6 @@ class MediaFile extends AssetFile{
 	 */
 	 setCatalogEndDate(catalogEndDate) {
 	 	this.catalogEndDate = catalogEndDate;
-	 }
-	
-	/**
-	 * OPL
-	 * @return string
-	 */
-	 getOpl() {
-	 	return this.opl;
-	 }
-	
-	/**
-	 * @param opl string OPL
-	 */
-	 setOpl(opl) {
-	 	this.opl = opl;
-	 }
-	
-	/**
-	 * businessModuleDetails
-	 * @return BusinessModuleDetails
-	 */
-	 getBusinessModuleDetails() {
-	 	return this.businessModuleDetails;
-	 }
-	
-	/**
-	 * @param businessModuleDetails BusinessModuleDetails businessModuleDetails
-	 */
-	 setBusinessModuleDetails(businessModuleDetails) {
-	 	this.businessModuleDetails = businessModuleDetails;
 	 }
 }
 module.exports.MediaFile = MediaFile;
@@ -7955,21 +7073,6 @@ class DrmPlaybackPluginData extends PluginData{
 	 setLicenseURL(licenseURL) {
 	 	this.licenseURL = licenseURL;
 	 }
-	
-	/**
-	 * Dynamic data
-	 * @return map
-	 */
-	 getDynamicData() {
-	 	return this.dynamicData;
-	 }
-	
-	/**
-	 * @param dynamicData map Dynamic data
-	 */
-	 setDynamicData(dynamicData) {
-	 	this.dynamicData = dynamicData;
-	 }
 }
 module.exports.DrmPlaybackPluginData = DrmPlaybackPluginData;
 
@@ -8041,22 +7144,6 @@ class PlaybackSource extends MediaFile{
 	 */
 	 setIsTokenized(isTokenized) {
 	 	this.isTokenized = isTokenized;
-	 }
-	
-	/**
-	 * Business Module Id
-	 * @return int
-	 */
-	 getBusinessModuleId() {
-	 	return this.businessModuleId;
-	 }
-	
-	/**
-	 * Business Module Type
-	 * @return string
-	 */
-	 getBusinessModuleType() {
-	 	return this.businessModuleType;
 	 }
 }
 module.exports.PlaybackSource = PlaybackSource;
@@ -8722,38 +7809,6 @@ class BulkUploadProgramAssetResult extends BulkUploadResult{
 	 }
 }
 module.exports.BulkUploadProgramAssetResult = BulkUploadProgramAssetResult;
-
-/**
- *
- */
-class BulkUploadDynamicListResult extends BulkUploadResult{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBulkUploadDynamicListResult';
-	}
-}
-module.exports.BulkUploadDynamicListResult = BulkUploadDynamicListResult;
-
-/**
- *
- */
-class BulkUploadUdidDynamicListResult extends BulkUploadDynamicListResult{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBulkUploadUdidDynamicListResult';
-	}
-	
-	/**
-	 * The udid from the excel to add to DynamicLis values
-	 * @return string
-	 */
-	 getUdid() {
-	 	return this.udid;
-	 }
-}
-module.exports.BulkUploadUdidDynamicListResult = BulkUploadUdidDynamicListResult;
 
 /**
  *
@@ -10549,68 +9604,6 @@ module.exports.CrudObject = CrudObject;
 /**
  *
  */
-class DeviceReferenceData extends CrudObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDeviceReferenceData';
-	}
-	
-	/**
-	 * id
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
-	 * Status
-	 * @return bool
-	 */
-	 getStatus() {
-	 	return this.status;
-	 }
-	
-	/**
-	 * @param status bool Status
-	 */
-	 setStatus(status) {
-	 	this.status = status;
-	 }
-}
-module.exports.DeviceReferenceData = DeviceReferenceData;
-
-/**
- *
- */
-class DeviceManufacturerInformation extends DeviceReferenceData{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDeviceManufacturerInformation';
-	}
-}
-module.exports.DeviceManufacturerInformation = DeviceManufacturerInformation;
-
-/**
- *
- */
 class RegexExpression extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -10801,179 +9794,6 @@ class HouseholdSegment extends CrudObject{
 	 }
 }
 module.exports.HouseholdSegment = HouseholdSegment;
-
-/**
- *
- */
-class SmsAdapterProfile extends CrudObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSmsAdapterProfile';
-	}
-	
-	/**
-	 * id
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * adapter url
-	 * @return string
-	 */
-	 getAdapterUrl() {
-	 	return this.adapterUrl;
-	 }
-	
-	/**
-	 * @param adapterUrl string adapter url
-	 */
-	 setAdapterUrl(adapterUrl) {
-	 	this.adapterUrl = adapterUrl;
-	 }
-	
-	/**
-	 * Shared Secret
-	 * @return string
-	 */
-	 getSharedSecret() {
-	 	return this.sharedSecret;
-	 }
-	
-	/**
-	 * @param sharedSecret string Shared Secret
-	 */
-	 setSharedSecret(sharedSecret) {
-	 	this.sharedSecret = sharedSecret;
-	 }
-	
-	/**
-	 * SSO Adapter is active status
-	 * @return int
-	 */
-	 getIsActive() {
-	 	return this.isActive;
-	 }
-	
-	/**
-	 * @param isActive int SSO Adapter is active status
-	 */
-	 setIsActive(isActive) {
-	 	this.isActive = isActive;
-	 }
-	
-	/**
-	 * SSO Adapter extra parameters
-	 * @return map
-	 */
-	 getSettings() {
-	 	return this.settings;
-	 }
-	
-	/**
-	 * @param settings map SSO Adapter extra parameters
-	 */
-	 setSettings(settings) {
-	 	this.settings = settings;
-	 }
-	
-	/**
-	 * SSO Adapter external identifier
-	 * @return string
-	 */
-	 getExternalIdentifier() {
-	 	return this.externalIdentifier;
-	 }
-	
-	/**
-	 * @param externalIdentifier string SSO Adapter external identifier
-	 */
-	 setExternalIdentifier(externalIdentifier) {
-	 	this.externalIdentifier = externalIdentifier;
-	 }
-	
-	/**
-	 * Name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-}
-module.exports.SmsAdapterProfile = SmsAdapterProfile;
-
-/**
- *
- */
-class DynamicList extends CrudObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDynamicList';
-	}
-	
-	/**
-	 * ID
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Create date of the DynamicList
-	 * @return int
-	 */
-	 getCreateDate() {
-	 	return this.createDate;
-	 }
-	
-	/**
-	 * Update date of the DynamicList
-	 * @return int
-	 */
-	 getUpdateDate() {
-	 	return this.updateDate;
-	 }
-	
-	/**
-	 * Name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-}
-module.exports.DynamicList = DynamicList;
-
-/**
- *
- */
-class UdidDynamicList extends DynamicList{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaUdidDynamicList';
-	}
-}
-module.exports.UdidDynamicList = UdidDynamicList;
 
 /**
  *
@@ -11205,37 +10025,6 @@ class CategoryItem extends CrudObject{
 	 setEndDateInSeconds(endDateInSeconds) {
 	 	this.endDateInSeconds = endDateInSeconds;
 	 }
-	
-	/**
-	 * Category type
-	 * @return string
-	 */
-	 getType() {
-	 	return this.type;
-	 }
-	
-	/**
-	 * @param type string Category type
-	 */
-	 setType(type) {
-	 	this.type = type;
-	 }
-	
-	/**
-	 * Unique identifier for the category version
-	 * @return int
-	 */
-	 getVersionId() {
-	 	return this.versionId;
-	 }
-	
-	/**
-	 * Virtual asset id
-	 * @return int
-	 */
-	 getVirtualAssetId() {
-	 	return this.virtualAssetId;
-	 }
 }
 module.exports.CategoryItem = CategoryItem;
 
@@ -11295,1025 +10084,6 @@ class UnifiedChannelInfo extends UnifiedChannel{
 	 }
 }
 module.exports.UnifiedChannelInfo = UnifiedChannelInfo;
-
-/**
- *
- */
-class CategoryVersion extends CrudObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryVersion';
-	}
-	
-	/**
-	 * Unique identifier for the category version
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Category version name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Category version name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
-	 * Category tree identifier
-	 * @return int
-	 */
-	 getTreeId() {
-	 	return this.treeId;
-	 }
-	
-	/**
-	 * The category version state
-	 * @return string
-	 */
-	 getState() {
-	 	return this.state;
-	 }
-	
-	/**
-	 * The version id that this version was created from
-	 * @return int
-	 */
-	 getBaseVersionId() {
-	 	return this.baseVersionId;
-	 }
-	
-	/**
-	 * @param baseVersionId int The version id that this version was created from
-	 */
-	 setBaseVersionId(baseVersionId) {
-	 	this.baseVersionId = baseVersionId;
-	 }
-	
-	/**
-	 * The root of category item id that was created for this version
-	 * @return int
-	 */
-	 getCategoryRootId() {
-	 	return this.categoryRootId;
-	 }
-	
-	/**
-	 * The date that this version became default represented as epoch
-	 * @return int
-	 */
-	 getDefaultDate() {
-	 	return this.defaultDate;
-	 }
-	
-	/**
-	 * Last updater user id
-	 * @return int
-	 */
-	 getUpdaterId() {
-	 	return this.updaterId;
-	 }
-	
-	/**
-	 * Comment
-	 * @return string
-	 */
-	 getComment() {
-	 	return this.comment;
-	 }
-	
-	/**
-	 * @param comment string Comment
-	 */
-	 setComment(comment) {
-	 	this.comment = comment;
-	 }
-	
-	/**
-	 * The date that this version was created represented as epoch
-	 * @return int
-	 */
-	 getCreateDate() {
-	 	return this.createDate;
-	 }
-	
-	/**
-	 * The date that this version was last updated represented as epoch
-	 * @return int
-	 */
-	 getUpdateDate() {
-	 	return this.updateDate;
-	 }
-}
-module.exports.CategoryVersion = CategoryVersion;
-
-/**
- *
- */
-class Condition extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCondition';
-	}
-	
-	/**
-	 * The type of the condition
-	 * @return string
-	 */
-	 getType() {
-	 	return this.type;
-	 }
-	
-	/**
-	 * Description
-	 * @return string
-	 */
-	 getDescription() {
-	 	return this.description;
-	 }
-	
-	/**
-	 * @param description string Description
-	 */
-	 setDescription(description) {
-	 	this.description = description;
-	 }
-}
-module.exports.Condition = Condition;
-
-/**
- *
- */
-class Promotion extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPromotion';
-	}
-	
-	/**
-	 * The discount module id that is promoted to the user
-	 * @return int
-	 */
-	 getDiscountModuleId() {
-	 	return this.discountModuleId;
-	 }
-	
-	/**
-	 * @param discountModuleId int The discount module id that is promoted to the user
-	 */
-	 setDiscountModuleId(discountModuleId) {
-	 	this.discountModuleId = discountModuleId;
-	 }
-	
-	/**
-	 * These conditions define the Promotion that applies on
-	 * @return array
-	 */
-	 getConditions() {
-	 	return this.conditions;
-	 }
-	
-	/**
-	 * @param conditions array These conditions define the Promotion that applies on
-	 */
-	 setConditions(conditions) {
-	 	this.conditions = conditions;
-	 }
-	
-	/**
-	 * the numer of recurring for this promotion
-	 * @return int
-	 */
-	 getNumberOfRecurring() {
-	 	return this.numberOfRecurring;
-	 }
-	
-	/**
-	 * @param numberOfRecurring int the numer of recurring for this promotion
-	 */
-	 setNumberOfRecurring(numberOfRecurring) {
-	 	this.numberOfRecurring = numberOfRecurring;
-	 }
-}
-module.exports.Promotion = Promotion;
-
-/**
- *
- */
-class Campaign extends CrudObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCampaign';
-	}
-	
-	/**
-	 * ID
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Create date of the rule
-	 * @return int
-	 */
-	 getCreateDate() {
-	 	return this.createDate;
-	 }
-	
-	/**
-	 * Update date of the rule
-	 * @return int
-	 */
-	 getUpdateDate() {
-	 	return this.updateDate;
-	 }
-	
-	/**
-	 * Start date of the rule
-	 * @return int
-	 */
-	 getStartDate() {
-	 	return this.startDate;
-	 }
-	
-	/**
-	 * @param startDate int Start date of the rule
-	 */
-	 setStartDate(startDate) {
-	 	this.startDate = startDate;
-	 }
-	
-	/**
-	 * End date of the rule
-	 * @return int
-	 */
-	 getEndDate() {
-	 	return this.endDate;
-	 }
-	
-	/**
-	 * @param endDate int End date of the rule
-	 */
-	 setEndDate(endDate) {
-	 	this.endDate = endDate;
-	 }
-	
-	/**
-	 * Name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
-	 * systemName
-	 * @return string
-	 */
-	 getSystemName() {
-	 	return this.systemName;
-	 }
-	
-	/**
-	 * @param systemName string systemName
-	 */
-	 setSystemName(systemName) {
-	 	this.systemName = systemName;
-	 }
-	
-	/**
-	 * Description
-	 * @return string
-	 */
-	 getDescription() {
-	 	return this.description;
-	 }
-	
-	/**
-	 * @param description string Description
-	 */
-	 setDescription(description) {
-	 	this.description = description;
-	 }
-	
-	/**
-	 * state
-	 * @return string
-	 */
-	 getState() {
-	 	return this.state;
-	 }
-	
-	/**
-	 * The Promotion that is promoted to the user
-	 * @return Promotion
-	 */
-	 getPromotion() {
-	 	return this.promotion;
-	 }
-	
-	/**
-	 * @param promotion Promotion The Promotion that is promoted to the user
-	 */
-	 setPromotion(promotion) {
-	 	this.promotion = promotion;
-	 }
-	
-	/**
-	 * Free text message to the user that gives information about the campaign
-	 * @return string
-	 */
-	 getMessage() {
-	 	return this.message;
-	 }
-	
-	/**
-	 * @param message string Free text message to the user that gives information about the campaign
-	 */
-	 setMessage(message) {
-	 	this.message = message;
-	 }
-	
-	/**
-	 * Comma separated collection IDs list
-	 * @return string
-	 */
-	 getCollectionIdIn() {
-	 	return this.collectionIdIn;
-	 }
-	
-	/**
-	 * @param collectionIdIn string Comma separated collection IDs list
-	 */
-	 setCollectionIdIn(collectionIdIn) {
-	 	this.collectionIdIn = collectionIdIn;
-	 }
-}
-module.exports.Campaign = Campaign;
-
-/**
- *
- */
-class BatchCampaign extends Campaign{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBatchCampaign';
-	}
-	
-	/**
-	 * These conditions define the population that apply one the campaign
-	 * @return array
-	 */
-	 getPopulationConditions() {
-	 	return this.populationConditions;
-	 }
-	
-	/**
-	 * @param populationConditions array These conditions define the population that apply one the campaign
-	 */
-	 setPopulationConditions(populationConditions) {
-	 	this.populationConditions = populationConditions;
-	 }
-}
-module.exports.BatchCampaign = BatchCampaign;
-
-/**
- *
- */
-class TriggerCampaign extends Campaign{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaTriggerCampaign';
-	}
-	
-	/**
-	 * service
-	 * @return string
-	 */
-	 getService() {
-	 	return this.service;
-	 }
-	
-	/**
-	 * @param service string service
-	 */
-	 setService(service) {
-	 	this.service = service;
-	 }
-	
-	/**
-	 * action
-	 * @return string
-	 */
-	 getAction() {
-	 	return this.action;
-	 }
-	
-	/**
-	 * @param action string action
-	 */
-	 setAction(action) {
-	 	this.action = action;
-	 }
-	
-	/**
-	 * List of conditions for the trigger (conditions on the object)
-	 * @return array
-	 */
-	 getTriggerConditions() {
-	 	return this.triggerConditions;
-	 }
-	
-	/**
-	 * @param triggerConditions array List of conditions for the trigger (conditions on the object)
-	 */
-	 setTriggerConditions(triggerConditions) {
-	 	this.triggerConditions = triggerConditions;
-	 }
-}
-module.exports.TriggerCampaign = TriggerCampaign;
-
-/**
- *
- */
-class NotCondition extends Condition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaNotCondition';
-	}
-	
-	/**
-	 * Indicates whether to apply not on the other properties in the condition
-	 * @return bool
-	 */
-	 getNot() {
-	 	return this.not;
-	 }
-	
-	/**
-	 * @param not bool Indicates whether to apply not on the other properties in the condition
-	 */
-	 setNot(not) {
-	 	this.not = not;
-	 }
-}
-module.exports.NotCondition = NotCondition;
-
-/**
- *
- */
-class OrCondition extends NotCondition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaOrCondition';
-	}
-	
-	/**
-	 * List of conditions with or between them
-	 * @return array
-	 */
-	 getConditions() {
-	 	return this.conditions;
-	 }
-	
-	/**
-	 * @param conditions array List of conditions with or between them
-	 */
-	 setConditions(conditions) {
-	 	this.conditions = conditions;
-	 }
-}
-module.exports.OrCondition = OrCondition;
-
-/**
- *
- */
-class CountryCondition extends NotCondition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCountryCondition';
-	}
-	
-	/**
-	 * Comma separated countries IDs list
-	 * @return string
-	 */
-	 getCountries() {
-	 	return this.countries;
-	 }
-	
-	/**
-	 * @param countries string Comma separated countries IDs list
-	 */
-	 setCountries(countries) {
-	 	this.countries = countries;
-	 }
-}
-module.exports.CountryCondition = CountryCondition;
-
-/**
- *
- */
-class DateCondition extends NotCondition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDateCondition';
-	}
-	
-	/**
-	 * Start date
-	 * @return int
-	 */
-	 getStartDate() {
-	 	return this.startDate;
-	 }
-	
-	/**
-	 * @param startDate int Start date
-	 */
-	 setStartDate(startDate) {
-	 	this.startDate = startDate;
-	 }
-	
-	/**
-	 * End date
-	 * @return int
-	 */
-	 getEndDate() {
-	 	return this.endDate;
-	 }
-	
-	/**
-	 * @param endDate int End date
-	 */
-	 setEndDate(endDate) {
-	 	this.endDate = endDate;
-	 }
-}
-module.exports.DateCondition = DateCondition;
-
-/**
- *
- */
-class HeaderCondition extends NotCondition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHeaderCondition';
-	}
-	
-	/**
-	 * Header key
-	 * @return string
-	 */
-	 getKey() {
-	 	return this.key;
-	 }
-	
-	/**
-	 * @param key string Header key
-	 */
-	 setKey(key) {
-	 	this.key = key;
-	 }
-	
-	/**
-	 * Header value
-	 * @return string
-	 */
-	 getValue() {
-	 	return this.value;
-	 }
-	
-	/**
-	 * @param value string Header value
-	 */
-	 setValue(value) {
-	 	this.value = value;
-	 }
-}
-module.exports.HeaderCondition = HeaderCondition;
-
-/**
- *
- */
-class AssetCondition extends Condition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetCondition';
-	}
-	
-	/**
-	 * KSQL
-	 * @return string
-	 */
-	 getKsql() {
-	 	return this.ksql;
-	 }
-	
-	/**
-	 * @param ksql string KSQL
-	 */
-	 setKsql(ksql) {
-	 	this.ksql = ksql;
-	 }
-}
-module.exports.AssetCondition = AssetCondition;
-
-/**
- *
- */
-class ConcurrencyCondition extends AssetCondition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaConcurrencyCondition';
-	}
-	
-	/**
-	 * Concurrency limitation
-	 * @return int
-	 */
-	 getLimit() {
-	 	return this.limit;
-	 }
-	
-	/**
-	 * @param limit int Concurrency limitation
-	 */
-	 setLimit(limit) {
-	 	this.limit = limit;
-	 }
-	
-	/**
-	 * Concurrency limitation type
-	 * @return string
-	 */
-	 getConcurrencyLimitationType() {
-	 	return this.concurrencyLimitationType;
-	 }
-	
-	/**
-	 * @param concurrencyLimitationType string Concurrency limitation type
-	 */
-	 setConcurrencyLimitationType(concurrencyLimitationType) {
-	 	this.concurrencyLimitationType = concurrencyLimitationType;
-	 }
-}
-module.exports.ConcurrencyCondition = ConcurrencyCondition;
-
-/**
- *
- */
-class IpRangeCondition extends Condition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaIpRangeCondition';
-	}
-	
-	/**
-	 * From IP address range
-	 * @return string
-	 */
-	 getFromIP() {
-	 	return this.fromIP;
-	 }
-	
-	/**
-	 * @param fromIP string From IP address range
-	 */
-	 setFromIP(fromIP) {
-	 	this.fromIP = fromIP;
-	 }
-	
-	/**
-	 * TO IP address range
-	 * @return string
-	 */
-	 getToIP() {
-	 	return this.toIP;
-	 }
-	
-	/**
-	 * @param toIP string TO IP address range
-	 */
-	 setToIP(toIP) {
-	 	this.toIP = toIP;
-	 }
-}
-module.exports.IpRangeCondition = IpRangeCondition;
-
-/**
- *
- */
-class BusinessModuleCondition extends Condition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBusinessModuleCondition';
-	}
-	
-	/**
-	 * Business module type
-	 * @return string
-	 */
-	 getBusinessModuleType() {
-	 	return this.businessModuleType;
-	 }
-	
-	/**
-	 * @param businessModuleType string Business module type
-	 */
-	 setBusinessModuleType(businessModuleType) {
-	 	this.businessModuleType = businessModuleType;
-	 }
-	
-	/**
-	 * Business module ID
-	 * @return int
-	 */
-	 getBusinessModuleId() {
-	 	return this.businessModuleId;
-	 }
-	
-	/**
-	 * @param businessModuleId int Business module ID
-	 */
-	 setBusinessModuleId(businessModuleId) {
-	 	this.businessModuleId = businessModuleId;
-	 }
-}
-module.exports.BusinessModuleCondition = BusinessModuleCondition;
-
-/**
- *
- */
-class SegmentsCondition extends Condition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSegmentsCondition';
-	}
-	
-	/**
-	 * Comma separated segments IDs list
-	 * @return string
-	 */
-	 getSegmentsIds() {
-	 	return this.segmentsIds;
-	 }
-	
-	/**
-	 * @param segmentsIds string Comma separated segments IDs list
-	 */
-	 setSegmentsIds(segmentsIds) {
-	 	this.segmentsIds = segmentsIds;
-	 }
-}
-module.exports.SegmentsCondition = SegmentsCondition;
-
-/**
- *
- */
-class SubscriptionCondition extends Condition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSubscriptionCondition';
-	}
-	
-	/**
-	 * Comma separated subscription IDs list
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Comma separated subscription IDs list
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.SubscriptionCondition = SubscriptionCondition;
-
-/**
- *
- */
-class UserSubscriptionCondition extends SubscriptionCondition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaUserSubscriptionCondition';
-	}
-}
-module.exports.UserSubscriptionCondition = UserSubscriptionCondition;
-
-/**
- *
- */
-class AssetSubscriptionCondition extends SubscriptionCondition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetSubscriptionCondition';
-	}
-}
-module.exports.AssetSubscriptionCondition = AssetSubscriptionCondition;
-
-/**
- *
- */
-class UserRoleCondition extends Condition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaUserRoleCondition';
-	}
-	
-	/**
-	 * Comma separated user role IDs list
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Comma separated user role IDs list
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.UserRoleCondition = UserRoleCondition;
-
-/**
- *
- */
-class DeviceBrandCondition extends Condition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDeviceBrandCondition';
-	}
-	
-	/**
-	 * Comma separated Device Brand IDs list
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Comma separated Device Brand IDs list
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.DeviceBrandCondition = DeviceBrandCondition;
-
-/**
- *
- */
-class DeviceFamilyCondition extends Condition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDeviceFamilyCondition';
-	}
-	
-	/**
-	 * Comma separated Device Family IDs list
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Comma separated Device Family IDs list
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.DeviceFamilyCondition = DeviceFamilyCondition;
-
-/**
- *
- */
-class DeviceManufacturerCondition extends Condition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDeviceManufacturerCondition';
-	}
-	
-	/**
-	 * Comma separated Device Manufacturer IDs list
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Comma separated Device Manufacturer IDs list
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.DeviceManufacturerCondition = DeviceManufacturerCondition;
-
-/**
- *
- */
-class DeviceModelCondition extends Condition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDeviceModelCondition';
-	}
-	
-	/**
-	 * regex of device model that is compared to
-	 * @return string
-	 */
-	 getRegexEqual() {
-	 	return this.regexEqual;
-	 }
-	
-	/**
-	 * @param regexEqual string regex of device model that is compared to
-	 */
-	 setRegexEqual(regexEqual) {
-	 	this.regexEqual = regexEqual;
-	 }
-}
-module.exports.DeviceModelCondition = DeviceModelCondition;
-
-/**
- *
- */
-class UdidDynamicListCondition extends Condition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaUdidDynamicListCondition';
-	}
-	
-	/**
-	 * KalturaUdidDynamicList.id
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * @param id int KalturaUdidDynamicList.id
-	 */
-	 setId(id) {
-	 	this.id = id;
-	 }
-}
-module.exports.UdidDynamicListCondition = UdidDynamicListCondition;
 
 /**
  *
@@ -12937,452 +10707,8 @@ class HouseholdDevice extends OTTObjectSupportNullable{
 	 setMacAddress(macAddress) {
 	 	this.macAddress = macAddress;
 	 }
-	
-	/**
-	 * Dynamic data
-	 * @return map
-	 */
-	 getDynamicData() {
-	 	return this.dynamicData;
-	 }
-	
-	/**
-	 * @param dynamicData map Dynamic data
-	 */
-	 setDynamicData(dynamicData) {
-	 	this.dynamicData = dynamicData;
-	 }
-	
-	/**
-	 * model
-	 * @return string
-	 */
-	 getModel() {
-	 	return this.model;
-	 }
-	
-	/**
-	 * @param model string model
-	 */
-	 setModel(model) {
-	 	this.model = model;
-	 }
-	
-	/**
-	 * manufacturer
-	 * @return string
-	 */
-	 getManufacturer() {
-	 	return this.manufacturer;
-	 }
-	
-	/**
-	 * @param manufacturer string manufacturer
-	 */
-	 setManufacturer(manufacturer) {
-	 	this.manufacturer = manufacturer;
-	 }
-	
-	/**
-	 * manufacturer Id, read only
-	 * @return int
-	 */
-	 getManufacturerId() {
-	 	return this.manufacturerId;
-	 }
-	
-	/**
-	 * Last Activity Time, read only
-	 * @return int
-	 */
-	 getLastActivityTime() {
-	 	return this.lastActivityTime;
-	 }
 }
 module.exports.HouseholdDevice = HouseholdDevice;
-
-/**
- *
- */
-class BaseChannel extends OTTObjectSupportNullable{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBaseChannel';
-	}
-	
-	/**
-	 * Unique identifier for the channel
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-}
-module.exports.BaseChannel = BaseChannel;
-
-/**
- *
- */
-class ChannelOrder extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaChannelOrder';
-	}
-	
-	/**
-	 * Channel dynamic order by (meta)
-	 * @return DynamicOrderBy
-	 */
-	 getDynamicOrderBy() {
-	 	return this.dynamicOrderBy;
-	 }
-	
-	/**
-	 * @param dynamicOrderBy DynamicOrderBy Channel dynamic order by (meta)
-	 */
-	 setDynamicOrderBy(dynamicOrderBy) {
-	 	this.dynamicOrderBy = dynamicOrderBy;
-	 }
-	
-	/**
-	 * Channel order by
-	 * @return string
-	 */
-	 getOrderBy() {
-	 	return this.orderBy;
-	 }
-	
-	/**
-	 * @param orderBy string Channel order by
-	 */
-	 setOrderBy(orderBy) {
-	 	this.orderBy = orderBy;
-	 }
-	
-	/**
-	 * Sliding window period in minutes, used only when ordering by LIKES_DESC / VOTES_DESC / RATINGS_DESC / VIEWS_DESC
-	 * @return int
-	 */
-	 getPeriod() {
-	 	return this.period;
-	 }
-	
-	/**
-	 * @param period int Sliding window period in minutes, used only when ordering by LIKES_DESC / VOTES_DESC / RATINGS_DESC / VIEWS_DESC
-	 */
-	 setPeriod(period) {
-	 	this.period = period;
-	 }
-}
-module.exports.ChannelOrder = ChannelOrder;
-
-/**
- *
- */
-class Channel extends BaseChannel{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaChannel';
-	}
-	
-	/**
-	 * Channel name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * Channel name
-	 * @return array
-	 */
-	 getMultilingualName() {
-	 	return this.multilingualName;
-	 }
-	
-	/**
-	 * @param multilingualName array Channel name
-	 */
-	 setMultilingualName(multilingualName) {
-	 	this.multilingualName = multilingualName;
-	 }
-	
-	/**
-	 * Channel name
-	 * @return string
-	 */
-	 getOldName() {
-	 	return this.oldName;
-	 }
-	
-	/**
-	 * @param oldName string Channel name
-	 */
-	 setOldName(oldName) {
-	 	this.oldName = oldName;
-	 }
-	
-	/**
-	 * Channel system name
-	 * @return string
-	 */
-	 getSystemName() {
-	 	return this.systemName;
-	 }
-	
-	/**
-	 * @param systemName string Channel system name
-	 */
-	 setSystemName(systemName) {
-	 	this.systemName = systemName;
-	 }
-	
-	/**
-	 * Cannel description
-	 * @return string
-	 */
-	 getDescription() {
-	 	return this.description;
-	 }
-	
-	/**
-	 * Cannel description
-	 * @return array
-	 */
-	 getMultilingualDescription() {
-	 	return this.multilingualDescription;
-	 }
-	
-	/**
-	 * @param multilingualDescription array Cannel description
-	 */
-	 setMultilingualDescription(multilingualDescription) {
-	 	this.multilingualDescription = multilingualDescription;
-	 }
-	
-	/**
-	 * Cannel description
-	 * @return string
-	 */
-	 getOldDescription() {
-	 	return this.oldDescription;
-	 }
-	
-	/**
-	 * @param oldDescription string Cannel description
-	 */
-	 setOldDescription(oldDescription) {
-	 	this.oldDescription = oldDescription;
-	 }
-	
-	/**
-	 * active status
-	 * @return bool
-	 */
-	 getIsActive() {
-	 	return this.isActive;
-	 }
-	
-	/**
-	 * @param isActive bool active status
-	 */
-	 setIsActive(isActive) {
-	 	this.isActive = isActive;
-	 }
-	
-	/**
-	 * Channel order by
-	 * @return ChannelOrder
-	 */
-	 getOrderBy() {
-	 	return this.orderBy;
-	 }
-	
-	/**
-	 * @param orderBy ChannelOrder Channel order by
-	 */
-	 setOrderBy(orderBy) {
-	 	this.orderBy = orderBy;
-	 }
-	
-	/**
-	 * Specifies when was the Channel was created. Date and time represented as epoch
-	 * @return int
-	 */
-	 getCreateDate() {
-	 	return this.createDate;
-	 }
-	
-	/**
-	 * Specifies when was the Channel last updated. Date and time represented as epoch
-	 * @return int
-	 */
-	 getUpdateDate() {
-	 	return this.updateDate;
-	 }
-	
-	/**
-	 * Specifies whether the assets in this channel will be ordered based on their match to the user&#39;s segments (see BEO-5524)
-	 * @return bool
-	 */
-	 getSupportSegmentBasedOrdering() {
-	 	return this.supportSegmentBasedOrdering;
-	 }
-	
-	/**
-	 * @param supportSegmentBasedOrdering bool Specifies whether the assets in this channel will be ordered based on their match to the user&#39;s segments (see BEO-5524)
-	 */
-	 setSupportSegmentBasedOrdering(supportSegmentBasedOrdering) {
-	 	this.supportSegmentBasedOrdering = supportSegmentBasedOrdering;
-	 }
-	
-	/**
-	 * Asset user rule identifier
-	 * @return int
-	 */
-	 getAssetUserRuleId() {
-	 	return this.assetUserRuleId;
-	 }
-	
-	/**
-	 * @param assetUserRuleId int Asset user rule identifier
-	 */
-	 setAssetUserRuleId(assetUserRuleId) {
-	 	this.assetUserRuleId = assetUserRuleId;
-	 }
-	
-	/**
-	 * key/value map field for extra data
-	 * @return map
-	 */
-	 getMetaData() {
-	 	return this.metaData;
-	 }
-	
-	/**
-	 * @param metaData map key/value map field for extra data
-	 */
-	 setMetaData(metaData) {
-	 	this.metaData = metaData;
-	 }
-}
-module.exports.Channel = Channel;
-
-/**
- *
- */
-class DynamicChannel extends Channel{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDynamicChannel';
-	}
-	
-	/**
-	 * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
- * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
- * epg_id, media_id - for specific asset IDs.
- * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restriced to the user by geo-block rules will return.
- * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
- * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
- * epg_channel_id – the channel identifier of the EPG program. *****Deprecated, please use linear_media_id instead*****
- * linear_media_id – the linear media identifier of the EPG program.
- * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
- * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
- * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
- * Logical conjunction: and, or.
- * Search values are limited to 20 characters each.
- * (maximum length of entire filter is 4096 characters)
-	 * @return string
-	 */
-	 getKSql() {
-	 	return this.kSql;
-	 }
-	
-	/**
-	 * @param kSql string Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
- * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
- * epg_id, media_id - for specific asset IDs.
- * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restriced to the user by geo-block rules will return.
- * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
- * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
- * epg_channel_id – the channel identifier of the EPG program. *****Deprecated, please use linear_media_id instead*****
- * linear_media_id – the linear media identifier of the EPG program.
- * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
- * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
- * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
- * Logical conjunction: and, or.
- * Search values are limited to 20 characters each.
- * (maximum length of entire filter is 4096 characters)
-	 */
-	 setKSql(kSql) {
-	 	this.kSql = kSql;
-	 }
-	
-	/**
-	 * Asset types in the channel.
- * -26 is EPG
-	 * @return array
-	 */
-	 getAssetTypes() {
-	 	return this.assetTypes;
-	 }
-	
-	/**
-	 * @param assetTypes array Asset types in the channel.
- * -26 is EPG
-	 */
-	 setAssetTypes(assetTypes) {
-	 	this.assetTypes = assetTypes;
-	 }
-	
-	/**
-	 * Channel group by
-	 * @return AssetGroupBy
-	 */
-	 getGroupBy() {
-	 	return this.groupBy;
-	 }
-	
-	/**
-	 * @param groupBy AssetGroupBy Channel group by
-	 */
-	 setGroupBy(groupBy) {
-	 	this.groupBy = groupBy;
-	 }
-}
-module.exports.DynamicChannel = DynamicChannel;
-
-/**
- *
- */
-class ManualChannel extends Channel{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaManualChannel';
-	}
-	
-	/**
-	 * A list of comma separated media ids associated with this channel, according to the order of the medias in the channel
-	 * @return string
-	 */
-	 getMediaIds() {
-	 	return this.mediaIds;
-	 }
-	
-	/**
-	 * @param mediaIds string A list of comma separated media ids associated with this channel, according to the order of the medias in the channel
-	 */
-	 setMediaIds(mediaIds) {
-	 	this.mediaIds = mediaIds;
-	 }
-}
-module.exports.ManualChannel = ManualChannel;
 
 /**
  *
@@ -13460,6 +10786,41 @@ class AssetRuleBase extends Rule{
 	}
 }
 module.exports.AssetRuleBase = AssetRuleBase;
+
+/**
+ *
+ */
+class Condition extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCondition';
+	}
+	
+	/**
+	 * The type of the condition
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * Description
+	 * @return string
+	 */
+	 getDescription() {
+	 	return this.description;
+	 }
+	
+	/**
+	 * @param description string Description
+	 */
+	 setDescription(description) {
+	 	this.description = description;
+	 }
+}
+module.exports.Condition = Condition;
 
 /**
  *
@@ -13561,6 +10922,33 @@ module.exports.AssetRule = AssetRule;
 /**
  *
  */
+class AssetCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetCondition';
+	}
+	
+	/**
+	 * KSQL
+	 * @return string
+	 */
+	 getKsql() {
+	 	return this.ksql;
+	 }
+	
+	/**
+	 * @param ksql string KSQL
+	 */
+	 setKsql(ksql) {
+	 	this.ksql = ksql;
+	 }
+}
+module.exports.AssetCondition = AssetCondition;
+
+/**
+ *
+ */
 class AssetUserRuleAction extends RuleAction{
 	
 	constructor(object = null) {
@@ -13611,6 +10999,402 @@ class AssetUserRule extends AssetRuleBase{
 	 }
 }
 module.exports.AssetUserRule = AssetUserRule;
+
+/**
+ *
+ */
+class NotCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaNotCondition';
+	}
+	
+	/**
+	 * Indicates whether to apply not on the other properties in the condition
+	 * @return bool
+	 */
+	 getNot() {
+	 	return this.not;
+	 }
+	
+	/**
+	 * @param not bool Indicates whether to apply not on the other properties in the condition
+	 */
+	 setNot(not) {
+	 	this.not = not;
+	 }
+}
+module.exports.NotCondition = NotCondition;
+
+/**
+ *
+ */
+class OrCondition extends NotCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaOrCondition';
+	}
+	
+	/**
+	 * List of conditions with or between them
+	 * @return array
+	 */
+	 getConditions() {
+	 	return this.conditions;
+	 }
+	
+	/**
+	 * @param conditions array List of conditions with or between them
+	 */
+	 setConditions(conditions) {
+	 	this.conditions = conditions;
+	 }
+}
+module.exports.OrCondition = OrCondition;
+
+/**
+ *
+ */
+class CountryCondition extends NotCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCountryCondition';
+	}
+	
+	/**
+	 * Comma separated countries IDs list
+	 * @return string
+	 */
+	 getCountries() {
+	 	return this.countries;
+	 }
+	
+	/**
+	 * @param countries string Comma separated countries IDs list
+	 */
+	 setCountries(countries) {
+	 	this.countries = countries;
+	 }
+}
+module.exports.CountryCondition = CountryCondition;
+
+/**
+ *
+ */
+class DateCondition extends NotCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDateCondition';
+	}
+	
+	/**
+	 * Start date
+	 * @return int
+	 */
+	 getStartDate() {
+	 	return this.startDate;
+	 }
+	
+	/**
+	 * @param startDate int Start date
+	 */
+	 setStartDate(startDate) {
+	 	this.startDate = startDate;
+	 }
+	
+	/**
+	 * End date
+	 * @return int
+	 */
+	 getEndDate() {
+	 	return this.endDate;
+	 }
+	
+	/**
+	 * @param endDate int End date
+	 */
+	 setEndDate(endDate) {
+	 	this.endDate = endDate;
+	 }
+}
+module.exports.DateCondition = DateCondition;
+
+/**
+ *
+ */
+class HeaderCondition extends NotCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHeaderCondition';
+	}
+	
+	/**
+	 * Header key
+	 * @return string
+	 */
+	 getKey() {
+	 	return this.key;
+	 }
+	
+	/**
+	 * @param key string Header key
+	 */
+	 setKey(key) {
+	 	this.key = key;
+	 }
+	
+	/**
+	 * Header value
+	 * @return string
+	 */
+	 getValue() {
+	 	return this.value;
+	 }
+	
+	/**
+	 * @param value string Header value
+	 */
+	 setValue(value) {
+	 	this.value = value;
+	 }
+}
+module.exports.HeaderCondition = HeaderCondition;
+
+/**
+ *
+ */
+class ConcurrencyCondition extends AssetCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaConcurrencyCondition';
+	}
+	
+	/**
+	 * Concurrency limitation
+	 * @return int
+	 */
+	 getLimit() {
+	 	return this.limit;
+	 }
+	
+	/**
+	 * @param limit int Concurrency limitation
+	 */
+	 setLimit(limit) {
+	 	this.limit = limit;
+	 }
+	
+	/**
+	 * Concurrency limitation type
+	 * @return string
+	 */
+	 getConcurrencyLimitationType() {
+	 	return this.concurrencyLimitationType;
+	 }
+	
+	/**
+	 * @param concurrencyLimitationType string Concurrency limitation type
+	 */
+	 setConcurrencyLimitationType(concurrencyLimitationType) {
+	 	this.concurrencyLimitationType = concurrencyLimitationType;
+	 }
+}
+module.exports.ConcurrencyCondition = ConcurrencyCondition;
+
+/**
+ *
+ */
+class IpRangeCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIpRangeCondition';
+	}
+	
+	/**
+	 * From IP address range
+	 * @return string
+	 */
+	 getFromIP() {
+	 	return this.fromIP;
+	 }
+	
+	/**
+	 * @param fromIP string From IP address range
+	 */
+	 setFromIP(fromIP) {
+	 	this.fromIP = fromIP;
+	 }
+	
+	/**
+	 * TO IP address range
+	 * @return string
+	 */
+	 getToIP() {
+	 	return this.toIP;
+	 }
+	
+	/**
+	 * @param toIP string TO IP address range
+	 */
+	 setToIP(toIP) {
+	 	this.toIP = toIP;
+	 }
+}
+module.exports.IpRangeCondition = IpRangeCondition;
+
+/**
+ *
+ */
+class BusinessModuleCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBusinessModuleCondition';
+	}
+	
+	/**
+	 * Business module type
+	 * @return string
+	 */
+	 getBusinessModuleType() {
+	 	return this.businessModuleType;
+	 }
+	
+	/**
+	 * @param businessModuleType string Business module type
+	 */
+	 setBusinessModuleType(businessModuleType) {
+	 	this.businessModuleType = businessModuleType;
+	 }
+	
+	/**
+	 * Business module ID
+	 * @return int
+	 */
+	 getBusinessModuleId() {
+	 	return this.businessModuleId;
+	 }
+	
+	/**
+	 * @param businessModuleId int Business module ID
+	 */
+	 setBusinessModuleId(businessModuleId) {
+	 	this.businessModuleId = businessModuleId;
+	 }
+}
+module.exports.BusinessModuleCondition = BusinessModuleCondition;
+
+/**
+ *
+ */
+class SegmentsCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSegmentsCondition';
+	}
+	
+	/**
+	 * Comma separated segments IDs list
+	 * @return string
+	 */
+	 getSegmentsIds() {
+	 	return this.segmentsIds;
+	 }
+	
+	/**
+	 * @param segmentsIds string Comma separated segments IDs list
+	 */
+	 setSegmentsIds(segmentsIds) {
+	 	this.segmentsIds = segmentsIds;
+	 }
+}
+module.exports.SegmentsCondition = SegmentsCondition;
+
+/**
+ *
+ */
+class SubscriptionCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSubscriptionCondition';
+	}
+	
+	/**
+	 * Comma separated subscription IDs list
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated subscription IDs list
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.SubscriptionCondition = SubscriptionCondition;
+
+/**
+ *
+ */
+class UserSubscriptionCondition extends SubscriptionCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUserSubscriptionCondition';
+	}
+}
+module.exports.UserSubscriptionCondition = UserSubscriptionCondition;
+
+/**
+ *
+ */
+class AssetSubscriptionCondition extends SubscriptionCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetSubscriptionCondition';
+	}
+}
+module.exports.AssetSubscriptionCondition = AssetSubscriptionCondition;
+
+/**
+ *
+ */
+class UserRoleCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUserRoleCondition';
+	}
+	
+	/**
+	 * Comma separated user role IDs list
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated user role IDs list
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.UserRoleCondition = UserRoleCondition;
 
 /**
  *
@@ -14149,6 +11933,26 @@ class TvmGeoRule extends TvmRule{
 	 }
 }
 module.exports.TvmGeoRule = TvmGeoRule;
+
+/**
+ *
+ */
+class BaseChannel extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBaseChannel';
+	}
+	
+	/**
+	 * Unique identifier for the channel
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+}
+module.exports.BaseChannel = BaseChannel;
 
 /**
  *
@@ -14711,6 +12515,369 @@ module.exports.CollectionListResponse = CollectionListResponse;
 /**
  *
  */
+class ChannelOrder extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaChannelOrder';
+	}
+	
+	/**
+	 * Channel dynamic order by (meta)
+	 * @return DynamicOrderBy
+	 */
+	 getDynamicOrderBy() {
+	 	return this.dynamicOrderBy;
+	 }
+	
+	/**
+	 * @param dynamicOrderBy DynamicOrderBy Channel dynamic order by (meta)
+	 */
+	 setDynamicOrderBy(dynamicOrderBy) {
+	 	this.dynamicOrderBy = dynamicOrderBy;
+	 }
+	
+	/**
+	 * Channel order by
+	 * @return string
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy string Channel order by
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+	
+	/**
+	 * Sliding window period in minutes, used only when ordering by LIKES_DESC / VOTES_DESC / RATINGS_DESC / VIEWS_DESC
+	 * @return int
+	 */
+	 getPeriod() {
+	 	return this.period;
+	 }
+	
+	/**
+	 * @param period int Sliding window period in minutes, used only when ordering by LIKES_DESC / VOTES_DESC / RATINGS_DESC / VIEWS_DESC
+	 */
+	 setPeriod(period) {
+	 	this.period = period;
+	 }
+}
+module.exports.ChannelOrder = ChannelOrder;
+
+/**
+ *
+ */
+class Channel extends BaseChannel{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaChannel';
+	}
+	
+	/**
+	 * Channel name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * Channel name
+	 * @return array
+	 */
+	 getMultilingualName() {
+	 	return this.multilingualName;
+	 }
+	
+	/**
+	 * @param multilingualName array Channel name
+	 */
+	 setMultilingualName(multilingualName) {
+	 	this.multilingualName = multilingualName;
+	 }
+	
+	/**
+	 * Channel name
+	 * @return string
+	 */
+	 getOldName() {
+	 	return this.oldName;
+	 }
+	
+	/**
+	 * @param oldName string Channel name
+	 */
+	 setOldName(oldName) {
+	 	this.oldName = oldName;
+	 }
+	
+	/**
+	 * Channel system name
+	 * @return string
+	 */
+	 getSystemName() {
+	 	return this.systemName;
+	 }
+	
+	/**
+	 * @param systemName string Channel system name
+	 */
+	 setSystemName(systemName) {
+	 	this.systemName = systemName;
+	 }
+	
+	/**
+	 * Cannel description
+	 * @return string
+	 */
+	 getDescription() {
+	 	return this.description;
+	 }
+	
+	/**
+	 * Cannel description
+	 * @return array
+	 */
+	 getMultilingualDescription() {
+	 	return this.multilingualDescription;
+	 }
+	
+	/**
+	 * @param multilingualDescription array Cannel description
+	 */
+	 setMultilingualDescription(multilingualDescription) {
+	 	this.multilingualDescription = multilingualDescription;
+	 }
+	
+	/**
+	 * Cannel description
+	 * @return string
+	 */
+	 getOldDescription() {
+	 	return this.oldDescription;
+	 }
+	
+	/**
+	 * @param oldDescription string Cannel description
+	 */
+	 setOldDescription(oldDescription) {
+	 	this.oldDescription = oldDescription;
+	 }
+	
+	/**
+	 * active status
+	 * @return bool
+	 */
+	 getIsActive() {
+	 	return this.isActive;
+	 }
+	
+	/**
+	 * @param isActive bool active status
+	 */
+	 setIsActive(isActive) {
+	 	this.isActive = isActive;
+	 }
+	
+	/**
+	 * Channel order by
+	 * @return ChannelOrder
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy ChannelOrder Channel order by
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+	
+	/**
+	 * Specifies when was the Channel was created. Date and time represented as epoch
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * Specifies when was the Channel last updated. Date and time represented as epoch
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
+	
+	/**
+	 * Specifies whether the assets in this channel will be ordered based on their match to the user&#39;s segments (see BEO-5524)
+	 * @return bool
+	 */
+	 getSupportSegmentBasedOrdering() {
+	 	return this.supportSegmentBasedOrdering;
+	 }
+	
+	/**
+	 * @param supportSegmentBasedOrdering bool Specifies whether the assets in this channel will be ordered based on their match to the user&#39;s segments (see BEO-5524)
+	 */
+	 setSupportSegmentBasedOrdering(supportSegmentBasedOrdering) {
+	 	this.supportSegmentBasedOrdering = supportSegmentBasedOrdering;
+	 }
+	
+	/**
+	 * Asset user rule identifier
+	 * @return int
+	 */
+	 getAssetUserRuleId() {
+	 	return this.assetUserRuleId;
+	 }
+	
+	/**
+	 * @param assetUserRuleId int Asset user rule identifier
+	 */
+	 setAssetUserRuleId(assetUserRuleId) {
+	 	this.assetUserRuleId = assetUserRuleId;
+	 }
+	
+	/**
+	 * key/value map field for extra data
+	 * @return map
+	 */
+	 getMetaData() {
+	 	return this.metaData;
+	 }
+	
+	/**
+	 * @param metaData map key/value map field for extra data
+	 */
+	 setMetaData(metaData) {
+	 	this.metaData = metaData;
+	 }
+}
+module.exports.Channel = Channel;
+
+/**
+ *
+ */
+class DynamicChannel extends Channel{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDynamicChannel';
+	}
+	
+	/**
+	 * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
+ * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
+ * epg_id, media_id - for specific asset IDs.
+ * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restriced to the user by geo-block rules will return.
+ * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
+ * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
+ * epg_channel_id – the channel identifier of the EPG program. *****Deprecated, please use linear_media_id instead*****
+ * linear_media_id – the linear media identifier of the EPG program.
+ * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
+ * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
+ * Logical conjunction: and, or.
+ * Search values are limited to 20 characters each.
+ * (maximum length of entire filter is 4096 characters)
+	 * @return string
+	 */
+	 getKSql() {
+	 	return this.kSql;
+	 }
+	
+	/**
+	 * @param kSql string Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction.
+ * Possible keys: any Tag or Meta defined in the system and the following reserved keys: start_date, end_date.
+ * epg_id, media_id - for specific asset IDs.
+ * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restriced to the user by geo-block rules will return.
+ * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
+ * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
+ * epg_channel_id – the channel identifier of the EPG program. *****Deprecated, please use linear_media_id instead*****
+ * linear_media_id – the linear media identifier of the EPG program.
+ * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
+ * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
+ * For alpha-numerical fields =, != (not), ~ (like), !~, ^ (any word starts with), ^= (phrase starts with), + (exists), !+ (not exists).
+ * Logical conjunction: and, or.
+ * Search values are limited to 20 characters each.
+ * (maximum length of entire filter is 4096 characters)
+	 */
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
+	 }
+	
+	/**
+	 * Asset types in the channel.
+ * -26 is EPG
+	 * @return array
+	 */
+	 getAssetTypes() {
+	 	return this.assetTypes;
+	 }
+	
+	/**
+	 * @param assetTypes array Asset types in the channel.
+ * -26 is EPG
+	 */
+	 setAssetTypes(assetTypes) {
+	 	this.assetTypes = assetTypes;
+	 }
+	
+	/**
+	 * Channel group by
+	 * @return AssetGroupBy
+	 */
+	 getGroupBy() {
+	 	return this.groupBy;
+	 }
+	
+	/**
+	 * @param groupBy AssetGroupBy Channel group by
+	 */
+	 setGroupBy(groupBy) {
+	 	this.groupBy = groupBy;
+	 }
+}
+module.exports.DynamicChannel = DynamicChannel;
+
+/**
+ *
+ */
+class ManualChannel extends Channel{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaManualChannel';
+	}
+	
+	/**
+	 * A list of comma separated media ids associated with this channel, according to the order of the medias in the channel
+	 * @return string
+	 */
+	 getMediaIds() {
+	 	return this.mediaIds;
+	 }
+	
+	/**
+	 * @param mediaIds string A list of comma separated media ids associated with this channel, according to the order of the medias in the channel
+	 */
+	 setMediaIds(mediaIds) {
+	 	this.mediaIds = mediaIds;
+	 }
+}
+module.exports.ManualChannel = ManualChannel;
+
+/**
+ *
+ */
 class PricePlan extends UsageModule{
 	
 	constructor(object = null) {
@@ -14988,33 +13155,6 @@ module.exports.DiscountDetailsListResponse = DiscountDetailsListResponse;
 /**
  *
  */
-class PromotionInfo extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPromotionInfo';
-	}
-	
-	/**
-	 * Campaign Id
-	 * @return int
-	 */
-	 getCampaignId() {
-	 	return this.campaignId;
-	 }
-	
-	/**
-	 * @param campaignId int Campaign Id
-	 */
-	 setCampaignId(campaignId) {
-	 	this.campaignId = campaignId;
-	 }
-}
-module.exports.PromotionInfo = PromotionInfo;
-
-/**
- *
- */
 class ProductPrice extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -15068,21 +13208,6 @@ class ProductPrice extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * The full price of the item (with no discounts)
-	 * @return Price
-	 */
-	 getFullPrice() {
-	 	return this.fullPrice;
-	 }
-	
-	/**
-	 * @param fullPrice Price The full price of the item (with no discounts)
-	 */
-	 setFullPrice(fullPrice) {
-	 	this.fullPrice = fullPrice;
-	 }
-	
-	/**
 	 * Product purchase status
 	 * @return string
 	 */
@@ -15095,21 +13220,6 @@ class ProductPrice extends kaltura.BaseObject{
 	 */
 	 setPurchaseStatus(purchaseStatus) {
 	 	this.purchaseStatus = purchaseStatus;
-	 }
-	
-	/**
-	 * Promotion Info
-	 * @return PromotionInfo
-	 */
-	 getPromotionInfo() {
-	 	return this.promotionInfo;
-	 }
-	
-	/**
-	 * @param promotionInfo PromotionInfo Promotion Info
-	 */
-	 setPromotionInfo(promotionInfo) {
-	 	this.promotionInfo = promotionInfo;
 	 }
 }
 module.exports.ProductPrice = ProductPrice;
@@ -15179,6 +13289,21 @@ class PpvPrice extends ProductPrice{
 	 */
 	 setIsSubscriptionOnly(isSubscriptionOnly) {
 	 	this.isSubscriptionOnly = isSubscriptionOnly;
+	 }
+	
+	/**
+	 * The full price of the item (with no discounts)
+	 * @return Price
+	 */
+	 getFullPrice() {
+	 	return this.fullPrice;
+	 }
+	
+	/**
+	 * @param fullPrice Price The full price of the item (with no discounts)
+	 */
+	 setFullPrice(fullPrice) {
+	 	this.fullPrice = fullPrice;
 	 }
 	
 	/**
@@ -16635,105 +14760,6 @@ module.exports.BillingPartnerConfig = BillingPartnerConfig;
 /**
  *
  */
-class CategoryManagement extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryManagement';
-	}
-	
-	/**
-	 * Default CategoryVersion tree id
-	 * @return int
-	 */
-	 getDefaultTreeId() {
-	 	return this.defaultTreeId;
-	 }
-	
-	/**
-	 * @param defaultTreeId int Default CategoryVersion tree id
-	 */
-	 setDefaultTreeId(defaultTreeId) {
-	 	this.defaultTreeId = defaultTreeId;
-	 }
-	
-	/**
-	 * Device family to Category TreeId mapping
-	 * @return map
-	 */
-	 getDeviceFamilyToCategoryTree() {
-	 	return this.deviceFamilyToCategoryTree;
-	 }
-	
-	/**
-	 * @param deviceFamilyToCategoryTree map Device family to Category TreeId mapping
-	 */
-	 setDeviceFamilyToCategoryTree(deviceFamilyToCategoryTree) {
-	 	this.deviceFamilyToCategoryTree = deviceFamilyToCategoryTree;
-	 }
-}
-module.exports.CategoryManagement = CategoryManagement;
-
-/**
- *
- */
-class CatalogPartnerConfig extends PartnerConfiguration{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCatalogPartnerConfig';
-	}
-	
-	/**
-	 * Single multilingual mode
-	 * @return bool
-	 */
-	 getSingleMultilingualMode() {
-	 	return this.singleMultilingualMode;
-	 }
-	
-	/**
-	 * @param singleMultilingualMode bool Single multilingual mode
-	 */
-	 setSingleMultilingualMode(singleMultilingualMode) {
-	 	this.singleMultilingualMode = singleMultilingualMode;
-	 }
-	
-	/**
-	 * Category management
-	 * @return CategoryManagement
-	 */
-	 getCategoryManagement() {
-	 	return this.categoryManagement;
-	 }
-	
-	/**
-	 * @param categoryManagement CategoryManagement Category management
-	 */
-	 setCategoryManagement(categoryManagement) {
-	 	this.categoryManagement = categoryManagement;
-	 }
-	
-	/**
-	 * EPG Multilingual Fallback Support
-	 * @return bool
-	 */
-	 getEpgMultilingualFallbackSupport() {
-	 	return this.epgMultilingualFallbackSupport;
-	 }
-	
-	/**
-	 * @param epgMultilingualFallbackSupport bool EPG Multilingual Fallback Support
-	 */
-	 setEpgMultilingualFallbackSupport(epgMultilingualFallbackSupport) {
-	 	this.epgMultilingualFallbackSupport = epgMultilingualFallbackSupport;
-	 }
-}
-module.exports.CatalogPartnerConfig = CatalogPartnerConfig;
-
-/**
- *
- */
 class BookmarkEventThreshold extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -16853,21 +14879,6 @@ class ConcurrencyPartnerConfig extends PartnerConfiguration{
 	 */
 	 setConcurrencyThresholdInSeconds(concurrencyThresholdInSeconds) {
 	 	this.concurrencyThresholdInSeconds = concurrencyThresholdInSeconds;
-	 }
-	
-	/**
-	 * Revoke on device delete
-	 * @return bool
-	 */
-	 getRevokeOnDeviceDelete() {
-	 	return this.revokeOnDeviceDelete;
-	 }
-	
-	/**
-	 * @param revokeOnDeviceDelete bool Revoke on device delete
-	 */
-	 setRevokeOnDeviceDelete(revokeOnDeviceDelete) {
-	 	this.revokeOnDeviceDelete = revokeOnDeviceDelete;
 	 }
 }
 module.exports.ConcurrencyPartnerConfig = ConcurrencyPartnerConfig;
@@ -17190,21 +15201,6 @@ class ObjectVirtualAssetInfo extends kaltura.BaseObject{
 	 setType(type) {
 	 	this.type = type;
 	 }
-	
-	/**
-	 * Extended types mapping
-	 * @return map
-	 */
-	 getExtendedTypes() {
-	 	return this.extendedTypes;
-	 }
-	
-	/**
-	 * @param extendedTypes map Extended types mapping
-	 */
-	 setExtendedTypes(extendedTypes) {
-	 	this.extendedTypes = extendedTypes;
-	 }
 }
 module.exports.ObjectVirtualAssetInfo = ObjectVirtualAssetInfo;
 
@@ -17234,132 +15230,6 @@ class ObjectVirtualAssetPartnerConfig extends PartnerConfiguration{
 	 }
 }
 module.exports.ObjectVirtualAssetPartnerConfig = ObjectVirtualAssetPartnerConfig;
-
-/**
- *
- */
-class ResetPasswordPartnerConfigTemplate extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaResetPasswordPartnerConfigTemplate';
-	}
-	
-	/**
-	 * id
-	 * @return string
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * @param id string id
-	 */
-	 setId(id) {
-	 	this.id = id;
-	 }
-	
-	/**
-	 * label
-	 * @return string
-	 */
-	 getLabel() {
-	 	return this.label;
-	 }
-	
-	/**
-	 * @param label string label
-	 */
-	 setLabel(label) {
-	 	this.label = label;
-	 }
-	
-	/**
-	 * is Default
-	 * @return bool
-	 */
-	 getIsDefault() {
-	 	return this.isDefault;
-	 }
-	
-	/**
-	 * @param isDefault bool is Default
-	 */
-	 setIsDefault(isDefault) {
-	 	this.isDefault = isDefault;
-	 }
-}
-module.exports.ResetPasswordPartnerConfigTemplate = ResetPasswordPartnerConfigTemplate;
-
-/**
- *
- */
-class ResetPasswordPartnerConfig extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaResetPasswordPartnerConfig';
-	}
-	
-	/**
-	 * template List Label
-	 * @return string
-	 */
-	 getTemplateListLabel() {
-	 	return this.templateListLabel;
-	 }
-	
-	/**
-	 * @param templateListLabel string template List Label
-	 */
-	 setTemplateListLabel(templateListLabel) {
-	 	this.templateListLabel = templateListLabel;
-	 }
-	
-	/**
-	 * templates
-	 * @return array
-	 */
-	 getTemplates() {
-	 	return this.templates;
-	 }
-	
-	/**
-	 * @param templates array templates
-	 */
-	 setTemplates(templates) {
-	 	this.templates = templates;
-	 }
-}
-module.exports.ResetPasswordPartnerConfig = ResetPasswordPartnerConfig;
-
-/**
- *
- */
-class OpcPartnerConfiguration extends PartnerConfiguration{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaOpcPartnerConfiguration';
-	}
-	
-	/**
-	 * Reset Password
-	 * @return ResetPasswordPartnerConfig
-	 */
-	 getResetPassword() {
-	 	return this.resetPassword;
-	 }
-	
-	/**
-	 * @param resetPassword ResetPasswordPartnerConfig Reset Password
-	 */
-	 setResetPassword(resetPassword) {
-	 	this.resetPassword = resetPassword;
-	 }
-}
-module.exports.OpcPartnerConfiguration = OpcPartnerConfiguration;
 
 /**
  *
@@ -17456,21 +15326,6 @@ class UnifiedBillingCycle extends kaltura.BaseObject{
 	 */
 	 setPaymentGatewayId(paymentGatewayId) {
 	 	this.paymentGatewayId = paymentGatewayId;
-	 }
-	
-	/**
-	 * Define if partial billing shall be calculated or not
-	 * @return bool
-	 */
-	 getIgnorePartialBilling() {
-	 	return this.ignorePartialBilling;
-	 }
-	
-	/**
-	 * @param ignorePartialBilling bool Define if partial billing shall be calculated or not
-	 */
-	 setIgnorePartialBilling(ignorePartialBilling) {
-	 	this.ignorePartialBilling = ignorePartialBilling;
 	 }
 }
 module.exports.UnifiedBillingCycle = UnifiedBillingCycle;
@@ -17585,87 +15440,6 @@ class PlaybackPartnerConfig extends PartnerConfiguration{
 	 }
 }
 module.exports.PlaybackPartnerConfig = PlaybackPartnerConfig;
-
-/**
- *
- */
-class Encryption extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaEncryption';
-	}
-	
-	/**
-	 * Encryption type
-	 * @return string
-	 */
-	 getEncryptionType() {
-	 	return this.encryptionType;
-	 }
-	
-	/**
-	 * @param encryptionType string Encryption type
-	 */
-	 setEncryptionType(encryptionType) {
-	 	this.encryptionType = encryptionType;
-	 }
-}
-module.exports.Encryption = Encryption;
-
-/**
- *
- */
-class DataEncryption extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDataEncryption';
-	}
-	
-	/**
-	 * Username encryption config
-	 * @return Encryption
-	 */
-	 getUsername() {
-	 	return this.username;
-	 }
-	
-	/**
-	 * @param username Encryption Username encryption config
-	 */
-	 setUsername(username) {
-	 	this.username = username;
-	 }
-}
-module.exports.DataEncryption = DataEncryption;
-
-/**
- *
- */
-class SecurityPartnerConfig extends PartnerConfiguration{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSecurityPartnerConfig';
-	}
-	
-	/**
-	 * Encryption config
-	 * @return DataEncryption
-	 */
-	 getEncryption() {
-	 	return this.encryption;
-	 }
-	
-	/**
-	 * @param encryption DataEncryption Encryption config
-	 */
-	 setEncryption(encryption) {
-	 	this.encryption = encryption;
-	 }
-}
-module.exports.SecurityPartnerConfig = SecurityPartnerConfig;
 
 /**
  *
@@ -18172,14 +15946,6 @@ class InboxMessage extends kaltura.BaseObject{
 	 */
 	 setUrl(url) {
 	 	this.url = url;
-	 }
-	
-	/**
-	 * campaignId
-	 * @return int
-	 */
-	 getCampaignId() {
-	 	return this.campaignId;
 	 }
 }
 module.exports.InboxMessage = InboxMessage;
@@ -20632,13 +18398,6 @@ class Entitlement extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param endDate int The end date of the entitlement
-	 */
-	 setEndDate(endDate) {
-	 	this.endDate = endDate;
-	 }
-	
-	/**
 	 * Current date
 	 * @return int
 	 */
@@ -20717,21 +18476,6 @@ class Entitlement extends kaltura.BaseObject{
 	 getHouseholdId() {
 	 	return this.householdId;
 	 }
-	
-	/**
-	 * Indicates whether the asynchronous purchase is pending
-	 * @return bool
-	 */
-	 getIsPending() {
-	 	return this.isPending;
-	 }
-	
-	/**
-	 * @param isPending bool Indicates whether the asynchronous purchase is pending
-	 */
-	 setIsPending(isPending) {
-	 	this.isPending = isPending;
-	 }
 }
 module.exports.Entitlement = Entitlement;
 
@@ -20801,70 +18545,6 @@ class PpvEntitlement extends Entitlement{
 	 }
 }
 module.exports.PpvEntitlement = PpvEntitlement;
-
-/**
- *
- */
-class EntitlementDiscountDetails extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaEntitlementDiscountDetails';
-	}
-	
-	/**
-	 * Amount
-	 * @return float
-	 */
-	 getAmount() {
-	 	return this.amount;
-	 }
-	
-	/**
-	 * Start date
-	 * @return int
-	 */
-	 getStartDate() {
-	 	return this.startDate;
-	 }
-	
-	/**
-	 * End date
-	 * @return int
-	 */
-	 getEndDate() {
-	 	return this.endDate;
-	 }
-}
-module.exports.EntitlementDiscountDetails = EntitlementDiscountDetails;
-
-/**
- *
- */
-class EntitlementPriceDetails extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaEntitlementPriceDetails';
-	}
-	
-	/**
-	 * Full price
-	 * @return Price
-	 */
-	 getFullPrice() {
-	 	return this.fullPrice;
-	 }
-	
-	/**
-	 * List of the season numbers to exclude
-	 * @return array
-	 */
-	 getDiscountDetails() {
-	 	return this.discountDetails;
-	 }
-}
-module.exports.EntitlementPriceDetails = EntitlementPriceDetails;
 
 /**
  *
@@ -20961,112 +18641,8 @@ class SubscriptionEntitlement extends Entitlement{
 	 getIsSuspended() {
 	 	return this.isSuspended;
 	 }
-	
-	/**
-	 * Price details
-	 * @return EntitlementPriceDetails
-	 */
-	 getPriceDetails() {
-	 	return this.priceDetails;
-	 }
 }
 module.exports.SubscriptionEntitlement = SubscriptionEntitlement;
-
-/**
- *
- */
-class CouponEntitlementDiscountDetails extends EntitlementDiscountDetails{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCouponEntitlementDiscountDetails';
-	}
-	
-	/**
-	 * Coupon Code
-	 * @return string
-	 */
-	 getCouponCode() {
-	 	return this.couponCode;
-	 }
-	
-	/**
-	 * Endless coupon
-	 * @return bool
-	 */
-	 getEndlessCoupon() {
-	 	return this.endlessCoupon;
-	 }
-}
-module.exports.CouponEntitlementDiscountDetails = CouponEntitlementDiscountDetails;
-
-/**
- *
- */
-class EntitlementDiscountDetailsIdentifier extends EntitlementDiscountDetails{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaEntitlementDiscountDetailsIdentifier';
-	}
-	
-	/**
-	 * Identifier
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-}
-module.exports.EntitlementDiscountDetailsIdentifier = EntitlementDiscountDetailsIdentifier;
-
-/**
- *
- */
-class CompensationEntitlementDiscountDetails extends EntitlementDiscountDetailsIdentifier{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCompensationEntitlementDiscountDetails';
-	}
-}
-module.exports.CompensationEntitlementDiscountDetails = CompensationEntitlementDiscountDetails;
-
-/**
- *
- */
-class CampaignEntitlementDiscountDetails extends EntitlementDiscountDetailsIdentifier{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCampaignEntitlementDiscountDetails';
-	}
-}
-module.exports.CampaignEntitlementDiscountDetails = CampaignEntitlementDiscountDetails;
-
-/**
- *
- */
-class DiscountEntitlementDiscountDetails extends EntitlementDiscountDetailsIdentifier{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDiscountEntitlementDiscountDetails';
-	}
-}
-module.exports.DiscountEntitlementDiscountDetails = DiscountEntitlementDiscountDetails;
-
-/**
- *
- */
-class TrailEntitlementDiscountDetails extends EntitlementDiscountDetailsIdentifier{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaTrailEntitlementDiscountDetails';
-	}
-}
-module.exports.TrailEntitlementDiscountDetails = TrailEntitlementDiscountDetails;
 
 /**
  *
@@ -22175,8 +19751,6 @@ class LiveAsset extends MediaAsset{
 	
 	/**
 	 * Is CDVR enabled for this asset
- * Please, note that value of this property is strictly connected with CDV-R setting on Partner level.
- * In order to enable CDV-R for KalturaLiveAsset, Partner CDV-R setting should be enabled
 	 * @return bool
 	 */
 	 getEnableCdvr() {
@@ -22185,8 +19759,6 @@ class LiveAsset extends MediaAsset{
 	
 	/**
 	 * Is catch-up enabled for this asset
- * Please, note that value of this property is strictly connected with Catch Up setting on Partner level.
- * In order to enable Catch Up for KalturaLiveAsset, Partner Catch Up setting should be enabled
 	 * @return bool
 	 */
 	 getEnableCatchUp() {
@@ -22195,8 +19767,6 @@ class LiveAsset extends MediaAsset{
 	
 	/**
 	 * Is start over enabled for this asset
- * Please, note that value of this property is strictly connected with Start Over setting on Partner level.
- * In order to enable Start Over for KalturaLiveAsset, Partner Start Over setting should be enabled
 	 * @return bool
 	 */
 	 getEnableStartOver() {
@@ -22229,8 +19799,6 @@ class LiveAsset extends MediaAsset{
 	
 	/**
 	 * Is trick-play enabled for this asset
- * Please, note that value of this property is strictly connected with Trick Play setting on Partner level.
- * In order to enable Trick Play for KalturaLiveAsset, Partner Trick Play setting should be enabled
 	 * @return bool
 	 */
 	 getEnableTrickPlay() {
@@ -22327,8 +19895,6 @@ class ProgramAsset extends Asset{
 	
 	/**
 	 * Is CDVR enabled for this asset
- * Please, note that value of this property is strictly connected with CDV-R setting on Partner and KalturaLiveAsset levels.
- * In order to enable CDV-R for KalturaProgramAsset, Partner and KalturaLiveAsset CDV-R settings should be enabled
 	 * @return bool
 	 */
 	 getEnableCdvr() {
@@ -22337,8 +19903,6 @@ class ProgramAsset extends Asset{
 	
 	/**
 	 * @param enableCdvr bool Is CDVR enabled for this asset
- * Please, note that value of this property is strictly connected with CDV-R setting on Partner and KalturaLiveAsset levels.
- * In order to enable CDV-R for KalturaProgramAsset, Partner and KalturaLiveAsset CDV-R settings should be enabled
 	 */
 	 setEnableCdvr(enableCdvr) {
 	 	this.enableCdvr = enableCdvr;
@@ -22346,8 +19910,6 @@ class ProgramAsset extends Asset{
 	
 	/**
 	 * Is catch-up enabled for this asset
- * Please, note that value of this property is strictly connected with Catch Up setting on Partner and KalturaLiveAsset levels.
- * In order to enable Catch Up for KalturaProgramAsset, Partner and KalturaLiveAsset Catch Up settings should be enabled
 	 * @return bool
 	 */
 	 getEnableCatchUp() {
@@ -22356,8 +19918,6 @@ class ProgramAsset extends Asset{
 	
 	/**
 	 * @param enableCatchUp bool Is catch-up enabled for this asset
- * Please, note that value of this property is strictly connected with Catch Up setting on Partner and KalturaLiveAsset levels.
- * In order to enable Catch Up for KalturaProgramAsset, Partner and KalturaLiveAsset Catch Up settings should be enabled
 	 */
 	 setEnableCatchUp(enableCatchUp) {
 	 	this.enableCatchUp = enableCatchUp;
@@ -22365,8 +19925,6 @@ class ProgramAsset extends Asset{
 	
 	/**
 	 * Is start over enabled for this asset
- * Please, note that value of this property is strictly connected with Start Over setting on Partner and KalturaLiveAsset levels.
- * In order to enable Start Over for KalturaProgramAsset, Partner and KalturaLiveAsset Start Over settings should be enabled
 	 * @return bool
 	 */
 	 getEnableStartOver() {
@@ -22375,8 +19933,6 @@ class ProgramAsset extends Asset{
 	
 	/**
 	 * @param enableStartOver bool Is start over enabled for this asset
- * Please, note that value of this property is strictly connected with Start Over setting on Partner and KalturaLiveAsset levels.
- * In order to enable Start Over for KalturaProgramAsset, Partner and KalturaLiveAsset Start Over settings should be enabled
 	 */
 	 setEnableStartOver(enableStartOver) {
 	 	this.enableStartOver = enableStartOver;
@@ -22384,8 +19940,6 @@ class ProgramAsset extends Asset{
 	
 	/**
 	 * Is trick-play enabled for this asset
- * Please, note that value of this property is strictly connected with Trick Play setting on Partner and KalturaLiveAsset levels.
- * In order to enable Trick Play for KalturaProgramAsset, Partner and KalturaLiveAsset Trick Play settings should be enabled
 	 * @return bool
 	 */
 	 getEnableTrickPlay() {
@@ -22394,8 +19948,6 @@ class ProgramAsset extends Asset{
 	
 	/**
 	 * @param enableTrickPlay bool Is trick-play enabled for this asset
- * Please, note that value of this property is strictly connected with Trick Play setting on Partner and KalturaLiveAsset levels.
- * In order to enable Trick Play for KalturaProgramAsset, Partner and KalturaLiveAsset Trick Play settings should be enabled
 	 */
 	 setEnableTrickPlay(enableTrickPlay) {
 	 	this.enableTrickPlay = enableTrickPlay;
@@ -22444,18 +19996,6 @@ class RecordingAsset extends ProgramAsset{
 	 }
 }
 module.exports.RecordingAsset = RecordingAsset;
-
-/**
- *
- */
-class Epg extends ProgramAsset{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaEpg';
-	}
-}
-module.exports.Epg = Epg;
 
 /**
  *
@@ -23481,76 +21021,6 @@ module.exports.RatioListResponse = RatioListResponse;
 /**
  *
  */
-class StreamingDevice extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaStreamingDevice';
-	}
-	
-	/**
-	 * Asset
-	 * @return SlimAsset
-	 */
-	 getAsset() {
-	 	return this.asset;
-	 }
-	
-	/**
-	 * User identifier
-	 * @return string
-	 */
-	 getUserId() {
-	 	return this.userId;
-	 }
-	
-	/**
-	 * Device UDID
-	 * @return string
-	 */
-	 getUdid() {
-	 	return this.udid;
-	 }
-	
-	/**
-	 * @param udid string Device UDID
-	 */
-	 setUdid(udid) {
-	 	this.udid = udid;
-	 }
-}
-module.exports.StreamingDevice = StreamingDevice;
-
-/**
- *
- */
-class StreamingDeviceListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaStreamingDeviceListResponse';
-	}
-	
-	/**
-	 * Streaming devices
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array Streaming devices
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.StreamingDeviceListResponse = StreamingDeviceListResponse;
-
-/**
- *
- */
 class Tag extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -24245,21 +21715,6 @@ class PaymentGatewayProfile extends PaymentGatewayBaseProfile{
 	 */
 	 setExternalVerification(externalVerification) {
 	 	this.externalVerification = externalVerification;
-	 }
-	
-	/**
-	 * Payment gateway - Support asynchronous purchase
-	 * @return bool
-	 */
-	 getIsAsyncPolicy() {
-	 	return this.isAsyncPolicy;
-	 }
-	
-	/**
-	 * @param isAsyncPolicy bool Payment gateway - Support asynchronous purchase
-	 */
-	 setIsAsyncPolicy(isAsyncPolicy) {
-	 	this.isAsyncPolicy = isAsyncPolicy;
 	 }
 }
 module.exports.PaymentGatewayProfile = PaymentGatewayProfile;
@@ -25911,21 +23366,6 @@ class Meta extends kaltura.BaseObject{
 	 getUpdateDate() {
 	 	return this.updateDate;
 	 }
-	
-	/**
-	 * Dynamic data
-	 * @return map
-	 */
-	 getDynamicData() {
-	 	return this.dynamicData;
-	 }
-	
-	/**
-	 * @param dynamicData map Dynamic data
-	 */
-	 setDynamicData(dynamicData) {
-	 	this.dynamicData = dynamicData;
-	 }
 }
 module.exports.Meta = Meta;
 
@@ -26384,7 +23824,7 @@ class Permission extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Permission type
+	 * Comma separated permissions names from type SPECIAL_FEATURE
 	 * @return string
 	 */
 	 getType() {
@@ -26392,25 +23832,10 @@ class Permission extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param type string Permission type
+	 * @param type string Comma separated permissions names from type SPECIAL_FEATURE
 	 */
 	 setType(type) {
 	 	this.type = type;
-	 }
-	
-	/**
-	 * Comma separated associated permission items IDs
-	 * @return string
-	 */
-	 getPermissionItemsIds() {
-	 	return this.permissionItemsIds;
-	 }
-	
-	/**
-	 * @param permissionItemsIds string Comma separated associated permission items IDs
-	 */
-	 setPermissionItemsIds(permissionItemsIds) {
-	 	this.permissionItemsIds = permissionItemsIds;
 	 }
 }
 module.exports.Permission = Permission;
@@ -27239,29 +24664,6 @@ class UserRole extends kaltura.BaseObject{
 	 setExcludedPermissionNames(excludedPermissionNames) {
 	 	this.excludedPermissionNames = excludedPermissionNames;
 	 }
-	
-	/**
-	 * Role type
-	 * @return string
-	 */
-	 getType() {
-	 	return this.type;
-	 }
-	
-	/**
-	 * Role profile
-	 * @return string
-	 */
-	 getProfile() {
-	 	return this.profile;
-	 }
-	
-	/**
-	 * @param profile string Role profile
-	 */
-	 setProfile(profile) {
-	 	this.profile = profile;
-	 }
 }
 module.exports.UserRole = UserRole;
 
@@ -27291,33 +24693,6 @@ class UserRoleListResponse extends ListResponse{
 	 }
 }
 module.exports.UserRoleListResponse = UserRoleListResponse;
-
-/**
- *
- */
-class EpgListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaEpgListResponse';
-	}
-	
-	/**
-	 * Assets
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array Assets
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.EpgListResponse = EpgListResponse;
 
 /**
  *
@@ -28074,23 +25449,6 @@ class BulkUploadIngestJobData extends BulkUploadJobData{
 	 setIngestProfileId(ingestProfileId) {
 	 	this.ingestProfileId = ingestProfileId;
 	 }
-	
-	/**
-	 * By default, after the successful ingest, devices will be notified about changes in epg channels.
- * This parameter disables this notification
-	 * @return bool
-	 */
-	 getDisableEpgNotification() {
-	 	return this.disableEpgNotification;
-	 }
-	
-	/**
-	 * @param disableEpgNotification bool By default, after the successful ingest, devices will be notified about changes in epg channels.
- * This parameter disables this notification
-	 */
-	 setDisableEpgNotification(disableEpgNotification) {
-	 	this.disableEpgNotification = disableEpgNotification;
-	 }
 }
 module.exports.BulkUploadIngestJobData = BulkUploadIngestJobData;
 
@@ -28170,45 +25528,6 @@ class BulkUploadProgramAssetData extends BulkUploadAssetData{
 	}
 }
 module.exports.BulkUploadProgramAssetData = BulkUploadProgramAssetData;
-
-/**
- *
- */
-class BulkUploadDynamicListData extends BulkUploadObjectData{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBulkUploadDynamicListData';
-	}
-	
-	/**
-	 * Identifies the dynamicList Id
-	 * @return int
-	 */
-	 getDynamicListId() {
-	 	return this.dynamicListId;
-	 }
-	
-	/**
-	 * @param dynamicListId int Identifies the dynamicList Id
-	 */
-	 setDynamicListId(dynamicListId) {
-	 	this.dynamicListId = dynamicListId;
-	 }
-}
-module.exports.BulkUploadDynamicListData = BulkUploadDynamicListData;
-
-/**
- *
- */
-class BulkUploadUdidDynamicListData extends BulkUploadDynamicListData{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBulkUploadUdidDynamicListData';
-	}
-}
-module.exports.BulkUploadUdidDynamicListData = BulkUploadUdidDynamicListData;
 
 /**
  *
@@ -28317,33 +25636,6 @@ class AssetStatisticsQuery extends kaltura.BaseObject{
 	 }
 }
 module.exports.AssetStatisticsQuery = AssetStatisticsQuery;
-
-/**
- *
- */
-class CampaignListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCampaignListResponse';
-	}
-	
-	/**
-	 * A list of objects
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array A list of objects
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.CampaignListResponse = CampaignListResponse;
 
 /**
  *
@@ -28605,66 +25897,8 @@ class CategoryTree extends kaltura.BaseObject{
 	 setEndDateInSeconds(endDateInSeconds) {
 	 	this.endDateInSeconds = endDateInSeconds;
 	 }
-	
-	/**
-	 * Category type
-	 * @return string
-	 */
-	 getType() {
-	 	return this.type;
-	 }
-	
-	/**
-	 * @param type string Category type
-	 */
-	 setType(type) {
-	 	this.type = type;
-	 }
-	
-	/**
-	 * Unique identifier for the category version
-	 * @return int
-	 */
-	 getVersionId() {
-	 	return this.versionId;
-	 }
-	
-	/**
-	 * Virtual asset id
-	 * @return int
-	 */
-	 getVirtualAssetId() {
-	 	return this.virtualAssetId;
-	 }
 }
 module.exports.CategoryTree = CategoryTree;
-
-/**
- *
- */
-class CategoryVersionListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCategoryVersionListResponse';
-	}
-	
-	/**
-	 * A list of objects
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array A list of objects
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.CategoryVersionListResponse = CategoryVersionListResponse;
 
 /**
  *
@@ -28966,60 +26200,6 @@ class RandomCouponGenerationOptions extends CouponGenerationOptions{
 	 }
 }
 module.exports.RandomCouponGenerationOptions = RandomCouponGenerationOptions;
-
-/**
- *
- */
-class DeviceReferenceDataListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDeviceReferenceDataListResponse';
-	}
-	
-	/**
-	 * A list of objects
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array A list of objects
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.DeviceReferenceDataListResponse = DeviceReferenceDataListResponse;
-
-/**
- *
- */
-class DynamicListListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDynamicListListResponse';
-	}
-	
-	/**
-	 * A list of objects
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array A list of objects
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.DynamicListListResponse = DynamicListListResponse;
 
 /**
  *
@@ -29347,71 +26527,6 @@ class EventNotificationObjectScope extends EventNotificationScope{
 	 }
 }
 module.exports.EventNotificationObjectScope = EventNotificationObjectScope;
-
-/**
- *
- */
-class AssetEvent extends EventObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetEvent';
-	}
-	
-	/**
-	 * User Id
-	 * @return int
-	 */
-	 getUserId() {
-	 	return this.userId;
-	 }
-	
-	/**
-	 * Asset Id
-	 * @return int
-	 */
-	 getAssetId() {
-	 	return this.assetId;
-	 }
-	
-	/**
-	 * Identifies the asset type (EPG, Recording, Movie, TV Series, etc).
- * Possible values: 0 – EPG linear programs, 1 - Recording; or any asset type ID according to the asset types IDs defined in the system
-	 * @return int
-	 */
-	 getType() {
-	 	return this.type;
-	 }
-	
-	/**
-	 * External identifier for the asset
-	 * @return string
-	 */
-	 getExternalId() {
-	 	return this.externalId;
-	 }
-}
-module.exports.AssetEvent = AssetEvent;
-
-/**
- *
- */
-class ProgramAssetEvent extends AssetEvent{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaProgramAssetEvent';
-	}
-	
-	/**
-	 * The  live asset Id that was identified according liveAssetExternalId
-	 * @return int
-	 */
-	 getLiveAssetId() {
-	 	return this.liveAssetId;
-	 }
-}
-module.exports.ProgramAssetEvent = ProgramAssetEvent;
 
 /**
  *
@@ -29831,51 +26946,8 @@ class Household extends kaltura.BaseObject{
 	 getRoleId() {
 	 	return this.roleId;
 	 }
-	
-	/**
-	 * create date
-	 * @return int
-	 */
-	 getCreateDate() {
-	 	return this.createDate;
-	 }
-	
-	/**
-	 * update date
-	 * @return int
-	 */
-	 getUpdateDate() {
-	 	return this.updateDate;
-	 }
 }
 module.exports.Household = Household;
-
-/**
- *
- */
-class HouseholdListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdListResponse';
-	}
-	
-	/**
-	 * A list of objects
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array A list of objects
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.HouseholdListResponse = HouseholdListResponse;
 
 /**
  *
@@ -30378,21 +27450,6 @@ class IotClientConfiguration extends kaltura.BaseObject{
 	 setJson(json) {
 	 	this.json = json;
 	 }
-	
-	/**
-	 * topics
-	 * @return string
-	 */
-	 getTopics() {
-	 	return this.topics;
-	 }
-	
-	/**
-	 * @param topics string topics
-	 */
-	 setTopics(topics) {
-	 	this.topics = topics;
-	 }
 }
 module.exports.IotClientConfiguration = IotClientConfiguration;
 
@@ -30885,80 +27942,6 @@ module.exports.PushMessage = PushMessage;
 /**
  *
  */
-class EpgNotificationSettings extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaEpgNotificationSettings';
-	}
-	
-	/**
-	 * EPG notification capability is enabled for the account
-	 * @return bool
-	 */
-	 getEnabled() {
-	 	return this.enabled;
-	 }
-	
-	/**
-	 * @param enabled bool EPG notification capability is enabled for the account
-	 */
-	 setEnabled(enabled) {
-	 	this.enabled = enabled;
-	 }
-	
-	/**
-	 * Specify which devices should receive notifications
-	 * @return string
-	 */
-	 getDeviceFamilyIds() {
-	 	return this.deviceFamilyIds;
-	 }
-	
-	/**
-	 * @param deviceFamilyIds string Specify which devices should receive notifications
-	 */
-	 setDeviceFamilyIds(deviceFamilyIds) {
-	 	this.deviceFamilyIds = deviceFamilyIds;
-	 }
-	
-	/**
-	 * Specify which live assets should fire notifications
-	 * @return string
-	 */
-	 getLiveAssetIds() {
-	 	return this.liveAssetIds;
-	 }
-	
-	/**
-	 * @param liveAssetIds string Specify which live assets should fire notifications
-	 */
-	 setLiveAssetIds(liveAssetIds) {
-	 	this.liveAssetIds = liveAssetIds;
-	 }
-	
-	/**
-	 * The range (in hours), in which, EPG updates triggers a notification,
- * every program that is updated and it’s starts time falls within this range shall trigger a notification
-	 * @return int
-	 */
-	 getTimeRange() {
-	 	return this.timeRange;
-	 }
-	
-	/**
-	 * @param timeRange int The range (in hours), in which, EPG updates triggers a notification,
- * every program that is updated and it’s starts time falls within this range shall trigger a notification
-	 */
-	 setTimeRange(timeRange) {
-	 	this.timeRange = timeRange;
-	 }
-}
-module.exports.EpgNotificationSettings = EpgNotificationSettings;
-
-/**
- *
- */
 class NotificationsPartnerSettings extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -31235,21 +28218,6 @@ class NotificationsPartnerSettings extends kaltura.BaseObject{
 	 setIotEnabled(iotEnabled) {
 	 	this.iotEnabled = iotEnabled;
 	 }
-	
-	/**
-	 * Settings for epg notifications
-	 * @return EpgNotificationSettings
-	 */
-	 getEpgNotification() {
-	 	return this.epgNotification;
-	 }
-	
-	/**
-	 * @param epgNotification EpgNotificationSettings Settings for epg notifications
-	 */
-	 setEpgNotification(epgNotification) {
-	 	this.epgNotification = epgNotification;
-	 }
 }
 module.exports.NotificationsPartnerSettings = NotificationsPartnerSettings;
 
@@ -31405,281 +28373,6 @@ module.exports.PasswordPolicyListResponse = PasswordPolicyListResponse;
 /**
  *
  */
-class PermissionItem extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPermissionItem';
-	}
-	
-	/**
-	 * Permission item identifier
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Permission item name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Permission item name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
-	 * Permission isExcluded
-	 * @return bool
-	 */
-	 getIsExcluded() {
-	 	return this.isExcluded;
-	 }
-	
-	/**
-	 * @param isExcluded bool Permission isExcluded
-	 */
-	 setIsExcluded(isExcluded) {
-	 	this.isExcluded = isExcluded;
-	 }
-}
-module.exports.PermissionItem = PermissionItem;
-
-/**
- *
- */
-class PermissionItemListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPermissionItemListResponse';
-	}
-	
-	/**
-	 * A list of objects
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array A list of objects
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.PermissionItemListResponse = PermissionItemListResponse;
-
-/**
- *
- */
-class ApiActionPermissionItem extends PermissionItem{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaApiActionPermissionItem';
-	}
-	
-	/**
-	 * API service name
-	 * @return string
-	 */
-	 getService() {
-	 	return this.service;
-	 }
-	
-	/**
-	 * @param service string API service name
-	 */
-	 setService(service) {
-	 	this.service = service;
-	 }
-	
-	/**
-	 * API action name
-	 * @return string
-	 */
-	 getAction() {
-	 	return this.action;
-	 }
-	
-	/**
-	 * @param action string API action name
-	 */
-	 setAction(action) {
-	 	this.action = action;
-	 }
-}
-module.exports.ApiActionPermissionItem = ApiActionPermissionItem;
-
-/**
- *
- */
-class ApiArgumentPermissionItem extends PermissionItem{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaApiArgumentPermissionItem';
-	}
-	
-	/**
-	 * API service name
-	 * @return string
-	 */
-	 getService() {
-	 	return this.service;
-	 }
-	
-	/**
-	 * @param service string API service name
-	 */
-	 setService(service) {
-	 	this.service = service;
-	 }
-	
-	/**
-	 * API action name
-	 * @return string
-	 */
-	 getAction() {
-	 	return this.action;
-	 }
-	
-	/**
-	 * @param action string API action name
-	 */
-	 setAction(action) {
-	 	this.action = action;
-	 }
-	
-	/**
-	 * API parameter name
-	 * @return string
-	 */
-	 getParameter() {
-	 	return this.parameter;
-	 }
-	
-	/**
-	 * @param parameter string API parameter name
-	 */
-	 setParameter(parameter) {
-	 	this.parameter = parameter;
-	 }
-}
-module.exports.ApiArgumentPermissionItem = ApiArgumentPermissionItem;
-
-/**
- *
- */
-class ApiParameterPermissionItem extends PermissionItem{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaApiParameterPermissionItem';
-	}
-	
-	/**
-	 * API object name
-	 * @return string
-	 */
-	 getObject() {
-	 	return this.object;
-	 }
-	
-	/**
-	 * @param object string API object name
-	 */
-	 setObject(object) {
-	 	this.object = object;
-	 }
-	
-	/**
-	 * API parameter name
-	 * @return string
-	 */
-	 getParameter() {
-	 	return this.parameter;
-	 }
-	
-	/**
-	 * @param parameter string API parameter name
-	 */
-	 setParameter(parameter) {
-	 	this.parameter = parameter;
-	 }
-	
-	/**
-	 * API action type
-	 * @return string
-	 */
-	 getAction() {
-	 	return this.action;
-	 }
-	
-	/**
-	 * @param action string API action type
-	 */
-	 setAction(action) {
-	 	this.action = action;
-	 }
-}
-module.exports.ApiParameterPermissionItem = ApiParameterPermissionItem;
-
-/**
- *
- */
-class ApiPriviligesPermissionItem extends PermissionItem{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaApiPriviligesPermissionItem';
-	}
-	
-	/**
-	 * API object name
-	 * @return string
-	 */
-	 getObject() {
-	 	return this.object;
-	 }
-	
-	/**
-	 * @param object string API object name
-	 */
-	 setObject(object) {
-	 	this.object = object;
-	 }
-	
-	/**
-	 * API parameter name
-	 * @return string
-	 */
-	 getParameter() {
-	 	return this.parameter;
-	 }
-	
-	/**
-	 * @param parameter string API parameter name
-	 */
-	 setParameter(parameter) {
-	 	this.parameter = parameter;
-	 }
-}
-module.exports.ApiPriviligesPermissionItem = ApiPriviligesPermissionItem;
-
-/**
- *
- */
 class Pin extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -31760,33 +28453,6 @@ class PurchaseSettings extends Pin{
 	 }
 }
 module.exports.PurchaseSettings = PurchaseSettings;
-
-/**
- *
- */
-class SmsAdapterProfileListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSmsAdapterProfileListResponse';
-	}
-	
-	/**
-	 * A list of objects
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array A list of objects
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.SmsAdapterProfileListResponse = SmsAdapterProfileListResponse;
 
 /**
  *
