@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platfroms allow them to do with
+// to do with audio, video, and animation what Wiki platforms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -6556,9 +6556,11 @@ module.exports.subscriptionSet = subscriptionSet;
  *Class definition for the Kaltura service: system.
  * The available service actions:
  * @action clearLocalServerCache Clear local server cache.
+ * @action getLayeredCacheGroupConfig Returns the current layered cache group config of the sent groupId. You need to send groupId only if you wish to get it for a specific groupId and not the one the KS belongs to.
  * @action getTime Returns current server timestamp.
  * @action getVersion Returns current server version.
  * @action incrementLayeredCacheGroupConfigVersion Returns true if version has been incremented successfully or false otherwise. You need to send groupId only if you wish to increment for a specific groupId and not the one the KS belongs to.
+ * @action invalidateLayeredCacheInvalidationKey Returns true if the invalidation key was invalidated successfully or false otherwise.
  * @action ping Returns true.
  */
 class system{
@@ -6574,6 +6576,17 @@ class system{
 		kparams.clearCacheAction = clearCacheAction;
 		kparams.key = key;
 		return new kaltura.RequestBuilder('system', 'clearLocalServerCache', kparams);
+	};
+	
+	/**
+	 * Returns the current layered cache group config of the sent groupId. You need to send groupId only if you wish to get it for a specific groupId and not the one the KS belongs to.
+	 * @param groupId int groupId (optional)
+	 * @return KalturaStringValue
+	 */
+	static getLayeredCacheGroupConfig(groupId = 0){
+		let kparams = {};
+		kparams.groupId = groupId;
+		return new kaltura.RequestBuilder('system', 'getLayeredCacheGroupConfig', kparams);
 	};
 	
 	/**
@@ -6603,6 +6616,17 @@ class system{
 		let kparams = {};
 		kparams.groupId = groupId;
 		return new kaltura.RequestBuilder('system', 'incrementLayeredCacheGroupConfigVersion', kparams);
+	};
+	
+	/**
+	 * Returns true if the invalidation key was invalidated successfully or false otherwise.
+	 * @param key string the invalidation key to invalidate
+	 * @return bool
+	 */
+	static invalidateLayeredCacheInvalidationKey(key){
+		let kparams = {};
+		kparams.key = key;
+		return new kaltura.RequestBuilder('system', 'invalidateLayeredCacheInvalidationKey', kparams);
 	};
 	
 	/**
