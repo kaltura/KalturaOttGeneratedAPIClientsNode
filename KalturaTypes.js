@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platforms allow them to do with
+// to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -1169,6 +1169,12 @@ DEPENDENCY : 'DEPENDENCY',
 module.exports.SubscriptionTriggerType = {
 START_DATE : 'START_DATE',
 END_DATE : 'END_DATE',
+};
+
+module.exports.SuspensionProfileInheritanceType = {
+ALWAYS : 'ALWAYS',
+NEVER : 'NEVER',
+DEFAULT : 'DEFAULT',
 };
 
 module.exports.TagOrderBy = {

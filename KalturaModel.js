@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platforms allow them to do with
+// to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -7367,6 +7367,21 @@ class MediaFile extends AssetFile{
 	 */
 	 setTypeId(typeId) {
 	 	this.typeId = typeId;
+	 }
+	
+	/**
+	 * URL of the media file to be played
+	 * @return string
+	 */
+	 getAltUrl() {
+	 	return this.altUrl;
+	 }
+	
+	/**
+	 * @param altUrl string URL of the media file to be played
+	 */
+	 setAltUrl(altUrl) {
+	 	this.altUrl = altUrl;
 	 }
 	
 	/**
@@ -17147,6 +17162,21 @@ class GeneralPartnerConfig extends PartnerConfiguration{
 	 */
 	 setFinishedPercentThreshold(finishedPercentThreshold) {
 	 	this.finishedPercentThreshold = finishedPercentThreshold;
+	 }
+	
+	/**
+	 * Suspension Profile Inheritance
+	 * @return string
+	 */
+	 getSuspensionProfileInheritanceType() {
+	 	return this.suspensionProfileInheritanceType;
+	 }
+	
+	/**
+	 * @param suspensionProfileInheritanceType string Suspension Profile Inheritance
+	 */
+	 setSuspensionProfileInheritanceType(suspensionProfileInheritanceType) {
+	 	this.suspensionProfileInheritanceType = suspensionProfileInheritanceType;
 	 }
 }
 module.exports.GeneralPartnerConfig = GeneralPartnerConfig;
