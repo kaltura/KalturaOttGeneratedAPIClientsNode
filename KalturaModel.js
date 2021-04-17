@@ -30983,37 +30983,20 @@ class EpgNotificationSettings extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * The backward range (in hours), in which, EPG updates triggers a notification,
+	 * The range (in hours), in which, EPG updates triggers a notification,
  * every program that is updated and it’s starts time falls within this range shall trigger a notification
 	 * @return int
 	 */
-	 getBackwardTimeRange() {
-	 	return this.backwardTimeRange;
+	 getTimeRange() {
+	 	return this.timeRange;
 	 }
 	
 	/**
-	 * @param backwardTimeRange int The backward range (in hours), in which, EPG updates triggers a notification,
+	 * @param timeRange int The range (in hours), in which, EPG updates triggers a notification,
  * every program that is updated and it’s starts time falls within this range shall trigger a notification
 	 */
-	 setBackwardTimeRange(backwardTimeRange) {
-	 	this.backwardTimeRange = backwardTimeRange;
-	 }
-	
-	/**
-	 * The forward range (in hours), in which, EPG updates triggers a notification,
- * every program that is updated and it’s starts time falls within this range shall trigger a notification
-	 * @return int
-	 */
-	 getForwardTimeRange() {
-	 	return this.forwardTimeRange;
-	 }
-	
-	/**
-	 * @param forwardTimeRange int The forward range (in hours), in which, EPG updates triggers a notification,
- * every program that is updated and it’s starts time falls within this range shall trigger a notification
-	 */
-	 setForwardTimeRange(forwardTimeRange) {
-	 	this.forwardTimeRange = forwardTimeRange;
+	 setTimeRange(timeRange) {
+	 	this.timeRange = timeRange;
 	 }
 }
 module.exports.EpgNotificationSettings = EpgNotificationSettings;
