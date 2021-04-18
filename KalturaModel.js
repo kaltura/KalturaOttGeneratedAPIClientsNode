@@ -2913,6 +2913,21 @@ class BaseSearchAssetFilter extends AssetFilter{
 	 setGroupOrderBy(groupOrderBy) {
 	 	this.groupOrderBy = groupOrderBy;
 	 }
+	
+	/**
+	 * Grouping Option, Omit if not specified otherwise
+	 * @return string
+	 */
+	 getGroupingOptionEqual() {
+	 	return this.groupingOptionEqual;
+	 }
+	
+	/**
+	 * @param groupingOptionEqual string Grouping Option, Omit if not specified otherwise
+	 */
+	 setGroupingOptionEqual(groupingOptionEqual) {
+	 	this.groupingOptionEqual = groupingOptionEqual;
+	 }
 }
 module.exports.BaseSearchAssetFilter = BaseSearchAssetFilter;
 
@@ -22850,6 +22865,21 @@ class AssetStructMeta extends kaltura.BaseObject{
 	 */
 	 setIsLocationTag(isLocationTag) {
 	 	this.isLocationTag = isLocationTag;
+	 }
+	
+	/**
+	 * suppressed Order, ascending
+	 * @return int
+	 */
+	 getSuppressedOrder() {
+	 	return this.suppressedOrder;
+	 }
+	
+	/**
+	 * @param suppressedOrder int suppressed Order, ascending
+	 */
+	 setSuppressedOrder(suppressedOrder) {
+	 	this.suppressedOrder = suppressedOrder;
 	 }
 }
 module.exports.AssetStructMeta = AssetStructMeta;
