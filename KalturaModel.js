@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platfroms allow them to do with
+// to do with audio, video, and animation what Wiki platforms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -2912,21 +2912,6 @@ class BaseSearchAssetFilter extends AssetFilter{
 	 */
 	 setGroupOrderBy(groupOrderBy) {
 	 	this.groupOrderBy = groupOrderBy;
-	 }
-	
-	/**
-	 * Grouping Option, Omit if not specified otherwise
-	 * @return string
-	 */
-	 getGroupingOptionEqual() {
-	 	return this.groupingOptionEqual;
-	 }
-	
-	/**
-	 * @param groupingOptionEqual string Grouping Option, Omit if not specified otherwise
-	 */
-	 setGroupingOptionEqual(groupingOptionEqual) {
-	 	this.groupingOptionEqual = groupingOptionEqual;
 	 }
 }
 module.exports.BaseSearchAssetFilter = BaseSearchAssetFilter;
@@ -22865,21 +22850,6 @@ class AssetStructMeta extends kaltura.BaseObject{
 	 */
 	 setIsLocationTag(isLocationTag) {
 	 	this.isLocationTag = isLocationTag;
-	 }
-	
-	/**
-	 * suppressed Order, ascending
-	 * @return int
-	 */
-	 getSuppressedOrder() {
-	 	return this.suppressedOrder;
-	 }
-	
-	/**
-	 * @param suppressedOrder int suppressed Order, ascending
-	 */
-	 setSuppressedOrder(suppressedOrder) {
-	 	this.suppressedOrder = suppressedOrder;
 	 }
 }
 module.exports.AssetStructMeta = AssetStructMeta;
