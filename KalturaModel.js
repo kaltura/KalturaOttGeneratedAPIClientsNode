@@ -1481,6 +1481,33 @@ module.exports.OTTUserFilter = OTTUserFilter;
 /**
  *
  */
+class PartnerFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPartnerFilter';
+	}
+	
+	/**
+	 * Comma separated discount codes
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated discount codes
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.PartnerFilter = PartnerFilter;
+
+/**
+ *
+ */
 class BulkUploadFilter extends Filter{
 	
 	constructor(object = null) {
@@ -7370,21 +7397,6 @@ class MediaFile extends AssetFile{
 	 }
 	
 	/**
-	 * URL of the media file to be played
-	 * @return string
-	 */
-	 getAltUrl() {
-	 	return this.altUrl;
-	 }
-	
-	/**
-	 * @param altUrl string URL of the media file to be played
-	 */
-	 setAltUrl(altUrl) {
-	 	this.altUrl = altUrl;
-	 }
-	
-	/**
 	 * Duration of the media file
 	 * @return int
 	 */
@@ -8171,6 +8183,105 @@ class OTTUserListResponse extends ListResponse{
 	 }
 }
 module.exports.OTTUserListResponse = OTTUserListResponse;
+
+/**
+ *
+ */
+class Partner extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPartner';
+	}
+	
+	/**
+	 * PartnerId
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id int PartnerId
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
+	 * PartnerName
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string PartnerName
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Creat date represented as epoch
+	 * @return int
+	 */
+	 getCreatDate() {
+	 	return this.creatDate;
+	 }
+	
+	/**
+	 * @param creatDate int Creat date represented as epoch
+	 */
+	 setCreatDate(creatDate) {
+	 	this.creatDate = creatDate;
+	 }
+	
+	/**
+	 * Update date represented as epoch
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
+	
+	/**
+	 * @param updateDate int Update date represented as epoch
+	 */
+	 setUpdateDate(updateDate) {
+	 	this.updateDate = updateDate;
+	 }
+}
+module.exports.Partner = Partner;
+
+/**
+ *
+ */
+class PartnerListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPartnerListResponse';
+	}
+	
+	/**
+	 * A list of Partners
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of Partners
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.PartnerListResponse = PartnerListResponse;
 
 /**
  *
@@ -16623,6 +16734,273 @@ module.exports.PartnerConfigurationListResponse = PartnerConfigurationListRespon
 /**
  *
  */
+class BasePartnerConfiguration extends PartnerConfiguration{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBasePartnerConfiguration';
+	}
+	
+	/**
+	 * UseStartDate
+	 * @return bool
+	 */
+	 getUseStartDate() {
+	 	return this.useStartDate;
+	 }
+	
+	/**
+	 * @param useStartDate bool UseStartDate
+	 */
+	 setUseStartDate(useStartDate) {
+	 	this.useStartDate = useStartDate;
+	 }
+	
+	/**
+	 * GetOnlyActiveAssets
+	 * @return bool
+	 */
+	 getGetOnlyActiveAssets() {
+	 	return this.getOnlyActiveAssets;
+	 }
+	
+	/**
+	 * @param getOnlyActiveAssets bool GetOnlyActiveAssets
+	 */
+	 setGetOnlyActiveAssets(getOnlyActiveAssets) {
+	 	this.getOnlyActiveAssets = getOnlyActiveAssets;
+	 }
+	
+	/**
+	 * ShouldSupportSingleLogin
+	 * @return bool
+	 */
+	 getShouldSupportSingleLogin() {
+	 	return this.shouldSupportSingleLogin;
+	 }
+	
+	/**
+	 * @param shouldSupportSingleLogin bool ShouldSupportSingleLogin
+	 */
+	 setShouldSupportSingleLogin(shouldSupportSingleLogin) {
+	 	this.shouldSupportSingleLogin = shouldSupportSingleLogin;
+	 }
+	
+	/**
+	 * KSExpirationSeconds
+	 * @return int
+	 */
+	 getKsExpirationSeconds() {
+	 	return this.ksExpirationSeconds;
+	 }
+	
+	/**
+	 * @param ksExpirationSeconds int KSExpirationSeconds
+	 */
+	 setKsExpirationSeconds(ksExpirationSeconds) {
+	 	this.ksExpirationSeconds = ksExpirationSeconds;
+	 }
+	
+	/**
+	 * AnonymousKSExpirationSeconds
+	 * @return int
+	 */
+	 getAnonymousKSExpirationSeconds() {
+	 	return this.anonymousKSExpirationSeconds;
+	 }
+	
+	/**
+	 * @param anonymousKSExpirationSeconds int AnonymousKSExpirationSeconds
+	 */
+	 setAnonymousKSExpirationSeconds(anonymousKSExpirationSeconds) {
+	 	this.anonymousKSExpirationSeconds = anonymousKSExpirationSeconds;
+	 }
+	
+	/**
+	 * RefreshTokenExpirationSeconds
+	 * @return int
+	 */
+	 getRefreshTokenExpirationSeconds() {
+	 	return this.refreshTokenExpirationSeconds;
+	 }
+	
+	/**
+	 * @param refreshTokenExpirationSeconds int RefreshTokenExpirationSeconds
+	 */
+	 setRefreshTokenExpirationSeconds(refreshTokenExpirationSeconds) {
+	 	this.refreshTokenExpirationSeconds = refreshTokenExpirationSeconds;
+	 }
+	
+	/**
+	 * IsRefreshTokenExtendable
+	 * @return bool
+	 */
+	 getIsRefreshTokenExtendable() {
+	 	return this.isRefreshTokenExtendable;
+	 }
+	
+	/**
+	 * @param isRefreshTokenExtendable bool IsRefreshTokenExtendable
+	 */
+	 setIsRefreshTokenExtendable(isRefreshTokenExtendable) {
+	 	this.isRefreshTokenExtendable = isRefreshTokenExtendable;
+	 }
+	
+	/**
+	 * RefreshExpirationForPinLoginSeconds
+	 * @return int
+	 */
+	 getRefreshExpirationForPinLoginSeconds() {
+	 	return this.refreshExpirationForPinLoginSeconds;
+	 }
+	
+	/**
+	 * @param refreshExpirationForPinLoginSeconds int RefreshExpirationForPinLoginSeconds
+	 */
+	 setRefreshExpirationForPinLoginSeconds(refreshExpirationForPinLoginSeconds) {
+	 	this.refreshExpirationForPinLoginSeconds = refreshExpirationForPinLoginSeconds;
+	 }
+	
+	/**
+	 * IsSwitchingUsersAllowed
+	 * @return bool
+	 */
+	 getIsSwitchingUsersAllowed() {
+	 	return this.isSwitchingUsersAllowed;
+	 }
+	
+	/**
+	 * @param isSwitchingUsersAllowed bool IsSwitchingUsersAllowed
+	 */
+	 setIsSwitchingUsersAllowed(isSwitchingUsersAllowed) {
+	 	this.isSwitchingUsersAllowed = isSwitchingUsersAllowed;
+	 }
+	
+	/**
+	 * TokenKeyFormat
+	 * @return string
+	 */
+	 getTokenKeyFormat() {
+	 	return this.tokenKeyFormat;
+	 }
+	
+	/**
+	 * @param tokenKeyFormat string TokenKeyFormat
+	 */
+	 setTokenKeyFormat(tokenKeyFormat) {
+	 	this.tokenKeyFormat = tokenKeyFormat;
+	 }
+	
+	/**
+	 * AppTokenKeyFormat
+	 * @return string
+	 */
+	 getAppTokenKeyFormat() {
+	 	return this.appTokenKeyFormat;
+	 }
+	
+	/**
+	 * @param appTokenKeyFormat string AppTokenKeyFormat
+	 */
+	 setAppTokenKeyFormat(appTokenKeyFormat) {
+	 	this.appTokenKeyFormat = appTokenKeyFormat;
+	 }
+	
+	/**
+	 * AppTokenSessionMaxDurationSeconds
+	 * @return int
+	 */
+	 getAppTokenSessionMaxDurationSeconds() {
+	 	return this.appTokenSessionMaxDurationSeconds;
+	 }
+	
+	/**
+	 * @param appTokenSessionMaxDurationSeconds int AppTokenSessionMaxDurationSeconds
+	 */
+	 setAppTokenSessionMaxDurationSeconds(appTokenSessionMaxDurationSeconds) {
+	 	this.appTokenSessionMaxDurationSeconds = appTokenSessionMaxDurationSeconds;
+	 }
+	
+	/**
+	 * AppTokenMaxExpirySeconds
+	 * @return int
+	 */
+	 getAppTokenMaxExpirySeconds() {
+	 	return this.appTokenMaxExpirySeconds;
+	 }
+	
+	/**
+	 * @param appTokenMaxExpirySeconds int AppTokenMaxExpirySeconds
+	 */
+	 setAppTokenMaxExpirySeconds(appTokenMaxExpirySeconds) {
+	 	this.appTokenMaxExpirySeconds = appTokenMaxExpirySeconds;
+	 }
+	
+	/**
+	 * UserSessionsKeyFormat
+	 * @return string
+	 */
+	 getUserSessionsKeyFormat() {
+	 	return this.userSessionsKeyFormat;
+	 }
+	
+	/**
+	 * @param userSessionsKeyFormat string UserSessionsKeyFormat
+	 */
+	 setUserSessionsKeyFormat(userSessionsKeyFormat) {
+	 	this.userSessionsKeyFormat = userSessionsKeyFormat;
+	 }
+	
+	/**
+	 * RevokedKsMaxTtlSeconds
+	 * @return int
+	 */
+	 getRevokedKsMaxTtlSeconds() {
+	 	return this.revokedKsMaxTtlSeconds;
+	 }
+	
+	/**
+	 * @param revokedKsMaxTtlSeconds int RevokedKsMaxTtlSeconds
+	 */
+	 setRevokedKsMaxTtlSeconds(revokedKsMaxTtlSeconds) {
+	 	this.revokedKsMaxTtlSeconds = revokedKsMaxTtlSeconds;
+	 }
+	
+	/**
+	 * MediaPrepAccountId
+	 * @return int
+	 */
+	 getMediaPrepAccountId() {
+	 	return this.mediaPrepAccountId;
+	 }
+	
+	/**
+	 * @param mediaPrepAccountId int MediaPrepAccountId
+	 */
+	 setMediaPrepAccountId(mediaPrepAccountId) {
+	 	this.mediaPrepAccountId = mediaPrepAccountId;
+	 }
+	
+	/**
+	 * FairplayCertificate
+	 * @return string
+	 */
+	 getFairplayCertificate() {
+	 	return this.fairplayCertificate;
+	 }
+	
+	/**
+	 * @param fairplayCertificate string FairplayCertificate
+	 */
+	 setFairplayCertificate(fairplayCertificate) {
+	 	this.fairplayCertificate = fairplayCertificate;
+	 }
+}
+module.exports.BasePartnerConfiguration = BasePartnerConfiguration;
+
+/**
+ *
+ */
 class BillingPartnerConfig extends PartnerConfiguration{
 	
 	constructor(object = null) {
@@ -17162,21 +17540,6 @@ class GeneralPartnerConfig extends PartnerConfiguration{
 	 */
 	 setFinishedPercentThreshold(finishedPercentThreshold) {
 	 	this.finishedPercentThreshold = finishedPercentThreshold;
-	 }
-	
-	/**
-	 * Suspension Profile Inheritance
-	 * @return string
-	 */
-	 getSuspensionProfileInheritanceType() {
-	 	return this.suspensionProfileInheritanceType;
-	 }
-	
-	/**
-	 * @param suspensionProfileInheritanceType string Suspension Profile Inheritance
-	 */
-	 setSuspensionProfileInheritanceType(suspensionProfileInheritanceType) {
-	 	this.suspensionProfileInheritanceType = suspensionProfileInheritanceType;
 	 }
 }
 module.exports.GeneralPartnerConfig = GeneralPartnerConfig;
@@ -31419,6 +31782,63 @@ class OTTUserDynamicData extends kaltura.BaseObject{
 	 }
 }
 module.exports.OTTUserDynamicData = OTTUserDynamicData;
+
+/**
+ *
+ */
+class PartnerSetup extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPartnerSetup';
+	}
+	
+	/**
+	 * admin Username
+	 * @return string
+	 */
+	 getAdminUsername() {
+	 	return this.adminUsername;
+	 }
+	
+	/**
+	 * @param adminUsername string admin Username
+	 */
+	 setAdminUsername(adminUsername) {
+	 	this.adminUsername = adminUsername;
+	 }
+	
+	/**
+	 * admin Password
+	 * @return string
+	 */
+	 getAdminPassword() {
+	 	return this.adminPassword;
+	 }
+	
+	/**
+	 * @param adminPassword string admin Password
+	 */
+	 setAdminPassword(adminPassword) {
+	 	this.adminPassword = adminPassword;
+	 }
+	
+	/**
+	 * basePartnerConfiguration
+	 * @return BasePartnerConfiguration
+	 */
+	 getBasePartnerConfiguration() {
+	 	return this.basePartnerConfiguration;
+	 }
+	
+	/**
+	 * @param basePartnerConfiguration BasePartnerConfiguration basePartnerConfiguration
+	 */
+	 setBasePartnerConfiguration(basePartnerConfiguration) {
+	 	this.basePartnerConfiguration = basePartnerConfiguration;
+	 }
+}
+module.exports.PartnerSetup = PartnerSetup;
 
 /**
  *

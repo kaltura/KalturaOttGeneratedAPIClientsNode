@@ -780,6 +780,7 @@ PAYMENT : 'Payment',
 CATALOG : 'Catalog',
 SECURITY : 'Security',
 OPC : 'Opc',
+BASE : 'Base',
 };
 
 module.exports.PasswordPolicyOrderBy = {
@@ -1169,12 +1170,6 @@ DEPENDENCY : 'DEPENDENCY',
 module.exports.SubscriptionTriggerType = {
 START_DATE : 'START_DATE',
 END_DATE : 'END_DATE',
-};
-
-module.exports.SuspensionProfileInheritanceType = {
-ALWAYS : 'ALWAYS',
-NEVER : 'NEVER',
-DEFAULT : 'DEFAULT',
 };
 
 module.exports.TagOrderBy = {
