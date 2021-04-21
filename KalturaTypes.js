@@ -519,6 +519,9 @@ START_DATE_ASC : 'START_DATE_ASC',
 
 module.exports.GroupByField = {
 MEDIA_TYPE_ID : 'media_type_id',
+SUPPRESSED : 'suppressed',
+CRID : 'crid',
+LINEAR_MEDIA_ID : 'linear_media_id',
 };
 
 module.exports.GroupByOrder = {
@@ -527,6 +530,11 @@ COUNT_ASC : 'count_asc',
 COUNT_DESC : 'count_desc',
 VALUE_ASC : 'value_asc',
 VALUE_DESC : 'value_desc',
+};
+
+module.exports.GroupingOption = {
+OMIT : 'Omit',
+INCLUDE : 'Include',
 };
 
 module.exports.HouseholdCouponOrderBy = {
