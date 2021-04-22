@@ -27646,7 +27646,7 @@ class PlaybackContextOptions extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Playback streamer type: applehttp, mpegdash, url, smothstreaming, none
+	 * Playback streamer type: applehttp, mpegdash, url, smothstreaming, multicast, none
 	 * @return string
 	 */
 	 getStreamerType() {
@@ -27654,7 +27654,7 @@ class PlaybackContextOptions extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param streamerType string Playback streamer type: applehttp, mpegdash, url, smothstreaming, none
+	 * @param streamerType string Playback streamer type: applehttp, mpegdash, url, smothstreaming, multicast, none
 	 */
 	 setStreamerType(streamerType) {
 	 	this.streamerType = streamerType;
