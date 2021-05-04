@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platforms allow them to do with
+// to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -424,10 +424,9 @@ class assetFile{
 	 * @param contextType string Playback context type (enum: KalturaPlaybackContextType)
 	 * @param ks string Kaltura session for the user, not mandatory for anonymous user (optional, default: null)
 	 * @param tokenizedUrl string Tokenized Url, not mandatory (optional, default: null)
-	 * @param isAltUrl bool Is alternative url (optional, default: false)
 	 * @return KalturaAssetFile
 	 */
-	static playManifest(partnerId, assetId, assetType, assetFileId, contextType, ks = null, tokenizedUrl = null, isAltUrl = false){
+	static playManifest(partnerId, assetId, assetType, assetFileId, contextType, ks = null, tokenizedUrl = null){
 		let kparams = {};
 		kparams.partnerId = partnerId;
 		kparams.assetId = assetId;
@@ -436,7 +435,6 @@ class assetFile{
 		kparams.contextType = contextType;
 		kparams.ks = ks;
 		kparams.tokenizedUrl = tokenizedUrl;
-		kparams.isAltUrl = isAltUrl;
 		return new kaltura.RequestBuilder('assetfile', 'playManifest', kparams);
 	};
 }
@@ -5614,6 +5612,8 @@ module.exports.recording = recording;
  *Class definition for the Kaltura service: region.
  * The available service actions:
  * @action add Adds a new region for partner.
+ * @action linearchannelbulkadd Adds a linear channel to the list of regions.
+ * @action linearchannelbulkdelete Deletes a linear channel from the list of regions.
  * @action delete Delete an existing region.
  * @action list Returns all regions for the partner.
  * @action update Update an existing region.
@@ -5629,6 +5629,32 @@ class region{
 		let kparams = {};
 		kparams.region = region;
 		return new kaltura.RequestBuilder('region', 'add', kparams);
+	};
+	
+	/**
+	 * Adds a linear channel to the list of regions.
+	 * @param linearChannelId int The identifier of the linear channel
+	 * @param regionChannelNumbers array List of regions and number of linear channel in it
+	 * @return bool
+	 */
+	static linearchannelbulkadd(linearChannelId, regionChannelNumbers){
+		let kparams = {};
+		kparams.linearChannelId = linearChannelId;
+		kparams.regionChannelNumbers = regionChannelNumbers;
+		return new kaltura.RequestBuilder('region', 'linearchannelbulkadd', kparams);
+	};
+	
+	/**
+	 * Deletes a linear channel from the list of regions.
+	 * @param linearChannelId int The identifier of the linear channel
+	 * @param regionIds string List of identifiers of regions
+	 * @return bool
+	 */
+	static linearchannelbulkdelete(linearChannelId, regionIds){
+		let kparams = {};
+		kparams.linearChannelId = linearChannelId;
+		kparams.regionIds = regionIds;
+		return new kaltura.RequestBuilder('region', 'linearchannelbulkdelete', kparams);
 	};
 	
 	/**
@@ -6558,12 +6584,9 @@ module.exports.subscriptionSet = subscriptionSet;
  *Class definition for the Kaltura service: system.
  * The available service actions:
  * @action clearLocalServerCache Clear local server cache.
- * @action getInvalidationKeyValue Returns the epoch value of an invalidation key if it was found.
- * @action getLayeredCacheGroupConfig Returns the current layered cache group config of the sent groupId. You need to send groupId only if you wish to get it for a specific groupId and not the one the KS belongs to.
  * @action getTime Returns current server timestamp.
  * @action getVersion Returns current server version.
  * @action incrementLayeredCacheGroupConfigVersion Returns true if version has been incremented successfully or false otherwise. You need to send groupId only if you wish to increment for a specific groupId and not the one the KS belongs to.
- * @action invalidateLayeredCacheInvalidationKey Returns true if the invalidation key was invalidated successfully or false otherwise.
  * @action ping Returns true.
  */
 class system{
@@ -6579,32 +6602,6 @@ class system{
 		kparams.clearCacheAction = clearCacheAction;
 		kparams.key = key;
 		return new kaltura.RequestBuilder('system', 'clearLocalServerCache', kparams);
-	};
-	
-	/**
-	 * Returns the epoch value of an invalidation key if it was found.
-	 * @param invalidationKey string the invalidation key to fetch it's value
-	 * @param layeredCacheConfigName string the layered cache config name of the invalidation key (optional, default: null)
-	 * @param groupId int groupId (optional)
-	 * @return KalturaLongValue
-	 */
-	static getInvalidationKeyValue(invalidationKey, layeredCacheConfigName = null, groupId = 0){
-		let kparams = {};
-		kparams.invalidationKey = invalidationKey;
-		kparams.layeredCacheConfigName = layeredCacheConfigName;
-		kparams.groupId = groupId;
-		return new kaltura.RequestBuilder('system', 'getInvalidationKeyValue', kparams);
-	};
-	
-	/**
-	 * Returns the current layered cache group config of the sent groupId. You need to send groupId only if you wish to get it for a specific groupId and not the one the KS belongs to.
-	 * @param groupId int groupId (optional)
-	 * @return KalturaStringValue
-	 */
-	static getLayeredCacheGroupConfig(groupId = 0){
-		let kparams = {};
-		kparams.groupId = groupId;
-		return new kaltura.RequestBuilder('system', 'getLayeredCacheGroupConfig', kparams);
 	};
 	
 	/**
@@ -6634,17 +6631,6 @@ class system{
 		let kparams = {};
 		kparams.groupId = groupId;
 		return new kaltura.RequestBuilder('system', 'incrementLayeredCacheGroupConfigVersion', kparams);
-	};
-	
-	/**
-	 * Returns true if the invalidation key was invalidated successfully or false otherwise.
-	 * @param key string the invalidation key to invalidate
-	 * @return bool
-	 */
-	static invalidateLayeredCacheInvalidationKey(key){
-		let kparams = {};
-		kparams.key = key;
-		return new kaltura.RequestBuilder('system', 'invalidateLayeredCacheInvalidationKey', kparams);
 	};
 	
 	/**
