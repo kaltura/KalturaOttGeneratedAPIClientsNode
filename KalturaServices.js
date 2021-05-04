@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platforms allow them to do with
+// to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -5515,6 +5515,8 @@ module.exports.recommendationProfile = recommendationProfile;
  *Class definition for the Kaltura service: recording.
  * The available service actions:
  * @action add Issue a record request for a program.
+ * @action bulkdelete Delete list of user&#39;s recordings. Recording can be deleted only in status Recorded.
+ * Possible error codes for each recording: RecordingNotFound = 3039, RecordingStatusNotValid = 3043, Error = 1.
  * @action cancel Cancel a previously requested recording. Cancel recording can be called for recording in status Scheduled or Recording Only.
  * @action delete Delete one or more user recording(s). Delete recording can be called only for recordings in status Recorded.
  * @action get Returns recording object by internal identifier.
@@ -5534,6 +5536,18 @@ class recording{
 		let kparams = {};
 		kparams.recording = recording;
 		return new kaltura.RequestBuilder('recording', 'add', kparams);
+	};
+	
+	/**
+	 * Delete list of user&#39;s recordings. Recording can be deleted only in status Recorded.
+ * Possible error codes for each recording: RecordingNotFound = 3039, RecordingStatusNotValid = 3043, Error = 1.
+	 * @param recordingIds string Recording identifiers. Up to 40 private copies and up to 100 shared copies can be deleted withing a call
+	 * @return array
+	 */
+	static bulkdelete(recordingIds){
+		let kparams = {};
+		kparams.recordingIds = recordingIds;
+		return new kaltura.RequestBuilder('recording', 'bulkdelete', kparams);
 	};
 	
 	/**
@@ -5614,6 +5628,8 @@ module.exports.recording = recording;
  *Class definition for the Kaltura service: region.
  * The available service actions:
  * @action add Adds a new region for partner.
+ * @action linearchannelbulkadd Adds a linear channel to the list of regions.
+ * @action linearchannelbulkdelete Deletes a linear channel from the list of regions.
  * @action delete Delete an existing region.
  * @action list Returns all regions for the partner.
  * @action update Update an existing region.
@@ -5629,6 +5645,32 @@ class region{
 		let kparams = {};
 		kparams.region = region;
 		return new kaltura.RequestBuilder('region', 'add', kparams);
+	};
+	
+	/**
+	 * Adds a linear channel to the list of regions.
+	 * @param linearChannelId int The identifier of the linear channel
+	 * @param regionChannelNumbers array List of regions and number of linear channel in it
+	 * @return bool
+	 */
+	static linearchannelbulkadd(linearChannelId, regionChannelNumbers){
+		let kparams = {};
+		kparams.linearChannelId = linearChannelId;
+		kparams.regionChannelNumbers = regionChannelNumbers;
+		return new kaltura.RequestBuilder('region', 'linearchannelbulkadd', kparams);
+	};
+	
+	/**
+	 * Deletes a linear channel from the list of regions.
+	 * @param linearChannelId int The identifier of the linear channel
+	 * @param regionIds string List of identifiers of regions
+	 * @return bool
+	 */
+	static linearchannelbulkdelete(linearChannelId, regionIds){
+		let kparams = {};
+		kparams.linearChannelId = linearChannelId;
+		kparams.regionIds = regionIds;
+		return new kaltura.RequestBuilder('region', 'linearchannelbulkdelete', kparams);
 	};
 	
 	/**

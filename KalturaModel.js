@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platforms allow them to do with
+// to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -2912,6 +2912,21 @@ class BaseSearchAssetFilter extends AssetFilter{
 	 */
 	 setGroupOrderBy(groupOrderBy) {
 	 	this.groupOrderBy = groupOrderBy;
+	 }
+	
+	/**
+	 * Grouping Option, Omit if not specified otherwise
+	 * @return string
+	 */
+	 getGroupingOptionEqual() {
+	 	return this.groupingOptionEqual;
+	 }
+	
+	/**
+	 * @param groupingOptionEqual string Grouping Option, Omit if not specified otherwise
+	 */
+	 setGroupingOptionEqual(groupingOptionEqual) {
+	 	this.groupingOptionEqual = groupingOptionEqual;
 	 }
 }
 module.exports.BaseSearchAssetFilter = BaseSearchAssetFilter;
@@ -6466,6 +6481,18 @@ class DefaultRegionFilter extends BaseRegionFilter{
 	}
 }
 module.exports.DefaultRegionFilter = DefaultRegionFilter;
+
+/**
+ *
+ */
+class AddDefaultIfEmptyResponseProfile extends RelatedObjectFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAddDefaultIfEmptyResponseProfile';
+	}
+}
+module.exports.AddDefaultIfEmptyResponseProfile = AddDefaultIfEmptyResponseProfile;
 
 /**
  *
@@ -11265,6 +11292,21 @@ class CategoryItem extends CrudObject{
 	 */
 	 getVirtualAssetId() {
 	 	return this.virtualAssetId;
+	 }
+	
+	/**
+	 * Category reference identifier
+	 * @return string
+	 */
+	 getReferenceId() {
+	 	return this.referenceId;
+	 }
+	
+	/**
+	 * @param referenceId string Category reference identifier
+	 */
+	 setReferenceId(referenceId) {
+	 	this.referenceId = referenceId;
 	 }
 }
 module.exports.CategoryItem = CategoryItem;
@@ -22705,6 +22747,21 @@ class AssetStruct extends kaltura.BaseObject{
 	 setConnectedParentMetaId(connectedParentMetaId) {
 	 	this.connectedParentMetaId = connectedParentMetaId;
 	 }
+	
+	/**
+	 * Dynamic data
+	 * @return map
+	 */
+	 getDynamicData() {
+	 	return this.dynamicData;
+	 }
+	
+	/**
+	 * @param dynamicData map Dynamic data
+	 */
+	 setDynamicData(dynamicData) {
+	 	this.dynamicData = dynamicData;
+	 }
 }
 module.exports.AssetStruct = AssetStruct;
 
@@ -22850,6 +22907,21 @@ class AssetStructMeta extends kaltura.BaseObject{
 	 */
 	 setIsLocationTag(isLocationTag) {
 	 	this.isLocationTag = isLocationTag;
+	 }
+	
+	/**
+	 * suppressed Order, ascending
+	 * @return int
+	 */
+	 getSuppressedOrder() {
+	 	return this.suppressedOrder;
+	 }
+	
+	/**
+	 * @param suppressedOrder int suppressed Order, ascending
+	 */
+	 setSuppressedOrder(suppressedOrder) {
+	 	this.suppressedOrder = suppressedOrder;
 	 }
 }
 module.exports.AssetStructMeta = AssetStructMeta;
@@ -27646,7 +27718,7 @@ class PlaybackContextOptions extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Playback streamer type: applehttp, mpegdash, url, smothstreaming, none
+	 * Playback streamer type: applehttp, mpegdash, url, smothstreaming, multicast, none
 	 * @return string
 	 */
 	 getStreamerType() {
@@ -27654,7 +27726,7 @@ class PlaybackContextOptions extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param streamerType string Playback streamer type: applehttp, mpegdash, url, smothstreaming, none
+	 * @param streamerType string Playback streamer type: applehttp, mpegdash, url, smothstreaming, multicast, none
 	 */
 	 setStreamerType(streamerType) {
 	 	this.streamerType = streamerType;
@@ -28680,6 +28752,14 @@ class CategoryTree extends kaltura.BaseObject{
 	 */
 	 getVirtualAssetId() {
 	 	return this.virtualAssetId;
+	 }
+	
+	/**
+	 * Category reference identifier
+	 * @return string
+	 */
+	 getReferenceId() {
+	 	return this.referenceId;
 	 }
 }
 module.exports.CategoryTree = CategoryTree;
@@ -30983,20 +31063,37 @@ class EpgNotificationSettings extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * The range (in hours), in which, EPG updates triggers a notification,
+	 * The backward range (in hours), in which, EPG updates triggers a notification,
  * every program that is updated and it’s starts time falls within this range shall trigger a notification
 	 * @return int
 	 */
-	 getTimeRange() {
-	 	return this.timeRange;
+	 getBackwardTimeRange() {
+	 	return this.backwardTimeRange;
 	 }
 	
 	/**
-	 * @param timeRange int The range (in hours), in which, EPG updates triggers a notification,
+	 * @param backwardTimeRange int The backward range (in hours), in which, EPG updates triggers a notification,
  * every program that is updated and it’s starts time falls within this range shall trigger a notification
 	 */
-	 setTimeRange(timeRange) {
-	 	this.timeRange = timeRange;
+	 setBackwardTimeRange(backwardTimeRange) {
+	 	this.backwardTimeRange = backwardTimeRange;
+	 }
+	
+	/**
+	 * The forward range (in hours), in which, EPG updates triggers a notification,
+ * every program that is updated and it’s starts time falls within this range shall trigger a notification
+	 * @return int
+	 */
+	 getForwardTimeRange() {
+	 	return this.forwardTimeRange;
+	 }
+	
+	/**
+	 * @param forwardTimeRange int The forward range (in hours), in which, EPG updates triggers a notification,
+ * every program that is updated and it’s starts time falls within this range shall trigger a notification
+	 */
+	 setForwardTimeRange(forwardTimeRange) {
+	 	this.forwardTimeRange = forwardTimeRange;
 	 }
 }
 module.exports.EpgNotificationSettings = EpgNotificationSettings;
@@ -31805,6 +31902,76 @@ class PurchaseSettings extends Pin{
 	 }
 }
 module.exports.PurchaseSettings = PurchaseSettings;
+
+/**
+ *
+ */
+class ActionResult extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaActionResult';
+	}
+	
+	/**
+	 * Identifier of entity
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Identifier of entity
+	 * @return Message
+	 */
+	 getResult() {
+	 	return this.result;
+	 }
+}
+module.exports.ActionResult = ActionResult;
+
+/**
+ *
+ */
+class RegionChannelNumber extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRegionChannelNumber';
+	}
+	
+	/**
+	 * The identifier of the region
+	 * @return int
+	 */
+	 getRegionId() {
+	 	return this.regionId;
+	 }
+	
+	/**
+	 * @param regionId int The identifier of the region
+	 */
+	 setRegionId(regionId) {
+	 	this.regionId = regionId;
+	 }
+	
+	/**
+	 * The number of channel
+	 * @return int
+	 */
+	 getChannelNumber() {
+	 	return this.channelNumber;
+	 }
+	
+	/**
+	 * @param channelNumber int The number of channel
+	 */
+	 setChannelNumber(channelNumber) {
+	 	this.channelNumber = channelNumber;
+	 }
+}
+module.exports.RegionChannelNumber = RegionChannelNumber;
 
 /**
  *
