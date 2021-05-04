@@ -28360,6 +28360,14 @@ class AssetFileContext extends kaltura.BaseObject{
 	 getIsOfflinePlayBack() {
 	 	return this.isOfflinePlayBack;
 	 }
+	
+	/**
+	 * Is Live PlayBack
+	 * @return bool
+	 */
+	 getIsLivePlayBack() {
+	 	return this.isLivePlayBack;
+	 }
 }
 module.exports.AssetFileContext = AssetFileContext;
 
