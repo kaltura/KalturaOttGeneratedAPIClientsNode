@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platforms allow them to do with
+// to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -1481,6 +1481,33 @@ module.exports.OTTUserFilter = OTTUserFilter;
 /**
  *
  */
+class PartnerFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPartnerFilter';
+	}
+	
+	/**
+	 * Comma separated discount codes
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated discount codes
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.PartnerFilter = PartnerFilter;
+
+/**
+ *
+ */
 class BulkUploadFilter extends Filter{
 	
 	constructor(object = null) {
@@ -2912,6 +2939,21 @@ class BaseSearchAssetFilter extends AssetFilter{
 	 */
 	 setGroupOrderBy(groupOrderBy) {
 	 	this.groupOrderBy = groupOrderBy;
+	 }
+	
+	/**
+	 * Grouping Option, Omit if not specified otherwise
+	 * @return string
+	 */
+	 getGroupingOptionEqual() {
+	 	return this.groupingOptionEqual;
+	 }
+	
+	/**
+	 * @param groupingOptionEqual string Grouping Option, Omit if not specified otherwise
+	 */
+	 setGroupingOptionEqual(groupingOptionEqual) {
+	 	this.groupingOptionEqual = groupingOptionEqual;
 	 }
 }
 module.exports.BaseSearchAssetFilter = BaseSearchAssetFilter;
@@ -6470,6 +6512,18 @@ module.exports.DefaultRegionFilter = DefaultRegionFilter;
 /**
  *
  */
+class AddDefaultIfEmptyResponseProfile extends RelatedObjectFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAddDefaultIfEmptyResponseProfile';
+	}
+}
+module.exports.AddDefaultIfEmptyResponseProfile = AddDefaultIfEmptyResponseProfile;
+
+/**
+ *
+ */
 class SearchHistoryFilter extends Filter{
 	
 	constructor(object = null) {
@@ -8171,6 +8225,105 @@ class OTTUserListResponse extends ListResponse{
 	 }
 }
 module.exports.OTTUserListResponse = OTTUserListResponse;
+
+/**
+ *
+ */
+class Partner extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPartner';
+	}
+	
+	/**
+	 * PartnerId
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id int PartnerId
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
+	 * PartnerName
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string PartnerName
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Creat date represented as epoch
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * @param createDate int Creat date represented as epoch
+	 */
+	 setCreateDate(createDate) {
+	 	this.createDate = createDate;
+	 }
+	
+	/**
+	 * Update date represented as epoch
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
+	
+	/**
+	 * @param updateDate int Update date represented as epoch
+	 */
+	 setUpdateDate(updateDate) {
+	 	this.updateDate = updateDate;
+	 }
+}
+module.exports.Partner = Partner;
+
+/**
+ *
+ */
+class PartnerListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPartnerListResponse';
+	}
+	
+	/**
+	 * A list of Partners
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of Partners
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.PartnerListResponse = PartnerListResponse;
 
 /**
  *
@@ -11266,6 +11419,21 @@ class CategoryItem extends CrudObject{
 	 getVirtualAssetId() {
 	 	return this.virtualAssetId;
 	 }
+	
+	/**
+	 * Category reference identifier
+	 * @return string
+	 */
+	 getReferenceId() {
+	 	return this.referenceId;
+	 }
+	
+	/**
+	 * @param referenceId string Category reference identifier
+	 */
+	 setReferenceId(referenceId) {
+	 	this.referenceId = referenceId;
+	 }
 }
 module.exports.CategoryItem = CategoryItem;
 
@@ -13048,6 +13216,13 @@ class BaseChannel extends OTTObjectSupportNullable{
 	 getId() {
 	 	return this.id;
 	 }
+	
+	/**
+	 * @param id int Unique identifier for the channel
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
 }
 module.exports.BaseChannel = BaseChannel;
 
@@ -14191,6 +14366,21 @@ class DiscountModule extends kaltura.BaseObject{
 	}
 	
 	/**
+	 * Discount module identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id int Discount module identifier
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
 	 * The discount percentage
 	 * @return float
 	 */
@@ -14256,11 +14446,25 @@ class UsageModule extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * @param id int Usage module identifier
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
 	 * Usage module name
 	 * @return string
 	 */
 	 getName() {
 	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Usage module name
+	 */
+	 setName(name) {
+	 	this.name = name;
 	 }
 	
 	/**
@@ -14272,6 +14476,13 @@ class UsageModule extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * @param maxViewsNumber int The maximum number of times an item in this usage module can be viewed
+	 */
+	 setMaxViewsNumber(maxViewsNumber) {
+	 	this.maxViewsNumber = maxViewsNumber;
+	 }
+	
+	/**
 	 * The amount time an item is available for viewing since a user started watching the item
 	 * @return int
 	 */
@@ -14280,11 +14491,25 @@ class UsageModule extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * @param viewLifeCycle int The amount time an item is available for viewing since a user started watching the item
+	 */
+	 setViewLifeCycle(viewLifeCycle) {
+	 	this.viewLifeCycle = viewLifeCycle;
+	 }
+	
+	/**
 	 * The amount time an item is available for viewing
 	 * @return int
 	 */
 	 getFullLifeCycle() {
 	 	return this.fullLifeCycle;
+	 }
+	
+	/**
+	 * @param fullLifeCycle int The amount time an item is available for viewing
+	 */
+	 setFullLifeCycle(fullLifeCycle) {
+	 	this.fullLifeCycle = fullLifeCycle;
 	 }
 	
 	/**
@@ -14337,6 +14562,13 @@ class CouponsGroup extends kaltura.BaseObject{
 	 */
 	 getId() {
 	 	return this.id;
+	 }
+	
+	/**
+	 * @param id string Coupon group identifier
+	 */
+	 setId(id) {
+	 	this.id = id;
 	 }
 	
 	/**
@@ -14757,6 +14989,13 @@ class PricePlan extends UsageModule{
 	 }
 	
 	/**
+	 * @param isRenewable bool Denotes whether or not this object can be renewed
+	 */
+	 setIsRenewable(isRenewable) {
+	 	this.isRenewable = isRenewable;
+	 }
+	
+	/**
 	 * Defines the number of times the module will be renewed (for the life_cycle period)
 	 * @return int
 	 */
@@ -14765,11 +15004,25 @@ class PricePlan extends UsageModule{
 	 }
 	
 	/**
+	 * @param renewalsNumber int Defines the number of times the module will be renewed (for the life_cycle period)
+	 */
+	 setRenewalsNumber(renewalsNumber) {
+	 	this.renewalsNumber = renewalsNumber;
+	 }
+	
+	/**
 	 * The discount module identifier of the price plan
 	 * @return int
 	 */
 	 getDiscountId() {
 	 	return this.discountId;
+	 }
+	
+	/**
+	 * @param discountId int The discount module identifier of the price plan
+	 */
+	 setDiscountId(discountId) {
+	 	this.discountId = discountId;
 	 }
 	
 	/**
@@ -14905,6 +15158,13 @@ class Discount extends Price{
 	 getPercentage() {
 	 	return this.percentage;
 	 }
+	
+	/**
+	 * @param percentage int The discount percentage
+	 */
+	 setPercentage(percentage) {
+	 	this.percentage = percentage;
+	 }
 }
 module.exports.Discount = Discount;
 
@@ -14984,6 +15244,36 @@ class DiscountDetails extends kaltura.BaseObject{
 	 */
 	 setEndDate(endDate) {
 	 	this.endDate = endDate;
+	 }
+	
+	/**
+	 * End date represented as epoch
+	 * @return int
+	 */
+	 getWhenAlgoTimes() {
+	 	return this.whenAlgoTimes;
+	 }
+	
+	/**
+	 * @param whenAlgoTimes int End date represented as epoch
+	 */
+	 setWhenAlgoTimes(whenAlgoTimes) {
+	 	this.whenAlgoTimes = whenAlgoTimes;
+	 }
+	
+	/**
+	 * End date represented as epoch
+	 * @return int
+	 */
+	 getWhenAlgoType() {
+	 	return this.whenAlgoType;
+	 }
+	
+	/**
+	 * @param whenAlgoType int End date represented as epoch
+	 */
+	 setWhenAlgoType(whenAlgoType) {
+	 	this.whenAlgoType = whenAlgoType;
 	 }
 }
 module.exports.DiscountDetails = DiscountDetails;
@@ -15715,6 +16005,98 @@ module.exports.PpvListResponse = PpvListResponse;
 /**
  *
  */
+class PreviewModule extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPreviewModule';
+	}
+	
+	/**
+	 * Preview module identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Preview module name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Preview module name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Preview module life cycle - for how long the preview module is active
+	 * @return int
+	 */
+	 getLifeCycle() {
+	 	return this.lifeCycle;
+	 }
+	
+	/**
+	 * @param lifeCycle int Preview module life cycle - for how long the preview module is active
+	 */
+	 setLifeCycle(lifeCycle) {
+	 	this.lifeCycle = lifeCycle;
+	 }
+	
+	/**
+	 * The time you can&#39;t buy the item to which the preview module is assigned to again
+	 * @return int
+	 */
+	 getNonRenewablePeriod() {
+	 	return this.nonRenewablePeriod;
+	 }
+	
+	/**
+	 * @param nonRenewablePeriod int The time you can&#39;t buy the item to which the preview module is assigned to again
+	 */
+	 setNonRenewablePeriod(nonRenewablePeriod) {
+	 	this.nonRenewablePeriod = nonRenewablePeriod;
+	 }
+}
+module.exports.PreviewModule = PreviewModule;
+
+/**
+ *
+ */
+class PreviewModuleListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPreviewModuleListResponse';
+	}
+	
+	/**
+	 * A list of Preview Module
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of Preview Module
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.PreviewModuleListResponse = PreviewModuleListResponse;
+
+/**
+ *
+ */
 class PriceDetailsListResponse extends ListResponse{
 	
 	constructor(object = null) {
@@ -15819,71 +16201,6 @@ class ProductsPriceListResponse extends ListResponse{
 	 }
 }
 module.exports.ProductsPriceListResponse = ProductsPriceListResponse;
-
-/**
- *
- */
-class PreviewModule extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPreviewModule';
-	}
-	
-	/**
-	 * Preview module identifier
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Preview module name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Preview module name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
-	 * Preview module life cycle - for how long the preview module is active
-	 * @return int
-	 */
-	 getLifeCycle() {
-	 	return this.lifeCycle;
-	 }
-	
-	/**
-	 * @param lifeCycle int Preview module life cycle - for how long the preview module is active
-	 */
-	 setLifeCycle(lifeCycle) {
-	 	this.lifeCycle = lifeCycle;
-	 }
-	
-	/**
-	 * The time you can&#39;t buy the item to which the preview module is assigned to again
-	 * @return int
-	 */
-	 getNonRenewablePeriod() {
-	 	return this.nonRenewablePeriod;
-	 }
-	
-	/**
-	 * @param nonRenewablePeriod int The time you can&#39;t buy the item to which the preview module is assigned to again
-	 */
-	 setNonRenewablePeriod(nonRenewablePeriod) {
-	 	this.nonRenewablePeriod = nonRenewablePeriod;
-	 }
-}
-module.exports.PreviewModule = PreviewModule;
 
 /**
  *
@@ -16584,6 +16901,33 @@ module.exports.SubscriptionSwitchSet = SubscriptionSwitchSet;
 /**
  *
  */
+class UsageModuleListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUsageModuleListResponse';
+	}
+	
+	/**
+	 * A list of usage modules
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of usage modules
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.UsageModuleListResponse = UsageModuleListResponse;
+
+/**
+ *
+ */
 class PartnerConfiguration extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -16619,6 +16963,123 @@ class PartnerConfigurationListResponse extends ListResponse{
 	 }
 }
 module.exports.PartnerConfigurationListResponse = PartnerConfigurationListResponse;
+
+/**
+ *
+ */
+class BasePartnerConfiguration extends PartnerConfiguration{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBasePartnerConfiguration';
+	}
+	
+	/**
+	 * KSExpirationSeconds
+	 * @return int
+	 */
+	 getKsExpirationSeconds() {
+	 	return this.ksExpirationSeconds;
+	 }
+	
+	/**
+	 * @param ksExpirationSeconds int KSExpirationSeconds
+	 */
+	 setKsExpirationSeconds(ksExpirationSeconds) {
+	 	this.ksExpirationSeconds = ksExpirationSeconds;
+	 }
+	
+	/**
+	 * AppTokenSessionMaxDurationSeconds
+	 * @return int
+	 */
+	 getAppTokenSessionMaxDurationSeconds() {
+	 	return this.appTokenSessionMaxDurationSeconds;
+	 }
+	
+	/**
+	 * @param appTokenSessionMaxDurationSeconds int AppTokenSessionMaxDurationSeconds
+	 */
+	 setAppTokenSessionMaxDurationSeconds(appTokenSessionMaxDurationSeconds) {
+	 	this.appTokenSessionMaxDurationSeconds = appTokenSessionMaxDurationSeconds;
+	 }
+	
+	/**
+	 * AnonymousKSExpirationSeconds
+	 * @return int
+	 */
+	 getAnonymousKSExpirationSeconds() {
+	 	return this.anonymousKSExpirationSeconds;
+	 }
+	
+	/**
+	 * @param anonymousKSExpirationSeconds int AnonymousKSExpirationSeconds
+	 */
+	 setAnonymousKSExpirationSeconds(anonymousKSExpirationSeconds) {
+	 	this.anonymousKSExpirationSeconds = anonymousKSExpirationSeconds;
+	 }
+	
+	/**
+	 * RefreshExpirationForPinLoginSeconds
+	 * @return int
+	 */
+	 getRefreshExpirationForPinLoginSeconds() {
+	 	return this.refreshExpirationForPinLoginSeconds;
+	 }
+	
+	/**
+	 * @param refreshExpirationForPinLoginSeconds int RefreshExpirationForPinLoginSeconds
+	 */
+	 setRefreshExpirationForPinLoginSeconds(refreshExpirationForPinLoginSeconds) {
+	 	this.refreshExpirationForPinLoginSeconds = refreshExpirationForPinLoginSeconds;
+	 }
+	
+	/**
+	 * AppTokenMaxExpirySeconds
+	 * @return int
+	 */
+	 getAppTokenMaxExpirySeconds() {
+	 	return this.appTokenMaxExpirySeconds;
+	 }
+	
+	/**
+	 * @param appTokenMaxExpirySeconds int AppTokenMaxExpirySeconds
+	 */
+	 setAppTokenMaxExpirySeconds(appTokenMaxExpirySeconds) {
+	 	this.appTokenMaxExpirySeconds = appTokenMaxExpirySeconds;
+	 }
+	
+	/**
+	 * uploadTokenExpirySeconds
+	 * @return int
+	 */
+	 getUploadTokenExpirySeconds() {
+	 	return this.uploadTokenExpirySeconds;
+	 }
+	
+	/**
+	 * @param uploadTokenExpirySeconds int uploadTokenExpirySeconds
+	 */
+	 setUploadTokenExpirySeconds(uploadTokenExpirySeconds) {
+	 	this.uploadTokenExpirySeconds = uploadTokenExpirySeconds;
+	 }
+	
+	/**
+	 * apptokenUserValidationDisabled
+	 * @return bool
+	 */
+	 getApptokenUserValidationDisabled() {
+	 	return this.apptokenUserValidationDisabled;
+	 }
+	
+	/**
+	 * @param apptokenUserValidationDisabled bool apptokenUserValidationDisabled
+	 */
+	 setApptokenUserValidationDisabled(apptokenUserValidationDisabled) {
+	 	this.apptokenUserValidationDisabled = apptokenUserValidationDisabled;
+	 }
+}
+module.exports.BasePartnerConfiguration = BasePartnerConfiguration;
 
 /**
  *
@@ -22705,6 +23166,21 @@ class AssetStruct extends kaltura.BaseObject{
 	 setConnectedParentMetaId(connectedParentMetaId) {
 	 	this.connectedParentMetaId = connectedParentMetaId;
 	 }
+	
+	/**
+	 * Dynamic data
+	 * @return map
+	 */
+	 getDynamicData() {
+	 	return this.dynamicData;
+	 }
+	
+	/**
+	 * @param dynamicData map Dynamic data
+	 */
+	 setDynamicData(dynamicData) {
+	 	this.dynamicData = dynamicData;
+	 }
 }
 module.exports.AssetStruct = AssetStruct;
 
@@ -22850,6 +23326,21 @@ class AssetStructMeta extends kaltura.BaseObject{
 	 */
 	 setIsLocationTag(isLocationTag) {
 	 	this.isLocationTag = isLocationTag;
+	 }
+	
+	/**
+	 * suppressed Order, ascending
+	 * @return int
+	 */
+	 getSuppressedOrder() {
+	 	return this.suppressedOrder;
+	 }
+	
+	/**
+	 * @param suppressedOrder int suppressed Order, ascending
+	 */
+	 setSuppressedOrder(suppressedOrder) {
+	 	this.suppressedOrder = suppressedOrder;
 	 }
 }
 module.exports.AssetStructMeta = AssetStructMeta;
@@ -27646,7 +28137,7 @@ class PlaybackContextOptions extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Playback streamer type: applehttp, mpegdash, url, smothstreaming, none
+	 * Playback streamer type: applehttp, mpegdash, url, smothstreaming, multicast, none
 	 * @return string
 	 */
 	 getStreamerType() {
@@ -27654,7 +28145,7 @@ class PlaybackContextOptions extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param streamerType string Playback streamer type: applehttp, mpegdash, url, smothstreaming, none
+	 * @param streamerType string Playback streamer type: applehttp, mpegdash, url, smothstreaming, multicast, none
 	 */
 	 setStreamerType(streamerType) {
 	 	this.streamerType = streamerType;
@@ -28288,6 +28779,14 @@ class AssetFileContext extends kaltura.BaseObject{
 	 getIsOfflinePlayBack() {
 	 	return this.isOfflinePlayBack;
 	 }
+	
+	/**
+	 * Is Live PlayBack
+	 * @return bool
+	 */
+	 getIsLivePlayBack() {
+	 	return this.isLivePlayBack;
+	 }
 }
 module.exports.AssetFileContext = AssetFileContext;
 
@@ -28680,6 +29179,14 @@ class CategoryTree extends kaltura.BaseObject{
 	 */
 	 getVirtualAssetId() {
 	 	return this.virtualAssetId;
+	 }
+	
+	/**
+	 * Category reference identifier
+	 * @return string
+	 */
+	 getReferenceId() {
+	 	return this.referenceId;
 	 }
 }
 module.exports.CategoryTree = CategoryTree;
@@ -30983,20 +31490,37 @@ class EpgNotificationSettings extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * The range (in hours), in which, EPG updates triggers a notification,
+	 * The backward range (in hours), in which, EPG updates triggers a notification,
  * every program that is updated and it’s starts time falls within this range shall trigger a notification
 	 * @return int
 	 */
-	 getTimeRange() {
-	 	return this.timeRange;
+	 getBackwardTimeRange() {
+	 	return this.backwardTimeRange;
 	 }
 	
 	/**
-	 * @param timeRange int The range (in hours), in which, EPG updates triggers a notification,
+	 * @param backwardTimeRange int The backward range (in hours), in which, EPG updates triggers a notification,
  * every program that is updated and it’s starts time falls within this range shall trigger a notification
 	 */
-	 setTimeRange(timeRange) {
-	 	this.timeRange = timeRange;
+	 setBackwardTimeRange(backwardTimeRange) {
+	 	this.backwardTimeRange = backwardTimeRange;
+	 }
+	
+	/**
+	 * The forward range (in hours), in which, EPG updates triggers a notification,
+ * every program that is updated and it’s starts time falls within this range shall trigger a notification
+	 * @return int
+	 */
+	 getForwardTimeRange() {
+	 	return this.forwardTimeRange;
+	 }
+	
+	/**
+	 * @param forwardTimeRange int The forward range (in hours), in which, EPG updates triggers a notification,
+ * every program that is updated and it’s starts time falls within this range shall trigger a notification
+	 */
+	 setForwardTimeRange(forwardTimeRange) {
+	 	this.forwardTimeRange = forwardTimeRange;
 	 }
 }
 module.exports.EpgNotificationSettings = EpgNotificationSettings;
@@ -31423,6 +31947,63 @@ module.exports.OTTUserDynamicData = OTTUserDynamicData;
 /**
  *
  */
+class PartnerSetup extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPartnerSetup';
+	}
+	
+	/**
+	 * admin Username
+	 * @return string
+	 */
+	 getAdminUsername() {
+	 	return this.adminUsername;
+	 }
+	
+	/**
+	 * @param adminUsername string admin Username
+	 */
+	 setAdminUsername(adminUsername) {
+	 	this.adminUsername = adminUsername;
+	 }
+	
+	/**
+	 * admin Password
+	 * @return string
+	 */
+	 getAdminPassword() {
+	 	return this.adminPassword;
+	 }
+	
+	/**
+	 * @param adminPassword string admin Password
+	 */
+	 setAdminPassword(adminPassword) {
+	 	this.adminPassword = adminPassword;
+	 }
+	
+	/**
+	 * basePartnerConfiguration
+	 * @return BasePartnerConfiguration
+	 */
+	 getBasePartnerConfiguration() {
+	 	return this.basePartnerConfiguration;
+	 }
+	
+	/**
+	 * @param basePartnerConfiguration BasePartnerConfiguration basePartnerConfiguration
+	 */
+	 setBasePartnerConfiguration(basePartnerConfiguration) {
+	 	this.basePartnerConfiguration = basePartnerConfiguration;
+	 }
+}
+module.exports.PartnerSetup = PartnerSetup;
+
+/**
+ *
+ */
 class PasswordPolicyListResponse extends ListResponse{
 	
 	constructor(object = null) {
@@ -31805,6 +32386,76 @@ class PurchaseSettings extends Pin{
 	 }
 }
 module.exports.PurchaseSettings = PurchaseSettings;
+
+/**
+ *
+ */
+class ActionResult extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaActionResult';
+	}
+	
+	/**
+	 * Identifier of entity
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Identifier of entity
+	 * @return Message
+	 */
+	 getResult() {
+	 	return this.result;
+	 }
+}
+module.exports.ActionResult = ActionResult;
+
+/**
+ *
+ */
+class RegionChannelNumber extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRegionChannelNumber';
+	}
+	
+	/**
+	 * The identifier of the region
+	 * @return int
+	 */
+	 getRegionId() {
+	 	return this.regionId;
+	 }
+	
+	/**
+	 * @param regionId int The identifier of the region
+	 */
+	 setRegionId(regionId) {
+	 	this.regionId = regionId;
+	 }
+	
+	/**
+	 * The number of channel
+	 * @return int
+	 */
+	 getChannelNumber() {
+	 	return this.channelNumber;
+	 }
+	
+	/**
+	 * @param channelNumber int The number of channel
+	 */
+	 setChannelNumber(channelNumber) {
+	 	this.channelNumber = channelNumber;
+	 }
+}
+module.exports.RegionChannelNumber = RegionChannelNumber;
 
 /**
  *
