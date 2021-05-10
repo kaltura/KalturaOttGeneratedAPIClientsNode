@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platforms allow them to do with
+// to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -1478,9 +1478,33 @@ module.exports.channel = channel;
 /**
  *Class definition for the Kaltura service: collection.
  * The available service actions:
+ * @action add Internal API !!! Insert new collection for partner.
+ * @action delete Internal API !!! Delete collection.
  * @action list Returns a list of subscriptions requested by Subscription ID or file ID.
  */
 class collection{
+	
+	/**
+	 * Internal API !!! Insert new collection for partner.
+	 * @param collection Collection collection object
+	 * @return KalturaCollection
+	 */
+	static add(collection){
+		let kparams = {};
+		kparams.collection = collection;
+		return new kaltura.RequestBuilder('collection', 'add', kparams);
+	};
+	
+	/**
+	 * Internal API !!! Delete collection.
+	 * @param id int Collection id
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('collection', 'delete', kparams);
+	};
 	
 	/**
 	 * Returns a list of subscriptions requested by Subscription ID or file ID.
@@ -2045,9 +2069,33 @@ module.exports.deviceReferenceData = deviceReferenceData;
 /**
  *Class definition for the Kaltura service: discountDetails.
  * The available service actions:
+ * @action add Internal API !!! Insert new DiscountDetails for partner.
+ * @action delete Internal API !!! Delete DiscountDetails.
  * @action list Returns the list of available discounts details, can be filtered by discount codes.
  */
 class discountDetails{
+	
+	/**
+	 * Internal API !!! Insert new DiscountDetails for partner.
+	 * @param discountDetails DiscountDetails Discount details Object
+	 * @return KalturaDiscountDetails
+	 */
+	static add(discountDetails){
+		let kparams = {};
+		kparams.discountDetails = discountDetails;
+		return new kaltura.RequestBuilder('discountdetails', 'add', kparams);
+	};
+	
+	/**
+	 * Internal API !!! Delete DiscountDetails.
+	 * @param id int DiscountDetails id
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('discountdetails', 'delete', kparams);
+	};
 	
 	/**
 	 * Returns the list of available discounts details, can be filtered by discount codes.
@@ -2066,9 +2114,33 @@ module.exports.discountDetails = discountDetails;
 /**
  *Class definition for the Kaltura service: drmProfile.
  * The available service actions:
+ * @action add Internal API !!! Insert new DrmProfile.
+ * @action delete Internal API !!! Delete DrmProfile.
  * @action list Returns all DRM adapters for partner.
  */
 class drmProfile{
+	
+	/**
+	 * Internal API !!! Insert new DrmProfile.
+	 * @param drmProfile DrmProfile Drm adapter Object
+	 * @return KalturaDrmProfile
+	 */
+	static add(drmProfile){
+		let kparams = {};
+		kparams.drmProfile = drmProfile;
+		return new kaltura.RequestBuilder('drmprofile', 'add', kparams);
+	};
+	
+	/**
+	 * Internal API !!! Delete DrmProfile.
+	 * @param id int Drm adapter id
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('drmprofile', 'delete', kparams);
+	};
 	
 	/**
 	 * Returns all DRM adapters for partner.
@@ -4711,9 +4783,24 @@ module.exports.partnerConfiguration = partnerConfiguration;
 /**
  *Class definition for the Kaltura service: partner.
  * The available service actions:
+ * @action add Add a partner with default user.
  * @action externalLogin Returns a login session for external system (like OVP).
+ * @action list Internal API !!! Returns the list of active Partners.
  */
 class partner{
+	
+	/**
+	 * Add a partner with default user.
+	 * @param partner Partner partner
+	 * @param partnerSetup PartnerSetup mandatory parameters to create partner
+	 * @return KalturaPartner
+	 */
+	static add(partner, partnerSetup){
+		let kparams = {};
+		kparams.partner = partner;
+		kparams.partnerSetup = partnerSetup;
+		return new kaltura.RequestBuilder('partner', 'add', kparams);
+	};
 	
 	/**
 	 * Returns a login session for external system (like OVP).
@@ -4722,6 +4809,17 @@ class partner{
 	static externalLogin(){
 		let kparams = {};
 		return new kaltura.RequestBuilder('partner', 'externalLogin', kparams);
+	};
+	
+	/**
+	 * Internal API !!! Returns the list of active Partners.
+	 * @param filter PartnerFilter Filter (optional, default: null)
+	 * @return KalturaPartnerListResponse
+	 */
+	static listAction(filter = null){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('partner', 'list', kparams);
 	};
 }
 module.exports.partner = partner;
@@ -5284,11 +5382,78 @@ module.exports.ppv = ppv;
 
 
 /**
+ *Class definition for the Kaltura service: previewModule.
+ * The available service actions:
+ * @action add Internal API !!! Insert new PreviewModule for partner.
+ * @action delete Internal API !!! Delete PreviewModule.
+ * @action list Internal API !!! Returns all PreviewModule.
+ */
+class previewModule{
+	
+	/**
+	 * Internal API !!! Insert new PreviewModule for partner.
+	 * @param previewModule PreviewModule Preview module object
+	 * @return KalturaPreviewModule
+	 */
+	static add(previewModule){
+		let kparams = {};
+		kparams.previewModule = previewModule;
+		return new kaltura.RequestBuilder('previewmodule', 'add', kparams);
+	};
+	
+	/**
+	 * Internal API !!! Delete PreviewModule.
+	 * @param id int PreviewModule id
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('previewmodule', 'delete', kparams);
+	};
+	
+	/**
+	 * Internal API !!! Returns all PreviewModule.
+	 * @return KalturaPreviewModuleListResponse
+	 */
+	static listAction(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('previewmodule', 'list', kparams);
+	};
+}
+module.exports.previewModule = previewModule;
+
+
+/**
  *Class definition for the Kaltura service: priceDetails.
  * The available service actions:
+ * @action add Internal API !!! Insert new PriceDetails for partner.
+ * @action delete Internal API !!! Delete PriceDetails.
  * @action list Returns the list of available prices, can be filtered by price IDs.
  */
 class priceDetails{
+	
+	/**
+	 * Internal API !!! Insert new PriceDetails for partner.
+	 * @param priceDetails PriceDetails PriceDetails Object
+	 * @return KalturaPriceDetails
+	 */
+	static add(priceDetails){
+		let kparams = {};
+		kparams.priceDetails = priceDetails;
+		return new kaltura.RequestBuilder('pricedetails', 'add', kparams);
+	};
+	
+	/**
+	 * Internal API !!! Delete PriceDetails.
+	 * @param id int PriceDetails identifier
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('pricedetails', 'delete', kparams);
+	};
 	
 	/**
 	 * Returns the list of available prices, can be filtered by price IDs.
@@ -5307,10 +5472,34 @@ module.exports.priceDetails = priceDetails;
 /**
  *Class definition for the Kaltura service: pricePlan.
  * The available service actions:
+ * @action add Internal API !!!  Insert new PriceDetails for partner.
+ * @action delete Internal API !!! Delete PricePlan.
  * @action list Returns a list of price plans by IDs.
  * @action update Updates a price plan.
  */
 class pricePlan{
+	
+	/**
+	 * Internal API !!!  Insert new PriceDetails for partner.
+	 * @param pricePlan PricePlan Price plan Object
+	 * @return KalturaPricePlan
+	 */
+	static add(pricePlan){
+		let kparams = {};
+		kparams.pricePlan = pricePlan;
+		return new kaltura.RequestBuilder('priceplan', 'add', kparams);
+	};
+	
+	/**
+	 * Internal API !!! Delete PricePlan.
+	 * @param id int PricePlan identifier
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('priceplan', 'delete', kparams);
+	};
 	
 	/**
 	 * Returns a list of price plans by IDs.
@@ -5515,6 +5704,8 @@ module.exports.recommendationProfile = recommendationProfile;
  *Class definition for the Kaltura service: recording.
  * The available service actions:
  * @action add Issue a record request for a program.
+ * @action bulkdelete Delete list of user&#39;s recordings. Recording can be deleted only in status Recorded.
+ * Possible error codes for each recording: RecordingNotFound = 3039, RecordingStatusNotValid = 3043, Error = 1.
  * @action cancel Cancel a previously requested recording. Cancel recording can be called for recording in status Scheduled or Recording Only.
  * @action delete Delete one or more user recording(s). Delete recording can be called only for recordings in status Recorded.
  * @action get Returns recording object by internal identifier.
@@ -5534,6 +5725,18 @@ class recording{
 		let kparams = {};
 		kparams.recording = recording;
 		return new kaltura.RequestBuilder('recording', 'add', kparams);
+	};
+	
+	/**
+	 * Delete list of user&#39;s recordings. Recording can be deleted only in status Recorded.
+ * Possible error codes for each recording: RecordingNotFound = 3039, RecordingStatusNotValid = 3043, Error = 1.
+	 * @param recordingIds string Recording identifiers. Up to 40 private copies and up to 100 shared copies can be deleted withing a call
+	 * @return array
+	 */
+	static bulkdelete(recordingIds){
+		let kparams = {};
+		kparams.recordingIds = recordingIds;
+		return new kaltura.RequestBuilder('recording', 'bulkdelete', kparams);
 	};
 	
 	/**
@@ -5614,6 +5817,8 @@ module.exports.recording = recording;
  *Class definition for the Kaltura service: region.
  * The available service actions:
  * @action add Adds a new region for partner.
+ * @action linearchannelbulkadd Adds a linear channel to the list of regions.
+ * @action linearchannelbulkdelete Deletes a linear channel from the list of regions.
  * @action delete Delete an existing region.
  * @action list Returns all regions for the partner.
  * @action update Update an existing region.
@@ -5629,6 +5834,32 @@ class region{
 		let kparams = {};
 		kparams.region = region;
 		return new kaltura.RequestBuilder('region', 'add', kparams);
+	};
+	
+	/**
+	 * Adds a linear channel to the list of regions.
+	 * @param linearChannelId int The identifier of the linear channel
+	 * @param regionChannelNumbers array List of regions and number of linear channel in it
+	 * @return bool
+	 */
+	static linearchannelbulkadd(linearChannelId, regionChannelNumbers){
+		let kparams = {};
+		kparams.linearChannelId = linearChannelId;
+		kparams.regionChannelNumbers = regionChannelNumbers;
+		return new kaltura.RequestBuilder('region', 'linearchannelbulkadd', kparams);
+	};
+	
+	/**
+	 * Deletes a linear channel from the list of regions.
+	 * @param linearChannelId int The identifier of the linear channel
+	 * @param regionIds string List of identifiers of regions
+	 * @return bool
+	 */
+	static linearchannelbulkdelete(linearChannelId, regionIds){
+		let kparams = {};
+		kparams.linearChannelId = linearChannelId;
+		kparams.regionIds = regionIds;
+		return new kaltura.RequestBuilder('region', 'linearchannelbulkdelete', kparams);
 	};
 	
 	/**
@@ -7153,6 +7384,49 @@ class uploadToken{
 	};
 }
 module.exports.uploadToken = uploadToken;
+
+
+/**
+ *Class definition for the Kaltura service: usageModule.
+ * The available service actions:
+ * @action add Internal API !!! Insert new UsageModule.
+ * @action delete Internal API !!! Delete UsageModule.
+ * @action list Internal API !!! Returns the list of available usage module.
+ */
+class usageModule{
+	
+	/**
+	 * Internal API !!! Insert new UsageModule.
+	 * @param usageModule UsageModule usage module Object
+	 * @return KalturaUsageModule
+	 */
+	static add(usageModule){
+		let kparams = {};
+		kparams.usageModule = usageModule;
+		return new kaltura.RequestBuilder('usagemodule', 'add', kparams);
+	};
+	
+	/**
+	 * Internal API !!! Delete UsageModule.
+	 * @param id int UsageModule id
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('usagemodule', 'delete', kparams);
+	};
+	
+	/**
+	 * Internal API !!! Returns the list of available usage module.
+	 * @return KalturaUsageModuleListResponse
+	 */
+	static listAction(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('usagemodule', 'list', kparams);
+	};
+}
+module.exports.usageModule = usageModule;
 
 
 /**

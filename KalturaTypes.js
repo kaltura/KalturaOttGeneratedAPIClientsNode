@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platforms allow them to do with
+// to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -519,6 +519,9 @@ START_DATE_ASC : 'START_DATE_ASC',
 
 module.exports.GroupByField = {
 MEDIA_TYPE_ID : 'media_type_id',
+SUPPRESSED : 'suppressed',
+CRID : 'crid',
+LINEAR_MEDIA_ID : 'linear_media_id',
 };
 
 module.exports.GroupByOrder = {
@@ -527,6 +530,11 @@ COUNT_ASC : 'count_asc',
 COUNT_DESC : 'count_desc',
 VALUE_ASC : 'value_asc',
 VALUE_DESC : 'value_desc',
+};
+
+module.exports.GroupingOption = {
+OMIT : 'Omit',
+INCLUDE : 'Include',
 };
 
 module.exports.HouseholdCouponOrderBy = {
@@ -679,6 +687,7 @@ APPLE_HTTP : 'APPLE_HTTP',
 MPEG_DASH : 'MPEG_DASH',
 URL : 'URL',
 SMOOTH_STREAMING : 'SMOOTH_STREAMING',
+MULTICAST : 'MULTICAST',
 NONE : 'NONE',
 };
 
@@ -780,6 +789,7 @@ PAYMENT : 'Payment',
 CATALOG : 'Catalog',
 SECURITY : 'Security',
 OPC : 'Opc',
+BASE : 'Base',
 };
 
 module.exports.PasswordPolicyOrderBy = {
