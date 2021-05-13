@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platfroms allow them to do with
+// to do with audio, video, and animation what Wiki platforms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -2912,21 +2912,6 @@ class BaseSearchAssetFilter extends AssetFilter{
 	 */
 	 setGroupOrderBy(groupOrderBy) {
 	 	this.groupOrderBy = groupOrderBy;
-	 }
-	
-	/**
-	 * Grouping Option, Omit if not specified otherwise
-	 * @return string
-	 */
-	 getGroupingOptionEqual() {
-	 	return this.groupingOptionEqual;
-	 }
-	
-	/**
-	 * @param groupingOptionEqual string Grouping Option, Omit if not specified otherwise
-	 */
-	 setGroupingOptionEqual(groupingOptionEqual) {
-	 	this.groupingOptionEqual = groupingOptionEqual;
 	 }
 }
 module.exports.BaseSearchAssetFilter = BaseSearchAssetFilter;
@@ -6485,18 +6470,6 @@ module.exports.DefaultRegionFilter = DefaultRegionFilter;
 /**
  *
  */
-class AddDefaultIfEmptyResponseProfile extends RelatedObjectFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAddDefaultIfEmptyResponseProfile';
-	}
-}
-module.exports.AddDefaultIfEmptyResponseProfile = AddDefaultIfEmptyResponseProfile;
-
-/**
- *
- */
 class SearchHistoryFilter extends Filter{
 	
 	constructor(object = null) {
@@ -7394,21 +7367,6 @@ class MediaFile extends AssetFile{
 	 */
 	 setTypeId(typeId) {
 	 	this.typeId = typeId;
-	 }
-	
-	/**
-	 * URL of the media file to be played
-	 * @return string
-	 */
-	 getAltUrl() {
-	 	return this.altUrl;
-	 }
-	
-	/**
-	 * @param altUrl string URL of the media file to be played
-	 */
-	 setAltUrl(altUrl) {
-	 	this.altUrl = altUrl;
 	 }
 	
 	/**
@@ -11292,21 +11250,6 @@ class CategoryItem extends CrudObject{
 	 */
 	 getVirtualAssetId() {
 	 	return this.virtualAssetId;
-	 }
-	
-	/**
-	 * Category reference identifier
-	 * @return string
-	 */
-	 getReferenceId() {
-	 	return this.referenceId;
-	 }
-	
-	/**
-	 * @param referenceId string Category reference identifier
-	 */
-	 setReferenceId(referenceId) {
-	 	this.referenceId = referenceId;
 	 }
 }
 module.exports.CategoryItem = CategoryItem;
@@ -17205,21 +17148,6 @@ class GeneralPartnerConfig extends PartnerConfiguration{
 	 setFinishedPercentThreshold(finishedPercentThreshold) {
 	 	this.finishedPercentThreshold = finishedPercentThreshold;
 	 }
-	
-	/**
-	 * Suspension Profile Inheritance
-	 * @return string
-	 */
-	 getSuspensionProfileInheritanceType() {
-	 	return this.suspensionProfileInheritanceType;
-	 }
-	
-	/**
-	 * @param suspensionProfileInheritanceType string Suspension Profile Inheritance
-	 */
-	 setSuspensionProfileInheritanceType(suspensionProfileInheritanceType) {
-	 	this.suspensionProfileInheritanceType = suspensionProfileInheritanceType;
-	 }
 }
 module.exports.GeneralPartnerConfig = GeneralPartnerConfig;
 
@@ -22747,21 +22675,6 @@ class AssetStruct extends kaltura.BaseObject{
 	 setConnectedParentMetaId(connectedParentMetaId) {
 	 	this.connectedParentMetaId = connectedParentMetaId;
 	 }
-	
-	/**
-	 * Dynamic data
-	 * @return map
-	 */
-	 getDynamicData() {
-	 	return this.dynamicData;
-	 }
-	
-	/**
-	 * @param dynamicData map Dynamic data
-	 */
-	 setDynamicData(dynamicData) {
-	 	this.dynamicData = dynamicData;
-	 }
 }
 module.exports.AssetStruct = AssetStruct;
 
@@ -22907,21 +22820,6 @@ class AssetStructMeta extends kaltura.BaseObject{
 	 */
 	 setIsLocationTag(isLocationTag) {
 	 	this.isLocationTag = isLocationTag;
-	 }
-	
-	/**
-	 * suppressed Order, ascending
-	 * @return int
-	 */
-	 getSuppressedOrder() {
-	 	return this.suppressedOrder;
-	 }
-	
-	/**
-	 * @param suppressedOrder int suppressed Order, ascending
-	 */
-	 setSuppressedOrder(suppressedOrder) {
-	 	this.suppressedOrder = suppressedOrder;
 	 }
 }
 module.exports.AssetStructMeta = AssetStructMeta;
@@ -27718,7 +27616,7 @@ class PlaybackContextOptions extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Playback streamer type: applehttp, mpegdash, url, smothstreaming, multicast, none
+	 * Playback streamer type: applehttp, mpegdash, url, smothstreaming, none
 	 * @return string
 	 */
 	 getStreamerType() {
@@ -27726,7 +27624,7 @@ class PlaybackContextOptions extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param streamerType string Playback streamer type: applehttp, mpegdash, url, smothstreaming, multicast, none
+	 * @param streamerType string Playback streamer type: applehttp, mpegdash, url, smothstreaming, none
 	 */
 	 setStreamerType(streamerType) {
 	 	this.streamerType = streamerType;
@@ -28360,14 +28258,6 @@ class AssetFileContext extends kaltura.BaseObject{
 	 getIsOfflinePlayBack() {
 	 	return this.isOfflinePlayBack;
 	 }
-	
-	/**
-	 * Is Live PlayBack
-	 * @return bool
-	 */
-	 getIsLivePlayBack() {
-	 	return this.isLivePlayBack;
-	 }
 }
 module.exports.AssetFileContext = AssetFileContext;
 
@@ -28760,14 +28650,6 @@ class CategoryTree extends kaltura.BaseObject{
 	 */
 	 getVirtualAssetId() {
 	 	return this.virtualAssetId;
-	 }
-	
-	/**
-	 * Category reference identifier
-	 * @return string
-	 */
-	 getReferenceId() {
-	 	return this.referenceId;
 	 }
 }
 module.exports.CategoryTree = CategoryTree;
@@ -31071,37 +30953,20 @@ class EpgNotificationSettings extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * The backward range (in hours), in which, EPG updates triggers a notification,
+	 * The range (in hours), in which, EPG updates triggers a notification,
  * every program that is updated and it’s starts time falls within this range shall trigger a notification
 	 * @return int
 	 */
-	 getBackwardTimeRange() {
-	 	return this.backwardTimeRange;
+	 getTimeRange() {
+	 	return this.timeRange;
 	 }
 	
 	/**
-	 * @param backwardTimeRange int The backward range (in hours), in which, EPG updates triggers a notification,
+	 * @param timeRange int The range (in hours), in which, EPG updates triggers a notification,
  * every program that is updated and it’s starts time falls within this range shall trigger a notification
 	 */
-	 setBackwardTimeRange(backwardTimeRange) {
-	 	this.backwardTimeRange = backwardTimeRange;
-	 }
-	
-	/**
-	 * The forward range (in hours), in which, EPG updates triggers a notification,
- * every program that is updated and it’s starts time falls within this range shall trigger a notification
-	 * @return int
-	 */
-	 getForwardTimeRange() {
-	 	return this.forwardTimeRange;
-	 }
-	
-	/**
-	 * @param forwardTimeRange int The forward range (in hours), in which, EPG updates triggers a notification,
- * every program that is updated and it’s starts time falls within this range shall trigger a notification
-	 */
-	 setForwardTimeRange(forwardTimeRange) {
-	 	this.forwardTimeRange = forwardTimeRange;
+	 setTimeRange(timeRange) {
+	 	this.timeRange = timeRange;
 	 }
 }
 module.exports.EpgNotificationSettings = EpgNotificationSettings;
@@ -31910,34 +31775,6 @@ class PurchaseSettings extends Pin{
 	 }
 }
 module.exports.PurchaseSettings = PurchaseSettings;
-
-/**
- *
- */
-class ActionResult extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaActionResult';
-	}
-	
-	/**
-	 * Identifier of entity
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Identifier of entity
-	 * @return Message
-	 */
-	 getResult() {
-	 	return this.result;
-	 }
-}
-module.exports.ActionResult = ActionResult;
 
 /**
  *
