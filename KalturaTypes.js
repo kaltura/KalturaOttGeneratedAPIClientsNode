@@ -324,6 +324,8 @@ NAME_ASC : 'NAME_ASC',
 NAME_DESC : 'NAME_DESC',
 CREATE_DATE_ASC : 'CREATE_DATE_ASC',
 CREATE_DATE_DESC : 'CREATE_DATE_DESC',
+LAST_MODIFIED_DATE_ASC : 'LAST_MODIFIED_DATE_ASC',
+LAST_MODIFIED_DATE_DESC : 'LAST_MODIFIED_DATE_DESC',
 };
 
 module.exports.ChannelType = {
@@ -789,7 +791,6 @@ PAYMENT : 'Payment',
 CATALOG : 'Catalog',
 SECURITY : 'Security',
 OPC : 'Opc',
-BASE : 'Base',
 };
 
 module.exports.PasswordPolicyOrderBy = {
