@@ -4711,24 +4711,9 @@ module.exports.partnerConfiguration = partnerConfiguration;
 /**
  *Class definition for the Kaltura service: partner.
  * The available service actions:
- * @action add Add a partner with default user.
  * @action externalLogin Returns a login session for external system (like OVP).
- * @action list Internal API !!! Returns the list of active Partners.
  */
 class partner{
-	
-	/**
-	 * Add a partner with default user.
-	 * @param partner Partner partner
-	 * @param partnerSetup PartnerSetup mandatory parameters to create partner
-	 * @return KalturaPartner
-	 */
-	static add(partner, partnerSetup){
-		let kparams = {};
-		kparams.partner = partner;
-		kparams.partnerSetup = partnerSetup;
-		return new kaltura.RequestBuilder('partner', 'add', kparams);
-	};
 	
 	/**
 	 * Returns a login session for external system (like OVP).
@@ -4737,17 +4722,6 @@ class partner{
 	static externalLogin(){
 		let kparams = {};
 		return new kaltura.RequestBuilder('partner', 'externalLogin', kparams);
-	};
-	
-	/**
-	 * Internal API !!! Returns the list of active Partners.
-	 * @param filter PartnerFilter Filter (optional, default: null)
-	 * @return KalturaPartnerListResponse
-	 */
-	static listAction(filter = null){
-		let kparams = {};
-		kparams.filter = filter;
-		return new kaltura.RequestBuilder('partner', 'list', kparams);
 	};
 }
 module.exports.partner = partner;
