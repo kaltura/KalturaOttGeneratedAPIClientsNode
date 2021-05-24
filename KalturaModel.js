@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platforms allow them to do with
+// to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -13216,6 +13216,13 @@ class BaseChannel extends OTTObjectSupportNullable{
 	 getId() {
 	 	return this.id;
 	 }
+	
+	/**
+	 * @param id int Unique identifier for the channel
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
 }
 module.exports.BaseChannel = BaseChannel;
 
@@ -14359,6 +14366,21 @@ class DiscountModule extends kaltura.BaseObject{
 	}
 	
 	/**
+	 * Discount module identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id int Discount module identifier
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
 	 * The discount percentage
 	 * @return float
 	 */
@@ -14424,11 +14446,25 @@ class UsageModule extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * @param id int Usage module identifier
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
 	 * Usage module name
 	 * @return string
 	 */
 	 getName() {
 	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Usage module name
+	 */
+	 setName(name) {
+	 	this.name = name;
 	 }
 	
 	/**
@@ -14440,6 +14476,13 @@ class UsageModule extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * @param maxViewsNumber int The maximum number of times an item in this usage module can be viewed
+	 */
+	 setMaxViewsNumber(maxViewsNumber) {
+	 	this.maxViewsNumber = maxViewsNumber;
+	 }
+	
+	/**
 	 * The amount time an item is available for viewing since a user started watching the item
 	 * @return int
 	 */
@@ -14448,11 +14491,25 @@ class UsageModule extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * @param viewLifeCycle int The amount time an item is available for viewing since a user started watching the item
+	 */
+	 setViewLifeCycle(viewLifeCycle) {
+	 	this.viewLifeCycle = viewLifeCycle;
+	 }
+	
+	/**
 	 * The amount time an item is available for viewing
 	 * @return int
 	 */
 	 getFullLifeCycle() {
 	 	return this.fullLifeCycle;
+	 }
+	
+	/**
+	 * @param fullLifeCycle int The amount time an item is available for viewing
+	 */
+	 setFullLifeCycle(fullLifeCycle) {
+	 	this.fullLifeCycle = fullLifeCycle;
 	 }
 	
 	/**
@@ -14505,6 +14562,13 @@ class CouponsGroup extends kaltura.BaseObject{
 	 */
 	 getId() {
 	 	return this.id;
+	 }
+	
+	/**
+	 * @param id string Coupon group identifier
+	 */
+	 setId(id) {
+	 	this.id = id;
 	 }
 	
 	/**
@@ -14925,6 +14989,13 @@ class PricePlan extends UsageModule{
 	 }
 	
 	/**
+	 * @param isRenewable bool Denotes whether or not this object can be renewed
+	 */
+	 setIsRenewable(isRenewable) {
+	 	this.isRenewable = isRenewable;
+	 }
+	
+	/**
 	 * Defines the number of times the module will be renewed (for the life_cycle period)
 	 * @return int
 	 */
@@ -14933,11 +15004,25 @@ class PricePlan extends UsageModule{
 	 }
 	
 	/**
+	 * @param renewalsNumber int Defines the number of times the module will be renewed (for the life_cycle period)
+	 */
+	 setRenewalsNumber(renewalsNumber) {
+	 	this.renewalsNumber = renewalsNumber;
+	 }
+	
+	/**
 	 * The discount module identifier of the price plan
 	 * @return int
 	 */
 	 getDiscountId() {
 	 	return this.discountId;
+	 }
+	
+	/**
+	 * @param discountId int The discount module identifier of the price plan
+	 */
+	 setDiscountId(discountId) {
+	 	this.discountId = discountId;
 	 }
 	
 	/**
@@ -15073,6 +15158,13 @@ class Discount extends Price{
 	 getPercentage() {
 	 	return this.percentage;
 	 }
+	
+	/**
+	 * @param percentage int The discount percentage
+	 */
+	 setPercentage(percentage) {
+	 	this.percentage = percentage;
+	 }
 }
 module.exports.Discount = Discount;
 
@@ -15152,6 +15244,36 @@ class DiscountDetails extends kaltura.BaseObject{
 	 */
 	 setEndDate(endDate) {
 	 	this.endDate = endDate;
+	 }
+	
+	/**
+	 * End date represented as epoch
+	 * @return int
+	 */
+	 getWhenAlgoTimes() {
+	 	return this.whenAlgoTimes;
+	 }
+	
+	/**
+	 * @param whenAlgoTimes int End date represented as epoch
+	 */
+	 setWhenAlgoTimes(whenAlgoTimes) {
+	 	this.whenAlgoTimes = whenAlgoTimes;
+	 }
+	
+	/**
+	 * End date represented as epoch
+	 * @return int
+	 */
+	 getWhenAlgoType() {
+	 	return this.whenAlgoType;
+	 }
+	
+	/**
+	 * @param whenAlgoType int End date represented as epoch
+	 */
+	 setWhenAlgoType(whenAlgoType) {
+	 	this.whenAlgoType = whenAlgoType;
 	 }
 }
 module.exports.DiscountDetails = DiscountDetails;
@@ -15883,6 +16005,98 @@ module.exports.PpvListResponse = PpvListResponse;
 /**
  *
  */
+class PreviewModule extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPreviewModule';
+	}
+	
+	/**
+	 * Preview module identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Preview module name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Preview module name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Preview module life cycle - for how long the preview module is active
+	 * @return int
+	 */
+	 getLifeCycle() {
+	 	return this.lifeCycle;
+	 }
+	
+	/**
+	 * @param lifeCycle int Preview module life cycle - for how long the preview module is active
+	 */
+	 setLifeCycle(lifeCycle) {
+	 	this.lifeCycle = lifeCycle;
+	 }
+	
+	/**
+	 * The time you can&#39;t buy the item to which the preview module is assigned to again
+	 * @return int
+	 */
+	 getNonRenewablePeriod() {
+	 	return this.nonRenewablePeriod;
+	 }
+	
+	/**
+	 * @param nonRenewablePeriod int The time you can&#39;t buy the item to which the preview module is assigned to again
+	 */
+	 setNonRenewablePeriod(nonRenewablePeriod) {
+	 	this.nonRenewablePeriod = nonRenewablePeriod;
+	 }
+}
+module.exports.PreviewModule = PreviewModule;
+
+/**
+ *
+ */
+class PreviewModuleListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPreviewModuleListResponse';
+	}
+	
+	/**
+	 * A list of Preview Module
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of Preview Module
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.PreviewModuleListResponse = PreviewModuleListResponse;
+
+/**
+ *
+ */
 class PriceDetailsListResponse extends ListResponse{
 	
 	constructor(object = null) {
@@ -15987,71 +16201,6 @@ class ProductsPriceListResponse extends ListResponse{
 	 }
 }
 module.exports.ProductsPriceListResponse = ProductsPriceListResponse;
-
-/**
- *
- */
-class PreviewModule extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPreviewModule';
-	}
-	
-	/**
-	 * Preview module identifier
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Preview module name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Preview module name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
-	 * Preview module life cycle - for how long the preview module is active
-	 * @return int
-	 */
-	 getLifeCycle() {
-	 	return this.lifeCycle;
-	 }
-	
-	/**
-	 * @param lifeCycle int Preview module life cycle - for how long the preview module is active
-	 */
-	 setLifeCycle(lifeCycle) {
-	 	this.lifeCycle = lifeCycle;
-	 }
-	
-	/**
-	 * The time you can&#39;t buy the item to which the preview module is assigned to again
-	 * @return int
-	 */
-	 getNonRenewablePeriod() {
-	 	return this.nonRenewablePeriod;
-	 }
-	
-	/**
-	 * @param nonRenewablePeriod int The time you can&#39;t buy the item to which the preview module is assigned to again
-	 */
-	 setNonRenewablePeriod(nonRenewablePeriod) {
-	 	this.nonRenewablePeriod = nonRenewablePeriod;
-	 }
-}
-module.exports.PreviewModule = PreviewModule;
 
 /**
  *
@@ -16748,6 +16897,33 @@ class SubscriptionSwitchSet extends SubscriptionSet{
 	}
 }
 module.exports.SubscriptionSwitchSet = SubscriptionSwitchSet;
+
+/**
+ *
+ */
+class UsageModuleListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUsageModuleListResponse';
+	}
+	
+	/**
+	 * A list of usage modules
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of usage modules
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.UsageModuleListResponse = UsageModuleListResponse;
 
 /**
  *
