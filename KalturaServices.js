@@ -3092,12 +3092,14 @@ module.exports.householdCoupon = householdCoupon;
  * @action add Add device to household.
  * @action addByPin Registers a device to a household using pin code.
  * @action delete Removes a device from household.
+ * @action deleteDynamicData Deletes dynamic data item with key  for device with identifier.
  * @action generatePin Generates device pin to use when adding a device to household by pin.
  * @action get Returns device registration status to the supplied household.
  * @action list Returns the devices within the household.
  * @action loginWithPin User sign-in via a time-expired sign-in PIN.
  * @action update Update the name of the device by UDID.
  * @action updateStatus Update the name of the device by UDID.
+ * @action upsertDynamicData Adds or updates dynamic data item for device with identifier udid. If it is needed to update several items, use a multi-request to avoid race conditions.
  */
 class householdDevice{
 	
@@ -3134,6 +3136,19 @@ class householdDevice{
 		let kparams = {};
 		kparams.udid = udid;
 		return new kaltura.RequestBuilder('householddevice', 'delete', kparams);
+	};
+	
+	/**
+	 * Deletes dynamic data item with key  for device with identifier.
+	 * @param udid string Unique identifier of device
+	 * @param key string Key of dynamic data item
+	 * @return bool
+	 */
+	static deleteDynamicData(udid, key){
+		let kparams = {};
+		kparams.udid = udid;
+		kparams.key = key;
+		return new kaltura.RequestBuilder('householddevice', 'deleteDynamicData', kparams);
 	};
 	
 	/**
@@ -3211,6 +3226,21 @@ class householdDevice{
 		kparams.status = status;
 		return new kaltura.RequestBuilder('householddevice', 'updateStatus', kparams);
 	};
+	
+	/**
+	 * Adds or updates dynamic data item for device with identifier udid. If it is needed to update several items, use a multi-request to avoid race conditions.
+	 * @param udid string Unique identifier of device
+	 * @param key string Key of dynamic data item. Max length of key is 125 characters
+	 * @param value StringValue Value of dynamic data item. Max length of value is 255 characters
+	 * @return KalturaDynamicData
+	 */
+	static upsertDynamicData(udid, key, value){
+		let kparams = {};
+		kparams.udid = udid;
+		kparams.key = key;
+		kparams.value = value;
+		return new kaltura.RequestBuilder('householddevice', 'upsertDynamicData', kparams);
+	};
 }
 module.exports.householdDevice = householdDevice;
 
@@ -3218,10 +3248,34 @@ module.exports.householdDevice = householdDevice;
 /**
  *Class definition for the Kaltura service: householdLimitations.
  * The available service actions:
+ * @action add Add household limitation.
+ * @action delete Delete household limitation.
  * @action get Get the limitation module by id.
  * @action list Get the list of PartnerConfiguration.
  */
 class householdLimitations{
+	
+	/**
+	 * Add household limitation.
+	 * @param householdLimitations HouseholdLimitations Household limitations
+	 * @return KalturaHouseholdLimitations
+	 */
+	static add(householdLimitations){
+		let kparams = {};
+		kparams.householdLimitations = householdLimitations;
+		return new kaltura.RequestBuilder('householdlimitations', 'add', kparams);
+	};
+	
+	/**
+	 * Delete household limitation.
+	 * @param householdLimitationsId int Id of household limitation
+	 * @return bool
+	 */
+	static deleteAction(householdLimitationsId){
+		let kparams = {};
+		kparams.householdLimitationsId = householdLimitationsId;
+		return new kaltura.RequestBuilder('householdlimitations', 'delete', kparams);
+	};
 	
 	/**
 	 * Get the limitation module by id.
@@ -4379,6 +4433,7 @@ module.exports.ottCategory = ottCategory;
  * @action addRole Deprecate - use Register or Update actions instead by setting user.roleIds parameter.
  * @action anonymousLogin Returns tokens (KS and refresh token) for anonymous access.
  * @action delete Permanently delete a user. User to delete cannot be an exclusive household master, and cannot be default user.
+ * @action deleteDynamicData Deletes dynamic data item for a user.
  * @action get Retrieving users&#39; data.
  * @action getEncryptedUserId Returns the identifier of the user encrypted with SHA1 using configured key.
  * @action list Returns list of OTTUser (limited to 500 items). Filters by username/external identifier/idIn or roleIdIn.
@@ -4390,9 +4445,11 @@ module.exports.ottCategory = ottCategory;
  * @action resetPassword Send an e-mail with URL to enable the user to set new password.
  * @action setInitialPassword Renew the user&#39;s password after validating the token that sent as part of URL in e-mail.
  * @action update Update user information.
- * @action updateDynamicData Update user dynamic data.
+ * @action updateDynamicData Update user dynamic data. If it is needed to update several items, use a multi-request to avoid race conditions.
+ * This API endpoint will deprecated soon. Please use UpsertDynamicData instead of it.
  * @action updateLoginData Given a user name and existing password, change to a new password.
  * @action updatePassword Update the user&#39;s existing password.
+ * @action upsertDynamicData Adds or updates dynamic data item for a user. If it is needed to update several items, use a multi-request to avoid race conditions.
  */
 class ottUser{
 	
@@ -4442,6 +4499,17 @@ class ottUser{
 	static deleteAction(){
 		let kparams = {};
 		return new kaltura.RequestBuilder('ottuser', 'delete', kparams);
+	};
+	
+	/**
+	 * Deletes dynamic data item for a user.
+	 * @param key string Key of dynamic data item
+	 * @return bool
+	 */
+	static deleteDynamicData(key){
+		let kparams = {};
+		kparams.key = key;
+		return new kaltura.RequestBuilder('ottuser', 'deleteDynamicData', kparams);
 	};
 	
 	/**
@@ -4592,9 +4660,10 @@ class ottUser{
 	};
 	
 	/**
-	 * Update user dynamic data.
-	 * @param key string Type of dynamicData
-	 * @param value StringValue Value of dynamicData
+	 * Update user dynamic data. If it is needed to update several items, use a multi-request to avoid race conditions.
+ * This API endpoint will deprecated soon. Please use UpsertDynamicData instead of it.
+	 * @param key string Type of dynamicData. Max length of key is 50 characters
+	 * @param value StringValue Value of dynamicData. Max length of value is 512 characters
 	 * @return KalturaOTTUserDynamicData
 	 */
 	static updateDynamicData(key, value){
@@ -4629,6 +4698,19 @@ class ottUser{
 		kparams.userId = userId;
 		kparams.password = password;
 		return new kaltura.RequestBuilder('ottuser', 'updatePassword', kparams);
+	};
+	
+	/**
+	 * Adds or updates dynamic data item for a user. If it is needed to update several items, use a multi-request to avoid race conditions.
+	 * @param key string Key of dynamic data item. Max length of key is 50 characters
+	 * @param value StringValue Value of dynamic data item. Max length of value is 512 characters
+	 * @return KalturaDynamicData
+	 */
+	static upsertDynamicData(key, value){
+		let kparams = {};
+		kparams.key = key;
+		kparams.value = value;
+		return new kaltura.RequestBuilder('ottuser', 'upsertDynamicData', kparams);
 	};
 }
 module.exports.ottUser = ottUser;
