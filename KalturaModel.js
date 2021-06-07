@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platfroms allow them to do with
+// to do with audio, video, and animation what Wiki platforms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -15744,6 +15744,13 @@ class PriceDetails extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * @param id int The price code identifier
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
 	 * The price code name
 	 * @return string
 	 */
@@ -15814,13 +15821,6 @@ class Ppv extends kaltura.BaseObject{
 	 */
 	 getId() {
 	 	return this.id;
-	 }
-	
-	/**
-	 * @param id string PPV identifier
-	 */
-	 setId(id) {
-	 	this.id = id;
 	 }
 	
 	/**
@@ -19983,18 +19983,18 @@ class DeviceFamilyBase extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * @param id int Device family identifier
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
 	 * Device family name
 	 * @return string
 	 */
 	 getName() {
 	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Device family name
-	 */
-	 setName(name) {
-	 	this.name = name;
 	 }
 }
 module.exports.DeviceFamilyBase = DeviceFamilyBase;
@@ -20083,11 +20083,25 @@ class HouseholdLimitations extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * @param name string Household limitation module name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
 	 * Max number of streams allowed for the household
 	 * @return int
 	 */
 	 getConcurrentLimit() {
 	 	return this.concurrentLimit;
+	 }
+	
+	/**
+	 * @param concurrentLimit int Max number of streams allowed for the household
+	 */
+	 setConcurrentLimit(concurrentLimit) {
+	 	this.concurrentLimit = concurrentLimit;
 	 }
 	
 	/**
@@ -20099,11 +20113,25 @@ class HouseholdLimitations extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * @param deviceLimit int Max number of devices allowed for the household
+	 */
+	 setDeviceLimit(deviceLimit) {
+	 	this.deviceLimit = deviceLimit;
+	 }
+	
+	/**
 	 * Allowed device change frequency code
 	 * @return int
 	 */
 	 getDeviceFrequency() {
 	 	return this.deviceFrequency;
+	 }
+	
+	/**
+	 * @param deviceFrequency int Allowed device change frequency code
+	 */
+	 setDeviceFrequency(deviceFrequency) {
+	 	this.deviceFrequency = deviceFrequency;
 	 }
 	
 	/**
@@ -20120,6 +20148,13 @@ class HouseholdLimitations extends kaltura.BaseObject{
 	 */
 	 getUserFrequency() {
 	 	return this.userFrequency;
+	 }
+	
+	/**
+	 * @param userFrequency int Allowed user change frequency code
+	 */
+	 setUserFrequency(userFrequency) {
+	 	this.userFrequency = userFrequency;
 	 }
 	
 	/**
@@ -20147,11 +20182,25 @@ class HouseholdLimitations extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * @param usersLimit int Max number of users allowed for the household
+	 */
+	 setUsersLimit(usersLimit) {
+	 	this.usersLimit = usersLimit;
+	 }
+	
+	/**
 	 * Device families limitations
 	 * @return array
 	 */
 	 getDeviceFamiliesLimitations() {
 	 	return this.deviceFamiliesLimitations;
+	 }
+	
+	/**
+	 * @param deviceFamiliesLimitations array Device families limitations
+	 */
+	 setDeviceFamiliesLimitations(deviceFamiliesLimitations) {
+	 	this.deviceFamiliesLimitations = deviceFamiliesLimitations;
 	 }
 }
 module.exports.HouseholdLimitations = HouseholdLimitations;
@@ -30566,6 +30615,48 @@ class LoginResponse extends kaltura.BaseObject{
 	 }
 }
 module.exports.LoginResponse = LoginResponse;
+
+/**
+ *
+ */
+class DynamicData extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDynamicData';
+	}
+	
+	/**
+	 * Key
+	 * @return string
+	 */
+	 getKey() {
+	 	return this.key;
+	 }
+	
+	/**
+	 * @param key string Key
+	 */
+	 setKey(key) {
+	 	this.key = key;
+	 }
+	
+	/**
+	 * Value
+	 * @return Value
+	 */
+	 getValue() {
+	 	return this.value;
+	 }
+	
+	/**
+	 * @param value Value Value
+	 */
+	 setValue(value) {
+	 	this.value = value;
+	 }
+}
+module.exports.DynamicData = DynamicData;
 
 /**
  *
