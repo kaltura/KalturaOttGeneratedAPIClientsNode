@@ -6247,6 +6247,7 @@ module.exports.segmentationType = segmentationType;
  * @action delete Delete series recording(s). Delete series recording can be called recordings in any status.
  * @action deleteBySeasonNumber Delete Season recording epgs that was recorded as part of series.
  * @action list Return a list of series recordings for the household with optional filter by status and KSQL.
+ * @action rebookCanceledByEpgId Enable EPG recording that was canceled as part of series.
  */
 class seriesRecording{
 	
@@ -6331,6 +6332,17 @@ class seriesRecording{
 		let kparams = {};
 		kparams.filter = filter;
 		return new kaltura.RequestBuilder('seriesrecording', 'list', kparams);
+	};
+	
+	/**
+	 * Enable EPG recording that was canceled as part of series.
+	 * @param epgId int EPG program identifies
+	 * @return KalturaSeriesRecording
+	 */
+	static rebookCanceledByEpgId(epgId){
+		let kparams = {};
+		kparams.epgId = epgId;
+		return new kaltura.RequestBuilder('seriesrecording', 'rebookCanceledByEpgId', kparams);
 	};
 }
 module.exports.seriesRecording = seriesRecording;
