@@ -424,10 +424,9 @@ class assetFile{
 	 * @param contextType string Playback context type (enum: KalturaPlaybackContextType)
 	 * @param ks string Kaltura session for the user, not mandatory for anonymous user (optional, default: null)
 	 * @param tokenizedUrl string Tokenized Url, not mandatory (optional, default: null)
-	 * @param isAltUrl bool Is alternative url (optional, default: false)
 	 * @return KalturaAssetFile
 	 */
-	static playManifest(partnerId, assetId, assetType, assetFileId, contextType, ks = null, tokenizedUrl = null, isAltUrl = false){
+	static playManifest(partnerId, assetId, assetType, assetFileId, contextType, ks = null, tokenizedUrl = null){
 		let kparams = {};
 		kparams.partnerId = partnerId;
 		kparams.assetId = assetId;
@@ -436,7 +435,6 @@ class assetFile{
 		kparams.contextType = contextType;
 		kparams.ks = ks;
 		kparams.tokenizedUrl = tokenizedUrl;
-		kparams.isAltUrl = isAltUrl;
 		return new kaltura.RequestBuilder('assetfile', 'playManifest', kparams);
 	};
 }
@@ -3020,14 +3018,12 @@ module.exports.householdCoupon = householdCoupon;
  * @action add Add device to household.
  * @action addByPin Registers a device to a household using pin code.
  * @action delete Removes a device from household.
- * @action deleteDynamicData Deletes dynamic data item with key  for device with identifier.
  * @action generatePin Generates device pin to use when adding a device to household by pin.
  * @action get Returns device registration status to the supplied household.
  * @action list Returns the devices within the household.
  * @action loginWithPin User sign-in via a time-expired sign-in PIN.
  * @action update Update the name of the device by UDID.
  * @action updateStatus Update the name of the device by UDID.
- * @action upsertDynamicData Adds or updates dynamic data item for device with identifier udid. If it is needed to update several items, use a multi-request to avoid race conditions.
  */
 class householdDevice{
 	
@@ -3064,19 +3060,6 @@ class householdDevice{
 		let kparams = {};
 		kparams.udid = udid;
 		return new kaltura.RequestBuilder('householddevice', 'delete', kparams);
-	};
-	
-	/**
-	 * Deletes dynamic data item with key  for device with identifier.
-	 * @param udid string Unique identifier of device
-	 * @param key string Key of dynamic data item
-	 * @return bool
-	 */
-	static deleteDynamicData(udid, key){
-		let kparams = {};
-		kparams.udid = udid;
-		kparams.key = key;
-		return new kaltura.RequestBuilder('householddevice', 'deleteDynamicData', kparams);
 	};
 	
 	/**
@@ -3154,21 +3137,6 @@ class householdDevice{
 		kparams.status = status;
 		return new kaltura.RequestBuilder('householddevice', 'updateStatus', kparams);
 	};
-	
-	/**
-	 * Adds or updates dynamic data item for device with identifier udid. If it is needed to update several items, use a multi-request to avoid race conditions.
-	 * @param udid string Unique identifier of device
-	 * @param key string Key of dynamic data item. Max length of key is 125 characters
-	 * @param value StringValue Value of dynamic data item. Max length of value is 255 characters
-	 * @return KalturaDynamicData
-	 */
-	static upsertDynamicData(udid, key, value){
-		let kparams = {};
-		kparams.udid = udid;
-		kparams.key = key;
-		kparams.value = value;
-		return new kaltura.RequestBuilder('householddevice', 'upsertDynamicData', kparams);
-	};
 }
 module.exports.householdDevice = householdDevice;
 
@@ -3176,34 +3144,10 @@ module.exports.householdDevice = householdDevice;
 /**
  *Class definition for the Kaltura service: householdLimitations.
  * The available service actions:
- * @action add Add household limitation.
- * @action delete Delete household limitation.
  * @action get Get the limitation module by id.
  * @action list Get the list of PartnerConfiguration.
  */
 class householdLimitations{
-	
-	/**
-	 * Add household limitation.
-	 * @param householdLimitations HouseholdLimitations Household limitations
-	 * @return KalturaHouseholdLimitations
-	 */
-	static add(householdLimitations){
-		let kparams = {};
-		kparams.householdLimitations = householdLimitations;
-		return new kaltura.RequestBuilder('householdlimitations', 'add', kparams);
-	};
-	
-	/**
-	 * Delete household limitation.
-	 * @param householdLimitationsId int Id of household limitation
-	 * @return bool
-	 */
-	static deleteAction(householdLimitationsId){
-		let kparams = {};
-		kparams.householdLimitationsId = householdLimitationsId;
-		return new kaltura.RequestBuilder('householdlimitations', 'delete', kparams);
-	};
 	
 	/**
 	 * Get the limitation module by id.
@@ -4361,7 +4305,6 @@ module.exports.ottCategory = ottCategory;
  * @action addRole Deprecate - use Register or Update actions instead by setting user.roleIds parameter.
  * @action anonymousLogin Returns tokens (KS and refresh token) for anonymous access.
  * @action delete Permanently delete a user. User to delete cannot be an exclusive household master, and cannot be default user.
- * @action deleteDynamicData Deletes dynamic data item for a user.
  * @action get Retrieving users&#39; data.
  * @action getEncryptedUserId Returns the identifier of the user encrypted with SHA1 using configured key.
  * @action list Returns list of OTTUser (limited to 500 items). Filters by username/external identifier/idIn or roleIdIn.
@@ -4373,11 +4316,9 @@ module.exports.ottCategory = ottCategory;
  * @action resetPassword Send an e-mail with URL to enable the user to set new password.
  * @action setInitialPassword Renew the user&#39;s password after validating the token that sent as part of URL in e-mail.
  * @action update Update user information.
- * @action updateDynamicData Update user dynamic data. If it is needed to update several items, use a multi-request to avoid race conditions.
- * This API endpoint will deprecated soon. Please use UpsertDynamicData instead of it.
+ * @action updateDynamicData Update user dynamic data.
  * @action updateLoginData Given a user name and existing password, change to a new password.
  * @action updatePassword Update the user&#39;s existing password.
- * @action upsertDynamicData Adds or updates dynamic data item for a user. If it is needed to update several items, use a multi-request to avoid race conditions.
  */
 class ottUser{
 	
@@ -4427,17 +4368,6 @@ class ottUser{
 	static deleteAction(){
 		let kparams = {};
 		return new kaltura.RequestBuilder('ottuser', 'delete', kparams);
-	};
-	
-	/**
-	 * Deletes dynamic data item for a user.
-	 * @param key string Key of dynamic data item
-	 * @return bool
-	 */
-	static deleteDynamicData(key){
-		let kparams = {};
-		kparams.key = key;
-		return new kaltura.RequestBuilder('ottuser', 'deleteDynamicData', kparams);
 	};
 	
 	/**
@@ -4588,10 +4518,9 @@ class ottUser{
 	};
 	
 	/**
-	 * Update user dynamic data. If it is needed to update several items, use a multi-request to avoid race conditions.
- * This API endpoint will deprecated soon. Please use UpsertDynamicData instead of it.
-	 * @param key string Type of dynamicData. Max length of key is 50 characters
-	 * @param value StringValue Value of dynamicData. Max length of value is 512 characters
+	 * Update user dynamic data.
+	 * @param key string Type of dynamicData
+	 * @param value StringValue Value of dynamicData
 	 * @return KalturaOTTUserDynamicData
 	 */
 	static updateDynamicData(key, value){
@@ -4626,19 +4555,6 @@ class ottUser{
 		kparams.userId = userId;
 		kparams.password = password;
 		return new kaltura.RequestBuilder('ottuser', 'updatePassword', kparams);
-	};
-	
-	/**
-	 * Adds or updates dynamic data item for a user. If it is needed to update several items, use a multi-request to avoid race conditions.
-	 * @param key string Key of dynamic data item. Max length of key is 50 characters
-	 * @param value StringValue Value of dynamic data item. Max length of value is 512 characters
-	 * @return KalturaDynamicData
-	 */
-	static upsertDynamicData(key, value){
-		let kparams = {};
-		kparams.key = key;
-		kparams.value = value;
-		return new kaltura.RequestBuilder('ottuser', 'upsertDynamicData', kparams);
 	};
 }
 module.exports.ottUser = ottUser;
@@ -4793,24 +4709,9 @@ module.exports.partnerConfiguration = partnerConfiguration;
 /**
  *Class definition for the Kaltura service: partner.
  * The available service actions:
- * @action add Add a partner with default user.
  * @action externalLogin Returns a login session for external system (like OVP).
- * @action list Internal API !!! Returns the list of active Partners.
  */
 class partner{
-	
-	/**
-	 * Add a partner with default user.
-	 * @param partner Partner partner
-	 * @param partnerSetup PartnerSetup mandatory parameters to create partner
-	 * @return KalturaPartner
-	 */
-	static add(partner, partnerSetup){
-		let kparams = {};
-		kparams.partner = partner;
-		kparams.partnerSetup = partnerSetup;
-		return new kaltura.RequestBuilder('partner', 'add', kparams);
-	};
 	
 	/**
 	 * Returns a login session for external system (like OVP).
@@ -4819,17 +4720,6 @@ class partner{
 	static externalLogin(){
 		let kparams = {};
 		return new kaltura.RequestBuilder('partner', 'externalLogin', kparams);
-	};
-	
-	/**
-	 * Internal API !!! Returns the list of active Partners.
-	 * @param filter PartnerFilter Filter (optional, default: null)
-	 * @return KalturaPartnerListResponse
-	 */
-	static listAction(filter = null){
-		let kparams = {};
-		kparams.filter = filter;
-		return new kaltura.RequestBuilder('partner', 'list', kparams);
 	};
 }
 module.exports.partner = partner;
@@ -5623,8 +5513,6 @@ module.exports.recommendationProfile = recommendationProfile;
  *Class definition for the Kaltura service: recording.
  * The available service actions:
  * @action add Issue a record request for a program.
- * @action bulkdelete Delete list of user&#39;s recordings. Recording can be deleted only in status Recorded.
- * Possible error codes for each recording: RecordingNotFound = 3039, RecordingStatusNotValid = 3043, Error = 1.
  * @action cancel Cancel a previously requested recording. Cancel recording can be called for recording in status Scheduled or Recording Only.
  * @action delete Delete one or more user recording(s). Delete recording can be called only for recordings in status Recorded.
  * @action get Returns recording object by internal identifier.
@@ -5644,18 +5532,6 @@ class recording{
 		let kparams = {};
 		kparams.recording = recording;
 		return new kaltura.RequestBuilder('recording', 'add', kparams);
-	};
-	
-	/**
-	 * Delete list of user&#39;s recordings. Recording can be deleted only in status Recorded.
- * Possible error codes for each recording: RecordingNotFound = 3039, RecordingStatusNotValid = 3043, Error = 1.
-	 * @param recordingIds string Recording identifiers. Up to 40 private copies and up to 100 shared copies can be deleted withing a call
-	 * @return array
-	 */
-	static bulkdelete(recordingIds){
-		let kparams = {};
-		kparams.recordingIds = recordingIds;
-		return new kaltura.RequestBuilder('recording', 'bulkdelete', kparams);
 	};
 	
 	/**
@@ -6708,12 +6584,9 @@ module.exports.subscriptionSet = subscriptionSet;
  *Class definition for the Kaltura service: system.
  * The available service actions:
  * @action clearLocalServerCache Clear local server cache.
- * @action getInvalidationKeyValue Returns the epoch value of an invalidation key if it was found.
- * @action getLayeredCacheGroupConfig Returns the current layered cache group config of the sent groupId. You need to send groupId only if you wish to get it for a specific groupId and not the one the KS belongs to.
  * @action getTime Returns current server timestamp.
  * @action getVersion Returns current server version.
  * @action incrementLayeredCacheGroupConfigVersion Returns true if version has been incremented successfully or false otherwise. You need to send groupId only if you wish to increment for a specific groupId and not the one the KS belongs to.
- * @action invalidateLayeredCacheInvalidationKey Returns true if the invalidation key was invalidated successfully or false otherwise.
  * @action ping Returns true.
  */
 class system{
@@ -6729,32 +6602,6 @@ class system{
 		kparams.clearCacheAction = clearCacheAction;
 		kparams.key = key;
 		return new kaltura.RequestBuilder('system', 'clearLocalServerCache', kparams);
-	};
-	
-	/**
-	 * Returns the epoch value of an invalidation key if it was found.
-	 * @param invalidationKey string the invalidation key to fetch it's value
-	 * @param layeredCacheConfigName string the layered cache config name of the invalidation key (optional, default: null)
-	 * @param groupId int groupId (optional)
-	 * @return KalturaLongValue
-	 */
-	static getInvalidationKeyValue(invalidationKey, layeredCacheConfigName = null, groupId = 0){
-		let kparams = {};
-		kparams.invalidationKey = invalidationKey;
-		kparams.layeredCacheConfigName = layeredCacheConfigName;
-		kparams.groupId = groupId;
-		return new kaltura.RequestBuilder('system', 'getInvalidationKeyValue', kparams);
-	};
-	
-	/**
-	 * Returns the current layered cache group config of the sent groupId. You need to send groupId only if you wish to get it for a specific groupId and not the one the KS belongs to.
-	 * @param groupId int groupId (optional)
-	 * @return KalturaStringValue
-	 */
-	static getLayeredCacheGroupConfig(groupId = 0){
-		let kparams = {};
-		kparams.groupId = groupId;
-		return new kaltura.RequestBuilder('system', 'getLayeredCacheGroupConfig', kparams);
 	};
 	
 	/**
@@ -6784,17 +6631,6 @@ class system{
 		let kparams = {};
 		kparams.groupId = groupId;
 		return new kaltura.RequestBuilder('system', 'incrementLayeredCacheGroupConfigVersion', kparams);
-	};
-	
-	/**
-	 * Returns true if the invalidation key was invalidated successfully or false otherwise.
-	 * @param key string the invalidation key to invalidate
-	 * @return bool
-	 */
-	static invalidateLayeredCacheInvalidationKey(key){
-		let kparams = {};
-		kparams.key = key;
-		return new kaltura.RequestBuilder('system', 'invalidateLayeredCacheInvalidationKey', kparams);
 	};
 	
 	/**
