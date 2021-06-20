@@ -1481,33 +1481,6 @@ module.exports.OTTUserFilter = OTTUserFilter;
 /**
  *
  */
-class PartnerFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPartnerFilter';
-	}
-	
-	/**
-	 * Comma separated discount codes
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Comma separated discount codes
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.PartnerFilter = PartnerFilter;
-
-/**
- *
- */
 class BulkUploadFilter extends Filter{
 	
 	constructor(object = null) {
@@ -8225,105 +8198,6 @@ class OTTUserListResponse extends ListResponse{
 	 }
 }
 module.exports.OTTUserListResponse = OTTUserListResponse;
-
-/**
- *
- */
-class Partner extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPartner';
-	}
-	
-	/**
-	 * PartnerId
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * @param id int PartnerId
-	 */
-	 setId(id) {
-	 	this.id = id;
-	 }
-	
-	/**
-	 * PartnerName
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string PartnerName
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
-	 * Creat date represented as epoch
-	 * @return int
-	 */
-	 getCreateDate() {
-	 	return this.createDate;
-	 }
-	
-	/**
-	 * @param createDate int Creat date represented as epoch
-	 */
-	 setCreateDate(createDate) {
-	 	this.createDate = createDate;
-	 }
-	
-	/**
-	 * Update date represented as epoch
-	 * @return int
-	 */
-	 getUpdateDate() {
-	 	return this.updateDate;
-	 }
-	
-	/**
-	 * @param updateDate int Update date represented as epoch
-	 */
-	 setUpdateDate(updateDate) {
-	 	this.updateDate = updateDate;
-	 }
-}
-module.exports.Partner = Partner;
-
-/**
- *
- */
-class PartnerListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPartnerListResponse';
-	}
-	
-	/**
-	 * A list of Partners
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array A list of Partners
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.PartnerListResponse = PartnerListResponse;
 
 /**
  *
@@ -16791,123 +16665,6 @@ module.exports.PartnerConfigurationListResponse = PartnerConfigurationListRespon
 /**
  *
  */
-class BasePartnerConfiguration extends PartnerConfiguration{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBasePartnerConfiguration';
-	}
-	
-	/**
-	 * KSExpirationSeconds
-	 * @return int
-	 */
-	 getKsExpirationSeconds() {
-	 	return this.ksExpirationSeconds;
-	 }
-	
-	/**
-	 * @param ksExpirationSeconds int KSExpirationSeconds
-	 */
-	 setKsExpirationSeconds(ksExpirationSeconds) {
-	 	this.ksExpirationSeconds = ksExpirationSeconds;
-	 }
-	
-	/**
-	 * AppTokenSessionMaxDurationSeconds
-	 * @return int
-	 */
-	 getAppTokenSessionMaxDurationSeconds() {
-	 	return this.appTokenSessionMaxDurationSeconds;
-	 }
-	
-	/**
-	 * @param appTokenSessionMaxDurationSeconds int AppTokenSessionMaxDurationSeconds
-	 */
-	 setAppTokenSessionMaxDurationSeconds(appTokenSessionMaxDurationSeconds) {
-	 	this.appTokenSessionMaxDurationSeconds = appTokenSessionMaxDurationSeconds;
-	 }
-	
-	/**
-	 * AnonymousKSExpirationSeconds
-	 * @return int
-	 */
-	 getAnonymousKSExpirationSeconds() {
-	 	return this.anonymousKSExpirationSeconds;
-	 }
-	
-	/**
-	 * @param anonymousKSExpirationSeconds int AnonymousKSExpirationSeconds
-	 */
-	 setAnonymousKSExpirationSeconds(anonymousKSExpirationSeconds) {
-	 	this.anonymousKSExpirationSeconds = anonymousKSExpirationSeconds;
-	 }
-	
-	/**
-	 * RefreshExpirationForPinLoginSeconds
-	 * @return int
-	 */
-	 getRefreshExpirationForPinLoginSeconds() {
-	 	return this.refreshExpirationForPinLoginSeconds;
-	 }
-	
-	/**
-	 * @param refreshExpirationForPinLoginSeconds int RefreshExpirationForPinLoginSeconds
-	 */
-	 setRefreshExpirationForPinLoginSeconds(refreshExpirationForPinLoginSeconds) {
-	 	this.refreshExpirationForPinLoginSeconds = refreshExpirationForPinLoginSeconds;
-	 }
-	
-	/**
-	 * AppTokenMaxExpirySeconds
-	 * @return int
-	 */
-	 getAppTokenMaxExpirySeconds() {
-	 	return this.appTokenMaxExpirySeconds;
-	 }
-	
-	/**
-	 * @param appTokenMaxExpirySeconds int AppTokenMaxExpirySeconds
-	 */
-	 setAppTokenMaxExpirySeconds(appTokenMaxExpirySeconds) {
-	 	this.appTokenMaxExpirySeconds = appTokenMaxExpirySeconds;
-	 }
-	
-	/**
-	 * uploadTokenExpirySeconds
-	 * @return int
-	 */
-	 getUploadTokenExpirySeconds() {
-	 	return this.uploadTokenExpirySeconds;
-	 }
-	
-	/**
-	 * @param uploadTokenExpirySeconds int uploadTokenExpirySeconds
-	 */
-	 setUploadTokenExpirySeconds(uploadTokenExpirySeconds) {
-	 	this.uploadTokenExpirySeconds = uploadTokenExpirySeconds;
-	 }
-	
-	/**
-	 * apptokenUserValidationDisabled
-	 * @return bool
-	 */
-	 getApptokenUserValidationDisabled() {
-	 	return this.apptokenUserValidationDisabled;
-	 }
-	
-	/**
-	 * @param apptokenUserValidationDisabled bool apptokenUserValidationDisabled
-	 */
-	 setApptokenUserValidationDisabled(apptokenUserValidationDisabled) {
-	 	this.apptokenUserValidationDisabled = apptokenUserValidationDisabled;
-	 }
-}
-module.exports.BasePartnerConfiguration = BasePartnerConfiguration;
-
-/**
- *
- */
 class BillingPartnerConfig extends PartnerConfiguration{
 	
 	constructor(object = null) {
@@ -19807,18 +19564,18 @@ class DeviceFamilyBase extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param id int Device family identifier
-	 */
-	 setId(id) {
-	 	this.id = id;
-	 }
-	
-	/**
 	 * Device family name
 	 * @return string
 	 */
 	 getName() {
 	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Device family name
+	 */
+	 setName(name) {
+	 	this.name = name;
 	 }
 }
 module.exports.DeviceFamilyBase = DeviceFamilyBase;
@@ -19907,25 +19664,11 @@ class HouseholdLimitations extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param name string Household limitation module name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
 	 * Max number of streams allowed for the household
 	 * @return int
 	 */
 	 getConcurrentLimit() {
 	 	return this.concurrentLimit;
-	 }
-	
-	/**
-	 * @param concurrentLimit int Max number of streams allowed for the household
-	 */
-	 setConcurrentLimit(concurrentLimit) {
-	 	this.concurrentLimit = concurrentLimit;
 	 }
 	
 	/**
@@ -19937,25 +19680,11 @@ class HouseholdLimitations extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param deviceLimit int Max number of devices allowed for the household
-	 */
-	 setDeviceLimit(deviceLimit) {
-	 	this.deviceLimit = deviceLimit;
-	 }
-	
-	/**
 	 * Allowed device change frequency code
 	 * @return int
 	 */
 	 getDeviceFrequency() {
 	 	return this.deviceFrequency;
-	 }
-	
-	/**
-	 * @param deviceFrequency int Allowed device change frequency code
-	 */
-	 setDeviceFrequency(deviceFrequency) {
-	 	this.deviceFrequency = deviceFrequency;
 	 }
 	
 	/**
@@ -19972,13 +19701,6 @@ class HouseholdLimitations extends kaltura.BaseObject{
 	 */
 	 getUserFrequency() {
 	 	return this.userFrequency;
-	 }
-	
-	/**
-	 * @param userFrequency int Allowed user change frequency code
-	 */
-	 setUserFrequency(userFrequency) {
-	 	this.userFrequency = userFrequency;
 	 }
 	
 	/**
@@ -20006,25 +19728,11 @@ class HouseholdLimitations extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param usersLimit int Max number of users allowed for the household
-	 */
-	 setUsersLimit(usersLimit) {
-	 	this.usersLimit = usersLimit;
-	 }
-	
-	/**
 	 * Device families limitations
 	 * @return array
 	 */
 	 getDeviceFamiliesLimitations() {
 	 	return this.deviceFamiliesLimitations;
-	 }
-	
-	/**
-	 * @param deviceFamiliesLimitations array Device families limitations
-	 */
-	 setDeviceFamiliesLimitations(deviceFamiliesLimitations) {
-	 	this.deviceFamiliesLimitations = deviceFamiliesLimitations;
 	 }
 }
 module.exports.HouseholdLimitations = HouseholdLimitations;
@@ -21770,6 +21478,14 @@ class SeriesRecording extends kaltura.BaseObject{
 	 */
 	 getExcludedSeasons() {
 	 	return this.excludedSeasons;
+	 }
+	
+	/**
+	 * Series Recording Option
+	 * @return string
+	 */
+	 getSeriesRecordingOption() {
+	 	return this.seriesRecordingOption;
 	 }
 }
 module.exports.SeriesRecording = SeriesRecording;
@@ -30443,48 +30159,6 @@ module.exports.LoginResponse = LoginResponse;
 /**
  *
  */
-class DynamicData extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDynamicData';
-	}
-	
-	/**
-	 * Key
-	 * @return string
-	 */
-	 getKey() {
-	 	return this.key;
-	 }
-	
-	/**
-	 * @param key string Key
-	 */
-	 setKey(key) {
-	 	this.key = key;
-	 }
-	
-	/**
-	 * Value
-	 * @return Value
-	 */
-	 getValue() {
-	 	return this.value;
-	 }
-	
-	/**
-	 * @param value Value Value
-	 */
-	 setValue(value) {
-	 	this.value = value;
-	 }
-}
-module.exports.DynamicData = DynamicData;
-
-/**
- *
- */
 class PaymentGatewayConfiguration extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -31858,63 +31532,6 @@ class OTTUserDynamicData extends kaltura.BaseObject{
 	 }
 }
 module.exports.OTTUserDynamicData = OTTUserDynamicData;
-
-/**
- *
- */
-class PartnerSetup extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPartnerSetup';
-	}
-	
-	/**
-	 * admin Username
-	 * @return string
-	 */
-	 getAdminUsername() {
-	 	return this.adminUsername;
-	 }
-	
-	/**
-	 * @param adminUsername string admin Username
-	 */
-	 setAdminUsername(adminUsername) {
-	 	this.adminUsername = adminUsername;
-	 }
-	
-	/**
-	 * admin Password
-	 * @return string
-	 */
-	 getAdminPassword() {
-	 	return this.adminPassword;
-	 }
-	
-	/**
-	 * @param adminPassword string admin Password
-	 */
-	 setAdminPassword(adminPassword) {
-	 	this.adminPassword = adminPassword;
-	 }
-	
-	/**
-	 * basePartnerConfiguration
-	 * @return BasePartnerConfiguration
-	 */
-	 getBasePartnerConfiguration() {
-	 	return this.basePartnerConfiguration;
-	 }
-	
-	/**
-	 * @param basePartnerConfiguration BasePartnerConfiguration basePartnerConfiguration
-	 */
-	 setBasePartnerConfiguration(basePartnerConfiguration) {
-	 	this.basePartnerConfiguration = basePartnerConfiguration;
-	 }
-}
-module.exports.PartnerSetup = PartnerSetup;
 
 /**
  *

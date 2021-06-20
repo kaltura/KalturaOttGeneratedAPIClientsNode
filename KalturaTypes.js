@@ -789,7 +789,6 @@ PAYMENT : 'Payment',
 CATALOG : 'Catalog',
 SECURITY : 'Security',
 OPC : 'Opc',
-BASE : 'Base',
 };
 
 module.exports.PasswordPolicyOrderBy = {
@@ -1053,6 +1052,12 @@ ALL : 'all',
 
 module.exports.SearchHistoryOrderBy = {
 NONE : 'NONE',
+};
+
+module.exports.SeriesRecordingOption = {
+FUTURE : 'FUTURE',
+ORIGINAL_BROADCAST : 'ORIGINAL_BROADCAST',
+ALL : 'ALL',
 };
 
 module.exports.SeriesRecordingOrderBy = {
