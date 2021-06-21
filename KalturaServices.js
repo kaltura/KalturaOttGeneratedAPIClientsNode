@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platfroms allow them to do with
+// to do with audio, video, and animation what Wiki platforms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -4866,6 +4866,7 @@ module.exports.partnerConfiguration = partnerConfiguration;
  *Class definition for the Kaltura service: partner.
  * The available service actions:
  * @action add Add a partner with default user.
+ * @action delete Internal API !!! Delete Partner.
  * @action externalLogin Returns a login session for external system (like OVP).
  * @action list Internal API !!! Returns the list of active Partners.
  */
@@ -4882,6 +4883,17 @@ class partner{
 		kparams.partner = partner;
 		kparams.partnerSetup = partnerSetup;
 		return new kaltura.RequestBuilder('partner', 'add', kparams);
+	};
+	
+	/**
+	 * Internal API !!! Delete Partner.
+	 * @param id int Partner id
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('partner', 'delete', kparams);
 	};
 	
 	/**
