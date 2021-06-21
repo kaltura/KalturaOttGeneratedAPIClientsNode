@@ -324,6 +324,8 @@ NAME_ASC : 'NAME_ASC',
 NAME_DESC : 'NAME_DESC',
 CREATE_DATE_ASC : 'CREATE_DATE_ASC',
 CREATE_DATE_DESC : 'CREATE_DATE_DESC',
+UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
+UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
 };
 
 module.exports.ChannelType = {
@@ -789,6 +791,7 @@ PAYMENT : 'Payment',
 CATALOG : 'Catalog',
 SECURITY : 'Security',
 OPC : 'Opc',
+BASE : 'Base',
 };
 
 module.exports.PasswordPolicyOrderBy = {
@@ -1052,12 +1055,6 @@ ALL : 'all',
 
 module.exports.SearchHistoryOrderBy = {
 NONE : 'NONE',
-};
-
-module.exports.SeriesRecordingOption = {
-FUTURE : 'FUTURE',
-ORIGINAL_BROADCAST : 'ORIGINAL_BROADCAST',
-ALL : 'ALL',
 };
 
 module.exports.SeriesRecordingOrderBy = {
