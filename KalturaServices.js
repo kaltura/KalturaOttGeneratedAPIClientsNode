@@ -4866,6 +4866,7 @@ module.exports.partnerConfiguration = partnerConfiguration;
  *Class definition for the Kaltura service: partner.
  * The available service actions:
  * @action add Add a partner with default user.
+ * @action createIndexes Internal API !!! create ElasticSearch indexes for partner.
  * @action delete Internal API !!! Delete Partner.
  * @action externalLogin Returns a login session for external system (like OVP).
  * @action list Internal API !!! Returns the list of active Partners.
@@ -4883,6 +4884,15 @@ class partner{
 		kparams.partner = partner;
 		kparams.partnerSetup = partnerSetup;
 		return new kaltura.RequestBuilder('partner', 'add', kparams);
+	};
+	
+	/**
+	 * Internal API !!! create ElasticSearch indexes for partner.
+	 * @return bool
+	 */
+	static createIndexes(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('partner', 'createIndexes', kparams);
 	};
 	
 	/**
@@ -6786,34 +6796,10 @@ module.exports.streamingDevice = streamingDevice;
 /**
  *Class definition for the Kaltura service: subscription.
  * The available service actions:
- * @action add Internal API !!! Insert new subscription for partner.
- * @action delete Internal API !!! Delete subscription.
  * @action list Returns a list of subscriptions requested by Subscription ID or file ID.
  * @action validateCoupon Returns information about a coupon for subscription.
  */
 class subscription{
-	
-	/**
-	 * Internal API !!! Insert new subscription for partner.
-	 * @param subscription SubscriptionInternal subscription object
-	 * @return KalturaSubscriptionInternal
-	 */
-	static add(subscription){
-		let kparams = {};
-		kparams.subscription = subscription;
-		return new kaltura.RequestBuilder('subscription', 'add', kparams);
-	};
-	
-	/**
-	 * Internal API !!! Delete subscription.
-	 * @param id int Subscription id
-	 * @return bool
-	 */
-	static deleteAction(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('subscription', 'delete', kparams);
-	};
 	
 	/**
 	 * Returns a list of subscriptions requested by Subscription ID or file ID.
