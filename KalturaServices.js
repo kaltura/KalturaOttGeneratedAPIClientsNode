@@ -4866,6 +4866,7 @@ module.exports.partnerConfiguration = partnerConfiguration;
  *Class definition for the Kaltura service: partner.
  * The available service actions:
  * @action add Add a partner with default user.
+ * @action createIndexes Internal API !!! create ElasticSearch indexes for partner.
  * @action delete Internal API !!! Delete Partner.
  * @action externalLogin Returns a login session for external system (like OVP).
  * @action list Internal API !!! Returns the list of active Partners.
@@ -4883,6 +4884,15 @@ class partner{
 		kparams.partner = partner;
 		kparams.partnerSetup = partnerSetup;
 		return new kaltura.RequestBuilder('partner', 'add', kparams);
+	};
+	
+	/**
+	 * Internal API !!! create ElasticSearch indexes for partner.
+	 * @return bool
+	 */
+	static createIndexes(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('partner', 'createIndexes', kparams);
 	};
 	
 	/**
