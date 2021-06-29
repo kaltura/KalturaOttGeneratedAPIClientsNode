@@ -33302,66 +33302,6 @@ class SubscriptionInternal extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * The maximum number of times an item in this usage module can be viewed
-	 * @return int
-	 */
-	 getMaxViewsNumber() {
-	 	return this.maxViewsNumber;
-	 }
-	
-	/**
-	 * @param maxViewsNumber int The maximum number of times an item in this usage module can be viewed
-	 */
-	 setMaxViewsNumber(maxViewsNumber) {
-	 	this.maxViewsNumber = maxViewsNumber;
-	 }
-	
-	/**
-	 * The amount time an item is available for viewing since a user started watching the item
-	 * @return int
-	 */
-	 getViewLifeCycle() {
-	 	return this.viewLifeCycle;
-	 }
-	
-	/**
-	 * @param viewLifeCycle int The amount time an item is available for viewing since a user started watching the item
-	 */
-	 setViewLifeCycle(viewLifeCycle) {
-	 	this.viewLifeCycle = viewLifeCycle;
-	 }
-	
-	/**
-	 * Time period during which the end user can waive his rights to cancel a purchase. When the time period is passed, the purchase can no longer be cancelled
-	 * @return int
-	 */
-	 getWaiverPeriod() {
-	 	return this.waiverPeriod;
-	 }
-	
-	/**
-	 * @param waiverPeriod int Time period during which the end user can waive his rights to cancel a purchase. When the time period is passed, the purchase can no longer be cancelled
-	 */
-	 setWaiverPeriod(waiverPeriod) {
-	 	this.waiverPeriod = waiverPeriod;
-	 }
-	
-	/**
-	 * Indicates whether or not the end user has the right to waive his rights to cancel a purchase
-	 * @return bool
-	 */
-	 getIsWaiverEnabled() {
-	 	return this.isWaiverEnabled;
-	 }
-	
-	/**
-	 * @param isWaiverEnabled bool Indicates whether or not the end user has the right to waive his rights to cancel a purchase
-	 */
-	 setIsWaiverEnabled(isWaiverEnabled) {
-	 	this.isWaiverEnabled = isWaiverEnabled;
-	 }
-	
-	/**
 	 * List of Coupons group
 	 * @return array
 	 */
@@ -33479,6 +33419,21 @@ class SubscriptionInternal extends kaltura.BaseObject{
 	 */
 	 setAdsParam(adsParam) {
 	 	this.adsParam = adsParam;
+	 }
+	
+	/**
+	 * Is active subscription
+	 * @return bool
+	 */
+	 getIsActive() {
+	 	return this.isActive;
+	 }
+	
+	/**
+	 * @param isActive bool Is active subscription
+	 */
+	 setIsActive(isActive) {
+	 	this.isActive = isActive;
 	 }
 }
 module.exports.SubscriptionInternal = SubscriptionInternal;
