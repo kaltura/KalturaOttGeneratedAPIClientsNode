@@ -21834,6 +21834,48 @@ module.exports.RecordingListResponse = RecordingListResponse;
 /**
  *
  */
+class SeriesRecordingOption extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSeriesRecordingOption';
+	}
+	
+	/**
+	 * min Season Number
+	 * @return int
+	 */
+	 getMinSeasonNumber() {
+	 	return this.minSeasonNumber;
+	 }
+	
+	/**
+	 * @param minSeasonNumber int min Season Number
+	 */
+	 setMinSeasonNumber(minSeasonNumber) {
+	 	this.minSeasonNumber = minSeasonNumber;
+	 }
+	
+	/**
+	 * min Season Number
+	 * @return int
+	 */
+	 getMinEpisodeNumber() {
+	 	return this.minEpisodeNumber;
+	 }
+	
+	/**
+	 * @param minEpisodeNumber int min Season Number
+	 */
+	 setMinEpisodeNumber(minEpisodeNumber) {
+	 	this.minEpisodeNumber = minEpisodeNumber;
+	 }
+}
+module.exports.SeriesRecordingOption = SeriesRecordingOption;
+
+/**
+ *
+ */
 class SeriesRecording extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -21946,6 +21988,21 @@ class SeriesRecording extends kaltura.BaseObject{
 	 */
 	 getExcludedSeasons() {
 	 	return this.excludedSeasons;
+	 }
+	
+	/**
+	 * Series Recording Option
+	 * @return SeriesRecordingOption
+	 */
+	 getSeriesRecordingOption() {
+	 	return this.seriesRecordingOption;
+	 }
+	
+	/**
+	 * @param seriesRecordingOption SeriesRecordingOption Series Recording Option
+	 */
+	 setSeriesRecordingOption(seriesRecordingOption) {
+	 	this.seriesRecordingOption = seriesRecordingOption;
 	 }
 }
 module.exports.SeriesRecording = SeriesRecording;
