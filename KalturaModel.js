@@ -16240,6 +16240,63 @@ module.exports.PremiumService = PremiumService;
 /**
  *
  */
+class SubscriptionCouponGroup extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSubscriptionCouponGroup';
+	}
+	
+	/**
+	 * Coupon group identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id int Coupon group identifier
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
+	 * The first date the coupons in this coupons group are valid
+	 * @return int
+	 */
+	 getStartDate() {
+	 	return this.startDate;
+	 }
+	
+	/**
+	 * @param startDate int The first date the coupons in this coupons group are valid
+	 */
+	 setStartDate(startDate) {
+	 	this.startDate = startDate;
+	 }
+	
+	/**
+	 * The last date the coupons in this coupons group are valid
+	 * @return int
+	 */
+	 getEndDate() {
+	 	return this.endDate;
+	 }
+	
+	/**
+	 * @param endDate int The last date the coupons in this coupons group are valid
+	 */
+	 setEndDate(endDate) {
+	 	this.endDate = endDate;
+	 }
+}
+module.exports.SubscriptionCouponGroup = SubscriptionCouponGroup;
+
+/**
+ *
+ */
 class Subscription extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -16271,10 +16328,18 @@ class Subscription extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param channels array A list of channels associated with this subscription
+	 * Comma separated channels Ids associated with this subscription
+	 * @return string
 	 */
-	 setChannels(channels) {
-	 	this.channels = channels;
+	 getChannelsIds() {
+	 	return this.channelsIds;
+	 }
+	
+	/**
+	 * @param channelsIds string Comma separated channels Ids associated with this subscription
+	 */
+	 setChannelsIds(channelsIds) {
+	 	this.channelsIds = channelsIds;
 	 }
 	
 	/**
@@ -16316,10 +16381,18 @@ class Subscription extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param fileTypes array A list of file types identifiers that are supported in this subscription
+	 * Comma separated file types identifiers that are supported in this subscription
+	 * @return string
 	 */
-	 setFileTypes(fileTypes) {
-	 	this.fileTypes = fileTypes;
+	 getFileTypesIds() {
+	 	return this.fileTypesIds;
+	 }
+	
+	/**
+	 * @param fileTypesIds string Comma separated file types identifiers that are supported in this subscription
+	 */
+	 setFileTypesIds(fileTypesIds) {
+	 	this.fileTypesIds = fileTypesIds;
 	 }
 	
 	/**
@@ -16331,25 +16404,11 @@ class Subscription extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param isRenewable bool Denotes whether or not this subscription can be renewed
-	 */
-	 setIsRenewable(isRenewable) {
-	 	this.isRenewable = isRenewable;
-	 }
-	
-	/**
 	 * Defines the number of times this subscription will be renewed
 	 * @return int
 	 */
 	 getRenewalsNumber() {
 	 	return this.renewalsNumber;
-	 }
-	
-	/**
-	 * @param renewalsNumber int Defines the number of times this subscription will be renewed
-	 */
-	 setRenewalsNumber(renewalsNumber) {
-	 	this.renewalsNumber = renewalsNumber;
 	 }
 	
 	/**
@@ -16361,25 +16420,11 @@ class Subscription extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param isInfiniteRenewal bool Indicates whether the subscription will renew forever
-	 */
-	 setIsInfiniteRenewal(isInfiniteRenewal) {
-	 	this.isInfiniteRenewal = isInfiniteRenewal;
-	 }
-	
-	/**
 	 * The price of the subscription
 	 * @return PriceDetails
 	 */
 	 getPrice() {
 	 	return this.price;
-	 }
-	
-	/**
-	 * @param price PriceDetails The price of the subscription
-	 */
-	 setPrice(price) {
-	 	this.price = price;
 	 }
 	
 	/**
@@ -16391,10 +16436,18 @@ class Subscription extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param discountModule DiscountModule The internal discount module for the subscription
+	 * The internal discount module identifier for the subscription
+	 * @return int
 	 */
-	 setDiscountModule(discountModule) {
-	 	this.discountModule = discountModule;
+	 getInternalDiscountModuleId() {
+	 	return this.internalDiscountModuleId;
+	 }
+	
+	/**
+	 * @param internalDiscountModuleId int The internal discount module identifier for the subscription
+	 */
+	 setInternalDiscountModuleId(internalDiscountModuleId) {
+	 	this.internalDiscountModuleId = internalDiscountModuleId;
 	 }
 	
 	/**
@@ -16452,13 +16505,6 @@ class Subscription extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param mediaId int Identifier of the media associated with the subscription
-	 */
-	 setMediaId(mediaId) {
-	 	this.mediaId = mediaId;
-	 }
-	
-	/**
 	 * Subscription order (when returned in methods that retrieve subscriptions)
 	 * @return int
 	 */
@@ -16497,10 +16543,18 @@ class Subscription extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param previewModule PreviewModule Subscription preview module
+	 * Subscription preview module identifier
+	 * @return int
 	 */
-	 setPreviewModule(previewModule) {
-	 	this.previewModule = previewModule;
+	 getPreviewModuleId() {
+	 	return this.previewModuleId;
+	 }
+	
+	/**
+	 * @param previewModuleId int Subscription preview module identifier
+	 */
+	 setPreviewModuleId(previewModuleId) {
+	 	this.previewModuleId = previewModuleId;
 	 }
 	
 	/**
@@ -16557,25 +16611,11 @@ class Subscription extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param maxViewsNumber int The maximum number of times an item in this usage module can be viewed
-	 */
-	 setMaxViewsNumber(maxViewsNumber) {
-	 	this.maxViewsNumber = maxViewsNumber;
-	 }
-	
-	/**
 	 * The amount time an item is available for viewing since a user started watching the item
 	 * @return int
 	 */
 	 getViewLifeCycle() {
 	 	return this.viewLifeCycle;
-	 }
-	
-	/**
-	 * @param viewLifeCycle int The amount time an item is available for viewing since a user started watching the item
-	 */
-	 setViewLifeCycle(viewLifeCycle) {
-	 	this.viewLifeCycle = viewLifeCycle;
 	 }
 	
 	/**
@@ -16587,13 +16627,6 @@ class Subscription extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param waiverPeriod int Time period during which the end user can waive his rights to cancel a purchase. When the time period is passed, the purchase can no longer be cancelled
-	 */
-	 setWaiverPeriod(waiverPeriod) {
-	 	this.waiverPeriod = waiverPeriod;
-	 }
-	
-	/**
 	 * Indicates whether or not the end user has the right to waive his rights to cancel a purchase
 	 * @return bool
 	 */
@@ -16602,25 +16635,11 @@ class Subscription extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param isWaiverEnabled bool Indicates whether or not the end user has the right to waive his rights to cancel a purchase
-	 */
-	 setIsWaiverEnabled(isWaiverEnabled) {
-	 	this.isWaiverEnabled = isWaiverEnabled;
-	 }
-	
-	/**
 	 * List of permitted user types for the subscription
 	 * @return array
 	 */
 	 getUserTypes() {
 	 	return this.userTypes;
-	 }
-	
-	/**
-	 * @param userTypes array List of permitted user types for the subscription
-	 */
-	 setUserTypes(userTypes) {
-	 	this.userTypes = userTypes;
 	 }
 	
 	/**
@@ -16636,6 +16655,21 @@ class Subscription extends kaltura.BaseObject{
 	 */
 	 setCouponsGroups(couponsGroups) {
 	 	this.couponsGroups = couponsGroups;
+	 }
+	
+	/**
+	 * List of subscription Coupons group
+	 * @return array
+	 */
+	 getSubscriptionCouponGroup() {
+	 	return this.subscriptionCouponGroup;
+	 }
+	
+	/**
+	 * @param subscriptionCouponGroup array List of subscription Coupons group
+	 */
+	 setSubscriptionCouponGroup(subscriptionCouponGroup) {
+	 	this.subscriptionCouponGroup = subscriptionCouponGroup;
 	 }
 	
 	/**
@@ -16711,6 +16745,51 @@ class Subscription extends kaltura.BaseObject{
 	 */
 	 setPreSaleDate(preSaleDate) {
 	 	this.preSaleDate = preSaleDate;
+	 }
+	
+	/**
+	 * Ads policy
+	 * @return string
+	 */
+	 getAdsPolicy() {
+	 	return this.adsPolicy;
+	 }
+	
+	/**
+	 * @param adsPolicy string Ads policy
+	 */
+	 setAdsPolicy(adsPolicy) {
+	 	this.adsPolicy = adsPolicy;
+	 }
+	
+	/**
+	 * The parameters to pass to the ads server
+	 * @return string
+	 */
+	 getAdsParam() {
+	 	return this.adsParam;
+	 }
+	
+	/**
+	 * @param adsParam string The parameters to pass to the ads server
+	 */
+	 setAdsParam(adsParam) {
+	 	this.adsParam = adsParam;
+	 }
+	
+	/**
+	 * Is active subscription
+	 * @return bool
+	 */
+	 getIsActive() {
+	 	return this.isActive;
+	 }
+	
+	/**
+	 * @param isActive bool Is active subscription
+	 */
+	 setIsActive(isActive) {
+	 	this.isActive = isActive;
 	 }
 }
 module.exports.Subscription = Subscription;
@@ -33022,421 +33101,6 @@ class SSOAdapterProfileInvoke extends kaltura.BaseObject{
 	 }
 }
 module.exports.SSOAdapterProfileInvoke = SSOAdapterProfileInvoke;
-
-/**
- *
- */
-class SubscriptionCouponGroup extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSubscriptionCouponGroup';
-	}
-	
-	/**
-	 * Coupon group identifier
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * @param id int Coupon group identifier
-	 */
-	 setId(id) {
-	 	this.id = id;
-	 }
-	
-	/**
-	 * The first date the coupons in this coupons group are valid
-	 * @return int
-	 */
-	 getStartDate() {
-	 	return this.startDate;
-	 }
-	
-	/**
-	 * @param startDate int The first date the coupons in this coupons group are valid
-	 */
-	 setStartDate(startDate) {
-	 	this.startDate = startDate;
-	 }
-	
-	/**
-	 * The last date the coupons in this coupons group are valid
-	 * @return int
-	 */
-	 getEndDate() {
-	 	return this.endDate;
-	 }
-	
-	/**
-	 * @param endDate int The last date the coupons in this coupons group are valid
-	 */
-	 setEndDate(endDate) {
-	 	this.endDate = endDate;
-	 }
-}
-module.exports.SubscriptionCouponGroup = SubscriptionCouponGroup;
-
-/**
- *
- */
-class SubscriptionInternal extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSubscriptionInternal';
-	}
-	
-	/**
-	 * Comma separated channels Ids associated with this subscription
-	 * @return string
-	 */
-	 getChannelsIds() {
-	 	return this.channelsIds;
-	 }
-	
-	/**
-	 * @param channelsIds string Comma separated channels Ids associated with this subscription
-	 */
-	 setChannelsIds(channelsIds) {
-	 	this.channelsIds = channelsIds;
-	 }
-	
-	/**
-	 * The first date the subscription is available for purchasing
-	 * @return int
-	 */
-	 getStartDate() {
-	 	return this.startDate;
-	 }
-	
-	/**
-	 * @param startDate int The first date the subscription is available for purchasing
-	 */
-	 setStartDate(startDate) {
-	 	this.startDate = startDate;
-	 }
-	
-	/**
-	 * The last date the subscription is available for purchasing
-	 * @return int
-	 */
-	 getEndDate() {
-	 	return this.endDate;
-	 }
-	
-	/**
-	 * @param endDate int The last date the subscription is available for purchasing
-	 */
-	 setEndDate(endDate) {
-	 	this.endDate = endDate;
-	 }
-	
-	/**
-	 * Comma separated file types identifiers that are supported in this subscription
-	 * @return string
-	 */
-	 getFileTypesIds() {
-	 	return this.fileTypesIds;
-	 }
-	
-	/**
-	 * @param fileTypesIds string Comma separated file types identifiers that are supported in this subscription
-	 */
-	 setFileTypesIds(fileTypesIds) {
-	 	this.fileTypesIds = fileTypesIds;
-	 }
-	
-	/**
-	 * The internal discount module identifier for the subscription
-	 * @return int
-	 */
-	 getInternalDiscountModuleId() {
-	 	return this.internalDiscountModuleId;
-	 }
-	
-	/**
-	 * @param internalDiscountModuleId int The internal discount module identifier for the subscription
-	 */
-	 setInternalDiscountModuleId(internalDiscountModuleId) {
-	 	this.internalDiscountModuleId = internalDiscountModuleId;
-	 }
-	
-	/**
-	 * Name of the subscription
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * Name of the subscription
-	 * @return array
-	 */
-	 getMultilingualName() {
-	 	return this.multilingualName;
-	 }
-	
-	/**
-	 * @param multilingualName array Name of the subscription
-	 */
-	 setMultilingualName(multilingualName) {
-	 	this.multilingualName = multilingualName;
-	 }
-	
-	/**
-	 * description of the subscription
-	 * @return string
-	 */
-	 getDescription() {
-	 	return this.description;
-	 }
-	
-	/**
-	 * description of the subscription
-	 * @return array
-	 */
-	 getMultilingualDescription() {
-	 	return this.multilingualDescription;
-	 }
-	
-	/**
-	 * @param multilingualDescription array description of the subscription
-	 */
-	 setMultilingualDescription(multilingualDescription) {
-	 	this.multilingualDescription = multilingualDescription;
-	 }
-	
-	/**
-	 * Subscription order (when returned in methods that retrieve subscriptions)
-	 * @return int
-	 */
-	 getProrityInOrder() {
-	 	return this.prorityInOrder;
-	 }
-	
-	/**
-	 * @param prorityInOrder int Subscription order (when returned in methods that retrieve subscriptions)
-	 */
-	 setProrityInOrder(prorityInOrder) {
-	 	this.prorityInOrder = prorityInOrder;
-	 }
-	
-	/**
-	 * Comma separated subscription price plan identifiers
-	 * @return string
-	 */
-	 getPricePlanIds() {
-	 	return this.pricePlanIds;
-	 }
-	
-	/**
-	 * @param pricePlanIds string Comma separated subscription price plan identifiers
-	 */
-	 setPricePlanIds(pricePlanIds) {
-	 	this.pricePlanIds = pricePlanIds;
-	 }
-	
-	/**
-	 * Subscription preview module identifier
-	 * @return int
-	 */
-	 getPreviewModuleId() {
-	 	return this.previewModuleId;
-	 }
-	
-	/**
-	 * @param previewModuleId int Subscription preview module identifier
-	 */
-	 setPreviewModuleId(previewModuleId) {
-	 	this.previewModuleId = previewModuleId;
-	 }
-	
-	/**
-	 * The household limitation module identifier associated with this subscription
-	 * @return int
-	 */
-	 getHouseholdLimitationsId() {
-	 	return this.householdLimitationsId;
-	 }
-	
-	/**
-	 * @param householdLimitationsId int The household limitation module identifier associated with this subscription
-	 */
-	 setHouseholdLimitationsId(householdLimitationsId) {
-	 	this.householdLimitationsId = householdLimitationsId;
-	 }
-	
-	/**
-	 * The subscription grace period in minutes
-	 * @return int
-	 */
-	 getGracePeriodMinutes() {
-	 	return this.gracePeriodMinutes;
-	 }
-	
-	/**
-	 * @param gracePeriodMinutes int The subscription grace period in minutes
-	 */
-	 setGracePeriodMinutes(gracePeriodMinutes) {
-	 	this.gracePeriodMinutes = gracePeriodMinutes;
-	 }
-	
-	/**
-	 * List of premium services included in the subscription
-	 * @return array
-	 */
-	 getPremiumServices() {
-	 	return this.premiumServices;
-	 }
-	
-	/**
-	 * @param premiumServices array List of premium services included in the subscription
-	 */
-	 setPremiumServices(premiumServices) {
-	 	this.premiumServices = premiumServices;
-	 }
-	
-	/**
-	 * List of Coupons group
-	 * @return array
-	 */
-	 getCouponsGroups() {
-	 	return this.couponsGroups;
-	 }
-	
-	/**
-	 * @param couponsGroups array List of Coupons group
-	 */
-	 setCouponsGroups(couponsGroups) {
-	 	this.couponsGroups = couponsGroups;
-	 }
-	
-	/**
-	 * List of Subscription product codes
-	 * @return array
-	 */
-	 getProductCodes() {
-	 	return this.productCodes;
-	 }
-	
-	/**
-	 * @param productCodes array List of Subscription product codes
-	 */
-	 setProductCodes(productCodes) {
-	 	this.productCodes = productCodes;
-	 }
-	
-	/**
-	 * Dependency Type
-	 * @return string
-	 */
-	 getDependencyType() {
-	 	return this.dependencyType;
-	 }
-	
-	/**
-	 * @param dependencyType string Dependency Type
-	 */
-	 setDependencyType(dependencyType) {
-	 	this.dependencyType = dependencyType;
-	 }
-	
-	/**
-	 * External ID
-	 * @return string
-	 */
-	 getExternalId() {
-	 	return this.externalId;
-	 }
-	
-	/**
-	 * @param externalId string External ID
-	 */
-	 setExternalId(externalId) {
-	 	this.externalId = externalId;
-	 }
-	
-	/**
-	 * Is cancellation blocked for the subscription
-	 * @return bool
-	 */
-	 getIsCancellationBlocked() {
-	 	return this.isCancellationBlocked;
-	 }
-	
-	/**
-	 * @param isCancellationBlocked bool Is cancellation blocked for the subscription
-	 */
-	 setIsCancellationBlocked(isCancellationBlocked) {
-	 	this.isCancellationBlocked = isCancellationBlocked;
-	 }
-	
-	/**
-	 * The Pre-Sale date the subscription is available for purchasing
-	 * @return int
-	 */
-	 getPreSaleDate() {
-	 	return this.preSaleDate;
-	 }
-	
-	/**
-	 * @param preSaleDate int The Pre-Sale date the subscription is available for purchasing
-	 */
-	 setPreSaleDate(preSaleDate) {
-	 	this.preSaleDate = preSaleDate;
-	 }
-	
-	/**
-	 * Ads policy
-	 * @return string
-	 */
-	 getAdsPolicy() {
-	 	return this.adsPolicy;
-	 }
-	
-	/**
-	 * @param adsPolicy string Ads policy
-	 */
-	 setAdsPolicy(adsPolicy) {
-	 	this.adsPolicy = adsPolicy;
-	 }
-	
-	/**
-	 * The parameters to pass to the ads server
-	 * @return string
-	 */
-	 getAdsParam() {
-	 	return this.adsParam;
-	 }
-	
-	/**
-	 * @param adsParam string The parameters to pass to the ads server
-	 */
-	 setAdsParam(adsParam) {
-	 	this.adsParam = adsParam;
-	 }
-	
-	/**
-	 * Is active subscription
-	 * @return bool
-	 */
-	 getIsActive() {
-	 	return this.isActive;
-	 }
-	
-	/**
-	 * @param isActive bool Is active subscription
-	 */
-	 setIsActive(isActive) {
-	 	this.isActive = isActive;
-	 }
-}
-module.exports.SubscriptionInternal = SubscriptionInternal;
 
 /**
  *
