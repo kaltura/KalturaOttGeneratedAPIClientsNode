@@ -6796,10 +6796,34 @@ module.exports.streamingDevice = streamingDevice;
 /**
  *Class definition for the Kaltura service: subscription.
  * The available service actions:
+ * @action add Internal API !!! Insert new subscription for partner.
+ * @action delete Internal API !!! Delete subscription.
  * @action list Returns a list of subscriptions requested by Subscription ID or file ID.
  * @action validateCoupon Returns information about a coupon for subscription.
  */
 class subscription{
+	
+	/**
+	 * Internal API !!! Insert new subscription for partner.
+	 * @param subscription Subscription subscription object
+	 * @return KalturaSubscription
+	 */
+	static add(subscription){
+		let kparams = {};
+		kparams.subscription = subscription;
+		return new kaltura.RequestBuilder('subscription', 'add', kparams);
+	};
+	
+	/**
+	 * Internal API !!! Delete subscription.
+	 * @param id int Subscription id
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('subscription', 'delete', kparams);
+	};
 	
 	/**
 	 * Returns a list of subscriptions requested by Subscription ID or file ID.
