@@ -17639,6 +17639,21 @@ class GeneralPartnerConfig extends PartnerConfiguration{
 	 setSuspensionProfileInheritanceType(suspensionProfileInheritanceType) {
 	 	this.suspensionProfileInheritanceType = suspensionProfileInheritanceType;
 	 }
+	
+	/**
+	 * Allow Device Mobility
+	 * @return bool
+	 */
+	 getAllowDeviceMobility() {
+	 	return this.allowDeviceMobility;
+	 }
+	
+	/**
+	 * @param allowDeviceMobility bool Allow Device Mobility
+	 */
+	 setAllowDeviceMobility(allowDeviceMobility) {
+	 	this.allowDeviceMobility = allowDeviceMobility;
+	 }
 }
 module.exports.GeneralPartnerConfig = GeneralPartnerConfig;
 
