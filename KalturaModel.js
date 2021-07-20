@@ -17454,6 +17454,21 @@ class CommercePartnerConfig extends PartnerConfiguration{
 	 setBookmarkEventThresholds(bookmarkEventThresholds) {
 	 	this.bookmarkEventThresholds = bookmarkEventThresholds;
 	 }
+	
+	/**
+	 * configuration for keep add-ons after subscription deletion
+	 * @return bool
+	 */
+	 getKeepSubscriptionAddOns() {
+	 	return this.keepSubscriptionAddOns;
+	 }
+	
+	/**
+	 * @param keepSubscriptionAddOns bool configuration for keep add-ons after subscription deletion
+	 */
+	 setKeepSubscriptionAddOns(keepSubscriptionAddOns) {
+	 	this.keepSubscriptionAddOns = keepSubscriptionAddOns;
+	 }
 }
 module.exports.CommercePartnerConfig = CommercePartnerConfig;
 
@@ -17804,6 +17819,21 @@ class GeneralPartnerConfig extends PartnerConfiguration{
 	 */
 	 setSuspensionProfileInheritanceType(suspensionProfileInheritanceType) {
 	 	this.suspensionProfileInheritanceType = suspensionProfileInheritanceType;
+	 }
+	
+	/**
+	 * Allow Device Mobility
+	 * @return bool
+	 */
+	 getAllowDeviceMobility() {
+	 	return this.allowDeviceMobility;
+	 }
+	
+	/**
+	 * @param allowDeviceMobility bool Allow Device Mobility
+	 */
+	 setAllowDeviceMobility(allowDeviceMobility) {
+	 	this.allowDeviceMobility = allowDeviceMobility;
 	 }
 }
 module.exports.GeneralPartnerConfig = GeneralPartnerConfig;

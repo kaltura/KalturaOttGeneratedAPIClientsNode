@@ -2807,7 +2807,6 @@ module.exports.favorite = favorite;
  * @action add Add a user&#39;s tv series follow.
  * Possible status codes: UserAlreadyFollowing = 8013, NotFound = 500007, InvalidAssetId = 4024.
  * @action delete Delete a user&#39;s tv series follow.
- * Possible status codes: UserNotFollowing = 8012, NotFound = 500007, InvalidAssetId = 4024, AnnouncementNotFound = 8006.
  * @action deleteWithToken Delete a user&#39;s tv series follow.
  * @action list List user&#39;s tv series follows.
  * Possible status codes:.
@@ -2828,7 +2827,6 @@ class followTvSeries{
 	
 	/**
 	 * Delete a user&#39;s tv series follow.
- * Possible status codes: UserNotFollowing = 8012, NotFound = 500007, InvalidAssetId = 4024, AnnouncementNotFound = 8006.
 	 * @param assetId int Asset identifier
 	 * @return bool
 	 */
