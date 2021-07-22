@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platforms allow them to do with
+// to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -16221,6 +16221,13 @@ class PremiumService extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * @param id int Service identifier
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
 	 * Service name / description
 	 * @return string
 	 */
@@ -16236,6 +16243,63 @@ class PremiumService extends kaltura.BaseObject{
 	 }
 }
 module.exports.PremiumService = PremiumService;
+
+/**
+ *
+ */
+class SubscriptionCouponGroup extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSubscriptionCouponGroup';
+	}
+	
+	/**
+	 * Coupon group identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id int Coupon group identifier
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
+	 * The first date the coupons in this coupons group are valid
+	 * @return int
+	 */
+	 getStartDate() {
+	 	return this.startDate;
+	 }
+	
+	/**
+	 * @param startDate int The first date the coupons in this coupons group are valid
+	 */
+	 setStartDate(startDate) {
+	 	this.startDate = startDate;
+	 }
+	
+	/**
+	 * The last date the coupons in this coupons group are valid
+	 * @return int
+	 */
+	 getEndDate() {
+	 	return this.endDate;
+	 }
+	
+	/**
+	 * @param endDate int The last date the coupons in this coupons group are valid
+	 */
+	 setEndDate(endDate) {
+	 	this.endDate = endDate;
+	 }
+}
+module.exports.SubscriptionCouponGroup = SubscriptionCouponGroup;
 
 /**
  *
@@ -16271,10 +16335,18 @@ class Subscription extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param channels array A list of channels associated with this subscription
+	 * Comma separated channels Ids associated with this subscription
+	 * @return string
 	 */
-	 setChannels(channels) {
-	 	this.channels = channels;
+	 getChannelsIds() {
+	 	return this.channelsIds;
+	 }
+	
+	/**
+	 * @param channelsIds string Comma separated channels Ids associated with this subscription
+	 */
+	 setChannelsIds(channelsIds) {
+	 	this.channelsIds = channelsIds;
 	 }
 	
 	/**
@@ -16316,10 +16388,18 @@ class Subscription extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param fileTypes array A list of file types identifiers that are supported in this subscription
+	 * Comma separated file types identifiers that are supported in this subscription
+	 * @return string
 	 */
-	 setFileTypes(fileTypes) {
-	 	this.fileTypes = fileTypes;
+	 getFileTypesIds() {
+	 	return this.fileTypesIds;
+	 }
+	
+	/**
+	 * @param fileTypesIds string Comma separated file types identifiers that are supported in this subscription
+	 */
+	 setFileTypesIds(fileTypesIds) {
+	 	this.fileTypesIds = fileTypesIds;
 	 }
 	
 	/**
@@ -16331,25 +16411,11 @@ class Subscription extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param isRenewable bool Denotes whether or not this subscription can be renewed
-	 */
-	 setIsRenewable(isRenewable) {
-	 	this.isRenewable = isRenewable;
-	 }
-	
-	/**
 	 * Defines the number of times this subscription will be renewed
 	 * @return int
 	 */
 	 getRenewalsNumber() {
 	 	return this.renewalsNumber;
-	 }
-	
-	/**
-	 * @param renewalsNumber int Defines the number of times this subscription will be renewed
-	 */
-	 setRenewalsNumber(renewalsNumber) {
-	 	this.renewalsNumber = renewalsNumber;
 	 }
 	
 	/**
@@ -16361,25 +16427,11 @@ class Subscription extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param isInfiniteRenewal bool Indicates whether the subscription will renew forever
-	 */
-	 setIsInfiniteRenewal(isInfiniteRenewal) {
-	 	this.isInfiniteRenewal = isInfiniteRenewal;
-	 }
-	
-	/**
 	 * The price of the subscription
 	 * @return PriceDetails
 	 */
 	 getPrice() {
 	 	return this.price;
-	 }
-	
-	/**
-	 * @param price PriceDetails The price of the subscription
-	 */
-	 setPrice(price) {
-	 	this.price = price;
 	 }
 	
 	/**
@@ -16391,10 +16443,18 @@ class Subscription extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param discountModule DiscountModule The internal discount module for the subscription
+	 * The internal discount module identifier for the subscription
+	 * @return int
 	 */
-	 setDiscountModule(discountModule) {
-	 	this.discountModule = discountModule;
+	 getInternalDiscountModuleId() {
+	 	return this.internalDiscountModuleId;
+	 }
+	
+	/**
+	 * @param internalDiscountModuleId int The internal discount module identifier for the subscription
+	 */
+	 setInternalDiscountModuleId(internalDiscountModuleId) {
+	 	this.internalDiscountModuleId = internalDiscountModuleId;
 	 }
 	
 	/**
@@ -16452,13 +16512,6 @@ class Subscription extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param mediaId int Identifier of the media associated with the subscription
-	 */
-	 setMediaId(mediaId) {
-	 	this.mediaId = mediaId;
-	 }
-	
-	/**
 	 * Subscription order (when returned in methods that retrieve subscriptions)
 	 * @return int
 	 */
@@ -16497,10 +16550,18 @@ class Subscription extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param previewModule PreviewModule Subscription preview module
+	 * Subscription preview module identifier
+	 * @return int
 	 */
-	 setPreviewModule(previewModule) {
-	 	this.previewModule = previewModule;
+	 getPreviewModuleId() {
+	 	return this.previewModuleId;
+	 }
+	
+	/**
+	 * @param previewModuleId int Subscription preview module identifier
+	 */
+	 setPreviewModuleId(previewModuleId) {
+	 	this.previewModuleId = previewModuleId;
 	 }
 	
 	/**
@@ -16557,25 +16618,11 @@ class Subscription extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param maxViewsNumber int The maximum number of times an item in this usage module can be viewed
-	 */
-	 setMaxViewsNumber(maxViewsNumber) {
-	 	this.maxViewsNumber = maxViewsNumber;
-	 }
-	
-	/**
 	 * The amount time an item is available for viewing since a user started watching the item
 	 * @return int
 	 */
 	 getViewLifeCycle() {
 	 	return this.viewLifeCycle;
-	 }
-	
-	/**
-	 * @param viewLifeCycle int The amount time an item is available for viewing since a user started watching the item
-	 */
-	 setViewLifeCycle(viewLifeCycle) {
-	 	this.viewLifeCycle = viewLifeCycle;
 	 }
 	
 	/**
@@ -16587,25 +16634,11 @@ class Subscription extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param waiverPeriod int Time period during which the end user can waive his rights to cancel a purchase. When the time period is passed, the purchase can no longer be cancelled
-	 */
-	 setWaiverPeriod(waiverPeriod) {
-	 	this.waiverPeriod = waiverPeriod;
-	 }
-	
-	/**
 	 * Indicates whether or not the end user has the right to waive his rights to cancel a purchase
 	 * @return bool
 	 */
 	 getIsWaiverEnabled() {
 	 	return this.isWaiverEnabled;
-	 }
-	
-	/**
-	 * @param isWaiverEnabled bool Indicates whether or not the end user has the right to waive his rights to cancel a purchase
-	 */
-	 setIsWaiverEnabled(isWaiverEnabled) {
-	 	this.isWaiverEnabled = isWaiverEnabled;
 	 }
 	
 	/**
@@ -16617,13 +16650,6 @@ class Subscription extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param userTypes array List of permitted user types for the subscription
-	 */
-	 setUserTypes(userTypes) {
-	 	this.userTypes = userTypes;
-	 }
-	
-	/**
 	 * List of Coupons group
 	 * @return array
 	 */
@@ -16632,10 +16658,18 @@ class Subscription extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param couponsGroups array List of Coupons group
+	 * List of subscription Coupons group
+	 * @return array
 	 */
-	 setCouponsGroups(couponsGroups) {
-	 	this.couponsGroups = couponsGroups;
+	 getSubscriptionCouponGroup() {
+	 	return this.subscriptionCouponGroup;
+	 }
+	
+	/**
+	 * @param subscriptionCouponGroup array List of subscription Coupons group
+	 */
+	 setSubscriptionCouponGroup(subscriptionCouponGroup) {
+	 	this.subscriptionCouponGroup = subscriptionCouponGroup;
 	 }
 	
 	/**
@@ -16711,6 +16745,51 @@ class Subscription extends kaltura.BaseObject{
 	 */
 	 setPreSaleDate(preSaleDate) {
 	 	this.preSaleDate = preSaleDate;
+	 }
+	
+	/**
+	 * Ads policy
+	 * @return string
+	 */
+	 getAdsPolicy() {
+	 	return this.adsPolicy;
+	 }
+	
+	/**
+	 * @param adsPolicy string Ads policy
+	 */
+	 setAdsPolicy(adsPolicy) {
+	 	this.adsPolicy = adsPolicy;
+	 }
+	
+	/**
+	 * The parameters to pass to the ads server
+	 * @return string
+	 */
+	 getAdsParam() {
+	 	return this.adsParam;
+	 }
+	
+	/**
+	 * @param adsParam string The parameters to pass to the ads server
+	 */
+	 setAdsParam(adsParam) {
+	 	this.adsParam = adsParam;
+	 }
+	
+	/**
+	 * Is active subscription
+	 * @return bool
+	 */
+	 getIsActive() {
+	 	return this.isActive;
+	 }
+	
+	/**
+	 * @param isActive bool Is active subscription
+	 */
+	 setIsActive(isActive) {
+	 	this.isActive = isActive;
 	 }
 }
 module.exports.Subscription = Subscription;
@@ -21834,6 +21913,48 @@ module.exports.RecordingListResponse = RecordingListResponse;
 /**
  *
  */
+class SeriesRecordingOption extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSeriesRecordingOption';
+	}
+	
+	/**
+	 * min Season Number
+	 * @return int
+	 */
+	 getMinSeasonNumber() {
+	 	return this.minSeasonNumber;
+	 }
+	
+	/**
+	 * @param minSeasonNumber int min Season Number
+	 */
+	 setMinSeasonNumber(minSeasonNumber) {
+	 	this.minSeasonNumber = minSeasonNumber;
+	 }
+	
+	/**
+	 * min Season Number
+	 * @return int
+	 */
+	 getMinEpisodeNumber() {
+	 	return this.minEpisodeNumber;
+	 }
+	
+	/**
+	 * @param minEpisodeNumber int min Season Number
+	 */
+	 setMinEpisodeNumber(minEpisodeNumber) {
+	 	this.minEpisodeNumber = minEpisodeNumber;
+	 }
+}
+module.exports.SeriesRecordingOption = SeriesRecordingOption;
+
+/**
+ *
+ */
 class SeriesRecording extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -21946,6 +22067,21 @@ class SeriesRecording extends kaltura.BaseObject{
 	 */
 	 getExcludedSeasons() {
 	 	return this.excludedSeasons;
+	 }
+	
+	/**
+	 * Series Recording Option
+	 * @return SeriesRecordingOption
+	 */
+	 getSeriesRecordingOption() {
+	 	return this.seriesRecordingOption;
+	 }
+	
+	/**
+	 * @param seriesRecordingOption SeriesRecordingOption Series Recording Option
+	 */
+	 setSeriesRecordingOption(seriesRecordingOption) {
+	 	this.seriesRecordingOption = seriesRecordingOption;
 	 }
 }
 module.exports.SeriesRecording = SeriesRecording;
