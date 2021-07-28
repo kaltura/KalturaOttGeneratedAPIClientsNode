@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platforms allow them to do with
+// to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -5576,15 +5576,15 @@ module.exports.priceDetails = priceDetails;
 /**
  *Class definition for the Kaltura service: pricePlan.
  * The available service actions:
- * @action add Internal API !!!  Insert new PriceDetails for partner.
- * @action delete Internal API !!! Delete PricePlan.
+ * @action add Insert new PricePlan.
+ * @action delete Delete PricePlan.
  * @action list Returns a list of price plans by IDs.
  * @action update Updates a price plan.
  */
 class pricePlan{
 	
 	/**
-	 * Internal API !!!  Insert new PriceDetails for partner.
+	 * Insert new PricePlan.
 	 * @param pricePlan PricePlan Price plan Object
 	 * @return KalturaPricePlan
 	 */
@@ -5595,7 +5595,7 @@ class pricePlan{
 	};
 	
 	/**
-	 * Internal API !!! Delete PricePlan.
+	 * Delete PricePlan.
 	 * @param id int PricePlan identifier
 	 * @return bool
 	 */
@@ -6796,10 +6796,34 @@ module.exports.streamingDevice = streamingDevice;
 /**
  *Class definition for the Kaltura service: subscription.
  * The available service actions:
+ * @action add Internal API !!! Insert new subscription for partner.
+ * @action delete Internal API !!! Delete subscription.
  * @action list Returns a list of subscriptions requested by Subscription ID or file ID.
  * @action validateCoupon Returns information about a coupon for subscription.
  */
 class subscription{
+	
+	/**
+	 * Internal API !!! Insert new subscription for partner.
+	 * @param subscription Subscription subscription object
+	 * @return KalturaSubscription
+	 */
+	static add(subscription){
+		let kparams = {};
+		kparams.subscription = subscription;
+		return new kaltura.RequestBuilder('subscription', 'add', kparams);
+	};
+	
+	/**
+	 * Internal API !!! Delete subscription.
+	 * @param id int Subscription id
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('subscription', 'delete', kparams);
+	};
 	
 	/**
 	 * Returns a list of subscriptions requested by Subscription ID or file ID.
