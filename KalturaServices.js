@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platforms allow them to do with
+// to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -1133,11 +1133,13 @@ class categoryTree{
 	/**
 	 * Retrieve default category tree of deviceFamilyId by KS or specific one if versionId is set.
 	 * @param versionId int Category version id of tree (optional, default: null)
+	 * @param deviceFamilyId int deviceFamilyId related to category tree (optional, default: null)
 	 * @return KalturaCategoryTree
 	 */
-	static getByVersion(versionId = null){
+	static getByVersion(versionId = null, deviceFamilyId = null){
 		let kparams = {};
 		kparams.versionId = versionId;
+		kparams.deviceFamilyId = deviceFamilyId;
 		return new kaltura.RequestBuilder('categorytree', 'getByVersion', kparams);
 	};
 }
@@ -2805,7 +2807,6 @@ module.exports.favorite = favorite;
  * @action add Add a user&#39;s tv series follow.
  * Possible status codes: UserAlreadyFollowing = 8013, NotFound = 500007, InvalidAssetId = 4024.
  * @action delete Delete a user&#39;s tv series follow.
- * Possible status codes: UserNotFollowing = 8012, NotFound = 500007, InvalidAssetId = 4024, AnnouncementNotFound = 8006.
  * @action deleteWithToken Delete a user&#39;s tv series follow.
  * @action list List user&#39;s tv series follows.
  * Possible status codes:.
@@ -2826,7 +2827,6 @@ class followTvSeries{
 	
 	/**
 	 * Delete a user&#39;s tv series follow.
- * Possible status codes: UserNotFollowing = 8012, NotFound = 500007, InvalidAssetId = 4024, AnnouncementNotFound = 8006.
 	 * @param assetId int Asset identifier
 	 * @return bool
 	 */
@@ -3908,6 +3908,67 @@ class iotProfile{
 	};
 }
 module.exports.iotProfile = iotProfile;
+
+
+/**
+ *Class definition for the Kaltura service: label.
+ * The available service actions:
+ * @action add Create a new label associated with a predefined entity attribute. Currently supports only labels on KalturaMediaFile.
+ * @action delete Deletes the existing label by its identifier.
+ * @action list Gets list of labels which meet the filter criteria.
+ * @action update Updates the existing label with a new value.
+ */
+class label{
+	
+	/**
+	 * Create a new label associated with a predefined entity attribute. Currently supports only labels on KalturaMediaFile.
+	 * @param label Label KalturaLabel object with defined Value
+	 * @return KalturaLabel
+	 */
+	static add(label){
+		let kparams = {};
+		kparams.label = label;
+		return new kaltura.RequestBuilder('label', 'add', kparams);
+	};
+	
+	/**
+	 * Deletes the existing label by its identifier.
+	 * @param id int The identifier of label
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('label', 'delete', kparams);
+	};
+	
+	/**
+	 * Gets list of labels which meet the filter criteria.
+	 * @param filter LabelFilter Filter
+	 * @param pager FilterPager Page size and index (optional, default: null)
+	 * @return KalturaLabelListResponse
+	 */
+	static listAction(filter, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('label', 'list', kparams);
+	};
+	
+	/**
+	 * Updates the existing label with a new value.
+	 * @param id int The identifier of label
+	 * @param label Label KalturaLabel object with new Value
+	 * @return KalturaLabel
+	 */
+	static update(id, label){
+		let kparams = {};
+		kparams.id = id;
+		kparams.label = label;
+		return new kaltura.RequestBuilder('label', 'update', kparams);
+	};
+}
+module.exports.label = label;
 
 
 /**
@@ -6796,10 +6857,34 @@ module.exports.streamingDevice = streamingDevice;
 /**
  *Class definition for the Kaltura service: subscription.
  * The available service actions:
+ * @action add Internal API !!! Insert new subscription for partner.
+ * @action delete Internal API !!! Delete subscription.
  * @action list Returns a list of subscriptions requested by Subscription ID or file ID.
  * @action validateCoupon Returns information about a coupon for subscription.
  */
 class subscription{
+	
+	/**
+	 * Internal API !!! Insert new subscription for partner.
+	 * @param subscription Subscription subscription object
+	 * @return KalturaSubscription
+	 */
+	static add(subscription){
+		let kparams = {};
+		kparams.subscription = subscription;
+		return new kaltura.RequestBuilder('subscription', 'add', kparams);
+	};
+	
+	/**
+	 * Internal API !!! Delete subscription.
+	 * @param id int Subscription id
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('subscription', 'delete', kparams);
+	};
 	
 	/**
 	 * Returns a list of subscriptions requested by Subscription ID or file ID.
