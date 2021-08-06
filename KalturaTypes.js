@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platforms allow them to do with
+// to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -461,6 +461,10 @@ PURCHASE_DATE_ASC : 'PURCHASE_DATE_ASC',
 PURCHASE_DATE_DESC : 'PURCHASE_DATE_DESC',
 };
 
+module.exports.EntityAttribute = {
+MEDIA_FILE_LABELS : 'MEDIA_FILE_LABELS',
+};
+
 module.exports.EntityReferenceBy = {
 USER : 'user',
 HOUSEHOLD : 'household',
@@ -656,6 +660,10 @@ NONE : 'NONE',
 };
 
 module.exports.IotProfileOrderBy = {
+NONE : 'NONE',
+};
+
+module.exports.LabelOrderBy = {
 NONE : 'NONE',
 };
 
@@ -1166,6 +1174,12 @@ ADDON : 'ADDON',
 module.exports.SubscriptionOrderBy = {
 START_DATE_ASC : 'START_DATE_ASC',
 START_DATE_DESC : 'START_DATE_DESC',
+CREATE_DATE_ASC : 'CREATE_DATE_ASC',
+CREATE_DATE_DESC : 'CREATE_DATE_DESC',
+UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
+UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
+NAME_ASC : 'NAME_ASC',
+NAME_DESC : 'NAME_DESC',
 };
 
 module.exports.SubscriptionSetOrderBy = {
