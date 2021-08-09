@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platforms allow them to do with
+// to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -1478,33 +1478,9 @@ module.exports.channel = channel;
 /**
  *Class definition for the Kaltura service: collection.
  * The available service actions:
- * @action add Internal API !!! Insert new collection for partner.
- * @action delete Internal API !!! Delete collection.
  * @action list Returns a list of subscriptions requested by Subscription ID or file ID.
  */
 class collection{
-	
-	/**
-	 * Internal API !!! Insert new collection for partner.
-	 * @param collection Collection collection object
-	 * @return KalturaCollection
-	 */
-	static add(collection){
-		let kparams = {};
-		kparams.collection = collection;
-		return new kaltura.RequestBuilder('collection', 'add', kparams);
-	};
-	
-	/**
-	 * Internal API !!! Delete collection.
-	 * @param id int Collection id
-	 * @return bool
-	 */
-	static deleteAction(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('collection', 'delete', kparams);
-	};
 	
 	/**
 	 * Returns a list of subscriptions requested by Subscription ID or file ID.
@@ -2069,33 +2045,9 @@ module.exports.deviceReferenceData = deviceReferenceData;
 /**
  *Class definition for the Kaltura service: discountDetails.
  * The available service actions:
- * @action add Internal API !!! Insert new DiscountDetails for partner.
- * @action delete Internal API !!! Delete DiscountDetails.
  * @action list Returns the list of available discounts details, can be filtered by discount codes.
  */
 class discountDetails{
-	
-	/**
-	 * Internal API !!! Insert new DiscountDetails for partner.
-	 * @param discountDetails DiscountDetails Discount details Object
-	 * @return KalturaDiscountDetails
-	 */
-	static add(discountDetails){
-		let kparams = {};
-		kparams.discountDetails = discountDetails;
-		return new kaltura.RequestBuilder('discountdetails', 'add', kparams);
-	};
-	
-	/**
-	 * Internal API !!! Delete DiscountDetails.
-	 * @param id int DiscountDetails id
-	 * @return bool
-	 */
-	static deleteAction(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('discountdetails', 'delete', kparams);
-	};
 	
 	/**
 	 * Returns the list of available discounts details, can be filtered by discount codes.
@@ -2114,33 +2066,9 @@ module.exports.discountDetails = discountDetails;
 /**
  *Class definition for the Kaltura service: drmProfile.
  * The available service actions:
- * @action add Internal API !!! Insert new DrmProfile.
- * @action delete Internal API !!! Delete DrmProfile.
  * @action list Returns all DRM adapters for partner.
  */
 class drmProfile{
-	
-	/**
-	 * Internal API !!! Insert new DrmProfile.
-	 * @param drmProfile DrmProfile Drm adapter Object
-	 * @return KalturaDrmProfile
-	 */
-	static add(drmProfile){
-		let kparams = {};
-		kparams.drmProfile = drmProfile;
-		return new kaltura.RequestBuilder('drmprofile', 'add', kparams);
-	};
-	
-	/**
-	 * Internal API !!! Delete DrmProfile.
-	 * @param id int Drm adapter id
-	 * @return bool
-	 */
-	static deleteAction(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('drmprofile', 'delete', kparams);
-	};
 	
 	/**
 	 * Returns all DRM adapters for partner.
@@ -3092,14 +3020,12 @@ module.exports.householdCoupon = householdCoupon;
  * @action add Add device to household.
  * @action addByPin Registers a device to a household using pin code.
  * @action delete Removes a device from household.
- * @action deleteDynamicData Deletes dynamic data item with key  for device with identifier.
  * @action generatePin Generates device pin to use when adding a device to household by pin.
  * @action get Returns device registration status to the supplied household.
  * @action list Returns the devices within the household.
  * @action loginWithPin User sign-in via a time-expired sign-in PIN.
  * @action update Update the name of the device by UDID.
  * @action updateStatus Update the name of the device by UDID.
- * @action upsertDynamicData Adds or updates dynamic data item for device with identifier udid. If it is needed to update several items, use a multi-request to avoid race conditions.
  */
 class householdDevice{
 	
@@ -3136,19 +3062,6 @@ class householdDevice{
 		let kparams = {};
 		kparams.udid = udid;
 		return new kaltura.RequestBuilder('householddevice', 'delete', kparams);
-	};
-	
-	/**
-	 * Deletes dynamic data item with key  for device with identifier.
-	 * @param udid string Unique identifier of device
-	 * @param key string Key of dynamic data item
-	 * @return bool
-	 */
-	static deleteDynamicData(udid, key){
-		let kparams = {};
-		kparams.udid = udid;
-		kparams.key = key;
-		return new kaltura.RequestBuilder('householddevice', 'deleteDynamicData', kparams);
 	};
 	
 	/**
@@ -3226,21 +3139,6 @@ class householdDevice{
 		kparams.status = status;
 		return new kaltura.RequestBuilder('householddevice', 'updateStatus', kparams);
 	};
-	
-	/**
-	 * Adds or updates dynamic data item for device with identifier udid. If it is needed to update several items, use a multi-request to avoid race conditions.
-	 * @param udid string Unique identifier of device
-	 * @param key string Key of dynamic data item. Max length of key is 125 characters
-	 * @param value StringValue Value of dynamic data item. Max length of value is 255 characters
-	 * @return KalturaDynamicData
-	 */
-	static upsertDynamicData(udid, key, value){
-		let kparams = {};
-		kparams.udid = udid;
-		kparams.key = key;
-		kparams.value = value;
-		return new kaltura.RequestBuilder('householddevice', 'upsertDynamicData', kparams);
-	};
 }
 module.exports.householdDevice = householdDevice;
 
@@ -3248,34 +3146,10 @@ module.exports.householdDevice = householdDevice;
 /**
  *Class definition for the Kaltura service: householdLimitations.
  * The available service actions:
- * @action add Add household limitation.
- * @action delete Delete household limitation.
  * @action get Get the limitation module by id.
  * @action list Get the list of PartnerConfiguration.
  */
 class householdLimitations{
-	
-	/**
-	 * Add household limitation.
-	 * @param householdLimitations HouseholdLimitations Household limitations
-	 * @return KalturaHouseholdLimitations
-	 */
-	static add(householdLimitations){
-		let kparams = {};
-		kparams.householdLimitations = householdLimitations;
-		return new kaltura.RequestBuilder('householdlimitations', 'add', kparams);
-	};
-	
-	/**
-	 * Delete household limitation.
-	 * @param householdLimitationsId int Id of household limitation
-	 * @return bool
-	 */
-	static deleteAction(householdLimitationsId){
-		let kparams = {};
-		kparams.householdLimitationsId = householdLimitationsId;
-		return new kaltura.RequestBuilder('householdlimitations', 'delete', kparams);
-	};
 	
 	/**
 	 * Get the limitation module by id.
@@ -4433,7 +4307,6 @@ module.exports.ottCategory = ottCategory;
  * @action addRole Deprecate - use Register or Update actions instead by setting user.roleIds parameter.
  * @action anonymousLogin Returns tokens (KS and refresh token) for anonymous access.
  * @action delete Permanently delete a user. User to delete cannot be an exclusive household master, and cannot be default user.
- * @action deleteDynamicData Deletes dynamic data item for a user.
  * @action get Retrieving users&#39; data.
  * @action getEncryptedUserId Returns the identifier of the user encrypted with SHA1 using configured key.
  * @action list Returns list of OTTUser (limited to 500 items). Filters by username/external identifier/idIn or roleIdIn.
@@ -4445,11 +4318,9 @@ module.exports.ottCategory = ottCategory;
  * @action resetPassword Send an e-mail with URL to enable the user to set new password.
  * @action setInitialPassword Renew the user&#39;s password after validating the token that sent as part of URL in e-mail.
  * @action update Update user information.
- * @action updateDynamicData Update user dynamic data. If it is needed to update several items, use a multi-request to avoid race conditions.
- * This API endpoint will deprecated soon. Please use UpsertDynamicData instead of it.
+ * @action updateDynamicData Update user dynamic data.
  * @action updateLoginData Given a user name and existing password, change to a new password.
  * @action updatePassword Update the user&#39;s existing password.
- * @action upsertDynamicData Adds or updates dynamic data item for a user. If it is needed to update several items, use a multi-request to avoid race conditions.
  */
 class ottUser{
 	
@@ -4499,17 +4370,6 @@ class ottUser{
 	static deleteAction(){
 		let kparams = {};
 		return new kaltura.RequestBuilder('ottuser', 'delete', kparams);
-	};
-	
-	/**
-	 * Deletes dynamic data item for a user.
-	 * @param key string Key of dynamic data item
-	 * @return bool
-	 */
-	static deleteDynamicData(key){
-		let kparams = {};
-		kparams.key = key;
-		return new kaltura.RequestBuilder('ottuser', 'deleteDynamicData', kparams);
 	};
 	
 	/**
@@ -4660,10 +4520,9 @@ class ottUser{
 	};
 	
 	/**
-	 * Update user dynamic data. If it is needed to update several items, use a multi-request to avoid race conditions.
- * This API endpoint will deprecated soon. Please use UpsertDynamicData instead of it.
-	 * @param key string Type of dynamicData. Max length of key is 50 characters
-	 * @param value StringValue Value of dynamicData. Max length of value is 512 characters
+	 * Update user dynamic data.
+	 * @param key string Type of dynamicData
+	 * @param value StringValue Value of dynamicData
 	 * @return KalturaOTTUserDynamicData
 	 */
 	static updateDynamicData(key, value){
@@ -4698,19 +4557,6 @@ class ottUser{
 		kparams.userId = userId;
 		kparams.password = password;
 		return new kaltura.RequestBuilder('ottuser', 'updatePassword', kparams);
-	};
-	
-	/**
-	 * Adds or updates dynamic data item for a user. If it is needed to update several items, use a multi-request to avoid race conditions.
-	 * @param key string Key of dynamic data item. Max length of key is 50 characters
-	 * @param value StringValue Value of dynamic data item. Max length of value is 512 characters
-	 * @return KalturaDynamicData
-	 */
-	static upsertDynamicData(key, value){
-		let kparams = {};
-		kparams.key = key;
-		kparams.value = value;
-		return new kaltura.RequestBuilder('ottuser', 'upsertDynamicData', kparams);
 	};
 }
 module.exports.ottUser = ottUser;
@@ -4865,46 +4711,9 @@ module.exports.partnerConfiguration = partnerConfiguration;
 /**
  *Class definition for the Kaltura service: partner.
  * The available service actions:
- * @action add Add a partner with default user.
- * @action createIndexes Internal API !!! create ElasticSearch indexes for partner.
- * @action delete Internal API !!! Delete Partner.
  * @action externalLogin Returns a login session for external system (like OVP).
- * @action list Internal API !!! Returns the list of active Partners.
  */
 class partner{
-	
-	/**
-	 * Add a partner with default user.
-	 * @param partner Partner partner
-	 * @param partnerSetup PartnerSetup mandatory parameters to create partner
-	 * @return KalturaPartner
-	 */
-	static add(partner, partnerSetup){
-		let kparams = {};
-		kparams.partner = partner;
-		kparams.partnerSetup = partnerSetup;
-		return new kaltura.RequestBuilder('partner', 'add', kparams);
-	};
-	
-	/**
-	 * Internal API !!! create ElasticSearch indexes for partner.
-	 * @return bool
-	 */
-	static createIndexes(){
-		let kparams = {};
-		return new kaltura.RequestBuilder('partner', 'createIndexes', kparams);
-	};
-	
-	/**
-	 * Internal API !!! Delete Partner.
-	 * @param id int Partner id
-	 * @return bool
-	 */
-	static deleteAction(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('partner', 'delete', kparams);
-	};
 	
 	/**
 	 * Returns a login session for external system (like OVP).
@@ -4913,17 +4722,6 @@ class partner{
 	static externalLogin(){
 		let kparams = {};
 		return new kaltura.RequestBuilder('partner', 'externalLogin', kparams);
-	};
-	
-	/**
-	 * Internal API !!! Returns the list of active Partners.
-	 * @param filter PartnerFilter Filter (optional, default: null)
-	 * @return KalturaPartnerListResponse
-	 */
-	static listAction(filter = null){
-		let kparams = {};
-		kparams.filter = filter;
-		return new kaltura.RequestBuilder('partner', 'list', kparams);
 	};
 }
 module.exports.partner = partner;
@@ -5486,78 +5284,11 @@ module.exports.ppv = ppv;
 
 
 /**
- *Class definition for the Kaltura service: previewModule.
- * The available service actions:
- * @action add Internal API !!! Insert new PreviewModule for partner.
- * @action delete Internal API !!! Delete PreviewModule.
- * @action list Internal API !!! Returns all PreviewModule.
- */
-class previewModule{
-	
-	/**
-	 * Internal API !!! Insert new PreviewModule for partner.
-	 * @param previewModule PreviewModule Preview module object
-	 * @return KalturaPreviewModule
-	 */
-	static add(previewModule){
-		let kparams = {};
-		kparams.previewModule = previewModule;
-		return new kaltura.RequestBuilder('previewmodule', 'add', kparams);
-	};
-	
-	/**
-	 * Internal API !!! Delete PreviewModule.
-	 * @param id int PreviewModule id
-	 * @return bool
-	 */
-	static deleteAction(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('previewmodule', 'delete', kparams);
-	};
-	
-	/**
-	 * Internal API !!! Returns all PreviewModule.
-	 * @return KalturaPreviewModuleListResponse
-	 */
-	static listAction(){
-		let kparams = {};
-		return new kaltura.RequestBuilder('previewmodule', 'list', kparams);
-	};
-}
-module.exports.previewModule = previewModule;
-
-
-/**
  *Class definition for the Kaltura service: priceDetails.
  * The available service actions:
- * @action add Internal API !!! Insert new PriceDetails for partner.
- * @action delete Internal API !!! Delete PriceDetails.
  * @action list Returns the list of available prices, can be filtered by price IDs.
  */
 class priceDetails{
-	
-	/**
-	 * Internal API !!! Insert new PriceDetails for partner.
-	 * @param priceDetails PriceDetails PriceDetails Object
-	 * @return KalturaPriceDetails
-	 */
-	static add(priceDetails){
-		let kparams = {};
-		kparams.priceDetails = priceDetails;
-		return new kaltura.RequestBuilder('pricedetails', 'add', kparams);
-	};
-	
-	/**
-	 * Internal API !!! Delete PriceDetails.
-	 * @param id int PriceDetails identifier
-	 * @return bool
-	 */
-	static deleteAction(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('pricedetails', 'delete', kparams);
-	};
 	
 	/**
 	 * Returns the list of available prices, can be filtered by price IDs.
@@ -5576,34 +5307,10 @@ module.exports.priceDetails = priceDetails;
 /**
  *Class definition for the Kaltura service: pricePlan.
  * The available service actions:
- * @action add Internal API !!!  Insert new PriceDetails for partner.
- * @action delete Internal API !!! Delete PricePlan.
  * @action list Returns a list of price plans by IDs.
  * @action update Updates a price plan.
  */
 class pricePlan{
-	
-	/**
-	 * Internal API !!!  Insert new PriceDetails for partner.
-	 * @param pricePlan PricePlan Price plan Object
-	 * @return KalturaPricePlan
-	 */
-	static add(pricePlan){
-		let kparams = {};
-		kparams.pricePlan = pricePlan;
-		return new kaltura.RequestBuilder('priceplan', 'add', kparams);
-	};
-	
-	/**
-	 * Internal API !!! Delete PricePlan.
-	 * @param id int PricePlan identifier
-	 * @return bool
-	 */
-	static deleteAction(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('priceplan', 'delete', kparams);
-	};
 	
 	/**
 	 * Returns a list of price plans by IDs.
@@ -6245,7 +5952,6 @@ module.exports.segmentationType = segmentationType;
  * @action delete Delete series recording(s). Delete series recording can be called recordings in any status.
  * @action deleteBySeasonNumber Delete Season recording epgs that was recorded as part of series.
  * @action list Return a list of series recordings for the household with optional filter by status and KSQL.
- * @action rebookCanceledByEpgId Enable EPG recording that was canceled as part of series.
  */
 class seriesRecording{
 	
@@ -6330,17 +6036,6 @@ class seriesRecording{
 		let kparams = {};
 		kparams.filter = filter;
 		return new kaltura.RequestBuilder('seriesrecording', 'list', kparams);
-	};
-	
-	/**
-	 * Enable EPG recording that was canceled as part of series.
-	 * @param epgId int EPG program identifies
-	 * @return KalturaSeriesRecording
-	 */
-	static rebookCanceledByEpgId(epgId){
-		let kparams = {};
-		kparams.epgId = epgId;
-		return new kaltura.RequestBuilder('seriesrecording', 'rebookCanceledByEpgId', kparams);
 	};
 }
 module.exports.seriesRecording = seriesRecording;
@@ -7500,49 +7195,6 @@ class uploadToken{
 	};
 }
 module.exports.uploadToken = uploadToken;
-
-
-/**
- *Class definition for the Kaltura service: usageModule.
- * The available service actions:
- * @action add Internal API !!! Insert new UsageModule.
- * @action delete Internal API !!! Delete UsageModule.
- * @action list Internal API !!! Returns the list of available usage module.
- */
-class usageModule{
-	
-	/**
-	 * Internal API !!! Insert new UsageModule.
-	 * @param usageModule UsageModule usage module Object
-	 * @return KalturaUsageModule
-	 */
-	static add(usageModule){
-		let kparams = {};
-		kparams.usageModule = usageModule;
-		return new kaltura.RequestBuilder('usagemodule', 'add', kparams);
-	};
-	
-	/**
-	 * Internal API !!! Delete UsageModule.
-	 * @param id int UsageModule id
-	 * @return bool
-	 */
-	static deleteAction(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('usagemodule', 'delete', kparams);
-	};
-	
-	/**
-	 * Internal API !!! Returns the list of available usage module.
-	 * @return KalturaUsageModuleListResponse
-	 */
-	static listAction(){
-		let kparams = {};
-		return new kaltura.RequestBuilder('usagemodule', 'list', kparams);
-	};
-}
-module.exports.usageModule = usageModule;
 
 
 /**
