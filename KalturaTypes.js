@@ -461,6 +461,10 @@ PURCHASE_DATE_ASC : 'PURCHASE_DATE_ASC',
 PURCHASE_DATE_DESC : 'PURCHASE_DATE_DESC',
 };
 
+module.exports.EntityAttribute = {
+MEDIA_FILE_LABELS : 'MEDIA_FILE_LABELS',
+};
+
 module.exports.EntityReferenceBy = {
 USER : 'user',
 HOUSEHOLD : 'household',
@@ -656,6 +660,10 @@ NONE : 'NONE',
 };
 
 module.exports.IotProfileOrderBy = {
+NONE : 'NONE',
+};
+
+module.exports.LabelOrderBy = {
 NONE : 'NONE',
 };
 
