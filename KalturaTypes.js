@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platforms allow them to do with
+// to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -461,6 +461,10 @@ PURCHASE_DATE_ASC : 'PURCHASE_DATE_ASC',
 PURCHASE_DATE_DESC : 'PURCHASE_DATE_DESC',
 };
 
+module.exports.EntityAttribute = {
+MEDIA_FILE_LABELS : 'MEDIA_FILE_LABELS',
+};
+
 module.exports.EntityReferenceBy = {
 USER : 'user',
 HOUSEHOLD : 'household',
@@ -656,6 +660,10 @@ NONE : 'NONE',
 };
 
 module.exports.IotProfileOrderBy = {
+NONE : 'NONE',
+};
+
+module.exports.LabelOrderBy = {
 NONE : 'NONE',
 };
 
@@ -1009,6 +1017,21 @@ APPLY_PLAYBACK_ADAPTER : 'APPLY_PLAYBACK_ADAPTER',
 FILTER : 'FILTER',
 ASSET_LIFE_CYCLE_TRANSITION : 'ASSET_LIFE_CYCLE_TRANSITION',
 APPLY_FREE_PLAYBACK : 'APPLY_FREE_PLAYBACK',
+FILTERASSETBYKSQL : 'FilterAssetByKsql',
+FILTERFILEBYQUALITYINDISCOVERY : 'FilterFileByQualityInDiscovery',
+FILTERFILEBYQUALITYINPLAYBACK : 'FilterFileByQualityInPlayback',
+FILTERFILEBYFILETYPEFORASSETTYPEINDISCOVERY : 'FilterFileByFileTypeForAssetTypeInDiscovery',
+FILTERFILEBYFILETYPEFORASSETTYPEINPLAYBACK : 'FilterFileByFileTypeForAssetTypeInPlayback',
+FILTERFILEBYFILETYPEINDISCOVERY : 'FilterFileByFileTypeInDiscovery',
+FILTERFILEBYFILETYPEINPLAYBACK : 'FilterFileByFileTypeInPlayback',
+FILTERFILEBYAUDIOCODECINDISCOVERY : 'FilterFileByAudioCodecInDiscovery',
+FILTERFILEBYAUDIOCODECINPLAYBACK : 'FilterFileByAudioCodecInPlayback',
+FILTERFILEBYVIDEOCODECINDISCOVERY : 'FilterFileByVideoCodecInDiscovery',
+FILTERFILEBYVIDEOCODECINPLAYBACK : 'FilterFileByVideoCodecInPlayback',
+FILTERFILEBYSTREAMERTYPEINDISCOVERY : 'FilterFileByStreamerTypeInDiscovery',
+FILTERFILEBYSTREAMERTYPEINPLAYBACK : 'FilterFileByStreamerTypeInPlayback',
+FILTERFILEBYLABELINDISCOVERY : 'FilterFileByLabelInDiscovery',
+FILTERFILEBYLABELINPLAYBACK : 'FilterFileByLabelInPlayback',
 };
 
 module.exports.RuleConditionType = {
@@ -1029,6 +1052,8 @@ DEVICE_FAMILY : 'DEVICE_FAMILY',
 DEVICE_MANUFACTURER : 'DEVICE_MANUFACTURER',
 DEVICE_MODEL : 'DEVICE_MODEL',
 DEVICE_UDID_DYNAMIC_LIST : 'DEVICE_UDID_DYNAMIC_LIST',
+DYNAMIC_KEYS : 'DYNAMIC_KEYS',
+USER_SESSION_PROFILE : 'USER_SESSION_PROFILE',
 };
 
 module.exports.RuleLevel = {

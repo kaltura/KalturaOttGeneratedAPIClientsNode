@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platforms allow them to do with
+// to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -166,15 +166,17 @@ class appToken{
 	 * @param userId string session user id, will be ignored if a different user id already defined on the application token (optional, default: null)
 	 * @param expiry int session expiry (in seconds), could be overwritten by shorter expiry of the application token and the session-expiry that defined on the application token (optional, default: null)
 	 * @param udid string Device UDID (optional, default: null)
+	 * @param extraParams map extra params (optional, default: null)
 	 * @return KalturaSessionInfo
 	 */
-	static startSession(id, tokenHash, userId = null, expiry = null, udid = null){
+	static startSession(id, tokenHash, userId = null, expiry = null, udid = null, extraParams = null){
 		let kparams = {};
 		kparams.id = id;
 		kparams.tokenHash = tokenHash;
 		kparams.userId = userId;
 		kparams.expiry = expiry;
 		kparams.udid = udid;
+		kparams.extraParams = extraParams;
 		return new kaltura.RequestBuilder('apptoken', 'startSession', kparams);
 	};
 }
@@ -1133,11 +1135,13 @@ class categoryTree{
 	/**
 	 * Retrieve default category tree of deviceFamilyId by KS or specific one if versionId is set.
 	 * @param versionId int Category version id of tree (optional, default: null)
+	 * @param deviceFamilyId int deviceFamilyId related to category tree (optional, default: null)
 	 * @return KalturaCategoryTree
 	 */
-	static getByVersion(versionId = null){
+	static getByVersion(versionId = null, deviceFamilyId = null){
 		let kparams = {};
 		kparams.versionId = versionId;
+		kparams.deviceFamilyId = deviceFamilyId;
 		return new kaltura.RequestBuilder('categorytree', 'getByVersion', kparams);
 	};
 }
@@ -2155,6 +2159,25 @@ module.exports.drmProfile = drmProfile;
 
 
 /**
+ *Class definition for the Kaltura service: duration.
+ * The available service actions:
+ * @action list Get the list of optinal Duration codes.
+ */
+class duration{
+	
+	/**
+	 * Get the list of optinal Duration codes.
+	 * @return KalturaDurationListResponse
+	 */
+	static listAction(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('duration', 'list', kparams);
+	};
+}
+module.exports.duration = duration;
+
+
+/**
  *Class definition for the Kaltura service: dynamicList.
  * The available service actions:
  * @action add Add an object.
@@ -2805,7 +2828,6 @@ module.exports.favorite = favorite;
  * @action add Add a user&#39;s tv series follow.
  * Possible status codes: UserAlreadyFollowing = 8013, NotFound = 500007, InvalidAssetId = 4024.
  * @action delete Delete a user&#39;s tv series follow.
- * Possible status codes: UserNotFollowing = 8012, NotFound = 500007, InvalidAssetId = 4024, AnnouncementNotFound = 8006.
  * @action deleteWithToken Delete a user&#39;s tv series follow.
  * @action list List user&#39;s tv series follows.
  * Possible status codes:.
@@ -2826,7 +2848,6 @@ class followTvSeries{
 	
 	/**
 	 * Delete a user&#39;s tv series follow.
- * Possible status codes: UserNotFollowing = 8012, NotFound = 500007, InvalidAssetId = 4024, AnnouncementNotFound = 8006.
 	 * @param assetId int Asset identifier
 	 * @return bool
 	 */
@@ -3191,13 +3212,15 @@ class householdDevice{
 	 * @param partnerId int Partner Identifier
 	 * @param pin string pin code
 	 * @param udid string Device UDID (optional, default: null)
+	 * @param extraParams map extra params (optional, default: null)
 	 * @return KalturaLoginResponse
 	 */
-	static loginWithPin(partnerId, pin, udid = null){
+	static loginWithPin(partnerId, pin, udid = null, extraParams = null){
 		let kparams = {};
 		kparams.partnerId = partnerId;
 		kparams.pin = pin;
 		kparams.udid = udid;
+		kparams.extraParams = extraParams;
 		return new kaltura.RequestBuilder('householddevice', 'loginWithPin', kparams);
 	};
 	
@@ -3911,6 +3934,67 @@ module.exports.iotProfile = iotProfile;
 
 
 /**
+ *Class definition for the Kaltura service: label.
+ * The available service actions:
+ * @action add Create a new label associated with a predefined entity attribute. Currently supports only labels on KalturaMediaFile.
+ * @action delete Deletes the existing label by its identifier.
+ * @action list Gets list of labels which meet the filter criteria.
+ * @action update Updates the existing label with a new value.
+ */
+class label{
+	
+	/**
+	 * Create a new label associated with a predefined entity attribute. Currently supports only labels on KalturaMediaFile.
+	 * @param label Label KalturaLabel object with defined Value
+	 * @return KalturaLabel
+	 */
+	static add(label){
+		let kparams = {};
+		kparams.label = label;
+		return new kaltura.RequestBuilder('label', 'add', kparams);
+	};
+	
+	/**
+	 * Deletes the existing label by its identifier.
+	 * @param id int The identifier of label
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('label', 'delete', kparams);
+	};
+	
+	/**
+	 * Gets list of labels which meet the filter criteria.
+	 * @param filter LabelFilter Filter
+	 * @param pager FilterPager Page size and index (optional, default: null)
+	 * @return KalturaLabelListResponse
+	 */
+	static listAction(filter, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('label', 'list', kparams);
+	};
+	
+	/**
+	 * Updates the existing label with a new value.
+	 * @param id int The identifier of label
+	 * @param label Label KalturaLabel object with new Value
+	 * @return KalturaLabel
+	 */
+	static update(id, label){
+		let kparams = {};
+		kparams.id = id;
+		kparams.label = label;
+		return new kaltura.RequestBuilder('label', 'update', kparams);
+	};
+}
+module.exports.label = label;
+
+
+/**
  *Class definition for the Kaltura service: language.
  * The available service actions:
  * @action list Get the list of languages for the partner with option to filter by language codes.
@@ -4483,12 +4567,14 @@ class ottUser{
 	 * Returns tokens (KS and refresh token) for anonymous access.
 	 * @param partnerId int The partner ID
 	 * @param udid string The caller device's UDID (optional, default: null)
+	 * @param extraParams map extra params (optional, default: null)
 	 * @return KalturaLoginSession
 	 */
-	static anonymousLogin(partnerId, udid = null){
+	static anonymousLogin(partnerId, udid = null, extraParams = null){
 		let kparams = {};
 		kparams.partnerId = partnerId;
 		kparams.udid = udid;
+		kparams.extraParams = extraParams;
 		return new kaltura.RequestBuilder('ottuser', 'anonymousLogin', kparams);
 	};
 	
@@ -4566,14 +4652,16 @@ class ottUser{
 	 * @param pin string pin code
 	 * @param udid string Device UDID (optional, default: null)
 	 * @param secret string Additional security parameter to validate the login (optional, default: null)
+	 * @param extraParams map extra params (optional, default: null)
 	 * @return KalturaLoginResponse
 	 */
-	static loginWithPin(partnerId, pin, udid = null, secret = null){
+	static loginWithPin(partnerId, pin, udid = null, secret = null, extraParams = null){
 		let kparams = {};
 		kparams.partnerId = partnerId;
 		kparams.pin = pin;
 		kparams.udid = udid;
 		kparams.secret = secret;
+		kparams.extraParams = extraParams;
 		return new kaltura.RequestBuilder('ottuser', 'loginWithPin', kparams);
 	};
 	
@@ -6600,14 +6688,16 @@ class social{
 	 * @param token string Social token
 	 * @param type string Social network (enum: KalturaSocialNetwork)
 	 * @param udid string Device UDID (optional, default: null)
+	 * @param extraParams map extra params (optional, default: null)
 	 * @return KalturaLoginResponse
 	 */
-	static login(partnerId, token, type, udid = null){
+	static login(partnerId, token, type, udid = null, extraParams = null){
 		let kparams = {};
 		kparams.partnerId = partnerId;
 		kparams.token = token;
 		kparams.type = type;
 		kparams.udid = udid;
+		kparams.extraParams = extraParams;
 		return new kaltura.RequestBuilder('social', 'login', kparams);
 	};
 	
@@ -6796,10 +6886,34 @@ module.exports.streamingDevice = streamingDevice;
 /**
  *Class definition for the Kaltura service: subscription.
  * The available service actions:
+ * @action add Internal API !!! Insert new subscription for partner.
+ * @action delete Internal API !!! Delete subscription.
  * @action list Returns a list of subscriptions requested by Subscription ID or file ID.
  * @action validateCoupon Returns information about a coupon for subscription.
  */
 class subscription{
+	
+	/**
+	 * Internal API !!! Insert new subscription for partner.
+	 * @param subscription Subscription subscription object
+	 * @return KalturaSubscription
+	 */
+	static add(subscription){
+		let kparams = {};
+		kparams.subscription = subscription;
+		return new kaltura.RequestBuilder('subscription', 'add', kparams);
+	};
+	
+	/**
+	 * Internal API !!! Delete subscription.
+	 * @param id int Subscription id
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('subscription', 'delete', kparams);
+	};
 	
 	/**
 	 * Returns a list of subscriptions requested by Subscription ID or file ID.
@@ -7848,4 +7962,62 @@ class userSegment{
 	};
 }
 module.exports.userSegment = userSegment;
+
+
+/**
+ *Class definition for the Kaltura service: userSessionProfile.
+ * The available service actions:
+ * @action add Add new UserSessionProfile.
+ * @action delete Delete existing UserSessionProfile.
+ * @action list Returns the list of available UserSessionProfiles.
+ * @action update Update existing UserSessionProfile.
+ */
+class userSessionProfile{
+	
+	/**
+	 * Add new UserSessionProfile.
+	 * @param userSessionProfile UserSessionProfile userSessionProfile Object to add
+	 * @return KalturaUserSessionProfile
+	 */
+	static add(userSessionProfile){
+		let kparams = {};
+		kparams.userSessionProfile = userSessionProfile;
+		return new kaltura.RequestBuilder('usersessionprofile', 'add', kparams);
+	};
+	
+	/**
+	 * Delete existing UserSessionProfile.
+	 * @param id int UserSessionProfile identifier
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('usersessionprofile', 'delete', kparams);
+	};
+	
+	/**
+	 * Returns the list of available UserSessionProfiles.
+	 * @param filter UserSessionProfileFilter Filter (optional, default: null)
+	 * @return KalturaUserSessionProfileListResponse
+	 */
+	static listAction(filter = null){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('usersessionprofile', 'list', kparams);
+	};
+	
+	/**
+	 * Update existing UserSessionProfile.
+	 * @param id int id of userSessionProfile to update
+	 * @param userSessionProfile UserSessionProfile userSessionProfile Object to update
+	 * @return KalturaUserSessionProfile
+	 */
+	static update(id, userSessionProfile){
+		let kparams = {};
+		kparams.id = id;
+		kparams.userSessionProfile = userSessionProfile;
+		return new kaltura.RequestBuilder('usersessionprofile', 'update', kparams);
+	};
+}
+module.exports.userSessionProfile = userSessionProfile;
 
