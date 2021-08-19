@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platforms allow them to do with
+// to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -1133,11 +1133,13 @@ class categoryTree{
 	/**
 	 * Retrieve default category tree of deviceFamilyId by KS or specific one if versionId is set.
 	 * @param versionId int Category version id of tree (optional, default: null)
+	 * @param deviceFamilyId int deviceFamilyId related to category tree (optional, default: null)
 	 * @return KalturaCategoryTree
 	 */
-	static getByVersion(versionId = null){
+	static getByVersion(versionId = null, deviceFamilyId = null){
 		let kparams = {};
 		kparams.versionId = versionId;
+		kparams.deviceFamilyId = deviceFamilyId;
 		return new kaltura.RequestBuilder('categorytree', 'getByVersion', kparams);
 	};
 }
@@ -2072,6 +2074,7 @@ module.exports.deviceReferenceData = deviceReferenceData;
  * @action add Internal API !!! Insert new DiscountDetails for partner.
  * @action delete Internal API !!! Delete DiscountDetails.
  * @action list Returns the list of available discounts details, can be filtered by discount codes.
+ * @action update Update discount details.
  */
 class discountDetails{
 	
@@ -2106,6 +2109,19 @@ class discountDetails{
 		let kparams = {};
 		kparams.filter = filter;
 		return new kaltura.RequestBuilder('discountdetails', 'list', kparams);
+	};
+	
+	/**
+	 * Update discount details.
+	 * @param id int DiscountDetails id
+	 * @param discountDetails DiscountDetails Discount details Object
+	 * @return KalturaDiscountDetails
+	 */
+	static update(id, discountDetails){
+		let kparams = {};
+		kparams.id = id;
+		kparams.discountDetails = discountDetails;
+		return new kaltura.RequestBuilder('discountdetails', 'update', kparams);
 	};
 }
 module.exports.discountDetails = discountDetails;
@@ -2152,6 +2168,25 @@ class drmProfile{
 	};
 }
 module.exports.drmProfile = drmProfile;
+
+
+/**
+ *Class definition for the Kaltura service: duration.
+ * The available service actions:
+ * @action list Get the list of optinal Duration codes.
+ */
+class duration{
+	
+	/**
+	 * Get the list of optinal Duration codes.
+	 * @return KalturaDurationListResponse
+	 */
+	static listAction(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('duration', 'list', kparams);
+	};
+}
+module.exports.duration = duration;
 
 
 /**
@@ -2805,7 +2840,6 @@ module.exports.favorite = favorite;
  * @action add Add a user&#39;s tv series follow.
  * Possible status codes: UserAlreadyFollowing = 8013, NotFound = 500007, InvalidAssetId = 4024.
  * @action delete Delete a user&#39;s tv series follow.
- * Possible status codes: UserNotFollowing = 8012, NotFound = 500007, InvalidAssetId = 4024, AnnouncementNotFound = 8006.
  * @action deleteWithToken Delete a user&#39;s tv series follow.
  * @action list List user&#39;s tv series follows.
  * Possible status codes:.
@@ -2826,7 +2860,6 @@ class followTvSeries{
 	
 	/**
 	 * Delete a user&#39;s tv series follow.
- * Possible status codes: UserNotFollowing = 8012, NotFound = 500007, InvalidAssetId = 4024, AnnouncementNotFound = 8006.
 	 * @param assetId int Asset identifier
 	 * @return bool
 	 */
@@ -3911,6 +3944,67 @@ module.exports.iotProfile = iotProfile;
 
 
 /**
+ *Class definition for the Kaltura service: label.
+ * The available service actions:
+ * @action add Create a new label associated with a predefined entity attribute. Currently supports only labels on KalturaMediaFile.
+ * @action delete Deletes the existing label by its identifier.
+ * @action list Gets list of labels which meet the filter criteria.
+ * @action update Updates the existing label with a new value.
+ */
+class label{
+	
+	/**
+	 * Create a new label associated with a predefined entity attribute. Currently supports only labels on KalturaMediaFile.
+	 * @param label Label KalturaLabel object with defined Value
+	 * @return KalturaLabel
+	 */
+	static add(label){
+		let kparams = {};
+		kparams.label = label;
+		return new kaltura.RequestBuilder('label', 'add', kparams);
+	};
+	
+	/**
+	 * Deletes the existing label by its identifier.
+	 * @param id int The identifier of label
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('label', 'delete', kparams);
+	};
+	
+	/**
+	 * Gets list of labels which meet the filter criteria.
+	 * @param filter LabelFilter Filter
+	 * @param pager FilterPager Page size and index (optional, default: null)
+	 * @return KalturaLabelListResponse
+	 */
+	static listAction(filter, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('label', 'list', kparams);
+	};
+	
+	/**
+	 * Updates the existing label with a new value.
+	 * @param id int The identifier of label
+	 * @param label Label KalturaLabel object with new Value
+	 * @return KalturaLabel
+	 */
+	static update(id, label){
+		let kparams = {};
+		kparams.id = id;
+		kparams.label = label;
+		return new kaltura.RequestBuilder('label', 'update', kparams);
+	};
+}
+module.exports.label = label;
+
+
+/**
  *Class definition for the Kaltura service: language.
  * The available service actions:
  * @action list Get the list of languages for the partner with option to filter by language codes.
@@ -4930,6 +5024,37 @@ module.exports.partner = partner;
 
 
 /**
+ *Class definition for the Kaltura service: partnerPremiumServices.
+ * The available service actions:
+ * @action get Returns list of services.
+ * @action update update partnerPremiumServices.
+ */
+class partnerPremiumServices{
+	
+	/**
+	 * Returns list of services.
+	 * @return KalturaPartnerPremiumServices
+	 */
+	static get(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('partnerpremiumservices', 'get', kparams);
+	};
+	
+	/**
+	 * update partnerPremiumServices.
+	 * @param partnerPremiumServices PartnerPremiumServices partnerPremiumServices to update
+	 * @return KalturaPartnerPremiumServices
+	 */
+	static update(partnerPremiumServices){
+		let kparams = {};
+		kparams.partnerPremiumServices = partnerPremiumServices;
+		return new kaltura.RequestBuilder('partnerpremiumservices', 'update', kparams);
+	};
+}
+module.exports.partnerPremiumServices = partnerPremiumServices;
+
+
+/**
  *Class definition for the Kaltura service: passwordPolicy.
  * The available service actions:
  * @action add Add an object.
@@ -5488,14 +5613,15 @@ module.exports.ppv = ppv;
 /**
  *Class definition for the Kaltura service: previewModule.
  * The available service actions:
- * @action add Internal API !!! Insert new PreviewModule for partner.
+ * @action add Insert new PreviewModule for partner.
  * @action delete Internal API !!! Delete PreviewModule.
- * @action list Internal API !!! Returns all PreviewModule.
+ * @action list Returns all PreviewModule.
+ * @action update Update PreviewModule.
  */
 class previewModule{
 	
 	/**
-	 * Internal API !!! Insert new PreviewModule for partner.
+	 * Insert new PreviewModule for partner.
 	 * @param previewModule PreviewModule Preview module object
 	 * @return KalturaPreviewModule
 	 */
@@ -5517,12 +5643,27 @@ class previewModule{
 	};
 	
 	/**
-	 * Internal API !!! Returns all PreviewModule.
+	 * Returns all PreviewModule.
+	 * @param filter PreviewModuleFilter Filter (optional, default: null)
 	 * @return KalturaPreviewModuleListResponse
 	 */
-	static listAction(){
+	static listAction(filter = null){
 		let kparams = {};
+		kparams.filter = filter;
 		return new kaltura.RequestBuilder('previewmodule', 'list', kparams);
+	};
+	
+	/**
+	 * Update PreviewModule.
+	 * @param id int PreviewModule id
+	 * @param previewModule PreviewModule PreviewModule
+	 * @return KalturaPreviewModule
+	 */
+	static update(id, previewModule){
+		let kparams = {};
+		kparams.id = id;
+		kparams.previewModule = previewModule;
+		return new kaltura.RequestBuilder('previewmodule', 'update', kparams);
 	};
 }
 module.exports.previewModule = previewModule;
@@ -5534,6 +5675,7 @@ module.exports.previewModule = previewModule;
  * @action add Internal API !!! Insert new PriceDetails for partner.
  * @action delete Internal API !!! Delete PriceDetails.
  * @action list Returns the list of available prices, can be filtered by price IDs.
+ * @action update update existing PriceDetails.
  */
 class priceDetails{
 	
@@ -5569,6 +5711,19 @@ class priceDetails{
 		kparams.filter = filter;
 		return new kaltura.RequestBuilder('pricedetails', 'list', kparams);
 	};
+	
+	/**
+	 * update existing PriceDetails.
+	 * @param id int id of priceDetails
+	 * @param priceDetails PriceDetails priceDetails to update
+	 * @return KalturaPriceDetails
+	 */
+	static update(id, priceDetails){
+		let kparams = {};
+		kparams.id = id;
+		kparams.priceDetails = priceDetails;
+		return new kaltura.RequestBuilder('pricedetails', 'update', kparams);
+	};
 }
 module.exports.priceDetails = priceDetails;
 
@@ -5576,15 +5731,15 @@ module.exports.priceDetails = priceDetails;
 /**
  *Class definition for the Kaltura service: pricePlan.
  * The available service actions:
- * @action add Internal API !!!  Insert new PriceDetails for partner.
- * @action delete Internal API !!! Delete PricePlan.
+ * @action add Insert new PricePlan.
+ * @action delete Delete PricePlan.
  * @action list Returns a list of price plans by IDs.
  * @action update Updates a price plan.
  */
 class pricePlan{
 	
 	/**
-	 * Internal API !!!  Insert new PriceDetails for partner.
+	 * Insert new PricePlan.
 	 * @param pricePlan PricePlan Price plan Object
 	 * @return KalturaPricePlan
 	 */
@@ -5595,7 +5750,7 @@ class pricePlan{
 	};
 	
 	/**
-	 * Internal API !!! Delete PricePlan.
+	 * Delete PricePlan.
 	 * @param id int PricePlan identifier
 	 * @return bool
 	 */
@@ -6796,10 +6951,35 @@ module.exports.streamingDevice = streamingDevice;
 /**
  *Class definition for the Kaltura service: subscription.
  * The available service actions:
+ * @action add Internal API !!! Insert new subscription for partner.
+ * @action delete Internal API !!! Delete subscription.
  * @action list Returns a list of subscriptions requested by Subscription ID or file ID.
+ * @action update Update Subscription.
  * @action validateCoupon Returns information about a coupon for subscription.
  */
 class subscription{
+	
+	/**
+	 * Internal API !!! Insert new subscription for partner.
+	 * @param subscription Subscription subscription object
+	 * @return KalturaSubscription
+	 */
+	static add(subscription){
+		let kparams = {};
+		kparams.subscription = subscription;
+		return new kaltura.RequestBuilder('subscription', 'add', kparams);
+	};
+	
+	/**
+	 * Internal API !!! Delete subscription.
+	 * @param id int Subscription id
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('subscription', 'delete', kparams);
+	};
 	
 	/**
 	 * Returns a list of subscriptions requested by Subscription ID or file ID.
@@ -6812,6 +6992,19 @@ class subscription{
 		kparams.filter = filter;
 		kparams.pager = pager;
 		return new kaltura.RequestBuilder('subscription', 'list', kparams);
+	};
+	
+	/**
+	 * Update Subscription.
+	 * @param id int Subscription id
+	 * @param subscription Subscription Subscription
+	 * @return KalturaSubscription
+	 */
+	static update(id, subscription){
+		let kparams = {};
+		kparams.id = id;
+		kparams.subscription = subscription;
+		return new kaltura.RequestBuilder('subscription', 'update', kparams);
 	};
 	
 	/**
