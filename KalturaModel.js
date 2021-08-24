@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platfroms allow them to do with
+// to do with audio, video, and animation what Wiki platforms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -8713,37 +8713,14 @@ module.exports.UserInterestListResponse = UserInterestListResponse;
 /**
  *
  */
-class Condition extends kaltura.BaseObject{
+class UserSessionProfileExpression extends kaltura.BaseObject{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaCondition';
+		this.objectType = 'KalturaUserSessionProfileExpression';
 	}
-	
-	/**
-	 * The type of the condition
-	 * @return string
-	 */
-	 getType() {
-	 	return this.type;
-	 }
-	
-	/**
-	 * Description
-	 * @return string
-	 */
-	 getDescription() {
-	 	return this.description;
-	 }
-	
-	/**
-	 * @param description string Description
-	 */
-	 setDescription(description) {
-	 	this.description = description;
-	 }
 }
-module.exports.Condition = Condition;
+module.exports.UserSessionProfileExpression = UserSessionProfileExpression;
 
 /**
  *
@@ -8825,14 +8802,145 @@ module.exports.UserSessionProfileListResponse = UserSessionProfileListResponse;
 /**
  *
  */
-class UserSessionProfileExpression extends Condition{
+class ExpressionAnd extends UserSessionProfileExpression{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaUserSessionProfileExpression';
+		this.objectType = 'KalturaExpressionAnd';
 	}
+	
+	/**
+	 * expressions with and relation between them
+	 * @return array
+	 */
+	 getExpressions() {
+	 	return this.expressions;
+	 }
+	
+	/**
+	 * @param expressions array expressions with and relation between them
+	 */
+	 setExpressions(expressions) {
+	 	this.expressions = expressions;
+	 }
 }
-module.exports.UserSessionProfileExpression = UserSessionProfileExpression;
+module.exports.ExpressionAnd = ExpressionAnd;
+
+/**
+ *
+ */
+class ExpressionNot extends UserSessionProfileExpression{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaExpressionNot';
+	}
+	
+	/**
+	 * expression
+	 * @return UserSessionProfileExpression
+	 */
+	 getExpression() {
+	 	return this.expression;
+	 }
+	
+	/**
+	 * @param expression UserSessionProfileExpression expression
+	 */
+	 setExpression(expression) {
+	 	this.expression = expression;
+	 }
+}
+module.exports.ExpressionNot = ExpressionNot;
+
+/**
+ *
+ */
+class ExpressionOr extends UserSessionProfileExpression{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaExpressionOr';
+	}
+	
+	/**
+	 * expressions with or relation between them
+	 * @return array
+	 */
+	 getExpressions() {
+	 	return this.expressions;
+	 }
+	
+	/**
+	 * @param expressions array expressions with or relation between them
+	 */
+	 setExpressions(expressions) {
+	 	this.expressions = expressions;
+	 }
+}
+module.exports.ExpressionOr = ExpressionOr;
+
+/**
+ *
+ */
+class Condition extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCondition';
+	}
+	
+	/**
+	 * The type of the condition
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * Description
+	 * @return string
+	 */
+	 getDescription() {
+	 	return this.description;
+	 }
+	
+	/**
+	 * @param description string Description
+	 */
+	 setDescription(description) {
+	 	this.description = description;
+	 }
+}
+module.exports.Condition = Condition;
+
+/**
+ *
+ */
+class UserSessionCondition extends UserSessionProfileExpression{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUserSessionCondition';
+	}
+	
+	/**
+	 * expression
+	 * @return Condition
+	 */
+	 getCondition() {
+	 	return this.condition;
+	 }
+	
+	/**
+	 * @param condition Condition expression
+	 */
+	 setCondition(condition) {
+	 	this.condition = condition;
+	 }
+}
+module.exports.UserSessionCondition = UserSessionCondition;
 
 /**
  *
