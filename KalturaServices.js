@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platfroms allow them to do with
+// to do with audio, video, and animation what Wiki platforms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -166,17 +166,15 @@ class appToken{
 	 * @param userId string session user id, will be ignored if a different user id already defined on the application token (optional, default: null)
 	 * @param expiry int session expiry (in seconds), could be overwritten by shorter expiry of the application token and the session-expiry that defined on the application token (optional, default: null)
 	 * @param udid string Device UDID (optional, default: null)
-	 * @param extraParams map extra params (optional, default: null)
 	 * @return KalturaSessionInfo
 	 */
-	static startSession(id, tokenHash, userId = null, expiry = null, udid = null, extraParams = null){
+	static startSession(id, tokenHash, userId = null, expiry = null, udid = null){
 		let kparams = {};
 		kparams.id = id;
 		kparams.tokenHash = tokenHash;
 		kparams.userId = userId;
 		kparams.expiry = expiry;
 		kparams.udid = udid;
-		kparams.extraParams = extraParams;
 		return new kaltura.RequestBuilder('apptoken', 'startSession', kparams);
 	};
 }
@@ -3212,15 +3210,13 @@ class householdDevice{
 	 * @param partnerId int Partner Identifier
 	 * @param pin string pin code
 	 * @param udid string Device UDID (optional, default: null)
-	 * @param extraParams map extra params (optional, default: null)
 	 * @return KalturaLoginResponse
 	 */
-	static loginWithPin(partnerId, pin, udid = null, extraParams = null){
+	static loginWithPin(partnerId, pin, udid = null){
 		let kparams = {};
 		kparams.partnerId = partnerId;
 		kparams.pin = pin;
 		kparams.udid = udid;
-		kparams.extraParams = extraParams;
 		return new kaltura.RequestBuilder('householddevice', 'loginWithPin', kparams);
 	};
 	
@@ -4567,14 +4563,12 @@ class ottUser{
 	 * Returns tokens (KS and refresh token) for anonymous access.
 	 * @param partnerId int The partner ID
 	 * @param udid string The caller device's UDID (optional, default: null)
-	 * @param extraParams map extra params (optional, default: null)
 	 * @return KalturaLoginSession
 	 */
-	static anonymousLogin(partnerId, udid = null, extraParams = null){
+	static anonymousLogin(partnerId, udid = null){
 		let kparams = {};
 		kparams.partnerId = partnerId;
 		kparams.udid = udid;
-		kparams.extraParams = extraParams;
 		return new kaltura.RequestBuilder('ottuser', 'anonymousLogin', kparams);
 	};
 	
@@ -4652,16 +4646,14 @@ class ottUser{
 	 * @param pin string pin code
 	 * @param udid string Device UDID (optional, default: null)
 	 * @param secret string Additional security parameter to validate the login (optional, default: null)
-	 * @param extraParams map extra params (optional, default: null)
 	 * @return KalturaLoginResponse
 	 */
-	static loginWithPin(partnerId, pin, udid = null, secret = null, extraParams = null){
+	static loginWithPin(partnerId, pin, udid = null, secret = null){
 		let kparams = {};
 		kparams.partnerId = partnerId;
 		kparams.pin = pin;
 		kparams.udid = udid;
 		kparams.secret = secret;
-		kparams.extraParams = extraParams;
 		return new kaltura.RequestBuilder('ottuser', 'loginWithPin', kparams);
 	};
 	
@@ -6688,16 +6680,14 @@ class social{
 	 * @param token string Social token
 	 * @param type string Social network (enum: KalturaSocialNetwork)
 	 * @param udid string Device UDID (optional, default: null)
-	 * @param extraParams map extra params (optional, default: null)
 	 * @return KalturaLoginResponse
 	 */
-	static login(partnerId, token, type, udid = null, extraParams = null){
+	static login(partnerId, token, type, udid = null){
 		let kparams = {};
 		kparams.partnerId = partnerId;
 		kparams.token = token;
 		kparams.type = type;
 		kparams.udid = udid;
-		kparams.extraParams = extraParams;
 		return new kaltura.RequestBuilder('social', 'login', kparams);
 	};
 	
@@ -7962,62 +7952,4 @@ class userSegment{
 	};
 }
 module.exports.userSegment = userSegment;
-
-
-/**
- *Class definition for the Kaltura service: userSessionProfile.
- * The available service actions:
- * @action add Add new UserSessionProfile.
- * @action delete Delete existing UserSessionProfile.
- * @action list Returns the list of available UserSessionProfiles.
- * @action update Update existing UserSessionProfile.
- */
-class userSessionProfile{
-	
-	/**
-	 * Add new UserSessionProfile.
-	 * @param userSessionProfile UserSessionProfile userSessionProfile Object to add
-	 * @return KalturaUserSessionProfile
-	 */
-	static add(userSessionProfile){
-		let kparams = {};
-		kparams.userSessionProfile = userSessionProfile;
-		return new kaltura.RequestBuilder('usersessionprofile', 'add', kparams);
-	};
-	
-	/**
-	 * Delete existing UserSessionProfile.
-	 * @param id int UserSessionProfile identifier
-	 */
-	static deleteAction(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('usersessionprofile', 'delete', kparams);
-	};
-	
-	/**
-	 * Returns the list of available UserSessionProfiles.
-	 * @param filter UserSessionProfileFilter Filter (optional, default: null)
-	 * @return KalturaUserSessionProfileListResponse
-	 */
-	static listAction(filter = null){
-		let kparams = {};
-		kparams.filter = filter;
-		return new kaltura.RequestBuilder('usersessionprofile', 'list', kparams);
-	};
-	
-	/**
-	 * Update existing UserSessionProfile.
-	 * @param id int id of userSessionProfile to update
-	 * @param userSessionProfile UserSessionProfile userSessionProfile Object to update
-	 * @return KalturaUserSessionProfile
-	 */
-	static update(id, userSessionProfile){
-		let kparams = {};
-		kparams.id = id;
-		kparams.userSessionProfile = userSessionProfile;
-		return new kaltura.RequestBuilder('usersessionprofile', 'update', kparams);
-	};
-}
-module.exports.userSessionProfile = userSessionProfile;
 
