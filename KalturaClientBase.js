@@ -257,12 +257,14 @@ class RequestBuilder extends kaltura.VolatileRequestData {
 		let files = this.getFiles();
 		let callback = this.callback;
 		let requestUrl = this.getUrl(client);
-		let headers = this.getHeaders(client);
 
 		let options = {
 			uri: requestUrl,
-			method: 'POST',
-			headers: headers
+		};
+		options.method = 'POST';
+		options.headers = {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json',
 		};
 
 		let jsonBody = JSON.stringify(json, (key, value) => (value === null ? undefined : value));
@@ -309,6 +311,7 @@ class RequestBuilder extends kaltura.VolatileRequestData {
 			body = jsonBody;
 		}
 
+		options.headers['Content-Length'] = body.length;
 		options.body = body;
 
 		client.request(options, (err, response, data) => {
@@ -368,11 +371,6 @@ class RequestBuilder extends kaltura.VolatileRequestData {
 		this.data.kalsig = signature;
 	}
 
-	setSessionId(sessionId) {
-		this.sessionId = sessionId
-		return this;
-	}
-
 	getUrl(client) {
 		let requestUrl = client.config.serviceUrl + client.config.serviceBase;
 		requestUrl += '/' + this.service + '/action/' + this.action;
@@ -393,19 +391,6 @@ class RequestBuilder extends kaltura.VolatileRequestData {
 		}
 
 		return this.data;
-	}
-
-	getHeaders(client) {
-		let headers = {
-			'Accept': 'application/json',
-			'Content-Type': 'application/json'
-		};
-
-		if (this.sessionId) {
-			headers['x-kaltura-session-id'] = this.sessionId;
-		}
-
-		return headers;
 	}
 
 	execute(client, callback) {
