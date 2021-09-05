@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platfroms allow them to do with
+// to do with audio, video, and animation what Wiki platforms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -8087,11 +8087,13 @@ class userSessionProfile{
 	/**
 	 * Returns the list of available UserSessionProfiles.
 	 * @param filter UserSessionProfileFilter Filter (optional, default: null)
+	 * @param pager FilterPager Pager (optional, default: null)
 	 * @return KalturaUserSessionProfileListResponse
 	 */
-	static listAction(filter = null){
+	static listAction(filter = null, pager = null){
 		let kparams = {};
 		kparams.filter = filter;
+		kparams.pager = pager;
 		return new kaltura.RequestBuilder('usersessionprofile', 'list', kparams);
 	};
 	
