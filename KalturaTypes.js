@@ -894,6 +894,10 @@ NAME_ASC : 'NAME_ASC',
 NAME_DESC : 'NAME_DESC',
 };
 
+module.exports.PreviewModuleOrderBy = {
+NONE : 'NONE',
+};
+
 module.exports.PriceDetailsOrderBy = {
 NAME_ASC : 'NAME_ASC',
 };
@@ -1174,6 +1178,12 @@ ADDON : 'ADDON',
 module.exports.SubscriptionOrderBy = {
 START_DATE_ASC : 'START_DATE_ASC',
 START_DATE_DESC : 'START_DATE_DESC',
+CREATE_DATE_ASC : 'CREATE_DATE_ASC',
+CREATE_DATE_DESC : 'CREATE_DATE_DESC',
+UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
+UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
+NAME_ASC : 'NAME_ASC',
+NAME_DESC : 'NAME_DESC',
 };
 
 module.exports.SubscriptionSetOrderBy = {
