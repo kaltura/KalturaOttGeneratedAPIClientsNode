@@ -166,15 +166,17 @@ class appToken{
 	 * @param userId string session user id, will be ignored if a different user id already defined on the application token (optional, default: null)
 	 * @param expiry int session expiry (in seconds), could be overwritten by shorter expiry of the application token and the session-expiry that defined on the application token (optional, default: null)
 	 * @param udid string Device UDID (optional, default: null)
+	 * @param extraParams map extra params (optional, default: null)
 	 * @return KalturaSessionInfo
 	 */
-	static startSession(id, tokenHash, userId = null, expiry = null, udid = null){
+	static startSession(id, tokenHash, userId = null, expiry = null, udid = null, extraParams = null){
 		let kparams = {};
 		kparams.id = id;
 		kparams.tokenHash = tokenHash;
 		kparams.userId = userId;
 		kparams.expiry = expiry;
 		kparams.udid = udid;
+		kparams.extraParams = extraParams;
 		return new kaltura.RequestBuilder('apptoken', 'startSession', kparams);
 	};
 }
@@ -2074,6 +2076,7 @@ module.exports.deviceReferenceData = deviceReferenceData;
  * @action add Internal API !!! Insert new DiscountDetails for partner.
  * @action delete Internal API !!! Delete DiscountDetails.
  * @action list Returns the list of available discounts details, can be filtered by discount codes.
+ * @action update Update discount details.
  */
 class discountDetails{
 	
@@ -2108,6 +2111,19 @@ class discountDetails{
 		let kparams = {};
 		kparams.filter = filter;
 		return new kaltura.RequestBuilder('discountdetails', 'list', kparams);
+	};
+	
+	/**
+	 * Update discount details.
+	 * @param id int DiscountDetails id
+	 * @param discountDetails DiscountDetails Discount details Object
+	 * @return KalturaDiscountDetails
+	 */
+	static update(id, discountDetails){
+		let kparams = {};
+		kparams.id = id;
+		kparams.discountDetails = discountDetails;
+		return new kaltura.RequestBuilder('discountdetails', 'update', kparams);
 	};
 }
 module.exports.discountDetails = discountDetails;
@@ -3210,13 +3226,15 @@ class householdDevice{
 	 * @param partnerId int Partner Identifier
 	 * @param pin string pin code
 	 * @param udid string Device UDID (optional, default: null)
+	 * @param extraParams map extra params (optional, default: null)
 	 * @return KalturaLoginResponse
 	 */
-	static loginWithPin(partnerId, pin, udid = null){
+	static loginWithPin(partnerId, pin, udid = null, extraParams = null){
 		let kparams = {};
 		kparams.partnerId = partnerId;
 		kparams.pin = pin;
 		kparams.udid = udid;
+		kparams.extraParams = extraParams;
 		return new kaltura.RequestBuilder('householddevice', 'loginWithPin', kparams);
 	};
 	
@@ -3270,7 +3288,9 @@ module.exports.householdDevice = householdDevice;
  * @action add Add household limitation.
  * @action delete Delete household limitation.
  * @action get Get the limitation module by id.
+ * @action isUsed Checks if the DLM is used.
  * @action list Get the list of PartnerConfiguration.
+ * @action update Updates household limitation.
  */
 class householdLimitations{
 	
@@ -3308,12 +3328,36 @@ class householdLimitations{
 	};
 	
 	/**
+	 * Checks if the DLM is used.
+	 * @param dlmId int Household limitations module identifier
+	 * @return bool
+	 */
+	static isUsed(dlmId){
+		let kparams = {};
+		kparams.dlmId = dlmId;
+		return new kaltura.RequestBuilder('householdlimitations', 'isUsed', kparams);
+	};
+	
+	/**
 	 * Get the list of PartnerConfiguration.
 	 * @return KalturaHouseholdLimitationsListResponse
 	 */
 	static listAction(){
 		let kparams = {};
 		return new kaltura.RequestBuilder('householdlimitations', 'list', kparams);
+	};
+	
+	/**
+	 * Updates household limitation.
+	 * @param dlmId int Id of household limitation
+	 * @param householdLimitation HouseholdLimitations household limitation
+	 * @return KalturaHouseholdLimitations
+	 */
+	static update(dlmId, householdLimitation){
+		let kparams = {};
+		kparams.dlmId = dlmId;
+		kparams.householdLimitation = householdLimitation;
+		return new kaltura.RequestBuilder('householdlimitations', 'update', kparams);
 	};
 }
 module.exports.householdLimitations = householdLimitations;
@@ -4563,12 +4607,14 @@ class ottUser{
 	 * Returns tokens (KS and refresh token) for anonymous access.
 	 * @param partnerId int The partner ID
 	 * @param udid string The caller device's UDID (optional, default: null)
+	 * @param extraParams map extra params (optional, default: null)
 	 * @return KalturaLoginSession
 	 */
-	static anonymousLogin(partnerId, udid = null){
+	static anonymousLogin(partnerId, udid = null, extraParams = null){
 		let kparams = {};
 		kparams.partnerId = partnerId;
 		kparams.udid = udid;
+		kparams.extraParams = extraParams;
 		return new kaltura.RequestBuilder('ottuser', 'anonymousLogin', kparams);
 	};
 	
@@ -4646,14 +4692,16 @@ class ottUser{
 	 * @param pin string pin code
 	 * @param udid string Device UDID (optional, default: null)
 	 * @param secret string Additional security parameter to validate the login (optional, default: null)
+	 * @param extraParams map extra params (optional, default: null)
 	 * @return KalturaLoginResponse
 	 */
-	static loginWithPin(partnerId, pin, udid = null, secret = null){
+	static loginWithPin(partnerId, pin, udid = null, secret = null, extraParams = null){
 		let kparams = {};
 		kparams.partnerId = partnerId;
 		kparams.pin = pin;
 		kparams.udid = udid;
 		kparams.secret = secret;
+		kparams.extraParams = extraParams;
 		return new kaltura.RequestBuilder('ottuser', 'loginWithPin', kparams);
 	};
 	
@@ -5007,6 +5055,37 @@ class partner{
 	};
 }
 module.exports.partner = partner;
+
+
+/**
+ *Class definition for the Kaltura service: partnerPremiumServices.
+ * The available service actions:
+ * @action get Returns list of services.
+ * @action update update partnerPremiumServices.
+ */
+class partnerPremiumServices{
+	
+	/**
+	 * Returns list of services.
+	 * @return KalturaPartnerPremiumServices
+	 */
+	static get(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('partnerpremiumservices', 'get', kparams);
+	};
+	
+	/**
+	 * update partnerPremiumServices.
+	 * @param partnerPremiumServices PartnerPremiumServices partnerPremiumServices to update
+	 * @return KalturaPartnerPremiumServices
+	 */
+	static update(partnerPremiumServices){
+		let kparams = {};
+		kparams.partnerPremiumServices = partnerPremiumServices;
+		return new kaltura.RequestBuilder('partnerpremiumservices', 'update', kparams);
+	};
+}
+module.exports.partnerPremiumServices = partnerPremiumServices;
 
 
 /**
@@ -5568,14 +5647,15 @@ module.exports.ppv = ppv;
 /**
  *Class definition for the Kaltura service: previewModule.
  * The available service actions:
- * @action add Internal API !!! Insert new PreviewModule for partner.
+ * @action add Insert new PreviewModule for partner.
  * @action delete Internal API !!! Delete PreviewModule.
- * @action list Internal API !!! Returns all PreviewModule.
+ * @action list Returns all PreviewModule.
+ * @action update Update PreviewModule.
  */
 class previewModule{
 	
 	/**
-	 * Internal API !!! Insert new PreviewModule for partner.
+	 * Insert new PreviewModule for partner.
 	 * @param previewModule PreviewModule Preview module object
 	 * @return KalturaPreviewModule
 	 */
@@ -5597,12 +5677,27 @@ class previewModule{
 	};
 	
 	/**
-	 * Internal API !!! Returns all PreviewModule.
+	 * Returns all PreviewModule.
+	 * @param filter PreviewModuleFilter Filter (optional, default: null)
 	 * @return KalturaPreviewModuleListResponse
 	 */
-	static listAction(){
+	static listAction(filter = null){
 		let kparams = {};
+		kparams.filter = filter;
 		return new kaltura.RequestBuilder('previewmodule', 'list', kparams);
+	};
+	
+	/**
+	 * Update PreviewModule.
+	 * @param id int PreviewModule id
+	 * @param previewModule PreviewModule PreviewModule
+	 * @return KalturaPreviewModule
+	 */
+	static update(id, previewModule){
+		let kparams = {};
+		kparams.id = id;
+		kparams.previewModule = previewModule;
+		return new kaltura.RequestBuilder('previewmodule', 'update', kparams);
 	};
 }
 module.exports.previewModule = previewModule;
@@ -5614,6 +5709,7 @@ module.exports.previewModule = previewModule;
  * @action add Internal API !!! Insert new PriceDetails for partner.
  * @action delete Internal API !!! Delete PriceDetails.
  * @action list Returns the list of available prices, can be filtered by price IDs.
+ * @action update update existing PriceDetails.
  */
 class priceDetails{
 	
@@ -5649,6 +5745,19 @@ class priceDetails{
 		kparams.filter = filter;
 		return new kaltura.RequestBuilder('pricedetails', 'list', kparams);
 	};
+	
+	/**
+	 * update existing PriceDetails.
+	 * @param id int id of priceDetails
+	 * @param priceDetails PriceDetails priceDetails to update
+	 * @return KalturaPriceDetails
+	 */
+	static update(id, priceDetails){
+		let kparams = {};
+		kparams.id = id;
+		kparams.priceDetails = priceDetails;
+		return new kaltura.RequestBuilder('pricedetails', 'update', kparams);
+	};
 }
 module.exports.priceDetails = priceDetails;
 
@@ -5656,15 +5765,15 @@ module.exports.priceDetails = priceDetails;
 /**
  *Class definition for the Kaltura service: pricePlan.
  * The available service actions:
- * @action add Internal API !!!  Insert new PriceDetails for partner.
- * @action delete Internal API !!! Delete PricePlan.
+ * @action add Insert new PricePlan.
+ * @action delete Delete PricePlan.
  * @action list Returns a list of price plans by IDs.
  * @action update Updates a price plan.
  */
 class pricePlan{
 	
 	/**
-	 * Internal API !!!  Insert new PriceDetails for partner.
+	 * Insert new PricePlan.
 	 * @param pricePlan PricePlan Price plan Object
 	 * @return KalturaPricePlan
 	 */
@@ -5675,7 +5784,7 @@ class pricePlan{
 	};
 	
 	/**
-	 * Internal API !!! Delete PricePlan.
+	 * Delete PricePlan.
 	 * @param id int PricePlan identifier
 	 * @return bool
 	 */
@@ -6429,11 +6538,33 @@ module.exports.seriesRecording = seriesRecording;
 /**
  *Class definition for the Kaltura service: session.
  * The available service actions:
+ * @action createSessionCharacteristic Create session characteristic.
  * @action get Parses KS.
  * @action revoke Revokes all the sessions (KS) of a given user.
  * @action switchUser Switching the user in the session by generating a new session for a new user within the same household.
  */
 class session{
+	
+	/**
+	 * Create session characteristic.
+	 * @param userId string user identifier
+	 * @param householdId int household identifier
+	 * @param udid string device UDID
+	 * @param expiration int relative expiration(TTL) in seconds, should be equal or greater than KS expiration
+	 * @param regionId int region identifier (optional, default: null)
+	 * @param sessionCharacteristicParams map session characteristic dynamic params (optional, default: null)
+	 * @return KalturaSessionCharacteristic
+	 */
+	static createSessionCharacteristic(userId, householdId, udid, expiration, regionId = null, sessionCharacteristicParams = null){
+		let kparams = {};
+		kparams.userId = userId;
+		kparams.householdId = householdId;
+		kparams.udid = udid;
+		kparams.expiration = expiration;
+		kparams.regionId = regionId;
+		kparams.sessionCharacteristicParams = sessionCharacteristicParams;
+		return new kaltura.RequestBuilder('session', 'createSessionCharacteristic', kparams);
+	};
 	
 	/**
 	 * Parses KS.
@@ -6680,14 +6811,16 @@ class social{
 	 * @param token string Social token
 	 * @param type string Social network (enum: KalturaSocialNetwork)
 	 * @param udid string Device UDID (optional, default: null)
+	 * @param extraParams map extra params (optional, default: null)
 	 * @return KalturaLoginResponse
 	 */
-	static login(partnerId, token, type, udid = null){
+	static login(partnerId, token, type, udid = null, extraParams = null){
 		let kparams = {};
 		kparams.partnerId = partnerId;
 		kparams.token = token;
 		kparams.type = type;
 		kparams.udid = udid;
+		kparams.extraParams = extraParams;
 		return new kaltura.RequestBuilder('social', 'login', kparams);
 	};
 	
@@ -6879,6 +7012,7 @@ module.exports.streamingDevice = streamingDevice;
  * @action add Internal API !!! Insert new subscription for partner.
  * @action delete Internal API !!! Delete subscription.
  * @action list Returns a list of subscriptions requested by Subscription ID or file ID.
+ * @action update Update Subscription.
  * @action validateCoupon Returns information about a coupon for subscription.
  */
 class subscription{
@@ -6916,6 +7050,19 @@ class subscription{
 		kparams.filter = filter;
 		kparams.pager = pager;
 		return new kaltura.RequestBuilder('subscription', 'list', kparams);
+	};
+	
+	/**
+	 * Update Subscription.
+	 * @param id int Subscription id
+	 * @param subscription Subscription Subscription
+	 * @return KalturaSubscription
+	 */
+	static update(id, subscription){
+		let kparams = {};
+		kparams.id = id;
+		kparams.subscription = subscription;
+		return new kaltura.RequestBuilder('subscription', 'update', kparams);
 	};
 	
 	/**
@@ -7952,4 +8099,64 @@ class userSegment{
 	};
 }
 module.exports.userSegment = userSegment;
+
+
+/**
+ *Class definition for the Kaltura service: userSessionProfile.
+ * The available service actions:
+ * @action add Add new UserSessionProfile.
+ * @action delete Delete existing UserSessionProfile.
+ * @action list Returns the list of available UserSessionProfiles.
+ * @action update Update existing UserSessionProfile.
+ */
+class userSessionProfile{
+	
+	/**
+	 * Add new UserSessionProfile.
+	 * @param userSessionProfile UserSessionProfile userSessionProfile Object to add
+	 * @return KalturaUserSessionProfile
+	 */
+	static add(userSessionProfile){
+		let kparams = {};
+		kparams.userSessionProfile = userSessionProfile;
+		return new kaltura.RequestBuilder('usersessionprofile', 'add', kparams);
+	};
+	
+	/**
+	 * Delete existing UserSessionProfile.
+	 * @param id int UserSessionProfile identifier
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('usersessionprofile', 'delete', kparams);
+	};
+	
+	/**
+	 * Returns the list of available UserSessionProfiles.
+	 * @param filter UserSessionProfileFilter Filter (optional, default: null)
+	 * @param pager FilterPager Pager (optional, default: null)
+	 * @return KalturaUserSessionProfileListResponse
+	 */
+	static listAction(filter = null, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('usersessionprofile', 'list', kparams);
+	};
+	
+	/**
+	 * Update existing UserSessionProfile.
+	 * @param id int id of userSessionProfile to update
+	 * @param userSessionProfile UserSessionProfile userSessionProfile Object to update
+	 * @return KalturaUserSessionProfile
+	 */
+	static update(id, userSessionProfile){
+		let kparams = {};
+		kparams.id = id;
+		kparams.userSessionProfile = userSessionProfile;
+		return new kaltura.RequestBuilder('usersessionprofile', 'update', kparams);
+	};
+}
+module.exports.userSessionProfile = userSessionProfile;
 
