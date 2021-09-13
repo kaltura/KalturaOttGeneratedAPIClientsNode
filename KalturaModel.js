@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platfroms allow them to do with
+// to do with audio, video, and animation what Wiki platforms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -7457,6 +7457,21 @@ class MediaImage extends kaltura.BaseObject{
 	 setImageTypeId(imageTypeId) {
 	 	this.imageTypeId = imageTypeId;
 	 }
+	
+	/**
+	 * Image type Name
+	 * @return string
+	 */
+	 getImageTypeName() {
+	 	return this.imageTypeName;
+	 }
+	
+	/**
+	 * @param imageTypeName string Image type Name
+	 */
+	 setImageTypeName(imageTypeName) {
+	 	this.imageTypeName = imageTypeName;
+	 }
 }
 module.exports.MediaImage = MediaImage;
 
@@ -14866,6 +14881,48 @@ module.exports.DynamicChannel = DynamicChannel;
 /**
  *
  */
+class ManualCollectionAsset extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaManualCollectionAsset';
+	}
+	
+	/**
+	 * Internal identifier of the asset
+	 * @return string
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id string Internal identifier of the asset
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
+	 * The type of the asset. Possible values: media, epg
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * @param type string The type of the asset. Possible values: media, epg
+	 */
+	 setType(type) {
+	 	this.type = type;
+	 }
+}
+module.exports.ManualCollectionAsset = ManualCollectionAsset;
+
+/**
+ *
+ */
 class ManualChannel extends Channel{
 	
 	constructor(object = null) {
@@ -17400,6 +17457,21 @@ class BasePartnerConfiguration extends PartnerConfiguration{
 	 }
 	
 	/**
+	 * AutoRefreshAppToken
+	 * @return bool
+	 */
+	 getAutoRefreshAppToken() {
+	 	return this.autoRefreshAppToken;
+	 }
+	
+	/**
+	 * @param autoRefreshAppToken bool AutoRefreshAppToken
+	 */
+	 setAutoRefreshAppToken(autoRefreshAppToken) {
+	 	this.autoRefreshAppToken = autoRefreshAppToken;
+	 }
+	
+	/**
 	 * uploadTokenExpirySeconds
 	 * @return int
 	 */
@@ -17988,6 +18060,21 @@ class GeneralPartnerConfig extends PartnerConfiguration{
 	 */
 	 setRollingDeviceData(rollingDeviceData) {
 	 	this.rollingDeviceData = rollingDeviceData;
+	 }
+	
+	/**
+	 * minimum bookmark position of a linear channel to be included in a watch history
+	 * @return int
+	 */
+	 getLinearWatchHistoryThreshold() {
+	 	return this.linearWatchHistoryThreshold;
+	 }
+	
+	/**
+	 * @param linearWatchHistoryThreshold int minimum bookmark position of a linear channel to be included in a watch history
+	 */
+	 setLinearWatchHistoryThreshold(linearWatchHistoryThreshold) {
+	 	this.linearWatchHistoryThreshold = linearWatchHistoryThreshold;
 	 }
 	
 	/**
@@ -20631,6 +20718,36 @@ class HouseholdLimitations extends kaltura.BaseObject{
 	 */
 	 setDeviceFamiliesLimitations(deviceFamiliesLimitations) {
 	 	this.deviceFamiliesLimitations = deviceFamiliesLimitations;
+	 }
+	
+	/**
+	 * Allowed device change frequency description
+	 * @return string
+	 */
+	 getDescription() {
+	 	return this.description;
+	 }
+	
+	/**
+	 * @param description string Allowed device change frequency description
+	 */
+	 setDescription(description) {
+	 	this.description = description;
+	 }
+	
+	/**
+	 * Associated Device Families ids
+	 * @return string
+	 */
+	 getAssociatedDeviceFamiliesIdsIn() {
+	 	return this.associatedDeviceFamiliesIdsIn;
+	 }
+	
+	/**
+	 * @param associatedDeviceFamiliesIdsIn string Associated Device Families ids
+	 */
+	 setAssociatedDeviceFamiliesIdsIn(associatedDeviceFamiliesIdsIn) {
+	 	this.associatedDeviceFamiliesIdsIn = associatedDeviceFamiliesIdsIn;
 	 }
 }
 module.exports.HouseholdLimitations = HouseholdLimitations;
@@ -24001,6 +24118,21 @@ class Image extends kaltura.BaseObject{
 	 */
 	 setImageTypeId(imageTypeId) {
 	 	this.imageTypeId = imageTypeId;
+	 }
+	
+	/**
+	 * Image type Name
+	 * @return string
+	 */
+	 getImageTypeName() {
+	 	return this.imageTypeName;
+	 }
+	
+	/**
+	 * @param imageTypeName string Image type Name
+	 */
+	 setImageTypeName(imageTypeName) {
+	 	this.imageTypeName = imageTypeName;
 	 }
 	
 	/**
