@@ -14881,6 +14881,48 @@ module.exports.DynamicChannel = DynamicChannel;
 /**
  *
  */
+class ManualCollectionAsset extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaManualCollectionAsset';
+	}
+	
+	/**
+	 * Internal identifier of the asset
+	 * @return string
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id string Internal identifier of the asset
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
+	 * The type of the asset. Possible values: media, epg
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * @param type string The type of the asset. Possible values: media, epg
+	 */
+	 setType(type) {
+	 	this.type = type;
+	 }
+}
+module.exports.ManualCollectionAsset = ManualCollectionAsset;
+
+/**
+ *
+ */
 class ManualChannel extends Channel{
 	
 	constructor(object = null) {
@@ -14901,6 +14943,21 @@ class ManualChannel extends Channel{
 	 */
 	 setMediaIds(mediaIds) {
 	 	this.mediaIds = mediaIds;
+	 }
+	
+	/**
+	 * List of assets identifier
+	 * @return array
+	 */
+	 getAssets() {
+	 	return this.assets;
+	 }
+	
+	/**
+	 * @param assets array List of assets identifier
+	 */
+	 setAssets(assets) {
+	 	this.assets = assets;
 	 }
 }
 module.exports.ManualChannel = ManualChannel;
