@@ -9655,21 +9655,78 @@ class DynamicKeysCondition extends Condition{
 	}
 	
 	/**
-	 * DynamicKeysCondition
-	 * @return map
+	 * key
+	 * @return string
 	 */
-	 getKeyValues() {
-	 	return this.keyValues;
+	 getKey() {
+	 	return this.key;
 	 }
 	
 	/**
-	 * @param keyValues map DynamicKeysCondition
+	 * @param key string key
 	 */
-	 setKeyValues(keyValues) {
-	 	this.keyValues = keyValues;
+	 setKey(key) {
+	 	this.key = key;
+	 }
+	
+	/**
+	 * comma-separated values
+	 * @return string
+	 */
+	 getValues() {
+	 	return this.values;
+	 }
+	
+	/**
+	 * @param values string comma-separated values
+	 */
+	 setValues(values) {
+	 	this.values = values;
 	 }
 }
 module.exports.DynamicKeysCondition = DynamicKeysCondition;
+
+/**
+ *
+ */
+class DeviceDynamicDataCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDeviceDynamicDataCondition';
+	}
+	
+	/**
+	 * key
+	 * @return string
+	 */
+	 getKey() {
+	 	return this.key;
+	 }
+	
+	/**
+	 * @param key string key
+	 */
+	 setKey(key) {
+	 	this.key = key;
+	 }
+	
+	/**
+	 * value
+	 * @return string
+	 */
+	 getValue() {
+	 	return this.value;
+	 }
+	
+	/**
+	 * @param value string value
+	 */
+	 setValue(value) {
+	 	this.value = value;
+	 }
+}
+module.exports.DeviceDynamicDataCondition = DeviceDynamicDataCondition;
 
 /**
  *
@@ -15954,108 +16011,6 @@ module.exports.FilterAction = FilterAction;
 /**
  *
  */
-class FilterFileByFileTypeIdAction extends FilterAction{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaFilterFileByFileTypeIdAction';
-	}
-	
-	/**
-	 * List of comma separated fileTypesIds
-	 * @return string
-	 */
-	 getFileTypeIdIn() {
-	 	return this.fileTypeIdIn;
-	 }
-	
-	/**
-	 * @param fileTypeIdIn string List of comma separated fileTypesIds
-	 */
-	 setFileTypeIdIn(fileTypeIdIn) {
-	 	this.fileTypeIdIn = fileTypeIdIn;
-	 }
-}
-module.exports.FilterFileByFileTypeIdAction = FilterFileByFileTypeIdAction;
-
-/**
- *
- */
-class FilterFileByAssetTypeAction extends FilterFileByFileTypeIdAction{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaFilterFileByAssetTypeAction';
-	}
-	
-	/**
-	 * List of comma separated assetTypes
-	 * @return string
-	 */
-	 getAssetTypeIn() {
-	 	return this.assetTypeIn;
-	 }
-	
-	/**
-	 * @param assetTypeIn string List of comma separated assetTypes
-	 */
-	 setAssetTypeIn(assetTypeIn) {
-	 	this.assetTypeIn = assetTypeIn;
-	 }
-}
-module.exports.FilterFileByAssetTypeAction = FilterFileByAssetTypeAction;
-
-/**
- *
- */
-class FilterFileByAssetTypeInDiscoveryAction extends FilterFileByAssetTypeAction{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaFilterFileByAssetTypeInDiscoveryAction';
-	}
-}
-module.exports.FilterFileByAssetTypeInDiscoveryAction = FilterFileByAssetTypeInDiscoveryAction;
-
-/**
- *
- */
-class FilterFileByAssetTypeInPlaybackAction extends FilterFileByAssetTypeAction{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaFilterFileByAssetTypeInPlaybackAction';
-	}
-}
-module.exports.FilterFileByAssetTypeInPlaybackAction = FilterFileByAssetTypeInPlaybackAction;
-
-/**
- *
- */
-class FilterFileByFileTypeIdInDiscoveryAction extends FilterFileByFileTypeIdAction{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaFilterFileByFileTypeIdInDiscoveryAction';
-	}
-}
-module.exports.FilterFileByFileTypeIdInDiscoveryAction = FilterFileByFileTypeIdInDiscoveryAction;
-
-/**
- *
- */
-class FilterFileByFileTypeIdInPlaybackAction extends FilterFileByFileTypeIdAction{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaFilterFileByFileTypeIdInPlaybackAction';
-	}
-}
-module.exports.FilterFileByFileTypeIdInPlaybackAction = FilterFileByFileTypeIdInPlaybackAction;
-
-/**
- *
- */
 class FilterFileByAudioCodecAction extends FilterAction{
 	
 	constructor(object = null) {
@@ -16103,6 +16058,108 @@ class FilterFileByAudioCodecInPlaybackAction extends FilterFileByAudioCodecActio
 	}
 }
 module.exports.FilterFileByAudioCodecInPlaybackAction = FilterFileByAudioCodecInPlaybackAction;
+
+/**
+ *
+ */
+class FilterFileByFileTypeIdAction extends FilterAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaFilterFileByFileTypeIdAction';
+	}
+	
+	/**
+	 * List of comma separated fileTypesIds
+	 * @return string
+	 */
+	 getFileTypeIdIn() {
+	 	return this.fileTypeIdIn;
+	 }
+	
+	/**
+	 * @param fileTypeIdIn string List of comma separated fileTypesIds
+	 */
+	 setFileTypeIdIn(fileTypeIdIn) {
+	 	this.fileTypeIdIn = fileTypeIdIn;
+	 }
+}
+module.exports.FilterFileByFileTypeIdAction = FilterFileByFileTypeIdAction;
+
+/**
+ *
+ */
+class FilterFileByFileTypeIdInDiscoveryAction extends FilterFileByFileTypeIdAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaFilterFileByFileTypeIdInDiscoveryAction';
+	}
+}
+module.exports.FilterFileByFileTypeIdInDiscoveryAction = FilterFileByFileTypeIdInDiscoveryAction;
+
+/**
+ *
+ */
+class FilterFileByFileTypeIdInPlaybackAction extends FilterFileByFileTypeIdAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaFilterFileByFileTypeIdInPlaybackAction';
+	}
+}
+module.exports.FilterFileByFileTypeIdInPlaybackAction = FilterFileByFileTypeIdInPlaybackAction;
+
+/**
+ *
+ */
+class FilterFileByFileTypeIdForAssetTypeAction extends FilterFileByFileTypeIdAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaFilterFileByFileTypeIdForAssetTypeAction';
+	}
+	
+	/**
+	 * List of comma separated assetTypes
+	 * @return string
+	 */
+	 getAssetTypeIn() {
+	 	return this.assetTypeIn;
+	 }
+	
+	/**
+	 * @param assetTypeIn string List of comma separated assetTypes
+	 */
+	 setAssetTypeIn(assetTypeIn) {
+	 	this.assetTypeIn = assetTypeIn;
+	 }
+}
+module.exports.FilterFileByFileTypeIdForAssetTypeAction = FilterFileByFileTypeIdForAssetTypeAction;
+
+/**
+ *
+ */
+class FilterFileByFileTypeIdForAssetTypeInDiscoveryAction extends FilterFileByFileTypeIdForAssetTypeAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaFilterFileByFileTypeIdForAssetTypeInDiscoveryAction';
+	}
+}
+module.exports.FilterFileByFileTypeIdForAssetTypeInDiscoveryAction = FilterFileByFileTypeIdForAssetTypeInDiscoveryAction;
+
+/**
+ *
+ */
+class FilterFileByFileTypeIdForAssetTypeInPlaybackAction extends FilterFileByFileTypeIdForAssetTypeAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaFilterFileByFileTypeIdForAssetTypeInPlaybackAction';
+	}
+}
+module.exports.FilterFileByFileTypeIdForAssetTypeInPlaybackAction = FilterFileByFileTypeIdForAssetTypeInPlaybackAction;
 
 /**
  *
@@ -16169,15 +16226,15 @@ class FilterFileByQualityAction extends FilterAction{
 	 * List of comma separated qualities
 	 * @return string
 	 */
-	 getTypeQualityIn() {
-	 	return this.typeQualityIn;
+	 getQualityIn() {
+	 	return this.qualityIn;
 	 }
 	
 	/**
-	 * @param typeQualityIn string List of comma separated qualities
+	 * @param qualityIn string List of comma separated qualities
 	 */
-	 setTypeQualityIn(typeQualityIn) {
-	 	this.typeQualityIn = typeQualityIn;
+	 setQualityIn(qualityIn) {
+	 	this.qualityIn = qualityIn;
 	 }
 }
 module.exports.FilterFileByQualityAction = FilterFileByQualityAction;
