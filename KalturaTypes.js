@@ -682,6 +682,11 @@ DTT_AND_OTT : 'DTT_AND_OTT',
 VRM_EXPORT : 'VRM_EXPORT',
 };
 
+module.exports.ManualCollectionAssetType = {
+MEDIA : 'media',
+EPG : 'epg',
+};
+
 module.exports.MathemticalOperatorType = {
 COUNT : 'count',
 SUM : 'sum',
@@ -892,6 +897,10 @@ USER : 'user',
 module.exports.PpvOrderBy = {
 NAME_ASC : 'NAME_ASC',
 NAME_DESC : 'NAME_DESC',
+};
+
+module.exports.PreviewModuleOrderBy = {
+NONE : 'NONE',
 };
 
 module.exports.PriceDetailsOrderBy = {
@@ -1174,6 +1183,12 @@ ADDON : 'ADDON',
 module.exports.SubscriptionOrderBy = {
 START_DATE_ASC : 'START_DATE_ASC',
 START_DATE_DESC : 'START_DATE_DESC',
+CREATE_DATE_ASC : 'CREATE_DATE_ASC',
+CREATE_DATE_DESC : 'CREATE_DATE_DESC',
+UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
+UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
+NAME_ASC : 'NAME_ASC',
+NAME_DESC : 'NAME_DESC',
 };
 
 module.exports.SubscriptionSetOrderBy = {
