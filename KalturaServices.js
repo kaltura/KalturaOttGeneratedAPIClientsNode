@@ -4073,6 +4073,29 @@ module.exports.licensedUrl = licensedUrl;
 
 
 /**
+ *Class definition for the Kaltura service: lineup.
+ * The available service actions:
+ * @action get Return regional lineup (list of lineup channel asset objects) based on the requester session characteristics and his region.
+ */
+class lineup{
+	
+	/**
+	 * Return regional lineup (list of lineup channel asset objects) based on the requester session characteristics and his region.
+	 * @param pageIndex int Page index - The page index to retrieve, (if it is not sent the default page size is 1)
+	 * @param pageSize int Page size - The page size to retrieve. Must be one of the follow numbers: 100, 200, 800, 1200, 1600 (if it is not sent the default page size is 500)
+	 * @return KalturaLineupChannelAssetListResponse
+	 */
+	static get(pageIndex, pageSize){
+		let kparams = {};
+		kparams.pageIndex = pageIndex;
+		kparams.pageSize = pageSize;
+		return new kaltura.RequestBuilder('lineup', 'get', kparams);
+	};
+}
+module.exports.lineup = lineup;
+
+
+/**
  *Class definition for the Kaltura service: mediaConcurrencyRule.
  * The available service actions:
  * @action list Get the list of meta mappings for the partner.
