@@ -682,11 +682,6 @@ DTT_AND_OTT : 'DTT_AND_OTT',
 VRM_EXPORT : 'VRM_EXPORT',
 };
 
-module.exports.ManualCollectionAssetType = {
-MEDIA : 'media',
-EPG : 'epg',
-};
-
 module.exports.MathemticalOperatorType = {
 COUNT : 'count',
 SUM : 'sum',
@@ -805,6 +800,7 @@ CATALOG : 'Catalog',
 SECURITY : 'Security',
 OPC : 'Opc',
 BASE : 'Base',
+CUSTOMFIELDS : 'CustomFields',
 };
 
 module.exports.PasswordPolicyOrderBy = {

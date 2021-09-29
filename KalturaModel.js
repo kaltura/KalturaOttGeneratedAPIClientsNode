@@ -4490,19 +4490,7 @@ module.exports.AssetImagePerRatioFilter = AssetImagePerRatioFilter;
 /**
  *
  */
-class BaseAssetStructFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBaseAssetStructFilter';
-	}
-}
-module.exports.BaseAssetStructFilter = BaseAssetStructFilter;
-
-/**
- *
- */
-class AssetStructFilter extends BaseAssetStructFilter{
+class AssetStructFilter extends Filter{
 	
 	constructor(object = null) {
 		super(object);
@@ -4570,18 +4558,6 @@ class AssetStructFilter extends BaseAssetStructFilter{
 	 }
 }
 module.exports.AssetStructFilter = AssetStructFilter;
-
-/**
- *
- */
-class LinearAssetStructFilter extends BaseAssetStructFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaLinearAssetStructFilter';
-	}
-}
-module.exports.LinearAssetStructFilter = LinearAssetStructFilter;
 
 /**
  *
@@ -7480,21 +7456,6 @@ class MediaImage extends kaltura.BaseObject{
 	 */
 	 setImageTypeId(imageTypeId) {
 	 	this.imageTypeId = imageTypeId;
-	 }
-	
-	/**
-	 * Image type Name
-	 * @return string
-	 */
-	 getImageTypeName() {
-	 	return this.imageTypeName;
-	 }
-	
-	/**
-	 * @param imageTypeName string Image type Name
-	 */
-	 setImageTypeName(imageTypeName) {
-	 	this.imageTypeName = imageTypeName;
 	 }
 }
 module.exports.MediaImage = MediaImage;
@@ -14905,48 +14866,6 @@ module.exports.DynamicChannel = DynamicChannel;
 /**
  *
  */
-class ManualCollectionAsset extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaManualCollectionAsset';
-	}
-	
-	/**
-	 * Internal identifier of the asset
-	 * @return string
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * @param id string Internal identifier of the asset
-	 */
-	 setId(id) {
-	 	this.id = id;
-	 }
-	
-	/**
-	 * The type of the asset. Possible values: media, epg
-	 * @return string
-	 */
-	 getType() {
-	 	return this.type;
-	 }
-	
-	/**
-	 * @param type string The type of the asset. Possible values: media, epg
-	 */
-	 setType(type) {
-	 	this.type = type;
-	 }
-}
-module.exports.ManualCollectionAsset = ManualCollectionAsset;
-
-/**
- *
- */
 class ManualChannel extends Channel{
 	
 	constructor(object = null) {
@@ -14967,21 +14886,6 @@ class ManualChannel extends Channel{
 	 */
 	 setMediaIds(mediaIds) {
 	 	this.mediaIds = mediaIds;
-	 }
-	
-	/**
-	 * List of assets identifier
-	 * @return array
-	 */
-	 getAssets() {
-	 	return this.assets;
-	 }
-	
-	/**
-	 * @param assets array List of assets identifier
-	 */
-	 setAssets(assets) {
-	 	this.assets = assets;
 	 }
 }
 module.exports.ManualChannel = ManualChannel;
@@ -17481,21 +17385,6 @@ class BasePartnerConfiguration extends PartnerConfiguration{
 	 }
 	
 	/**
-	 * AutoRefreshAppToken
-	 * @return bool
-	 */
-	 getAutoRefreshAppToken() {
-	 	return this.autoRefreshAppToken;
-	 }
-	
-	/**
-	 * @param autoRefreshAppToken bool AutoRefreshAppToken
-	 */
-	 setAutoRefreshAppToken(autoRefreshAppToken) {
-	 	this.autoRefreshAppToken = autoRefreshAppToken;
-	 }
-	
-	/**
 	 * uploadTokenExpirySeconds
 	 * @return int
 	 */
@@ -17842,6 +17731,33 @@ module.exports.ConcurrencyPartnerConfig = ConcurrencyPartnerConfig;
 /**
  *
  */
+class CustomFieldsPartnerConfiguration extends PartnerConfiguration{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCustomFieldsPartnerConfiguration';
+	}
+	
+	/**
+	 * Array of clientTag values
+	 * @return string
+	 */
+	 getMetaSystemNameInsteadOfAliasList() {
+	 	return this.metaSystemNameInsteadOfAliasList;
+	 }
+	
+	/**
+	 * @param metaSystemNameInsteadOfAliasList string Array of clientTag values
+	 */
+	 setMetaSystemNameInsteadOfAliasList(metaSystemNameInsteadOfAliasList) {
+	 	this.metaSystemNameInsteadOfAliasList = metaSystemNameInsteadOfAliasList;
+	 }
+}
+module.exports.CustomFieldsPartnerConfiguration = CustomFieldsPartnerConfiguration;
+
+/**
+ *
+ */
 class RollingDeviceRemovalData extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -18084,21 +18000,6 @@ class GeneralPartnerConfig extends PartnerConfiguration{
 	 */
 	 setRollingDeviceData(rollingDeviceData) {
 	 	this.rollingDeviceData = rollingDeviceData;
-	 }
-	
-	/**
-	 * minimum bookmark position of a linear channel to be included in a watch history
-	 * @return int
-	 */
-	 getLinearWatchHistoryThreshold() {
-	 	return this.linearWatchHistoryThreshold;
-	 }
-	
-	/**
-	 * @param linearWatchHistoryThreshold int minimum bookmark position of a linear channel to be included in a watch history
-	 */
-	 setLinearWatchHistoryThreshold(linearWatchHistoryThreshold) {
-	 	this.linearWatchHistoryThreshold = linearWatchHistoryThreshold;
 	 }
 	
 	/**
@@ -20742,36 +20643,6 @@ class HouseholdLimitations extends kaltura.BaseObject{
 	 */
 	 setDeviceFamiliesLimitations(deviceFamiliesLimitations) {
 	 	this.deviceFamiliesLimitations = deviceFamiliesLimitations;
-	 }
-	
-	/**
-	 * Allowed device change frequency description
-	 * @return string
-	 */
-	 getDescription() {
-	 	return this.description;
-	 }
-	
-	/**
-	 * @param description string Allowed device change frequency description
-	 */
-	 setDescription(description) {
-	 	this.description = description;
-	 }
-	
-	/**
-	 * Associated Device Families ids
-	 * @return string
-	 */
-	 getAssociatedDeviceFamiliesIdsIn() {
-	 	return this.associatedDeviceFamiliesIdsIn;
-	 }
-	
-	/**
-	 * @param associatedDeviceFamiliesIdsIn string Associated Device Families ids
-	 */
-	 setAssociatedDeviceFamiliesIdsIn(associatedDeviceFamiliesIdsIn) {
-	 	this.associatedDeviceFamiliesIdsIn = associatedDeviceFamiliesIdsIn;
 	 }
 }
 module.exports.HouseholdLimitations = HouseholdLimitations;
@@ -24019,6 +23890,21 @@ class AssetStructMeta extends kaltura.BaseObject{
 	 setSuppressedOrder(suppressedOrder) {
 	 	this.suppressedOrder = suppressedOrder;
 	 }
+	
+	/**
+	 * Case sensitive alias value
+	 * @return string
+	 */
+	 getAliasName() {
+	 	return this.aliasName;
+	 }
+	
+	/**
+	 * @param aliasName string Case sensitive alias value
+	 */
+	 setAliasName(aliasName) {
+	 	this.aliasName = aliasName;
+	 }
 }
 module.exports.AssetStructMeta = AssetStructMeta;
 
@@ -24142,21 +24028,6 @@ class Image extends kaltura.BaseObject{
 	 */
 	 setImageTypeId(imageTypeId) {
 	 	this.imageTypeId = imageTypeId;
-	 }
-	
-	/**
-	 * Image type Name
-	 * @return string
-	 */
-	 getImageTypeName() {
-	 	return this.imageTypeName;
-	 }
-	
-	/**
-	 * @param imageTypeName string Image type Name
-	 */
-	 setImageTypeName(imageTypeName) {
-	 	this.imageTypeName = imageTypeName;
 	 }
 	
 	/**
@@ -32383,33 +32254,6 @@ module.exports.EpgNotificationSettings = EpgNotificationSettings;
 /**
  *
  */
-class LineupNotificationSettings extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaLineupNotificationSettings';
-	}
-	
-	/**
-	 * if lineup notifications are enabled
-	 * @return bool
-	 */
-	 getEnabled() {
-	 	return this.enabled;
-	 }
-	
-	/**
-	 * @param enabled bool if lineup notifications are enabled
-	 */
-	 setEnabled(enabled) {
-	 	this.enabled = enabled;
-	 }
-}
-module.exports.LineupNotificationSettings = LineupNotificationSettings;
-
-/**
- *
- */
 class NotificationsPartnerSettings extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -32700,21 +32544,6 @@ class NotificationsPartnerSettings extends kaltura.BaseObject{
 	 */
 	 setEpgNotification(epgNotification) {
 	 	this.epgNotification = epgNotification;
-	 }
-	
-	/**
-	 * Settings for lineup notifications
-	 * @return LineupNotificationSettings
-	 */
-	 getLineupNotification() {
-	 	return this.lineupNotification;
-	 }
-	
-	/**
-	 * @param lineupNotification LineupNotificationSettings Settings for lineup notifications
-	 */
-	 setLineupNotification(lineupNotification) {
-	 	this.lineupNotification = lineupNotification;
 	 }
 }
 module.exports.NotificationsPartnerSettings = NotificationsPartnerSettings;
