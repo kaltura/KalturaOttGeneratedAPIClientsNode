@@ -328,6 +328,11 @@ UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
 UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
 };
 
+module.exports.ChannelStruct = {
+MANUAL : 'Manual',
+DYNAMIC : 'Dynamic',
+};
+
 module.exports.ChannelType = {
 INTERNAL : 'Internal',
 EXTERNAL : 'External',
@@ -680,6 +685,11 @@ DTT : 'DTT',
 OTT : 'OTT',
 DTT_AND_OTT : 'DTT_AND_OTT',
 VRM_EXPORT : 'VRM_EXPORT',
+};
+
+module.exports.ManualCollectionAssetType = {
+MEDIA : 'media',
+EPG : 'epg',
 };
 
 module.exports.MathemticalOperatorType = {

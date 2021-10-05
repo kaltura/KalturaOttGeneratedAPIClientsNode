@@ -678,7 +678,7 @@ class assetStruct{
 	
 	/**
 	 * Return a list of asset structs for the account with optional filter.
-	 * @param filter AssetStructFilter Filter parameters for filtering out the result (optional, default: null)
+	 * @param filter BaseAssetStructFilter Filter parameters for filtering out the result (optional, default: null)
 	 * @return KalturaAssetStructListResponse
 	 */
 	static listAction(filter = null){
@@ -1450,7 +1450,7 @@ class channel{
 	
 	/**
 	 * Get the list of tags for the partner.
-	 * @param filter ChannelsFilter Filter (optional, default: null)
+	 * @param filter ChannelsBaseFilter Filter (optional, default: null)
 	 * @param pager FilterPager Page size and index (optional, default: null)
 	 * @return KalturaChannelListResponse
 	 */
@@ -2604,6 +2604,36 @@ module.exports.epg = epg;
 
 
 /**
+ *Class definition for the Kaltura service: epgServicePartnerConfiguration.
+ * The available service actions:
+ * @action get Returns EPG cache service partner configurations.
+ * @action update Returns EPG cache service partner configurations.
+ */
+class epgServicePartnerConfiguration{
+	
+	/**
+	 * Returns EPG cache service partner configurations.
+	 * @return KalturaEpgServicePartnerConfiguration
+	 */
+	static get(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('epgservicepartnerconfiguration', 'get', kparams);
+	};
+	
+	/**
+	 * Returns EPG cache service partner configurations.
+	 * @param config EpgServicePartnerConfiguration the partner config updates
+	 */
+	static update(config){
+		let kparams = {};
+		kparams.config = config;
+		return new kaltura.RequestBuilder('epgservicepartnerconfiguration', 'update', kparams);
+	};
+}
+module.exports.epgServicePartnerConfiguration = epgServicePartnerConfiguration;
+
+
+/**
  *Class definition for the Kaltura service: eventNotificationAction.
  * The available service actions:
  * @action dispatch Dispatches event notification.
@@ -3284,7 +3314,9 @@ module.exports.householdDevice = householdDevice;
  * @action add Add household limitation.
  * @action delete Delete household limitation.
  * @action get Get the limitation module by id.
+ * @action isUsed Checks if the DLM is used.
  * @action list Get the list of PartnerConfiguration.
+ * @action update Updates household limitation.
  */
 class householdLimitations{
 	
@@ -3322,12 +3354,36 @@ class householdLimitations{
 	};
 	
 	/**
+	 * Checks if the DLM is used.
+	 * @param dlmId int Household limitations module identifier
+	 * @return bool
+	 */
+	static isUsed(dlmId){
+		let kparams = {};
+		kparams.dlmId = dlmId;
+		return new kaltura.RequestBuilder('householdlimitations', 'isUsed', kparams);
+	};
+	
+	/**
 	 * Get the list of PartnerConfiguration.
 	 * @return KalturaHouseholdLimitationsListResponse
 	 */
 	static listAction(){
 		let kparams = {};
 		return new kaltura.RequestBuilder('householdlimitations', 'list', kparams);
+	};
+	
+	/**
+	 * Updates household limitation.
+	 * @param dlmId int Id of household limitation
+	 * @param householdLimitation HouseholdLimitations household limitation
+	 * @return KalturaHouseholdLimitations
+	 */
+	static update(dlmId, householdLimitation){
+		let kparams = {};
+		kparams.dlmId = dlmId;
+		kparams.householdLimitation = householdLimitation;
+		return new kaltura.RequestBuilder('householdlimitations', 'update', kparams);
 	};
 }
 module.exports.householdLimitations = householdLimitations;
