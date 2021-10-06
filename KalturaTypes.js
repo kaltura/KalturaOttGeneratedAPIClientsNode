@@ -328,6 +328,11 @@ UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
 UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
 };
 
+module.exports.ChannelStruct = {
+MANUAL : 'Manual',
+DYNAMIC : 'Dynamic',
+};
+
 module.exports.ChannelType = {
 INTERNAL : 'Internal',
 EXTERNAL : 'External',
@@ -805,6 +810,7 @@ CATALOG : 'Catalog',
 SECURITY : 'Security',
 OPC : 'Opc',
 BASE : 'Base',
+CUSTOMFIELDS : 'CustomFields',
 };
 
 module.exports.PasswordPolicyOrderBy = {

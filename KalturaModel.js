@@ -5376,7 +5376,19 @@ module.exports.Bookmark = Bookmark;
 /**
  *
  */
-class ChannelsFilter extends Filter{
+class ChannelsBaseFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaChannelsBaseFilter';
+	}
+}
+module.exports.ChannelsBaseFilter = ChannelsBaseFilter;
+
+/**
+ *
+ */
+class ChannelsFilter extends ChannelsBaseFilter{
 	
 	constructor(object = null) {
 		super(object);
@@ -5459,6 +5471,48 @@ class ChannelsFilter extends Filter{
 	 }
 }
 module.exports.ChannelsFilter = ChannelsFilter;
+
+/**
+ *
+ */
+class ChannelSearchByKsqlFilter extends ChannelsBaseFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaChannelSearchByKsqlFilter';
+	}
+	
+	/**
+	 * KSQL expression
+	 * @return string
+	 */
+	 getKSql() {
+	 	return this.kSql;
+	 }
+	
+	/**
+	 * @param kSql string KSQL expression
+	 */
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
+	 }
+	
+	/**
+	 * channel struct
+	 * @return string
+	 */
+	 getChannelStructEqual() {
+	 	return this.channelStructEqual;
+	 }
+	
+	/**
+	 * @param channelStructEqual string channel struct
+	 */
+	 setChannelStructEqual(channelStructEqual) {
+	 	this.channelStructEqual = channelStructEqual;
+	 }
+}
+module.exports.ChannelSearchByKsqlFilter = ChannelSearchByKsqlFilter;
 
 /**
  *
@@ -17842,6 +17896,33 @@ module.exports.ConcurrencyPartnerConfig = ConcurrencyPartnerConfig;
 /**
  *
  */
+class CustomFieldsPartnerConfiguration extends PartnerConfiguration{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCustomFieldsPartnerConfiguration';
+	}
+	
+	/**
+	 * Array of clientTag values
+	 * @return string
+	 */
+	 getMetaSystemNameInsteadOfAliasList() {
+	 	return this.metaSystemNameInsteadOfAliasList;
+	 }
+	
+	/**
+	 * @param metaSystemNameInsteadOfAliasList string Array of clientTag values
+	 */
+	 setMetaSystemNameInsteadOfAliasList(metaSystemNameInsteadOfAliasList) {
+	 	this.metaSystemNameInsteadOfAliasList = metaSystemNameInsteadOfAliasList;
+	 }
+}
+module.exports.CustomFieldsPartnerConfiguration = CustomFieldsPartnerConfiguration;
+
+/**
+ *
+ */
 class RollingDeviceRemovalData extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -24018,6 +24099,21 @@ class AssetStructMeta extends kaltura.BaseObject{
 	 */
 	 setSuppressedOrder(suppressedOrder) {
 	 	this.suppressedOrder = suppressedOrder;
+	 }
+	
+	/**
+	 * Case sensitive alias value
+	 * @return string
+	 */
+	 getAliasName() {
+	 	return this.aliasName;
+	 }
+	
+	/**
+	 * @param aliasName string Case sensitive alias value
+	 */
+	 setAliasName(aliasName) {
+	 	this.aliasName = aliasName;
 	 }
 }
 module.exports.AssetStructMeta = AssetStructMeta;
@@ -30617,6 +30713,48 @@ class EntitlementRenewal extends kaltura.BaseObject{
 	 }
 }
 module.exports.EntitlementRenewal = EntitlementRenewal;
+
+/**
+ *
+ */
+class EpgServicePartnerConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEpgServicePartnerConfiguration';
+	}
+	
+	/**
+	 * The number of slots (NOS) that are supported (1, 2, 3, 4, 6, 8, 12, 24)
+	 * @return int
+	 */
+	 getNumberOfSlots() {
+	 	return this.numberOfSlots;
+	 }
+	
+	/**
+	 * @param numberOfSlots int The number of slots (NOS) that are supported (1, 2, 3, 4, 6, 8, 12, 24)
+	 */
+	 setNumberOfSlots(numberOfSlots) {
+	 	this.numberOfSlots = numberOfSlots;
+	 }
+	
+	/**
+	 * The offset of the first slot from 00:00 UTC
+	 * @return int
+	 */
+	 getFirstSlotOffset() {
+	 	return this.firstSlotOffset;
+	 }
+	
+	/**
+	 * @param firstSlotOffset int The offset of the first slot from 00:00 UTC
+	 */
+	 setFirstSlotOffset(firstSlotOffset) {
+	 	this.firstSlotOffset = firstSlotOffset;
+	 }
+}
+module.exports.EpgServicePartnerConfiguration = EpgServicePartnerConfiguration;
 
 /**
  *
