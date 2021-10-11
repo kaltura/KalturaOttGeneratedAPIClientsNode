@@ -328,6 +328,11 @@ UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
 UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
 };
 
+module.exports.ChannelStruct = {
+MANUAL : 'Manual',
+DYNAMIC : 'Dynamic',
+};
+
 module.exports.ChannelType = {
 INTERNAL : 'Internal',
 EXTERNAL : 'External',
