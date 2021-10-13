@@ -678,7 +678,7 @@ class assetStruct{
 	
 	/**
 	 * Return a list of asset structs for the account with optional filter.
-	 * @param filter BaseAssetStructFilter Filter parameters for filtering out the result (optional, default: null)
+	 * @param filter AssetStructFilter Filter parameters for filtering out the result (optional, default: null)
 	 * @return KalturaAssetStructListResponse
 	 */
 	static listAction(filter = null){
@@ -1450,7 +1450,7 @@ class channel{
 	
 	/**
 	 * Get the list of tags for the partner.
-	 * @param filter ChannelsBaseFilter Filter (optional, default: null)
+	 * @param filter ChannelsFilter Filter (optional, default: null)
 	 * @param pager FilterPager Page size and index (optional, default: null)
 	 * @return KalturaChannelListResponse
 	 */
@@ -2601,36 +2601,6 @@ class epg{
 	};
 }
 module.exports.epg = epg;
-
-
-/**
- *Class definition for the Kaltura service: epgServicePartnerConfiguration.
- * The available service actions:
- * @action get Returns EPG cache service partner configurations.
- * @action update Returns EPG cache service partner configurations.
- */
-class epgServicePartnerConfiguration{
-	
-	/**
-	 * Returns EPG cache service partner configurations.
-	 * @return KalturaEpgServicePartnerConfiguration
-	 */
-	static get(){
-		let kparams = {};
-		return new kaltura.RequestBuilder('epgservicepartnerconfiguration', 'get', kparams);
-	};
-	
-	/**
-	 * Returns EPG cache service partner configurations.
-	 * @param config EpgServicePartnerConfiguration the partner config updates
-	 */
-	static update(config){
-		let kparams = {};
-		kparams.config = config;
-		return new kaltura.RequestBuilder('epgservicepartnerconfiguration', 'update', kparams);
-	};
-}
-module.exports.epgServicePartnerConfiguration = epgServicePartnerConfiguration;
 
 
 /**

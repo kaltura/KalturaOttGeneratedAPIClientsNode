@@ -4490,19 +4490,7 @@ module.exports.AssetImagePerRatioFilter = AssetImagePerRatioFilter;
 /**
  *
  */
-class BaseAssetStructFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBaseAssetStructFilter';
-	}
-}
-module.exports.BaseAssetStructFilter = BaseAssetStructFilter;
-
-/**
- *
- */
-class AssetStructFilter extends BaseAssetStructFilter{
+class AssetStructFilter extends Filter{
 	
 	constructor(object = null) {
 		super(object);
@@ -4570,18 +4558,6 @@ class AssetStructFilter extends BaseAssetStructFilter{
 	 }
 }
 module.exports.AssetStructFilter = AssetStructFilter;
-
-/**
- *
- */
-class LinearAssetStructFilter extends BaseAssetStructFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaLinearAssetStructFilter';
-	}
-}
-module.exports.LinearAssetStructFilter = LinearAssetStructFilter;
 
 /**
  *
@@ -5376,19 +5352,7 @@ module.exports.Bookmark = Bookmark;
 /**
  *
  */
-class ChannelsBaseFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaChannelsBaseFilter';
-	}
-}
-module.exports.ChannelsBaseFilter = ChannelsBaseFilter;
-
-/**
- *
- */
-class ChannelsFilter extends ChannelsBaseFilter{
+class ChannelsFilter extends Filter{
 	
 	constructor(object = null) {
 		super(object);
@@ -5471,48 +5435,6 @@ class ChannelsFilter extends ChannelsBaseFilter{
 	 }
 }
 module.exports.ChannelsFilter = ChannelsFilter;
-
-/**
- *
- */
-class ChannelSearchByKsqlFilter extends ChannelsBaseFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaChannelSearchByKsqlFilter';
-	}
-	
-	/**
-	 * KSQL expression
-	 * @return string
-	 */
-	 getKSql() {
-	 	return this.kSql;
-	 }
-	
-	/**
-	 * @param kSql string KSQL expression
-	 */
-	 setKSql(kSql) {
-	 	this.kSql = kSql;
-	 }
-	
-	/**
-	 * channel struct
-	 * @return string
-	 */
-	 getChannelStructEqual() {
-	 	return this.channelStructEqual;
-	 }
-	
-	/**
-	 * @param channelStructEqual string channel struct
-	 */
-	 setChannelStructEqual(channelStructEqual) {
-	 	this.channelStructEqual = channelStructEqual;
-	 }
-}
-module.exports.ChannelSearchByKsqlFilter = ChannelSearchByKsqlFilter;
 
 /**
  *
@@ -30675,48 +30597,6 @@ module.exports.EntitlementRenewal = EntitlementRenewal;
 /**
  *
  */
-class EpgServicePartnerConfiguration extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaEpgServicePartnerConfiguration';
-	}
-	
-	/**
-	 * The number of slots (NOS) that are supported (1, 2, 3, 4, 6, 8, 12, 24)
-	 * @return int
-	 */
-	 getNumberOfSlots() {
-	 	return this.numberOfSlots;
-	 }
-	
-	/**
-	 * @param numberOfSlots int The number of slots (NOS) that are supported (1, 2, 3, 4, 6, 8, 12, 24)
-	 */
-	 setNumberOfSlots(numberOfSlots) {
-	 	this.numberOfSlots = numberOfSlots;
-	 }
-	
-	/**
-	 * The offset of the first slot from 00:00 UTC
-	 * @return int
-	 */
-	 getFirstSlotOffset() {
-	 	return this.firstSlotOffset;
-	 }
-	
-	/**
-	 * @param firstSlotOffset int The offset of the first slot from 00:00 UTC
-	 */
-	 setFirstSlotOffset(firstSlotOffset) {
-	 	this.firstSlotOffset = firstSlotOffset;
-	 }
-}
-module.exports.EpgServicePartnerConfiguration = EpgServicePartnerConfiguration;
-
-/**
- *
- */
 class EventNotificationScope extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -32479,33 +32359,6 @@ module.exports.EpgNotificationSettings = EpgNotificationSettings;
 /**
  *
  */
-class LineupNotificationSettings extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaLineupNotificationSettings';
-	}
-	
-	/**
-	 * if lineup notifications are enabled
-	 * @return bool
-	 */
-	 getEnabled() {
-	 	return this.enabled;
-	 }
-	
-	/**
-	 * @param enabled bool if lineup notifications are enabled
-	 */
-	 setEnabled(enabled) {
-	 	this.enabled = enabled;
-	 }
-}
-module.exports.LineupNotificationSettings = LineupNotificationSettings;
-
-/**
- *
- */
 class NotificationsPartnerSettings extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -32796,21 +32649,6 @@ class NotificationsPartnerSettings extends kaltura.BaseObject{
 	 */
 	 setEpgNotification(epgNotification) {
 	 	this.epgNotification = epgNotification;
-	 }
-	
-	/**
-	 * Settings for lineup notifications
-	 * @return LineupNotificationSettings
-	 */
-	 getLineupNotification() {
-	 	return this.lineupNotification;
-	 }
-	
-	/**
-	 * @param lineupNotification LineupNotificationSettings Settings for lineup notifications
-	 */
-	 setLineupNotification(lineupNotification) {
-	 	this.lineupNotification = lineupNotification;
 	 }
 }
 module.exports.NotificationsPartnerSettings = NotificationsPartnerSettings;
