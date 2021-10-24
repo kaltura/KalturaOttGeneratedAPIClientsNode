@@ -2993,7 +2993,7 @@ module.exports.homeNetwork = homeNetwork;
  * @action add Creates a household for the user.
  * @action delete Fully delete a household. Delete all of the household information, including users, devices, entitlements, payment methods and notification date.
  * @action get Returns the household model.
- * @action list Get recently watched media for user, ordered by recently watched first.
+ * @action list Retrive household for the partner filter by external identifier.
  * @action purge Purge a household. Delete all of the household information, including users, devices, entitlements, payment methods and notification date.
  * @action resetFrequency Reset a household’s time limitation for removing user or device.
  * @action resume Resumed a given household service to its previous service settings.
@@ -3036,7 +3036,7 @@ class household{
 	};
 	
 	/**
-	 * Get recently watched media for user, ordered by recently watched first.
+	 * Retrive household for the partner filter by external identifier.
 	 * @param filter HouseholdFilter Filter parameters for filtering out the result
 	 * @param pager FilterPager Page size and index. Number of assets to return per page. Possible range 5 ≤ size ≥ 50. If omitted - will be set to 25. If a value > 50 provided – will set to 50 (optional, default: null)
 	 * @return KalturaHouseholdListResponse
@@ -3254,13 +3254,15 @@ class householdDevice{
 	 * @param partnerId int Partner Identifier
 	 * @param pin string pin code
 	 * @param udid string Device UDID (optional, default: null)
+	 * @param extraParams map extra params (optional, default: null)
 	 * @return KalturaLoginResponse
 	 */
-	static loginWithPin(partnerId, pin, udid = null){
+	static loginWithPin(partnerId, pin, udid = null, extraParams = null){
 		let kparams = {};
 		kparams.partnerId = partnerId;
 		kparams.pin = pin;
 		kparams.udid = udid;
+		kparams.extraParams = extraParams;
 		return new kaltura.RequestBuilder('householddevice', 'loginWithPin', kparams);
 	};
 	
@@ -4103,6 +4105,29 @@ module.exports.licensedUrl = licensedUrl;
 
 
 /**
+ *Class definition for the Kaltura service: lineup.
+ * The available service actions:
+ * @action get Return regional lineup (list of lineup channel asset objects) based on the requester session characteristics and his region.
+ */
+class lineup{
+	
+	/**
+	 * Return regional lineup (list of lineup channel asset objects) based on the requester session characteristics and his region.
+	 * @param pageIndex int Page index - The page index to retrieve, (if it is not sent the default page size is 1)
+	 * @param pageSize int Page size - The page size to retrieve. Must be one of the follow numbers: 100, 200, 800, 1200, 1600 (if it is not sent the default page size is 500)
+	 * @return KalturaLineupChannelAssetListResponse
+	 */
+	static get(pageIndex, pageSize){
+		let kparams = {};
+		kparams.pageIndex = pageIndex;
+		kparams.pageSize = pageSize;
+		return new kaltura.RequestBuilder('lineup', 'get', kparams);
+	};
+}
+module.exports.lineup = lineup;
+
+
+/**
  *Class definition for the Kaltura service: mediaConcurrencyRule.
  * The available service actions:
  * @action list Get the list of meta mappings for the partner.
@@ -4716,14 +4741,16 @@ class ottUser{
 	 * @param pin string pin code
 	 * @param udid string Device UDID (optional, default: null)
 	 * @param secret string Additional security parameter to validate the login (optional, default: null)
+	 * @param extraParams map extra params (optional, default: null)
 	 * @return KalturaLoginResponse
 	 */
-	static loginWithPin(partnerId, pin, udid = null, secret = null){
+	static loginWithPin(partnerId, pin, udid = null, secret = null, extraParams = null){
 		let kparams = {};
 		kparams.partnerId = partnerId;
 		kparams.pin = pin;
 		kparams.udid = udid;
 		kparams.secret = secret;
+		kparams.extraParams = extraParams;
 		return new kaltura.RequestBuilder('ottuser', 'loginWithPin', kparams);
 	};
 	
@@ -6560,11 +6587,33 @@ module.exports.seriesRecording = seriesRecording;
 /**
  *Class definition for the Kaltura service: session.
  * The available service actions:
+ * @action createSessionCharacteristic Create session characteristic.
  * @action get Parses KS.
  * @action revoke Revokes all the sessions (KS) of a given user.
  * @action switchUser Switching the user in the session by generating a new session for a new user within the same household.
  */
 class session{
+	
+	/**
+	 * Create session characteristic.
+	 * @param userId string user identifier
+	 * @param householdId int household identifier
+	 * @param udid string device UDID
+	 * @param expiration int relative expiration(TTL) in seconds, should be equal or greater than KS expiration
+	 * @param regionId int region identifier (optional, default: null)
+	 * @param sessionCharacteristicParams map session characteristic dynamic params (optional, default: null)
+	 * @return KalturaSessionCharacteristic
+	 */
+	static createSessionCharacteristic(userId, householdId, udid, expiration, regionId = null, sessionCharacteristicParams = null){
+		let kparams = {};
+		kparams.userId = userId;
+		kparams.householdId = householdId;
+		kparams.udid = udid;
+		kparams.expiration = expiration;
+		kparams.regionId = regionId;
+		kparams.sessionCharacteristicParams = sessionCharacteristicParams;
+		return new kaltura.RequestBuilder('session', 'createSessionCharacteristic', kparams);
+	};
 	
 	/**
 	 * Parses KS.
@@ -8097,4 +8146,64 @@ class userSegment{
 	};
 }
 module.exports.userSegment = userSegment;
+
+
+/**
+ *Class definition for the Kaltura service: userSessionProfile.
+ * The available service actions:
+ * @action add Add new UserSessionProfile.
+ * @action delete Delete existing UserSessionProfile.
+ * @action list Returns the list of available UserSessionProfiles.
+ * @action update Update existing UserSessionProfile.
+ */
+class userSessionProfile{
+	
+	/**
+	 * Add new UserSessionProfile.
+	 * @param userSessionProfile UserSessionProfile userSessionProfile Object to add
+	 * @return KalturaUserSessionProfile
+	 */
+	static add(userSessionProfile){
+		let kparams = {};
+		kparams.userSessionProfile = userSessionProfile;
+		return new kaltura.RequestBuilder('usersessionprofile', 'add', kparams);
+	};
+	
+	/**
+	 * Delete existing UserSessionProfile.
+	 * @param id int UserSessionProfile identifier
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('usersessionprofile', 'delete', kparams);
+	};
+	
+	/**
+	 * Returns the list of available UserSessionProfiles.
+	 * @param filter UserSessionProfileFilter Filter (optional, default: null)
+	 * @param pager FilterPager Pager (optional, default: null)
+	 * @return KalturaUserSessionProfileListResponse
+	 */
+	static listAction(filter = null, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('usersessionprofile', 'list', kparams);
+	};
+	
+	/**
+	 * Update existing UserSessionProfile.
+	 * @param id int id of userSessionProfile to update
+	 * @param userSessionProfile UserSessionProfile userSessionProfile Object to update
+	 * @return KalturaUserSessionProfile
+	 */
+	static update(id, userSessionProfile){
+		let kparams = {};
+		kparams.id = id;
+		kparams.userSessionProfile = userSessionProfile;
+		return new kaltura.RequestBuilder('usersessionprofile', 'update', kparams);
+	};
+}
+module.exports.userSessionProfile = userSessionProfile;
 
