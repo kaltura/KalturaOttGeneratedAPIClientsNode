@@ -5376,19 +5376,7 @@ module.exports.Bookmark = Bookmark;
 /**
  *
  */
-class ChannelsBaseFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaChannelsBaseFilter';
-	}
-}
-module.exports.ChannelsBaseFilter = ChannelsBaseFilter;
-
-/**
- *
- */
-class ChannelsFilter extends ChannelsBaseFilter{
+class ChannelsFilter extends Filter{
 	
 	constructor(object = null) {
 		super(object);
@@ -5471,48 +5459,6 @@ class ChannelsFilter extends ChannelsBaseFilter{
 	 }
 }
 module.exports.ChannelsFilter = ChannelsFilter;
-
-/**
- *
- */
-class ChannelSearchByKsqlFilter extends ChannelsBaseFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaChannelSearchByKsqlFilter';
-	}
-	
-	/**
-	 * KSQL expression
-	 * @return string
-	 */
-	 getKSql() {
-	 	return this.kSql;
-	 }
-	
-	/**
-	 * @param kSql string KSQL expression
-	 */
-	 setKSql(kSql) {
-	 	this.kSql = kSql;
-	 }
-	
-	/**
-	 * channel struct
-	 * @return string
-	 */
-	 getChannelStructEqual() {
-	 	return this.channelStructEqual;
-	 }
-	
-	/**
-	 * @param channelStructEqual string channel struct
-	 */
-	 setChannelStructEqual(channelStructEqual) {
-	 	this.channelStructEqual = channelStructEqual;
-	 }
-}
-module.exports.ChannelSearchByKsqlFilter = ChannelSearchByKsqlFilter;
 
 /**
  *
@@ -30671,48 +30617,6 @@ class EntitlementRenewal extends kaltura.BaseObject{
 	 }
 }
 module.exports.EntitlementRenewal = EntitlementRenewal;
-
-/**
- *
- */
-class EpgServicePartnerConfiguration extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaEpgServicePartnerConfiguration';
-	}
-	
-	/**
-	 * The number of slots (NOS) that are supported (1, 2, 3, 4, 6, 8, 12, 24)
-	 * @return int
-	 */
-	 getNumberOfSlots() {
-	 	return this.numberOfSlots;
-	 }
-	
-	/**
-	 * @param numberOfSlots int The number of slots (NOS) that are supported (1, 2, 3, 4, 6, 8, 12, 24)
-	 */
-	 setNumberOfSlots(numberOfSlots) {
-	 	this.numberOfSlots = numberOfSlots;
-	 }
-	
-	/**
-	 * The offset of the first slot from 00:00 UTC
-	 * @return int
-	 */
-	 getFirstSlotOffset() {
-	 	return this.firstSlotOffset;
-	 }
-	
-	/**
-	 * @param firstSlotOffset int The offset of the first slot from 00:00 UTC
-	 */
-	 setFirstSlotOffset(firstSlotOffset) {
-	 	this.firstSlotOffset = firstSlotOffset;
-	 }
-}
-module.exports.EpgServicePartnerConfiguration = EpgServicePartnerConfiguration;
 
 /**
  *
