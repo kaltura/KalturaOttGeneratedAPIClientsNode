@@ -5,7 +5,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platfroms allow them to do with
+// to do with audio, video, and animation what Wiki platforms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -678,7 +678,7 @@ class assetStruct{
 	
 	/**
 	 * Return a list of asset structs for the account with optional filter.
-	 * @param filter AssetStructFilter Filter parameters for filtering out the result (optional, default: null)
+	 * @param filter BaseAssetStructFilter Filter parameters for filtering out the result (optional, default: null)
 	 * @return KalturaAssetStructListResponse
 	 */
 	static listAction(filter = null){
@@ -3284,7 +3284,9 @@ module.exports.householdDevice = householdDevice;
  * @action add Add household limitation.
  * @action delete Delete household limitation.
  * @action get Get the limitation module by id.
+ * @action isUsed Checks if the DLM is used.
  * @action list Get the list of PartnerConfiguration.
+ * @action update Updates household limitation.
  */
 class householdLimitations{
 	
@@ -3322,12 +3324,36 @@ class householdLimitations{
 	};
 	
 	/**
+	 * Checks if the DLM is used.
+	 * @param dlmId int Household limitations module identifier
+	 * @return bool
+	 */
+	static isUsed(dlmId){
+		let kparams = {};
+		kparams.dlmId = dlmId;
+		return new kaltura.RequestBuilder('householdlimitations', 'isUsed', kparams);
+	};
+	
+	/**
 	 * Get the list of PartnerConfiguration.
 	 * @return KalturaHouseholdLimitationsListResponse
 	 */
 	static listAction(){
 		let kparams = {};
 		return new kaltura.RequestBuilder('householdlimitations', 'list', kparams);
+	};
+	
+	/**
+	 * Updates household limitation.
+	 * @param dlmId int Id of household limitation
+	 * @param householdLimitation HouseholdLimitations household limitation
+	 * @return KalturaHouseholdLimitations
+	 */
+	static update(dlmId, householdLimitation){
+		let kparams = {};
+		kparams.dlmId = dlmId;
+		kparams.householdLimitation = householdLimitation;
+		return new kaltura.RequestBuilder('householdlimitations', 'update', kparams);
 	};
 }
 module.exports.householdLimitations = householdLimitations;
