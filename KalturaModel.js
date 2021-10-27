@@ -18720,14 +18720,14 @@ class DefaultParentalSettingsPartnerConfig extends PartnerConfiguration{
 	
 	/**
 	 * defaultParentalPin
-	 * @return int
+	 * @return string
 	 */
 	 getDefaultParentalPin() {
 	 	return this.defaultParentalPin;
 	 }
 	
 	/**
-	 * @param defaultParentalPin int defaultParentalPin
+	 * @param defaultParentalPin string defaultParentalPin
 	 */
 	 setDefaultParentalPin(defaultParentalPin) {
 	 	this.defaultParentalPin = defaultParentalPin;
@@ -18735,14 +18735,14 @@ class DefaultParentalSettingsPartnerConfig extends PartnerConfiguration{
 	
 	/**
 	 * defaultPurchasePin
-	 * @return int
+	 * @return string
 	 */
 	 getDefaultPurchasePin() {
 	 	return this.defaultPurchasePin;
 	 }
 	
 	/**
-	 * @param defaultPurchasePin int defaultPurchasePin
+	 * @param defaultPurchasePin string defaultPurchasePin
 	 */
 	 setDefaultPurchasePin(defaultPurchasePin) {
 	 	this.defaultPurchasePin = defaultPurchasePin;
