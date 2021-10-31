@@ -338,6 +338,12 @@ INTERNAL : 'Internal',
 EXTERNAL : 'External',
 };
 
+module.exports.ChronologicalRecordStartTime = {
+NONE : 'NONE',
+NOW : 'NOW',
+EPG_START_TIME : 'EPG_START_TIME',
+};
+
 module.exports.CollectionOrderBy = {
 NONE : 'NONE',
 };
@@ -810,6 +816,8 @@ CATALOG : 'Catalog',
 SECURITY : 'Security',
 OPC : 'Opc',
 BASE : 'Base',
+CUSTOMFIELDS : 'CustomFields',
+DEFAULTPARENTALSETTINGS : 'DefaultParentalSettings',
 };
 
 module.exports.PasswordPolicyOrderBy = {

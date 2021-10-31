@@ -2446,7 +2446,7 @@ class UsageModuleFilter extends Filter{
 	}
 	
 	/**
-	 * Comma separated discount codes
+	 * Comma separated usageModule ids
 	 * @return int
 	 */
 	 getIdEqual() {
@@ -2454,7 +2454,7 @@ class UsageModuleFilter extends Filter{
 	 }
 	
 	/**
-	 * @param idEqual int Comma separated discount codes
+	 * @param idEqual int Comma separated usageModule ids
 	 */
 	 setIdEqual(idEqual) {
 	 	this.idEqual = idEqual;
@@ -17937,7 +17937,7 @@ class Ppv extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Specifies when was the Subscription created. Date and time represented as epoch
+	 * Specifies when was the ppv created. Date and time represented as epoch
 	 * @return int
 	 */
 	 getCreateDate() {
@@ -18768,6 +18768,120 @@ class ConcurrencyPartnerConfig extends PartnerConfiguration{
 	 }
 }
 module.exports.ConcurrencyPartnerConfig = ConcurrencyPartnerConfig;
+
+/**
+ *
+ */
+class CustomFieldsPartnerConfiguration extends PartnerConfiguration{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCustomFieldsPartnerConfiguration';
+	}
+	
+	/**
+	 * Array of clientTag values
+	 * @return string
+	 */
+	 getMetaSystemNameInsteadOfAliasList() {
+	 	return this.metaSystemNameInsteadOfAliasList;
+	 }
+	
+	/**
+	 * @param metaSystemNameInsteadOfAliasList string Array of clientTag values
+	 */
+	 setMetaSystemNameInsteadOfAliasList(metaSystemNameInsteadOfAliasList) {
+	 	this.metaSystemNameInsteadOfAliasList = metaSystemNameInsteadOfAliasList;
+	 }
+}
+module.exports.CustomFieldsPartnerConfiguration = CustomFieldsPartnerConfiguration;
+
+/**
+ *
+ */
+class DefaultParentalSettingsPartnerConfig extends PartnerConfiguration{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDefaultParentalSettingsPartnerConfig';
+	}
+	
+	/**
+	 * defaultTvSeriesParentalRuleId
+	 * @return int
+	 */
+	 getDefaultMoviesParentalRuleId() {
+	 	return this.defaultMoviesParentalRuleId;
+	 }
+	
+	/**
+	 * @param defaultMoviesParentalRuleId int defaultTvSeriesParentalRuleId
+	 */
+	 setDefaultMoviesParentalRuleId(defaultMoviesParentalRuleId) {
+	 	this.defaultMoviesParentalRuleId = defaultMoviesParentalRuleId;
+	 }
+	
+	/**
+	 * defaultTvSeriesParentalRuleId
+	 * @return int
+	 */
+	 getDefaultTvSeriesParentalRuleId() {
+	 	return this.defaultTvSeriesParentalRuleId;
+	 }
+	
+	/**
+	 * @param defaultTvSeriesParentalRuleId int defaultTvSeriesParentalRuleId
+	 */
+	 setDefaultTvSeriesParentalRuleId(defaultTvSeriesParentalRuleId) {
+	 	this.defaultTvSeriesParentalRuleId = defaultTvSeriesParentalRuleId;
+	 }
+	
+	/**
+	 * defaultParentalPin
+	 * @return string
+	 */
+	 getDefaultParentalPin() {
+	 	return this.defaultParentalPin;
+	 }
+	
+	/**
+	 * @param defaultParentalPin string defaultParentalPin
+	 */
+	 setDefaultParentalPin(defaultParentalPin) {
+	 	this.defaultParentalPin = defaultParentalPin;
+	 }
+	
+	/**
+	 * defaultPurchasePin
+	 * @return string
+	 */
+	 getDefaultPurchasePin() {
+	 	return this.defaultPurchasePin;
+	 }
+	
+	/**
+	 * @param defaultPurchasePin string defaultPurchasePin
+	 */
+	 setDefaultPurchasePin(defaultPurchasePin) {
+	 	this.defaultPurchasePin = defaultPurchasePin;
+	 }
+	
+	/**
+	 * defaultPurchaseSettings
+	 * @return int
+	 */
+	 getDefaultPurchaseSettings() {
+	 	return this.defaultPurchaseSettings;
+	 }
+	
+	/**
+	 * @param defaultPurchaseSettings int defaultPurchaseSettings
+	 */
+	 setDefaultPurchaseSettings(defaultPurchaseSettings) {
+	 	this.defaultPurchaseSettings = defaultPurchaseSettings;
+	 }
+}
+module.exports.DefaultParentalSettingsPartnerConfig = DefaultParentalSettingsPartnerConfig;
 
 /**
  *
@@ -23371,6 +23485,21 @@ class SeriesRecordingOption extends kaltura.BaseObject{
 	 setMinEpisodeNumber(minEpisodeNumber) {
 	 	this.minEpisodeNumber = minEpisodeNumber;
 	 }
+	
+	/**
+	 * Record future only from selected value
+	 * @return string
+	 */
+	 getChronologicalRecordStartTime() {
+	 	return this.chronologicalRecordStartTime;
+	 }
+	
+	/**
+	 * @param chronologicalRecordStartTime string Record future only from selected value
+	 */
+	 setChronologicalRecordStartTime(chronologicalRecordStartTime) {
+	 	this.chronologicalRecordStartTime = chronologicalRecordStartTime;
+	 }
 }
 module.exports.SeriesRecordingOption = SeriesRecordingOption;
 
@@ -24370,6 +24499,33 @@ module.exports.LiveAsset = LiveAsset;
 /**
  *
  */
+class LineupChannelAsset extends LiveAsset{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaLineupChannelAsset';
+	}
+	
+	/**
+	 * Lineup channel number (LCN) - A logical linear channel number. This number is unique in the region context
+	 * @return int
+	 */
+	 getLcn() {
+	 	return this.lcn;
+	 }
+	
+	/**
+	 * @param lcn int Lineup channel number (LCN) - A logical linear channel number. This number is unique in the region context
+	 */
+	 setLcn(lcn) {
+	 	this.lcn = lcn;
+	 }
+}
+module.exports.LineupChannelAsset = LineupChannelAsset;
+
+/**
+ *
+ */
 class ProgramAsset extends Asset{
 	
 	constructor(object = null) {
@@ -24948,6 +25104,21 @@ class AssetStructMeta extends kaltura.BaseObject{
 	 */
 	 setSuppressedOrder(suppressedOrder) {
 	 	this.suppressedOrder = suppressedOrder;
+	 }
+	
+	/**
+	 * Case sensitive alias value
+	 * @return string
+	 */
+	 getAliasName() {
+	 	return this.aliasName;
+	 }
+	
+	/**
+	 * @param aliasName string Case sensitive alias value
+	 */
+	 setAliasName(aliasName) {
+	 	this.aliasName = aliasName;
 	 }
 }
 module.exports.AssetStructMeta = AssetStructMeta;
@@ -32954,6 +33125,33 @@ class LicensedUrlRecordingRequest extends LicensedUrlBaseRequest{
 	 }
 }
 module.exports.LicensedUrlRecordingRequest = LicensedUrlRecordingRequest;
+
+/**
+ *
+ */
+class LineupChannelAssetListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaLineupChannelAssetListResponse';
+	}
+	
+	/**
+	 * A list of objects
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of objects
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.LineupChannelAssetListResponse = LineupChannelAssetListResponse;
 
 /**
  *
