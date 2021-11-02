@@ -5663,35 +5663,10 @@ module.exports.playbackProfile = playbackProfile;
 /**
  *Class definition for the Kaltura service: ppv.
  * The available service actions:
- * @action add Add new ppv.
- * @action delete Delete Ppv.
  * @action get Returns ppv object by internal identifier.
  * @action list Returns all ppv objects.
- * @action update Update ppv.
  */
 class ppv{
-	
-	/**
-	 * Add new ppv.
-	 * @param ppv Ppv ppv objec
-	 * @return KalturaPpv
-	 */
-	static add(ppv){
-		let kparams = {};
-		kparams.ppv = ppv;
-		return new kaltura.RequestBuilder('ppv', 'add', kparams);
-	};
-	
-	/**
-	 * Delete Ppv.
-	 * @param id int Ppv id
-	 * @return bool
-	 */
-	static deleteAction(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('ppv', 'delete', kparams);
-	};
 	
 	/**
 	 * Returns ppv object by internal identifier.
@@ -5707,27 +5682,12 @@ class ppv{
 	/**
 	 * Returns all ppv objects.
 	 * @param filter PpvFilter Filter parameters for filtering out the result (optional, default: null)
-	 * @param pager FilterPager Page size and index (optional, default: null)
 	 * @return KalturaPpvListResponse
 	 */
-	static listAction(filter = null, pager = null){
+	static listAction(filter = null){
 		let kparams = {};
 		kparams.filter = filter;
-		kparams.pager = pager;
 		return new kaltura.RequestBuilder('ppv', 'list', kparams);
-	};
-	
-	/**
-	 * Update ppv.
-	 * @param id int ppv id
-	 * @param ppv Ppv ppv Object
-	 * @return KalturaPpv
-	 */
-	static update(id, ppv){
-		let kparams = {};
-		kparams.id = id;
-		kparams.ppv = ppv;
-		return new kaltura.RequestBuilder('ppv', 'update', kparams);
 	};
 }
 module.exports.ppv = ppv;
@@ -7843,15 +7803,14 @@ module.exports.uploadToken = uploadToken;
 /**
  *Class definition for the Kaltura service: usageModule.
  * The available service actions:
- * @action add Insert new UsageModule.
- * @action delete Delete UsageModule.
- * @action list Returns the list of available usage module.
- * @action update Update usage module.
+ * @action add Internal API !!! Insert new UsageModule.
+ * @action delete Internal API !!! Delete UsageModule.
+ * @action list Internal API !!! Returns the list of available usage module.
  */
 class usageModule{
 	
 	/**
-	 * Insert new UsageModule.
+	 * Internal API !!! Insert new UsageModule.
 	 * @param usageModule UsageModule usage module Object
 	 * @return KalturaUsageModule
 	 */
@@ -7862,7 +7821,7 @@ class usageModule{
 	};
 	
 	/**
-	 * Delete UsageModule.
+	 * Internal API !!! Delete UsageModule.
 	 * @param id int UsageModule id
 	 * @return bool
 	 */
@@ -7873,27 +7832,12 @@ class usageModule{
 	};
 	
 	/**
-	 * Returns the list of available usage module.
-	 * @param filter UsageModuleFilter Filter request (optional, default: null)
+	 * Internal API !!! Returns the list of available usage module.
 	 * @return KalturaUsageModuleListResponse
 	 */
-	static listAction(filter = null){
+	static listAction(){
 		let kparams = {};
-		kparams.filter = filter;
 		return new kaltura.RequestBuilder('usagemodule', 'list', kparams);
-	};
-	
-	/**
-	 * Update usage module.
-	 * @param id int usage module id
-	 * @param usageModule UsageModule usage module Object
-	 * @return KalturaUsageModule
-	 */
-	static update(id, usageModule){
-		let kparams = {};
-		kparams.id = id;
-		kparams.usageModule = usageModule;
-		return new kaltura.RequestBuilder('usagemodule', 'update', kparams);
 	};
 }
 module.exports.usageModule = usageModule;

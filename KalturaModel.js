@@ -2105,21 +2105,6 @@ class PpvFilter extends Filter{
 	 setCouponGroupIdEqual(couponGroupIdEqual) {
 	 	this.couponGroupIdEqual = couponGroupIdEqual;
 	 }
-	
-	/**
-	 * return also inactive
-	 * @return bool
-	 */
-	 getAlsoInactive() {
-	 	return this.alsoInactive;
-	 }
-	
-	/**
-	 * @param alsoInactive bool return also inactive
-	 */
-	 setAlsoInactive(alsoInactive) {
-	 	this.alsoInactive = alsoInactive;
-	 }
 }
 module.exports.PpvFilter = PpvFilter;
 
@@ -2434,33 +2419,6 @@ class SubscriptionFilter extends Filter{
 	 }
 }
 module.exports.SubscriptionFilter = SubscriptionFilter;
-
-/**
- *
- */
-class UsageModuleFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaUsageModuleFilter';
-	}
-	
-	/**
-	 * Comma separated usageModule ids
-	 * @return int
-	 */
-	 getIdEqual() {
-	 	return this.idEqual;
-	 }
-	
-	/**
-	 * @param idEqual int Comma separated usageModule ids
-	 */
-	 setIdEqual(idEqual) {
-	 	this.idEqual = idEqual;
-	 }
-}
-module.exports.UsageModuleFilter = UsageModuleFilter;
 
 /**
  *
@@ -13816,13 +13774,6 @@ class PriceDetails extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param id int The price code identifier
-	 */
-	 setId(id) {
-	 	this.id = id;
-	 }
-	
-	/**
 	 * The price code name
 	 * @return string
 	 */
@@ -17771,21 +17722,6 @@ class Ppv extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Comma separated file types identifiers that are supported in this subscription
-	 * @return string
-	 */
-	 getFileTypesIds() {
-	 	return this.fileTypesIds;
-	 }
-	
-	/**
-	 * @param fileTypesIds string Comma separated file types identifiers that are supported in this subscription
-	 */
-	 setFileTypesIds(fileTypesIds) {
-	 	this.fileTypesIds = fileTypesIds;
-	 }
-	
-	/**
 	 * The internal discount module for the ppv
 	 * @return DiscountModule
 	 */
@@ -17839,6 +17775,13 @@ class Ppv extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * @param productCode string Product code for the ppv
+	 */
+	 setProductCode(productCode) {
+	 	this.productCode = productCode;
+	 }
+	
+	/**
 	 * Indicates whether or not this ppv can be purchased standalone or only as part of a subscription
 	 * @return bool
 	 */
@@ -17881,75 +17824,6 @@ class Ppv extends kaltura.BaseObject{
 	 */
 	 setUsageModule(usageModule) {
 	 	this.usageModule = usageModule;
-	 }
-	
-	/**
-	 * External ID
-	 * @return string
-	 */
-	 getExternalId() {
-	 	return this.externalId;
-	 }
-	
-	/**
-	 * @param externalId string External ID
-	 */
-	 setExternalId(externalId) {
-	 	this.externalId = externalId;
-	 }
-	
-	/**
-	 * adsPolicy
-	 * @return string
-	 */
-	 getAdsPolicy() {
-	 	return this.adsPolicy;
-	 }
-	
-	/**
-	 * @param adsPolicy string adsPolicy
-	 */
-	 setAdsPolicy(adsPolicy) {
-	 	this.adsPolicy = adsPolicy;
-	 }
-	
-	/**
-	 * Is active ppv
-	 * @return bool
-	 */
-	 getIsActive() {
-	 	return this.isActive;
-	 }
-	
-	/**
-	 * @param isActive bool Is active ppv
-	 */
-	 setIsActive(isActive) {
-	 	this.isActive = isActive;
-	 }
-	
-	/**
-	 * Specifies when was the ppv last updated. Date and time represented as epoch
-	 * @return int
-	 */
-	 getUpdateDate() {
-	 	return this.updateDate;
-	 }
-	
-	/**
-	 * Specifies when was the ppv created. Date and time represented as epoch
-	 * @return int
-	 */
-	 getCreateDate() {
-	 	return this.createDate;
-	 }
-	
-	/**
-	 * Virtual asset id
-	 * @return int
-	 */
-	 getVirtualAssetId() {
-	 	return this.virtualAssetId;
 	 }
 }
 module.exports.Ppv = Ppv;
