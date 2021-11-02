@@ -782,6 +782,8 @@ module.exports.ObjectVirtualAssetInfoType = {
 SUBSCRIPTION : 'Subscription',
 SEGMENT : 'Segment',
 CATEGORY : 'Category',
+TVOD : 'Tvod',
+BOXSET : 'Boxset',
 };
 
 module.exports.OTTUserOrderBy = {

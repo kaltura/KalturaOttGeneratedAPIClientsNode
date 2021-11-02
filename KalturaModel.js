@@ -17943,6 +17943,14 @@ class Ppv extends kaltura.BaseObject{
 	 getCreateDate() {
 	 	return this.createDate;
 	 }
+	
+	/**
+	 * Virtual asset id
+	 * @return int
+	 */
+	 getVirtualAssetId() {
+	 	return this.virtualAssetId;
+	 }
 }
 module.exports.Ppv = Ppv;
 
