@@ -2446,7 +2446,7 @@ class UsageModuleFilter extends Filter{
 	}
 	
 	/**
-	 * Comma separated usageModule ids
+	 * usageModule id
 	 * @return int
 	 */
 	 getIdEqual() {
@@ -2454,7 +2454,7 @@ class UsageModuleFilter extends Filter{
 	 }
 	
 	/**
-	 * @param idEqual int Comma separated usageModule ids
+	 * @param idEqual int usageModule id
 	 */
 	 setIdEqual(idEqual) {
 	 	this.idEqual = idEqual;
@@ -13816,13 +13816,6 @@ class PriceDetails extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param id int The price code identifier
-	 */
-	 setId(id) {
-	 	this.id = id;
-	 }
-	
-	/**
 	 * The price code name
 	 * @return string
 	 */
@@ -17741,7 +17734,7 @@ class Ppv extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * The price of the ppv
+	 * This property will deprecated soon. Please use PriceId instead of it
 	 * @return PriceDetails
 	 */
 	 getPrice() {
@@ -17749,25 +17742,26 @@ class Ppv extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param price PriceDetails The price of the ppv
+	 * The price if of the ppv
+	 * @return int
 	 */
-	 setPrice(price) {
-	 	this.price = price;
+	 getPriceDetailsId() {
+	 	return this.priceDetailsId;
 	 }
 	
 	/**
-	 * A list of file types identifiers that are supported in this ppv
+	 * @param priceDetailsId int The price if of the ppv
+	 */
+	 setPriceDetailsId(priceDetailsId) {
+	 	this.priceDetailsId = priceDetailsId;
+	 }
+	
+	/**
+	 * This property will deprecated soon. Please use fileTypesIds instead of it
 	 * @return array
 	 */
 	 getFileTypes() {
 	 	return this.fileTypes;
-	 }
-	
-	/**
-	 * @param fileTypes array A list of file types identifiers that are supported in this ppv
-	 */
-	 setFileTypes(fileTypes) {
-	 	this.fileTypes = fileTypes;
 	 }
 	
 	/**
@@ -17786,7 +17780,7 @@ class Ppv extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * The internal discount module for the ppv
+	 * This property will deprecated soon. Please use DiscountId instead of it
 	 * @return DiscountModule
 	 */
 	 getDiscountModule() {
@@ -17794,14 +17788,22 @@ class Ppv extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param discountModule DiscountModule The internal discount module for the ppv
+	 * The discount id for the ppv
+	 * @return int
 	 */
-	 setDiscountModule(discountModule) {
-	 	this.discountModule = discountModule;
+	 getDiscountId() {
+	 	return this.discountId;
 	 }
 	
 	/**
-	 * Coupons group for the ppv
+	 * @param discountId int The discount id for the ppv
+	 */
+	 setDiscountId(discountId) {
+	 	this.discountId = discountId;
+	 }
+	
+	/**
+	 * This property will deprecated soon. Please use CouponsGroupId instead of it
 	 * @return CouponsGroup
 	 */
 	 getCouponsGroup() {
@@ -17809,10 +17811,18 @@ class Ppv extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param couponsGroup CouponsGroup Coupons group for the ppv
+	 * Coupons group id for the ppv
+	 * @return int
 	 */
-	 setCouponsGroup(couponsGroup) {
-	 	this.couponsGroup = couponsGroup;
+	 getCouponsGroupId() {
+	 	return this.couponsGroupId;
+	 }
+	
+	/**
+	 * @param couponsGroupId int Coupons group id for the ppv
+	 */
+	 setCouponsGroupId(couponsGroupId) {
+	 	this.couponsGroupId = couponsGroupId;
 	 }
 	
 	/**
@@ -17836,6 +17846,13 @@ class Ppv extends kaltura.BaseObject{
 	 */
 	 getProductCode() {
 	 	return this.productCode;
+	 }
+	
+	/**
+	 * @param productCode string Product code for the ppv
+	 */
+	 setProductCode(productCode) {
+	 	this.productCode = productCode;
 	 }
 	
 	/**
@@ -17869,7 +17886,7 @@ class Ppv extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * PPV usage module
+	 * This property will deprecated soon. Please use UsageModuleId instead of it
 	 * @return UsageModule
 	 */
 	 getUsageModule() {
@@ -17877,25 +17894,18 @@ class Ppv extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param usageModule UsageModule PPV usage module
+	 * PPV usage module Id
+	 * @return int
 	 */
-	 setUsageModule(usageModule) {
-	 	this.usageModule = usageModule;
+	 getUsageModuleId() {
+	 	return this.usageModuleId;
 	 }
 	
 	/**
-	 * External ID
-	 * @return string
+	 * @param usageModuleId int PPV usage module Id
 	 */
-	 getExternalId() {
-	 	return this.externalId;
-	 }
-	
-	/**
-	 * @param externalId string External ID
-	 */
-	 setExternalId(externalId) {
-	 	this.externalId = externalId;
+	 setUsageModuleId(usageModuleId) {
+	 	this.usageModuleId = usageModuleId;
 	 }
 	
 	/**
