@@ -4108,7 +4108,6 @@ module.exports.licensedUrl = licensedUrl;
  *Class definition for the Kaltura service: lineup.
  * The available service actions:
  * @action get Return regional lineup (list of lineup channel asset objects) based on the requester session characteristics and his region.
- * @action sendUpdatedNotification Sends lineup update requested notification.
  */
 class lineup{
 	
@@ -4123,17 +4122,6 @@ class lineup{
 		kparams.pageIndex = pageIndex;
 		kparams.pageSize = pageSize;
 		return new kaltura.RequestBuilder('lineup', 'get', kparams);
-	};
-	
-	/**
-	 * Sends lineup update requested notification.
-	 * @param regionIds string Region IDs separated by commas
-	 * @return bool
-	 */
-	static sendUpdatedNotification(regionIds){
-		let kparams = {};
-		kparams.regionIds = regionIds;
-		return new kaltura.RequestBuilder('lineup', 'sendUpdatedNotification', kparams);
 	};
 }
 module.exports.lineup = lineup;

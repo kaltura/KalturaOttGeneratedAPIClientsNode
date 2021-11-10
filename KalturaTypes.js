@@ -817,7 +817,6 @@ SECURITY : 'Security',
 OPC : 'Opc',
 BASE : 'Base',
 CUSTOMFIELDS : 'CustomFields',
-DEFAULTPARENTALSETTINGS : 'DefaultParentalSettings',
 };
 
 module.exports.PasswordPolicyOrderBy = {

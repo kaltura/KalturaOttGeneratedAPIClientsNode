@@ -3596,6 +3596,21 @@ class ScheduledRecordingProgramFilter extends AssetFilter{
 	 setEndDateLessThanOrNull(endDateLessThanOrNull) {
 	 	this.endDateLessThanOrNull = endDateLessThanOrNull;
 	 }
+	
+	/**
+	 * Series to filter by
+	 * @return string
+	 */
+	 getSeriesIdsIn() {
+	 	return this.seriesIdsIn;
+	 }
+	
+	/**
+	 * @param seriesIdsIn string Series to filter by
+	 */
+	 setSeriesIdsIn(seriesIdsIn) {
+	 	this.seriesIdsIn = seriesIdsIn;
+	 }
 }
 module.exports.ScheduledRecordingProgramFilter = ScheduledRecordingProgramFilter;
 
@@ -18677,93 +18692,6 @@ class CustomFieldsPartnerConfiguration extends PartnerConfiguration{
 	 }
 }
 module.exports.CustomFieldsPartnerConfiguration = CustomFieldsPartnerConfiguration;
-
-/**
- *
- */
-class DefaultParentalSettingsPartnerConfig extends PartnerConfiguration{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaDefaultParentalSettingsPartnerConfig';
-	}
-	
-	/**
-	 * defaultTvSeriesParentalRuleId
-	 * @return int
-	 */
-	 getDefaultMoviesParentalRuleId() {
-	 	return this.defaultMoviesParentalRuleId;
-	 }
-	
-	/**
-	 * @param defaultMoviesParentalRuleId int defaultTvSeriesParentalRuleId
-	 */
-	 setDefaultMoviesParentalRuleId(defaultMoviesParentalRuleId) {
-	 	this.defaultMoviesParentalRuleId = defaultMoviesParentalRuleId;
-	 }
-	
-	/**
-	 * defaultTvSeriesParentalRuleId
-	 * @return int
-	 */
-	 getDefaultTvSeriesParentalRuleId() {
-	 	return this.defaultTvSeriesParentalRuleId;
-	 }
-	
-	/**
-	 * @param defaultTvSeriesParentalRuleId int defaultTvSeriesParentalRuleId
-	 */
-	 setDefaultTvSeriesParentalRuleId(defaultTvSeriesParentalRuleId) {
-	 	this.defaultTvSeriesParentalRuleId = defaultTvSeriesParentalRuleId;
-	 }
-	
-	/**
-	 * defaultParentalPin
-	 * @return string
-	 */
-	 getDefaultParentalPin() {
-	 	return this.defaultParentalPin;
-	 }
-	
-	/**
-	 * @param defaultParentalPin string defaultParentalPin
-	 */
-	 setDefaultParentalPin(defaultParentalPin) {
-	 	this.defaultParentalPin = defaultParentalPin;
-	 }
-	
-	/**
-	 * defaultPurchasePin
-	 * @return string
-	 */
-	 getDefaultPurchasePin() {
-	 	return this.defaultPurchasePin;
-	 }
-	
-	/**
-	 * @param defaultPurchasePin string defaultPurchasePin
-	 */
-	 setDefaultPurchasePin(defaultPurchasePin) {
-	 	this.defaultPurchasePin = defaultPurchasePin;
-	 }
-	
-	/**
-	 * defaultPurchaseSettings
-	 * @return int
-	 */
-	 getDefaultPurchaseSettings() {
-	 	return this.defaultPurchaseSettings;
-	 }
-	
-	/**
-	 * @param defaultPurchaseSettings int defaultPurchaseSettings
-	 */
-	 setDefaultPurchaseSettings(defaultPurchaseSettings) {
-	 	this.defaultPurchaseSettings = defaultPurchaseSettings;
-	 }
-}
-module.exports.DefaultParentalSettingsPartnerConfig = DefaultParentalSettingsPartnerConfig;
 
 /**
  *
