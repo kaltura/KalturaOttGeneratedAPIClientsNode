@@ -5958,6 +5958,48 @@ module.exports.TagFilter = TagFilter;
 /**
  *
  */
+class SearchPriorityGroupFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSearchPriorityGroupFilter';
+	}
+	
+	/**
+	 * Return only search priority groups that are in use
+	 * @return bool
+	 */
+	 getActiveOnlyEqual() {
+	 	return this.activeOnlyEqual;
+	 }
+	
+	/**
+	 * @param activeOnlyEqual bool Return only search priority groups that are in use
+	 */
+	 setActiveOnlyEqual(activeOnlyEqual) {
+	 	this.activeOnlyEqual = activeOnlyEqual;
+	 }
+	
+	/**
+	 * Identifier of search priority group to return
+	 * @return int
+	 */
+	 getIdEqual() {
+	 	return this.idEqual;
+	 }
+	
+	/**
+	 * @param idEqual int Identifier of search priority group to return
+	 */
+	 setIdEqual(idEqual) {
+	 	this.idEqual = idEqual;
+	 }
+}
+module.exports.SearchPriorityGroupFilter = SearchPriorityGroupFilter;
+
+/**
+ *
+ */
 class PaymentMethodProfileFilter extends Filter{
 	
 	constructor(object = null) {
@@ -26294,6 +26336,135 @@ module.exports.AssetHistoryListResponse = AssetHistoryListResponse;
 /**
  *
  */
+class SearchPriorityCriteria extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSearchPriorityCriteria';
+	}
+	
+	/**
+	 * Criterion type
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * @param type string Criterion type
+	 */
+	 setType(type) {
+	 	this.type = type;
+	 }
+	
+	/**
+	 * Condition
+ * KSQL has to have no more than 10 conditions. Text, boolean, enum and tag fields can be used only with = operator, numeric and datetime fields - only with &lt;, = and &gt; operators
+	 * @return string
+	 */
+	 getValue() {
+	 	return this.value;
+	 }
+	
+	/**
+	 * @param value string Condition
+ * KSQL has to have no more than 10 conditions. Text, boolean, enum and tag fields can be used only with = operator, numeric and datetime fields - only with &lt;, = and &gt; operators
+	 */
+	 setValue(value) {
+	 	this.value = value;
+	 }
+}
+module.exports.SearchPriorityCriteria = SearchPriorityCriteria;
+
+/**
+ *
+ */
+class SearchPriorityGroup extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSearchPriorityGroup';
+	}
+	
+	/**
+	 * Identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * Name
+	 * @return array
+	 */
+	 getMultilingualName() {
+	 	return this.multilingualName;
+	 }
+	
+	/**
+	 * @param multilingualName array Name
+	 */
+	 setMultilingualName(multilingualName) {
+	 	this.multilingualName = multilingualName;
+	 }
+	
+	/**
+	 * Search criterion
+	 * @return SearchPriorityCriteria
+	 */
+	 getCriteria() {
+	 	return this.criteria;
+	 }
+	
+	/**
+	 * @param criteria SearchPriorityCriteria Search criterion
+	 */
+	 setCriteria(criteria) {
+	 	this.criteria = criteria;
+	 }
+}
+module.exports.SearchPriorityGroup = SearchPriorityGroup;
+
+/**
+ *
+ */
+class SearchPriorityGroupListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSearchPriorityGroupListResponse';
+	}
+	
+	/**
+	 * List of search priority groups
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array List of search priority groups
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.SearchPriorityGroupListResponse = SearchPriorityGroupListResponse;
+
+/**
+ *
+ */
 class SuspendSettings extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -34765,6 +34936,33 @@ class RegionChannelNumber extends kaltura.BaseObject{
 	 }
 }
 module.exports.RegionChannelNumber = RegionChannelNumber;
+
+/**
+ *
+ */
+class SearchPriorityGroupOrderedIdsSet extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSearchPriorityGroupOrderedIdsSet';
+	}
+	
+	/**
+	 * The order and effectively the priority of each group
+	 * @return string
+	 */
+	 getPriorityGroupIds() {
+	 	return this.priorityGroupIds;
+	 }
+	
+	/**
+	 * @param priorityGroupIds string The order and effectively the priority of each group
+	 */
+	 setPriorityGroupIds(priorityGroupIds) {
+	 	this.priorityGroupIds = priorityGroupIds;
+	 }
+}
+module.exports.SearchPriorityGroupOrderedIdsSet = SearchPriorityGroupOrderedIdsSet;
 
 /**
  *
