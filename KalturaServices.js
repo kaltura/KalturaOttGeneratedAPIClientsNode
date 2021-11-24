@@ -1480,14 +1480,15 @@ module.exports.channel = channel;
 /**
  *Class definition for the Kaltura service: collection.
  * The available service actions:
- * @action add Internal API !!! Insert new collection for partner.
- * @action delete Internal API !!! Delete collection.
- * @action list Returns a list of subscriptions requested by Subscription ID or file ID.
+ * @action add Insert new collection for partner.
+ * @action delete Delete collection.
+ * @action list Returns a list of collections requested by Collection IDs or file identifier or coupon group identifier.
+ * @action update Update Collection.
  */
 class collection{
 	
 	/**
-	 * Internal API !!! Insert new collection for partner.
+	 * Insert new collection for partner.
 	 * @param collection Collection collection object
 	 * @return KalturaCollection
 	 */
@@ -1498,7 +1499,7 @@ class collection{
 	};
 	
 	/**
-	 * Internal API !!! Delete collection.
+	 * Delete collection.
 	 * @param id int Collection id
 	 * @return bool
 	 */
@@ -1509,7 +1510,7 @@ class collection{
 	};
 	
 	/**
-	 * Returns a list of subscriptions requested by Subscription ID or file ID.
+	 * Returns a list of collections requested by Collection IDs or file identifier or coupon group identifier.
 	 * @param filter CollectionFilter Filter request (optional, default: null)
 	 * @param pager FilterPager Page size and index (optional, default: null)
 	 * @return KalturaCollectionListResponse
@@ -1519,6 +1520,19 @@ class collection{
 		kparams.filter = filter;
 		kparams.pager = pager;
 		return new kaltura.RequestBuilder('collection', 'list', kparams);
+	};
+	
+	/**
+	 * Update Collection.
+	 * @param id int Collection id
+	 * @param collection Collection Collection
+	 * @return KalturaCollection
+	 */
+	static update(id, collection){
+		let kparams = {};
+		kparams.id = id;
+		kparams.collection = collection;
+		return new kaltura.RequestBuilder('collection', 'update', kparams);
 	};
 }
 module.exports.collection = collection;
@@ -5675,10 +5689,35 @@ module.exports.playbackProfile = playbackProfile;
 /**
  *Class definition for the Kaltura service: ppv.
  * The available service actions:
+ * @action add Add new ppv.
+ * @action delete Delete Ppv.
  * @action get Returns ppv object by internal identifier.
  * @action list Returns all ppv objects.
+ * @action update Update ppv.
  */
 class ppv{
+	
+	/**
+	 * Add new ppv.
+	 * @param ppv Ppv ppv objec
+	 * @return KalturaPpv
+	 */
+	static add(ppv){
+		let kparams = {};
+		kparams.ppv = ppv;
+		return new kaltura.RequestBuilder('ppv', 'add', kparams);
+	};
+	
+	/**
+	 * Delete Ppv.
+	 * @param id int Ppv id
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('ppv', 'delete', kparams);
+	};
 	
 	/**
 	 * Returns ppv object by internal identifier.
@@ -5694,12 +5733,27 @@ class ppv{
 	/**
 	 * Returns all ppv objects.
 	 * @param filter PpvFilter Filter parameters for filtering out the result (optional, default: null)
+	 * @param pager FilterPager Page size and index (optional, default: null)
 	 * @return KalturaPpvListResponse
 	 */
-	static listAction(filter = null){
+	static listAction(filter = null, pager = null){
 		let kparams = {};
 		kparams.filter = filter;
+		kparams.pager = pager;
 		return new kaltura.RequestBuilder('ppv', 'list', kparams);
+	};
+	
+	/**
+	 * Update ppv.
+	 * @param id int ppv id
+	 * @param ppv Ppv ppv Object
+	 * @return KalturaPpv
+	 */
+	static update(id, ppv){
+		let kparams = {};
+		kparams.id = id;
+		kparams.ppv = ppv;
+		return new kaltura.RequestBuilder('ppv', 'update', kparams);
 	};
 }
 module.exports.ppv = ppv;
@@ -5767,15 +5821,15 @@ module.exports.previewModule = previewModule;
 /**
  *Class definition for the Kaltura service: priceDetails.
  * The available service actions:
- * @action add Internal API !!! Insert new PriceDetails for partner.
- * @action delete Internal API !!! Delete PriceDetails.
+ * @action add Insert new PriceDetails for partner.
+ * @action delete Delete PriceDetails.
  * @action list Returns the list of available prices, can be filtered by price IDs.
  * @action update update existing PriceDetails.
  */
 class priceDetails{
 	
 	/**
-	 * Internal API !!! Insert new PriceDetails for partner.
+	 * Insert new PriceDetails for partner.
 	 * @param priceDetails PriceDetails PriceDetails Object
 	 * @return KalturaPriceDetails
 	 */
@@ -5786,7 +5840,7 @@ class priceDetails{
 	};
 	
 	/**
-	 * Internal API !!! Delete PriceDetails.
+	 * Delete PriceDetails.
 	 * @param id int PriceDetails identifier
 	 * @return bool
 	 */
@@ -6422,6 +6476,98 @@ class searchHistory{
 	};
 }
 module.exports.searchHistory = searchHistory;
+
+
+/**
+ *Class definition for the Kaltura service: searchPriorityGroup.
+ * The available service actions:
+ * @action add Add a new priority group.
+ * @action delete Delete the existing priority group by its identifier.
+ * @action list Gets list of search priority groups which meet the filter criteria.
+ * @action update Update an existing priority group.
+ */
+class searchPriorityGroup{
+	
+	/**
+	 * Add a new priority group.
+	 * @param searchPriorityGroup SearchPriorityGroup Search priority group
+	 * @return KalturaSearchPriorityGroup
+	 */
+	static add(searchPriorityGroup){
+		let kparams = {};
+		kparams.searchPriorityGroup = searchPriorityGroup;
+		return new kaltura.RequestBuilder('searchprioritygroup', 'add', kparams);
+	};
+	
+	/**
+	 * Delete the existing priority group by its identifier.
+	 * @param id int The identifier of a search priority group
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('searchprioritygroup', 'delete', kparams);
+	};
+	
+	/**
+	 * Gets list of search priority groups which meet the filter criteria.
+	 * @param filter SearchPriorityGroupFilter Filter
+	 * @param pager FilterPager Page size and index (optional, default: null)
+	 * @return KalturaSearchPriorityGroupListResponse
+	 */
+	static listAction(filter, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('searchprioritygroup', 'list', kparams);
+	};
+	
+	/**
+	 * Update an existing priority group.
+	 * @param id int Identifier of search priority group
+	 * @param searchPriorityGroup SearchPriorityGroup Search priority group
+	 * @return KalturaSearchPriorityGroup
+	 */
+	static update(id, searchPriorityGroup){
+		let kparams = {};
+		kparams.id = id;
+		kparams.searchPriorityGroup = searchPriorityGroup;
+		return new kaltura.RequestBuilder('searchprioritygroup', 'update', kparams);
+	};
+}
+module.exports.searchPriorityGroup = searchPriorityGroup;
+
+
+/**
+ *Class definition for the Kaltura service: searchPriorityGroupOrderedIdsSet.
+ * The available service actions:
+ * @action get Return the current ordering of priority groups for the partner.
+ * @action set Set the ordering of priority groups for the partner.
+ */
+class searchPriorityGroupOrderedIdsSet{
+	
+	/**
+	 * Return the current ordering of priority groups for the partner.
+	 * @return KalturaSearchPriorityGroupOrderedIdsSet
+	 */
+	static get(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('searchprioritygrouporderedidsset', 'get', kparams);
+	};
+	
+	/**
+	 * Set the ordering of priority groups for the partner.
+	 * @param orderedList SearchPriorityGroupOrderedIdsSet List with ordered search priority groups
+	 * @return KalturaSearchPriorityGroupOrderedIdsSet
+	 */
+	static set(orderedList){
+		let kparams = {};
+		kparams.orderedList = orderedList;
+		return new kaltura.RequestBuilder('searchprioritygrouporderedidsset', 'set', kparams);
+	};
+}
+module.exports.searchPriorityGroupOrderedIdsSet = searchPriorityGroupOrderedIdsSet;
 
 
 /**
@@ -7068,8 +7214,8 @@ module.exports.streamingDevice = streamingDevice;
 /**
  *Class definition for the Kaltura service: subscription.
  * The available service actions:
- * @action add Internal API !!! Insert new subscription for partner.
- * @action delete Internal API !!! Delete subscription.
+ * @action add Insert new subscription for partner.
+ * @action delete Delete subscription.
  * @action list Returns a list of subscriptions requested by Subscription ID or file ID.
  * @action update Update Subscription.
  * @action validateCoupon Returns information about a coupon for subscription.
@@ -7077,7 +7223,7 @@ module.exports.streamingDevice = streamingDevice;
 class subscription{
 	
 	/**
-	 * Internal API !!! Insert new subscription for partner.
+	 * Insert new subscription for partner.
 	 * @param subscription Subscription subscription object
 	 * @return KalturaSubscription
 	 */
@@ -7088,7 +7234,7 @@ class subscription{
 	};
 	
 	/**
-	 * Internal API !!! Delete subscription.
+	 * Delete subscription.
 	 * @param id int Subscription id
 	 * @return bool
 	 */
@@ -7815,14 +7961,15 @@ module.exports.uploadToken = uploadToken;
 /**
  *Class definition for the Kaltura service: usageModule.
  * The available service actions:
- * @action add Internal API !!! Insert new UsageModule.
- * @action delete Internal API !!! Delete UsageModule.
- * @action list Internal API !!! Returns the list of available usage module.
+ * @action add Insert new UsageModule.
+ * @action delete Delete UsageModule.
+ * @action list Returns the list of available usage module.
+ * @action update Update usage module.
  */
 class usageModule{
 	
 	/**
-	 * Internal API !!! Insert new UsageModule.
+	 * Insert new UsageModule.
 	 * @param usageModule UsageModule usage module Object
 	 * @return KalturaUsageModule
 	 */
@@ -7833,7 +7980,7 @@ class usageModule{
 	};
 	
 	/**
-	 * Internal API !!! Delete UsageModule.
+	 * Delete UsageModule.
 	 * @param id int UsageModule id
 	 * @return bool
 	 */
@@ -7844,12 +7991,27 @@ class usageModule{
 	};
 	
 	/**
-	 * Internal API !!! Returns the list of available usage module.
+	 * Returns the list of available usage module.
+	 * @param filter UsageModuleFilter Filter request (optional, default: null)
 	 * @return KalturaUsageModuleListResponse
 	 */
-	static listAction(){
+	static listAction(filter = null){
 		let kparams = {};
+		kparams.filter = filter;
 		return new kaltura.RequestBuilder('usagemodule', 'list', kparams);
+	};
+	
+	/**
+	 * Update usage module.
+	 * @param id int usage module id
+	 * @param usageModule UsageModule usage module Object
+	 * @return KalturaUsageModule
+	 */
+	static update(id, usageModule){
+		let kparams = {};
+		kparams.id = id;
+		kparams.usageModule = usageModule;
+		return new kaltura.RequestBuilder('usagemodule', 'update', kparams);
 	};
 }
 module.exports.usageModule = usageModule;
