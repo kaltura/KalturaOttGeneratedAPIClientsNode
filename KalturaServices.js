@@ -6425,6 +6425,98 @@ module.exports.searchHistory = searchHistory;
 
 
 /**
+ *Class definition for the Kaltura service: searchPriorityGroup.
+ * The available service actions:
+ * @action add Add a new priority group.
+ * @action delete Delete the existing priority group by its identifier.
+ * @action list Gets list of search priority groups which meet the filter criteria.
+ * @action update Update an existing priority group.
+ */
+class searchPriorityGroup{
+	
+	/**
+	 * Add a new priority group.
+	 * @param searchPriorityGroup SearchPriorityGroup Search priority group
+	 * @return KalturaSearchPriorityGroup
+	 */
+	static add(searchPriorityGroup){
+		let kparams = {};
+		kparams.searchPriorityGroup = searchPriorityGroup;
+		return new kaltura.RequestBuilder('searchprioritygroup', 'add', kparams);
+	};
+	
+	/**
+	 * Delete the existing priority group by its identifier.
+	 * @param id int The identifier of a search priority group
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('searchprioritygroup', 'delete', kparams);
+	};
+	
+	/**
+	 * Gets list of search priority groups which meet the filter criteria.
+	 * @param filter SearchPriorityGroupFilter Filter
+	 * @param pager FilterPager Page size and index (optional, default: null)
+	 * @return KalturaSearchPriorityGroupListResponse
+	 */
+	static listAction(filter, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('searchprioritygroup', 'list', kparams);
+	};
+	
+	/**
+	 * Update an existing priority group.
+	 * @param id int Identifier of search priority group
+	 * @param searchPriorityGroup SearchPriorityGroup Search priority group
+	 * @return KalturaSearchPriorityGroup
+	 */
+	static update(id, searchPriorityGroup){
+		let kparams = {};
+		kparams.id = id;
+		kparams.searchPriorityGroup = searchPriorityGroup;
+		return new kaltura.RequestBuilder('searchprioritygroup', 'update', kparams);
+	};
+}
+module.exports.searchPriorityGroup = searchPriorityGroup;
+
+
+/**
+ *Class definition for the Kaltura service: searchPriorityGroupOrderedIdsSet.
+ * The available service actions:
+ * @action get Return the current ordering of priority groups for the partner.
+ * @action set Set the ordering of priority groups for the partner.
+ */
+class searchPriorityGroupOrderedIdsSet{
+	
+	/**
+	 * Return the current ordering of priority groups for the partner.
+	 * @return KalturaSearchPriorityGroupOrderedIdsSet
+	 */
+	static get(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('searchprioritygrouporderedidsset', 'get', kparams);
+	};
+	
+	/**
+	 * Set the ordering of priority groups for the partner.
+	 * @param orderedList SearchPriorityGroupOrderedIdsSet List with ordered search priority groups
+	 * @return KalturaSearchPriorityGroupOrderedIdsSet
+	 */
+	static set(orderedList){
+		let kparams = {};
+		kparams.orderedList = orderedList;
+		return new kaltura.RequestBuilder('searchprioritygrouporderedidsset', 'set', kparams);
+	};
+}
+module.exports.searchPriorityGroupOrderedIdsSet = searchPriorityGroupOrderedIdsSet;
+
+
+/**
  *Class definition for the Kaltura service: segmentationType.
  * The available service actions:
  * @action add Adds a new segmentation type to the system.

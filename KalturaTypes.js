@@ -1105,6 +1105,16 @@ module.exports.SearchHistoryOrderBy = {
 NONE : 'NONE',
 };
 
+module.exports.SearchPriorityCriteriaType = {
+KSQL : 'KSql',
+};
+
+module.exports.SearchPriorityGroupOrderBy = {
+PRIORITY_DESC : 'PRIORITY_DESC',
+NAME_ASC : 'NAME_ASC',
+NAME_DESC : 'NAME_DESC',
+};
+
 module.exports.SeriesRecordingOrderBy = {
 START_DATE_ASC : 'START_DATE_ASC',
 START_DATE_DESC : 'START_DATE_DESC',
