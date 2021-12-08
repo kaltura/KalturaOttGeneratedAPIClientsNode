@@ -324,13 +324,6 @@ NAME_ASC : 'NAME_ASC',
 NAME_DESC : 'NAME_DESC',
 CREATE_DATE_ASC : 'CREATE_DATE_ASC',
 CREATE_DATE_DESC : 'CREATE_DATE_DESC',
-UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
-UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
-};
-
-module.exports.ChannelStruct = {
-MANUAL : 'Manual',
-DYNAMIC : 'Dynamic',
 };
 
 module.exports.ChannelType = {
@@ -338,18 +331,8 @@ INTERNAL : 'Internal',
 EXTERNAL : 'External',
 };
 
-module.exports.ChronologicalRecordStartTime = {
-NONE : 'NONE',
-NOW : 'NOW',
-EPG_START_TIME : 'EPG_START_TIME',
-};
-
 module.exports.CollectionOrderBy = {
 NONE : 'NONE',
-NAME_ASC : 'NAME_ASC',
-NAME_DESC : 'NAME_DESC',
-UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
-UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
 };
 
 module.exports.CompensationType = {
@@ -476,10 +459,6 @@ PURCHASE_DATE_ASC : 'PURCHASE_DATE_ASC',
 PURCHASE_DATE_DESC : 'PURCHASE_DATE_DESC',
 };
 
-module.exports.EntityAttribute = {
-MEDIA_FILE_LABELS : 'MEDIA_FILE_LABELS',
-};
-
 module.exports.EntityReferenceBy = {
 USER : 'user',
 HOUSEHOLD : 'household',
@@ -540,9 +519,6 @@ START_DATE_ASC : 'START_DATE_ASC',
 
 module.exports.GroupByField = {
 MEDIA_TYPE_ID : 'media_type_id',
-SUPPRESSED : 'suppressed',
-CRID : 'crid',
-LINEAR_MEDIA_ID : 'linear_media_id',
 };
 
 module.exports.GroupByOrder = {
@@ -551,11 +527,6 @@ COUNT_ASC : 'count_asc',
 COUNT_DESC : 'count_desc',
 VALUE_ASC : 'value_asc',
 VALUE_DESC : 'value_desc',
-};
-
-module.exports.GroupingOption = {
-OMIT : 'Omit',
-INCLUDE : 'Include',
 };
 
 module.exports.HouseholdCouponOrderBy = {
@@ -678,10 +649,6 @@ module.exports.IotProfileOrderBy = {
 NONE : 'NONE',
 };
 
-module.exports.LabelOrderBy = {
-NONE : 'NONE',
-};
-
 module.exports.LanguageOrderBy = {
 SYSTEM_NAME_ASC : 'SYSTEM_NAME_ASC',
 SYSTEM_NAME_DESC : 'SYSTEM_NAME_DESC',
@@ -695,11 +662,6 @@ DTT : 'DTT',
 OTT : 'OTT',
 DTT_AND_OTT : 'DTT_AND_OTT',
 VRM_EXPORT : 'VRM_EXPORT',
-};
-
-module.exports.ManualCollectionAssetType = {
-MEDIA : 'media',
-EPG : 'epg',
 };
 
 module.exports.MathemticalOperatorType = {
@@ -717,7 +679,6 @@ APPLE_HTTP : 'APPLE_HTTP',
 MPEG_DASH : 'MPEG_DASH',
 URL : 'URL',
 SMOOTH_STREAMING : 'SMOOTH_STREAMING',
-MULTICAST : 'MULTICAST',
 NONE : 'NONE',
 };
 
@@ -786,8 +747,6 @@ module.exports.ObjectVirtualAssetInfoType = {
 SUBSCRIPTION : 'Subscription',
 SEGMENT : 'Segment',
 CATEGORY : 'Category',
-TVOD : 'Tvod',
-BOXSET : 'Boxset',
 };
 
 module.exports.OTTUserOrderBy = {
@@ -821,9 +780,6 @@ PAYMENT : 'Payment',
 CATALOG : 'Catalog',
 SECURITY : 'Security',
 OPC : 'Opc',
-BASE : 'Base',
-CUSTOMFIELDS : 'CustomFields',
-DEFAULTPARENTALSETTINGS : 'DefaultParentalSettings',
 };
 
 module.exports.PasswordPolicyOrderBy = {
@@ -916,12 +872,6 @@ USER : 'user',
 module.exports.PpvOrderBy = {
 NAME_ASC : 'NAME_ASC',
 NAME_DESC : 'NAME_DESC',
-UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
-UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
-};
-
-module.exports.PreviewModuleOrderBy = {
-NONE : 'NONE',
 };
 
 module.exports.PriceDetailsOrderBy = {
@@ -1047,21 +997,6 @@ APPLY_PLAYBACK_ADAPTER : 'APPLY_PLAYBACK_ADAPTER',
 FILTER : 'FILTER',
 ASSET_LIFE_CYCLE_TRANSITION : 'ASSET_LIFE_CYCLE_TRANSITION',
 APPLY_FREE_PLAYBACK : 'APPLY_FREE_PLAYBACK',
-FILTERASSETBYKSQL : 'FilterAssetByKsql',
-FILTERFILEBYQUALITYINDISCOVERY : 'FilterFileByQualityInDiscovery',
-FILTERFILEBYQUALITYINPLAYBACK : 'FilterFileByQualityInPlayback',
-FILTERFILEBYFILETYPEIDFORASSETTYPEINDISCOVERY : 'FilterFileByFileTypeIdForAssetTypeInDiscovery',
-FILTERFILEBYFILETYPEIDFORASSETTYPEINPLAYBACK : 'FilterFileByFileTypeIdForAssetTypeInPlayback',
-FILTERFILEBYFILETYPEIDINDISCOVERY : 'FilterFileByFileTypeIdInDiscovery',
-FILTERFILEBYFILETYPEIDINPLAYBACK : 'FilterFileByFileTypeIdInPlayback',
-FILTERFILEBYAUDIOCODECINDISCOVERY : 'FilterFileByAudioCodecInDiscovery',
-FILTERFILEBYAUDIOCODECINPLAYBACK : 'FilterFileByAudioCodecInPlayback',
-FILTERFILEBYVIDEOCODECINDISCOVERY : 'FilterFileByVideoCodecInDiscovery',
-FILTERFILEBYVIDEOCODECINPLAYBACK : 'FilterFileByVideoCodecInPlayback',
-FILTERFILEBYSTREAMERTYPEINDISCOVERY : 'FilterFileByStreamerTypeInDiscovery',
-FILTERFILEBYSTREAMERTYPEINPLAYBACK : 'FilterFileByStreamerTypeInPlayback',
-FILTERFILEBYLABELINDISCOVERY : 'FilterFileByLabelInDiscovery',
-FILTERFILEBYLABELINPLAYBACK : 'FilterFileByLabelInPlayback',
 };
 
 module.exports.RuleConditionType = {
@@ -1082,9 +1017,6 @@ DEVICE_FAMILY : 'DEVICE_FAMILY',
 DEVICE_MANUFACTURER : 'DEVICE_MANUFACTURER',
 DEVICE_MODEL : 'DEVICE_MODEL',
 DEVICE_UDID_DYNAMIC_LIST : 'DEVICE_UDID_DYNAMIC_LIST',
-DYNAMIC_KEYS : 'DYNAMIC_KEYS',
-USER_SESSION_PROFILE : 'USER_SESSION_PROFILE',
-DEVICE_DYNAMIC_DATA : 'DEVICE_DYNAMIC_DATA',
 };
 
 module.exports.RuleLevel = {
@@ -1111,16 +1043,6 @@ ALL : 'all',
 
 module.exports.SearchHistoryOrderBy = {
 NONE : 'NONE',
-};
-
-module.exports.SearchPriorityCriteriaType = {
-KSQL : 'KSql',
-};
-
-module.exports.SearchPriorityGroupOrderBy = {
-PRIORITY_DESC : 'PRIORITY_DESC',
-NAME_ASC : 'NAME_ASC',
-NAME_DESC : 'NAME_DESC',
 };
 
 module.exports.SeriesRecordingOrderBy = {
@@ -1232,12 +1154,6 @@ ADDON : 'ADDON',
 module.exports.SubscriptionOrderBy = {
 START_DATE_ASC : 'START_DATE_ASC',
 START_DATE_DESC : 'START_DATE_DESC',
-CREATE_DATE_ASC : 'CREATE_DATE_ASC',
-CREATE_DATE_DESC : 'CREATE_DATE_DESC',
-UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
-UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
-NAME_ASC : 'NAME_ASC',
-NAME_DESC : 'NAME_DESC',
 };
 
 module.exports.SubscriptionSetOrderBy = {
@@ -1253,12 +1169,6 @@ DEPENDENCY : 'DEPENDENCY',
 module.exports.SubscriptionTriggerType = {
 START_DATE : 'START_DATE',
 END_DATE : 'END_DATE',
-};
-
-module.exports.SuspensionProfileInheritanceType = {
-ALWAYS : 'ALWAYS',
-NEVER : 'NEVER',
-DEFAULT : 'DEFAULT',
 };
 
 module.exports.TagOrderBy = {
