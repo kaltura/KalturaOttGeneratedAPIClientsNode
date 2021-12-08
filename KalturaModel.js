@@ -3031,6 +3031,21 @@ class AssetFilter extends PersistedFilter{
 	 setTrendingDaysEqual(trendingDaysEqual) {
 	 	this.trendingDaysEqual = trendingDaysEqual;
 	 }
+	
+	/**
+	 * Should apply priority groups filter or not
+	 * @return bool
+	 */
+	 getShouldApplyPriorityGroupsEqual() {
+	 	return this.shouldApplyPriorityGroupsEqual;
+	 }
+	
+	/**
+	 * @param shouldApplyPriorityGroupsEqual bool Should apply priority groups filter or not
+	 */
+	 setShouldApplyPriorityGroupsEqual(shouldApplyPriorityGroupsEqual) {
+	 	this.shouldApplyPriorityGroupsEqual = shouldApplyPriorityGroupsEqual;
+	 }
 }
 module.exports.AssetFilter = AssetFilter;
 
@@ -3731,6 +3746,18 @@ class SearchExternalFilter extends AssetFilter{
 	 }
 }
 module.exports.SearchExternalFilter = SearchExternalFilter;
+
+/**
+ *
+ */
+class PriorityGroupFilter extends RelatedObjectFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPriorityGroupFilter';
+	}
+}
+module.exports.PriorityGroupFilter = PriorityGroupFilter;
 
 /**
  *
