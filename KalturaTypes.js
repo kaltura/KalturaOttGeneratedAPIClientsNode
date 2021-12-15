@@ -346,10 +346,6 @@ EPG_START_TIME : 'EPG_START_TIME',
 
 module.exports.CollectionOrderBy = {
 NONE : 'NONE',
-NAME_ASC : 'NAME_ASC',
-NAME_DESC : 'NAME_DESC',
-UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
-UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
 };
 
 module.exports.CompensationType = {
@@ -786,8 +782,6 @@ module.exports.ObjectVirtualAssetInfoType = {
 SUBSCRIPTION : 'Subscription',
 SEGMENT : 'Segment',
 CATEGORY : 'Category',
-TVOD : 'Tvod',
-BOXSET : 'Boxset',
 };
 
 module.exports.OTTUserOrderBy = {
@@ -916,8 +910,6 @@ USER : 'user',
 module.exports.PpvOrderBy = {
 NAME_ASC : 'NAME_ASC',
 NAME_DESC : 'NAME_DESC',
-UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
-UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
 };
 
 module.exports.PreviewModuleOrderBy = {
@@ -1111,16 +1103,6 @@ ALL : 'all',
 
 module.exports.SearchHistoryOrderBy = {
 NONE : 'NONE',
-};
-
-module.exports.SearchPriorityCriteriaType = {
-KSQL : 'KSql',
-};
-
-module.exports.SearchPriorityGroupOrderBy = {
-PRIORITY_DESC : 'PRIORITY_DESC',
-NAME_ASC : 'NAME_ASC',
-NAME_DESC : 'NAME_DESC',
 };
 
 module.exports.SeriesRecordingOrderBy = {
