@@ -3031,6 +3031,21 @@ class AssetFilter extends PersistedFilter{
 	 setTrendingDaysEqual(trendingDaysEqual) {
 	 	this.trendingDaysEqual = trendingDaysEqual;
 	 }
+	
+	/**
+	 * Should apply priority groups filter or not
+	 * @return bool
+	 */
+	 getShouldApplyPriorityGroupsEqual() {
+	 	return this.shouldApplyPriorityGroupsEqual;
+	 }
+	
+	/**
+	 * @param shouldApplyPriorityGroupsEqual bool Should apply priority groups filter or not
+	 */
+	 setShouldApplyPriorityGroupsEqual(shouldApplyPriorityGroupsEqual) {
+	 	this.shouldApplyPriorityGroupsEqual = shouldApplyPriorityGroupsEqual;
+	 }
 }
 module.exports.AssetFilter = AssetFilter;
 
@@ -3731,6 +3746,18 @@ class SearchExternalFilter extends AssetFilter{
 	 }
 }
 module.exports.SearchExternalFilter = SearchExternalFilter;
+
+/**
+ *
+ */
+class PriorityGroupFilter extends RelatedObjectFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPriorityGroupFilter';
+	}
+}
+module.exports.PriorityGroupFilter = PriorityGroupFilter;
 
 /**
  *
@@ -19411,6 +19438,21 @@ class GeneralPartnerConfig extends PartnerConfiguration{
 	 setAllowDeviceMobility(allowDeviceMobility) {
 	 	this.allowDeviceMobility = allowDeviceMobility;
 	 }
+	
+	/**
+	 * Enable multi LCNs per linear channel
+	 * @return bool
+	 */
+	 getEnableMultiLcns() {
+	 	return this.enableMultiLcns;
+	 }
+	
+	/**
+	 * @param enableMultiLcns bool Enable multi LCNs per linear channel
+	 */
+	 setEnableMultiLcns(enableMultiLcns) {
+	 	this.enableMultiLcns = enableMultiLcns;
+	 }
 }
 module.exports.GeneralPartnerConfig = GeneralPartnerConfig;
 
@@ -29677,6 +29719,33 @@ module.exports.RegionListResponse = RegionListResponse;
 /**
  *
  */
+class RegionalChannelMultiLcns extends RegionalChannel{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRegionalChannelMultiLcns';
+	}
+	
+	/**
+	 * Linear channel numbers
+	 * @return string
+	 */
+	 getLcns() {
+	 	return this.lcns;
+	 }
+	
+	/**
+	 * @param lcns string Linear channel numbers
+	 */
+	 setLcns(lcns) {
+	 	this.lcns = lcns;
+	 }
+}
+module.exports.RegionalChannelMultiLcns = RegionalChannelMultiLcns;
+
+/**
+ *
+ */
 class RegistrySettings extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -34967,7 +35036,7 @@ class RegionChannelNumber extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * The number of channel
+	 * The number of the channel
 	 * @return int
 	 */
 	 getChannelNumber() {
@@ -34975,13 +35044,40 @@ class RegionChannelNumber extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param channelNumber int The number of channel
+	 * @param channelNumber int The number of the channel
 	 */
 	 setChannelNumber(channelNumber) {
 	 	this.channelNumber = channelNumber;
 	 }
 }
 module.exports.RegionChannelNumber = RegionChannelNumber;
+
+/**
+ *
+ */
+class RegionChannelNumberMultiLcns extends RegionChannelNumber{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRegionChannelNumberMultiLcns';
+	}
+	
+	/**
+	 * Linear channel numbers
+	 * @return string
+	 */
+	 getLcns() {
+	 	return this.lcns;
+	 }
+	
+	/**
+	 * @param lcns string Linear channel numbers
+	 */
+	 setLcns(lcns) {
+	 	this.lcns = lcns;
+	 }
+}
+module.exports.RegionChannelNumberMultiLcns = RegionChannelNumberMultiLcns;
 
 /**
  *
