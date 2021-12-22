@@ -670,6 +670,14 @@ CUT_SOURCE : 'CUT_SOURCE',
 CUT_TARGET : 'CUT_TARGET',
 };
 
+module.exports.IngestStatus = {
+TOTAL_FAILURE : 'TOTAL_FAILURE',
+PARTIAL_FAILURE : 'PARTIAL_FAILURE',
+WARNING : 'WARNING',
+IN_PROGRESS : 'IN_PROGRESS',
+SUCCESS : 'SUCCESS',
+};
+
 module.exports.IotOrderBy = {
 NONE : 'NONE',
 };
