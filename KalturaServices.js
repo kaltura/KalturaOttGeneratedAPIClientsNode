@@ -3940,6 +3940,52 @@ module.exports.IngestProfile = IngestProfile;
 
 
 /**
+ *Class definition for the Kaltura service: ingestStatus.
+ * The available service actions:
+ * @action getEpgList Response with list of ingest jobs.
+ * @action getPartnerConfiguration Returns Core Ingest service partner configurations.
+ * @action updatePartnerConfiguration Returns Core Ingest service partner configurations.
+ */
+class ingestStatus{
+	
+	/**
+	 * Response with list of ingest jobs.
+	 * @param idsFilter IngestByIdsFilter Filter pager (optional, default: null)
+	 * @param filter IngestByCompoundFilter Filter pager (optional, default: null)
+	 * @param pager FilterPager Filter pager (optional, default: null)
+	 * @return KalturaIngestStatusEpgListResponse
+	 */
+	static getEpgList(idsFilter = null, filter = null, pager = null){
+		let kparams = {};
+		kparams.idsFilter = idsFilter;
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('ingeststatus', 'getEpgList', kparams);
+	};
+	
+	/**
+	 * Returns Core Ingest service partner configurations.
+	 * @return KalturaIngestStatusPartnerConfiguration
+	 */
+	static getPartnerConfiguration(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('ingeststatus', 'getPartnerConfiguration', kparams);
+	};
+	
+	/**
+	 * Returns Core Ingest service partner configurations.
+	 * @param config IngestStatusPartnerConfiguration the partner config updates
+	 */
+	static updatePartnerConfiguration(config){
+		let kparams = {};
+		kparams.config = config;
+		return new kaltura.RequestBuilder('ingeststatus', 'updatePartnerConfiguration', kparams);
+	};
+}
+module.exports.ingestStatus = ingestStatus;
+
+
+/**
  *Class definition for the Kaltura service: iot.
  * The available service actions:
  * @action getClientConfiguration Get iot Client Configuration.
@@ -5955,6 +6001,67 @@ class productPrice{
 	};
 }
 module.exports.productPrice = productPrice;
+
+
+/**
+ *Class definition for the Kaltura service: programAssetGroupOffer.
+ * The available service actions:
+ * @action add Insert new ProgramAssetGroupOffer for partner.
+ * @action delete Delete programAssetGroupOffer.
+ * @action list Gets all Program asset group offer.
+ * @action update Update ProgramAssetGroupOffer.
+ */
+class programAssetGroupOffer{
+	
+	/**
+	 * Insert new ProgramAssetGroupOffer for partner.
+	 * @param programAssetGroupOffer ProgramAssetGroupOffer programAssetGroupOffer object
+	 * @return KalturaProgramAssetGroupOffer
+	 */
+	static add(programAssetGroupOffer){
+		let kparams = {};
+		kparams.programAssetGroupOffer = programAssetGroupOffer;
+		return new kaltura.RequestBuilder('programassetgroupoffer', 'add', kparams);
+	};
+	
+	/**
+	 * Delete programAssetGroupOffer.
+	 * @param id int ProgramAssetGroupOffer id
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('programassetgroupoffer', 'delete', kparams);
+	};
+	
+	/**
+	 * Gets all Program asset group offer.
+	 * @param filter ProgramAssetGroupOfferFilter Filter (optional, default: null)
+	 * @param pager FilterPager Pager (optional, default: null)
+	 * @return KalturaProgramAssetGroupOfferListResponse
+	 */
+	static listAction(filter = null, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('programassetgroupoffer', 'list', kparams);
+	};
+	
+	/**
+	 * Update ProgramAssetGroupOffer.
+	 * @param id int ProgramAssetGroupOffer id
+	 * @param programAssetGroupOffer ProgramAssetGroupOffer ProgramAssetGroupOffer
+	 * @return KalturaProgramAssetGroupOffer
+	 */
+	static update(id, programAssetGroupOffer){
+		let kparams = {};
+		kparams.id = id;
+		kparams.programAssetGroupOffer = programAssetGroupOffer;
+		return new kaltura.RequestBuilder('programassetgroupoffer', 'update', kparams);
+	};
+}
+module.exports.programAssetGroupOffer = programAssetGroupOffer;
 
 
 /**

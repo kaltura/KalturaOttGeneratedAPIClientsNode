@@ -670,6 +670,14 @@ CUT_SOURCE : 'CUT_SOURCE',
 CUT_TARGET : 'CUT_TARGET',
 };
 
+module.exports.IngestStatus = {
+TOTAL_FAILURE : 'TOTAL_FAILURE',
+PARTIAL_FAILURE : 'PARTIAL_FAILURE',
+WARNING : 'WARNING',
+IN_PROGRESS : 'IN_PROGRESS',
+SUCCESS : 'SUCCESS',
+};
+
 module.exports.IotOrderBy = {
 NONE : 'NONE',
 };
@@ -788,6 +796,7 @@ SEGMENT : 'Segment',
 CATEGORY : 'Category',
 TVOD : 'Tvod',
 BOXSET : 'Boxset',
+PAGO : 'PAGO',
 };
 
 module.exports.OTTUserOrderBy = {
@@ -935,6 +944,13 @@ CREATE_DATE_DESC : 'CREATE_DATE_DESC',
 module.exports.ProductPriceOrderBy = {
 PRODUCT_ID_ASC : 'PRODUCT_ID_ASC',
 PRODUCT_ID_DESC : 'PRODUCT_ID_DESC',
+};
+
+module.exports.ProgramAssetGroupOfferOrderBy = {
+NAME_ASC : 'NAME_ASC',
+NAME_DESC : 'NAME_DESC',
+UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
+UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
 };
 
 module.exports.ProtectionPolicy = {
