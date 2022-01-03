@@ -3031,6 +3031,21 @@ class AssetFilter extends PersistedFilter{
 	 setTrendingDaysEqual(trendingDaysEqual) {
 	 	this.trendingDaysEqual = trendingDaysEqual;
 	 }
+	
+	/**
+	 * Should apply priority groups filter or not
+	 * @return bool
+	 */
+	 getShouldApplyPriorityGroupsEqual() {
+	 	return this.shouldApplyPriorityGroupsEqual;
+	 }
+	
+	/**
+	 * @param shouldApplyPriorityGroupsEqual bool Should apply priority groups filter or not
+	 */
+	 setShouldApplyPriorityGroupsEqual(shouldApplyPriorityGroupsEqual) {
+	 	this.shouldApplyPriorityGroupsEqual = shouldApplyPriorityGroupsEqual;
+	 }
 }
 module.exports.AssetFilter = AssetFilter;
 
@@ -3731,6 +3746,18 @@ class SearchExternalFilter extends AssetFilter{
 	 }
 }
 module.exports.SearchExternalFilter = SearchExternalFilter;
+
+/**
+ *
+ */
+class PriorityGroupFilter extends RelatedObjectFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPriorityGroupFilter';
+	}
+}
+module.exports.PriorityGroupFilter = PriorityGroupFilter;
 
 /**
  *
@@ -21859,6 +21886,22 @@ class HouseholdDeviceFamilyLimitations extends DeviceFamilyBase{
 	 */
 	 setConcurrentLimit(concurrentLimit) {
 	 	this.concurrentLimit = concurrentLimit;
+	 }
+	
+	/**
+	 * Is the Max number of devices allowed for this family is default value or not
+	 * @return bool
+	 */
+	 getIsDefaultDeviceLimit() {
+	 	return this.isDefaultDeviceLimit;
+	 }
+	
+	/**
+	 * Is the Max number of streams allowed for this family is default value or not
+	 * @return bool
+	 */
+	 getIsDefaultConcurrentLimit () {
+	 	return this.isDefaultConcurrentLimit ;
 	 }
 }
 module.exports.HouseholdDeviceFamilyLimitations = HouseholdDeviceFamilyLimitations;
