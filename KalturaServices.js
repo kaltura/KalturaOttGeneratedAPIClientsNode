@@ -8,7 +8,7 @@
 // to do with audio, video, and animation what Wiki platforms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2021  Kaltura Inc.
+// Copyright (C) 2006-2022  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -3937,6 +3937,52 @@ class IngestProfile{
 	};
 }
 module.exports.IngestProfile = IngestProfile;
+
+
+/**
+ *Class definition for the Kaltura service: ingestStatus.
+ * The available service actions:
+ * @action getEpgList Response with list of ingest jobs.
+ * @action getPartnerConfiguration Returns Core Ingest service partner configurations.
+ * @action updatePartnerConfiguration Returns Core Ingest service partner configurations.
+ */
+class ingestStatus{
+	
+	/**
+	 * Response with list of ingest jobs.
+	 * @param idsFilter IngestByIdsFilter Filter pager (optional, default: null)
+	 * @param filter IngestByCompoundFilter Filter pager (optional, default: null)
+	 * @param pager FilterPager Filter pager (optional, default: null)
+	 * @return KalturaIngestStatusEpgListResponse
+	 */
+	static getEpgList(idsFilter = null, filter = null, pager = null){
+		let kparams = {};
+		kparams.idsFilter = idsFilter;
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('ingeststatus', 'getEpgList', kparams);
+	};
+	
+	/**
+	 * Returns Core Ingest service partner configurations.
+	 * @return KalturaIngestStatusPartnerConfiguration
+	 */
+	static getPartnerConfiguration(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('ingeststatus', 'getPartnerConfiguration', kparams);
+	};
+	
+	/**
+	 * Returns Core Ingest service partner configurations.
+	 * @param config IngestStatusPartnerConfiguration the partner config updates
+	 */
+	static updatePartnerConfiguration(config){
+		let kparams = {};
+		kparams.config = config;
+		return new kaltura.RequestBuilder('ingeststatus', 'updatePartnerConfiguration', kparams);
+	};
+}
+module.exports.ingestStatus = ingestStatus;
 
 
 /**
