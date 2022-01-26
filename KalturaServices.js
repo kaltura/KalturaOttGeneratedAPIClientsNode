@@ -3940,6 +3940,52 @@ module.exports.IngestProfile = IngestProfile;
 
 
 /**
+ *Class definition for the Kaltura service: ingestStatus.
+ * The available service actions:
+ * @action getEpgList Response with list of ingest jobs.
+ * @action getPartnerConfiguration Returns Core Ingest service partner configurations.
+ * @action updatePartnerConfiguration Returns Core Ingest service partner configurations.
+ */
+class ingestStatus{
+	
+	/**
+	 * Response with list of ingest jobs.
+	 * @param idsFilter IngestByIdsFilter Filter pager (optional, default: null)
+	 * @param filter IngestByCompoundFilter Filter pager (optional, default: null)
+	 * @param pager FilterPager Filter pager (optional, default: null)
+	 * @return KalturaIngestStatusEpgListResponse
+	 */
+	static getEpgList(idsFilter = null, filter = null, pager = null){
+		let kparams = {};
+		kparams.idsFilter = idsFilter;
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('ingeststatus', 'getEpgList', kparams);
+	};
+	
+	/**
+	 * Returns Core Ingest service partner configurations.
+	 * @return KalturaIngestStatusPartnerConfiguration
+	 */
+	static getPartnerConfiguration(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('ingeststatus', 'getPartnerConfiguration', kparams);
+	};
+	
+	/**
+	 * Returns Core Ingest service partner configurations.
+	 * @param config IngestStatusPartnerConfiguration the partner config updates
+	 */
+	static updatePartnerConfiguration(config){
+		let kparams = {};
+		kparams.config = config;
+		return new kaltura.RequestBuilder('ingeststatus', 'updatePartnerConfiguration', kparams);
+	};
+}
+module.exports.ingestStatus = ingestStatus;
+
+
+/**
  *Class definition for the Kaltura service: iot.
  * The available service actions:
  * @action getClientConfiguration Get iot Client Configuration.
