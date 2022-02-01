@@ -303,6 +303,17 @@ LANGUAGE : 'Language',
 DTTREGION : 'DTTRegion',
 };
 
+module.exports.ChannelFieldOrderByType = {
+NAME_ASC : 'NAME_ASC',
+NAME_DESC : 'NAME_DESC',
+START_DATE_DESC : 'START_DATE_DESC',
+START_DATE_ASC : 'START_DATE_ASC',
+CREATE_DATE_ASC : 'CREATE_DATE_ASC',
+CREATE_DATE_DESC : 'CREATE_DATE_DESC',
+RELEVANCY_DESC : 'RELEVANCY_DESC',
+ORDER_NUM : 'ORDER_NUM',
+};
+
 module.exports.ChannelOrderBy = {
 ORDER_NUM : 'ORDER_NUM',
 RELEVANCY_DESC : 'RELEVANCY_DESC',
@@ -316,6 +327,13 @@ START_DATE_ASC : 'START_DATE_ASC',
 LIKES_DESC : 'LIKES_DESC',
 CREATE_DATE_ASC : 'CREATE_DATE_ASC',
 CREATE_DATE_DESC : 'CREATE_DATE_DESC',
+};
+
+module.exports.ChannelSlidingWindowOrderByType = {
+LIKES_DESC : 'LIKES_DESC',
+RATINGS_DESC : 'RATINGS_DESC',
+VOTES_DESC : 'VOTES_DESC',
+VIEWS_DESC : 'VIEWS_DESC',
 };
 
 module.exports.ChannelsOrderBy = {
@@ -436,6 +454,7 @@ NOT_ACTIVATED : 'NOT_ACTIVATED',
 module.exports.DowngradePolicy = {
 LIFO : 'LIFO',
 FIFO : 'FIFO',
+ACTIVE_DATE : 'ACTIVE_DATE',
 };
 
 module.exports.DrmSchemeName = {
@@ -668,6 +687,14 @@ module.exports.IngestProfileOverlapPolicy = {
 REJECT : 'REJECT',
 CUT_SOURCE : 'CUT_SOURCE',
 CUT_TARGET : 'CUT_TARGET',
+};
+
+module.exports.IngestStatus = {
+TOTAL_FAILURE : 'TOTAL_FAILURE',
+PARTIAL_FAILURE : 'PARTIAL_FAILURE',
+WARNING : 'WARNING',
+IN_PROGRESS : 'IN_PROGRESS',
+SUCCESS : 'SUCCESS',
 };
 
 module.exports.IotOrderBy = {
@@ -935,6 +962,13 @@ CREATE_DATE_DESC : 'CREATE_DATE_DESC',
 module.exports.ProductPriceOrderBy = {
 PRODUCT_ID_ASC : 'PRODUCT_ID_ASC',
 PRODUCT_ID_DESC : 'PRODUCT_ID_DESC',
+};
+
+module.exports.ProgramAssetGroupOfferOrderBy = {
+NAME_ASC : 'NAME_ASC',
+NAME_DESC : 'NAME_DESC',
+UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
+UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
 };
 
 module.exports.ProtectionPolicy = {
