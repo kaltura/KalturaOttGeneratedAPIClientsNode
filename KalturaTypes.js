@@ -133,6 +133,23 @@ CREATE_DATE_ASC : 'CREATE_DATE_ASC',
 CREATE_DATE_DESC : 'CREATE_DATE_DESC',
 };
 
+module.exports.AssetOrderByStatistics = {
+VIEWS_DESC : 'VIEWS_DESC',
+};
+
+module.exports.AssetOrderByType = {
+RELEVANCY_DESC : 'RELEVANCY_DESC',
+NAME_ASC : 'NAME_ASC',
+NAME_DESC : 'NAME_DESC',
+RATINGS_DESC : 'RATINGS_DESC',
+VOTES_DESC : 'VOTES_DESC',
+START_DATE_DESC : 'START_DATE_DESC',
+START_DATE_ASC : 'START_DATE_ASC',
+LIKES_DESC : 'LIKES_DESC',
+CREATE_DATE_ASC : 'CREATE_DATE_ASC',
+CREATE_DATE_DESC : 'CREATE_DATE_DESC',
+};
+
 module.exports.AssetReferenceType = {
 MEDIA : 'media',
 EPG_INTERNAL : 'epg_internal',
@@ -815,6 +832,7 @@ SEGMENT : 'Segment',
 CATEGORY : 'Category',
 TVOD : 'Tvod',
 BOXSET : 'Boxset',
+PAGO : 'PAGO',
 };
 
 module.exports.OTTUserOrderBy = {

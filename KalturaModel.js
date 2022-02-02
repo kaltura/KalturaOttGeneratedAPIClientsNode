@@ -3121,6 +3121,18 @@ module.exports.PersistedFilter = PersistedFilter;
 /**
  *
  */
+class BaseAssetOrder extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBaseAssetOrder';
+	}
+}
+module.exports.BaseAssetOrder = BaseAssetOrder;
+
+/**
+ *
+ */
 class DynamicOrderBy extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -3183,6 +3195,21 @@ class AssetFilter extends PersistedFilter{
 	 */
 	 setDynamicOrderBy(dynamicOrderBy) {
 	 	this.dynamicOrderBy = dynamicOrderBy;
+	 }
+	
+	/**
+	 * Parameters for asset list sorting
+	 * @return array
+	 */
+	 getOrderingParameters() {
+	 	return this.orderingParameters;
+	 }
+	
+	/**
+	 * @param orderingParameters array Parameters for asset list sorting
+	 */
+	 setOrderingParameters(orderingParameters) {
+	 	this.orderingParameters = orderingParameters;
 	 }
 	
 	/**
@@ -3368,6 +3395,117 @@ class ChannelFilter extends BaseSearchAssetFilter{
 	 }
 }
 module.exports.ChannelFilter = ChannelFilter;
+
+/**
+ *
+ */
+class AssetDynamicOrder extends BaseAssetOrder{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetDynamicOrder';
+	}
+	
+	/**
+	 * order by name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string order by name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * order by meta asc/desc
+	 * @return string
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy string order by meta asc/desc
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.AssetDynamicOrder = AssetDynamicOrder;
+
+/**
+ *
+ */
+class AssetOrder extends BaseAssetOrder{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetOrder';
+	}
+	
+	/**
+	 * Order By
+	 * @return string
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy string Order By
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.AssetOrder = AssetOrder;
+
+/**
+ *
+ */
+class AssetStatisticsOrder extends BaseAssetOrder{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetStatisticsOrder';
+	}
+	
+	/**
+	 * Trending Days Equal
+	 * @return int
+	 */
+	 getTrendingDaysEqual() {
+	 	return this.trendingDaysEqual;
+	 }
+	
+	/**
+	 * @param trendingDaysEqual int Trending Days Equal
+	 */
+	 setTrendingDaysEqual(trendingDaysEqual) {
+	 	this.trendingDaysEqual = trendingDaysEqual;
+	 }
+	
+	/**
+	 * order by meta asc/desc
+	 * @return string
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy string order by meta asc/desc
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.AssetStatisticsOrder = AssetStatisticsOrder;
 
 /**
  *
@@ -22531,8 +22669,8 @@ class HouseholdDeviceFamilyLimitations extends DeviceFamilyBase{
 	 * Is the Max number of streams allowed for this family is default value or not
 	 * @return bool
 	 */
-	 getIsDefaultConcurrentLimit () {
-	 	return this.isDefaultConcurrentLimit ;
+	 getIsDefaultConcurrentLimit() {
+	 	return this.isDefaultConcurrentLimit;
 	 }
 }
 module.exports.HouseholdDeviceFamilyLimitations = HouseholdDeviceFamilyLimitations;
