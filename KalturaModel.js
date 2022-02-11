@@ -8,7 +8,7 @@
 // to do with audio, video, and animation what Wiki platforms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2021  Kaltura Inc.
+// Copyright (C) 2006-2022  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -2914,6 +2914,120 @@ module.exports.TopicNotificationMessageFilter = TopicNotificationMessageFilter;
 /**
  *
  */
+class IngestByCompoundFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIngestByCompoundFilter';
+	}
+	
+	/**
+	 * A string that is included in the ingest file name
+	 * @return string
+	 */
+	 getIngestNameContains() {
+	 	return this.ingestNameContains;
+	 }
+	
+	/**
+	 * @param ingestNameContains string A string that is included in the ingest file name
+	 */
+	 setIngestNameContains(ingestNameContains) {
+	 	this.ingestNameContains = ingestNameContains;
+	 }
+	
+	/**
+	 * Comma seperated user ids
+	 * @return string
+	 */
+	 getIngestedByUserIdIn() {
+	 	return this.ingestedByUserIdIn;
+	 }
+	
+	/**
+	 * @param ingestedByUserIdIn string Comma seperated user ids
+	 */
+	 setIngestedByUserIdIn(ingestedByUserIdIn) {
+	 	this.ingestedByUserIdIn = ingestedByUserIdIn;
+	 }
+	
+	/**
+	 * Comma seperated valid stutuses
+	 * @return string
+	 */
+	 getIngestStatusIn() {
+	 	return this.ingestStatusIn;
+	 }
+	
+	/**
+	 * @param ingestStatusIn string Comma seperated valid stutuses
+	 */
+	 setIngestStatusIn(ingestStatusIn) {
+	 	this.ingestStatusIn = ingestStatusIn;
+	 }
+	
+	/**
+	 * Ingest created date greater then this value. . Date and time represented as epoch
+	 * @return int
+	 */
+	 getCreatedDateGreaterThan() {
+	 	return this.createdDateGreaterThan;
+	 }
+	
+	/**
+	 * @param createdDateGreaterThan int Ingest created date greater then this value. . Date and time represented as epoch
+	 */
+	 setCreatedDateGreaterThan(createdDateGreaterThan) {
+	 	this.createdDateGreaterThan = createdDateGreaterThan;
+	 }
+	
+	/**
+	 * Ingest created date smaller than this value. Date and time represented as epoch
+	 * @return int
+	 */
+	 getCreatedDateSmallerThan() {
+	 	return this.createdDateSmallerThan;
+	 }
+	
+	/**
+	 * @param createdDateSmallerThan int Ingest created date smaller than this value. Date and time represented as epoch
+	 */
+	 setCreatedDateSmallerThan(createdDateSmallerThan) {
+	 	this.createdDateSmallerThan = createdDateSmallerThan;
+	 }
+}
+module.exports.IngestByCompoundFilter = IngestByCompoundFilter;
+
+/**
+ *
+ */
+class IngestByIdsFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIngestByIdsFilter';
+	}
+	
+	/**
+	 * Comma seperated ingest profile ids
+	 * @return string
+	 */
+	 getIngestIdIn() {
+	 	return this.ingestIdIn;
+	 }
+	
+	/**
+	 * @param ingestIdIn string Comma seperated ingest profile ids
+	 */
+	 setIngestIdIn(ingestIdIn) {
+	 	this.ingestIdIn = ingestIdIn;
+	 }
+}
+module.exports.IngestByIdsFilter = IngestByIdsFilter;
+
+/**
+ *
+ */
 class AggregationCountFilter extends RelatedObjectFilter{
 	
 	constructor(object = null) {
@@ -2949,6 +3063,18 @@ class PersistedFilter extends Filter{
 	 }
 }
 module.exports.PersistedFilter = PersistedFilter;
+
+/**
+ *
+ */
+class BaseAssetOrder extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBaseAssetOrder';
+	}
+}
+module.exports.BaseAssetOrder = BaseAssetOrder;
 
 /**
  *
@@ -3018,6 +3144,21 @@ class AssetFilter extends PersistedFilter{
 	 }
 	
 	/**
+	 * Parameters for asset list sorting
+	 * @return array
+	 */
+	 getOrderingParameters() {
+	 	return this.orderingParameters;
+	 }
+	
+	/**
+	 * @param orderingParameters array Parameters for asset list sorting
+	 */
+	 setOrderingParameters(orderingParameters) {
+	 	this.orderingParameters = orderingParameters;
+	 }
+	
+	/**
 	 * Trending Days Equal
 	 * @return int
 	 */
@@ -3030,6 +3171,21 @@ class AssetFilter extends PersistedFilter{
 	 */
 	 setTrendingDaysEqual(trendingDaysEqual) {
 	 	this.trendingDaysEqual = trendingDaysEqual;
+	 }
+	
+	/**
+	 * Should apply priority groups filter or not
+	 * @return bool
+	 */
+	 getShouldApplyPriorityGroupsEqual() {
+	 	return this.shouldApplyPriorityGroupsEqual;
+	 }
+	
+	/**
+	 * @param shouldApplyPriorityGroupsEqual bool Should apply priority groups filter or not
+	 */
+	 setShouldApplyPriorityGroupsEqual(shouldApplyPriorityGroupsEqual) {
+	 	this.shouldApplyPriorityGroupsEqual = shouldApplyPriorityGroupsEqual;
 	 }
 }
 module.exports.AssetFilter = AssetFilter;
@@ -3185,6 +3341,117 @@ class ChannelFilter extends BaseSearchAssetFilter{
 	 }
 }
 module.exports.ChannelFilter = ChannelFilter;
+
+/**
+ *
+ */
+class AssetDynamicOrder extends BaseAssetOrder{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetDynamicOrder';
+	}
+	
+	/**
+	 * order by name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string order by name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * order by meta asc/desc
+	 * @return string
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy string order by meta asc/desc
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.AssetDynamicOrder = AssetDynamicOrder;
+
+/**
+ *
+ */
+class AssetOrder extends BaseAssetOrder{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetOrder';
+	}
+	
+	/**
+	 * Order By
+	 * @return string
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy string Order By
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.AssetOrder = AssetOrder;
+
+/**
+ *
+ */
+class AssetStatisticsOrder extends BaseAssetOrder{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetStatisticsOrder';
+	}
+	
+	/**
+	 * Trending Days Equal
+	 * @return int
+	 */
+	 getTrendingDaysEqual() {
+	 	return this.trendingDaysEqual;
+	 }
+	
+	/**
+	 * @param trendingDaysEqual int Trending Days Equal
+	 */
+	 setTrendingDaysEqual(trendingDaysEqual) {
+	 	this.trendingDaysEqual = trendingDaysEqual;
+	 }
+	
+	/**
+	 * order by meta asc/desc
+	 * @return string
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy string order by meta asc/desc
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.AssetStatisticsOrder = AssetStatisticsOrder;
 
 /**
  *
@@ -3731,6 +3998,18 @@ class SearchExternalFilter extends AssetFilter{
 	 }
 }
 module.exports.SearchExternalFilter = SearchExternalFilter;
+
+/**
+ *
+ */
+class PriorityGroupFilter extends RelatedObjectFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPriorityGroupFilter';
+	}
+}
+module.exports.PriorityGroupFilter = PriorityGroupFilter;
 
 /**
  *
@@ -7454,6 +7733,21 @@ class Announcement extends kaltura.BaseObject{
 	 */
 	 setIncludeIot(includeIot) {
 	 	this.includeIot = includeIot;
+	 }
+	
+	/**
+	 * Should add to user inbox
+	 * @return bool
+	 */
+	 getIncludeUserInbox() {
+	 	return this.includeUserInbox;
+	 }
+	
+	/**
+	 * @param includeUserInbox bool Should add to user inbox
+	 */
+	 setIncludeUserInbox(includeUserInbox) {
+	 	this.includeUserInbox = includeUserInbox;
 	 }
 }
 module.exports.Announcement = Announcement;
@@ -14598,6 +14892,18 @@ module.exports.ChannelOrder = ChannelOrder;
 /**
  *
  */
+class BaseChannelOrder extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBaseChannelOrder';
+	}
+}
+module.exports.BaseChannelOrder = BaseChannelOrder;
+
+/**
+ *
+ */
 class Channel extends BaseChannel{
 	
 	constructor(object = null) {
@@ -14724,6 +15030,21 @@ class Channel extends BaseChannel{
 	 */
 	 setOrderBy(orderBy) {
 	 	this.orderBy = orderBy;
+	 }
+	
+	/**
+	 * Parameters for asset list sorting
+	 * @return array
+	 */
+	 getOrderingParametersEqual() {
+	 	return this.orderingParametersEqual;
+	 }
+	
+	/**
+	 * @param orderingParametersEqual array Parameters for asset list sorting
+	 */
+	 setOrderingParametersEqual(orderingParametersEqual) {
+	 	this.orderingParametersEqual = orderingParametersEqual;
 	 }
 	
 	/**
@@ -14965,6 +15286,117 @@ class ManualChannel extends Channel{
 	 }
 }
 module.exports.ManualChannel = ManualChannel;
+
+/**
+ *
+ */
+class ChannelDynamicOrder extends BaseChannelOrder{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaChannelDynamicOrder';
+	}
+	
+	/**
+	 * Value
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Value
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Order By
+	 * @return string
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy string Order By
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.ChannelDynamicOrder = ChannelDynamicOrder;
+
+/**
+ *
+ */
+class ChannelFieldOrder extends BaseChannelOrder{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaChannelFieldOrder';
+	}
+	
+	/**
+	 * Order By
+	 * @return string
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy string Order By
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.ChannelFieldOrder = ChannelFieldOrder;
+
+/**
+ *
+ */
+class ChannelSlidingWindowOrder extends BaseChannelOrder{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaChannelSlidingWindowOrder';
+	}
+	
+	/**
+	 * Sliding window period in minutes
+	 * @return int
+	 */
+	 getPeriod() {
+	 	return this.period;
+	 }
+	
+	/**
+	 * @param period int Sliding window period in minutes
+	 */
+	 setPeriod(period) {
+	 	this.period = period;
+	 }
+	
+	/**
+	 * Order By
+	 * @return string
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy string Order By
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.ChannelSlidingWindowOrder = ChannelSlidingWindowOrder;
 
 /**
  *
@@ -19263,6 +19695,21 @@ class GeneralPartnerConfig extends PartnerConfiguration{
 	 }
 	
 	/**
+	 * Priority Family Ids to remove devices on downgrade (first in the list first to remove)
+	 * @return string
+	 */
+	 getDowngradePriorityFamilyIds() {
+	 	return this.downgradePriorityFamilyIds;
+	 }
+	
+	/**
+	 * @param downgradePriorityFamilyIds string Priority Family Ids to remove devices on downgrade (first in the list first to remove)
+	 */
+	 setDowngradePriorityFamilyIds(downgradePriorityFamilyIds) {
+	 	this.downgradePriorityFamilyIds = downgradePriorityFamilyIds;
+	 }
+	
+	/**
 	 * Mail settings
 	 * @return string
 	 */
@@ -19410,6 +19857,21 @@ class GeneralPartnerConfig extends PartnerConfiguration{
 	 */
 	 setAllowDeviceMobility(allowDeviceMobility) {
 	 	this.allowDeviceMobility = allowDeviceMobility;
+	 }
+	
+	/**
+	 * Enable multi LCNs per linear channel
+	 * @return bool
+	 */
+	 getEnableMultiLcns() {
+	 	return this.enableMultiLcns;
+	 }
+	
+	/**
+	 * @param enableMultiLcns bool Enable multi LCNs per linear channel
+	 */
+	 setEnableMultiLcns(enableMultiLcns) {
+	 	this.enableMultiLcns = enableMultiLcns;
 	 }
 }
 module.exports.GeneralPartnerConfig = GeneralPartnerConfig;
@@ -21873,8 +22335,8 @@ class HouseholdDeviceFamilyLimitations extends DeviceFamilyBase{
 	 * Is the Max number of streams allowed for this family is default value or not
 	 * @return bool
 	 */
-	 getIsDefaultConcurrentLimit () {
-	 	return this.isDefaultConcurrentLimit ;
+	 getIsDefaultConcurrentLimit() {
+	 	return this.isDefaultConcurrentLimit;
 	 }
 }
 module.exports.HouseholdDeviceFamilyLimitations = HouseholdDeviceFamilyLimitations;
@@ -24906,6 +25368,21 @@ class ProgramAsset extends Asset{
 	 */
 	 setEnableTrickPlay(enableTrickPlay) {
 	 	this.enableTrickPlay = enableTrickPlay;
+	 }
+	
+	/**
+	 * Contains comma separate list of KalturaProgramAssetGroupOffer.externalOfferId values indicating the PAGOs to which the Program Asset is bound
+	 * @return string
+	 */
+	 getExternalOfferIds() {
+	 	return this.externalOfferIds;
+	 }
+	
+	/**
+	 * @param externalOfferIds string Contains comma separate list of KalturaProgramAssetGroupOffer.externalOfferId values indicating the PAGOs to which the Program Asset is bound
+	 */
+	 setExternalOfferIds(externalOfferIds) {
+	 	this.externalOfferIds = externalOfferIds;
 	 }
 }
 module.exports.ProgramAsset = ProgramAsset;
@@ -29677,6 +30154,33 @@ module.exports.RegionListResponse = RegionListResponse;
 /**
  *
  */
+class RegionalChannelMultiLcns extends RegionalChannel{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRegionalChannelMultiLcns';
+	}
+	
+	/**
+	 * Linear channel numbers
+	 * @return string
+	 */
+	 getLcns() {
+	 	return this.lcns;
+	 }
+	
+	/**
+	 * @param lcns string Linear channel numbers
+	 */
+	 setLcns(lcns) {
+	 	this.lcns = lcns;
+	 }
+}
+module.exports.RegionalChannelMultiLcns = RegionalChannelMultiLcns;
+
+/**
+ *
+ */
 class RegistrySettings extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -33106,6 +33610,227 @@ module.exports.UrlResource = UrlResource;
 /**
  *
  */
+class IngestStatusEpgConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIngestStatusEpgConfiguration';
+	}
+	
+	/**
+	 * Defines whether partner in question enabled core ingest status service
+	 * @return bool
+	 */
+	 getIsSupported() {
+	 	return this.isSupported;
+	 }
+	
+	/**
+	 * @param isSupported bool Defines whether partner in question enabled core ingest status service
+	 */
+	 setIsSupported(isSupported) {
+	 	this.isSupported = isSupported;
+	 }
+	
+	/**
+	 * Defines the time in seconds that the service retain information about ingest status
+	 * @return int
+	 */
+	 getRetainingPeriod() {
+	 	return this.retainingPeriod;
+	 }
+	
+	/**
+	 * @param retainingPeriod int Defines the time in seconds that the service retain information about ingest status
+	 */
+	 setRetainingPeriod(retainingPeriod) {
+	 	this.retainingPeriod = retainingPeriod;
+	 }
+}
+module.exports.IngestStatusEpgConfiguration = IngestStatusEpgConfiguration;
+
+/**
+ *
+ */
+class IngestStatusPartnerConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIngestStatusPartnerConfiguration';
+	}
+	
+	/**
+	 * Defines the epg configuration of the partner
+	 * @return IngestStatusEpgConfiguration
+	 */
+	 getEpg() {
+	 	return this.epg;
+	 }
+	
+	/**
+	 * @param epg IngestStatusEpgConfiguration Defines the epg configuration of the partner
+	 */
+	 setEpg(epg) {
+	 	this.epg = epg;
+	 }
+}
+module.exports.IngestStatusPartnerConfiguration = IngestStatusPartnerConfiguration;
+
+/**
+ *
+ */
+class IngestEpg extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIngestEpg';
+	}
+	
+	/**
+	 * Unique id of the ingest job in question
+	 * @return int
+	 */
+	 getIngestId() {
+	 	return this.ingestId;
+	 }
+	
+	/**
+	 * The ingested file name without its extention
+	 * @return string
+	 */
+	 getIngestName() {
+	 	return this.ingestName;
+	 }
+	
+	/**
+	 * @param ingestName string The ingested file name without its extention
+	 */
+	 setIngestName(ingestName) {
+	 	this.ingestName = ingestName;
+	 }
+	
+	/**
+	 * The ingested file name extention
+	 * @return string
+	 */
+	 getIngestFilenameExtension() {
+	 	return this.ingestFilenameExtension;
+	 }
+	
+	/**
+	 * @param ingestFilenameExtension string The ingested file name extention
+	 */
+	 setIngestFilenameExtension(ingestFilenameExtension) {
+	 	this.ingestFilenameExtension = ingestFilenameExtension;
+	 }
+	
+	/**
+	 * The ingest job created date and time. Date and time represented as epoch
+	 * @return int
+	 */
+	 getCreatedDate() {
+	 	return this.createdDate;
+	 }
+	
+	/**
+	 * @param createdDate int The ingest job created date and time. Date and time represented as epoch
+	 */
+	 setCreatedDate(createdDate) {
+	 	this.createdDate = createdDate;
+	 }
+	
+	/**
+	 * The user id of the addFromBulkUpload caller
+	 * @return int
+	 */
+	 getIngestedByUserId() {
+	 	return this.ingestedByUserId;
+	 }
+	
+	/**
+	 * @param ingestedByUserId int The user id of the addFromBulkUpload caller
+	 */
+	 setIngestedByUserId(ingestedByUserId) {
+	 	this.ingestedByUserId = ingestedByUserId;
+	 }
+	
+	/**
+	 * The ingest job completed date and time. Date and time represented as epoch
+	 * @return int
+	 */
+	 getCompletedDate() {
+	 	return this.completedDate;
+	 }
+	
+	/**
+	 * @param completedDate int The ingest job completed date and time. Date and time represented as epoch
+	 */
+	 setCompletedDate(completedDate) {
+	 	this.completedDate = completedDate;
+	 }
+	
+	/**
+	 * The ingest profile id that of the ingest job
+	 * @return int
+	 */
+	 getIngestProfileId() {
+	 	return this.ingestProfileId;
+	 }
+	
+	/**
+	 * @param ingestProfileId int The ingest profile id that of the ingest job
+	 */
+	 setIngestProfileId(ingestProfileId) {
+	 	this.ingestProfileId = ingestProfileId;
+	 }
+	
+	/**
+	 * The ingest profile id that of the ingest job
+	 * @return string
+	 */
+	 getStatus() {
+	 	return this.status;
+	 }
+	
+	/**
+	 * @param status string The ingest profile id that of the ingest job
+	 */
+	 setStatus(status) {
+	 	this.status = status;
+	 }
+}
+module.exports.IngestEpg = IngestEpg;
+
+/**
+ *
+ */
+class IngestStatusEpgListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIngestStatusEpgListResponse';
+	}
+	
+	/**
+	 * IngestStatus
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array IngestStatus
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.IngestStatusEpgListResponse = IngestStatusEpgListResponse;
+
+/**
+ *
+ */
 class IotDefault extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -34967,7 +35692,7 @@ class RegionChannelNumber extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * The number of channel
+	 * The number of the channel
 	 * @return int
 	 */
 	 getChannelNumber() {
@@ -34975,13 +35700,40 @@ class RegionChannelNumber extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param channelNumber int The number of channel
+	 * @param channelNumber int The number of the channel
 	 */
 	 setChannelNumber(channelNumber) {
 	 	this.channelNumber = channelNumber;
 	 }
 }
 module.exports.RegionChannelNumber = RegionChannelNumber;
+
+/**
+ *
+ */
+class RegionChannelNumberMultiLcns extends RegionChannelNumber{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRegionChannelNumberMultiLcns';
+	}
+	
+	/**
+	 * Linear channel numbers
+	 * @return string
+	 */
+	 getLcns() {
+	 	return this.lcns;
+	 }
+	
+	/**
+	 * @param lcns string Linear channel numbers
+	 */
+	 setLcns(lcns) {
+	 	this.lcns = lcns;
+	 }
+}
+module.exports.RegionChannelNumberMultiLcns = RegionChannelNumberMultiLcns;
 
 /**
  *
