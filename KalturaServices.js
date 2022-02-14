@@ -8,7 +8,7 @@
 // to do with audio, video, and animation what Wiki platforms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2021  Kaltura Inc.
+// Copyright (C) 2006-2022  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -6001,67 +6001,6 @@ class productPrice{
 	};
 }
 module.exports.productPrice = productPrice;
-
-
-/**
- *Class definition for the Kaltura service: programAssetGroupOffer.
- * The available service actions:
- * @action add Insert new ProgramAssetGroupOffer for partner.
- * @action delete Delete programAssetGroupOffer.
- * @action list Gets all Program asset group offer.
- * @action update Update ProgramAssetGroupOffer.
- */
-class programAssetGroupOffer{
-	
-	/**
-	 * Insert new ProgramAssetGroupOffer for partner.
-	 * @param programAssetGroupOffer ProgramAssetGroupOffer programAssetGroupOffer object
-	 * @return KalturaProgramAssetGroupOffer
-	 */
-	static add(programAssetGroupOffer){
-		let kparams = {};
-		kparams.programAssetGroupOffer = programAssetGroupOffer;
-		return new kaltura.RequestBuilder('programassetgroupoffer', 'add', kparams);
-	};
-	
-	/**
-	 * Delete programAssetGroupOffer.
-	 * @param id int ProgramAssetGroupOffer id
-	 * @return bool
-	 */
-	static deleteAction(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('programassetgroupoffer', 'delete', kparams);
-	};
-	
-	/**
-	 * Gets all Program asset group offer.
-	 * @param filter ProgramAssetGroupOfferFilter Filter (optional, default: null)
-	 * @param pager FilterPager Pager (optional, default: null)
-	 * @return KalturaProgramAssetGroupOfferListResponse
-	 */
-	static listAction(filter = null, pager = null){
-		let kparams = {};
-		kparams.filter = filter;
-		kparams.pager = pager;
-		return new kaltura.RequestBuilder('programassetgroupoffer', 'list', kparams);
-	};
-	
-	/**
-	 * Update ProgramAssetGroupOffer.
-	 * @param id int ProgramAssetGroupOffer id
-	 * @param programAssetGroupOffer ProgramAssetGroupOffer ProgramAssetGroupOffer
-	 * @return KalturaProgramAssetGroupOffer
-	 */
-	static update(id, programAssetGroupOffer){
-		let kparams = {};
-		kparams.id = id;
-		kparams.programAssetGroupOffer = programAssetGroupOffer;
-		return new kaltura.RequestBuilder('programassetgroupoffer', 'update', kparams);
-	};
-}
-module.exports.programAssetGroupOffer = programAssetGroupOffer;
 
 
 /**

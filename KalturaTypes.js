@@ -8,7 +8,7 @@
 // to do with audio, video, and animation what Wiki platforms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2021  Kaltura Inc.
+// Copyright (C) 2006-2022  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -832,7 +832,6 @@ SEGMENT : 'Segment',
 CATEGORY : 'Category',
 TVOD : 'Tvod',
 BOXSET : 'Boxset',
-PAGO : 'PAGO',
 };
 
 module.exports.OTTUserOrderBy = {
@@ -980,13 +979,6 @@ CREATE_DATE_DESC : 'CREATE_DATE_DESC',
 module.exports.ProductPriceOrderBy = {
 PRODUCT_ID_ASC : 'PRODUCT_ID_ASC',
 PRODUCT_ID_DESC : 'PRODUCT_ID_DESC',
-};
-
-module.exports.ProgramAssetGroupOfferOrderBy = {
-NAME_ASC : 'NAME_ASC',
-NAME_DESC : 'NAME_DESC',
-UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
-UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
 };
 
 module.exports.ProtectionPolicy = {
