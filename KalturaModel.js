@@ -15481,6 +15481,14 @@ class Price extends kaltura.BaseObject{
 	}
 	
 	/**
+	 * Currency ID
+	 * @return int
+	 */
+	 getCurrencyId() {
+	 	return this.currencyId;
+	 }
+	
+	/**
 	 * Price
 	 * @return float
 	 */
@@ -36627,6 +36635,21 @@ class TimeShiftedTvPartnerSettings extends kaltura.BaseObject{
 	 */
 	 setPrivateCopyEnabled(privateCopyEnabled) {
 	 	this.privateCopyEnabled = privateCopyEnabled;
+	 }
+	
+	/**
+	 * Quota in seconds
+	 * @return int
+	 */
+	 getDefaultQuota() {
+	 	return this.defaultQuota;
+	 }
+	
+	/**
+	 * @param defaultQuota int Quota in seconds
+	 */
+	 setDefaultQuota(defaultQuota) {
+	 	this.defaultQuota = defaultQuota;
 	 }
 }
 module.exports.TimeShiftedTvPartnerSettings = TimeShiftedTvPartnerSettings;
