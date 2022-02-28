@@ -133,23 +133,6 @@ CREATE_DATE_ASC : 'CREATE_DATE_ASC',
 CREATE_DATE_DESC : 'CREATE_DATE_DESC',
 };
 
-module.exports.AssetOrderByStatistics = {
-VIEWS_DESC : 'VIEWS_DESC',
-};
-
-module.exports.AssetOrderByType = {
-RELEVANCY_DESC : 'RELEVANCY_DESC',
-NAME_ASC : 'NAME_ASC',
-NAME_DESC : 'NAME_DESC',
-RATINGS_DESC : 'RATINGS_DESC',
-VOTES_DESC : 'VOTES_DESC',
-START_DATE_DESC : 'START_DATE_DESC',
-START_DATE_ASC : 'START_DATE_ASC',
-LIKES_DESC : 'LIKES_DESC',
-CREATE_DATE_ASC : 'CREATE_DATE_ASC',
-CREATE_DATE_DESC : 'CREATE_DATE_DESC',
-};
-
 module.exports.AssetReferenceType = {
 MEDIA : 'media',
 EPG_INTERNAL : 'epg_internal',
@@ -220,6 +203,7 @@ SUBSCRIPTION : 'subscription',
 PRE_PAID : 'pre_paid',
 PRE_PAID_EXPIRED : 'pre_paid_expired',
 COLLECTION : 'collection',
+PROGRAMASSETGROUPOFFER : 'programAssetGroupOffer',
 };
 
 module.exports.BillingPriceType = {
@@ -832,6 +816,7 @@ SEGMENT : 'Segment',
 CATEGORY : 'Category',
 TVOD : 'Tvod',
 BOXSET : 'Boxset',
+PAGO : 'PAGO',
 };
 
 module.exports.OTTUserOrderBy = {
@@ -979,6 +964,13 @@ CREATE_DATE_DESC : 'CREATE_DATE_DESC',
 module.exports.ProductPriceOrderBy = {
 PRODUCT_ID_ASC : 'PRODUCT_ID_ASC',
 PRODUCT_ID_DESC : 'PRODUCT_ID_DESC',
+};
+
+module.exports.ProgramAssetGroupOfferOrderBy = {
+NAME_ASC : 'NAME_ASC',
+NAME_DESC : 'NAME_DESC',
+UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
+UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
 };
 
 module.exports.ProtectionPolicy = {
@@ -1348,6 +1340,7 @@ module.exports.TransactionType = {
 PPV : 'ppv',
 SUBSCRIPTION : 'subscription',
 COLLECTION : 'collection',
+PROGRAMASSETGROUPOFFER : 'programAssetGroupOffer',
 };
 
 module.exports.TvmRuleOrderBy = {

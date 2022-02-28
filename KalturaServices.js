@@ -2443,13 +2443,13 @@ module.exports.engagement = engagement;
  *Class definition for the Kaltura service: entitlement.
  * The available service actions:
  * @action applyCoupon Apply new coupon for existing subscription.
- * @action cancel Immediately cancel a subscription, PPV or collection. Cancel is possible only if within cancellation window and content not already consumed.
+ * @action cancel Immediately cancel a subscription, PPV, collection or programAssetGroupOffer. Cancel is possible only if within cancellation window and content not already consumed.
  * @action cancelRenewal Cancel a household service subscription at the next renewal. The subscription stays valid till the next renewal.
  * @action cancelScheduledSubscription Cancel Scheduled Subscription.
  * @action externalReconcile Reconcile the user household&#39;s entitlements with an external entitlements source. This request is frequency protected to avoid too frequent calls per household.
- * @action forceCancel Immediately cancel a subscription, PPV or collection. Cancel applies regardless of cancellation window and content consumption status.
+ * @action forceCancel Immediately cancel a subscription, PPV, collection or programAssetGroupOffer. Cancel applies regardless of cancellation window and content consumption status.
  * @action getNextRenewal Returns the data about the next renewal.
- * @action grant Grant household for an entitlement for a PPV or Subscription.
+ * @action grant Grant household for an entitlement for a PPV, Subscription or programAssetGroupOffer.
  * @action list Gets all the entitled media items for a household.
  * @action swap Swap current entitlement (subscription) with new entitlement (subscription) - only Grant.
  * @action update Update Kaltura Entitelment by Purchase id.
@@ -2469,7 +2469,7 @@ class entitlement{
 	};
 	
 	/**
-	 * Immediately cancel a subscription, PPV or collection. Cancel is possible only if within cancellation window and content not already consumed.
+	 * Immediately cancel a subscription, PPV, collection or programAssetGroupOffer. Cancel is possible only if within cancellation window and content not already consumed.
 	 * @param assetId int The mediaFileID to cancel
 	 * @param productType string The product type for the cancelation (enum: KalturaTransactionType)
 	 * @return bool
@@ -2512,7 +2512,7 @@ class entitlement{
 	};
 	
 	/**
-	 * Immediately cancel a subscription, PPV or collection. Cancel applies regardless of cancellation window and content consumption status.
+	 * Immediately cancel a subscription, PPV, collection or programAssetGroupOffer. Cancel applies regardless of cancellation window and content consumption status.
 	 * @param assetId int The mediaFileID to cancel
 	 * @param productType string The product type for the cancelation (enum: KalturaTransactionType)
 	 * @return bool
@@ -2536,7 +2536,7 @@ class entitlement{
 	};
 	
 	/**
-	 * Grant household for an entitlement for a PPV or Subscription.
+	 * Grant household for an entitlement for a PPV, Subscription or programAssetGroupOffer.
 	 * @param productId int Identifier for the product package from which this content is offered
 	 * @param productType string Product package type. Possible values: PPV, Subscription, Collection (enum: KalturaTransactionType)
 	 * @param history bool Controls if the new entitlements grant will appear in the user’s history. True – will add a history entry. False (or if ommited) – no history entry will be added
@@ -6001,6 +6001,67 @@ class productPrice{
 	};
 }
 module.exports.productPrice = productPrice;
+
+
+/**
+ *Class definition for the Kaltura service: programAssetGroupOffer.
+ * The available service actions:
+ * @action add Insert new ProgramAssetGroupOffer for partner.
+ * @action delete Delete programAssetGroupOffer.
+ * @action list Gets all Program asset group offer.
+ * @action update Update ProgramAssetGroupOffer.
+ */
+class programAssetGroupOffer{
+	
+	/**
+	 * Insert new ProgramAssetGroupOffer for partner.
+	 * @param programAssetGroupOffer ProgramAssetGroupOffer programAssetGroupOffer object
+	 * @return KalturaProgramAssetGroupOffer
+	 */
+	static add(programAssetGroupOffer){
+		let kparams = {};
+		kparams.programAssetGroupOffer = programAssetGroupOffer;
+		return new kaltura.RequestBuilder('programassetgroupoffer', 'add', kparams);
+	};
+	
+	/**
+	 * Delete programAssetGroupOffer.
+	 * @param id int ProgramAssetGroupOffer id
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('programassetgroupoffer', 'delete', kparams);
+	};
+	
+	/**
+	 * Gets all Program asset group offer.
+	 * @param filter ProgramAssetGroupOfferFilter Filter (optional, default: null)
+	 * @param pager FilterPager Pager (optional, default: null)
+	 * @return KalturaProgramAssetGroupOfferListResponse
+	 */
+	static listAction(filter = null, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('programassetgroupoffer', 'list', kparams);
+	};
+	
+	/**
+	 * Update ProgramAssetGroupOffer.
+	 * @param id int ProgramAssetGroupOffer id
+	 * @param programAssetGroupOffer ProgramAssetGroupOffer ProgramAssetGroupOffer
+	 * @return KalturaProgramAssetGroupOffer
+	 */
+	static update(id, programAssetGroupOffer){
+		let kparams = {};
+		kparams.id = id;
+		kparams.programAssetGroupOffer = programAssetGroupOffer;
+		return new kaltura.RequestBuilder('programassetgroupoffer', 'update', kparams);
+	};
+}
+module.exports.programAssetGroupOffer = programAssetGroupOffer;
 
 
 /**
