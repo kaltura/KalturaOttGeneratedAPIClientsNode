@@ -220,6 +220,7 @@ SUBSCRIPTION : 'subscription',
 PRE_PAID : 'pre_paid',
 PRE_PAID_EXPIRED : 'pre_paid_expired',
 COLLECTION : 'collection',
+PROGRAM_ASSET_GROUP_OFFER : 'program_asset_group_offer',
 };
 
 module.exports.BillingPriceType = {
@@ -694,6 +695,26 @@ INTEREST : 'Interest',
 CAMPAIGN : 'Campaign',
 };
 
+module.exports.IngestEpgProgramResultOrderBy = {
+NONE : 'NONE',
+EXTERNAL_PROGRAM_ID_DESC : 'EXTERNAL_PROGRAM_ID_DESC',
+EXTERNAL_PROGRAM_ID_ASC : 'EXTERNAL_PROGRAM_ID_ASC',
+LINEAR_CHANNEL_ID_DESC : 'LINEAR_CHANNEL_ID_DESC',
+LINEAR_CHANNEL_ID_ASC : 'LINEAR_CHANNEL_ID_ASC',
+INDEX_IN_FILE_DESC : 'INDEX_IN_FILE_DESC',
+INDEX_IN_FILE_ASC : 'INDEX_IN_FILE_ASC',
+START_DATE_DESC : 'START_DATE_DESC',
+START_DATE_ASC : 'START_DATE_ASC',
+SEVERITY_DESC : 'SEVERITY_DESC',
+SEVERITY_ASC : 'SEVERITY_ASC',
+};
+
+module.exports.IngestEpgProgramStatus = {
+FAILURE : 'FAILURE',
+WARNING : 'WARNING',
+SUCCESS : 'SUCCESS',
+};
+
 module.exports.IngestProfileAutofillPolicy = {
 REJECT : 'REJECT',
 AUTOFILL : 'AUTOFILL',
@@ -832,6 +853,7 @@ SEGMENT : 'Segment',
 CATEGORY : 'Category',
 TVOD : 'Tvod',
 BOXSET : 'Boxset',
+PAGO : 'PAGO',
 };
 
 module.exports.OTTUserOrderBy = {
@@ -981,6 +1003,13 @@ PRODUCT_ID_ASC : 'PRODUCT_ID_ASC',
 PRODUCT_ID_DESC : 'PRODUCT_ID_DESC',
 };
 
+module.exports.ProgramAssetGroupOfferOrderBy = {
+NAME_ASC : 'NAME_ASC',
+NAME_DESC : 'NAME_DESC',
+UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
+UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
+};
+
 module.exports.ProtectionPolicy = {
 EXTENDINGRECORDINGLIFETIME : 'ExtendingRecordingLifetime',
 LIMITEDBYRECORDINGLIFETIME : 'LimitedByRecordingLifetime',
@@ -1009,6 +1038,7 @@ NOT_FOR_PURCHASE : 'not_for_purchase',
 INVALID_CURRENCY : 'invalid_currency',
 CURRENCY_NOT_DEFINED_ON_PRICE_CODE : 'currency_not_defined_on_price_code',
 PENDING_ENTITLEMENT : 'pending_entitlement',
+PROGRAM_ASSET_GROUP_OFFER_PURCHASED : 'program_asset_group_offer_purchased',
 };
 
 module.exports.QuotaOveragePolicy = {
@@ -1348,6 +1378,7 @@ module.exports.TransactionType = {
 PPV : 'ppv',
 SUBSCRIPTION : 'subscription',
 COLLECTION : 'collection',
+PROGRAMASSETGROUPOFFER : 'programAssetGroupOffer',
 };
 
 module.exports.TvmRuleOrderBy = {

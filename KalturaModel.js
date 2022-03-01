@@ -2222,6 +2222,60 @@ module.exports.PricePlanFilter = PricePlanFilter;
 /**
  *
  */
+class ProgramAssetGroupOfferFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaProgramAssetGroupOfferFilter';
+	}
+	
+	/**
+	 * return also inactive
+	 * @return bool
+	 */
+	 getAlsoInactive() {
+	 	return this.alsoInactive;
+	 }
+	
+	/**
+	 * @param alsoInactive bool return also inactive
+	 */
+	 setAlsoInactive(alsoInactive) {
+	 	this.alsoInactive = alsoInactive;
+	 }
+}
+module.exports.ProgramAssetGroupOfferFilter = ProgramAssetGroupOfferFilter;
+
+/**
+ *
+ */
+class ProgramAssetGroupOfferIdInFilter extends ProgramAssetGroupOfferFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaProgramAssetGroupOfferIdInFilter';
+	}
+	
+	/**
+	 * Comma separated asset group offer identifiers
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated asset group offer identifiers
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.ProgramAssetGroupOfferIdInFilter = ProgramAssetGroupOfferIdInFilter;
+
+/**
+ *
+ */
 class SubscriptionSetFilter extends Filter{
 	
 	constructor(object = null) {
@@ -3024,6 +3078,191 @@ class IngestByIdsFilter extends Filter{
 	 }
 }
 module.exports.IngestByIdsFilter = IngestByIdsFilter;
+
+/**
+ *
+ */
+class IngestEpgProgramResultFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIngestEpgProgramResultFilter';
+	}
+}
+module.exports.IngestEpgProgramResultFilter = IngestEpgProgramResultFilter;
+
+/**
+ *
+ */
+class IngestProgramResultsByRefineFilter extends IngestEpgProgramResultFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIngestProgramResultsByRefineFilter';
+	}
+	
+	/**
+	 * Comma seperated valid statuses - only &#39;FAILURE&#39;, &#39;WARNING&#39; and &#39;SUCCESS&#39; are valid strings. No repetitions are allowed
+	 * @return string
+	 */
+	 getIngestStatusIn() {
+	 	return this.ingestStatusIn;
+	 }
+	
+	/**
+	 * @param ingestStatusIn string Comma seperated valid statuses - only &#39;FAILURE&#39;, &#39;WARNING&#39; and &#39;SUCCESS&#39; are valid strings. No repetitions are allowed
+	 */
+	 setIngestStatusIn(ingestStatusIn) {
+	 	this.ingestStatusIn = ingestStatusIn;
+	 }
+	
+	/**
+	 * Program EPG start date greater then this value. Date and time represented as epoch
+	 * @return int
+	 */
+	 getStartDateGreaterThan() {
+	 	return this.startDateGreaterThan;
+	 }
+	
+	/**
+	 * @param startDateGreaterThan int Program EPG start date greater then this value. Date and time represented as epoch
+	 */
+	 setStartDateGreaterThan(startDateGreaterThan) {
+	 	this.startDateGreaterThan = startDateGreaterThan;
+	 }
+	
+	/**
+	 * Program EPG start date smaller than this value. Date and time represented as epoch
+	 * @return int
+	 */
+	 getStartDateSmallerThan() {
+	 	return this.startDateSmallerThan;
+	 }
+	
+	/**
+	 * @param startDateSmallerThan int Program EPG start date smaller than this value. Date and time represented as epoch
+	 */
+	 setStartDateSmallerThan(startDateSmallerThan) {
+	 	this.startDateSmallerThan = startDateSmallerThan;
+	 }
+}
+module.exports.IngestProgramResultsByRefineFilter = IngestProgramResultsByRefineFilter;
+
+/**
+ *
+ */
+class IngestProgramResultsByCombinedFieldsFilter extends IngestProgramResultsByRefineFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIngestProgramResultsByCombinedFieldsFilter';
+	}
+	
+	/**
+	 * String value to substring search by ProgramID or ExternalProgramID or LinearChannelID.
+ * Up to 20 ids are allowed
+	 * @return string
+	 */
+	 getCombinedFieldsValue() {
+	 	return this.combinedFieldsValue;
+	 }
+	
+	/**
+	 * @param combinedFieldsValue string String value to substring search by ProgramID or ExternalProgramID or LinearChannelID.
+ * Up to 20 ids are allowed
+	 */
+	 setCombinedFieldsValue(combinedFieldsValue) {
+	 	this.combinedFieldsValue = combinedFieldsValue;
+	 }
+}
+module.exports.IngestProgramResultsByCombinedFieldsFilter = IngestProgramResultsByCombinedFieldsFilter;
+
+/**
+ *
+ */
+class IngestProgramResultsByCompoundFilter extends IngestProgramResultsByRefineFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIngestProgramResultsByCompoundFilter';
+	}
+	
+	/**
+	 * Comma seperated channel id (the id of the linear channel asset that the program belongs to).
+ * Up to 20 ids are allowed
+	 * @return string
+	 */
+	 getLinearChannelIdIn() {
+	 	return this.linearChannelIdIn;
+	 }
+	
+	/**
+	 * @param linearChannelIdIn string Comma seperated channel id (the id of the linear channel asset that the program belongs to).
+ * Up to 20 ids are allowed
+	 */
+	 setLinearChannelIdIn(linearChannelIdIn) {
+	 	this.linearChannelIdIn = linearChannelIdIn;
+	 }
+}
+module.exports.IngestProgramResultsByCompoundFilter = IngestProgramResultsByCompoundFilter;
+
+/**
+ *
+ */
+class IngestProgramResultsByExternalIdsFilter extends IngestEpgProgramResultFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIngestProgramResultsByExternalIdsFilter';
+	}
+	
+	/**
+	 * Comma seperated external program id.
+ * Up to 20 ids are allowed
+	 * @return string
+	 */
+	 getExternalProgramIdIn() {
+	 	return this.externalProgramIdIn;
+	 }
+	
+	/**
+	 * @param externalProgramIdIn string Comma seperated external program id.
+ * Up to 20 ids are allowed
+	 */
+	 setExternalProgramIdIn(externalProgramIdIn) {
+	 	this.externalProgramIdIn = externalProgramIdIn;
+	 }
+}
+module.exports.IngestProgramResultsByExternalIdsFilter = IngestProgramResultsByExternalIdsFilter;
+
+/**
+ *
+ */
+class IngestProgramResultsByProgramIdsFilter extends IngestEpgProgramResultFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIngestProgramResultsByProgramIdsFilter';
+	}
+	
+	/**
+	 * Comma seperated program id (the unique ingested program id as it determined by Kaltura BE).
+ * Up to 20 ids are allowed
+	 * @return string
+	 */
+	 getProgramIdIn() {
+	 	return this.programIdIn;
+	 }
+	
+	/**
+	 * @param programIdIn string Comma seperated program id (the unique ingested program id as it determined by Kaltura BE).
+ * Up to 20 ids are allowed
+	 */
+	 setProgramIdIn(programIdIn) {
+	 	this.programIdIn = programIdIn;
+	 }
+}
+module.exports.IngestProgramResultsByProgramIdsFilter = IngestProgramResultsByProgramIdsFilter;
 
 /**
  *
@@ -4257,6 +4496,87 @@ module.exports.ConfigurationsFilter = ConfigurationsFilter;
 /**
  *
  */
+class BaseEntitlementFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBaseEntitlementFilter';
+	}
+}
+module.exports.BaseEntitlementFilter = BaseEntitlementFilter;
+
+/**
+ *
+ */
+class EntitlementFilter extends BaseEntitlementFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEntitlementFilter';
+	}
+	
+	/**
+	 * The type of the entitlements to return
+	 * @return string
+	 */
+	 getProductTypeEqual() {
+	 	return this.productTypeEqual;
+	 }
+	
+	/**
+	 * @param productTypeEqual string The type of the entitlements to return
+	 */
+	 setProductTypeEqual(productTypeEqual) {
+	 	this.productTypeEqual = productTypeEqual;
+	 }
+	
+	/**
+	 * Reference type to filter by
+	 * @return string
+	 */
+	 getEntityReferenceEqual() {
+	 	return this.entityReferenceEqual;
+	 }
+	
+	/**
+	 * @param entityReferenceEqual string Reference type to filter by
+	 */
+	 setEntityReferenceEqual(entityReferenceEqual) {
+	 	this.entityReferenceEqual = entityReferenceEqual;
+	 }
+	
+	/**
+	 * Is expired
+	 * @return bool
+	 */
+	 getIsExpiredEqual() {
+	 	return this.isExpiredEqual;
+	 }
+	
+	/**
+	 * @param isExpiredEqual bool Is expired
+	 */
+	 setIsExpiredEqual(isExpiredEqual) {
+	 	this.isExpiredEqual = isExpiredEqual;
+	 }
+}
+module.exports.EntitlementFilter = EntitlementFilter;
+
+/**
+ *
+ */
+class ProgramAssetGroupOfferEntitlementFilter extends BaseEntitlementFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaProgramAssetGroupOfferEntitlementFilter';
+	}
+}
+module.exports.ProgramAssetGroupOfferEntitlementFilter = ProgramAssetGroupOfferEntitlementFilter;
+
+/**
+ *
+ */
 class RecordingFilter extends Filter{
 	
 	constructor(object = null) {
@@ -4407,63 +4727,6 @@ module.exports.CloudSeriesRecordingFilter = CloudSeriesRecordingFilter;
 /**
  *
  */
-class EntitlementFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaEntitlementFilter';
-	}
-	
-	/**
-	 * The type of the entitlements to return
-	 * @return string
-	 */
-	 getProductTypeEqual() {
-	 	return this.productTypeEqual;
-	 }
-	
-	/**
-	 * @param productTypeEqual string The type of the entitlements to return
-	 */
-	 setProductTypeEqual(productTypeEqual) {
-	 	this.productTypeEqual = productTypeEqual;
-	 }
-	
-	/**
-	 * Reference type to filter by
-	 * @return string
-	 */
-	 getEntityReferenceEqual() {
-	 	return this.entityReferenceEqual;
-	 }
-	
-	/**
-	 * @param entityReferenceEqual string Reference type to filter by
-	 */
-	 setEntityReferenceEqual(entityReferenceEqual) {
-	 	this.entityReferenceEqual = entityReferenceEqual;
-	 }
-	
-	/**
-	 * Is expired
-	 * @return bool
-	 */
-	 getIsExpiredEqual() {
-	 	return this.isExpiredEqual;
-	 }
-	
-	/**
-	 * @param isExpiredEqual bool Is expired
-	 */
-	 setIsExpiredEqual(isExpiredEqual) {
-	 	this.isExpiredEqual = isExpiredEqual;
-	 }
-}
-module.exports.EntitlementFilter = EntitlementFilter;
-
-/**
- *
- */
 class ExternalRecordingResponseProfileFilter extends RelatedObjectFilter{
 	
 	constructor(object = null) {
@@ -4556,6 +4819,21 @@ class ProductPriceFilter extends Filter{
 	 */
 	 setCouponCodeEqual(couponCodeEqual) {
 	 	this.couponCodeEqual = couponCodeEqual;
+	 }
+	
+	/**
+	 * Comma separated ProgramAssetGroupOffer identifiers
+	 * @return string
+	 */
+	 getProgramAssetGroupOfferIdIn() {
+	 	return this.programAssetGroupOfferIdIn;
+	 }
+	
+	/**
+	 * @param programAssetGroupOfferIdIn string Comma separated ProgramAssetGroupOffer identifiers
+	 */
+	 setProgramAssetGroupOfferIdIn(programAssetGroupOfferIdIn) {
+	 	this.programAssetGroupOfferIdIn = programAssetGroupOfferIdIn;
 	 }
 }
 module.exports.ProductPriceFilter = ProductPriceFilter;
@@ -15473,12 +15751,243 @@ module.exports.PricePlan = PricePlan;
 /**
  *
  */
+class ProgramAssetGroupOffer extends OTTObjectSupportNullable{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaProgramAssetGroupOffer';
+	}
+	
+	/**
+	 * Unique Kaltura internal identifier for the module
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id int Unique Kaltura internal identifier for the module
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
+	 * Name of the Program asset group offer
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * Name of the Program asset group offer
+	 * @return array
+	 */
+	 getMultilingualName() {
+	 	return this.multilingualName;
+	 }
+	
+	/**
+	 * @param multilingualName array Name of the Program asset group offer
+	 */
+	 setMultilingualName(multilingualName) {
+	 	this.multilingualName = multilingualName;
+	 }
+	
+	/**
+	 * ID of the KalturaPriceDetails object which contains details of the price to be paid for purchasing this KalturaProgramAssetGroupOffer
+	 * @return int
+	 */
+	 getPriceDetailsId() {
+	 	return this.priceDetailsId;
+	 }
+	
+	/**
+	 * @param priceDetailsId int ID of the KalturaPriceDetails object which contains details of the price to be paid for purchasing this KalturaProgramAssetGroupOffer
+	 */
+	 setPriceDetailsId(priceDetailsId) {
+	 	this.priceDetailsId = priceDetailsId;
+	 }
+	
+	/**
+	 * Comma separated file types identifiers that are supported in this Program asset group offer.
+ * The subset of KalturaMediaFiles of the live linear channel on which the associated Program Assets are carried to which households entitled to this
+ * Program Asset Group Offer are entitled to view E.g.may be used to restrict entitlement only to HD flavour of the Program Asset(and not the UHD flavour)
+ * If this parameter is empty, the Household shall be entitled to all KalturaMediaFiles associated with the KalturaLiveAsset
+	 * @return string
+	 */
+	 getFileTypesIds() {
+	 	return this.fileTypesIds;
+	 }
+	
+	/**
+	 * @param fileTypesIds string Comma separated file types identifiers that are supported in this Program asset group offer.
+ * The subset of KalturaMediaFiles of the live linear channel on which the associated Program Assets are carried to which households entitled to this
+ * Program Asset Group Offer are entitled to view E.g.may be used to restrict entitlement only to HD flavour of the Program Asset(and not the UHD flavour)
+ * If this parameter is empty, the Household shall be entitled to all KalturaMediaFiles associated with the KalturaLiveAsset
+	 */
+	 setFileTypesIds(fileTypesIds) {
+	 	this.fileTypesIds = fileTypesIds;
+	 }
+	
+	/**
+	 * A list of the descriptions of the Program asset group offer on different languages (language code and translation)
+	 * @return string
+	 */
+	 getDescription() {
+	 	return this.description;
+	 }
+	
+	/**
+	 * A list of the descriptions of the Program asset group offer on different languages (language code and translation)
+	 * @return array
+	 */
+	 getMultilingualDescription() {
+	 	return this.multilingualDescription;
+	 }
+	
+	/**
+	 * @param multilingualDescription array A list of the descriptions of the Program asset group offer on different languages (language code and translation)
+	 */
+	 setMultilingualDescription(multilingualDescription) {
+	 	this.multilingualDescription = multilingualDescription;
+	 }
+	
+	/**
+	 * The id of the paired asset
+	 * @return int
+	 */
+	 getVirtualAssetId() {
+	 	return this.virtualAssetId;
+	 }
+	
+	/**
+	 * Indicates whether the PAGO is active or not (includes whether the PAGO can be purchased and whether it is returned in list API response for regular users)
+	 * @return bool
+	 */
+	 getIsActive() {
+	 	return this.isActive;
+	 }
+	
+	/**
+	 * @param isActive bool Indicates whether the PAGO is active or not (includes whether the PAGO can be purchased and whether it is returned in list API response for regular users)
+	 */
+	 setIsActive(isActive) {
+	 	this.isActive = isActive;
+	 }
+	
+	/**
+	 * Specifies when was the pago created. Date and time represented as epoch
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * Specifies when was the pago last updated. Date and time represented as epoch
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
+	
+	/**
+	 * The date/time at which the Program Asset Group Offer is first purchasable by households. Date and time represented as epoch
+	 * @return int
+	 */
+	 getStartDate() {
+	 	return this.startDate;
+	 }
+	
+	/**
+	 * @param startDate int The date/time at which the Program Asset Group Offer is first purchasable by households. Date and time represented as epoch
+	 */
+	 setStartDate(startDate) {
+	 	this.startDate = startDate;
+	 }
+	
+	/**
+	 * The date/time at which the Program Asset Group Offer is last purchasable by households.Date and time represented as epoch
+	 * @return int
+	 */
+	 getEndDate() {
+	 	return this.endDate;
+	 }
+	
+	/**
+	 * @param endDate int The date/time at which the Program Asset Group Offer is last purchasable by households.Date and time represented as epoch
+	 */
+	 setEndDate(endDate) {
+	 	this.endDate = endDate;
+	 }
+	
+	/**
+	 * The last date/time at which the system will attempt to locate Program Assets that may be associated with this offer.Date and time represented as epoch
+	 * @return int
+	 */
+	 getExpiryDate() {
+	 	return this.expiryDate;
+	 }
+	
+	/**
+	 * @param expiryDate int The last date/time at which the system will attempt to locate Program Assets that may be associated with this offer.Date and time represented as epoch
+	 */
+	 setExpiryDate(expiryDate) {
+	 	this.expiryDate = expiryDate;
+	 }
+	
+	/**
+	 * External identifier
+	 * @return string
+	 */
+	 getExternalId() {
+	 	return this.externalId;
+	 }
+	
+	/**
+	 * @param externalId string External identifier
+	 */
+	 setExternalId(externalId) {
+	 	this.externalId = externalId;
+	 }
+	
+	/**
+	 * Identifies the Program Assets which will be entitled by Households that purchase this offer. Must be a unique value in the context of an account
+	 * @return string
+	 */
+	 getExternalOfferId() {
+	 	return this.externalOfferId;
+	 }
+	
+	/**
+	 * @param externalOfferId string Identifies the Program Assets which will be entitled by Households that purchase this offer. Must be a unique value in the context of an account
+	 */
+	 setExternalOfferId(externalOfferId) {
+	 	this.externalOfferId = externalOfferId;
+	 }
+}
+module.exports.ProgramAssetGroupOffer = ProgramAssetGroupOffer;
+
+/**
+ *
+ */
 class Price extends kaltura.BaseObject{
 	
 	constructor(object = null) {
 		super(object);
 		this.objectType = 'KalturaPrice';
 	}
+	
+	/**
+	 * Currency ID
+	 * @return int
+	 */
+	 getCurrencyId() {
+	 	return this.currencyId;
+	 }
 	
 	/**
 	 * Price
@@ -18305,6 +18814,18 @@ module.exports.PpvPrice = PpvPrice;
 /**
  *
  */
+class ProgramAssetGroupOfferPrice extends ProductPrice{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaProgramAssetGroupOfferPrice';
+	}
+}
+module.exports.ProgramAssetGroupOfferPrice = ProgramAssetGroupOfferPrice;
+
+/**
+ *
+ */
 class SubscriptionPrice extends ProductPrice{
 	
 	constructor(object = null) {
@@ -18761,6 +19282,33 @@ class ProductsPriceListResponse extends ListResponse{
 	 }
 }
 module.exports.ProductsPriceListResponse = ProductsPriceListResponse;
+
+/**
+ *
+ */
+class ProgramAssetGroupOfferListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaProgramAssetGroupOfferListResponse';
+	}
+	
+	/**
+	 * A list of collections
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of collections
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.ProgramAssetGroupOfferListResponse = ProgramAssetGroupOfferListResponse;
 
 /**
  *
@@ -23671,6 +24219,18 @@ class PpvEntitlement extends Entitlement{
 	 }
 }
 module.exports.PpvEntitlement = PpvEntitlement;
+
+/**
+ *
+ */
+class ProgramAssetGroupOfferEntitlement extends Entitlement{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaProgramAssetGroupOfferEntitlement';
+	}
+}
+module.exports.ProgramAssetGroupOfferEntitlement = ProgramAssetGroupOfferEntitlement;
 
 /**
  *
@@ -33831,6 +34391,492 @@ module.exports.IngestStatusEpgListResponse = IngestStatusEpgListResponse;
 /**
  *
  */
+class EpgIngestErrorMessage extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEpgIngestErrorMessage';
+	}
+	
+	/**
+	 * The message description with arguments place holders
+	 * @return string
+	 */
+	 getMessage() {
+	 	return this.message;
+	 }
+	
+	/**
+	 * @param message string The message description with arguments place holders
+	 */
+	 setMessage(message) {
+	 	this.message = message;
+	 }
+	
+	/**
+	 * The message code
+	 * @return string
+	 */
+	 getCode() {
+	 	return this.code;
+	 }
+	
+	/**
+	 * @param code string The message code
+	 */
+	 setCode(code) {
+	 	this.code = code;
+	 }
+	
+	/**
+	 * Message args
+	 * @return map
+	 */
+	 getArgs() {
+	 	return this.args;
+	 }
+	
+	/**
+	 * @param args map Message args
+	 */
+	 setArgs(args) {
+	 	this.args = args;
+	 }
+}
+module.exports.EpgIngestErrorMessage = EpgIngestErrorMessage;
+
+/**
+ *
+ */
+class AggregatedIngestInfo extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAggregatedIngestInfo';
+	}
+	
+	/**
+	 * Number of results
+	 * @return int
+	 */
+	 getResultsCount() {
+	 	return this.resultsCount;
+	 }
+	
+	/**
+	 * @param resultsCount int Number of results
+	 */
+	 setResultsCount(resultsCount) {
+	 	this.resultsCount = resultsCount;
+	 }
+	
+	/**
+	 * Number of results that include at least one error of severity TotalFailure
+	 * @return int
+	 */
+	 getTotalFailureCount() {
+	 	return this.totalFailureCount;
+	 }
+	
+	/**
+	 * @param totalFailureCount int Number of results that include at least one error of severity TotalFailure
+	 */
+	 setTotalFailureCount(totalFailureCount) {
+	 	this.totalFailureCount = totalFailureCount;
+	 }
+	
+	/**
+	 * Number of results that include no error with severity TotalFailure but at at least one error of severity PartialFailure
+	 * @return int
+	 */
+	 getPartialFailureCount() {
+	 	return this.partialFailureCount;
+	 }
+	
+	/**
+	 * @param partialFailureCount int Number of results that include no error with severity TotalFailure but at at least one error of severity PartialFailure
+	 */
+	 setPartialFailureCount(partialFailureCount) {
+	 	this.partialFailureCount = partialFailureCount;
+	 }
+	
+	/**
+	 * Number of results that include at least one warning
+	 * @return int
+	 */
+	 getWarningsCount() {
+	 	return this.warningsCount;
+	 }
+	
+	/**
+	 * @param warningsCount int Number of results that include at least one warning
+	 */
+	 setWarningsCount(warningsCount) {
+	 	this.warningsCount = warningsCount;
+	 }
+}
+module.exports.AggregatedIngestInfo = AggregatedIngestInfo;
+
+/**
+ *
+ */
+class ChannelAggregatedIngestInfo extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaChannelAggregatedIngestInfo';
+	}
+	
+	/**
+	 * The linear channel asset id
+	 * @return int
+	 */
+	 getLinearChannelId() {
+	 	return this.linearChannelId;
+	 }
+	
+	/**
+	 * @param linearChannelId int The linear channel asset id
+	 */
+	 setLinearChannelId(linearChannelId) {
+	 	this.linearChannelId = linearChannelId;
+	 }
+	
+	/**
+	 * Aggregated error counters
+	 * @return AggregatedIngestInfo
+	 */
+	 getAggregatedErrors() {
+	 	return this.aggregatedErrors;
+	 }
+	
+	/**
+	 * @param aggregatedErrors AggregatedIngestInfo Aggregated error counters
+	 */
+	 setAggregatedErrors(aggregatedErrors) {
+	 	this.aggregatedErrors = aggregatedErrors;
+	 }
+}
+module.exports.ChannelAggregatedIngestInfo = ChannelAggregatedIngestInfo;
+
+/**
+ *
+ */
+class DateAggregatedIngestInfo extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDateAggregatedIngestInfo';
+	}
+	
+	/**
+	 * 00:00 UTC of the date in question
+	 * @return int
+	 */
+	 getDate() {
+	 	return this.date;
+	 }
+	
+	/**
+	 * @param date int 00:00 UTC of the date in question
+	 */
+	 setDate(date) {
+	 	this.date = date;
+	 }
+	
+	/**
+	 * Aggregated error counters
+	 * @return AggregatedIngestInfo
+	 */
+	 getAggregatedErrors() {
+	 	return this.aggregatedErrors;
+	 }
+	
+	/**
+	 * @param aggregatedErrors AggregatedIngestInfo Aggregated error counters
+	 */
+	 setAggregatedErrors(aggregatedErrors) {
+	 	this.aggregatedErrors = aggregatedErrors;
+	 }
+}
+module.exports.DateAggregatedIngestInfo = DateAggregatedIngestInfo;
+
+/**
+ *
+ */
+class IngestEpgDetailsAggregation extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIngestEpgDetailsAggregation';
+	}
+	
+	/**
+	 * Array of aggregated information per channel that included in the ingest job in question
+	 * @return array
+	 */
+	 getLinearChannels() {
+	 	return this.linearChannels;
+	 }
+	
+	/**
+	 * @param linearChannels array Array of aggregated information per channel that included in the ingest job in question
+	 */
+	 setLinearChannels(linearChannels) {
+	 	this.linearChannels = linearChannels;
+	 }
+	
+	/**
+	 * Array of aggregated information per date that included in the ingest job in question
+	 * @return array
+	 */
+	 getDates() {
+	 	return this.dates;
+	 }
+	
+	/**
+	 * @param dates array Array of aggregated information per date that included in the ingest job in question
+	 */
+	 setDates(dates) {
+	 	this.dates = dates;
+	 }
+	
+	/**
+	 * All aggregated counters
+	 * @return AggregatedIngestInfo
+	 */
+	 getAll() {
+	 	return this.all;
+	 }
+	
+	/**
+	 * @param all AggregatedIngestInfo All aggregated counters
+	 */
+	 setAll(all) {
+	 	this.all = all;
+	 }
+}
+module.exports.IngestEpgDetailsAggregation = IngestEpgDetailsAggregation;
+
+/**
+ *
+ */
+class IngestEpgDetails extends IngestEpg{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIngestEpgDetails';
+	}
+	
+	/**
+	 * Errors
+	 * @return array
+	 */
+	 getErrors() {
+	 	return this.errors;
+	 }
+	
+	/**
+	 * @param errors array Errors
+	 */
+	 setErrors(errors) {
+	 	this.errors = errors;
+	 }
+	
+	/**
+	 * Aggregated counters
+	 * @return IngestEpgDetailsAggregation
+	 */
+	 getAggregations() {
+	 	return this.aggregations;
+	 }
+	
+	/**
+	 * @param aggregations IngestEpgDetailsAggregation Aggregated counters
+	 */
+	 setAggregations(aggregations) {
+	 	this.aggregations = aggregations;
+	 }
+}
+module.exports.IngestEpgDetails = IngestEpgDetails;
+
+/**
+ *
+ */
+class IngestEpgProgramResult extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIngestEpgProgramResult';
+	}
+	
+	/**
+	 * The unique ingested program id
+	 * @return int
+	 */
+	 getProgramId() {
+	 	return this.programId;
+	 }
+	
+	/**
+	 * @param programId int The unique ingested program id
+	 */
+	 setProgramId(programId) {
+	 	this.programId = programId;
+	 }
+	
+	/**
+	 * An external program id
+	 * @return string
+	 */
+	 getExternalProgramId() {
+	 	return this.externalProgramId;
+	 }
+	
+	/**
+	 * @param externalProgramId string An external program id
+	 */
+	 setExternalProgramId(externalProgramId) {
+	 	this.externalProgramId = externalProgramId;
+	 }
+	
+	/**
+	 * The id of the linear channel asset that the program belongs to
+	 * @return int
+	 */
+	 getLinearChannelId() {
+	 	return this.linearChannelId;
+	 }
+	
+	/**
+	 * @param linearChannelId int The id of the linear channel asset that the program belongs to
+	 */
+	 setLinearChannelId(linearChannelId) {
+	 	this.linearChannelId = linearChannelId;
+	 }
+	
+	/**
+	 * The index of the program in the ingested file
+	 * @return int
+	 */
+	 getIndexInFile() {
+	 	return this.indexInFile;
+	 }
+	
+	/**
+	 * @param indexInFile int The index of the program in the ingested file
+	 */
+	 setIndexInFile(indexInFile) {
+	 	this.indexInFile = indexInFile;
+	 }
+	
+	/**
+	 * Program EPG start date. Date and time represented as epoch
+	 * @return int
+	 */
+	 getStartDate() {
+	 	return this.startDate;
+	 }
+	
+	/**
+	 * @param startDate int Program EPG start date. Date and time represented as epoch
+	 */
+	 setStartDate(startDate) {
+	 	this.startDate = startDate;
+	 }
+	
+	/**
+	 * Program EPG end date. Date and time represented as epoch
+	 * @return int
+	 */
+	 getEndDate() {
+	 	return this.endDate;
+	 }
+	
+	/**
+	 * @param endDate int Program EPG end date. Date and time represented as epoch
+	 */
+	 setEndDate(endDate) {
+	 	this.endDate = endDate;
+	 }
+	
+	/**
+	 * The program status
+	 * @return string
+	 */
+	 getStatus() {
+	 	return this.status;
+	 }
+	
+	/**
+	 * @param status string The program status
+	 */
+	 setStatus(status) {
+	 	this.status = status;
+	 }
+	
+	/**
+	 * List of errors. Note: error cause the data in question or the whole ingest to fail
+	 * @return array
+	 */
+	 getErrors() {
+	 	return this.errors;
+	 }
+	
+	/**
+	 * @param errors array List of errors. Note: error cause the data in question or the whole ingest to fail
+	 */
+	 setErrors(errors) {
+	 	this.errors = errors;
+	 }
+	
+	/**
+	 * List of warnings. Note: warning cause no failure
+	 * @return array
+	 */
+	 getWarnings() {
+	 	return this.warnings;
+	 }
+	
+	/**
+	 * @param warnings array List of warnings. Note: warning cause no failure
+	 */
+	 setWarnings(warnings) {
+	 	this.warnings = warnings;
+	 }
+}
+module.exports.IngestEpgProgramResult = IngestEpgProgramResult;
+
+/**
+ *
+ */
+class IngestStatusEpgProgramResultListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIngestStatusEpgProgramResultListResponse';
+	}
+	
+	/**
+	 * IngestStatusEpgProgramResult
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array IngestStatusEpgProgramResult
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.IngestStatusEpgProgramResultListResponse = IngestStatusEpgProgramResultListResponse;
+
+/**
+ *
+ */
 class IotDefault extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -36627,6 +37673,21 @@ class TimeShiftedTvPartnerSettings extends kaltura.BaseObject{
 	 */
 	 setPrivateCopyEnabled(privateCopyEnabled) {
 	 	this.privateCopyEnabled = privateCopyEnabled;
+	 }
+	
+	/**
+	 * Quota in seconds
+	 * @return int
+	 */
+	 getDefaultQuota() {
+	 	return this.defaultQuota;
+	 }
+	
+	/**
+	 * @param defaultQuota int Quota in seconds
+	 */
+	 setDefaultQuota(defaultQuota) {
+	 	this.defaultQuota = defaultQuota;
 	 }
 }
 module.exports.TimeShiftedTvPartnerSettings = TimeShiftedTvPartnerSettings;
