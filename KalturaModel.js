@@ -19845,6 +19845,36 @@ class CommercePartnerConfig extends PartnerConfiguration{
 	 setKeepSubscriptionAddOns(keepSubscriptionAddOns) {
 	 	this.keepSubscriptionAddOns = keepSubscriptionAddOns;
 	 }
+	
+	/**
+	 * configuration for asset start entitlement padding e.g. asset start time - padding still relevant for asset
+	 * @return int
+	 */
+	 getProgramAssetEntitlementPaddingStart() {
+	 	return this.programAssetEntitlementPaddingStart;
+	 }
+	
+	/**
+	 * @param programAssetEntitlementPaddingStart int configuration for asset start entitlement padding e.g. asset start time - padding still relevant for asset
+	 */
+	 setProgramAssetEntitlementPaddingStart(programAssetEntitlementPaddingStart) {
+	 	this.programAssetEntitlementPaddingStart = programAssetEntitlementPaddingStart;
+	 }
+	
+	/**
+	 * configuration for asset end entitlement padding e.g. asset end time + padding still relevant for asset
+	 * @return int
+	 */
+	 getProgramAssetEntitlementPaddingEnd() {
+	 	return this.programAssetEntitlementPaddingEnd;
+	 }
+	
+	/**
+	 * @param programAssetEntitlementPaddingEnd int configuration for asset end entitlement padding e.g. asset end time + padding still relevant for asset
+	 */
+	 setProgramAssetEntitlementPaddingEnd(programAssetEntitlementPaddingEnd) {
+	 	this.programAssetEntitlementPaddingEnd = programAssetEntitlementPaddingEnd;
+	 }
 }
 module.exports.CommercePartnerConfig = CommercePartnerConfig;
 
