@@ -458,6 +458,26 @@ DISABLE : 'Disable',
 DELETE : 'Delete',
 };
 
+module.exports.DeviceBrandOrderBy = {
+ID_ASC : 'ID_ASC',
+ID_DESC : 'ID_DESC',
+};
+
+module.exports.DeviceBrandType = {
+SYSTEM : 'System',
+CUSTOM : 'Custom',
+};
+
+module.exports.DeviceFamilyOrderBy = {
+ID_ASC : 'ID_ASC',
+ID_DESC : 'ID_DESC',
+};
+
+module.exports.DeviceFamilyType = {
+SYSTEM : 'System',
+CUSTOM : 'Custom',
+};
+
 module.exports.DeviceReferenceDataOrderBy = {
 NONE : 'NONE',
 };
