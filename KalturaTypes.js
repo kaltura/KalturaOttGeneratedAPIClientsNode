@@ -150,6 +150,11 @@ CREATE_DATE_ASC : 'CREATE_DATE_ASC',
 CREATE_DATE_DESC : 'CREATE_DATE_DESC',
 };
 
+module.exports.AssetPersonalMarkupSearchOrderBy = {
+NONE : 'NONE',
+REQUEST_ORDER : 'REQUEST_ORDER',
+};
+
 module.exports.AssetReferenceType = {
 MEDIA : 'media',
 EPG_INTERNAL : 'epg_internal',
@@ -220,6 +225,7 @@ SUBSCRIPTION : 'subscription',
 PRE_PAID : 'pre_paid',
 PRE_PAID_EXPIRED : 'pre_paid_expired',
 COLLECTION : 'collection',
+PROGRAM_ASSET_GROUP_OFFER : 'program_asset_group_offer',
 };
 
 module.exports.BillingPriceType = {
@@ -1037,6 +1043,7 @@ NOT_FOR_PURCHASE : 'not_for_purchase',
 INVALID_CURRENCY : 'invalid_currency',
 CURRENCY_NOT_DEFINED_ON_PRICE_CODE : 'currency_not_defined_on_price_code',
 PENDING_ENTITLEMENT : 'pending_entitlement',
+PROGRAM_ASSET_GROUP_OFFER_PURCHASED : 'program_asset_group_offer_purchased',
 };
 
 module.exports.QuotaOveragePolicy = {
@@ -1376,6 +1383,7 @@ module.exports.TransactionType = {
 PPV : 'ppv',
 SUBSCRIPTION : 'subscription',
 COLLECTION : 'collection',
+PROGRAMASSETGROUPOFFER : 'programAssetGroupOffer',
 };
 
 module.exports.TvmRuleOrderBy = {
