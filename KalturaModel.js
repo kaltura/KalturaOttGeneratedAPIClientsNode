@@ -4496,6 +4496,87 @@ module.exports.ConfigurationsFilter = ConfigurationsFilter;
 /**
  *
  */
+class BaseEntitlementFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBaseEntitlementFilter';
+	}
+}
+module.exports.BaseEntitlementFilter = BaseEntitlementFilter;
+
+/**
+ *
+ */
+class EntitlementFilter extends BaseEntitlementFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEntitlementFilter';
+	}
+	
+	/**
+	 * The type of the entitlements to return
+	 * @return string
+	 */
+	 getProductTypeEqual() {
+	 	return this.productTypeEqual;
+	 }
+	
+	/**
+	 * @param productTypeEqual string The type of the entitlements to return
+	 */
+	 setProductTypeEqual(productTypeEqual) {
+	 	this.productTypeEqual = productTypeEqual;
+	 }
+	
+	/**
+	 * Reference type to filter by
+	 * @return string
+	 */
+	 getEntityReferenceEqual() {
+	 	return this.entityReferenceEqual;
+	 }
+	
+	/**
+	 * @param entityReferenceEqual string Reference type to filter by
+	 */
+	 setEntityReferenceEqual(entityReferenceEqual) {
+	 	this.entityReferenceEqual = entityReferenceEqual;
+	 }
+	
+	/**
+	 * Is expired
+	 * @return bool
+	 */
+	 getIsExpiredEqual() {
+	 	return this.isExpiredEqual;
+	 }
+	
+	/**
+	 * @param isExpiredEqual bool Is expired
+	 */
+	 setIsExpiredEqual(isExpiredEqual) {
+	 	this.isExpiredEqual = isExpiredEqual;
+	 }
+}
+module.exports.EntitlementFilter = EntitlementFilter;
+
+/**
+ *
+ */
+class ProgramAssetGroupOfferEntitlementFilter extends BaseEntitlementFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaProgramAssetGroupOfferEntitlementFilter';
+	}
+}
+module.exports.ProgramAssetGroupOfferEntitlementFilter = ProgramAssetGroupOfferEntitlementFilter;
+
+/**
+ *
+ */
 class RecordingFilter extends Filter{
 	
 	constructor(object = null) {
@@ -4646,63 +4727,6 @@ module.exports.CloudSeriesRecordingFilter = CloudSeriesRecordingFilter;
 /**
  *
  */
-class EntitlementFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaEntitlementFilter';
-	}
-	
-	/**
-	 * The type of the entitlements to return
-	 * @return string
-	 */
-	 getProductTypeEqual() {
-	 	return this.productTypeEqual;
-	 }
-	
-	/**
-	 * @param productTypeEqual string The type of the entitlements to return
-	 */
-	 setProductTypeEqual(productTypeEqual) {
-	 	this.productTypeEqual = productTypeEqual;
-	 }
-	
-	/**
-	 * Reference type to filter by
-	 * @return string
-	 */
-	 getEntityReferenceEqual() {
-	 	return this.entityReferenceEqual;
-	 }
-	
-	/**
-	 * @param entityReferenceEqual string Reference type to filter by
-	 */
-	 setEntityReferenceEqual(entityReferenceEqual) {
-	 	this.entityReferenceEqual = entityReferenceEqual;
-	 }
-	
-	/**
-	 * Is expired
-	 * @return bool
-	 */
-	 getIsExpiredEqual() {
-	 	return this.isExpiredEqual;
-	 }
-	
-	/**
-	 * @param isExpiredEqual bool Is expired
-	 */
-	 setIsExpiredEqual(isExpiredEqual) {
-	 	this.isExpiredEqual = isExpiredEqual;
-	 }
-}
-module.exports.EntitlementFilter = EntitlementFilter;
-
-/**
- *
- */
 class ExternalRecordingResponseProfileFilter extends RelatedObjectFilter{
 	
 	constructor(object = null) {
@@ -4795,6 +4819,21 @@ class ProductPriceFilter extends Filter{
 	 */
 	 setCouponCodeEqual(couponCodeEqual) {
 	 	this.couponCodeEqual = couponCodeEqual;
+	 }
+	
+	/**
+	 * Comma separated ProgramAssetGroupOffer identifiers
+	 * @return string
+	 */
+	 getProgramAssetGroupOfferIdIn() {
+	 	return this.programAssetGroupOfferIdIn;
+	 }
+	
+	/**
+	 * @param programAssetGroupOfferIdIn string Comma separated ProgramAssetGroupOffer identifiers
+	 */
+	 setProgramAssetGroupOfferIdIn(programAssetGroupOfferIdIn) {
+	 	this.programAssetGroupOfferIdIn = programAssetGroupOfferIdIn;
 	 }
 }
 module.exports.ProductPriceFilter = ProductPriceFilter;
@@ -6560,6 +6599,33 @@ module.exports.PaymentMethodProfileFilter = PaymentMethodProfileFilter;
 /**
  *
  */
+class AssetPersonalMarkupSearchFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetPersonalMarkupSearchFilter';
+	}
+	
+	/**
+	 * all assets to search their personal markups
+	 * @return array
+	 */
+	 getAssetsIn() {
+	 	return this.assetsIn;
+	 }
+	
+	/**
+	 * @param assetsIn array all assets to search their personal markups
+	 */
+	 setAssetsIn(assetsIn) {
+	 	this.assetsIn = assetsIn;
+	 }
+}
+module.exports.AssetPersonalMarkupSearchFilter = AssetPersonalMarkupSearchFilter;
+
+/**
+ *
+ */
 class AssetRuleFilter extends Filter{
 	
 	constructor(object = null) {
@@ -6843,6 +6909,135 @@ class CurrencyFilter extends Filter{
 	 }
 }
 module.exports.CurrencyFilter = CurrencyFilter;
+
+/**
+ *
+ */
+class DeviceBrandFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDeviceBrandFilter';
+	}
+	
+	/**
+	 * Filter the device brand with this identifier
+	 * @return int
+	 */
+	 getIdEqual() {
+	 	return this.idEqual;
+	 }
+	
+	/**
+	 * @param idEqual int Filter the device brand with this identifier
+	 */
+	 setIdEqual(idEqual) {
+	 	this.idEqual = idEqual;
+	 }
+	
+	/**
+	 * Filter the device brands with this device family&#39;s identifier
+	 * @return int
+	 */
+	 getDeviceFamilyIdEqual() {
+	 	return this.deviceFamilyIdEqual;
+	 }
+	
+	/**
+	 * @param deviceFamilyIdEqual int Filter the device brands with this device family&#39;s identifier
+	 */
+	 setDeviceFamilyIdEqual(deviceFamilyIdEqual) {
+	 	this.deviceFamilyIdEqual = deviceFamilyIdEqual;
+	 }
+	
+	/**
+	 * Filter the device brand with this name
+	 * @return string
+	 */
+	 getNameEqual() {
+	 	return this.nameEqual;
+	 }
+	
+	/**
+	 * @param nameEqual string Filter the device brand with this name
+	 */
+	 setNameEqual(nameEqual) {
+	 	this.nameEqual = nameEqual;
+	 }
+	
+	/**
+	 * Filter device brands of this type
+	 * @return string
+	 */
+	 getTypeEqual() {
+	 	return this.typeEqual;
+	 }
+	
+	/**
+	 * @param typeEqual string Filter device brands of this type
+	 */
+	 setTypeEqual(typeEqual) {
+	 	this.typeEqual = typeEqual;
+	 }
+}
+module.exports.DeviceBrandFilter = DeviceBrandFilter;
+
+/**
+ *
+ */
+class DeviceFamilyFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDeviceFamilyFilter';
+	}
+	
+	/**
+	 * Filter the device family with this identifier
+	 * @return int
+	 */
+	 getIdEqual() {
+	 	return this.idEqual;
+	 }
+	
+	/**
+	 * @param idEqual int Filter the device family with this identifier
+	 */
+	 setIdEqual(idEqual) {
+	 	this.idEqual = idEqual;
+	 }
+	
+	/**
+	 * Filter the device family with this name
+	 * @return string
+	 */
+	 getNameEqual() {
+	 	return this.nameEqual;
+	 }
+	
+	/**
+	 * @param nameEqual string Filter the device family with this name
+	 */
+	 setNameEqual(nameEqual) {
+	 	this.nameEqual = nameEqual;
+	 }
+	
+	/**
+	 * Filter device families of this type
+	 * @return string
+	 */
+	 getTypeEqual() {
+	 	return this.typeEqual;
+	 }
+	
+	/**
+	 * @param typeEqual string Filter device families of this type
+	 */
+	 setTypeEqual(typeEqual) {
+	 	this.typeEqual = typeEqual;
+	 }
+}
+module.exports.DeviceFamilyFilter = DeviceFamilyFilter;
 
 /**
  *
@@ -18775,6 +18970,18 @@ module.exports.PpvPrice = PpvPrice;
 /**
  *
  */
+class ProgramAssetGroupOfferPrice extends ProductPrice{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaProgramAssetGroupOfferPrice';
+	}
+}
+module.exports.ProgramAssetGroupOfferPrice = ProgramAssetGroupOfferPrice;
+
+/**
+ *
+ */
 class SubscriptionPrice extends ProductPrice{
 	
 	constructor(object = null) {
@@ -19844,6 +20051,36 @@ class CommercePartnerConfig extends PartnerConfiguration{
 	 */
 	 setKeepSubscriptionAddOns(keepSubscriptionAddOns) {
 	 	this.keepSubscriptionAddOns = keepSubscriptionAddOns;
+	 }
+	
+	/**
+	 * configuration for asset start entitlement padding e.g. asset start time - padding still relevant for asset
+	 * @return int
+	 */
+	 getProgramAssetEntitlementPaddingStart() {
+	 	return this.programAssetEntitlementPaddingStart;
+	 }
+	
+	/**
+	 * @param programAssetEntitlementPaddingStart int configuration for asset start entitlement padding e.g. asset start time - padding still relevant for asset
+	 */
+	 setProgramAssetEntitlementPaddingStart(programAssetEntitlementPaddingStart) {
+	 	this.programAssetEntitlementPaddingStart = programAssetEntitlementPaddingStart;
+	 }
+	
+	/**
+	 * configuration for asset end entitlement padding e.g. asset end time + padding still relevant for asset
+	 * @return int
+	 */
+	 getProgramAssetEntitlementPaddingEnd() {
+	 	return this.programAssetEntitlementPaddingEnd;
+	 }
+	
+	/**
+	 * @param programAssetEntitlementPaddingEnd int configuration for asset end entitlement padding e.g. asset end time + padding still relevant for asset
+	 */
+	 setProgramAssetEntitlementPaddingEnd(programAssetEntitlementPaddingEnd) {
+	 	this.programAssetEntitlementPaddingEnd = programAssetEntitlementPaddingEnd;
 	 }
 }
 module.exports.CommercePartnerConfig = CommercePartnerConfig;
@@ -22762,6 +22999,23 @@ class DeviceFamilyBase extends kaltura.BaseObject{
 	 getName() {
 	 	return this.name;
 	 }
+	
+	/**
+	 * @param name string Device family name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Type of device family.
+ * if this device family belongs only to this group,
+ * otherwise
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
 }
 module.exports.DeviceFamilyBase = DeviceFamilyBase;
 
@@ -24168,6 +24422,18 @@ class PpvEntitlement extends Entitlement{
 	 }
 }
 module.exports.PpvEntitlement = PpvEntitlement;
+
+/**
+ *
+ */
+class ProgramAssetGroupOfferEntitlement extends Entitlement{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaProgramAssetGroupOfferEntitlement';
+	}
+}
+module.exports.ProgramAssetGroupOfferEntitlement = ProgramAssetGroupOfferEntitlement;
 
 /**
  *
@@ -28148,6 +28414,112 @@ module.exports.PaymentMethodProfileListResponse = PaymentMethodProfileListRespon
 /**
  *
  */
+class ProductMarkup extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaProductMarkup';
+	}
+	
+	/**
+	 * Product Id
+	 * @return int
+	 */
+	 getProductId() {
+	 	return this.productId;
+	 }
+	
+	/**
+	 * Product Type
+	 * @return string
+	 */
+	 getProductType() {
+	 	return this.productType;
+	 }
+	
+	/**
+	 * Is Entitled to this product
+	 * @return bool
+	 */
+	 getIsEntitled() {
+	 	return this.isEntitled;
+	 }
+}
+module.exports.ProductMarkup = ProductMarkup;
+
+/**
+ *
+ */
+class AssetPersonalMarkup extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetPersonalMarkup';
+	}
+	
+	/**
+	 * Asset Id
+	 * @return int
+	 */
+	 getAssetId() {
+	 	return this.assetId;
+	 }
+	
+	/**
+	 * Asset Type
+	 * @return string
+	 */
+	 getAssetType() {
+	 	return this.assetType;
+	 }
+	
+	/**
+	 * all related asset&#39;s Product Markups
+	 * @return array
+	 */
+	 getProducts() {
+	 	return this.products;
+	 }
+	
+	/**
+	 * @param products array all related asset&#39;s Product Markups
+	 */
+	 setProducts(products) {
+	 	this.products = products;
+	 }
+}
+module.exports.AssetPersonalMarkup = AssetPersonalMarkup;
+
+/**
+ *
+ */
+class AssetPersonalMarkupListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetPersonalMarkupListResponse';
+	}
+	
+	/**
+	 * Adapters
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Adapters
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.AssetPersonalMarkupListResponse = AssetPersonalMarkupListResponse;
+
+/**
+ *
+ */
 class AssetRuleListResponse extends ListResponse{
 	
 	constructor(object = null) {
@@ -28531,6 +28903,13 @@ class DeviceBrand extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * @param id int Device brand identifier
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
 	 * Device brand name
 	 * @return string
 	 */
@@ -28549,8 +28928,25 @@ class DeviceBrand extends kaltura.BaseObject{
 	 * Device family identifier
 	 * @return int
 	 */
-	 getDeviceFamilyid() {
-	 	return this.deviceFamilyid;
+	 getDeviceFamilyId() {
+	 	return this.deviceFamilyId;
+	 }
+	
+	/**
+	 * @param deviceFamilyId int Device family identifier
+	 */
+	 setDeviceFamilyId(deviceFamilyId) {
+	 	this.deviceFamilyId = deviceFamilyId;
+	 }
+	
+	/**
+	 * Type of device family.
+ * if this device family belongs only to this group,
+ * otherwise
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
 	 }
 }
 module.exports.DeviceBrand = DeviceBrand;

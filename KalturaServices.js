@@ -553,6 +553,27 @@ module.exports.assetHistory = assetHistory;
 
 
 /**
+ *Class definition for the Kaltura service: assetPersonalMarkup.
+ * The available service actions:
+ * @action list Response with list of assetPersonalMarkup.
+ */
+class assetPersonalMarkup{
+	
+	/**
+	 * Response with list of assetPersonalMarkup.
+	 * @param filter AssetPersonalMarkupSearchFilter Filter pager
+	 * @return KalturaAssetPersonalMarkupListResponse
+	 */
+	static listAction(filter){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('assetpersonalmarkup', 'list', kparams);
+	};
+}
+module.exports.assetPersonalMarkup = assetPersonalMarkup;
+
+
+/**
  *Class definition for the Kaltura service: assetRule.
  * The available service actions:
  * @action add Add asset rule.
@@ -1987,17 +2008,47 @@ module.exports.currency = currency;
 /**
  *Class definition for the Kaltura service: deviceBrand.
  * The available service actions:
+ * @action add Adds a new device brand which belongs to a specific group.
  * @action list Return a list of the available device brands.
+ * @action update Updates an existing device brand which belongs to a specific group.
  */
 class deviceBrand{
 	
 	/**
+	 * Adds a new device brand which belongs to a specific group.
+	 * @param deviceBrand DeviceBrand Device brand
+	 * @return KalturaDeviceBrand
+	 */
+	static add(deviceBrand){
+		let kparams = {};
+		kparams.deviceBrand = deviceBrand;
+		return new kaltura.RequestBuilder('devicebrand', 'add', kparams);
+	};
+	
+	/**
 	 * Return a list of the available device brands.
+	 * @param filter DeviceBrandFilter Filter with no more than one condition specified (optional, default: null)
+	 * @param pager FilterPager Page size and index (optional, default: null)
 	 * @return KalturaDeviceBrandListResponse
 	 */
-	static listAction(){
+	static listAction(filter = null, pager = null){
 		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
 		return new kaltura.RequestBuilder('devicebrand', 'list', kparams);
+	};
+	
+	/**
+	 * Updates an existing device brand which belongs to a specific group.
+	 * @param id int Device brand's identifier
+	 * @param deviceBrand DeviceBrand Device brand
+	 * @return KalturaDeviceBrand
+	 */
+	static update(id, deviceBrand){
+		let kparams = {};
+		kparams.id = id;
+		kparams.deviceBrand = deviceBrand;
+		return new kaltura.RequestBuilder('devicebrand', 'update', kparams);
 	};
 }
 module.exports.deviceBrand = deviceBrand;
@@ -2006,17 +2057,47 @@ module.exports.deviceBrand = deviceBrand;
 /**
  *Class definition for the Kaltura service: deviceFamily.
  * The available service actions:
+ * @action add Adds a new device family which belongs to a specific group.
  * @action list Return a list of the available device families.
+ * @action update Updates an existing device family which belongs to a specific group.
  */
 class deviceFamily{
 	
 	/**
+	 * Adds a new device family which belongs to a specific group.
+	 * @param deviceFamily DeviceFamily Device family
+	 * @return KalturaDeviceFamily
+	 */
+	static add(deviceFamily){
+		let kparams = {};
+		kparams.deviceFamily = deviceFamily;
+		return new kaltura.RequestBuilder('devicefamily', 'add', kparams);
+	};
+	
+	/**
 	 * Return a list of the available device families.
+	 * @param filter DeviceFamilyFilter Filter with no more than one condition specified (optional, default: null)
+	 * @param pager FilterPager Page size and index (optional, default: null)
 	 * @return KalturaDeviceFamilyListResponse
 	 */
-	static listAction(){
+	static listAction(filter = null, pager = null){
 		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
 		return new kaltura.RequestBuilder('devicefamily', 'list', kparams);
+	};
+	
+	/**
+	 * Updates an existing device family which belongs to a specific group.
+	 * @param id int Device family's identifier
+	 * @param deviceFamily DeviceFamily Device family
+	 * @return KalturaDeviceFamily
+	 */
+	static update(id, deviceFamily){
+		let kparams = {};
+		kparams.id = id;
+		kparams.deviceFamily = deviceFamily;
+		return new kaltura.RequestBuilder('devicefamily', 'update', kparams);
 	};
 }
 module.exports.deviceFamily = deviceFamily;
@@ -2443,13 +2524,13 @@ module.exports.engagement = engagement;
  *Class definition for the Kaltura service: entitlement.
  * The available service actions:
  * @action applyCoupon Apply new coupon for existing subscription.
- * @action cancel Immediately cancel a subscription, PPV or collection. Cancel is possible only if within cancellation window and content not already consumed.
+ * @action cancel Immediately cancel a subscription, PPV, collection or programAssetGroupOffer. Cancel is possible only if within cancellation window and content not already consumed.
  * @action cancelRenewal Cancel a household service subscription at the next renewal. The subscription stays valid till the next renewal.
  * @action cancelScheduledSubscription Cancel Scheduled Subscription.
  * @action externalReconcile Reconcile the user household&#39;s entitlements with an external entitlements source. This request is frequency protected to avoid too frequent calls per household.
- * @action forceCancel Immediately cancel a subscription, PPV or collection. Cancel applies regardless of cancellation window and content consumption status.
+ * @action forceCancel Immediately cancel a subscription, PPV, collection or programAssetGroupOffer. Cancel applies regardless of cancellation window and content consumption status.
  * @action getNextRenewal Returns the data about the next renewal.
- * @action grant Grant household for an entitlement for a PPV or Subscription.
+ * @action grant Grant household for an entitlement for a PPV, Subscription or programAssetGroupOffer.
  * @action list Gets all the entitled media items for a household.
  * @action swap Swap current entitlement (subscription) with new entitlement (subscription) - only Grant.
  * @action update Update Kaltura Entitelment by Purchase id.
@@ -2469,7 +2550,7 @@ class entitlement{
 	};
 	
 	/**
-	 * Immediately cancel a subscription, PPV or collection. Cancel is possible only if within cancellation window and content not already consumed.
+	 * Immediately cancel a subscription, PPV, collection or programAssetGroupOffer. Cancel is possible only if within cancellation window and content not already consumed.
 	 * @param assetId int The mediaFileID to cancel
 	 * @param productType string The product type for the cancelation (enum: KalturaTransactionType)
 	 * @return bool
@@ -2512,7 +2593,7 @@ class entitlement{
 	};
 	
 	/**
-	 * Immediately cancel a subscription, PPV or collection. Cancel applies regardless of cancellation window and content consumption status.
+	 * Immediately cancel a subscription, PPV, collection or programAssetGroupOffer. Cancel applies regardless of cancellation window and content consumption status.
 	 * @param assetId int The mediaFileID to cancel
 	 * @param productType string The product type for the cancelation (enum: KalturaTransactionType)
 	 * @return bool
@@ -2536,7 +2617,7 @@ class entitlement{
 	};
 	
 	/**
-	 * Grant household for an entitlement for a PPV or Subscription.
+	 * Grant household for an entitlement for a PPV, Subscription or programAssetGroupOffer.
 	 * @param productId int Identifier for the product package from which this content is offered
 	 * @param productType string Product package type. Possible values: PPV, Subscription, Collection (enum: KalturaTransactionType)
 	 * @param history bool Controls if the new entitlements grant will appear in the user’s history. True – will add a history entry. False (or if ommited) – no history entry will be added
@@ -2554,7 +2635,7 @@ class entitlement{
 	
 	/**
 	 * Gets all the entitled media items for a household.
-	 * @param filter EntitlementFilter Request filter
+	 * @param filter BaseEntitlementFilter Request filter
 	 * @param pager FilterPager Request pager (optional, default: null)
 	 * @return KalturaEntitlementListResponse
 	 */
@@ -7898,7 +7979,7 @@ module.exports.topicNotificationMessage = topicNotificationMessage;
  * The available service actions:
  * @action downgrade downgrade specific subscription for a household. entitlements will be updated on the existing subscription end date.
  * @action getPurchaseSessionId Retrieve the purchase session identifier.
- * @action purchase Purchase specific product or subscription for a household. Upon successful charge entitlements to use the requested product or subscription are granted.
+ * @action purchase Purchase specific product, subscription or Program asset group offer (PAGO) for a household. Upon successful charge entitlements to use the requested product or subscription are granted.
  * @action setWaiver This method shall set the waiver flag on the user entitlement table and the waiver date field to the current date.
  * @action updateStatus Updates a pending purchase transaction state.
  * @action upgrade upgrade specific subscription for a household. Upon successful charge entitlements to use the requested product or subscription are granted.
@@ -7928,7 +8009,7 @@ class transaction{
 	};
 	
 	/**
-	 * Purchase specific product or subscription for a household. Upon successful charge entitlements to use the requested product or subscription are granted.
+	 * Purchase specific product, subscription or Program asset group offer (PAGO) for a household. Upon successful charge entitlements to use the requested product or subscription are granted.
 	 * @param purchase Purchase Purchase properties
 	 * @return KalturaTransaction
 	 */
