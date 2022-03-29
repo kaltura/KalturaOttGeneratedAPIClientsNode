@@ -288,6 +288,7 @@ INPROGRESS : 'InProgress',
 module.exports.BundleType = {
 SUBSCRIPTION : 'subscription',
 COLLECTION : 'collection',
+PAGO : 'pago',
 };
 
 module.exports.CampaignOrderBy = {
@@ -462,6 +463,26 @@ CODE_DESC : 'CODE_DESC',
 module.exports.DeleteMediaPolicy = {
 DISABLE : 'Disable',
 DELETE : 'Delete',
+};
+
+module.exports.DeviceBrandOrderBy = {
+ID_ASC : 'ID_ASC',
+ID_DESC : 'ID_DESC',
+};
+
+module.exports.DeviceBrandType = {
+SYSTEM : 'System',
+CUSTOM : 'Custom',
+};
+
+module.exports.DeviceFamilyOrderBy = {
+ID_ASC : 'ID_ASC',
+ID_DESC : 'ID_DESC',
+};
+
+module.exports.DeviceFamilyType = {
+SYSTEM : 'System',
+CUSTOM : 'Custom',
 };
 
 module.exports.DeviceReferenceDataOrderBy = {

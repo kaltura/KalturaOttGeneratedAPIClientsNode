@@ -3941,7 +3941,7 @@ class BundleFilter extends AssetFilter{
 	 }
 	
 	/**
-	 * bundleType - possible values: Subscription or Collection
+	 * bundleType - possible values: Subscription, Collection or PAGO
 	 * @return string
 	 */
 	 getBundleTypeEqual() {
@@ -3949,7 +3949,7 @@ class BundleFilter extends AssetFilter{
 	 }
 	
 	/**
-	 * @param bundleTypeEqual string bundleType - possible values: Subscription or Collection
+	 * @param bundleTypeEqual string bundleType - possible values: Subscription, Collection or PAGO
 	 */
 	 setBundleTypeEqual(bundleTypeEqual) {
 	 	this.bundleTypeEqual = bundleTypeEqual;
@@ -6909,6 +6909,135 @@ class CurrencyFilter extends Filter{
 	 }
 }
 module.exports.CurrencyFilter = CurrencyFilter;
+
+/**
+ *
+ */
+class DeviceBrandFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDeviceBrandFilter';
+	}
+	
+	/**
+	 * Filter the device brand with this identifier
+	 * @return int
+	 */
+	 getIdEqual() {
+	 	return this.idEqual;
+	 }
+	
+	/**
+	 * @param idEqual int Filter the device brand with this identifier
+	 */
+	 setIdEqual(idEqual) {
+	 	this.idEqual = idEqual;
+	 }
+	
+	/**
+	 * Filter the device brands with this device family&#39;s identifier
+	 * @return int
+	 */
+	 getDeviceFamilyIdEqual() {
+	 	return this.deviceFamilyIdEqual;
+	 }
+	
+	/**
+	 * @param deviceFamilyIdEqual int Filter the device brands with this device family&#39;s identifier
+	 */
+	 setDeviceFamilyIdEqual(deviceFamilyIdEqual) {
+	 	this.deviceFamilyIdEqual = deviceFamilyIdEqual;
+	 }
+	
+	/**
+	 * Filter the device brand with this name
+	 * @return string
+	 */
+	 getNameEqual() {
+	 	return this.nameEqual;
+	 }
+	
+	/**
+	 * @param nameEqual string Filter the device brand with this name
+	 */
+	 setNameEqual(nameEqual) {
+	 	this.nameEqual = nameEqual;
+	 }
+	
+	/**
+	 * Filter device brands of this type
+	 * @return string
+	 */
+	 getTypeEqual() {
+	 	return this.typeEqual;
+	 }
+	
+	/**
+	 * @param typeEqual string Filter device brands of this type
+	 */
+	 setTypeEqual(typeEqual) {
+	 	this.typeEqual = typeEqual;
+	 }
+}
+module.exports.DeviceBrandFilter = DeviceBrandFilter;
+
+/**
+ *
+ */
+class DeviceFamilyFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDeviceFamilyFilter';
+	}
+	
+	/**
+	 * Filter the device family with this identifier
+	 * @return int
+	 */
+	 getIdEqual() {
+	 	return this.idEqual;
+	 }
+	
+	/**
+	 * @param idEqual int Filter the device family with this identifier
+	 */
+	 setIdEqual(idEqual) {
+	 	this.idEqual = idEqual;
+	 }
+	
+	/**
+	 * Filter the device family with this name
+	 * @return string
+	 */
+	 getNameEqual() {
+	 	return this.nameEqual;
+	 }
+	
+	/**
+	 * @param nameEqual string Filter the device family with this name
+	 */
+	 setNameEqual(nameEqual) {
+	 	this.nameEqual = nameEqual;
+	 }
+	
+	/**
+	 * Filter device families of this type
+	 * @return string
+	 */
+	 getTypeEqual() {
+	 	return this.typeEqual;
+	 }
+	
+	/**
+	 * @param typeEqual string Filter device families of this type
+	 */
+	 setTypeEqual(typeEqual) {
+	 	this.typeEqual = typeEqual;
+	 }
+}
+module.exports.DeviceFamilyFilter = DeviceFamilyFilter;
 
 /**
  *
@@ -22870,6 +22999,23 @@ class DeviceFamilyBase extends kaltura.BaseObject{
 	 getName() {
 	 	return this.name;
 	 }
+	
+	/**
+	 * @param name string Device family name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Type of device family.
+ * if this device family belongs only to this group,
+ * otherwise
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
 }
 module.exports.DeviceFamilyBase = DeviceFamilyBase;
 
@@ -28757,6 +28903,13 @@ class DeviceBrand extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * @param id int Device brand identifier
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
 	 * Device brand name
 	 * @return string
 	 */
@@ -28775,8 +28928,25 @@ class DeviceBrand extends kaltura.BaseObject{
 	 * Device family identifier
 	 * @return int
 	 */
-	 getDeviceFamilyid() {
-	 	return this.deviceFamilyid;
+	 getDeviceFamilyId() {
+	 	return this.deviceFamilyId;
+	 }
+	
+	/**
+	 * @param deviceFamilyId int Device family identifier
+	 */
+	 setDeviceFamilyId(deviceFamilyId) {
+	 	this.deviceFamilyId = deviceFamilyId;
+	 }
+	
+	/**
+	 * Type of device family.
+ * if this device family belongs only to this group,
+ * otherwise
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
 	 }
 }
 module.exports.DeviceBrand = DeviceBrand;

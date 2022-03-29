@@ -2008,17 +2008,47 @@ module.exports.currency = currency;
 /**
  *Class definition for the Kaltura service: deviceBrand.
  * The available service actions:
+ * @action add Adds a new device brand which belongs to a specific group.
  * @action list Return a list of the available device brands.
+ * @action update Updates an existing device brand which belongs to a specific group.
  */
 class deviceBrand{
 	
 	/**
+	 * Adds a new device brand which belongs to a specific group.
+	 * @param deviceBrand DeviceBrand Device brand
+	 * @return KalturaDeviceBrand
+	 */
+	static add(deviceBrand){
+		let kparams = {};
+		kparams.deviceBrand = deviceBrand;
+		return new kaltura.RequestBuilder('devicebrand', 'add', kparams);
+	};
+	
+	/**
 	 * Return a list of the available device brands.
+	 * @param filter DeviceBrandFilter Filter with no more than one condition specified (optional, default: null)
+	 * @param pager FilterPager Page size and index (optional, default: null)
 	 * @return KalturaDeviceBrandListResponse
 	 */
-	static listAction(){
+	static listAction(filter = null, pager = null){
 		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
 		return new kaltura.RequestBuilder('devicebrand', 'list', kparams);
+	};
+	
+	/**
+	 * Updates an existing device brand which belongs to a specific group.
+	 * @param id int Device brand's identifier
+	 * @param deviceBrand DeviceBrand Device brand
+	 * @return KalturaDeviceBrand
+	 */
+	static update(id, deviceBrand){
+		let kparams = {};
+		kparams.id = id;
+		kparams.deviceBrand = deviceBrand;
+		return new kaltura.RequestBuilder('devicebrand', 'update', kparams);
 	};
 }
 module.exports.deviceBrand = deviceBrand;
@@ -2027,17 +2057,47 @@ module.exports.deviceBrand = deviceBrand;
 /**
  *Class definition for the Kaltura service: deviceFamily.
  * The available service actions:
+ * @action add Adds a new device family which belongs to a specific group.
  * @action list Return a list of the available device families.
+ * @action update Updates an existing device family which belongs to a specific group.
  */
 class deviceFamily{
 	
 	/**
+	 * Adds a new device family which belongs to a specific group.
+	 * @param deviceFamily DeviceFamily Device family
+	 * @return KalturaDeviceFamily
+	 */
+	static add(deviceFamily){
+		let kparams = {};
+		kparams.deviceFamily = deviceFamily;
+		return new kaltura.RequestBuilder('devicefamily', 'add', kparams);
+	};
+	
+	/**
 	 * Return a list of the available device families.
+	 * @param filter DeviceFamilyFilter Filter with no more than one condition specified (optional, default: null)
+	 * @param pager FilterPager Page size and index (optional, default: null)
 	 * @return KalturaDeviceFamilyListResponse
 	 */
-	static listAction(){
+	static listAction(filter = null, pager = null){
 		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
 		return new kaltura.RequestBuilder('devicefamily', 'list', kparams);
+	};
+	
+	/**
+	 * Updates an existing device family which belongs to a specific group.
+	 * @param id int Device family's identifier
+	 * @param deviceFamily DeviceFamily Device family
+	 * @return KalturaDeviceFamily
+	 */
+	static update(id, deviceFamily){
+		let kparams = {};
+		kparams.id = id;
+		kparams.deviceFamily = deviceFamily;
+		return new kaltura.RequestBuilder('devicefamily', 'update', kparams);
 	};
 }
 module.exports.deviceFamily = deviceFamily;
