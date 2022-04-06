@@ -4127,7 +4127,7 @@ module.exports.iot = iot;
  *Class definition for the Kaltura service: iotProfile.
  * The available service actions:
  * @action add Add new KalturaIotProfile.
- * @action delete Get existing KalturaIotProfile.
+ * @action get Get existing KalturaIotProfile.
  * @action update Update existing KalturaIotProfile.
  */
 class iotProfile{
@@ -4148,10 +4148,10 @@ class iotProfile{
 	 * @param id int KalturaIotProfile identifier
 	 * @return KalturaIotProfile
 	 */
-	static deleteAction(id){
+	static get(id){
 		let kparams = {};
 		kparams.id = id;
-		return new kaltura.RequestBuilder('iotprofile', 'delete', kparams);
+		return new kaltura.RequestBuilder('iotprofile', 'get', kparams);
 	};
 	
 	/**
