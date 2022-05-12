@@ -6508,21 +6508,6 @@ class AssetUserRuleFilter extends Filter{
 	 setActionsContainType(actionsContainType) {
 	 	this.actionsContainType = actionsContainType;
 	 }
-	
-	/**
-	 * Indicates that only asset rules are returned that have exactly one and not more associated condition
-	 * @return string
-	 */
-	 getConditionsContainType() {
-	 	return this.conditionsContainType;
-	 }
-	
-	/**
-	 * @param conditionsContainType string Indicates that only asset rules are returned that have exactly one and not more associated condition
-	 */
-	 setConditionsContainType(conditionsContainType) {
-	 	this.conditionsContainType = conditionsContainType;
-	 }
 }
 module.exports.AssetUserRuleFilter = AssetUserRuleFilter;
 
@@ -12480,14 +12465,29 @@ module.exports.AssetRule = AssetRule;
 /**
  *
  */
-class AssetConditionBase extends Condition{
+class AssetCondition extends Condition{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaAssetConditionBase';
+		this.objectType = 'KalturaAssetCondition';
 	}
+	
+	/**
+	 * KSQL
+	 * @return string
+	 */
+	 getKsql() {
+	 	return this.ksql;
+	 }
+	
+	/**
+	 * @param ksql string KSQL
+	 */
+	 setKsql(ksql) {
+	 	this.ksql = ksql;
+	 }
 }
-module.exports.AssetConditionBase = AssetConditionBase;
+module.exports.AssetCondition = AssetCondition;
 
 /**
  *
@@ -12512,7 +12512,7 @@ class AssetUserRule extends AssetRuleBase{
 	}
 	
 	/**
-	 * List of conditions for the user rule
+	 * List of Ksql conditions for the user rule
 	 * @return array
 	 */
 	 getConditions() {
@@ -12520,7 +12520,7 @@ class AssetUserRule extends AssetRuleBase{
 	 }
 	
 	/**
-	 * @param conditions array List of conditions for the user rule
+	 * @param conditions array List of Ksql conditions for the user rule
 	 */
 	 setConditions(conditions) {
 	 	this.conditions = conditions;
@@ -12542,33 +12542,6 @@ class AssetUserRule extends AssetRuleBase{
 	 }
 }
 module.exports.AssetUserRule = AssetUserRule;
-
-/**
- *
- */
-class AssetShopCondition extends AssetConditionBase{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetShopCondition';
-	}
-	
-	/**
-	 * Shop marker&#39;s value
-	 * @return string
-	 */
-	 getValue() {
-	 	return this.value;
-	 }
-	
-	/**
-	 * @param value string Shop marker&#39;s value
-	 */
-	 setValue(value) {
-	 	this.value = value;
-	 }
-}
-module.exports.AssetShopCondition = AssetShopCondition;
 
 /**
  *
@@ -12734,33 +12707,6 @@ class HeaderCondition extends NotCondition{
 	 }
 }
 module.exports.HeaderCondition = HeaderCondition;
-
-/**
- *
- */
-class AssetCondition extends AssetConditionBase{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetCondition';
-	}
-	
-	/**
-	 * KSQL
-	 * @return string
-	 */
-	 getKsql() {
-	 	return this.ksql;
-	 }
-	
-	/**
-	 * @param ksql string KSQL
-	 */
-	 setKsql(ksql) {
-	 	this.ksql = ksql;
-	 }
-}
-module.exports.AssetCondition = AssetCondition;
 
 /**
  *
@@ -13238,48 +13184,6 @@ class UserSessionProfileCondition extends Condition{
 	 }
 }
 module.exports.UserSessionProfileCondition = UserSessionProfileCondition;
-
-/**
- *
- */
-class IpV6RangeCondition extends Condition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaIpV6RangeCondition';
-	}
-	
-	/**
-	 * From IP address range
-	 * @return string
-	 */
-	 getFromIP() {
-	 	return this.fromIP;
-	 }
-	
-	/**
-	 * @param fromIP string From IP address range
-	 */
-	 setFromIP(fromIP) {
-	 	this.fromIP = fromIP;
-	 }
-	
-	/**
-	 * TO IP address range
-	 * @return string
-	 */
-	 getToIP() {
-	 	return this.toIP;
-	 }
-	
-	/**
-	 * @param toIP string TO IP address range
-	 */
-	 setToIP(toIP) {
-	 	this.toIP = toIP;
-	 }
-}
-module.exports.IpV6RangeCondition = IpV6RangeCondition;
 
 /**
  *
@@ -20200,21 +20104,6 @@ class CatalogPartnerConfig extends PartnerConfiguration{
 	 setUploadExportDatalake(uploadExportDatalake) {
 	 	this.uploadExportDatalake = uploadExportDatalake;
 	 }
-	
-	/**
-	 * Shop Marker&#39;s identifier
-	 * @return int
-	 */
-	 getShopMarkerMetaId() {
-	 	return this.shopMarkerMetaId;
-	 }
-	
-	/**
-	 * @param shopMarkerMetaId int Shop Marker&#39;s identifier
-	 */
-	 setShopMarkerMetaId(shopMarkerMetaId) {
-	 	this.shopMarkerMetaId = shopMarkerMetaId;
-	 }
 }
 module.exports.CatalogPartnerConfig = CatalogPartnerConfig;
 
@@ -27021,6 +26910,36 @@ class LiveAsset extends MediaAsset{
 	 }
 	
 	/**
+	 * padding before program starts in seconds, configuration only
+	 * @return int
+	 */
+	 getPaddingBeforeProgramStartsSetting() {
+	 	return this.paddingBeforeProgramStartsSetting;
+	 }
+	
+	/**
+	 * @param paddingBeforeProgramStartsSetting int padding before program starts in seconds, configuration only
+	 */
+	 setPaddingBeforeProgramStartsSetting(paddingBeforeProgramStartsSetting) {
+	 	this.paddingBeforeProgramStartsSetting = paddingBeforeProgramStartsSetting;
+	 }
+	
+	/**
+	 * padding after program ends in seconds, configuration only
+	 * @return int
+	 */
+	 getPaddingAfterProgramEndsSetting() {
+	 	return this.paddingAfterProgramEndsSetting;
+	 }
+	
+	/**
+	 * @param paddingAfterProgramEndsSetting int padding after program ends in seconds, configuration only
+	 */
+	 setPaddingAfterProgramEndsSetting(paddingAfterProgramEndsSetting) {
+	 	this.paddingAfterProgramEndsSetting = paddingAfterProgramEndsSetting;
+	 }
+	
+	/**
 	 * buffer Trick-play, configuration only
 	 * @return int
 	 */
@@ -27131,6 +27050,24 @@ class LiveAsset extends MediaAsset{
 	 */
 	 getCatchUpBuffer() {
 	 	return this.catchUpBuffer;
+	 }
+	
+	/**
+	 * Returns padding before program starts in seconds from a live asset if configured,
+ * otherwise returns corresponding value from TimeShiftedTvPartnerSettings
+	 * @return int
+	 */
+	 getPaddingBeforeProgramStarts() {
+	 	return this.paddingBeforeProgramStarts;
+	 }
+	
+	/**
+	 * Returns padding after program ends in seconds from a live asset if configured,
+ * otherwise returns corresponding value from TimeShiftedTvPartnerSettings
+	 * @return int
+	 */
+	 getPaddingAfterProgramEnds() {
+	 	return this.paddingAfterProgramEnds;
 	 }
 	
 	/**
