@@ -13242,6 +13242,48 @@ module.exports.UserSessionProfileCondition = UserSessionProfileCondition;
 /**
  *
  */
+class IpV6RangeCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIpV6RangeCondition';
+	}
+	
+	/**
+	 * From IP address range
+	 * @return string
+	 */
+	 getFromIP() {
+	 	return this.fromIP;
+	 }
+	
+	/**
+	 * @param fromIP string From IP address range
+	 */
+	 setFromIP(fromIP) {
+	 	this.fromIP = fromIP;
+	 }
+	
+	/**
+	 * TO IP address range
+	 * @return string
+	 */
+	 getToIP() {
+	 	return this.toIP;
+	 }
+	
+	/**
+	 * @param toIP string TO IP address range
+	 */
+	 setToIP(toIP) {
+	 	this.toIP = toIP;
+	 }
+}
+module.exports.IpV6RangeCondition = IpV6RangeCondition;
+
+/**
+ *
+ */
 class AccessControlBlockAction extends AssetRuleAction{
 	
 	constructor(object = null) {
@@ -20157,6 +20199,21 @@ class CatalogPartnerConfig extends PartnerConfiguration{
 	 */
 	 setUploadExportDatalake(uploadExportDatalake) {
 	 	this.uploadExportDatalake = uploadExportDatalake;
+	 }
+	
+	/**
+	 * Shop Marker&#39;s identifier
+	 * @return int
+	 */
+	 getShopMarkerMetaId() {
+	 	return this.shopMarkerMetaId;
+	 }
+	
+	/**
+	 * @param shopMarkerMetaId int Shop Marker&#39;s identifier
+	 */
+	 setShopMarkerMetaId(shopMarkerMetaId) {
+	 	this.shopMarkerMetaId = shopMarkerMetaId;
 	 }
 }
 module.exports.CatalogPartnerConfig = CatalogPartnerConfig;
