@@ -6508,21 +6508,6 @@ class AssetUserRuleFilter extends Filter{
 	 setActionsContainType(actionsContainType) {
 	 	this.actionsContainType = actionsContainType;
 	 }
-	
-	/**
-	 * Indicates that only asset rules are returned that have exactly one and not more associated condition
-	 * @return string
-	 */
-	 getConditionsContainType() {
-	 	return this.conditionsContainType;
-	 }
-	
-	/**
-	 * @param conditionsContainType string Indicates that only asset rules are returned that have exactly one and not more associated condition
-	 */
-	 setConditionsContainType(conditionsContainType) {
-	 	this.conditionsContainType = conditionsContainType;
-	 }
 }
 module.exports.AssetUserRuleFilter = AssetUserRuleFilter;
 
@@ -12480,14 +12465,29 @@ module.exports.AssetRule = AssetRule;
 /**
  *
  */
-class AssetConditionBase extends Condition{
+class AssetCondition extends Condition{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaAssetConditionBase';
+		this.objectType = 'KalturaAssetCondition';
 	}
+	
+	/**
+	 * KSQL
+	 * @return string
+	 */
+	 getKsql() {
+	 	return this.ksql;
+	 }
+	
+	/**
+	 * @param ksql string KSQL
+	 */
+	 setKsql(ksql) {
+	 	this.ksql = ksql;
+	 }
 }
-module.exports.AssetConditionBase = AssetConditionBase;
+module.exports.AssetCondition = AssetCondition;
 
 /**
  *
@@ -12512,7 +12512,7 @@ class AssetUserRule extends AssetRuleBase{
 	}
 	
 	/**
-	 * List of conditions for the user rule
+	 * List of Ksql conditions for the user rule
 	 * @return array
 	 */
 	 getConditions() {
@@ -12520,7 +12520,7 @@ class AssetUserRule extends AssetRuleBase{
 	 }
 	
 	/**
-	 * @param conditions array List of conditions for the user rule
+	 * @param conditions array List of Ksql conditions for the user rule
 	 */
 	 setConditions(conditions) {
 	 	this.conditions = conditions;
@@ -12542,33 +12542,6 @@ class AssetUserRule extends AssetRuleBase{
 	 }
 }
 module.exports.AssetUserRule = AssetUserRule;
-
-/**
- *
- */
-class AssetShopCondition extends AssetConditionBase{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetShopCondition';
-	}
-	
-	/**
-	 * Shop marker&#39;s value
-	 * @return string
-	 */
-	 getValue() {
-	 	return this.value;
-	 }
-	
-	/**
-	 * @param value string Shop marker&#39;s value
-	 */
-	 setValue(value) {
-	 	this.value = value;
-	 }
-}
-module.exports.AssetShopCondition = AssetShopCondition;
 
 /**
  *
@@ -12734,33 +12707,6 @@ class HeaderCondition extends NotCondition{
 	 }
 }
 module.exports.HeaderCondition = HeaderCondition;
-
-/**
- *
- */
-class AssetCondition extends AssetConditionBase{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetCondition';
-	}
-	
-	/**
-	 * KSQL
-	 * @return string
-	 */
-	 getKsql() {
-	 	return this.ksql;
-	 }
-	
-	/**
-	 * @param ksql string KSQL
-	 */
-	 setKsql(ksql) {
-	 	this.ksql = ksql;
-	 }
-}
-module.exports.AssetCondition = AssetCondition;
 
 /**
  *
@@ -13238,48 +13184,6 @@ class UserSessionProfileCondition extends Condition{
 	 }
 }
 module.exports.UserSessionProfileCondition = UserSessionProfileCondition;
-
-/**
- *
- */
-class IpV6RangeCondition extends Condition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaIpV6RangeCondition';
-	}
-	
-	/**
-	 * From IP address range
-	 * @return string
-	 */
-	 getFromIP() {
-	 	return this.fromIP;
-	 }
-	
-	/**
-	 * @param fromIP string From IP address range
-	 */
-	 setFromIP(fromIP) {
-	 	this.fromIP = fromIP;
-	 }
-	
-	/**
-	 * TO IP address range
-	 * @return string
-	 */
-	 getToIP() {
-	 	return this.toIP;
-	 }
-	
-	/**
-	 * @param toIP string TO IP address range
-	 */
-	 setToIP(toIP) {
-	 	this.toIP = toIP;
-	 }
-}
-module.exports.IpV6RangeCondition = IpV6RangeCondition;
 
 /**
  *
@@ -20199,21 +20103,6 @@ class CatalogPartnerConfig extends PartnerConfiguration{
 	 */
 	 setUploadExportDatalake(uploadExportDatalake) {
 	 	this.uploadExportDatalake = uploadExportDatalake;
-	 }
-	
-	/**
-	 * Shop Marker&#39;s identifier
-	 * @return int
-	 */
-	 getShopMarkerMetaId() {
-	 	return this.shopMarkerMetaId;
-	 }
-	
-	/**
-	 * @param shopMarkerMetaId int Shop Marker&#39;s identifier
-	 */
-	 setShopMarkerMetaId(shopMarkerMetaId) {
-	 	this.shopMarkerMetaId = shopMarkerMetaId;
 	 }
 }
 module.exports.CatalogPartnerConfig = CatalogPartnerConfig;
@@ -36096,6 +35985,194 @@ class LicensedUrlRecordingRequest extends LicensedUrlBaseRequest{
 	 }
 }
 module.exports.LicensedUrlRecordingRequest = LicensedUrlRecordingRequest;
+
+/**
+ *
+ */
+class LiveToVodLinearAssetConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaLiveToVodLinearAssetConfiguration';
+	}
+	
+	/**
+	 * Linear asset&#39;s identifier
+	 * @return int
+	 */
+	 getLinearAssetId() {
+	 	return this.linearAssetId;
+	 }
+	
+	/**
+	 * @param linearAssetId int Linear asset&#39;s identifier
+	 */
+	 setLinearAssetId(linearAssetId) {
+	 	this.linearAssetId = linearAssetId;
+	 }
+	
+	/**
+	 * Enable/disable the feature per linear channel. Considered only if the flag is enabled on the account level
+	 * @return bool
+	 */
+	 getIsL2vEnabled() {
+	 	return this.isL2vEnabled;
+	 }
+	
+	/**
+	 * @param isL2vEnabled bool Enable/disable the feature per linear channel. Considered only if the flag is enabled on the account level
+	 */
+	 setIsL2vEnabled(isL2vEnabled) {
+	 	this.isL2vEnabled = isL2vEnabled;
+	 }
+	
+	/**
+	 * Number of days the L2V asset is retained in the system.
+ * Optional - if configured, overriding the account level value
+	 * @return int
+	 */
+	 getRetentionPeriodDays() {
+	 	return this.retentionPeriodDays;
+	 }
+	
+	/**
+	 * @param retentionPeriodDays int Number of days the L2V asset is retained in the system.
+ * Optional - if configured, overriding the account level value
+	 */
+	 setRetentionPeriodDays(retentionPeriodDays) {
+	 	this.retentionPeriodDays = retentionPeriodDays;
+	 }
+}
+module.exports.LiveToVodLinearAssetConfiguration = LiveToVodLinearAssetConfiguration;
+
+/**
+ *
+ */
+class LiveToVodFullConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaLiveToVodFullConfiguration';
+	}
+	
+	/**
+	 * Enable/disable the feature globally. If disabled, then all linear assets are not enabled
+	 * @return bool
+	 */
+	 getIsL2vEnabled() {
+	 	return this.isL2vEnabled;
+	 }
+	
+	/**
+	 * @param isL2vEnabled bool Enable/disable the feature globally. If disabled, then all linear assets are not enabled
+	 */
+	 setIsL2vEnabled(isL2vEnabled) {
+	 	this.isL2vEnabled = isL2vEnabled;
+	 }
+	
+	/**
+	 * Number of days the L2V asset is retained in the system
+	 * @return int
+	 */
+	 getRetentionPeriodDays() {
+	 	return this.retentionPeriodDays;
+	 }
+	
+	/**
+	 * @param retentionPeriodDays int Number of days the L2V asset is retained in the system
+	 */
+	 setRetentionPeriodDays(retentionPeriodDays) {
+	 	this.retentionPeriodDays = retentionPeriodDays;
+	 }
+	
+	/**
+	 * The name (label) of the metadata field marking the program asset to be duplicated as a L2V asset
+	 * @return string
+	 */
+	 getMetadataClassifier() {
+	 	return this.metadataClassifier;
+	 }
+	
+	/**
+	 * @param metadataClassifier string The name (label) of the metadata field marking the program asset to be duplicated as a L2V asset
+	 */
+	 setMetadataClassifier(metadataClassifier) {
+	 	this.metadataClassifier = metadataClassifier;
+	 }
+	
+	/**
+	 * Configuring isL2vEnabled/retentionPeriodDays per each channel, overriding the defaults set in the global isL2vEnabled and retentionPeriodDays parameters
+	 * @return array
+	 */
+	 getLinearAssets() {
+	 	return this.linearAssets;
+	 }
+	
+	/**
+	 * @param linearAssets array Configuring isL2vEnabled/retentionPeriodDays per each channel, overriding the defaults set in the global isL2vEnabled and retentionPeriodDays parameters
+	 */
+	 setLinearAssets(linearAssets) {
+	 	this.linearAssets = linearAssets;
+	 }
+}
+module.exports.LiveToVodFullConfiguration = LiveToVodFullConfiguration;
+
+/**
+ *
+ */
+class LiveToVodPartnerConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaLiveToVodPartnerConfiguration';
+	}
+	
+	/**
+	 * Enable/disable the feature globally. If disabled, then all linear assets are not enabled
+	 * @return bool
+	 */
+	 getIsL2vEnabled() {
+	 	return this.isL2vEnabled;
+	 }
+	
+	/**
+	 * @param isL2vEnabled bool Enable/disable the feature globally. If disabled, then all linear assets are not enabled
+	 */
+	 setIsL2vEnabled(isL2vEnabled) {
+	 	this.isL2vEnabled = isL2vEnabled;
+	 }
+	
+	/**
+	 * Number of days the L2V asset is retained in the system
+	 * @return int
+	 */
+	 getRetentionPeriodDays() {
+	 	return this.retentionPeriodDays;
+	 }
+	
+	/**
+	 * @param retentionPeriodDays int Number of days the L2V asset is retained in the system
+	 */
+	 setRetentionPeriodDays(retentionPeriodDays) {
+	 	this.retentionPeriodDays = retentionPeriodDays;
+	 }
+	
+	/**
+	 * The name (label) of the metadata field marking the program asset to be duplicated as a L2V asset
+	 * @return string
+	 */
+	 getMetadataClassifier() {
+	 	return this.metadataClassifier;
+	 }
+	
+	/**
+	 * @param metadataClassifier string The name (label) of the metadata field marking the program asset to be duplicated as a L2V asset
+	 */
+	 setMetadataClassifier(metadataClassifier) {
+	 	this.metadataClassifier = metadataClassifier;
+	 }
+}
+module.exports.LiveToVodPartnerConfiguration = LiveToVodPartnerConfiguration;
 
 /**
  *
