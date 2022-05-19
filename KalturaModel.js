@@ -6508,21 +6508,6 @@ class AssetUserRuleFilter extends Filter{
 	 setActionsContainType(actionsContainType) {
 	 	this.actionsContainType = actionsContainType;
 	 }
-	
-	/**
-	 * Indicates that only asset rules are returned that have exactly one and not more associated condition
-	 * @return string
-	 */
-	 getConditionsContainType() {
-	 	return this.conditionsContainType;
-	 }
-	
-	/**
-	 * @param conditionsContainType string Indicates that only asset rules are returned that have exactly one and not more associated condition
-	 */
-	 setConditionsContainType(conditionsContainType) {
-	 	this.conditionsContainType = conditionsContainType;
-	 }
 }
 module.exports.AssetUserRuleFilter = AssetUserRuleFilter;
 
@@ -12480,14 +12465,29 @@ module.exports.AssetRule = AssetRule;
 /**
  *
  */
-class AssetConditionBase extends Condition{
+class AssetCondition extends Condition{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaAssetConditionBase';
+		this.objectType = 'KalturaAssetCondition';
 	}
+	
+	/**
+	 * KSQL
+	 * @return string
+	 */
+	 getKsql() {
+	 	return this.ksql;
+	 }
+	
+	/**
+	 * @param ksql string KSQL
+	 */
+	 setKsql(ksql) {
+	 	this.ksql = ksql;
+	 }
 }
-module.exports.AssetConditionBase = AssetConditionBase;
+module.exports.AssetCondition = AssetCondition;
 
 /**
  *
@@ -12512,7 +12512,7 @@ class AssetUserRule extends AssetRuleBase{
 	}
 	
 	/**
-	 * List of conditions for the user rule
+	 * List of Ksql conditions for the user rule
 	 * @return array
 	 */
 	 getConditions() {
@@ -12520,7 +12520,7 @@ class AssetUserRule extends AssetRuleBase{
 	 }
 	
 	/**
-	 * @param conditions array List of conditions for the user rule
+	 * @param conditions array List of Ksql conditions for the user rule
 	 */
 	 setConditions(conditions) {
 	 	this.conditions = conditions;
@@ -12542,33 +12542,6 @@ class AssetUserRule extends AssetRuleBase{
 	 }
 }
 module.exports.AssetUserRule = AssetUserRule;
-
-/**
- *
- */
-class AssetShopCondition extends AssetConditionBase{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetShopCondition';
-	}
-	
-	/**
-	 * Shop marker&#39;s value
-	 * @return string
-	 */
-	 getValue() {
-	 	return this.value;
-	 }
-	
-	/**
-	 * @param value string Shop marker&#39;s value
-	 */
-	 setValue(value) {
-	 	this.value = value;
-	 }
-}
-module.exports.AssetShopCondition = AssetShopCondition;
 
 /**
  *
@@ -12734,33 +12707,6 @@ class HeaderCondition extends NotCondition{
 	 }
 }
 module.exports.HeaderCondition = HeaderCondition;
-
-/**
- *
- */
-class AssetCondition extends AssetConditionBase{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetCondition';
-	}
-	
-	/**
-	 * KSQL
-	 * @return string
-	 */
-	 getKsql() {
-	 	return this.ksql;
-	 }
-	
-	/**
-	 * @param ksql string KSQL
-	 */
-	 setKsql(ksql) {
-	 	this.ksql = ksql;
-	 }
-}
-module.exports.AssetCondition = AssetCondition;
 
 /**
  *
@@ -20199,21 +20145,6 @@ class CatalogPartnerConfig extends PartnerConfiguration{
 	 */
 	 setUploadExportDatalake(uploadExportDatalake) {
 	 	this.uploadExportDatalake = uploadExportDatalake;
-	 }
-	
-	/**
-	 * Shop Marker&#39;s identifier
-	 * @return int
-	 */
-	 getShopMarkerMetaId() {
-	 	return this.shopMarkerMetaId;
-	 }
-	
-	/**
-	 * @param shopMarkerMetaId int Shop Marker&#39;s identifier
-	 */
-	 setShopMarkerMetaId(shopMarkerMetaId) {
-	 	this.shopMarkerMetaId = shopMarkerMetaId;
 	 }
 }
 module.exports.CatalogPartnerConfig = CatalogPartnerConfig;
@@ -30166,15 +30097,15 @@ class DeviceBrand extends kaltura.BaseObject{
 	 * Device family identifier
 	 * @return int
 	 */
-	 getDeviceFamilyId() {
-	 	return this.deviceFamilyId;
+	 getDeviceFamilyid() {
+	 	return this.deviceFamilyid;
 	 }
 	
 	/**
-	 * @param deviceFamilyId int Device family identifier
+	 * @param deviceFamilyid int Device family identifier
 	 */
-	 setDeviceFamilyId(deviceFamilyId) {
-	 	this.deviceFamilyId = deviceFamilyId;
+	 setDeviceFamilyid(deviceFamilyid) {
+	 	this.deviceFamilyid = deviceFamilyid;
 	 }
 	
 	/**
