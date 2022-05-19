@@ -27021,33 +27021,37 @@ class LiveAsset extends MediaAsset{
 	 }
 	
 	/**
-	 * padding before program starts in seconds, configuration only
+	 * Returns padding before program starts in seconds from a live asset if configured,
+ * otherwise returns corresponding value from TimeShiftedTvPartnerSettings
 	 * @return int
 	 */
-	 getPaddingBeforeProgramStartsSetting() {
-	 	return this.paddingBeforeProgramStartsSetting;
+	 getPaddingBeforeProgramStarts() {
+	 	return this.paddingBeforeProgramStarts;
 	 }
 	
 	/**
-	 * @param paddingBeforeProgramStartsSetting int padding before program starts in seconds, configuration only
+	 * @param paddingBeforeProgramStarts int Returns padding before program starts in seconds from a live asset if configured,
+ * otherwise returns corresponding value from TimeShiftedTvPartnerSettings
 	 */
-	 setPaddingBeforeProgramStartsSetting(paddingBeforeProgramStartsSetting) {
-	 	this.paddingBeforeProgramStartsSetting = paddingBeforeProgramStartsSetting;
+	 setPaddingBeforeProgramStarts(paddingBeforeProgramStarts) {
+	 	this.paddingBeforeProgramStarts = paddingBeforeProgramStarts;
 	 }
 	
 	/**
-	 * padding after program ends in seconds, configuration only
+	 * Returns padding after program ends in seconds from a live asset if configured,
+ * otherwise returns corresponding value from TimeShiftedTvPartnerSettings
 	 * @return int
 	 */
-	 getPaddingAfterProgramEndsSetting() {
-	 	return this.paddingAfterProgramEndsSetting;
+	 getPaddingAfterProgramEnds() {
+	 	return this.paddingAfterProgramEnds;
 	 }
 	
 	/**
-	 * @param paddingAfterProgramEndsSetting int padding after program ends in seconds, configuration only
+	 * @param paddingAfterProgramEnds int Returns padding after program ends in seconds from a live asset if configured,
+ * otherwise returns corresponding value from TimeShiftedTvPartnerSettings
 	 */
-	 setPaddingAfterProgramEndsSetting(paddingAfterProgramEndsSetting) {
-	 	this.paddingAfterProgramEndsSetting = paddingAfterProgramEndsSetting;
+	 setPaddingAfterProgramEnds(paddingAfterProgramEnds) {
+	 	this.paddingAfterProgramEnds = paddingAfterProgramEnds;
 	 }
 	
 	/**
@@ -27161,24 +27165,6 @@ class LiveAsset extends MediaAsset{
 	 */
 	 getCatchUpBuffer() {
 	 	return this.catchUpBuffer;
-	 }
-	
-	/**
-	 * Returns padding before program starts in seconds from a live asset if configured,
- * otherwise returns corresponding value from TimeShiftedTvPartnerSettings
-	 * @return int
-	 */
-	 getPaddingBeforeProgramStarts() {
-	 	return this.paddingBeforeProgramStarts;
-	 }
-	
-	/**
-	 * Returns padding after program ends in seconds from a live asset if configured,
- * otherwise returns corresponding value from TimeShiftedTvPartnerSettings
-	 * @return int
-	 */
-	 getPaddingAfterProgramEnds() {
-	 	return this.paddingAfterProgramEnds;
 	 }
 	
 	/**
