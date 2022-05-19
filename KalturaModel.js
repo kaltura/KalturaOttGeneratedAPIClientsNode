@@ -27021,40 +27021,6 @@ class LiveAsset extends MediaAsset{
 	 }
 	
 	/**
-	 * Returns padding before program starts in seconds from a live asset if configured,
- * otherwise returns corresponding value from TimeShiftedTvPartnerSettings
-	 * @return int
-	 */
-	 getPaddingBeforeProgramStarts() {
-	 	return this.paddingBeforeProgramStarts;
-	 }
-	
-	/**
-	 * @param paddingBeforeProgramStarts int Returns padding before program starts in seconds from a live asset if configured,
- * otherwise returns corresponding value from TimeShiftedTvPartnerSettings
-	 */
-	 setPaddingBeforeProgramStarts(paddingBeforeProgramStarts) {
-	 	this.paddingBeforeProgramStarts = paddingBeforeProgramStarts;
-	 }
-	
-	/**
-	 * Returns padding after program ends in seconds from a live asset if configured,
- * otherwise returns corresponding value from TimeShiftedTvPartnerSettings
-	 * @return int
-	 */
-	 getPaddingAfterProgramEnds() {
-	 	return this.paddingAfterProgramEnds;
-	 }
-	
-	/**
-	 * @param paddingAfterProgramEnds int Returns padding after program ends in seconds from a live asset if configured,
- * otherwise returns corresponding value from TimeShiftedTvPartnerSettings
-	 */
-	 setPaddingAfterProgramEnds(paddingAfterProgramEnds) {
-	 	this.paddingAfterProgramEnds = paddingAfterProgramEnds;
-	 }
-	
-	/**
 	 * buffer Trick-play, configuration only
 	 * @return int
 	 */
