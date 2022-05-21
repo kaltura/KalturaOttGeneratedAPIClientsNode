@@ -30097,15 +30097,15 @@ class DeviceBrand extends kaltura.BaseObject{
 	 * Device family identifier
 	 * @return int
 	 */
-	 getDeviceFamilyId() {
-	 	return this.deviceFamilyId;
+	 getDeviceFamilyid() {
+	 	return this.deviceFamilyid;
 	 }
 	
 	/**
-	 * @param deviceFamilyId int Device family identifier
+	 * @param deviceFamilyid int Device family identifier
 	 */
-	 setDeviceFamilyId(deviceFamilyId) {
-	 	this.deviceFamilyId = deviceFamilyId;
+	 setDeviceFamilyid(deviceFamilyid) {
+	 	this.deviceFamilyid = deviceFamilyid;
 	 }
 	
 	/**
