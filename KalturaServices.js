@@ -4309,6 +4309,71 @@ module.exports.lineup = lineup;
 
 
 /**
+ *Class definition for the Kaltura service: liveToVod.
+ * The available service actions:
+ * @action getConfiguration Get existing L2V configuration for both the partner level and all channels level.
+ * @action getLinearAssetConfiguration Get existing L2V configuration for a specific linear asset.
+ * @action getPartnerConfiguration Get existing L2V partner configuration.
+ * @action updateLinearAssetConfiguration Set L2V configuration for a specific Linear channel.
+ * @action updatePartnerConfiguration Set L2V configuration on the partner level.
+ */
+class liveToVod{
+	
+	/**
+	 * Get existing L2V configuration for both the partner level and all channels level.
+	 * @return KalturaLiveToVodFullConfiguration
+	 */
+	static getConfiguration(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('livetovod', 'getConfiguration', kparams);
+	};
+	
+	/**
+	 * Get existing L2V configuration for a specific linear asset.
+	 * @param linearAssetId int Linear asset's identifier
+	 * @return KalturaLiveToVodLinearAssetConfiguration
+	 */
+	static getLinearAssetConfiguration(linearAssetId){
+		let kparams = {};
+		kparams.linearAssetId = linearAssetId;
+		return new kaltura.RequestBuilder('livetovod', 'getLinearAssetConfiguration', kparams);
+	};
+	
+	/**
+	 * Get existing L2V partner configuration.
+	 * @return KalturaLiveToVodPartnerConfiguration
+	 */
+	static getPartnerConfiguration(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('livetovod', 'getPartnerConfiguration', kparams);
+	};
+	
+	/**
+	 * Set L2V configuration for a specific Linear channel.
+	 * @param configuration LiveToVodLinearAssetConfiguration Live to VOD linear asset (live channel) configuration object
+	 * @return KalturaLiveToVodLinearAssetConfiguration
+	 */
+	static updateLinearAssetConfiguration(configuration){
+		let kparams = {};
+		kparams.configuration = configuration;
+		return new kaltura.RequestBuilder('livetovod', 'updateLinearAssetConfiguration', kparams);
+	};
+	
+	/**
+	 * Set L2V configuration on the partner level.
+	 * @param configuration LiveToVodPartnerConfiguration Live to VOD configuration object
+	 * @return KalturaLiveToVodPartnerConfiguration
+	 */
+	static updatePartnerConfiguration(configuration){
+		let kparams = {};
+		kparams.configuration = configuration;
+		return new kaltura.RequestBuilder('livetovod', 'updatePartnerConfiguration', kparams);
+	};
+}
+module.exports.liveToVod = liveToVod;
+
+
+/**
  *Class definition for the Kaltura service: mediaConcurrencyRule.
  * The available service actions:
  * @action list Get the list of meta mappings for the partner.
