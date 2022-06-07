@@ -6188,6 +6188,33 @@ module.exports.MediaFileFilter = MediaFileFilter;
 /**
  *
  */
+class PersonalAssetSelectionFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPersonalAssetSelectionFilter';
+	}
+	
+	/**
+	 * selected assets for specific slot number
+	 * @return int
+	 */
+	 getSlotNumberEqual() {
+	 	return this.slotNumberEqual;
+	 }
+	
+	/**
+	 * @param slotNumberEqual int selected assets for specific slot number
+	 */
+	 setSlotNumberEqual(slotNumberEqual) {
+	 	this.slotNumberEqual = slotNumberEqual;
+	 }
+}
+module.exports.PersonalAssetSelectionFilter = PersonalAssetSelectionFilter;
+
+/**
+ *
+ */
 class StreamingDeviceFilter extends Filter{
 	
 	constructor(object = null) {
@@ -27021,6 +27048,40 @@ class LiveAsset extends MediaAsset{
 	 }
 	
 	/**
+	 * Returns padding before program starts in seconds from a live asset if configured,
+ * otherwise returns corresponding value from TimeShiftedTvPartnerSettings
+	 * @return int
+	 */
+	 getPaddingBeforeProgramStarts() {
+	 	return this.paddingBeforeProgramStarts;
+	 }
+	
+	/**
+	 * @param paddingBeforeProgramStarts int Returns padding before program starts in seconds from a live asset if configured,
+ * otherwise returns corresponding value from TimeShiftedTvPartnerSettings
+	 */
+	 setPaddingBeforeProgramStarts(paddingBeforeProgramStarts) {
+	 	this.paddingBeforeProgramStarts = paddingBeforeProgramStarts;
+	 }
+	
+	/**
+	 * Returns padding after program ends in seconds from a live asset if configured,
+ * otherwise returns corresponding value from TimeShiftedTvPartnerSettings
+	 * @return int
+	 */
+	 getPaddingAfterProgramEnds() {
+	 	return this.paddingAfterProgramEnds;
+	 }
+	
+	/**
+	 * @param paddingAfterProgramEnds int Returns padding after program ends in seconds from a live asset if configured,
+ * otherwise returns corresponding value from TimeShiftedTvPartnerSettings
+	 */
+	 setPaddingAfterProgramEnds(paddingAfterProgramEnds) {
+	 	this.paddingAfterProgramEnds = paddingAfterProgramEnds;
+	 }
+	
+	/**
 	 * buffer Trick-play, configuration only
 	 * @return int
 	 */
@@ -30166,15 +30227,15 @@ class DeviceBrand extends kaltura.BaseObject{
 	 * Device family identifier
 	 * @return int
 	 */
-	 getDeviceFamilyId() {
-	 	return this.deviceFamilyId;
+	 getDeviceFamilyid() {
+	 	return this.deviceFamilyid;
 	 }
 	
 	/**
-	 * @param deviceFamilyId int Device family identifier
+	 * @param deviceFamilyid int Device family identifier
 	 */
-	 setDeviceFamilyId(deviceFamilyId) {
-	 	this.deviceFamilyId = deviceFamilyId;
+	 setDeviceFamilyid(deviceFamilyid) {
+	 	this.deviceFamilyid = deviceFamilyid;
 	 }
 	
 	/**
@@ -34036,6 +34097,42 @@ module.exports.AssetFileContext = AssetFileContext;
 /**
  *
  */
+class AssetPersonalSelection extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetPersonalSelection';
+	}
+	
+	/**
+	 * Asset Id
+	 * @return int
+	 */
+	 getAssetId() {
+	 	return this.assetId;
+	 }
+	
+	/**
+	 * Asset Type
+	 * @return string
+	 */
+	 getAssetType() {
+	 	return this.assetType;
+	 }
+	
+	/**
+	 * Update Date
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
+}
+module.exports.AssetPersonalSelection = AssetPersonalSelection;
+
+/**
+ *
+ */
 class AssetStatisticsQuery extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -36096,6 +36193,194 @@ class LicensedUrlRecordingRequest extends LicensedUrlBaseRequest{
 	 }
 }
 module.exports.LicensedUrlRecordingRequest = LicensedUrlRecordingRequest;
+
+/**
+ *
+ */
+class LiveToVodLinearAssetConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaLiveToVodLinearAssetConfiguration';
+	}
+	
+	/**
+	 * Linear asset&#39;s identifier
+	 * @return int
+	 */
+	 getLinearAssetId() {
+	 	return this.linearAssetId;
+	 }
+	
+	/**
+	 * @param linearAssetId int Linear asset&#39;s identifier
+	 */
+	 setLinearAssetId(linearAssetId) {
+	 	this.linearAssetId = linearAssetId;
+	 }
+	
+	/**
+	 * Enable/disable the feature per linear channel. Considered only if the flag is enabled on the account level
+	 * @return bool
+	 */
+	 getIsL2vEnabled() {
+	 	return this.isL2vEnabled;
+	 }
+	
+	/**
+	 * @param isL2vEnabled bool Enable/disable the feature per linear channel. Considered only if the flag is enabled on the account level
+	 */
+	 setIsL2vEnabled(isL2vEnabled) {
+	 	this.isL2vEnabled = isL2vEnabled;
+	 }
+	
+	/**
+	 * Number of days the L2V asset is retained in the system.
+ * Optional - if configured, overriding the account level value
+	 * @return int
+	 */
+	 getRetentionPeriodDays() {
+	 	return this.retentionPeriodDays;
+	 }
+	
+	/**
+	 * @param retentionPeriodDays int Number of days the L2V asset is retained in the system.
+ * Optional - if configured, overriding the account level value
+	 */
+	 setRetentionPeriodDays(retentionPeriodDays) {
+	 	this.retentionPeriodDays = retentionPeriodDays;
+	 }
+}
+module.exports.LiveToVodLinearAssetConfiguration = LiveToVodLinearAssetConfiguration;
+
+/**
+ *
+ */
+class LiveToVodFullConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaLiveToVodFullConfiguration';
+	}
+	
+	/**
+	 * Enable/disable the feature globally. If disabled, then all linear assets are not enabled
+	 * @return bool
+	 */
+	 getIsL2vEnabled() {
+	 	return this.isL2vEnabled;
+	 }
+	
+	/**
+	 * @param isL2vEnabled bool Enable/disable the feature globally. If disabled, then all linear assets are not enabled
+	 */
+	 setIsL2vEnabled(isL2vEnabled) {
+	 	this.isL2vEnabled = isL2vEnabled;
+	 }
+	
+	/**
+	 * Number of days the L2V asset is retained in the system
+	 * @return int
+	 */
+	 getRetentionPeriodDays() {
+	 	return this.retentionPeriodDays;
+	 }
+	
+	/**
+	 * @param retentionPeriodDays int Number of days the L2V asset is retained in the system
+	 */
+	 setRetentionPeriodDays(retentionPeriodDays) {
+	 	this.retentionPeriodDays = retentionPeriodDays;
+	 }
+	
+	/**
+	 * The name (label) of the metadata field marking the program asset to be duplicated as a L2V asset
+	 * @return string
+	 */
+	 getMetadataClassifier() {
+	 	return this.metadataClassifier;
+	 }
+	
+	/**
+	 * @param metadataClassifier string The name (label) of the metadata field marking the program asset to be duplicated as a L2V asset
+	 */
+	 setMetadataClassifier(metadataClassifier) {
+	 	this.metadataClassifier = metadataClassifier;
+	 }
+	
+	/**
+	 * Configuring isL2vEnabled/retentionPeriodDays per each channel, overriding the defaults set in the global isL2vEnabled and retentionPeriodDays parameters
+	 * @return array
+	 */
+	 getLinearAssets() {
+	 	return this.linearAssets;
+	 }
+	
+	/**
+	 * @param linearAssets array Configuring isL2vEnabled/retentionPeriodDays per each channel, overriding the defaults set in the global isL2vEnabled and retentionPeriodDays parameters
+	 */
+	 setLinearAssets(linearAssets) {
+	 	this.linearAssets = linearAssets;
+	 }
+}
+module.exports.LiveToVodFullConfiguration = LiveToVodFullConfiguration;
+
+/**
+ *
+ */
+class LiveToVodPartnerConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaLiveToVodPartnerConfiguration';
+	}
+	
+	/**
+	 * Enable/disable the feature globally. If disabled, then all linear assets are not enabled
+	 * @return bool
+	 */
+	 getIsL2vEnabled() {
+	 	return this.isL2vEnabled;
+	 }
+	
+	/**
+	 * @param isL2vEnabled bool Enable/disable the feature globally. If disabled, then all linear assets are not enabled
+	 */
+	 setIsL2vEnabled(isL2vEnabled) {
+	 	this.isL2vEnabled = isL2vEnabled;
+	 }
+	
+	/**
+	 * Number of days the L2V asset is retained in the system
+	 * @return int
+	 */
+	 getRetentionPeriodDays() {
+	 	return this.retentionPeriodDays;
+	 }
+	
+	/**
+	 * @param retentionPeriodDays int Number of days the L2V asset is retained in the system
+	 */
+	 setRetentionPeriodDays(retentionPeriodDays) {
+	 	this.retentionPeriodDays = retentionPeriodDays;
+	 }
+	
+	/**
+	 * The name (label) of the metadata field marking the program asset to be duplicated as a L2V asset
+	 * @return string
+	 */
+	 getMetadataClassifier() {
+	 	return this.metadataClassifier;
+	 }
+	
+	/**
+	 * @param metadataClassifier string The name (label) of the metadata field marking the program asset to be duplicated as a L2V asset
+	 */
+	 setMetadataClassifier(metadataClassifier) {
+	 	this.metadataClassifier = metadataClassifier;
+	 }
+}
+module.exports.LiveToVodPartnerConfiguration = LiveToVodPartnerConfiguration;
 
 /**
  *

@@ -957,6 +957,10 @@ GROUP : 'GROUP',
 SPECIAL_FEATURE : 'SPECIAL_FEATURE',
 };
 
+module.exports.PersonalAssetSelectionOrderBy = {
+ASSET_SELECTION_DATE_DESC : 'ASSET_SELECTION_DATE_DESC',
+};
+
 module.exports.PersonalFeedOrderBy = {
 RELEVANCY_DESC : 'RELEVANCY_DESC',
 NAME_ASC : 'NAME_ASC',
