@@ -229,6 +229,7 @@ module.exports.assetComment = assetComment;
  * @action getPlaybackContext This action delivers all data relevant for player.
  * @action getPlaybackManifest This action delivers all data relevant for player.
  * @action list Returns media or EPG assets. Filters by media identifiers or by EPG internal or external identifier.
+ * @action listPersonalSelection Returns recent selected assets.
  * @action removeMetasAndTags remove metas and tags from asset.
  * @action update update an existing asset.
  * For metas of type bool-&gt; use kalturaBoolValue, type number-&gt; KalturaDoubleValue, type date -&gt; KalturaLongValue, type string -&gt; KalturaStringValue.
@@ -360,6 +361,17 @@ class asset{
 		kparams.filter = filter;
 		kparams.pager = pager;
 		return new kaltura.RequestBuilder('asset', 'list', kparams);
+	};
+	
+	/**
+	 * Returns recent selected assets.
+	 * @param filter PersonalAssetSelectionFilter Filtering the assets request
+	 * @return KalturaAssetListResponse
+	 */
+	static listPersonalSelection(filter){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('asset', 'listPersonalSelection', kparams);
 	};
 	
 	/**
@@ -571,6 +583,57 @@ class assetPersonalMarkup{
 	};
 }
 module.exports.assetPersonalMarkup = assetPersonalMarkup;
+
+
+/**
+ *Class definition for the Kaltura service: assetPersonalSelection.
+ * The available service actions:
+ * @action delete Remove asset selection in slot.
+ * @action deleteAll Remove asset selection in slot.
+ * @action upsert Add or update asset selection in slot.
+ */
+class assetPersonalSelection{
+	
+	/**
+	 * Remove asset selection in slot.
+	 * @param assetId int asset id
+	 * @param assetType string asset type: media/epg (enum: KalturaAssetType)
+	 * @param slotNumber int slot number
+	 */
+	static deleteAction(assetId, assetType, slotNumber){
+		let kparams = {};
+		kparams.assetId = assetId;
+		kparams.assetType = assetType;
+		kparams.slotNumber = slotNumber;
+		return new kaltura.RequestBuilder('assetpersonalselection', 'delete', kparams);
+	};
+	
+	/**
+	 * Remove asset selection in slot.
+	 * @param slotNumber int slot number
+	 */
+	static deleteAll(slotNumber){
+		let kparams = {};
+		kparams.slotNumber = slotNumber;
+		return new kaltura.RequestBuilder('assetpersonalselection', 'deleteAll', kparams);
+	};
+	
+	/**
+	 * Add or update asset selection in slot.
+	 * @param assetId int asset id
+	 * @param assetType string asset type: media/epg (enum: KalturaAssetType)
+	 * @param slotNumber int slot number
+	 * @return KalturaAssetPersonalSelection
+	 */
+	static upsert(assetId, assetType, slotNumber){
+		let kparams = {};
+		kparams.assetId = assetId;
+		kparams.assetType = assetType;
+		kparams.slotNumber = slotNumber;
+		return new kaltura.RequestBuilder('assetpersonalselection', 'upsert', kparams);
+	};
+}
+module.exports.assetPersonalSelection = assetPersonalSelection;
 
 
 /**
@@ -4306,6 +4369,71 @@ class lineup{
 	};
 }
 module.exports.lineup = lineup;
+
+
+/**
+ *Class definition for the Kaltura service: liveToVod.
+ * The available service actions:
+ * @action getConfiguration Get existing L2V configuration for both the partner level and all channels level.
+ * @action getLinearAssetConfiguration Get existing L2V configuration for a specific linear asset.
+ * @action getPartnerConfiguration Get existing L2V partner configuration.
+ * @action updateLinearAssetConfiguration Set L2V configuration for a specific Linear channel.
+ * @action updatePartnerConfiguration Set L2V configuration on the partner level.
+ */
+class liveToVod{
+	
+	/**
+	 * Get existing L2V configuration for both the partner level and all channels level.
+	 * @return KalturaLiveToVodFullConfiguration
+	 */
+	static getConfiguration(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('livetovod', 'getConfiguration', kparams);
+	};
+	
+	/**
+	 * Get existing L2V configuration for a specific linear asset.
+	 * @param linearAssetId int Linear asset's identifier
+	 * @return KalturaLiveToVodLinearAssetConfiguration
+	 */
+	static getLinearAssetConfiguration(linearAssetId){
+		let kparams = {};
+		kparams.linearAssetId = linearAssetId;
+		return new kaltura.RequestBuilder('livetovod', 'getLinearAssetConfiguration', kparams);
+	};
+	
+	/**
+	 * Get existing L2V partner configuration.
+	 * @return KalturaLiveToVodPartnerConfiguration
+	 */
+	static getPartnerConfiguration(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('livetovod', 'getPartnerConfiguration', kparams);
+	};
+	
+	/**
+	 * Set L2V configuration for a specific Linear channel.
+	 * @param configuration LiveToVodLinearAssetConfiguration Live to VOD linear asset (live channel) configuration object
+	 * @return KalturaLiveToVodLinearAssetConfiguration
+	 */
+	static updateLinearAssetConfiguration(configuration){
+		let kparams = {};
+		kparams.configuration = configuration;
+		return new kaltura.RequestBuilder('livetovod', 'updateLinearAssetConfiguration', kparams);
+	};
+	
+	/**
+	 * Set L2V configuration on the partner level.
+	 * @param configuration LiveToVodPartnerConfiguration Live to VOD configuration object
+	 * @return KalturaLiveToVodPartnerConfiguration
+	 */
+	static updatePartnerConfiguration(configuration){
+		let kparams = {};
+		kparams.configuration = configuration;
+		return new kaltura.RequestBuilder('livetovod', 'updatePartnerConfiguration', kparams);
+	};
+}
+module.exports.liveToVod = liveToVod;
 
 
 /**
