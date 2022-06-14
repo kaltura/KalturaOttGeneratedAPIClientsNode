@@ -6634,51 +6634,6 @@ class CampaignSearchFilter extends CampaignFilter{
 	 setHasPromotion(hasPromotion) {
 	 	this.hasPromotion = hasPromotion;
 	 }
-	
-	/**
-	 * Filter the Campaign with this name
-	 * @return string
-	 */
-	 getNameEqual() {
-	 	return this.nameEqual;
-	 }
-	
-	/**
-	 * @param nameEqual string Filter the Campaign with this name
-	 */
-	 setNameEqual(nameEqual) {
-	 	this.nameEqual = nameEqual;
-	 }
-	
-	/**
-	 * A string that is included in the Campaign name
-	 * @return string
-	 */
-	 getNameContains() {
-	 	return this.nameContains;
-	 }
-	
-	/**
-	 * @param nameContains string A string that is included in the Campaign name
-	 */
-	 setNameContains(nameContains) {
-	 	this.nameContains = nameContains;
-	 }
-	
-	/**
-	 * Comma separated Campaign State list
-	 * @return string
-	 */
-	 getStateIn() {
-	 	return this.stateIn;
-	 }
-	
-	/**
-	 * @param stateIn string Comma separated Campaign State list
-	 */
-	 setStateIn(stateIn) {
-	 	this.stateIn = stateIn;
-	 }
 }
 module.exports.CampaignSearchFilter = CampaignSearchFilter;
 
@@ -12645,33 +12600,6 @@ module.exports.AssetShopCondition = AssetShopCondition;
 /**
  *
  */
-class ChannelCondition extends Condition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaChannelCondition';
-	}
-	
-	/**
-	 * Comma separated channel IDs list
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Comma separated channel IDs list
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.ChannelCondition = ChannelCondition;
-
-/**
- *
- */
 class NotCondition extends Condition{
 	
 	constructor(object = null) {
@@ -13337,33 +13265,6 @@ class UserSessionProfileCondition extends Condition{
 	 }
 }
 module.exports.UserSessionProfileCondition = UserSessionProfileCondition;
-
-/**
- *
- */
-class FileTypeCondition extends Condition{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaFileTypeCondition';
-	}
-	
-	/**
-	 * Comma separated filetype IDs list
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string Comma separated filetype IDs list
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.FileTypeCondition = FileTypeCondition;
 
 /**
  *
@@ -14344,12 +14245,27 @@ module.exports.TvmGeoRule = TvmGeoRule;
 /**
  *
  */
-class BasePromotion extends kaltura.BaseObject{
+class Promotion extends kaltura.BaseObject{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaBasePromotion';
+		this.objectType = 'KalturaPromotion';
 	}
+	
+	/**
+	 * The discount module id that is promoted to the user
+	 * @return int
+	 */
+	 getDiscountModuleId() {
+	 	return this.discountModuleId;
+	 }
+	
+	/**
+	 * @param discountModuleId int The discount module id that is promoted to the user
+	 */
+	 setDiscountModuleId(discountModuleId) {
+	 	this.discountModuleId = discountModuleId;
+	 }
 	
 	/**
 	 * These conditions define the Promotion that applies on
@@ -14365,8 +14281,23 @@ class BasePromotion extends kaltura.BaseObject{
 	 setConditions(conditions) {
 	 	this.conditions = conditions;
 	 }
+	
+	/**
+	 * the numer of recurring for this promotion
+	 * @return int
+	 */
+	 getNumberOfRecurring() {
+	 	return this.numberOfRecurring;
+	 }
+	
+	/**
+	 * @param numberOfRecurring int the numer of recurring for this promotion
+	 */
+	 setNumberOfRecurring(numberOfRecurring) {
+	 	this.numberOfRecurring = numberOfRecurring;
+	 }
 }
-module.exports.BasePromotion = BasePromotion;
+module.exports.Promotion = Promotion;
 
 /**
  *
@@ -14487,14 +14418,14 @@ class Campaign extends OTTObjectSupportNullable{
 	
 	/**
 	 * The Promotion that is promoted to the user
-	 * @return BasePromotion
+	 * @return Promotion
 	 */
 	 getPromotion() {
 	 	return this.promotion;
 	 }
 	
 	/**
-	 * @param promotion BasePromotion The Promotion that is promoted to the user
+	 * @param promotion Promotion The Promotion that is promoted to the user
 	 */
 	 setPromotion(promotion) {
 	 	this.promotion = promotion;
@@ -14615,75 +14546,6 @@ class TriggerCampaign extends Campaign{
 	 }
 }
 module.exports.TriggerCampaign = TriggerCampaign;
-
-/**
- *
- */
-class CouponPromotion extends BasePromotion{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCouponPromotion';
-	}
-	
-	/**
-	 * CouponGroup identifier
-	 * @return int
-	 */
-	 getCouponGroupId() {
-	 	return this.couponGroupId;
-	 }
-	
-	/**
-	 * @param couponGroupId int CouponGroup identifier
-	 */
-	 setCouponGroupId(couponGroupId) {
-	 	this.couponGroupId = couponGroupId;
-	 }
-}
-module.exports.CouponPromotion = CouponPromotion;
-
-/**
- *
- */
-class Promotion extends BasePromotion{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPromotion';
-	}
-	
-	/**
-	 * The discount module id that is promoted to the user
-	 * @return int
-	 */
-	 getDiscountModuleId() {
-	 	return this.discountModuleId;
-	 }
-	
-	/**
-	 * @param discountModuleId int The discount module id that is promoted to the user
-	 */
-	 setDiscountModuleId(discountModuleId) {
-	 	this.discountModuleId = discountModuleId;
-	 }
-	
-	/**
-	 * the numer of recurring for this promotion
-	 * @return int
-	 */
-	 getNumberOfRecurring() {
-	 	return this.numberOfRecurring;
-	 }
-	
-	/**
-	 * @param numberOfRecurring int the numer of recurring for this promotion
-	 */
-	 setNumberOfRecurring(numberOfRecurring) {
-	 	this.numberOfRecurring = numberOfRecurring;
-	 }
-}
-module.exports.Promotion = Promotion;
 
 /**
  *
