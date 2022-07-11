@@ -5621,6 +5621,21 @@ class Bookmark extends SlimAsset{
 	 setIsReportingMode(isReportingMode) {
 	 	this.isReportingMode = isReportingMode;
 	 }
+	
+	/**
+	 * Playback context type
+	 * @return string
+	 */
+	 getContext() {
+	 	return this.context;
+	 }
+	
+	/**
+	 * @param context string Playback context type
+	 */
+	 setContext(context) {
+	 	this.context = context;
+	 }
 }
 module.exports.Bookmark = Bookmark;
 
@@ -6633,6 +6648,51 @@ class CampaignSearchFilter extends CampaignFilter{
 	 */
 	 setHasPromotion(hasPromotion) {
 	 	this.hasPromotion = hasPromotion;
+	 }
+	
+	/**
+	 * Filter the Campaign with this name
+	 * @return string
+	 */
+	 getNameEqual() {
+	 	return this.nameEqual;
+	 }
+	
+	/**
+	 * @param nameEqual string Filter the Campaign with this name
+	 */
+	 setNameEqual(nameEqual) {
+	 	this.nameEqual = nameEqual;
+	 }
+	
+	/**
+	 * A string that is included in the Campaign name
+	 * @return string
+	 */
+	 getNameContains() {
+	 	return this.nameContains;
+	 }
+	
+	/**
+	 * @param nameContains string A string that is included in the Campaign name
+	 */
+	 setNameContains(nameContains) {
+	 	this.nameContains = nameContains;
+	 }
+	
+	/**
+	 * Comma separated Campaign State list
+	 * @return string
+	 */
+	 getStateIn() {
+	 	return this.stateIn;
+	 }
+	
+	/**
+	 * @param stateIn string Comma separated Campaign State list
+	 */
+	 setStateIn(stateIn) {
+	 	this.stateIn = stateIn;
 	 }
 }
 module.exports.CampaignSearchFilter = CampaignSearchFilter;
@@ -26971,6 +27031,138 @@ module.exports.AssetListResponse = AssetListResponse;
 /**
  *
  */
+class LiveToVodInfoAsset extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaLiveToVodInfoAsset';
+	}
+	
+	/**
+	 * Linear Asset Id
+	 * @return int
+	 */
+	 getLinearAssetId() {
+	 	return this.linearAssetId;
+	 }
+	
+	/**
+	 * @param linearAssetId int Linear Asset Id
+	 */
+	 setLinearAssetId(linearAssetId) {
+	 	this.linearAssetId = linearAssetId;
+	 }
+	
+	/**
+	 * EPG Id
+	 * @return string
+	 */
+	 getEpgId() {
+	 	return this.epgId;
+	 }
+	
+	/**
+	 * @param epgId string EPG Id
+	 */
+	 setEpgId(epgId) {
+	 	this.epgId = epgId;
+	 }
+	
+	/**
+	 * EPG Channel Id
+	 * @return int
+	 */
+	 getEpgChannelId() {
+	 	return this.epgChannelId;
+	 }
+	
+	/**
+	 * @param epgChannelId int EPG Channel Id
+	 */
+	 setEpgChannelId(epgChannelId) {
+	 	this.epgChannelId = epgChannelId;
+	 }
+	
+	/**
+	 * Crid
+	 * @return string
+	 */
+	 getCrid() {
+	 	return this.crid;
+	 }
+	
+	/**
+	 * @param crid string Crid
+	 */
+	 setCrid(crid) {
+	 	this.crid = crid;
+	 }
+	
+	/**
+	 * Original Start Date
+	 * @return int
+	 */
+	 getOriginalStartDate() {
+	 	return this.originalStartDate;
+	 }
+	
+	/**
+	 * @param originalStartDate int Original Start Date
+	 */
+	 setOriginalStartDate(originalStartDate) {
+	 	this.originalStartDate = originalStartDate;
+	 }
+	
+	/**
+	 * Original End Date
+	 * @return int
+	 */
+	 getOriginalEndDate() {
+	 	return this.originalEndDate;
+	 }
+	
+	/**
+	 * @param originalEndDate int Original End Date
+	 */
+	 setOriginalEndDate(originalEndDate) {
+	 	this.originalEndDate = originalEndDate;
+	 }
+	
+	/**
+	 * Padding before program starts
+	 * @return int
+	 */
+	 getPaddingBeforeProgramStarts() {
+	 	return this.paddingBeforeProgramStarts;
+	 }
+	
+	/**
+	 * @param paddingBeforeProgramStarts int Padding before program starts
+	 */
+	 setPaddingBeforeProgramStarts(paddingBeforeProgramStarts) {
+	 	this.paddingBeforeProgramStarts = paddingBeforeProgramStarts;
+	 }
+	
+	/**
+	 * Padding after program ends
+	 * @return int
+	 */
+	 getPaddingAfterProgramEnds() {
+	 	return this.paddingAfterProgramEnds;
+	 }
+	
+	/**
+	 * @param paddingAfterProgramEnds int Padding after program ends
+	 */
+	 setPaddingAfterProgramEnds(paddingAfterProgramEnds) {
+	 	this.paddingAfterProgramEnds = paddingAfterProgramEnds;
+	 }
+}
+module.exports.LiveToVodInfoAsset = LiveToVodInfoAsset;
+
+/**
+ *
+ */
 class MediaAsset extends Asset{
 	
 	constructor(object = null) {
@@ -27066,6 +27258,21 @@ class MediaAsset extends Asset{
 	 */
 	 setInheritancePolicy(inheritancePolicy) {
 	 	this.inheritancePolicy = inheritancePolicy;
+	 }
+	
+	/**
+	 * Live to VOD (if present)
+	 * @return LiveToVodInfoAsset
+	 */
+	 getLiveToVod() {
+	 	return this.liveToVod;
+	 }
+	
+	/**
+	 * @param liveToVod LiveToVodInfoAsset Live to VOD (if present)
+	 */
+	 setLiveToVod(liveToVod) {
+	 	this.liveToVod = liveToVod;
 	 }
 }
 module.exports.MediaAsset = MediaAsset;

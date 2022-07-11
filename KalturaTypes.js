@@ -293,6 +293,11 @@ PAGO : 'pago',
 
 module.exports.CampaignOrderBy = {
 START_DATE_DESC : 'START_DATE_DESC',
+START_DATE_ASC : 'START_DATE_ASC',
+UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
+UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
+END_DATE_DESC : 'END_DATE_DESC',
+END_DATE_ASC : 'END_DATE_ASC',
 };
 
 module.exports.CategoryItemOrderBy = {
