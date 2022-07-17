@@ -20428,6 +20428,21 @@ class ConcurrencyPartnerConfig extends PartnerConfiguration{
 	 setRevokeOnDeviceDelete(revokeOnDeviceDelete) {
 	 	this.revokeOnDeviceDelete = revokeOnDeviceDelete;
 	 }
+	
+	/**
+	 * If set to true then for all concurrency checks in all APIs, system shall exclude free content from counting towards the use of a concurrency slot
+	 * @return bool
+	 */
+	 getExcludeFreeContentFromConcurrency() {
+	 	return this.excludeFreeContentFromConcurrency;
+	 }
+	
+	/**
+	 * @param excludeFreeContentFromConcurrency bool If set to true then for all concurrency checks in all APIs, system shall exclude free content from counting towards the use of a concurrency slot
+	 */
+	 setExcludeFreeContentFromConcurrency(excludeFreeContentFromConcurrency) {
+	 	this.excludeFreeContentFromConcurrency = excludeFreeContentFromConcurrency;
+	 }
 }
 module.exports.ConcurrencyPartnerConfig = ConcurrencyPartnerConfig;
 
@@ -38696,33 +38711,6 @@ module.exports.Purchase = Purchase;
 /**
  *
  */
-class PurchaseSession extends Purchase{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPurchaseSession';
-	}
-	
-	/**
-	 * Preview module identifier (relevant only for subscription)
-	 * @return int
-	 */
-	 getPreviewModuleId() {
-	 	return this.previewModuleId;
-	 }
-	
-	/**
-	 * @param previewModuleId int Preview module identifier (relevant only for subscription)
-	 */
-	 setPreviewModuleId(previewModuleId) {
-	 	this.previewModuleId = previewModuleId;
-	 }
-}
-module.exports.PurchaseSession = PurchaseSession;
-
-/**
- *
- */
 class ExternalReceipt extends PurchaseBase{
 	
 	constructor(object = null) {
@@ -38761,6 +38749,33 @@ class ExternalReceipt extends PurchaseBase{
 	 }
 }
 module.exports.ExternalReceipt = ExternalReceipt;
+
+/**
+ *
+ */
+class PurchaseSession extends Purchase{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPurchaseSession';
+	}
+	
+	/**
+	 * Preview module identifier (relevant only for subscription)
+	 * @return int
+	 */
+	 getPreviewModuleId() {
+	 	return this.previewModuleId;
+	 }
+	
+	/**
+	 * @param previewModuleId int Preview module identifier (relevant only for subscription)
+	 */
+	 setPreviewModuleId(previewModuleId) {
+	 	this.previewModuleId = previewModuleId;
+	 }
+}
+module.exports.PurchaseSession = PurchaseSession;
 
 /**
  *
