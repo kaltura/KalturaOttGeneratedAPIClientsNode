@@ -5621,6 +5621,21 @@ class Bookmark extends SlimAsset{
 	 setIsReportingMode(isReportingMode) {
 	 	this.isReportingMode = isReportingMode;
 	 }
+	
+	/**
+	 * Playback context type
+	 * @return string
+	 */
+	 getContext() {
+	 	return this.context;
+	 }
+	
+	/**
+	 * @param context string Playback context type
+	 */
+	 setContext(context) {
+	 	this.context = context;
+	 }
 }
 module.exports.Bookmark = Bookmark;
 
@@ -11286,14 +11301,14 @@ class Discount extends Price{
 	
 	/**
 	 * The discount percentage
-	 * @return int
+	 * @return float
 	 */
 	 getPercentage() {
 	 	return this.percentage;
 	 }
 	
 	/**
-	 * @param percentage int The discount percentage
+	 * @param percentage float The discount percentage
 	 */
 	 setPercentage(percentage) {
 	 	this.percentage = percentage;
@@ -38696,33 +38711,6 @@ module.exports.Purchase = Purchase;
 /**
  *
  */
-class PurchaseSession extends Purchase{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPurchaseSession';
-	}
-	
-	/**
-	 * Preview module identifier (relevant only for subscription)
-	 * @return int
-	 */
-	 getPreviewModuleId() {
-	 	return this.previewModuleId;
-	 }
-	
-	/**
-	 * @param previewModuleId int Preview module identifier (relevant only for subscription)
-	 */
-	 setPreviewModuleId(previewModuleId) {
-	 	this.previewModuleId = previewModuleId;
-	 }
-}
-module.exports.PurchaseSession = PurchaseSession;
-
-/**
- *
- */
 class ExternalReceipt extends PurchaseBase{
 	
 	constructor(object = null) {
@@ -38761,6 +38749,33 @@ class ExternalReceipt extends PurchaseBase{
 	 }
 }
 module.exports.ExternalReceipt = ExternalReceipt;
+
+/**
+ *
+ */
+class PurchaseSession extends Purchase{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPurchaseSession';
+	}
+	
+	/**
+	 * Preview module identifier (relevant only for subscription)
+	 * @return int
+	 */
+	 getPreviewModuleId() {
+	 	return this.previewModuleId;
+	 }
+	
+	/**
+	 * @param previewModuleId int Preview module identifier (relevant only for subscription)
+	 */
+	 setPreviewModuleId(previewModuleId) {
+	 	this.previewModuleId = previewModuleId;
+	 }
+}
+module.exports.PurchaseSession = PurchaseSession;
 
 /**
  *
