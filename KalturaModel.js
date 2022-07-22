@@ -5621,21 +5621,6 @@ class Bookmark extends SlimAsset{
 	 setIsReportingMode(isReportingMode) {
 	 	this.isReportingMode = isReportingMode;
 	 }
-	
-	/**
-	 * Playback context type
-	 * @return string
-	 */
-	 getContext() {
-	 	return this.context;
-	 }
-	
-	/**
-	 * @param context string Playback context type
-	 */
-	 setContext(context) {
-	 	this.context = context;
-	 }
 }
 module.exports.Bookmark = Bookmark;
 
@@ -9459,6 +9444,29 @@ class Collection extends OTTObjectSupportNullable{
 	 getVirtualAssetId() {
 	 	return this.virtualAssetId;
 	 }
+	
+	/**
+	 * A list of file types identifiers that are supported in this collection
+	 * @return array
+	 */
+	 getFileTypes() {
+	 	return this.fileTypes;
+	 }
+	
+	/**
+	 * Comma separated file types identifiers that are supported in this collection
+	 * @return string
+	 */
+	 getFileTypesIds() {
+	 	return this.fileTypesIds;
+	 }
+	
+	/**
+	 * @param fileTypesIds string Comma separated file types identifiers that are supported in this collection
+	 */
+	 setFileTypesIds(fileTypesIds) {
+	 	this.fileTypesIds = fileTypesIds;
+	 }
 }
 module.exports.Collection = Collection;
 
@@ -11301,14 +11309,14 @@ class Discount extends Price{
 	
 	/**
 	 * The discount percentage
-	 * @return float
+	 * @return int
 	 */
 	 getPercentage() {
 	 	return this.percentage;
 	 }
 	
 	/**
-	 * @param percentage float The discount percentage
+	 * @param percentage int The discount percentage
 	 */
 	 setPercentage(percentage) {
 	 	this.percentage = percentage;
