@@ -28,12 +28,13 @@
     "url": "https://github.com/kaltura/clients-generator/issues"
   },
   "dependencies": {
-    "md5": "*",
-    "url": "*",
-    "path": "*",
+    "axios": "^0.27.2",
     "http": "*",
     "https": "*",
-    "querystring": "*"
+    "md5": "*",
+    "path": "*",
+    "querystring": "*",
+    "url": "*"
   },
   "devDependencies": {
     "shortid": "^2.2.8",
