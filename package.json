@@ -1,6 +1,6 @@
 {
-  "name": "kaltura-ott-client-new",
-  "version": "7.8.1-29995",
+  "name": "kaltura-ott-client",
+  "version": "7.8.1-29998",
   "description": "Kaltura OTT NodeJS client library",
   "main": "KalturaClient.js",
   "scripts": {
@@ -28,13 +28,12 @@
     "url": "https://github.com/kaltura/clients-generator/issues"
   },
   "dependencies": {
-    "axios": "^0.27.2",
+    "md5": "*",
+    "url": "*",
+    "path": "*",
     "http": "*",
     "https": "*",
-    "md5": "*",
-    "path": "*",
-    "querystring": "*",
-    "url": "*"
+    "querystring": "*"
   },
   "devDependencies": {
     "shortid": "^2.2.8",

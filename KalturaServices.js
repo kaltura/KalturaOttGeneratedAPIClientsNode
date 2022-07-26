@@ -7522,14 +7522,14 @@ class streamingDevice{
 	
 	/**
 	 * Reserves a concurrency slot for the given asset-device combination.
-	 * @param mediaFileId string KalturaMediaFile.id media file belonging to the asset for which a concurrency slot is being reserved
+	 * @param fileId string KalturaMediaFile.id media file belonging to the asset for which a concurrency slot is being reserved
 	 * @param assetId string KalturaAsset.id - asset for which a concurrency slot is being reserved
 	 * @param assetType string Identifies the type of asset for which the concurrency slot is being reserved (enum: KalturaAssetType)
 	 * @return bool
 	 */
-	static bookPlaybackSession(mediaFileId, assetId, assetType){
+	static bookPlaybackSession(fileId, assetId, assetType){
 		let kparams = {};
-		kparams.mediaFileId = mediaFileId;
+		kparams.fileId = fileId;
 		kparams.assetId = assetId;
 		kparams.assetType = assetType;
 		return new kaltura.RequestBuilder('streamingdevice', 'bookPlaybackSession', kparams);
