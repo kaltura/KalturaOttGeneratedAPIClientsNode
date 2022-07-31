@@ -5621,6 +5621,21 @@ class Bookmark extends SlimAsset{
 	 setIsReportingMode(isReportingMode) {
 	 	this.isReportingMode = isReportingMode;
 	 }
+	
+	/**
+	 * Playback context type
+	 * @return string
+	 */
+	 getContext() {
+	 	return this.context;
+	 }
+	
+	/**
+	 * @param context string Playback context type
+	 */
+	 setContext(context) {
+	 	this.context = context;
+	 }
 }
 module.exports.Bookmark = Bookmark;
 
@@ -11309,14 +11324,14 @@ class Discount extends Price{
 	
 	/**
 	 * The discount percentage
-	 * @return int
+	 * @return float
 	 */
 	 getPercentage() {
 	 	return this.percentage;
 	 }
 	
 	/**
-	 * @param percentage int The discount percentage
+	 * @param percentage float The discount percentage
 	 */
 	 setPercentage(percentage) {
 	 	this.percentage = percentage;
