@@ -7515,9 +7515,25 @@ module.exports.ssoAdapterProfile = ssoAdapterProfile;
 /**
  *Class definition for the Kaltura service: streamingDevice.
  * The available service actions:
+ * @action bookPlaybackSession Reserves a concurrency slot for the given asset-device combination.
  * @action list Lists of devices that are streaming at that moment.
  */
 class streamingDevice{
+	
+	/**
+	 * Reserves a concurrency slot for the given asset-device combination.
+	 * @param fileId string KalturaMediaFile.id media file belonging to the asset for which a concurrency slot is being reserved
+	 * @param assetId string KalturaAsset.id - asset for which a concurrency slot is being reserved
+	 * @param assetType string Identifies the type of asset for which the concurrency slot is being reserved (enum: KalturaAssetType)
+	 * @return bool
+	 */
+	static bookPlaybackSession(fileId, assetId, assetType){
+		let kparams = {};
+		kparams.fileId = fileId;
+		kparams.assetId = assetId;
+		kparams.assetType = assetType;
+		return new kaltura.RequestBuilder('streamingdevice', 'bookPlaybackSession', kparams);
+	};
 	
 	/**
 	 * Lists of devices that are streaming at that moment.
