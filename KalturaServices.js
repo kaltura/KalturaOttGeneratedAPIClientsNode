@@ -4176,7 +4176,7 @@ class iot{
 	
 	/**
 	 * Register IOT device.
-	 * @return KalturaIot
+	 * @return bool
 	 */
 	static register(){
 		let kparams = {};
@@ -4189,45 +4189,17 @@ module.exports.iot = iot;
 /**
  *Class definition for the Kaltura service: iotProfile.
  * The available service actions:
- * @action add Add new KalturaIotProfile.
- * @action get Get existing KalturaIotProfile.
- * @action update Update existing KalturaIotProfile.
+ * @action add Add new new environment in aws.
  */
 class iotProfile{
 	
 	/**
-	 * Add new KalturaIotProfile.
-	 * @param objectToAdd IotProfile KalturaIotProfile Object to add
-	 * @return KalturaIotProfile
+	 * Add new new environment in aws.
+	 * @return bool
 	 */
-	static add(objectToAdd){
+	static add(){
 		let kparams = {};
-		kparams.objectToAdd = objectToAdd;
 		return new kaltura.RequestBuilder('iotprofile', 'add', kparams);
-	};
-	
-	/**
-	 * Get existing KalturaIotProfile.
-	 * @param id int KalturaIotProfile identifier
-	 * @return KalturaIotProfile
-	 */
-	static get(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('iotprofile', 'get', kparams);
-	};
-	
-	/**
-	 * Update existing KalturaIotProfile.
-	 * @param id int id of KalturaIotProfile to update
-	 * @param objectToUpdate IotProfile KalturaIotProfile Object to update
-	 * @return KalturaIotProfile
-	 */
-	static update(id, objectToUpdate){
-		let kparams = {};
-		kparams.id = id;
-		kparams.objectToUpdate = objectToUpdate;
-		return new kaltura.RequestBuilder('iotprofile', 'update', kparams);
 	};
 }
 module.exports.iotProfile = iotProfile;
