@@ -255,6 +255,11 @@ POSITION_ASC : 'POSITION_ASC',
 POSITION_DESC : 'POSITION_DESC',
 };
 
+module.exports.BooleanOperator = {
+AND : 'And',
+OR : 'Or',
+};
+
 module.exports.BulkUploadJobAction = {
 UPSERT : 'Upsert',
 DELETE : 'Delete',
@@ -293,6 +298,11 @@ PAGO : 'pago',
 
 module.exports.CampaignOrderBy = {
 START_DATE_DESC : 'START_DATE_DESC',
+START_DATE_ASC : 'START_DATE_ASC',
+UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
+UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
+END_DATE_DESC : 'END_DATE_DESC',
+END_DATE_ASC : 'END_DATE_ASC',
 };
 
 module.exports.CategoryItemOrderBy = {
@@ -1191,6 +1201,8 @@ USER_SESSION_PROFILE : 'USER_SESSION_PROFILE',
 DEVICE_DYNAMIC_DATA : 'DEVICE_DYNAMIC_DATA',
 IP_V6_RANGE : 'IP_V6_RANGE',
 ASSET_SHOP : 'ASSET_SHOP',
+CHANNEL : 'CHANNEL',
+FILE_TYPE : 'FILE_TYPE',
 };
 
 module.exports.RuleLevel = {

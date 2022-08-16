@@ -1232,6 +1232,21 @@ class SegmentationTypeFilter extends BaseSegmentationTypeFilter{
 	 setKSql(kSql) {
 	 	this.kSql = kSql;
 	 }
+	
+	/**
+	 * Name of segment contains specific string value
+	 * @return string
+	 */
+	 getNameContain() {
+	 	return this.nameContain;
+	 }
+	
+	/**
+	 * @param nameContain string Name of segment contains specific string value
+	 */
+	 setNameContain(nameContain) {
+	 	this.nameContain = nameContain;
+	 }
 }
 module.exports.SegmentationTypeFilter = SegmentationTypeFilter;
 
@@ -1258,6 +1273,21 @@ class SegmentValueFilter extends BaseSegmentationTypeFilter{
 	 */
 	 setIdIn(idIn) {
 	 	this.idIn = idIn;
+	 }
+	
+	/**
+	 * Name of segment contains specific string value
+	 * @return string
+	 */
+	 getNameContain() {
+	 	return this.nameContain;
+	 }
+	
+	/**
+	 * @param nameContain string Name of segment contains specific string value
+	 */
+	 setNameContain(nameContain) {
+	 	this.nameContain = nameContain;
 	 }
 }
 module.exports.SegmentValueFilter = SegmentValueFilter;
@@ -6649,6 +6679,51 @@ class CampaignSearchFilter extends CampaignFilter{
 	 setHasPromotion(hasPromotion) {
 	 	this.hasPromotion = hasPromotion;
 	 }
+	
+	/**
+	 * Filter the Campaign with this name
+	 * @return string
+	 */
+	 getNameEqual() {
+	 	return this.nameEqual;
+	 }
+	
+	/**
+	 * @param nameEqual string Filter the Campaign with this name
+	 */
+	 setNameEqual(nameEqual) {
+	 	this.nameEqual = nameEqual;
+	 }
+	
+	/**
+	 * A string that is included in the Campaign name
+	 * @return string
+	 */
+	 getNameContains() {
+	 	return this.nameContains;
+	 }
+	
+	/**
+	 * @param nameContains string A string that is included in the Campaign name
+	 */
+	 setNameContains(nameContains) {
+	 	this.nameContains = nameContains;
+	 }
+	
+	/**
+	 * Comma separated Campaign State list
+	 * @return string
+	 */
+	 getStateIn() {
+	 	return this.stateIn;
+	 }
+	
+	/**
+	 * @param stateIn string Comma separated Campaign State list
+	 */
+	 setStateIn(stateIn) {
+	 	this.stateIn = stateIn;
+	 }
 }
 module.exports.CampaignSearchFilter = CampaignSearchFilter;
 
@@ -9458,6 +9533,29 @@ class Collection extends OTTObjectSupportNullable{
 	 */
 	 getVirtualAssetId() {
 	 	return this.virtualAssetId;
+	 }
+	
+	/**
+	 * A list of file types identifiers that are supported in this collection
+	 * @return array
+	 */
+	 getFileTypes() {
+	 	return this.fileTypes;
+	 }
+	
+	/**
+	 * Comma separated file types identifiers that are supported in this collection
+	 * @return string
+	 */
+	 getFileTypesIds() {
+	 	return this.fileTypesIds;
+	 }
+	
+	/**
+	 * @param fileTypesIds string Comma separated file types identifiers that are supported in this collection
+	 */
+	 setFileTypesIds(fileTypesIds) {
+	 	this.fileTypesIds = fileTypesIds;
 	 }
 }
 module.exports.Collection = Collection;
@@ -12615,6 +12713,33 @@ module.exports.AssetShopCondition = AssetShopCondition;
 /**
  *
  */
+class ChannelCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaChannelCondition';
+	}
+	
+	/**
+	 * Comma separated channel IDs list
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated channel IDs list
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.ChannelCondition = ChannelCondition;
+
+/**
+ *
+ */
 class NotCondition extends Condition{
 	
 	constructor(object = null) {
@@ -13280,6 +13405,33 @@ class UserSessionProfileCondition extends Condition{
 	 }
 }
 module.exports.UserSessionProfileCondition = UserSessionProfileCondition;
+
+/**
+ *
+ */
+class FileTypeCondition extends Condition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaFileTypeCondition';
+	}
+	
+	/**
+	 * Comma separated filetype IDs list
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma separated filetype IDs list
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.FileTypeCondition = FileTypeCondition;
 
 /**
  *
@@ -14260,27 +14412,12 @@ module.exports.TvmGeoRule = TvmGeoRule;
 /**
  *
  */
-class Promotion extends kaltura.BaseObject{
+class BasePromotion extends kaltura.BaseObject{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaPromotion';
+		this.objectType = 'KalturaBasePromotion';
 	}
-	
-	/**
-	 * The discount module id that is promoted to the user
-	 * @return int
-	 */
-	 getDiscountModuleId() {
-	 	return this.discountModuleId;
-	 }
-	
-	/**
-	 * @param discountModuleId int The discount module id that is promoted to the user
-	 */
-	 setDiscountModuleId(discountModuleId) {
-	 	this.discountModuleId = discountModuleId;
-	 }
 	
 	/**
 	 * These conditions define the Promotion that applies on
@@ -14296,23 +14433,8 @@ class Promotion extends kaltura.BaseObject{
 	 setConditions(conditions) {
 	 	this.conditions = conditions;
 	 }
-	
-	/**
-	 * the numer of recurring for this promotion
-	 * @return int
-	 */
-	 getNumberOfRecurring() {
-	 	return this.numberOfRecurring;
-	 }
-	
-	/**
-	 * @param numberOfRecurring int the numer of recurring for this promotion
-	 */
-	 setNumberOfRecurring(numberOfRecurring) {
-	 	this.numberOfRecurring = numberOfRecurring;
-	 }
 }
-module.exports.Promotion = Promotion;
+module.exports.BasePromotion = BasePromotion;
 
 /**
  *
@@ -14433,14 +14555,14 @@ class Campaign extends OTTObjectSupportNullable{
 	
 	/**
 	 * The Promotion that is promoted to the user
-	 * @return Promotion
+	 * @return BasePromotion
 	 */
 	 getPromotion() {
 	 	return this.promotion;
 	 }
 	
 	/**
-	 * @param promotion Promotion The Promotion that is promoted to the user
+	 * @param promotion BasePromotion The Promotion that is promoted to the user
 	 */
 	 setPromotion(promotion) {
 	 	this.promotion = promotion;
@@ -14561,6 +14683,75 @@ class TriggerCampaign extends Campaign{
 	 }
 }
 module.exports.TriggerCampaign = TriggerCampaign;
+
+/**
+ *
+ */
+class CouponPromotion extends BasePromotion{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCouponPromotion';
+	}
+	
+	/**
+	 * CouponGroup identifier
+	 * @return int
+	 */
+	 getCouponGroupId() {
+	 	return this.couponGroupId;
+	 }
+	
+	/**
+	 * @param couponGroupId int CouponGroup identifier
+	 */
+	 setCouponGroupId(couponGroupId) {
+	 	this.couponGroupId = couponGroupId;
+	 }
+}
+module.exports.CouponPromotion = CouponPromotion;
+
+/**
+ *
+ */
+class Promotion extends BasePromotion{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPromotion';
+	}
+	
+	/**
+	 * The discount module id that is promoted to the user
+	 * @return int
+	 */
+	 getDiscountModuleId() {
+	 	return this.discountModuleId;
+	 }
+	
+	/**
+	 * @param discountModuleId int The discount module id that is promoted to the user
+	 */
+	 setDiscountModuleId(discountModuleId) {
+	 	this.discountModuleId = discountModuleId;
+	 }
+	
+	/**
+	 * the numer of recurring for this promotion
+	 * @return int
+	 */
+	 getNumberOfRecurring() {
+	 	return this.numberOfRecurring;
+	 }
+	
+	/**
+	 * @param numberOfRecurring int the numer of recurring for this promotion
+	 */
+	 setNumberOfRecurring(numberOfRecurring) {
+	 	this.numberOfRecurring = numberOfRecurring;
+	 }
+}
+module.exports.Promotion = Promotion;
 
 /**
  *
@@ -17483,6 +17674,21 @@ class SegmentationType extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * Boolean operator between segmentation type&#39;s conditions - defaults to &quot;And&quot;
+	 * @return string
+	 */
+	 getConditionsOperator() {
+	 	return this.conditionsOperator;
+	 }
+	
+	/**
+	 * @param conditionsOperator string Boolean operator between segmentation type&#39;s conditions - defaults to &quot;And&quot;
+	 */
+	 setConditionsOperator(conditionsOperator) {
+	 	this.conditionsOperator = conditionsOperator;
+	 }
+	
+	/**
 	 * Segmentation conditions - can be empty
 	 * @return array
 	 */
@@ -17518,6 +17724,22 @@ class SegmentationType extends kaltura.BaseObject{
 	 */
 	 getCreateDate() {
 	 	return this.createDate;
+	 }
+	
+	/**
+	 * Update date of segmentation type
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
+	
+	/**
+	 * Last date of execution of segmentation type
+	 * @return int
+	 */
+	 getExecuteDate() {
+	 	return this.executeDate;
 	 }
 	
 	/**
@@ -17831,6 +18053,21 @@ class MonetizationCondition extends BaseSegmentCondition{
 	 */
 	 setBusinessModuleIdIn(businessModuleIdIn) {
 	 	this.businessModuleIdIn = businessModuleIdIn;
+	 }
+	
+	/**
+	 * Which currency code should be taken into consideration
+	 * @return string
+	 */
+	 getCurrencyCode() {
+	 	return this.currencyCode;
+	 }
+	
+	/**
+	 * @param currencyCode string Which currency code should be taken into consideration
+	 */
+	 setCurrencyCode(currencyCode) {
+	 	this.currencyCode = currencyCode;
 	 }
 }
 module.exports.MonetizationCondition = MonetizationCondition;
@@ -18478,6 +18715,14 @@ class SingleSegmentValue extends BaseSegmentValue{
 	 */
 	 getAffectedUsers() {
 	 	return this.affectedUsers;
+	 }
+	
+	/**
+	 * The amount of households that are being affected by this Segmentation type
+	 * @return int
+	 */
+	 getAffectedHouseholds() {
+	 	return this.affectedHouseholds;
 	 }
 }
 module.exports.SingleSegmentValue = SingleSegmentValue;
@@ -20442,6 +20687,21 @@ class ConcurrencyPartnerConfig extends PartnerConfiguration{
 	 */
 	 setRevokeOnDeviceDelete(revokeOnDeviceDelete) {
 	 	this.revokeOnDeviceDelete = revokeOnDeviceDelete;
+	 }
+	
+	/**
+	 * If set to true then for all concurrency checks in all APIs, system shall exclude free content from counting towards the use of a concurrency slot
+	 * @return bool
+	 */
+	 getExcludeFreeContentFromConcurrency() {
+	 	return this.excludeFreeContentFromConcurrency;
+	 }
+	
+	/**
+	 * @param excludeFreeContentFromConcurrency bool If set to true then for all concurrency checks in all APIs, system shall exclude free content from counting towards the use of a concurrency slot
+	 */
+	 setExcludeFreeContentFromConcurrency(excludeFreeContentFromConcurrency) {
+	 	this.excludeFreeContentFromConcurrency = excludeFreeContentFromConcurrency;
 	 }
 }
 module.exports.ConcurrencyPartnerConfig = ConcurrencyPartnerConfig;
