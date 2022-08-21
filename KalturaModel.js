@@ -15168,48 +15168,6 @@ module.exports.IotProfileAws = IotProfileAws;
 /**
  *
  */
-class IotProfile extends OTTObjectSupportNullable{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaIotProfile';
-	}
-	
-	/**
-	 * adapterUrl
-	 * @return string
-	 */
-	 getAdapterUrl() {
-	 	return this.adapterUrl;
-	 }
-	
-	/**
-	 * @param adapterUrl string adapterUrl
-	 */
-	 setAdapterUrl(adapterUrl) {
-	 	this.adapterUrl = adapterUrl;
-	 }
-	
-	/**
-	 * kalturaIotProfileAws
-	 * @return IotProfileAws
-	 */
-	 getIotProfileAws() {
-	 	return this.iotProfileAws;
-	 }
-	
-	/**
-	 * @param iotProfileAws IotProfileAws kalturaIotProfileAws
-	 */
-	 setIotProfileAws(iotProfileAws) {
-	 	this.iotProfileAws = iotProfileAws;
-	 }
-}
-module.exports.IotProfile = IotProfile;
-
-/**
- *
- */
 class AssetFile extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -31374,33 +31332,6 @@ module.exports.IotListResponse = IotListResponse;
 /**
  *
  */
-class IotProfileListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaIotProfileListResponse';
-	}
-	
-	/**
-	 * A list of objects
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array A list of objects
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.IotProfileListResponse = IotProfileListResponse;
-
-/**
- *
- */
 class Language extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -36130,144 +36061,6 @@ module.exports.IngestStatusPartnerConfiguration = IngestStatusPartnerConfigurati
 /**
  *
  */
-class IotDefault extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaIotDefault';
-	}
-	
-	/**
-	 * PoolId
-	 * @return string
-	 */
-	 getPoolId() {
-	 	return this.poolId;
-	 }
-	
-	/**
-	 * @param poolId string PoolId
-	 */
-	 setPoolId(poolId) {
-	 	this.poolId = poolId;
-	 }
-	
-	/**
-	 * Region
-	 * @return string
-	 */
-	 getRegion() {
-	 	return this.region;
-	 }
-	
-	/**
-	 * @param region string Region
-	 */
-	 setRegion(region) {
-	 	this.region = region;
-	 }
-	
-	/**
-	 * AppClientId
-	 * @return string
-	 */
-	 getAppClientId() {
-	 	return this.appClientId;
-	 }
-	
-	/**
-	 * @param appClientId string AppClientId
-	 */
-	 setAppClientId(appClientId) {
-	 	this.appClientId = appClientId;
-	 }
-}
-module.exports.IotDefault = IotDefault;
-
-/**
- *
- */
-class CognitoIdentity extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCognitoIdentity';
-	}
-	
-	/**
-	 * Default
-	 * @return IotDefault
-	 */
-	 getIotDefault() {
-	 	return this.iotDefault;
-	 }
-	
-	/**
-	 * @param iotDefault IotDefault Default
-	 */
-	 setIotDefault(iotDefault) {
-	 	this.iotDefault = iotDefault;
-	 }
-}
-module.exports.CognitoIdentity = CognitoIdentity;
-
-/**
- *
- */
-class CredentialsProvider extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCredentialsProvider';
-	}
-	
-	/**
-	 * KalturaCognitoIdentity
-	 * @return CognitoIdentity
-	 */
-	 getCognitoIdentity() {
-	 	return this.cognitoIdentity;
-	 }
-	
-	/**
-	 * @param cognitoIdentity CognitoIdentity KalturaCognitoIdentity
-	 */
-	 setCognitoIdentity(cognitoIdentity) {
-	 	this.cognitoIdentity = cognitoIdentity;
-	 }
-}
-module.exports.CredentialsProvider = CredentialsProvider;
-
-/**
- *
- */
-class CognitoUserPool extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCognitoUserPool';
-	}
-	
-	/**
-	 * Default
-	 * @return IotDefault
-	 */
-	 getIotDefault() {
-	 	return this.iotDefault;
-	 }
-	
-	/**
-	 * @param iotDefault IotDefault Default
-	 */
-	 setIotDefault(iotDefault) {
-	 	this.iotDefault = iotDefault;
-	 }
-}
-module.exports.CognitoUserPool = CognitoUserPool;
-
-/**
- *
- */
 class IotClientConfiguration extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -36276,78 +36069,213 @@ class IotClientConfiguration extends kaltura.BaseObject{
 	}
 	
 	/**
-	 * announcementTopic
+	 * IdentityPoolId
 	 * @return string
 	 */
-	 getAnnouncementTopic() {
-	 	return this.announcementTopic;
+	 getIdentityPoolId() {
+	 	return this.identityPoolId;
 	 }
 	
 	/**
-	 * @param announcementTopic string announcementTopic
+	 * @param identityPoolId string IdentityPoolId
 	 */
-	 setAnnouncementTopic(announcementTopic) {
-	 	this.announcementTopic = announcementTopic;
+	 setIdentityPoolId(identityPoolId) {
+	 	this.identityPoolId = identityPoolId;
 	 }
 	
 	/**
-	 * KalturaCredentialsProvider
-	 * @return CredentialsProvider
-	 */
-	 getCredentialsProvider() {
-	 	return this.credentialsProvider;
-	 }
-	
-	/**
-	 * @param credentialsProvider CredentialsProvider KalturaCredentialsProvider
-	 */
-	 setCredentialsProvider(credentialsProvider) {
-	 	this.credentialsProvider = credentialsProvider;
-	 }
-	
-	/**
-	 * CognitoUserPool
-	 * @return CognitoUserPool
-	 */
-	 getCognitoUserPool() {
-	 	return this.cognitoUserPool;
-	 }
-	
-	/**
-	 * @param cognitoUserPool CognitoUserPool CognitoUserPool
-	 */
-	 setCognitoUserPool(cognitoUserPool) {
-	 	this.cognitoUserPool = cognitoUserPool;
-	 }
-	
-	/**
-	 * json
+	 * UserPoolId
 	 * @return string
 	 */
-	 getJson() {
-	 	return this.json;
+	 getUserPoolId() {
+	 	return this.userPoolId;
 	 }
 	
 	/**
-	 * @param json string json
+	 * @param userPoolId string UserPoolId
 	 */
-	 setJson(json) {
-	 	this.json = json;
+	 setUserPoolId(userPoolId) {
+	 	this.userPoolId = userPoolId;
+	 }
+	
+	/**
+	 * AwsRegion
+	 * @return string
+	 */
+	 getAwsRegion() {
+	 	return this.awsRegion;
+	 }
+	
+	/**
+	 * @param awsRegion string AwsRegion
+	 */
+	 setAwsRegion(awsRegion) {
+	 	this.awsRegion = awsRegion;
+	 }
+	
+	/**
+	 * appClientId
+	 * @return string
+	 */
+	 getAppClientId() {
+	 	return this.appClientId;
+	 }
+	
+	/**
+	 * @param appClientId string appClientId
+	 */
+	 setAppClientId(appClientId) {
+	 	this.appClientId = appClientId;
+	 }
+	
+	/**
+	 * legacyEndPoint
+	 * @return string
+	 */
+	 getLegacyEndPoint() {
+	 	return this.legacyEndPoint;
+	 }
+	
+	/**
+	 * @param legacyEndPoint string legacyEndPoint
+	 */
+	 setLegacyEndPoint(legacyEndPoint) {
+	 	this.legacyEndPoint = legacyEndPoint;
+	 }
+	
+	/**
+	 * endPoint
+	 * @return string
+	 */
+	 getEndPoint() {
+	 	return this.endPoint;
+	 }
+	
+	/**
+	 * @param endPoint string endPoint
+	 */
+	 setEndPoint(endPoint) {
+	 	this.endPoint = endPoint;
+	 }
+	
+	/**
+	 * thingName
+	 * @return string
+	 */
+	 getThingName() {
+	 	return this.thingName;
+	 }
+	
+	/**
+	 * @param thingName string thingName
+	 */
+	 setThingName(thingName) {
+	 	this.thingName = thingName;
+	 }
+	
+	/**
+	 * thingArn
+	 * @return string
+	 */
+	 getThingArn() {
+	 	return this.thingArn;
+	 }
+	
+	/**
+	 * @param thingArn string thingArn
+	 */
+	 setThingArn(thingArn) {
+	 	this.thingArn = thingArn;
+	 }
+	
+	/**
+	 * thingId
+	 * @return string
+	 */
+	 getThingId() {
+	 	return this.thingId;
+	 }
+	
+	/**
+	 * @param thingId string thingId
+	 */
+	 setThingId(thingId) {
+	 	this.thingId = thingId;
+	 }
+	
+	/**
+	 * username
+	 * @return string
+	 */
+	 getUsername() {
+	 	return this.username;
+	 }
+	
+	/**
+	 * @param username string username
+	 */
+	 setUsername(username) {
+	 	this.username = username;
+	 }
+	
+	/**
+	 * password
+	 * @return string
+	 */
+	 getPassword() {
+	 	return this.password;
+	 }
+	
+	/**
+	 * @param password string password
+	 */
+	 setPassword(password) {
+	 	this.password = password;
 	 }
 	
 	/**
 	 * topics
-	 * @return string
+	 * @return array
 	 */
 	 getTopics() {
 	 	return this.topics;
 	 }
 	
 	/**
-	 * @param topics string topics
+	 * @param topics array topics
 	 */
 	 setTopics(topics) {
 	 	this.topics = topics;
+	 }
+	
+	/**
+	 * status
+	 * @return string
+	 */
+	 getStatus() {
+	 	return this.status;
+	 }
+	
+	/**
+	 * @param status string status
+	 */
+	 setStatus(status) {
+	 	this.status = status;
+	 }
+	
+	/**
+	 * message
+	 * @return string
+	 */
+	 getMessage() {
+	 	return this.message;
+	 }
+	
+	/**
+	 * @param message string message
+	 */
+	 setMessage(message) {
+	 	this.message = message;
 	 }
 }
 module.exports.IotClientConfiguration = IotClientConfiguration;
