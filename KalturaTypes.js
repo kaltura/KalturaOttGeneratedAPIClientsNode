@@ -255,11 +255,6 @@ POSITION_ASC : 'POSITION_ASC',
 POSITION_DESC : 'POSITION_DESC',
 };
 
-module.exports.BooleanOperator = {
-AND : 'And',
-OR : 'Or',
-};
-
 module.exports.BulkUploadJobAction = {
 UPSERT : 'Upsert',
 DELETE : 'Delete',
