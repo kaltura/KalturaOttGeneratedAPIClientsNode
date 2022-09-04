@@ -255,6 +255,11 @@ POSITION_ASC : 'POSITION_ASC',
 POSITION_DESC : 'POSITION_DESC',
 };
 
+module.exports.BooleanOperator = {
+AND : 'And',
+OR : 'Or',
+};
+
 module.exports.BulkUploadJobAction = {
 UPSERT : 'Upsert',
 DELETE : 'Delete',
@@ -863,6 +868,8 @@ module.exports.MonetizationType = {
 PPV : 'ppv',
 SUBSCRIPTION : 'subscription',
 BOXSET : 'boxset',
+ANY : 'any',
+PPV_LIVE : 'ppv_live',
 };
 
 module.exports.NotificationType = {
@@ -1234,6 +1241,17 @@ module.exports.SearchPriorityGroupOrderBy = {
 PRIORITY_DESC : 'PRIORITY_DESC',
 NAME_ASC : 'NAME_ASC',
 NAME_DESC : 'NAME_DESC',
+};
+
+module.exports.SegmentationTypeOrderBy = {
+UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
+UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
+CREATE_DATE_DESC : 'CREATE_DATE_DESC',
+CREATE_DATE_ASC : 'CREATE_DATE_ASC',
+EXECUTE_DATE_DESC : 'EXECUTE_DATE_DESC',
+EXECUTE_DATE_ASC : 'EXECUTE_DATE_ASC',
+AFFECTED_USERS_DESC : 'AFFECTED_USERS_DESC',
+AFFECTED_USERS_ASC : 'AFFECTED_USERS_ASC',
 };
 
 module.exports.SeriesRecordingOrderBy = {

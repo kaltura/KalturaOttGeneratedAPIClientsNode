@@ -6891,8 +6891,10 @@ module.exports.searchPriorityGroupOrderedIdsSet = searchPriorityGroupOrderedIdsS
  * The available service actions:
  * @action add Adds a new segmentation type to the system.
  * @action delete Delete a segmentation type from the system.
+ * @action getPartnerConfiguration Get existing segmentation partner configuration.
  * @action list Lists all segmentation types in group.
  * @action update Updates an existing segmentation type.
+ * @action updatePartnerConfiguration Set segmentation configuration on partner level.
  */
 class segmentationType{
 	
@@ -6919,6 +6921,15 @@ class segmentationType{
 	};
 	
 	/**
+	 * Get existing segmentation partner configuration.
+	 * @return KalturaSegmentationPartnerConfiguration
+	 */
+	static getPartnerConfiguration(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('segmentationtype', 'getPartnerConfiguration', kparams);
+	};
+	
+	/**
 	 * Lists all segmentation types in group.
 	 * @param filter BaseSegmentationTypeFilter Segmentation type filter - basically empty (optional, default: null)
 	 * @param pager FilterPager Simple pager (optional, default: null)
@@ -6942,6 +6953,17 @@ class segmentationType{
 		kparams.segmentationTypeId = segmentationTypeId;
 		kparams.segmentationType = segmentationType;
 		return new kaltura.RequestBuilder('segmentationtype', 'update', kparams);
+	};
+	
+	/**
+	 * Set segmentation configuration on partner level.
+	 * @param configuration SegmentationPartnerConfiguration New configuration to set
+	 * @return KalturaSegmentationPartnerConfiguration
+	 */
+	static updatePartnerConfiguration(configuration){
+		let kparams = {};
+		kparams.configuration = configuration;
+		return new kaltura.RequestBuilder('segmentationtype', 'updatePartnerConfiguration', kparams);
 	};
 }
 module.exports.segmentationType = segmentationType;

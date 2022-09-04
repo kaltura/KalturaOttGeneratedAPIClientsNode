@@ -1232,6 +1232,21 @@ class SegmentationTypeFilter extends BaseSegmentationTypeFilter{
 	 setKSql(kSql) {
 	 	this.kSql = kSql;
 	 }
+	
+	/**
+	 * Name of segment contains specific string value
+	 * @return string
+	 */
+	 getNameContain() {
+	 	return this.nameContain;
+	 }
+	
+	/**
+	 * @param nameContain string Name of segment contains specific string value
+	 */
+	 setNameContain(nameContain) {
+	 	this.nameContain = nameContain;
+	 }
 }
 module.exports.SegmentationTypeFilter = SegmentationTypeFilter;
 
@@ -6735,6 +6750,33 @@ class CampaignIdInFilter extends CampaignFilter{
 	 }
 }
 module.exports.CampaignIdInFilter = CampaignIdInFilter;
+
+/**
+ *
+ */
+class CampaignSegmentFilter extends CampaignSearchFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCampaignSegmentFilter';
+	}
+	
+	/**
+	 * comma separeted segment ids to be searched inside campaigns
+	 * @return string
+	 */
+	 getSegmentIdIn() {
+	 	return this.segmentIdIn;
+	 }
+	
+	/**
+	 * @param segmentIdIn string comma separeted segment ids to be searched inside campaigns
+	 */
+	 setSegmentIdIn(segmentIdIn) {
+	 	this.segmentIdIn = segmentIdIn;
+	 }
+}
+module.exports.CampaignSegmentFilter = CampaignSegmentFilter;
 
 /**
  *
@@ -16857,6 +16899,57 @@ module.exports.BulkUploadListResponse = BulkUploadListResponse;
 /**
  *
  */
+class BaseBulkUploadSegmentsResult extends BulkUploadResult{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBaseBulkUploadSegmentsResult';
+	}
+	
+	/**
+	 * Segment Id
+	 * @return int
+	 */
+	 getSegmentId() {
+	 	return this.segmentId;
+	 }
+	
+	/**
+	 * @param segmentId int Segment Id
+	 */
+	 setSegmentId(segmentId) {
+	 	this.segmentId = segmentId;
+	 }
+}
+module.exports.BaseBulkUploadSegmentsResult = BaseBulkUploadSegmentsResult;
+
+/**
+ *
+ */
+class BulkSegmentedHouseholdsResult extends BaseBulkUploadSegmentsResult{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkSegmentedHouseholdsResult';
+	}
+}
+module.exports.BulkSegmentedHouseholdsResult = BulkSegmentedHouseholdsResult;
+
+/**
+ *
+ */
+class BulkSegmentedUsersResult extends BaseBulkUploadSegmentsResult{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkSegmentedUsersResult';
+	}
+}
+module.exports.BulkSegmentedUsersResult = BulkSegmentedUsersResult;
+
+/**
+ *
+ */
 class BulkUploadAssetResult extends BulkUploadResult{
 	
 	constructor(object = null) {
@@ -17602,6 +17695,21 @@ class SegmentationType extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * Boolean operator between segmentation type&#39;s conditions - defaults to &quot;And&quot;
+	 * @return string
+	 */
+	 getConditionsOperator() {
+	 	return this.conditionsOperator;
+	 }
+	
+	/**
+	 * @param conditionsOperator string Boolean operator between segmentation type&#39;s conditions - defaults to &quot;And&quot;
+	 */
+	 setConditionsOperator(conditionsOperator) {
+	 	this.conditionsOperator = conditionsOperator;
+	 }
+	
+	/**
 	 * Segmentation conditions - can be empty
 	 * @return array
 	 */
@@ -17637,6 +17745,22 @@ class SegmentationType extends kaltura.BaseObject{
 	 */
 	 getCreateDate() {
 	 	return this.createDate;
+	 }
+	
+	/**
+	 * Update date of segmentation type
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
+	
+	/**
+	 * Last date of execution of segmentation type
+	 * @return int
+	 */
+	 getExecuteDate() {
+	 	return this.executeDate;
 	 }
 	
 	/**
@@ -17950,6 +18074,21 @@ class MonetizationCondition extends BaseSegmentCondition{
 	 */
 	 setBusinessModuleIdIn(businessModuleIdIn) {
 	 	this.businessModuleIdIn = businessModuleIdIn;
+	 }
+	
+	/**
+	 * Which currency code should be taken into consideration
+	 * @return string
+	 */
+	 getCurrencyCode() {
+	 	return this.currencyCode;
+	 }
+	
+	/**
+	 * @param currencyCode string Which currency code should be taken into consideration
+	 */
+	 setCurrencyCode(currencyCode) {
+	 	this.currencyCode = currencyCode;
 	 }
 }
 module.exports.MonetizationCondition = MonetizationCondition;
@@ -18597,6 +18736,14 @@ class SingleSegmentValue extends BaseSegmentValue{
 	 */
 	 getAffectedUsers() {
 	 	return this.affectedUsers;
+	 }
+	
+	/**
+	 * The amount of households that are being affected by this Segmentation type
+	 * @return int
+	 */
+	 getAffectedHouseholds() {
+	 	return this.affectedHouseholds;
 	 }
 }
 module.exports.SingleSegmentValue = SingleSegmentValue;
@@ -34212,6 +34359,21 @@ class BulkUploadObjectData extends kaltura.BaseObject{
 		super(object);
 		this.objectType = 'KalturaBulkUploadObjectData';
 	}
+	
+	/**
+	 * defaults to upsert
+	 * @return string
+	 */
+	 getAction() {
+	 	return this.action;
+	 }
+	
+	/**
+	 * @param action string defaults to upsert
+	 */
+	 setAction(action) {
+	 	this.action = action;
+	 }
 }
 module.exports.BulkUploadObjectData = BulkUploadObjectData;
 
@@ -34243,6 +34405,57 @@ class BulkUploadAssetData extends BulkUploadObjectData{
 	 }
 }
 module.exports.BulkUploadAssetData = BulkUploadAssetData;
+
+/**
+ *
+ */
+class BaseBulkSegments extends BulkUploadObjectData{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBaseBulkSegments';
+	}
+	
+	/**
+	 * Segment Id to update
+	 * @return int
+	 */
+	 getSegmentId() {
+	 	return this.segmentId;
+	 }
+	
+	/**
+	 * @param segmentId int Segment Id to update
+	 */
+	 setSegmentId(segmentId) {
+	 	this.segmentId = segmentId;
+	 }
+}
+module.exports.BaseBulkSegments = BaseBulkSegments;
+
+/**
+ *
+ */
+class BulkSegmentedHouseholdsData extends BaseBulkSegments{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkSegmentedHouseholdsData';
+	}
+}
+module.exports.BulkSegmentedHouseholdsData = BulkSegmentedHouseholdsData;
+
+/**
+ *
+ */
+class BulkSegmentedusersData extends BaseBulkSegments{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkSegmentedusersData';
+	}
+}
+module.exports.BulkSegmentedusersData = BulkSegmentedusersData;
 
 /**
  *
@@ -37847,6 +38060,48 @@ class SearchPriorityGroupOrderedIdsSet extends kaltura.BaseObject{
 	 }
 }
 module.exports.SearchPriorityGroupOrderedIdsSet = SearchPriorityGroupOrderedIdsSet;
+
+/**
+ *
+ */
+class SegmentationPartnerConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSegmentationPartnerConfiguration';
+	}
+	
+	/**
+	 * The maximum number of past days to be calculated for dynamic segments
+	 * @return int
+	 */
+	 getMaxCalculatedPeriod() {
+	 	return this.maxCalculatedPeriod;
+	 }
+	
+	/**
+	 * @param maxCalculatedPeriod int The maximum number of past days to be calculated for dynamic segments
+	 */
+	 setMaxCalculatedPeriod(maxCalculatedPeriod) {
+	 	this.maxCalculatedPeriod = maxCalculatedPeriod;
+	 }
+	
+	/**
+	 * How many dynamic segments (segments with conditions) the operator is allowed to have
+	 * @return int
+	 */
+	 getMaxDynamicSegments() {
+	 	return this.maxDynamicSegments;
+	 }
+	
+	/**
+	 * @param maxDynamicSegments int How many dynamic segments (segments with conditions) the operator is allowed to have
+	 */
+	 setMaxDynamicSegments(maxDynamicSegments) {
+	 	this.maxDynamicSegments = maxDynamicSegments;
+	 }
+}
+module.exports.SegmentationPartnerConfiguration = SegmentationPartnerConfiguration;
 
 /**
  *
