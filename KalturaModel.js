@@ -36235,14 +36235,14 @@ class IotClientConfiguration extends kaltura.BaseObject{
 	
 	/**
 	 * topics
-	 * @return array
+	 * @return string
 	 */
 	 getTopics() {
 	 	return this.topics;
 	 }
 	
 	/**
-	 * @param topics array topics
+	 * @param topics string topics
 	 */
 	 setTopics(topics) {
 	 	this.topics = topics;
