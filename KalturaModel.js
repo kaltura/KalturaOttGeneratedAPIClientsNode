@@ -6762,18 +6762,18 @@ class CampaignSegmentFilter extends CampaignSearchFilter{
 	}
 	
 	/**
-	 * comma separeted segment ids to be searched inside campaigns
-	 * @return string
+	 * segment id to be searched inside campaigns
+	 * @return int
 	 */
-	 getSegmentIdIn() {
-	 	return this.segmentIdIn;
+	 getSegmentIdEqual() {
+	 	return this.segmentIdEqual;
 	 }
 	
 	/**
-	 * @param segmentIdIn string comma separeted segment ids to be searched inside campaigns
+	 * @param segmentIdEqual int segment id to be searched inside campaigns
 	 */
-	 setSegmentIdIn(segmentIdIn) {
-	 	this.segmentIdIn = segmentIdIn;
+	 setSegmentIdEqual(segmentIdEqual) {
+	 	this.segmentIdEqual = segmentIdEqual;
 	 }
 }
 module.exports.CampaignSegmentFilter = CampaignSegmentFilter;
