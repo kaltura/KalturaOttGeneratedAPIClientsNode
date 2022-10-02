@@ -38072,7 +38072,7 @@ class SegmentationPartnerConfiguration extends kaltura.BaseObject{
 	}
 	
 	/**
-	 * The maximum number of past days to be calculated for dynamic segments
+	 * The maximum number of past days to be calculated for dynamic segments, default=180
 	 * @return int
 	 */
 	 getMaxCalculatedPeriod() {
@@ -38080,14 +38080,14 @@ class SegmentationPartnerConfiguration extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param maxCalculatedPeriod int The maximum number of past days to be calculated for dynamic segments
+	 * @param maxCalculatedPeriod int The maximum number of past days to be calculated for dynamic segments, default=180
 	 */
 	 setMaxCalculatedPeriod(maxCalculatedPeriod) {
 	 	this.maxCalculatedPeriod = maxCalculatedPeriod;
 	 }
 	
 	/**
-	 * How many dynamic segments (segments with conditions) the operator is allowed to have
+	 * How many dynamic segments (segments with conditions) the operator is allowed to have, default=50
 	 * @return int
 	 */
 	 getMaxDynamicSegments() {
@@ -38095,7 +38095,7 @@ class SegmentationPartnerConfiguration extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param maxDynamicSegments int How many dynamic segments (segments with conditions) the operator is allowed to have
+	 * @param maxDynamicSegments int How many dynamic segments (segments with conditions) the operator is allowed to have, default=50
 	 */
 	 setMaxDynamicSegments(maxDynamicSegments) {
 	 	this.maxDynamicSegments = maxDynamicSegments;

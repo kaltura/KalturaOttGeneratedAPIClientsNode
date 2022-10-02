@@ -6891,10 +6891,10 @@ module.exports.searchPriorityGroupOrderedIdsSet = searchPriorityGroupOrderedIdsS
  * The available service actions:
  * @action add Adds a new segmentation type to the system.
  * @action delete Delete a segmentation type from the system.
- * @action getPartnerConfiguration Get existing segmentation partner configuration.
+ * @action getPartnerConfiguration Gets existing partner segmentation configuration.
  * @action list Lists all segmentation types in group.
  * @action update Updates an existing segmentation type.
- * @action updatePartnerConfiguration Set segmentation configuration on partner level.
+ * @action updatePartnerConfiguration Sets partner configuration for segments configuration.
  */
 class segmentationType{
 	
@@ -6921,7 +6921,7 @@ class segmentationType{
 	};
 	
 	/**
-	 * Get existing segmentation partner configuration.
+	 * Gets existing partner segmentation configuration.
 	 * @return KalturaSegmentationPartnerConfiguration
 	 */
 	static getPartnerConfiguration(){
@@ -6956,8 +6956,12 @@ class segmentationType{
 	};
 	
 	/**
-	 * Set segmentation configuration on partner level.
-	 * @param configuration SegmentationPartnerConfiguration New configuration to set
+	 * Sets partner configuration for segments configuration.
+	 * @param configuration SegmentationPartnerConfiguration 1. maxDynamicSegments - how many dynamic segments (segments with conditions) the operator is allowed to have.
+ * Displayed in the OPC as *'Maximum Number of Dynamic Segments'
+ * *maxCalculatedPeriod -
+ * the maximum number of past days to be calculated for dynamic segments. e.g. the last 60 days, the last 90 days etc.
+ * Displayed in OPC as *'Maximum of Dynamic Segments period'*
 	 * @return KalturaSegmentationPartnerConfiguration
 	 */
 	static updatePartnerConfiguration(configuration){
