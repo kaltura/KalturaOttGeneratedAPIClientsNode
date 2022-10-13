@@ -20205,25 +20205,6 @@ class BasePartnerConfiguration extends PartnerConfiguration{
 	 setApptokenUserValidationDisabled(apptokenUserValidationDisabled) {
 	 	this.apptokenUserValidationDisabled = apptokenUserValidationDisabled;
 	 }
-	
-	/**
-	 * epgFeatureVersion
- * defines the epg feature version from version 1 to version 3
- * if not provided v2 will be used
-	 * @return int
-	 */
-	 getEpgFeatureVersion() {
-	 	return this.epgFeatureVersion;
-	 }
-	
-	/**
-	 * @param epgFeatureVersion int epgFeatureVersion
- * defines the epg feature version from version 1 to version 3
- * if not provided v2 will be used
-	 */
-	 setEpgFeatureVersion(epgFeatureVersion) {
-	 	this.epgFeatureVersion = epgFeatureVersion;
-	 }
 }
 module.exports.BasePartnerConfiguration = BasePartnerConfiguration;
 
