@@ -793,6 +793,10 @@ DTT_AND_OTT : 'DTT_AND_OTT',
 VRM_EXPORT : 'VRM_EXPORT',
 };
 
+module.exports.ListGroupsRepresentativesOrderBy = {
+NONE : 'None',
+};
+
 module.exports.ManualCollectionAssetType = {
 MEDIA : 'media',
 EPG : 'epg',
@@ -1427,6 +1431,12 @@ NONE : 'NONE',
 module.exports.TvmRuleType = {
 GEO : 'Geo',
 DEVICE : 'Device',
+};
+
+module.exports.UnmatchedItemsPolicy = {
+OMIT : 'Omit',
+GROUP : 'Group',
+INCLUDE : 'Include',
 };
 
 module.exports.UploadTokenStatus = {

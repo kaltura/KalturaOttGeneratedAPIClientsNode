@@ -228,6 +228,7 @@ module.exports.assetComment = assetComment;
  * @action getAdsContext Returns the data for ads control.
  * @action getPlaybackContext This action delivers all data relevant for player.
  * @action getPlaybackManifest This action delivers all data relevant for player.
+ * @action groupRepresentativeList Returns assets deduplicated by asset metadata (or supported asset&#39;s property).
  * @action list Returns media or EPG assets. Filters by media identifiers or by EPG internal or external identifier.
  * @action listPersonalSelection Returns recent selected assets.
  * @action removeMetasAndTags remove metas and tags from asset.
@@ -348,6 +349,27 @@ class asset{
 		kparams.contextDataParams = contextDataParams;
 		kparams.sourceType = sourceType;
 		return new kaltura.RequestBuilder('asset', 'getPlaybackManifest', kparams);
+	};
+	
+	/**
+	 * Returns assets deduplicated by asset metadata (or supported asset&#39;s property).
+	 * @param groupBy AssetGroupBy A metadata (or supported asset's property) to group by the assets
+	 * @param unmatchedItemsPolicy string Defines the policy to handle assets that don't have groupBy property (enum: KalturaUnmatchedItemsPolicy)
+	 * @param orderBy BaseAssetOrder A metadata or supported asset's property to sort by (optional, default: null)
+	 * @param filter ListGroupsRepresentativesFilter Filtering the assets request (optional, default: null)
+	 * @param selectionPolicy RepresentativeSelectionPolicy A policy that implements a well defined parametric process to select an asset out of group (optional, default: null)
+	 * @param pager FilterPager Paging the request (optional, default: null)
+	 * @return KalturaAssetListResponse
+	 */
+	static groupRepresentativeList(groupBy, unmatchedItemsPolicy, orderBy = null, filter = null, selectionPolicy = null, pager = null){
+		let kparams = {};
+		kparams.groupBy = groupBy;
+		kparams.unmatchedItemsPolicy = unmatchedItemsPolicy;
+		kparams.orderBy = orderBy;
+		kparams.filter = filter;
+		kparams.selectionPolicy = selectionPolicy;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('asset', 'groupRepresentativeList', kparams);
 	};
 	
 	/**

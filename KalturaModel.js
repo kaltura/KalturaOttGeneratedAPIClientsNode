@@ -6386,6 +6386,33 @@ module.exports.SearchPriorityGroupFilter = SearchPriorityGroupFilter;
 /**
  *
  */
+class ListGroupsRepresentativesFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaListGroupsRepresentativesFilter';
+	}
+	
+	/**
+	 * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction
+	 * @return string
+	 */
+	 getKSql() {
+	 	return this.kSql;
+	 }
+	
+	/**
+	 * @param kSql string Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction
+	 */
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
+	 }
+}
+module.exports.ListGroupsRepresentativesFilter = ListGroupsRepresentativesFilter;
+
+/**
+ *
+ */
 class PaymentMethodProfileFilter extends Filter{
 	
 	constructor(object = null) {
@@ -20205,25 +20232,6 @@ class BasePartnerConfiguration extends PartnerConfiguration{
 	 setApptokenUserValidationDisabled(apptokenUserValidationDisabled) {
 	 	this.apptokenUserValidationDisabled = apptokenUserValidationDisabled;
 	 }
-	
-	/**
-	 * epgFeatureVersion
- * defines the epg feature version from version 1 to version 3
- * if not provided v2 will be used
-	 * @return int
-	 */
-	 getEpgFeatureVersion() {
-	 	return this.epgFeatureVersion;
-	 }
-	
-	/**
-	 * @param epgFeatureVersion int epgFeatureVersion
- * defines the epg feature version from version 1 to version 3
- * if not provided v2 will be used
-	 */
-	 setEpgFeatureVersion(epgFeatureVersion) {
-	 	this.epgFeatureVersion = epgFeatureVersion;
-	 }
 }
 module.exports.BasePartnerConfiguration = BasePartnerConfiguration;
 
@@ -33702,6 +33710,72 @@ class SessionInfo extends Session{
 	}
 }
 module.exports.SessionInfo = SessionInfo;
+
+/**
+ *
+ */
+class RepresentativeSelectionPolicy extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRepresentativeSelectionPolicy';
+	}
+}
+module.exports.RepresentativeSelectionPolicy = RepresentativeSelectionPolicy;
+
+/**
+ *
+ */
+class TopRsp extends RepresentativeSelectionPolicy{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTopRsp';
+	}
+	
+	/**
+	 * order by
+	 * @return BaseAssetOrder
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy BaseAssetOrder order by
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.TopRsp = TopRsp;
+
+/**
+ *
+ */
+class TopSubscriptionEntitledRsp extends RepresentativeSelectionPolicy{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTopSubscriptionEntitledRsp';
+	}
+	
+	/**
+	 * order by
+	 * @return BaseAssetOrder
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy BaseAssetOrder order by
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.TopSubscriptionEntitledRsp = TopSubscriptionEntitledRsp;
 
 /**
  *
