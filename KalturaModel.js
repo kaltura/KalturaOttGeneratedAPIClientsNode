@@ -1232,6 +1232,21 @@ class SegmentationTypeFilter extends BaseSegmentationTypeFilter{
 	 setKSql(kSql) {
 	 	this.kSql = kSql;
 	 }
+	
+	/**
+	 * Name of segment contains specific string value
+	 * @return string
+	 */
+	 getNameContain() {
+	 	return this.nameContain;
+	 }
+	
+	/**
+	 * @param nameContain string Name of segment contains specific string value
+	 */
+	 setNameContain(nameContain) {
+	 	this.nameContain = nameContain;
+	 }
 }
 module.exports.SegmentationTypeFilter = SegmentationTypeFilter;
 
@@ -6735,6 +6750,33 @@ class CampaignIdInFilter extends CampaignFilter{
 	 }
 }
 module.exports.CampaignIdInFilter = CampaignIdInFilter;
+
+/**
+ *
+ */
+class CampaignSegmentFilter extends CampaignSearchFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCampaignSegmentFilter';
+	}
+	
+	/**
+	 * segment id to be searched inside campaigns
+	 * @return int
+	 */
+	 getSegmentIdEqual() {
+	 	return this.segmentIdEqual;
+	 }
+	
+	/**
+	 * @param segmentIdEqual int segment id to be searched inside campaigns
+	 */
+	 setSegmentIdEqual(segmentIdEqual) {
+	 	this.segmentIdEqual = segmentIdEqual;
+	 }
+}
+module.exports.CampaignSegmentFilter = CampaignSegmentFilter;
 
 /**
  *
@@ -17602,6 +17644,21 @@ class SegmentationType extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * Boolean operator between segmentation type&#39;s conditions - defaults to &quot;And&quot;
+	 * @return string
+	 */
+	 getConditionsOperator() {
+	 	return this.conditionsOperator;
+	 }
+	
+	/**
+	 * @param conditionsOperator string Boolean operator between segmentation type&#39;s conditions - defaults to &quot;And&quot;
+	 */
+	 setConditionsOperator(conditionsOperator) {
+	 	this.conditionsOperator = conditionsOperator;
+	 }
+	
+	/**
 	 * Segmentation conditions - can be empty
 	 * @return array
 	 */
@@ -17637,6 +17694,22 @@ class SegmentationType extends kaltura.BaseObject{
 	 */
 	 getCreateDate() {
 	 	return this.createDate;
+	 }
+	
+	/**
+	 * Update date of segmentation type
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
+	
+	/**
+	 * Last date of execution of segmentation type
+	 * @return int
+	 */
+	 getExecuteDate() {
+	 	return this.executeDate;
 	 }
 	
 	/**
@@ -17950,6 +18023,21 @@ class MonetizationCondition extends BaseSegmentCondition{
 	 */
 	 setBusinessModuleIdIn(businessModuleIdIn) {
 	 	this.businessModuleIdIn = businessModuleIdIn;
+	 }
+	
+	/**
+	 * Which currency code should be taken into consideration
+	 * @return string
+	 */
+	 getCurrencyCode() {
+	 	return this.currencyCode;
+	 }
+	
+	/**
+	 * @param currencyCode string Which currency code should be taken into consideration
+	 */
+	 setCurrencyCode(currencyCode) {
+	 	this.currencyCode = currencyCode;
 	 }
 }
 module.exports.MonetizationCondition = MonetizationCondition;
@@ -18597,6 +18685,14 @@ class SingleSegmentValue extends BaseSegmentValue{
 	 */
 	 getAffectedUsers() {
 	 	return this.affectedUsers;
+	 }
+	
+	/**
+	 * The amount of households that are being affected by this Segmentation type
+	 * @return int
+	 */
+	 getAffectedHouseholds() {
+	 	return this.affectedHouseholds;
 	 }
 }
 module.exports.SingleSegmentValue = SingleSegmentValue;
@@ -37866,6 +37962,48 @@ class SearchPriorityGroupOrderedIdsSet extends kaltura.BaseObject{
 	 }
 }
 module.exports.SearchPriorityGroupOrderedIdsSet = SearchPriorityGroupOrderedIdsSet;
+
+/**
+ *
+ */
+class SegmentationPartnerConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSegmentationPartnerConfiguration';
+	}
+	
+	/**
+	 * The maximum number of past days to be calculated for dynamic segments, default=180
+	 * @return int
+	 */
+	 getMaxCalculatedPeriod() {
+	 	return this.maxCalculatedPeriod;
+	 }
+	
+	/**
+	 * @param maxCalculatedPeriod int The maximum number of past days to be calculated for dynamic segments, default=180
+	 */
+	 setMaxCalculatedPeriod(maxCalculatedPeriod) {
+	 	this.maxCalculatedPeriod = maxCalculatedPeriod;
+	 }
+	
+	/**
+	 * How many dynamic segments (segments with conditions) the operator is allowed to have, default=50
+	 * @return int
+	 */
+	 getMaxDynamicSegments() {
+	 	return this.maxDynamicSegments;
+	 }
+	
+	/**
+	 * @param maxDynamicSegments int How many dynamic segments (segments with conditions) the operator is allowed to have, default=50
+	 */
+	 setMaxDynamicSegments(maxDynamicSegments) {
+	 	this.maxDynamicSegments = maxDynamicSegments;
+	 }
+}
+module.exports.SegmentationPartnerConfiguration = SegmentationPartnerConfiguration;
 
 /**
  *

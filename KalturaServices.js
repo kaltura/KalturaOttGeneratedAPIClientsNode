@@ -6891,8 +6891,10 @@ module.exports.searchPriorityGroupOrderedIdsSet = searchPriorityGroupOrderedIdsS
  * The available service actions:
  * @action add Adds a new segmentation type to the system.
  * @action delete Delete a segmentation type from the system.
+ * @action getPartnerConfiguration Gets existing partner segmentation configuration.
  * @action list Lists all segmentation types in group.
  * @action update Updates an existing segmentation type.
+ * @action updatePartnerConfiguration Sets partner configuration for segments configuration.
  */
 class segmentationType{
 	
@@ -6919,6 +6921,15 @@ class segmentationType{
 	};
 	
 	/**
+	 * Gets existing partner segmentation configuration.
+	 * @return KalturaSegmentationPartnerConfiguration
+	 */
+	static getPartnerConfiguration(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('segmentationtype', 'getPartnerConfiguration', kparams);
+	};
+	
+	/**
 	 * Lists all segmentation types in group.
 	 * @param filter BaseSegmentationTypeFilter Segmentation type filter - basically empty (optional, default: null)
 	 * @param pager FilterPager Simple pager (optional, default: null)
@@ -6942,6 +6953,21 @@ class segmentationType{
 		kparams.segmentationTypeId = segmentationTypeId;
 		kparams.segmentationType = segmentationType;
 		return new kaltura.RequestBuilder('segmentationtype', 'update', kparams);
+	};
+	
+	/**
+	 * Sets partner configuration for segments configuration.
+	 * @param configuration SegmentationPartnerConfiguration 1. maxDynamicSegments - how many dynamic segments (segments with conditions) the operator is allowed to have.
+ * Displayed in the OPC as *'Maximum Number of Dynamic Segments'
+ * *maxCalculatedPeriod -
+ * the maximum number of past days to be calculated for dynamic segments. e.g. the last 60 days, the last 90 days etc.
+ * Displayed in OPC as *'Maximum of Dynamic Segments period'*
+	 * @return bool
+	 */
+	static updatePartnerConfiguration(configuration){
+		let kparams = {};
+		kparams.configuration = configuration;
+		return new kaltura.RequestBuilder('segmentationtype', 'updatePartnerConfiguration', kparams);
 	};
 }
 module.exports.segmentationType = segmentationType;
