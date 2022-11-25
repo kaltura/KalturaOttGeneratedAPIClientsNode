@@ -1455,9 +1455,9 @@ DEVICE : 'Device',
 };
 
 module.exports.UnmatchedItemsPolicy = {
-OMIT : 'Omit',
-GROUP : 'Group',
-INCLUDEANDMERGE : 'IncludeAndMerge',
+OMIT : 'OMIT',
+GROUP : 'GROUP',
+INCLUDE_AND_MERGE : 'INCLUDE_AND_MERGE',
 };
 
 module.exports.UploadTokenStatus = {

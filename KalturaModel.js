@@ -9599,6 +9599,21 @@ class Collection extends OTTObjectSupportNullable{
 	 setFileTypesIds(fileTypesIds) {
 	 	this.fileTypesIds = fileTypesIds;
 	 }
+	
+	/**
+	 * Asset user rule identifier
+	 * @return int
+	 */
+	 getAssetUserRuleId() {
+	 	return this.assetUserRuleId;
+	 }
+	
+	/**
+	 * @param assetUserRuleId int Asset user rule identifier
+	 */
+	 setAssetUserRuleId(assetUserRuleId) {
+	 	this.assetUserRuleId = assetUserRuleId;
+	 }
 }
 module.exports.Collection = Collection;
 
@@ -12728,6 +12743,33 @@ module.exports.AssetUserRule = AssetUserRule;
 /**
  *
  */
+class StringValueArray extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaStringValueArray';
+	}
+	
+	/**
+	 * List of string values
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array List of string values
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.StringValueArray = StringValueArray;
+
+/**
+ *
+ */
 class AssetShopCondition extends AssetConditionBase{
 	
 	constructor(object = null) {
@@ -12748,6 +12790,21 @@ class AssetShopCondition extends AssetConditionBase{
 	 */
 	 setValue(value) {
 	 	this.value = value;
+	 }
+	
+	/**
+	 * Shop marker&#39;s values
+	 * @return StringValueArray
+	 */
+	 getValues() {
+	 	return this.values;
+	 }
+	
+	/**
+	 * @param values StringValueArray Shop marker&#39;s values
+	 */
+	 setValues(values) {
+	 	this.values = values;
 	 }
 }
 module.exports.AssetShopCondition = AssetShopCondition;
@@ -15263,33 +15320,6 @@ class AssetFile extends kaltura.BaseObject{
 	 }
 }
 module.exports.AssetFile = AssetFile;
-
-/**
- *
- */
-class StringValueArray extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaStringValueArray';
-	}
-	
-	/**
-	 * List of string values
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array List of string values
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.StringValueArray = StringValueArray;
 
 /**
  *
@@ -19792,6 +19822,21 @@ class Ppv extends kaltura.BaseObject{
 	 */
 	 getVirtualAssetId() {
 	 	return this.virtualAssetId;
+	 }
+	
+	/**
+	 * Asset user rule identifier
+	 * @return int
+	 */
+	 getAssetUserRuleId() {
+	 	return this.assetUserRuleId;
+	 }
+	
+	/**
+	 * @param assetUserRuleId int Asset user rule identifier
+	 */
+	 setAssetUserRuleId(assetUserRuleId) {
+	 	this.assetUserRuleId = assetUserRuleId;
 	 }
 }
 module.exports.Ppv = Ppv;
