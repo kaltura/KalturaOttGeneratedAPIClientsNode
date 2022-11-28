@@ -1232,6 +1232,21 @@ class SegmentationTypeFilter extends BaseSegmentationTypeFilter{
 	 setKSql(kSql) {
 	 	this.kSql = kSql;
 	 }
+	
+	/**
+	 * Name of segment contains specific string value
+	 * @return string
+	 */
+	 getNameContain() {
+	 	return this.nameContain;
+	 }
+	
+	/**
+	 * @param nameContain string Name of segment contains specific string value
+	 */
+	 setNameContain(nameContain) {
+	 	this.nameContain = nameContain;
+	 }
 }
 module.exports.SegmentationTypeFilter = SegmentationTypeFilter;
 
@@ -5548,6 +5563,7 @@ class Bookmark extends SlimAsset{
 	
 	/**
 	 * The position of the user in the specific asset (in seconds)
+ * For external recordings will always be &#39;0&#39;
 	 * @return int
 	 */
 	 getPosition() {
@@ -5556,6 +5572,7 @@ class Bookmark extends SlimAsset{
 	
 	/**
 	 * @param position int The position of the user in the specific asset (in seconds)
+ * For external recordings will always be &#39;0&#39;
 	 */
 	 setPosition(position) {
 	 	this.position = position;
@@ -5571,6 +5588,7 @@ class Bookmark extends SlimAsset{
 	
 	/**
 	 * Specifies whether the user&#39;s current position exceeded 95% of the duration
+ * For external recordings will always be &#39;True&#39;
 	 * @return bool
 	 */
 	 getFinishedWatching() {
@@ -6386,6 +6404,33 @@ module.exports.SearchPriorityGroupFilter = SearchPriorityGroupFilter;
 /**
  *
  */
+class ListGroupsRepresentativesFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaListGroupsRepresentativesFilter';
+	}
+	
+	/**
+	 * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction
+	 * @return string
+	 */
+	 getKSql() {
+	 	return this.kSql;
+	 }
+	
+	/**
+	 * @param kSql string Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction
+	 */
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
+	 }
+}
+module.exports.ListGroupsRepresentativesFilter = ListGroupsRepresentativesFilter;
+
+/**
+ *
+ */
 class PaymentMethodProfileFilter extends Filter{
 	
 	constructor(object = null) {
@@ -6735,6 +6780,33 @@ class CampaignIdInFilter extends CampaignFilter{
 	 }
 }
 module.exports.CampaignIdInFilter = CampaignIdInFilter;
+
+/**
+ *
+ */
+class CampaignSegmentFilter extends CampaignSearchFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCampaignSegmentFilter';
+	}
+	
+	/**
+	 * segment id to be searched inside campaigns
+	 * @return int
+	 */
+	 getSegmentIdEqual() {
+	 	return this.segmentIdEqual;
+	 }
+	
+	/**
+	 * @param segmentIdEqual int segment id to be searched inside campaigns
+	 */
+	 setSegmentIdEqual(segmentIdEqual) {
+	 	this.segmentIdEqual = segmentIdEqual;
+	 }
+}
+module.exports.CampaignSegmentFilter = CampaignSegmentFilter;
 
 /**
  *
@@ -9526,6 +9598,21 @@ class Collection extends OTTObjectSupportNullable{
 	 */
 	 setFileTypesIds(fileTypesIds) {
 	 	this.fileTypesIds = fileTypesIds;
+	 }
+	
+	/**
+	 * Asset user rule identifier
+	 * @return int
+	 */
+	 getAssetUserRuleId() {
+	 	return this.assetUserRuleId;
+	 }
+	
+	/**
+	 * @param assetUserRuleId int Asset user rule identifier
+	 */
+	 setAssetUserRuleId(assetUserRuleId) {
+	 	this.assetUserRuleId = assetUserRuleId;
 	 }
 }
 module.exports.Collection = Collection;
@@ -12656,6 +12743,33 @@ module.exports.AssetUserRule = AssetUserRule;
 /**
  *
  */
+class StringValueArray extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaStringValueArray';
+	}
+	
+	/**
+	 * List of string values
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array List of string values
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.StringValueArray = StringValueArray;
+
+/**
+ *
+ */
 class AssetShopCondition extends AssetConditionBase{
 	
 	constructor(object = null) {
@@ -12676,6 +12790,21 @@ class AssetShopCondition extends AssetConditionBase{
 	 */
 	 setValue(value) {
 	 	this.value = value;
+	 }
+	
+	/**
+	 * Shop marker&#39;s values
+	 * @return StringValueArray
+	 */
+	 getValues() {
+	 	return this.values;
+	 }
+	
+	/**
+	 * @param values StringValueArray Shop marker&#39;s values
+	 */
+	 setValues(values) {
+	 	this.values = values;
 	 }
 }
 module.exports.AssetShopCondition = AssetShopCondition;
@@ -15195,33 +15324,6 @@ module.exports.AssetFile = AssetFile;
 /**
  *
  */
-class StringValueArray extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaStringValueArray';
-	}
-	
-	/**
-	 * List of string values
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array List of string values
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.StringValueArray = StringValueArray;
-
-/**
- *
- */
 class BusinessModuleDetails extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -17602,6 +17704,21 @@ class SegmentationType extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * Boolean operator between segmentation type&#39;s conditions - defaults to &quot;And&quot;
+	 * @return string
+	 */
+	 getConditionsOperator() {
+	 	return this.conditionsOperator;
+	 }
+	
+	/**
+	 * @param conditionsOperator string Boolean operator between segmentation type&#39;s conditions - defaults to &quot;And&quot;
+	 */
+	 setConditionsOperator(conditionsOperator) {
+	 	this.conditionsOperator = conditionsOperator;
+	 }
+	
+	/**
 	 * Segmentation conditions - can be empty
 	 * @return array
 	 */
@@ -17637,6 +17754,22 @@ class SegmentationType extends kaltura.BaseObject{
 	 */
 	 getCreateDate() {
 	 	return this.createDate;
+	 }
+	
+	/**
+	 * Update date of segmentation type
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
+	
+	/**
+	 * Last date of execution of segmentation type
+	 * @return int
+	 */
+	 getExecuteDate() {
+	 	return this.executeDate;
 	 }
 	
 	/**
@@ -17950,6 +18083,21 @@ class MonetizationCondition extends BaseSegmentCondition{
 	 */
 	 setBusinessModuleIdIn(businessModuleIdIn) {
 	 	this.businessModuleIdIn = businessModuleIdIn;
+	 }
+	
+	/**
+	 * Which currency code should be taken into consideration
+	 * @return string
+	 */
+	 getCurrencyCode() {
+	 	return this.currencyCode;
+	 }
+	
+	/**
+	 * @param currencyCode string Which currency code should be taken into consideration
+	 */
+	 setCurrencyCode(currencyCode) {
+	 	this.currencyCode = currencyCode;
 	 }
 }
 module.exports.MonetizationCondition = MonetizationCondition;
@@ -18597,6 +18745,14 @@ class SingleSegmentValue extends BaseSegmentValue{
 	 */
 	 getAffectedUsers() {
 	 	return this.affectedUsers;
+	 }
+	
+	/**
+	 * The amount of households that are being affected by this Segmentation type
+	 * @return int
+	 */
+	 getAffectedHouseholds() {
+	 	return this.affectedHouseholds;
 	 }
 }
 module.exports.SingleSegmentValue = SingleSegmentValue;
@@ -19666,6 +19822,21 @@ class Ppv extends kaltura.BaseObject{
 	 */
 	 getVirtualAssetId() {
 	 	return this.virtualAssetId;
+	 }
+	
+	/**
+	 * Asset user rule identifier
+	 * @return int
+	 */
+	 getAssetUserRuleId() {
+	 	return this.assetUserRuleId;
+	 }
+	
+	/**
+	 * @param assetUserRuleId int Asset user rule identifier
+	 */
+	 setAssetUserRuleId(assetUserRuleId) {
+	 	this.assetUserRuleId = assetUserRuleId;
 	 }
 }
 module.exports.Ppv = Ppv;
@@ -33706,6 +33877,72 @@ module.exports.SessionInfo = SessionInfo;
 /**
  *
  */
+class RepresentativeSelectionPolicy extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRepresentativeSelectionPolicy';
+	}
+}
+module.exports.RepresentativeSelectionPolicy = RepresentativeSelectionPolicy;
+
+/**
+ *
+ */
+class TopRsp extends RepresentativeSelectionPolicy{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTopRsp';
+	}
+	
+	/**
+	 * order by
+	 * @return BaseAssetOrder
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy BaseAssetOrder order by
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.TopRsp = TopRsp;
+
+/**
+ *
+ */
+class TopSubscriptionEntitledRsp extends RepresentativeSelectionPolicy{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTopSubscriptionEntitledRsp';
+	}
+	
+	/**
+	 * order by
+	 * @return BaseAssetOrder
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy BaseAssetOrder order by
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.TopSubscriptionEntitledRsp = TopSubscriptionEntitledRsp;
+
+/**
+ *
+ */
 class PlaybackContextOptions extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -34489,6 +34726,168 @@ class AssetStatisticsQuery extends kaltura.BaseObject{
 	 }
 }
 module.exports.AssetStatisticsQuery = AssetStatisticsQuery;
+
+/**
+ *
+ */
+class BulkUploadStatistics extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkUploadStatistics';
+	}
+	
+	/**
+	 * count of bulk upload in pending status
+	 * @return int
+	 */
+	 getPending() {
+	 	return this.pending;
+	 }
+	
+	/**
+	 * @param pending int count of bulk upload in pending status
+	 */
+	 setPending(pending) {
+	 	this.pending = pending;
+	 }
+	
+	/**
+	 * count of bulk Uploaded in uploaded status
+	 * @return int
+	 */
+	 getUploaded() {
+	 	return this.uploaded;
+	 }
+	
+	/**
+	 * @param uploaded int count of bulk Uploaded in uploaded status
+	 */
+	 setUploaded(uploaded) {
+	 	this.uploaded = uploaded;
+	 }
+	
+	/**
+	 * count of bulk upload in queued status
+	 * @return int
+	 */
+	 getQueued() {
+	 	return this.queued;
+	 }
+	
+	/**
+	 * @param queued int count of bulk upload in queued status
+	 */
+	 setQueued(queued) {
+	 	this.queued = queued;
+	 }
+	
+	/**
+	 * count of bulk upload in parsing status
+	 * @return int
+	 */
+	 getParsing() {
+	 	return this.parsing;
+	 }
+	
+	/**
+	 * @param parsing int count of bulk upload in parsing status
+	 */
+	 setParsing(parsing) {
+	 	this.parsing = parsing;
+	 }
+	
+	/**
+	 * count of bulk upload in processing status
+	 * @return int
+	 */
+	 getProcessing() {
+	 	return this.processing;
+	 }
+	
+	/**
+	 * @param processing int count of bulk upload in processing status
+	 */
+	 setProcessing(processing) {
+	 	this.processing = processing;
+	 }
+	
+	/**
+	 * count of bulk upload in processed status
+	 * @return int
+	 */
+	 getProcessed() {
+	 	return this.processed;
+	 }
+	
+	/**
+	 * @param processed int count of bulk upload in processed status
+	 */
+	 setProcessed(processed) {
+	 	this.processed = processed;
+	 }
+	
+	/**
+	 * count of bulk upload in success status
+	 * @return int
+	 */
+	 getSuccess() {
+	 	return this.success;
+	 }
+	
+	/**
+	 * @param success int count of bulk upload in success status
+	 */
+	 setSuccess(success) {
+	 	this.success = success;
+	 }
+	
+	/**
+	 * count of bulk upload in partial status
+	 * @return int
+	 */
+	 getPartial() {
+	 	return this.partial;
+	 }
+	
+	/**
+	 * @param partial int count of bulk upload in partial status
+	 */
+	 setPartial(partial) {
+	 	this.partial = partial;
+	 }
+	
+	/**
+	 * count of bulk upload in failed status
+	 * @return int
+	 */
+	 getFailed() {
+	 	return this.failed;
+	 }
+	
+	/**
+	 * @param failed int count of bulk upload in failed status
+	 */
+	 setFailed(failed) {
+	 	this.failed = failed;
+	 }
+	
+	/**
+	 * count of bulk upload in fatal status
+	 * @return int
+	 */
+	 getFatal() {
+	 	return this.fatal;
+	 }
+	
+	/**
+	 * @param fatal int count of bulk upload in fatal status
+	 */
+	 setFatal(fatal) {
+	 	this.fatal = fatal;
+	 }
+}
+module.exports.BulkUploadStatistics = BulkUploadStatistics;
 
 /**
  *
@@ -37866,6 +38265,48 @@ class SearchPriorityGroupOrderedIdsSet extends kaltura.BaseObject{
 	 }
 }
 module.exports.SearchPriorityGroupOrderedIdsSet = SearchPriorityGroupOrderedIdsSet;
+
+/**
+ *
+ */
+class SegmentationPartnerConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSegmentationPartnerConfiguration';
+	}
+	
+	/**
+	 * The maximum number of past days to be calculated for dynamic segments, default=180
+	 * @return int
+	 */
+	 getMaxCalculatedPeriod() {
+	 	return this.maxCalculatedPeriod;
+	 }
+	
+	/**
+	 * @param maxCalculatedPeriod int The maximum number of past days to be calculated for dynamic segments, default=180
+	 */
+	 setMaxCalculatedPeriod(maxCalculatedPeriod) {
+	 	this.maxCalculatedPeriod = maxCalculatedPeriod;
+	 }
+	
+	/**
+	 * How many dynamic segments (segments with conditions) the operator is allowed to have, default=50
+	 * @return int
+	 */
+	 getMaxDynamicSegments() {
+	 	return this.maxDynamicSegments;
+	 }
+	
+	/**
+	 * @param maxDynamicSegments int How many dynamic segments (segments with conditions) the operator is allowed to have, default=50
+	 */
+	 setMaxDynamicSegments(maxDynamicSegments) {
+	 	this.maxDynamicSegments = maxDynamicSegments;
+	 }
+}
+module.exports.SegmentationPartnerConfiguration = SegmentationPartnerConfiguration;
 
 /**
  *

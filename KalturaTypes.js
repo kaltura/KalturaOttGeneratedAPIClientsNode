@@ -255,6 +255,11 @@ POSITION_ASC : 'POSITION_ASC',
 POSITION_DESC : 'POSITION_DESC',
 };
 
+module.exports.BooleanOperator = {
+AND : 'And',
+OR : 'Or',
+};
+
 module.exports.BulkUploadJobAction = {
 UPSERT : 'Upsert',
 DELETE : 'Delete',
@@ -611,6 +616,7 @@ MEDIA_TYPE_ID : 'media_type_id',
 SUPPRESSED : 'suppressed',
 CRID : 'crid',
 LINEAR_MEDIA_ID : 'linear_media_id',
+NAME : 'name',
 };
 
 module.exports.GroupByOrder = {
@@ -793,6 +799,10 @@ DTT_AND_OTT : 'DTT_AND_OTT',
 VRM_EXPORT : 'VRM_EXPORT',
 };
 
+module.exports.ListGroupsRepresentativesOrderBy = {
+NONE : 'None',
+};
+
 module.exports.ManualCollectionAssetType = {
 MEDIA : 'media',
 EPG : 'epg',
@@ -863,6 +873,8 @@ module.exports.MonetizationType = {
 PPV : 'ppv',
 SUBSCRIPTION : 'subscription',
 BOXSET : 'boxset',
+ANY : 'any',
+PPV_LIVE : 'ppv_live',
 };
 
 module.exports.NotificationType = {
@@ -1236,6 +1248,19 @@ NAME_ASC : 'NAME_ASC',
 NAME_DESC : 'NAME_DESC',
 };
 
+module.exports.SegmentationTypeOrderBy = {
+UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
+UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
+CREATE_DATE_DESC : 'CREATE_DATE_DESC',
+CREATE_DATE_ASC : 'CREATE_DATE_ASC',
+EXECUTE_DATE_DESC : 'EXECUTE_DATE_DESC',
+EXECUTE_DATE_ASC : 'EXECUTE_DATE_ASC',
+AFFECTED_USERS_DESC : 'AFFECTED_USERS_DESC',
+AFFECTED_USERS_ASC : 'AFFECTED_USERS_ASC',
+AFFECTED_HOUSEHOLDS_DESC : 'AFFECTED_HOUSEHOLDS_DESC',
+AFFECTED_HOUSEHOLDS_ASC : 'AFFECTED_HOUSEHOLDS_ASC',
+};
+
 module.exports.SeriesRecordingOrderBy = {
 START_DATE_ASC : 'START_DATE_ASC',
 START_DATE_DESC : 'START_DATE_DESC',
@@ -1427,6 +1452,12 @@ NONE : 'NONE',
 module.exports.TvmRuleType = {
 GEO : 'Geo',
 DEVICE : 'Device',
+};
+
+module.exports.UnmatchedItemsPolicy = {
+OMIT : 'OMIT',
+GROUP : 'GROUP',
+INCLUDE_AND_MERGE : 'INCLUDE_AND_MERGE',
 };
 
 module.exports.UploadTokenStatus = {
