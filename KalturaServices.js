@@ -977,6 +977,29 @@ module.exports.bulkUpload = bulkUpload;
 
 
 /**
+ *Class definition for the Kaltura service: bulkUploadStatistics.
+ * The available service actions:
+ * @action get Get BulkUploadStatistics count summary by status.
+ */
+class bulkUploadStatistics{
+	
+	/**
+	 * Get BulkUploadStatistics count summary by status.
+	 * @param bulkObjectTypeEqual string bulkUploadObject for status summary
+	 * @param createDateGreaterThanOrEqual int date created filter
+	 * @return KalturaBulkUploadStatistics
+	 */
+	static get(bulkObjectTypeEqual, createDateGreaterThanOrEqual){
+		let kparams = {};
+		kparams.bulkObjectTypeEqual = bulkObjectTypeEqual;
+		kparams.createDateGreaterThanOrEqual = createDateGreaterThanOrEqual;
+		return new kaltura.RequestBuilder('bulkuploadstatistics', 'get', kparams);
+	};
+}
+module.exports.bulkUploadStatistics = bulkUploadStatistics;
+
+
+/**
  *Class definition for the Kaltura service: businessModuleRule.
  * The available service actions:
  * @action add Add business module rule.
@@ -6436,6 +6459,7 @@ module.exports.recommendationProfile = recommendationProfile;
  * @action list Return a list of recordings for the household with optional filter by status and KSQL.
  * @action protect Deprecated, please use recording.update instead
  * Protects an existing recording from the cleanup process for the defined protection period.
+ * @action stop Stop current recording.
  * @action update Update an existing recording with is protected field.
  */
 class recording{
@@ -6519,6 +6543,21 @@ class recording{
 		let kparams = {};
 		kparams.id = id;
 		return new kaltura.RequestBuilder('recording', 'protect', kparams);
+	};
+	
+	/**
+	 * Stop current recording.
+	 * @param programId int program identifier
+	 * @param epgChannelId int epg channel identifier
+	 * @param householdRecordingId int household recording identifier
+	 * @return KalturaRecording
+	 */
+	static stop(programId, epgChannelId, householdRecordingId){
+		let kparams = {};
+		kparams.programId = programId;
+		kparams.epgChannelId = epgChannelId;
+		kparams.householdRecordingId = householdRecordingId;
+		return new kaltura.RequestBuilder('recording', 'stop', kparams);
 	};
 	
 	/**
@@ -6891,8 +6930,10 @@ module.exports.searchPriorityGroupOrderedIdsSet = searchPriorityGroupOrderedIdsS
  * The available service actions:
  * @action add Adds a new segmentation type to the system.
  * @action delete Delete a segmentation type from the system.
+ * @action getPartnerConfiguration Gets existing partner segmentation configuration.
  * @action list Lists all segmentation types in group.
  * @action update Updates an existing segmentation type.
+ * @action updatePartnerConfiguration Sets partner configuration for segments configuration.
  */
 class segmentationType{
 	
@@ -6919,6 +6960,15 @@ class segmentationType{
 	};
 	
 	/**
+	 * Gets existing partner segmentation configuration.
+	 * @return KalturaSegmentationPartnerConfiguration
+	 */
+	static getPartnerConfiguration(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('segmentationtype', 'getPartnerConfiguration', kparams);
+	};
+	
+	/**
 	 * Lists all segmentation types in group.
 	 * @param filter BaseSegmentationTypeFilter Segmentation type filter - basically empty (optional, default: null)
 	 * @param pager FilterPager Simple pager (optional, default: null)
@@ -6942,6 +6992,21 @@ class segmentationType{
 		kparams.segmentationTypeId = segmentationTypeId;
 		kparams.segmentationType = segmentationType;
 		return new kaltura.RequestBuilder('segmentationtype', 'update', kparams);
+	};
+	
+	/**
+	 * Sets partner configuration for segments configuration.
+	 * @param configuration SegmentationPartnerConfiguration 1. maxDynamicSegments - how many dynamic segments (segments with conditions) the operator is allowed to have.
+ * Displayed in the OPC as *'Maximum Number of Dynamic Segments'
+ * *maxCalculatedPeriod -
+ * the maximum number of past days to be calculated for dynamic segments. e.g. the last 60 days, the last 90 days etc.
+ * Displayed in OPC as *'Maximum of Dynamic Segments period'*
+	 * @return bool
+	 */
+	static updatePartnerConfiguration(configuration){
+		let kparams = {};
+		kparams.configuration = configuration;
+		return new kaltura.RequestBuilder('segmentationtype', 'updatePartnerConfiguration', kparams);
 	};
 }
 module.exports.segmentationType = segmentationType;
