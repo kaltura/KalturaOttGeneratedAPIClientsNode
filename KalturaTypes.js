@@ -616,6 +616,7 @@ MEDIA_TYPE_ID : 'media_type_id',
 SUPPRESSED : 'suppressed',
 CRID : 'crid',
 LINEAR_MEDIA_ID : 'linear_media_id',
+NAME : 'name',
 };
 
 module.exports.GroupByOrder = {
@@ -796,6 +797,10 @@ DTT : 'DTT',
 OTT : 'OTT',
 DTT_AND_OTT : 'DTT_AND_OTT',
 VRM_EXPORT : 'VRM_EXPORT',
+};
+
+module.exports.ListGroupsRepresentativesOrderBy = {
+NONE : 'None',
 };
 
 module.exports.ManualCollectionAssetType = {
@@ -1447,6 +1452,12 @@ NONE : 'NONE',
 module.exports.TvmRuleType = {
 GEO : 'Geo',
 DEVICE : 'Device',
+};
+
+module.exports.UnmatchedItemsPolicy = {
+OMIT : 'OMIT',
+GROUP : 'GROUP',
+INCLUDE_AND_MERGE : 'INCLUDE_AND_MERGE',
 };
 
 module.exports.UploadTokenStatus = {

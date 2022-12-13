@@ -6404,6 +6404,33 @@ module.exports.SearchPriorityGroupFilter = SearchPriorityGroupFilter;
 /**
  *
  */
+class ListGroupsRepresentativesFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaListGroupsRepresentativesFilter';
+	}
+	
+	/**
+	 * Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction
+	 * @return string
+	 */
+	 getKSql() {
+	 	return this.kSql;
+	 }
+	
+	/**
+	 * @param kSql string Search assets using dynamic criteria. Provided collection of nested expressions with key, comparison operators, value, and logical conjunction
+	 */
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
+	 }
+}
+module.exports.ListGroupsRepresentativesFilter = ListGroupsRepresentativesFilter;
+
+/**
+ *
+ */
 class PaymentMethodProfileFilter extends Filter{
 	
 	constructor(object = null) {
@@ -26298,36 +26325,6 @@ class Recording extends kaltura.BaseObject{
 	 getUpdateDate() {
 	 	return this.updateDate;
 	 }
-	
-	/**
-	 * Household specific start time of the recording
-	 * @return int
-	 */
-	 getHouseholdSpecificStartTimeOffset() {
-	 	return this.householdSpecificStartTimeOffset;
-	 }
-	
-	/**
-	 * @param householdSpecificStartTimeOffset int Household specific start time of the recording
-	 */
-	 setHouseholdSpecificStartTimeOffset(householdSpecificStartTimeOffset) {
-	 	this.householdSpecificStartTimeOffset = householdSpecificStartTimeOffset;
-	 }
-	
-	/**
-	 * Household specific end time of the recording
-	 * @return int
-	 */
-	 getHouseholdSpecificEndTimeOffset() {
-	 	return this.householdSpecificEndTimeOffset;
-	 }
-	
-	/**
-	 * @param householdSpecificEndTimeOffset int Household specific end time of the recording
-	 */
-	 setHouseholdSpecificEndTimeOffset(householdSpecificEndTimeOffset) {
-	 	this.householdSpecificEndTimeOffset = householdSpecificEndTimeOffset;
-	 }
 }
 module.exports.Recording = Recording;
 
@@ -26380,6 +26377,90 @@ class ExternalRecording extends Recording{
 	 }
 }
 module.exports.ExternalRecording = ExternalRecording;
+
+/**
+ *
+ */
+class ImmediateRecording extends Recording{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaImmediateRecording';
+	}
+	
+	/**
+	 * Household specific end padding of the recording
+	 * @return int
+	 */
+	 getEndPadding() {
+	 	return this.endPadding;
+	 }
+	
+	/**
+	 * @param endPadding int Household specific end padding of the recording
+	 */
+	 setEndPadding(endPadding) {
+	 	this.endPadding = endPadding;
+	 }
+	
+	/**
+	 * Household absolute start time of the immediate recording
+	 * @return int
+	 */
+	 getAbsoluteStart() {
+	 	return this.absoluteStart;
+	 }
+	
+	/**
+	 * @param absoluteStart int Household absolute start time of the immediate recording
+	 */
+	 setAbsoluteStart(absoluteStart) {
+	 	this.absoluteStart = absoluteStart;
+	 }
+}
+module.exports.ImmediateRecording = ImmediateRecording;
+
+/**
+ *
+ */
+class PaddedRecording extends Recording{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPaddedRecording';
+	}
+	
+	/**
+	 * Household specific start padding of the recording
+	 * @return int
+	 */
+	 getStartPadding() {
+	 	return this.startPadding;
+	 }
+	
+	/**
+	 * @param startPadding int Household specific start padding of the recording
+	 */
+	 setStartPadding(startPadding) {
+	 	this.startPadding = startPadding;
+	 }
+	
+	/**
+	 * Household specific end padding of the recording
+	 * @return int
+	 */
+	 getEndPadding() {
+	 	return this.endPadding;
+	 }
+	
+	/**
+	 * @param endPadding int Household specific end padding of the recording
+	 */
+	 setEndPadding(endPadding) {
+	 	this.endPadding = endPadding;
+	 }
+}
+module.exports.PaddedRecording = PaddedRecording;
 
 /**
  *
@@ -33906,6 +33987,72 @@ class SessionInfo extends Session{
 	}
 }
 module.exports.SessionInfo = SessionInfo;
+
+/**
+ *
+ */
+class RepresentativeSelectionPolicy extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRepresentativeSelectionPolicy';
+	}
+}
+module.exports.RepresentativeSelectionPolicy = RepresentativeSelectionPolicy;
+
+/**
+ *
+ */
+class TopRsp extends RepresentativeSelectionPolicy{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTopRsp';
+	}
+	
+	/**
+	 * order by
+	 * @return BaseAssetOrder
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy BaseAssetOrder order by
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.TopRsp = TopRsp;
+
+/**
+ *
+ */
+class TopSubscriptionEntitledRsp extends RepresentativeSelectionPolicy{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTopSubscriptionEntitledRsp';
+	}
+	
+	/**
+	 * order by
+	 * @return BaseAssetOrder
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy BaseAssetOrder order by
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.TopSubscriptionEntitledRsp = TopSubscriptionEntitledRsp;
 
 /**
  *
