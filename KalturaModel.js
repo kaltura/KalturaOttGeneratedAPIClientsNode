@@ -26417,6 +26417,21 @@ class ImmediateRecording extends Recording{
 	 setAbsoluteStart(absoluteStart) {
 	 	this.absoluteStart = absoluteStart;
 	 }
+	
+	/**
+	 * Household absolute end time of the immediate recording, empty if till end of program
+	 * @return int
+	 */
+	 getAbsoluteEnd() {
+	 	return this.absoluteEnd;
+	 }
+	
+	/**
+	 * @param absoluteEnd int Household absolute end time of the immediate recording, empty if till end of program
+	 */
+	 setAbsoluteEnd(absoluteEnd) {
+	 	this.absoluteEnd = absoluteEnd;
+	 }
 }
 module.exports.ImmediateRecording = ImmediateRecording;
 
@@ -39253,6 +39268,21 @@ class TimeShiftedTvPartnerSettings extends kaltura.BaseObject{
 	 */
 	 setMaxRecordingConcurrency(maxRecordingConcurrency) {
 	 	this.maxRecordingConcurrency = maxRecordingConcurrency;
+	 }
+	
+	/**
+	 * Define the max grace margin time for overlapping recording. Default NULL 0 margin
+	 * @return int
+	 */
+	 getMaxConcurrencyMargin() {
+	 	return this.maxConcurrencyMargin;
+	 }
+	
+	/**
+	 * @param maxConcurrencyMargin int Define the max grace margin time for overlapping recording. Default NULL 0 margin
+	 */
+	 setMaxConcurrencyMargin(maxConcurrencyMargin) {
+	 	this.maxConcurrencyMargin = maxConcurrencyMargin;
 	 }
 }
 module.exports.TimeShiftedTvPartnerSettings = TimeShiftedTvPartnerSettings;
