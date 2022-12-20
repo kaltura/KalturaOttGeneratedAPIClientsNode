@@ -26397,13 +26397,6 @@ class ImmediateRecording extends Recording{
 	 }
 	
 	/**
-	 * @param endPadding int Household specific end padding of the recording
-	 */
-	 setEndPadding(endPadding) {
-	 	this.endPadding = endPadding;
-	 }
-	
-	/**
 	 * Household absolute start time of the immediate recording
 	 * @return int
 	 */
@@ -26412,25 +26405,11 @@ class ImmediateRecording extends Recording{
 	 }
 	
 	/**
-	 * @param absoluteStart int Household absolute start time of the immediate recording
-	 */
-	 setAbsoluteStart(absoluteStart) {
-	 	this.absoluteStart = absoluteStart;
-	 }
-	
-	/**
 	 * Household absolute end time of the immediate recording, empty if till end of program
 	 * @return int
 	 */
 	 getAbsoluteEnd() {
 	 	return this.absoluteEnd;
-	 }
-	
-	/**
-	 * @param absoluteEnd int Household absolute end time of the immediate recording, empty if till end of program
-	 */
-	 setAbsoluteEnd(absoluteEnd) {
-	 	this.absoluteEnd = absoluteEnd;
 	 }
 }
 module.exports.ImmediateRecording = ImmediateRecording;
