@@ -28097,6 +28097,21 @@ class RecordingAsset extends ProgramAsset{
 	 setViewableUntilDate(viewableUntilDate) {
 	 	this.viewableUntilDate = viewableUntilDate;
 	 }
+	
+	/**
+	 * When TRUE indicates that there are multiple KalturaImmediateRecording instances for the event
+	 * @return bool
+	 */
+	 getMultiRecord() {
+	 	return this.multiRecord;
+	 }
+	
+	/**
+	 * @param multiRecord bool When TRUE indicates that there are multiple KalturaImmediateRecording instances for the event
+	 */
+	 setMultiRecord(multiRecord) {
+	 	this.multiRecord = multiRecord;
+	 }
 }
 module.exports.RecordingAsset = RecordingAsset;
 

@@ -6478,6 +6478,7 @@ module.exports.recommendationProfile = recommendationProfile;
  * @action cancel Cancel a previously requested recording. Cancel recording can be called for recording in status Scheduled or Recording Only.
  * @action delete Delete one or more user recording(s). Delete recording can be called only for recordings in status Recorded.
  * @action get Returns recording object by internal identifier.
+ * @action immediateRecord Immediate Record.
  * @action list Return a list of recordings for the household with optional filter by status and KSQL.
  * @action protect Deprecated, please use recording.update instead
  * Protects an existing recording from the cleanup process for the defined protection period.
@@ -6540,6 +6541,21 @@ class recording{
 		let kparams = {};
 		kparams.id = id;
 		return new kaltura.RequestBuilder('recording', 'get', kparams);
+	};
+	
+	/**
+	 * Immediate Record.
+	 * @param programId int program identifier
+	 * @param epgChannelId int epg channel identifier
+	 * @param endPadding int end padding offset
+	 * @return KalturaImmediateRecording
+	 */
+	static immediateRecord(programId, epgChannelId, endPadding){
+		let kparams = {};
+		kparams.programId = programId;
+		kparams.epgChannelId = epgChannelId;
+		kparams.endPadding = endPadding;
+		return new kaltura.RequestBuilder('recording', 'immediateRecord', kparams);
 	};
 	
 	/**
