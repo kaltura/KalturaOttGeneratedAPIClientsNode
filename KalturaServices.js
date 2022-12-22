@@ -6545,14 +6545,14 @@ class recording{
 	
 	/**
 	 * Immediate Record.
-	 * @param programId int program identifier
+	 * @param assetId int asset identifier
 	 * @param epgChannelId int epg channel identifier
 	 * @param endPadding int end padding offset
 	 * @return KalturaImmediateRecording
 	 */
-	static immediateRecord(programId, epgChannelId, endPadding){
+	static immediateRecord(assetId, epgChannelId, endPadding){
 		let kparams = {};
-		kparams.programId = programId;
+		kparams.assetId = assetId;
 		kparams.epgChannelId = epgChannelId;
 		kparams.endPadding = endPadding;
 		return new kaltura.RequestBuilder('recording', 'immediateRecord', kparams);
@@ -6585,14 +6585,14 @@ class recording{
 	
 	/**
 	 * Stop current recording.
-	 * @param programId int program identifier
+	 * @param assetId int asset identifier
 	 * @param epgChannelId int epg channel identifier
 	 * @param householdRecordingId int household recording identifier
 	 * @return KalturaRecording
 	 */
-	static stop(programId, epgChannelId, householdRecordingId){
+	static stop(assetId, epgChannelId, householdRecordingId){
 		let kparams = {};
-		kparams.programId = programId;
+		kparams.assetId = assetId;
 		kparams.epgChannelId = epgChannelId;
 		kparams.householdRecordingId = householdRecordingId;
 		return new kaltura.RequestBuilder('recording', 'stop', kparams);

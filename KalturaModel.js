@@ -1463,33 +1463,6 @@ module.exports.CollectionFilter = CollectionFilter;
 /**
  *
  */
-class CouponFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCouponFilter';
-	}
-	
-	/**
-	 * Comma separated list of coupon codes
-	 * @return string
-	 */
-	 getCouponCodesIn() {
-	 	return this.couponCodesIn;
-	 }
-	
-	/**
-	 * @param couponCodesIn string Comma separated list of coupon codes
-	 */
-	 setCouponCodesIn(couponCodesIn) {
-	 	this.couponCodesIn = couponCodesIn;
-	 }
-}
-module.exports.CouponFilter = CouponFilter;
-
-/**
- *
- */
 class DiscountDetailsFilter extends Filter{
 	
 	constructor(object = null) {
