@@ -228,6 +228,7 @@ module.exports.assetComment = assetComment;
  * @action getAdsContext Returns the data for ads control.
  * @action getPlaybackContext This action delivers all data relevant for player.
  * @action getPlaybackManifest This action delivers all data relevant for player.
+ * @action groupRepresentativeList Returns assets deduplicated by asset metadata (or supported asset&#39;s property).
  * @action list Returns media or EPG assets. Filters by media identifiers or by EPG internal or external identifier.
  * @action listPersonalSelection Returns recent selected assets.
  * @action removeMetasAndTags remove metas and tags from asset.
@@ -348,6 +349,27 @@ class asset{
 		kparams.contextDataParams = contextDataParams;
 		kparams.sourceType = sourceType;
 		return new kaltura.RequestBuilder('asset', 'getPlaybackManifest', kparams);
+	};
+	
+	/**
+	 * Returns assets deduplicated by asset metadata (or supported asset&#39;s property).
+	 * @param groupBy AssetGroupBy A metadata (or supported asset's property) to group by the assets
+	 * @param unmatchedItemsPolicy string Defines the policy to handle assets that don't have groupBy property (enum: KalturaUnmatchedItemsPolicy)
+	 * @param orderBy BaseAssetOrder A metadata or supported asset's property to sort by (optional, default: null)
+	 * @param filter ListGroupsRepresentativesFilter Filtering the assets request (optional, default: null)
+	 * @param selectionPolicy RepresentativeSelectionPolicy A policy that implements a well defined parametric process to select an asset out of group (optional, default: null)
+	 * @param pager FilterPager Paging the request (optional, default: null)
+	 * @return KalturaAssetListResponse
+	 */
+	static groupRepresentativeList(groupBy, unmatchedItemsPolicy, orderBy = null, filter = null, selectionPolicy = null, pager = null){
+		let kparams = {};
+		kparams.groupBy = groupBy;
+		kparams.unmatchedItemsPolicy = unmatchedItemsPolicy;
+		kparams.orderBy = orderBy;
+		kparams.filter = filter;
+		kparams.selectionPolicy = selectionPolicy;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('asset', 'groupRepresentativeList', kparams);
 	};
 	
 	/**
@@ -974,6 +996,29 @@ class bulkUpload{
 	};
 }
 module.exports.bulkUpload = bulkUpload;
+
+
+/**
+ *Class definition for the Kaltura service: bulkUploadStatistics.
+ * The available service actions:
+ * @action get Get BulkUploadStatistics count summary by status.
+ */
+class bulkUploadStatistics{
+	
+	/**
+	 * Get BulkUploadStatistics count summary by status.
+	 * @param bulkObjectTypeEqual string bulkUploadObject for status summary
+	 * @param createDateGreaterThanOrEqual int date created filter
+	 * @return KalturaBulkUploadStatistics
+	 */
+	static get(bulkObjectTypeEqual, createDateGreaterThanOrEqual){
+		let kparams = {};
+		kparams.bulkObjectTypeEqual = bulkObjectTypeEqual;
+		kparams.createDateGreaterThanOrEqual = createDateGreaterThanOrEqual;
+		return new kaltura.RequestBuilder('bulkuploadstatistics', 'get', kparams);
+	};
+}
+module.exports.bulkUploadStatistics = bulkUploadStatistics;
 
 
 /**
@@ -6433,9 +6478,11 @@ module.exports.recommendationProfile = recommendationProfile;
  * @action cancel Cancel a previously requested recording. Cancel recording can be called for recording in status Scheduled or Recording Only.
  * @action delete Delete one or more user recording(s). Delete recording can be called only for recordings in status Recorded.
  * @action get Returns recording object by internal identifier.
+ * @action immediateRecord Immediate Record.
  * @action list Return a list of recordings for the household with optional filter by status and KSQL.
  * @action protect Deprecated, please use recording.update instead
  * Protects an existing recording from the cleanup process for the defined protection period.
+ * @action stop Stop current recording.
  * @action update Update an existing recording with is protected field.
  */
 class recording{
@@ -6497,6 +6544,21 @@ class recording{
 	};
 	
 	/**
+	 * Immediate Record.
+	 * @param assetId int asset identifier
+	 * @param epgChannelId int epg channel identifier
+	 * @param endPadding int end padding offset
+	 * @return KalturaImmediateRecording
+	 */
+	static immediateRecord(assetId, epgChannelId, endPadding){
+		let kparams = {};
+		kparams.assetId = assetId;
+		kparams.epgChannelId = epgChannelId;
+		kparams.endPadding = endPadding;
+		return new kaltura.RequestBuilder('recording', 'immediateRecord', kparams);
+	};
+	
+	/**
 	 * Return a list of recordings for the household with optional filter by status and KSQL.
 	 * @param filter RecordingFilter Filter parameters for filtering out the result (optional, default: null)
 	 * @param pager FilterPager Page size and index (optional, default: null)
@@ -6519,6 +6581,21 @@ class recording{
 		let kparams = {};
 		kparams.id = id;
 		return new kaltura.RequestBuilder('recording', 'protect', kparams);
+	};
+	
+	/**
+	 * Stop current recording.
+	 * @param assetId int asset identifier
+	 * @param epgChannelId int epg channel identifier
+	 * @param householdRecordingId int household recording identifier
+	 * @return KalturaRecording
+	 */
+	static stop(assetId, epgChannelId, householdRecordingId){
+		let kparams = {};
+		kparams.assetId = assetId;
+		kparams.epgChannelId = epgChannelId;
+		kparams.householdRecordingId = householdRecordingId;
+		return new kaltura.RequestBuilder('recording', 'stop', kparams);
 	};
 	
 	/**
@@ -6891,8 +6968,10 @@ module.exports.searchPriorityGroupOrderedIdsSet = searchPriorityGroupOrderedIdsS
  * The available service actions:
  * @action add Adds a new segmentation type to the system.
  * @action delete Delete a segmentation type from the system.
+ * @action getPartnerConfiguration Gets existing partner segmentation configuration.
  * @action list Lists all segmentation types in group.
  * @action update Updates an existing segmentation type.
+ * @action updatePartnerConfiguration Sets partner configuration for segments configuration.
  */
 class segmentationType{
 	
@@ -6919,6 +6998,15 @@ class segmentationType{
 	};
 	
 	/**
+	 * Gets existing partner segmentation configuration.
+	 * @return KalturaSegmentationPartnerConfiguration
+	 */
+	static getPartnerConfiguration(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('segmentationtype', 'getPartnerConfiguration', kparams);
+	};
+	
+	/**
 	 * Lists all segmentation types in group.
 	 * @param filter BaseSegmentationTypeFilter Segmentation type filter - basically empty (optional, default: null)
 	 * @param pager FilterPager Simple pager (optional, default: null)
@@ -6942,6 +7030,21 @@ class segmentationType{
 		kparams.segmentationTypeId = segmentationTypeId;
 		kparams.segmentationType = segmentationType;
 		return new kaltura.RequestBuilder('segmentationtype', 'update', kparams);
+	};
+	
+	/**
+	 * Sets partner configuration for segments configuration.
+	 * @param configuration SegmentationPartnerConfiguration 1. maxDynamicSegments - how many dynamic segments (segments with conditions) the operator is allowed to have.
+ * Displayed in the OPC as *'Maximum Number of Dynamic Segments'
+ * *maxCalculatedPeriod -
+ * the maximum number of past days to be calculated for dynamic segments. e.g. the last 60 days, the last 90 days etc.
+ * Displayed in OPC as *'Maximum of Dynamic Segments period'*
+	 * @return bool
+	 */
+	static updatePartnerConfiguration(configuration){
+		let kparams = {};
+		kparams.configuration = configuration;
+		return new kaltura.RequestBuilder('segmentationtype', 'updatePartnerConfiguration', kparams);
 	};
 }
 module.exports.segmentationType = segmentationType;
