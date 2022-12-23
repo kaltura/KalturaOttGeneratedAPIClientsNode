@@ -26354,84 +26354,6 @@ module.exports.ExternalRecording = ExternalRecording;
 /**
  *
  */
-class ImmediateRecording extends Recording{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaImmediateRecording';
-	}
-	
-	/**
-	 * Household specific end padding of the recording
-	 * @return int
-	 */
-	 getEndPadding() {
-	 	return this.endPadding;
-	 }
-	
-	/**
-	 * Household absolute start time of the immediate recording
-	 * @return int
-	 */
-	 getAbsoluteStart() {
-	 	return this.absoluteStart;
-	 }
-	
-	/**
-	 * Household absolute end time of the immediate recording, empty if till end of program
-	 * @return int
-	 */
-	 getAbsoluteEnd() {
-	 	return this.absoluteEnd;
-	 }
-}
-module.exports.ImmediateRecording = ImmediateRecording;
-
-/**
- *
- */
-class PaddedRecording extends Recording{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPaddedRecording';
-	}
-	
-	/**
-	 * Household specific start padding of the recording
-	 * @return int
-	 */
-	 getStartPadding() {
-	 	return this.startPadding;
-	 }
-	
-	/**
-	 * @param startPadding int Household specific start padding of the recording
-	 */
-	 setStartPadding(startPadding) {
-	 	this.startPadding = startPadding;
-	 }
-	
-	/**
-	 * Household specific end padding of the recording
-	 * @return int
-	 */
-	 getEndPadding() {
-	 	return this.endPadding;
-	 }
-	
-	/**
-	 * @param endPadding int Household specific end padding of the recording
-	 */
-	 setEndPadding(endPadding) {
-	 	this.endPadding = endPadding;
-	 }
-}
-module.exports.PaddedRecording = PaddedRecording;
-
-/**
- *
- */
 class RecordingListResponse extends ListResponse{
 	
 	constructor(object = null) {
@@ -26643,36 +26565,6 @@ class SeriesRecording extends kaltura.BaseObject{
 	 */
 	 setSeriesRecordingOption(seriesRecordingOption) {
 	 	this.seriesRecordingOption = seriesRecordingOption;
-	 }
-	
-	/**
-	 * Household specific start time of the recording
-	 * @return int
-	 */
-	 getHouseholdSpecificSeriesStartTimeOffset() {
-	 	return this.householdSpecificSeriesStartTimeOffset;
-	 }
-	
-	/**
-	 * @param householdSpecificSeriesStartTimeOffset int Household specific start time of the recording
-	 */
-	 setHouseholdSpecificSeriesStartTimeOffset(householdSpecificSeriesStartTimeOffset) {
-	 	this.householdSpecificSeriesStartTimeOffset = householdSpecificSeriesStartTimeOffset;
-	 }
-	
-	/**
-	 * Household specific end time of the recording
-	 * @return int
-	 */
-	 getHouseholdSpecificSeriesEndTimeOffset() {
-	 	return this.householdSpecificSeriesEndTimeOffset;
-	 }
-	
-	/**
-	 * @param householdSpecificSeriesEndTimeOffset int Household specific end time of the recording
-	 */
-	 setHouseholdSpecificSeriesEndTimeOffset(householdSpecificSeriesEndTimeOffset) {
-	 	this.householdSpecificSeriesEndTimeOffset = householdSpecificSeriesEndTimeOffset;
 	 }
 }
 module.exports.SeriesRecording = SeriesRecording;
@@ -28048,21 +27940,6 @@ class RecordingAsset extends ProgramAsset{
 	 */
 	 setViewableUntilDate(viewableUntilDate) {
 	 	this.viewableUntilDate = viewableUntilDate;
-	 }
-	
-	/**
-	 * When TRUE indicates that there are multiple KalturaImmediateRecording instances for the event
-	 * @return bool
-	 */
-	 getMultiRecord() {
-	 	return this.multiRecord;
-	 }
-	
-	/**
-	 * @param multiRecord bool When TRUE indicates that there are multiple KalturaImmediateRecording instances for the event
-	 */
-	 setMultiRecord(multiRecord) {
-	 	this.multiRecord = multiRecord;
 	 }
 }
 module.exports.RecordingAsset = RecordingAsset;
@@ -39205,51 +39082,6 @@ class TimeShiftedTvPartnerSettings extends kaltura.BaseObject{
 	 */
 	 setDefaultQuota(defaultQuota) {
 	 	this.defaultQuota = defaultQuota;
-	 }
-	
-	/**
-	 * Define whatever the partner enables the Personal Padding and Immediate / Stop recording services to the partner. Default value should be FALSE
-	 * @return bool
-	 */
-	 getPersonalizedRecording() {
-	 	return this.personalizedRecording;
-	 }
-	
-	/**
-	 * @param personalizedRecording bool Define whatever the partner enables the Personal Padding and Immediate / Stop recording services to the partner. Default value should be FALSE
-	 */
-	 setPersonalizedRecording(personalizedRecording) {
-	 	this.personalizedRecording = personalizedRecording;
-	 }
-	
-	/**
-	 * Define the max allowed number of parallel recordings. Default NULL unlimited
-	 * @return int
-	 */
-	 getMaxRecordingConcurrency() {
-	 	return this.maxRecordingConcurrency;
-	 }
-	
-	/**
-	 * @param maxRecordingConcurrency int Define the max allowed number of parallel recordings. Default NULL unlimited
-	 */
-	 setMaxRecordingConcurrency(maxRecordingConcurrency) {
-	 	this.maxRecordingConcurrency = maxRecordingConcurrency;
-	 }
-	
-	/**
-	 * Define the max grace margin time for overlapping recording. Default NULL 0 margin
-	 * @return int
-	 */
-	 getMaxConcurrencyMargin() {
-	 	return this.maxConcurrencyMargin;
-	 }
-	
-	/**
-	 * @param maxConcurrencyMargin int Define the max grace margin time for overlapping recording. Default NULL 0 margin
-	 */
-	 setMaxConcurrencyMargin(maxConcurrencyMargin) {
-	 	this.maxConcurrencyMargin = maxConcurrencyMargin;
 	 }
 }
 module.exports.TimeShiftedTvPartnerSettings = TimeShiftedTvPartnerSettings;
