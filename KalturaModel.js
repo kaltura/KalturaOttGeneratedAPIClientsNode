@@ -34595,6 +34595,93 @@ module.exports.AssetFileContext = AssetFileContext;
 /**
  *
  */
+class SeriesIdArguments extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSeriesIdArguments';
+	}
+	
+	/**
+	 * Comma separated asset type IDs
+	 * @return string
+	 */
+	 getAssetTypeIdIn() {
+	 	return this.assetTypeIdIn;
+	 }
+	
+	/**
+	 * @param assetTypeIdIn string Comma separated asset type IDs
+	 */
+	 setAssetTypeIdIn(assetTypeIdIn) {
+	 	this.assetTypeIdIn = assetTypeIdIn;
+	 }
+	
+	/**
+	 * Series ID
+	 * @return string
+	 */
+	 getSeriesId() {
+	 	return this.seriesId;
+	 }
+	
+	/**
+	 * @param seriesId string Series ID
+	 */
+	 setSeriesId(seriesId) {
+	 	this.seriesId = seriesId;
+	 }
+	
+	/**
+	 * Series ID meta name
+	 * @return string
+	 */
+	 getSeriesIdMetaName() {
+	 	return this.seriesIdMetaName;
+	 }
+	
+	/**
+	 * @param seriesIdMetaName string Series ID meta name
+	 */
+	 setSeriesIdMetaName(seriesIdMetaName) {
+	 	this.seriesIdMetaName = seriesIdMetaName;
+	 }
+	
+	/**
+	 * Season number meta name
+	 * @return string
+	 */
+	 getSeasonNumberMetaName() {
+	 	return this.seasonNumberMetaName;
+	 }
+	
+	/**
+	 * @param seasonNumberMetaName string Season number meta name
+	 */
+	 setSeasonNumberMetaName(seasonNumberMetaName) {
+	 	this.seasonNumberMetaName = seasonNumberMetaName;
+	 }
+	
+	/**
+	 * Episode number meta name
+	 * @return string
+	 */
+	 getEpisodeNumberMetaName() {
+	 	return this.episodeNumberMetaName;
+	 }
+	
+	/**
+	 * @param episodeNumberMetaName string Episode number meta name
+	 */
+	 setEpisodeNumberMetaName(episodeNumberMetaName) {
+	 	this.episodeNumberMetaName = episodeNumberMetaName;
+	 }
+}
+module.exports.SeriesIdArguments = SeriesIdArguments;
+
+/**
+ *
+ */
 class AssetPersonalSelection extends kaltura.BaseObject{
 	
 	constructor(object = null) {

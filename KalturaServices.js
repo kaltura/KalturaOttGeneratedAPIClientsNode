@@ -561,12 +561,18 @@ class assetHistory{
 	
 	/**
 	 * Get next episode by last watch asset in given assetId.
-	 * @param assetId int asset Id of series to search for next episode
+	 * @param assetId int asset Id of series to search for next episode (optional, default: null)
+	 * @param seriesIdArguments SeriesIdArguments series Id arguments (optional, default: null)
+	 * @param notWatchedReturnStrategy string not watched any episode strategy (optional, enum: KalturaNotWatchedReturnStrategy, default: null)
+	 * @param watchedAllReturnStrategy string watched all series episodes strategy (optional, enum: KalturaWatchedAllReturnStrategy, default: null)
 	 * @return KalturaAssetHistory
 	 */
-	static getNextEpisode(assetId){
+	static getNextEpisode(assetId = null, seriesIdArguments = null, notWatchedReturnStrategy = null, watchedAllReturnStrategy = null){
 		let kparams = {};
 		kparams.assetId = assetId;
+		kparams.seriesIdArguments = seriesIdArguments;
+		kparams.notWatchedReturnStrategy = notWatchedReturnStrategy;
+		kparams.watchedAllReturnStrategy = watchedAllReturnStrategy;
 		return new kaltura.RequestBuilder('assethistory', 'getNextEpisode', kparams);
 	};
 	
