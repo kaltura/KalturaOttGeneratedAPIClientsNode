@@ -32783,6 +32783,21 @@ class PlaybackProfile extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * Playback profile Grpc address
+	 * @return string
+	 */
+	 getAdapterGrpcAddress() {
+	 	return this.adapterGrpcAddress;
+	 }
+	
+	/**
+	 * @param adapterGrpcAddress string Playback profile Grpc address
+	 */
+	 setAdapterGrpcAddress(adapterGrpcAddress) {
+	 	this.adapterGrpcAddress = adapterGrpcAddress;
+	 }
+	
+	/**
 	 * Playback profile URL
 	 * @return string
 	 */
