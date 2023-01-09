@@ -6482,7 +6482,7 @@ module.exports.recommendationProfile = recommendationProfile;
  * @action list Return a list of recordings for the household with optional filter by status and KSQL.
  * @action protect Deprecated, please use recording.update instead
  * Protects an existing recording from the cleanup process for the defined protection period.
- * @action stop Stop current recording.
+ * @action stop Stop ongoing household recording.
  * @action update Update an existing recording with is protected field.
  */
 class recording{
@@ -6547,13 +6547,15 @@ class recording{
 	 * Immediate Record.
 	 * @param assetId int asset identifier
 	 * @param epgChannelId int epg channel identifier
+	 * @param crid string crid
 	 * @param endPadding int end padding offset
 	 * @return KalturaImmediateRecording
 	 */
-	static immediateRecord(assetId, epgChannelId, endPadding){
+	static immediateRecord(assetId, epgChannelId, crid, endPadding){
 		let kparams = {};
 		kparams.assetId = assetId;
 		kparams.epgChannelId = epgChannelId;
+		kparams.crid = crid;
 		kparams.endPadding = endPadding;
 		return new kaltura.RequestBuilder('recording', 'immediateRecord', kparams);
 	};
@@ -6584,7 +6586,7 @@ class recording{
 	};
 	
 	/**
-	 * Stop current recording.
+	 * Stop ongoing household recording.
 	 * @param assetId int asset identifier
 	 * @param epgChannelId int epg channel identifier
 	 * @param householdRecordingId int household recording identifier
