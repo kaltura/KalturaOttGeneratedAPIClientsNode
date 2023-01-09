@@ -6547,16 +6547,16 @@ class recording{
 	 * Immediate Record.
 	 * @param assetId int asset identifier
 	 * @param epgChannelId int epg channel identifier
-	 * @param crid string crid
 	 * @param endPadding int end padding offset
+	 * @param crid string crid (optional, default: null)
 	 * @return KalturaImmediateRecording
 	 */
-	static immediateRecord(assetId, epgChannelId, crid, endPadding){
+	static immediateRecord(assetId, epgChannelId, endPadding, crid = null){
 		let kparams = {};
 		kparams.assetId = assetId;
 		kparams.epgChannelId = epgChannelId;
-		kparams.crid = crid;
 		kparams.endPadding = endPadding;
+		kparams.crid = crid;
 		return new kaltura.RequestBuilder('recording', 'immediateRecord', kparams);
 	};
 	
