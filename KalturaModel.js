@@ -8,7 +8,7 @@
 // to do with audio, video, and animation what Wiki platforms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2022  Kaltura Inc.
+// Copyright (C) 2006-2023  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -1459,6 +1459,33 @@ class CollectionFilter extends Filter{
 	 }
 }
 module.exports.CollectionFilter = CollectionFilter;
+
+/**
+ *
+ */
+class CouponFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCouponFilter';
+	}
+	
+	/**
+	 * Comma separated list of coupon codes
+	 * @return string
+	 */
+	 getCouponCodesIn() {
+	 	return this.couponCodesIn;
+	 }
+	
+	/**
+	 * @param couponCodesIn string Comma separated list of coupon codes
+	 */
+	 setCouponCodesIn(couponCodesIn) {
+	 	this.couponCodesIn = couponCodesIn;
+	 }
+}
+module.exports.CouponFilter = CouponFilter;
 
 /**
  *
