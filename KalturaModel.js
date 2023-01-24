@@ -1907,6 +1907,21 @@ class SubscriptionFilter extends Filter{
 	 setAlsoInactive(alsoInactive) {
 	 	this.alsoInactive = alsoInactive;
 	 }
+	
+	/**
+	 * return subscriptions associated by their subscription sets dependency Type
+	 * @return string
+	 */
+	 getDependencyTypeEqual() {
+	 	return this.dependencyTypeEqual;
+	 }
+	
+	/**
+	 * @param dependencyTypeEqual string return subscriptions associated by their subscription sets dependency Type
+	 */
+	 setDependencyTypeEqual(dependencyTypeEqual) {
+	 	this.dependencyTypeEqual = dependencyTypeEqual;
+	 }
 }
 module.exports.SubscriptionFilter = SubscriptionFilter;
 
