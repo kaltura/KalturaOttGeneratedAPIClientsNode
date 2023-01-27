@@ -8,7 +8,7 @@
 // to do with audio, video, and animation what Wiki platforms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2022  Kaltura Inc.
+// Copyright (C) 2006-2023  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -4529,6 +4529,67 @@ class mediaFile{
 	};
 }
 module.exports.mediaFile = mediaFile;
+
+
+/**
+ *Class definition for the Kaltura service: mediaFileDynamicData.
+ * The available service actions:
+ * @action add Add a dynamicData value to the values list of a specific key name in a specific mediaFileTypeId.
+ * @action delete Delete an existing DynamicData value.
+ * @action list List and filter existing mediaFile dynamicData values.
+ * @action update Update an existing dynamicData value.
+ */
+class mediaFileDynamicData{
+	
+	/**
+	 * Add a dynamicData value to the values list of a specific key name in a specific mediaFileTypeId.
+	 * @param dynamicData MediaFileDynamicData DynamicData value
+	 * @return KalturaMediaFileDynamicData
+	 */
+	static add(dynamicData){
+		let kparams = {};
+		kparams.dynamicData = dynamicData;
+		return new kaltura.RequestBuilder('mediafiledynamicdata', 'add', kparams);
+	};
+	
+	/**
+	 * Delete an existing DynamicData value.
+	 * @param id int DynamicData identifier
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('mediafiledynamicdata', 'delete', kparams);
+	};
+	
+	/**
+	 * List and filter existing mediaFile dynamicData values.
+	 * @param filter MediaFileDynamicDataFilter Filter (optional, default: null)
+	 * @param pager FilterPager Pager (optional, default: null)
+	 * @return KalturaMediaFileDynamicDataListResponse
+	 */
+	static listAction(filter = null, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('mediafiledynamicdata', 'list', kparams);
+	};
+	
+	/**
+	 * Update an existing dynamicData value.
+	 * @param id int DynamicData identifier
+	 * @param dynamicData MediaFileDynamicData DynamicData value
+	 * @return KalturaMediaFileDynamicData
+	 */
+	static update(id, dynamicData){
+		let kparams = {};
+		kparams.id = id;
+		kparams.dynamicData = dynamicData;
+		return new kaltura.RequestBuilder('mediafiledynamicdata', 'update', kparams);
+	};
+}
+module.exports.mediaFileDynamicData = mediaFileDynamicData;
 
 
 /**
