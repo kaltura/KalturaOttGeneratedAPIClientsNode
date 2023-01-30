@@ -561,12 +561,18 @@ class assetHistory{
 	
 	/**
 	 * Get next episode by last watch asset in given assetId.
-	 * @param assetId int asset Id of series to search for next episode
+	 * @param assetId int asset Id of series to search for next episode (optional, default: null)
+	 * @param seriesIdArguments SeriesIdArguments series Id arguments (optional, default: null)
+	 * @param notWatchedReturnStrategy string not watched any episode strategy (optional, enum: KalturaNotWatchedReturnStrategy, default: null)
+	 * @param watchedAllReturnStrategy string watched all series episodes strategy (optional, enum: KalturaWatchedAllReturnStrategy, default: null)
 	 * @return KalturaAssetHistory
 	 */
-	static getNextEpisode(assetId){
+	static getNextEpisode(assetId = null, seriesIdArguments = null, notWatchedReturnStrategy = null, watchedAllReturnStrategy = null){
 		let kparams = {};
 		kparams.assetId = assetId;
+		kparams.seriesIdArguments = seriesIdArguments;
+		kparams.notWatchedReturnStrategy = notWatchedReturnStrategy;
+		kparams.watchedAllReturnStrategy = watchedAllReturnStrategy;
 		return new kaltura.RequestBuilder('assethistory', 'getNextEpisode', kparams);
 	};
 	
@@ -6478,9 +6484,11 @@ module.exports.recommendationProfile = recommendationProfile;
  * @action cancel Cancel a previously requested recording. Cancel recording can be called for recording in status Scheduled or Recording Only.
  * @action delete Delete one or more user recording(s). Delete recording can be called only for recordings in status Recorded.
  * @action get Returns recording object by internal identifier.
+ * @action immediateRecord Immediate Record.
  * @action list Return a list of recordings for the household with optional filter by status and KSQL.
  * @action protect Deprecated, please use recording.update instead
  * Protects an existing recording from the cleanup process for the defined protection period.
+ * @action stop Stop ongoing household recording.
  * @action update Update an existing recording with is protected field.
  */
 class recording{
@@ -6542,6 +6550,21 @@ class recording{
 	};
 	
 	/**
+	 * Immediate Record.
+	 * @param assetId int asset identifier
+	 * @param epgChannelId int epg channel identifier
+	 * @param endPadding int end padding offset
+	 * @return KalturaImmediateRecording
+	 */
+	static immediateRecord(assetId, epgChannelId, endPadding){
+		let kparams = {};
+		kparams.assetId = assetId;
+		kparams.epgChannelId = epgChannelId;
+		kparams.endPadding = endPadding;
+		return new kaltura.RequestBuilder('recording', 'immediateRecord', kparams);
+	};
+	
+	/**
 	 * Return a list of recordings for the household with optional filter by status and KSQL.
 	 * @param filter RecordingFilter Filter parameters for filtering out the result (optional, default: null)
 	 * @param pager FilterPager Page size and index (optional, default: null)
@@ -6564,6 +6587,21 @@ class recording{
 		let kparams = {};
 		kparams.id = id;
 		return new kaltura.RequestBuilder('recording', 'protect', kparams);
+	};
+	
+	/**
+	 * Stop ongoing household recording.
+	 * @param assetId int asset identifier
+	 * @param epgChannelId int epg channel identifier
+	 * @param householdRecordingId int household recording identifier
+	 * @return KalturaRecording
+	 */
+	static stop(assetId, epgChannelId, householdRecordingId){
+		let kparams = {};
+		kparams.assetId = assetId;
+		kparams.epgChannelId = epgChannelId;
+		kparams.householdRecordingId = householdRecordingId;
+		return new kaltura.RequestBuilder('recording', 'stop', kparams);
 	};
 	
 	/**

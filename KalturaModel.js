@@ -1909,18 +1909,20 @@ class SubscriptionFilter extends Filter{
 	 }
 	
 	/**
-	 * return subscriptions associated by their subscription sets dependency Type
+	 * comma separated values of KalturaSubscriptionDependencyType
+ * return subscriptions associated by their subscription sets dependency Type
 	 * @return string
 	 */
-	 getDependencyTypeEqual() {
-	 	return this.dependencyTypeEqual;
+	 getDependencyTypeIn() {
+	 	return this.dependencyTypeIn;
 	 }
 	
 	/**
-	 * @param dependencyTypeEqual string return subscriptions associated by their subscription sets dependency Type
+	 * @param dependencyTypeIn string comma separated values of KalturaSubscriptionDependencyType
+ * return subscriptions associated by their subscription sets dependency Type
 	 */
-	 setDependencyTypeEqual(dependencyTypeEqual) {
-	 	this.dependencyTypeEqual = dependencyTypeEqual;
+	 setDependencyTypeIn(dependencyTypeIn) {
+	 	this.dependencyTypeIn = dependencyTypeIn;
 	 }
 }
 module.exports.SubscriptionFilter = SubscriptionFilter;
@@ -26386,6 +26388,91 @@ module.exports.ExternalRecording = ExternalRecording;
 /**
  *
  */
+class ImmediateRecording extends Recording{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaImmediateRecording';
+	}
+	
+	/**
+	 * Household specific end padding of the recording
+	 * @return int
+	 */
+	 getEndPadding() {
+	 	return this.endPadding;
+	 }
+	
+	/**
+	 * @param endPadding int Household specific end padding of the recording
+	 */
+	 setEndPadding(endPadding) {
+	 	this.endPadding = endPadding;
+	 }
+	
+	/**
+	 * Household absolute start time of the immediate recording
+	 * @return int
+	 */
+	 getAbsoluteStart() {
+	 	return this.absoluteStart;
+	 }
+	
+	/**
+	 * Household absolute end time of the immediate recording, empty if till end of program
+	 * @return int
+	 */
+	 getAbsoluteEnd() {
+	 	return this.absoluteEnd;
+	 }
+}
+module.exports.ImmediateRecording = ImmediateRecording;
+
+/**
+ *
+ */
+class PaddedRecording extends Recording{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPaddedRecording';
+	}
+	
+	/**
+	 * Household specific start padding of the recording
+	 * @return int
+	 */
+	 getStartPadding() {
+	 	return this.startPadding;
+	 }
+	
+	/**
+	 * @param startPadding int Household specific start padding of the recording
+	 */
+	 setStartPadding(startPadding) {
+	 	this.startPadding = startPadding;
+	 }
+	
+	/**
+	 * Household specific end padding of the recording
+	 * @return int
+	 */
+	 getEndPadding() {
+	 	return this.endPadding;
+	 }
+	
+	/**
+	 * @param endPadding int Household specific end padding of the recording
+	 */
+	 setEndPadding(endPadding) {
+	 	this.endPadding = endPadding;
+	 }
+}
+module.exports.PaddedRecording = PaddedRecording;
+
+/**
+ *
+ */
 class RecordingListResponse extends ListResponse{
 	
 	constructor(object = null) {
@@ -27972,6 +28059,21 @@ class RecordingAsset extends ProgramAsset{
 	 */
 	 setViewableUntilDate(viewableUntilDate) {
 	 	this.viewableUntilDate = viewableUntilDate;
+	 }
+	
+	/**
+	 * When TRUE indicates that there are multiple KalturaImmediateRecording instances for the event
+	 * @return bool
+	 */
+	 getMultiRecord() {
+	 	return this.multiRecord;
+	 }
+	
+	/**
+	 * @param multiRecord bool When TRUE indicates that there are multiple KalturaImmediateRecording instances for the event
+	 */
+	 setMultiRecord(multiRecord) {
+	 	this.multiRecord = multiRecord;
 	 }
 }
 module.exports.RecordingAsset = RecordingAsset;
@@ -32788,6 +32890,21 @@ class PlaybackProfile extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * Playback profile Grpc address
+	 * @return string
+	 */
+	 getAdapterGrpcAddress() {
+	 	return this.adapterGrpcAddress;
+	 }
+	
+	/**
+	 * @param adapterGrpcAddress string Playback profile Grpc address
+	 */
+	 setAdapterGrpcAddress(adapterGrpcAddress) {
+	 	this.adapterGrpcAddress = adapterGrpcAddress;
+	 }
+	
+	/**
 	 * Playback profile URL
 	 * @return string
 	 */
@@ -34623,6 +34740,93 @@ class AssetFileContext extends kaltura.BaseObject{
 	 }
 }
 module.exports.AssetFileContext = AssetFileContext;
+
+/**
+ *
+ */
+class SeriesIdArguments extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSeriesIdArguments';
+	}
+	
+	/**
+	 * Comma separated asset type IDs
+	 * @return string
+	 */
+	 getAssetTypeIdIn() {
+	 	return this.assetTypeIdIn;
+	 }
+	
+	/**
+	 * @param assetTypeIdIn string Comma separated asset type IDs
+	 */
+	 setAssetTypeIdIn(assetTypeIdIn) {
+	 	this.assetTypeIdIn = assetTypeIdIn;
+	 }
+	
+	/**
+	 * Series ID
+	 * @return string
+	 */
+	 getSeriesId() {
+	 	return this.seriesId;
+	 }
+	
+	/**
+	 * @param seriesId string Series ID
+	 */
+	 setSeriesId(seriesId) {
+	 	this.seriesId = seriesId;
+	 }
+	
+	/**
+	 * Series ID meta name
+	 * @return string
+	 */
+	 getSeriesIdMetaName() {
+	 	return this.seriesIdMetaName;
+	 }
+	
+	/**
+	 * @param seriesIdMetaName string Series ID meta name
+	 */
+	 setSeriesIdMetaName(seriesIdMetaName) {
+	 	this.seriesIdMetaName = seriesIdMetaName;
+	 }
+	
+	/**
+	 * Season number meta name
+	 * @return string
+	 */
+	 getSeasonNumberMetaName() {
+	 	return this.seasonNumberMetaName;
+	 }
+	
+	/**
+	 * @param seasonNumberMetaName string Season number meta name
+	 */
+	 setSeasonNumberMetaName(seasonNumberMetaName) {
+	 	this.seasonNumberMetaName = seasonNumberMetaName;
+	 }
+	
+	/**
+	 * Episode number meta name
+	 * @return string
+	 */
+	 getEpisodeNumberMetaName() {
+	 	return this.episodeNumberMetaName;
+	 }
+	
+	/**
+	 * @param episodeNumberMetaName string Episode number meta name
+	 */
+	 setEpisodeNumberMetaName(episodeNumberMetaName) {
+	 	this.episodeNumberMetaName = episodeNumberMetaName;
+	 }
+}
+module.exports.SeriesIdArguments = SeriesIdArguments;
 
 /**
  *
