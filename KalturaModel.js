@@ -13846,6 +13846,72 @@ module.exports.FilterFileByAudioCodecInPlaybackAction = FilterFileByAudioCodecIn
 /**
  *
  */
+class FilterFileByDynamicDataAction extends FilterAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaFilterFileByDynamicDataAction';
+	}
+	
+	/**
+	 * Key to be searched
+	 * @return string
+	 */
+	 getKey() {
+	 	return this.key;
+	 }
+	
+	/**
+	 * @param key string Key to be searched
+	 */
+	 setKey(key) {
+	 	this.key = key;
+	 }
+	
+	/**
+	 * Comma separated values to be searched
+	 * @return string
+	 */
+	 getValues() {
+	 	return this.values;
+	 }
+	
+	/**
+	 * @param values string Comma separated values to be searched
+	 */
+	 setValues(values) {
+	 	this.values = values;
+	 }
+}
+module.exports.FilterFileByDynamicDataAction = FilterFileByDynamicDataAction;
+
+/**
+ *
+ */
+class FilterFileByDynamicDataInDiscoveryAction extends FilterFileByDynamicDataAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaFilterFileByDynamicDataInDiscoveryAction';
+	}
+}
+module.exports.FilterFileByDynamicDataInDiscoveryAction = FilterFileByDynamicDataInDiscoveryAction;
+
+/**
+ *
+ */
+class FilterFileByDynamicDataInPlaybackAction extends FilterFileByDynamicDataAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaFilterFileByDynamicDataInPlaybackAction';
+	}
+}
+module.exports.FilterFileByDynamicDataInPlaybackAction = FilterFileByDynamicDataInPlaybackAction;
+
+/**
+ *
+ */
 class FilterFileByFileTypeIdAction extends FilterAction{
 	
 	constructor(object = null) {

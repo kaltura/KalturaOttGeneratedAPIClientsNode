@@ -1183,6 +1183,8 @@ FILTERFILEBYSTREAMERTYPEINDISCOVERY : 'FilterFileByStreamerTypeInDiscovery',
 FILTERFILEBYSTREAMERTYPEINPLAYBACK : 'FilterFileByStreamerTypeInPlayback',
 FILTERFILEBYLABELINDISCOVERY : 'FilterFileByLabelInDiscovery',
 FILTERFILEBYLABELINPLAYBACK : 'FilterFileByLabelInPlayback',
+FILTERFILEBYDYNAMICDATAINDISCOVERY : 'FilterFileByDynamicDataInDiscovery',
+FILTERFILEBYDYNAMICDATAINPLAYBACK : 'FilterFileByDynamicDataInPlayback',
 };
 
 module.exports.RuleConditionType = {
