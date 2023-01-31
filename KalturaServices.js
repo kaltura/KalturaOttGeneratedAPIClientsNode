@@ -6553,10 +6553,10 @@ class recording{
 	 * Immediate Record.
 	 * @param assetId int asset identifier
 	 * @param epgChannelId int epg channel identifier
-	 * @param endPadding int end padding offset
+	 * @param endPadding int end padding offset (optional, default: null)
 	 * @return KalturaImmediateRecording
 	 */
-	static immediateRecord(assetId, epgChannelId, endPadding){
+	static immediateRecord(assetId, epgChannelId, endPadding = null){
 		let kparams = {};
 		kparams.assetId = assetId;
 		kparams.epgChannelId = epgChannelId;
