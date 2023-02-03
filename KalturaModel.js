@@ -7285,6 +7285,95 @@ module.exports.LanguageFilter = LanguageFilter;
 /**
  *
  */
+class MediaFileDynamicDataFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaMediaFileDynamicDataFilter';
+	}
+	
+	/**
+	 * A comma-separated list of KalturaMediaFileDynamicData.Id to be searched
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string A comma-separated list of KalturaMediaFileDynamicData.Id to be searched
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+	
+	/**
+	 * An integer representing the the mediaFileType holding the keys for which the values should be stored
+	 * @return int
+	 */
+	 getMediaFileTypeId() {
+	 	return this.mediaFileTypeId;
+	 }
+	
+	/**
+	 * @param mediaFileTypeId int An integer representing the the mediaFileType holding the keys for which the values should be stored
+	 */
+	 setMediaFileTypeId(mediaFileTypeId) {
+	 	this.mediaFileTypeId = mediaFileTypeId;
+	 }
+	
+	/**
+	 * A string representing the key name within the mediaFileType that identifies the list corresponding
+ * to that key name
+	 * @return string
+	 */
+	 getMediaFileTypeKeyName() {
+	 	return this.mediaFileTypeKeyName;
+	 }
+	
+	/**
+	 * @param mediaFileTypeKeyName string A string representing the key name within the mediaFileType that identifies the list corresponding
+ * to that key name
+	 */
+	 setMediaFileTypeKeyName(mediaFileTypeKeyName) {
+	 	this.mediaFileTypeKeyName = mediaFileTypeKeyName;
+	 }
+	
+	/**
+	 * A string representing a specific value to be searched
+	 * @return string
+	 */
+	 getValueEqual() {
+	 	return this.valueEqual;
+	 }
+	
+	/**
+	 * @param valueEqual string A string representing a specific value to be searched
+	 */
+	 setValueEqual(valueEqual) {
+	 	this.valueEqual = valueEqual;
+	 }
+	
+	/**
+	 * A string representing the beginning of multiple (zero or more) matching values
+	 * @return string
+	 */
+	 getValueStartsWith() {
+	 	return this.valueStartsWith;
+	 }
+	
+	/**
+	 * @param valueStartsWith string A string representing the beginning of multiple (zero or more) matching values
+	 */
+	 setValueStartsWith(valueStartsWith) {
+	 	this.valueStartsWith = valueStartsWith;
+	 }
+}
+module.exports.MediaFileDynamicDataFilter = MediaFileDynamicDataFilter;
+
+/**
+ *
+ */
 class MetaFilter extends Filter{
 	
 	constructor(object = null) {
@@ -28958,6 +29047,107 @@ class LineupChannelAssetListResponse extends ListResponse{
 	 }
 }
 module.exports.LineupChannelAssetListResponse = LineupChannelAssetListResponse;
+
+/**
+ *
+ */
+class MediaFileDynamicData extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaMediaFileDynamicData';
+	}
+	
+	/**
+	 * An integer representing the identifier of the value
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id int An integer representing the identifier of the value
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
+	 * An integer representing the the mediaFileType holding the keys for which the values should be stored
+	 * @return int
+	 */
+	 getMediaFileTypeId() {
+	 	return this.mediaFileTypeId;
+	 }
+	
+	/**
+	 * @param mediaFileTypeId int An integer representing the the mediaFileType holding the keys for which the values should be stored
+	 */
+	 setMediaFileTypeId(mediaFileTypeId) {
+	 	this.mediaFileTypeId = mediaFileTypeId;
+	 }
+	
+	/**
+	 * A string representing the key name within the mediaFileType that identifies the list corresponding
+ * to that key name
+	 * @return string
+	 */
+	 getMediaFileTypeKeyName() {
+	 	return this.mediaFileTypeKeyName;
+	 }
+	
+	/**
+	 * @param mediaFileTypeKeyName string A string representing the key name within the mediaFileType that identifies the list corresponding
+ * to that key name
+	 */
+	 setMediaFileTypeKeyName(mediaFileTypeKeyName) {
+	 	this.mediaFileTypeKeyName = mediaFileTypeKeyName;
+	 }
+	
+	/**
+	 * Dynamic data value
+	 * @return string
+	 */
+	 getValue() {
+	 	return this.value;
+	 }
+	
+	/**
+	 * @param value string Dynamic data value
+	 */
+	 setValue(value) {
+	 	this.value = value;
+	 }
+}
+module.exports.MediaFileDynamicData = MediaFileDynamicData;
+
+/**
+ *
+ */
+class MediaFileDynamicDataListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaMediaFileDynamicDataListResponse';
+	}
+	
+	/**
+	 * A list of media-file types
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of media-file types
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.MediaFileDynamicDataListResponse = MediaFileDynamicDataListResponse;
 
 /**
  *

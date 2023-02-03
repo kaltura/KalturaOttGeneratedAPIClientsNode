@@ -814,6 +814,10 @@ SUM : 'sum',
 AVG : 'avg',
 };
 
+module.exports.MediaFileDynamicDataOrderBy = {
+NONE : 'NONE',
+};
+
 module.exports.MediaFileOrderBy = {
 NONE : 'NONE',
 };
