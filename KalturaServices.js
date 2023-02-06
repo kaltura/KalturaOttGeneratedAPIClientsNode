@@ -2749,7 +2749,7 @@ class entitlement{
 	
 	/**
 	 * Gets all the entitled media items for a household.
-	 * @param filter BaseEntitlementFilter Request filter
+	 * @param filter EntitlementFilter Request filter
 	 * @param pager FilterPager Request pager (optional, default: null)
 	 * @return KalturaEntitlementListResponse
 	 */
