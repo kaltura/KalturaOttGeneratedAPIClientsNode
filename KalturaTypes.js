@@ -888,6 +888,11 @@ REMINDER : 'Reminder',
 SERIES_REMINDER : 'series_reminder',
 };
 
+module.exports.NotWatchedReturnStrategy = {
+RETURN_NO_NEXT_EPISODE : 'RETURN_NO_NEXT_EPISODE',
+RETURN_FIRST_EPISODE : 'RETURN_FIRST_EPISODE',
+};
+
 module.exports.ObjectState = {
 INACTIVE : 'INACTIVE',
 ACTIVE : 'ACTIVE',
@@ -1515,6 +1520,12 @@ OK : 'ok',
 USER_WITH_NO_HOUSEHOLD : 'user_with_no_household',
 USER_CREATED_WITH_NO_ROLE : 'user_created_with_no_role',
 USER_NOT_ACTIVATED : 'user_not_activated',
+};
+
+module.exports.WatchedAllReturnStrategy = {
+RETURN_NO_NEXT_EPISODE : 'RETURN_NO_NEXT_EPISODE',
+RETURN_FIRST_EPISODE : 'RETURN_FIRST_EPISODE',
+RETURN_LAST_EPISODE : 'RETURN_LAST_EPISODE',
 };
 
 module.exports.WatchStatus = {

@@ -4079,87 +4079,6 @@ module.exports.ConfigurationsFilter = ConfigurationsFilter;
 /**
  *
  */
-class BaseEntitlementFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBaseEntitlementFilter';
-	}
-}
-module.exports.BaseEntitlementFilter = BaseEntitlementFilter;
-
-/**
- *
- */
-class EntitlementFilter extends BaseEntitlementFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaEntitlementFilter';
-	}
-	
-	/**
-	 * The type of the entitlements to return
-	 * @return string
-	 */
-	 getProductTypeEqual() {
-	 	return this.productTypeEqual;
-	 }
-	
-	/**
-	 * @param productTypeEqual string The type of the entitlements to return
-	 */
-	 setProductTypeEqual(productTypeEqual) {
-	 	this.productTypeEqual = productTypeEqual;
-	 }
-	
-	/**
-	 * Reference type to filter by
-	 * @return string
-	 */
-	 getEntityReferenceEqual() {
-	 	return this.entityReferenceEqual;
-	 }
-	
-	/**
-	 * @param entityReferenceEqual string Reference type to filter by
-	 */
-	 setEntityReferenceEqual(entityReferenceEqual) {
-	 	this.entityReferenceEqual = entityReferenceEqual;
-	 }
-	
-	/**
-	 * Is expired
-	 * @return bool
-	 */
-	 getIsExpiredEqual() {
-	 	return this.isExpiredEqual;
-	 }
-	
-	/**
-	 * @param isExpiredEqual bool Is expired
-	 */
-	 setIsExpiredEqual(isExpiredEqual) {
-	 	this.isExpiredEqual = isExpiredEqual;
-	 }
-}
-module.exports.EntitlementFilter = EntitlementFilter;
-
-/**
- *
- */
-class ProgramAssetGroupOfferEntitlementFilter extends BaseEntitlementFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaProgramAssetGroupOfferEntitlementFilter';
-	}
-}
-module.exports.ProgramAssetGroupOfferEntitlementFilter = ProgramAssetGroupOfferEntitlementFilter;
-
-/**
- *
- */
 class RecordingFilter extends Filter{
 	
 	constructor(object = null) {
@@ -4306,6 +4225,75 @@ class CloudSeriesRecordingFilter extends SeriesRecordingFilter{
 	 }
 }
 module.exports.CloudSeriesRecordingFilter = CloudSeriesRecordingFilter;
+
+/**
+ *
+ */
+class EntitlementFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEntitlementFilter';
+	}
+	
+	/**
+	 * The type of the entitlements to return
+	 * @return string
+	 */
+	 getProductTypeEqual() {
+	 	return this.productTypeEqual;
+	 }
+	
+	/**
+	 * @param productTypeEqual string The type of the entitlements to return
+	 */
+	 setProductTypeEqual(productTypeEqual) {
+	 	this.productTypeEqual = productTypeEqual;
+	 }
+	
+	/**
+	 * Reference type to filter by
+	 * @return string
+	 */
+	 getEntityReferenceEqual() {
+	 	return this.entityReferenceEqual;
+	 }
+	
+	/**
+	 * @param entityReferenceEqual string Reference type to filter by
+	 */
+	 setEntityReferenceEqual(entityReferenceEqual) {
+	 	this.entityReferenceEqual = entityReferenceEqual;
+	 }
+	
+	/**
+	 * Is expired
+	 * @return bool
+	 */
+	 getIsExpiredEqual() {
+	 	return this.isExpiredEqual;
+	 }
+	
+	/**
+	 * @param isExpiredEqual bool Is expired
+	 */
+	 setIsExpiredEqual(isExpiredEqual) {
+	 	this.isExpiredEqual = isExpiredEqual;
+	 }
+}
+module.exports.EntitlementFilter = EntitlementFilter;
+
+/**
+ *
+ */
+class ProgramAssetGroupOfferEntitlementFilter extends EntitlementFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaProgramAssetGroupOfferEntitlementFilter';
+	}
+}
+module.exports.ProgramAssetGroupOfferEntitlementFilter = ProgramAssetGroupOfferEntitlementFilter;
 
 /**
  *
@@ -26485,6 +26473,14 @@ class Recording extends kaltura.BaseObject{
 	 getUpdateDate() {
 	 	return this.updateDate;
 	 }
+	
+	/**
+	 * Duration in seconds
+	 * @return int
+	 */
+	 getDuration() {
+	 	return this.duration;
+	 }
 }
 module.exports.Recording = Recording;
 
@@ -26537,6 +26533,91 @@ class ExternalRecording extends Recording{
 	 }
 }
 module.exports.ExternalRecording = ExternalRecording;
+
+/**
+ *
+ */
+class ImmediateRecording extends Recording{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaImmediateRecording';
+	}
+	
+	/**
+	 * Household specific end padding of the recording
+	 * @return int
+	 */
+	 getEndPadding() {
+	 	return this.endPadding;
+	 }
+	
+	/**
+	 * @param endPadding int Household specific end padding of the recording
+	 */
+	 setEndPadding(endPadding) {
+	 	this.endPadding = endPadding;
+	 }
+	
+	/**
+	 * Household absolute start time of the immediate recording
+	 * @return int
+	 */
+	 getAbsoluteStart() {
+	 	return this.absoluteStart;
+	 }
+	
+	/**
+	 * Household absolute end time of the immediate recording, empty if till end of program
+	 * @return int
+	 */
+	 getAbsoluteEnd() {
+	 	return this.absoluteEnd;
+	 }
+}
+module.exports.ImmediateRecording = ImmediateRecording;
+
+/**
+ *
+ */
+class PaddedRecording extends Recording{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPaddedRecording';
+	}
+	
+	/**
+	 * Household specific start padding of the recording
+	 * @return int
+	 */
+	 getStartPadding() {
+	 	return this.startPadding;
+	 }
+	
+	/**
+	 * @param startPadding int Household specific start padding of the recording
+	 */
+	 setStartPadding(startPadding) {
+	 	this.startPadding = startPadding;
+	 }
+	
+	/**
+	 * Household specific end padding of the recording
+	 * @return int
+	 */
+	 getEndPadding() {
+	 	return this.endPadding;
+	 }
+	
+	/**
+	 * @param endPadding int Household specific end padding of the recording
+	 */
+	 setEndPadding(endPadding) {
+	 	this.endPadding = endPadding;
+	 }
+}
+module.exports.PaddedRecording = PaddedRecording;
 
 /**
  *
@@ -28127,6 +28208,21 @@ class RecordingAsset extends ProgramAsset{
 	 */
 	 setViewableUntilDate(viewableUntilDate) {
 	 	this.viewableUntilDate = viewableUntilDate;
+	 }
+	
+	/**
+	 * When TRUE indicates that there are multiple KalturaImmediateRecording instances for the event
+	 * @return bool
+	 */
+	 getMultiRecord() {
+	 	return this.multiRecord;
+	 }
+	
+	/**
+	 * @param multiRecord bool When TRUE indicates that there are multiple KalturaImmediateRecording instances for the event
+	 */
+	 setMultiRecord(multiRecord) {
+	 	this.multiRecord = multiRecord;
 	 }
 }
 module.exports.RecordingAsset = RecordingAsset;
@@ -33059,6 +33155,21 @@ class PlaybackProfile extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * Playback profile Grpc address
+	 * @return string
+	 */
+	 getAdapterGrpcAddress() {
+	 	return this.adapterGrpcAddress;
+	 }
+	
+	/**
+	 * @param adapterGrpcAddress string Playback profile Grpc address
+	 */
+	 setAdapterGrpcAddress(adapterGrpcAddress) {
+	 	this.adapterGrpcAddress = adapterGrpcAddress;
+	 }
+	
+	/**
 	 * Playback profile URL
 	 * @return string
 	 */
@@ -34894,6 +35005,93 @@ class AssetFileContext extends kaltura.BaseObject{
 	 }
 }
 module.exports.AssetFileContext = AssetFileContext;
+
+/**
+ *
+ */
+class SeriesIdArguments extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSeriesIdArguments';
+	}
+	
+	/**
+	 * Comma separated asset type IDs
+	 * @return string
+	 */
+	 getAssetTypeIdIn() {
+	 	return this.assetTypeIdIn;
+	 }
+	
+	/**
+	 * @param assetTypeIdIn string Comma separated asset type IDs
+	 */
+	 setAssetTypeIdIn(assetTypeIdIn) {
+	 	this.assetTypeIdIn = assetTypeIdIn;
+	 }
+	
+	/**
+	 * Series ID
+	 * @return string
+	 */
+	 getSeriesId() {
+	 	return this.seriesId;
+	 }
+	
+	/**
+	 * @param seriesId string Series ID
+	 */
+	 setSeriesId(seriesId) {
+	 	this.seriesId = seriesId;
+	 }
+	
+	/**
+	 * Series ID meta name
+	 * @return string
+	 */
+	 getSeriesIdMetaName() {
+	 	return this.seriesIdMetaName;
+	 }
+	
+	/**
+	 * @param seriesIdMetaName string Series ID meta name
+	 */
+	 setSeriesIdMetaName(seriesIdMetaName) {
+	 	this.seriesIdMetaName = seriesIdMetaName;
+	 }
+	
+	/**
+	 * Season number meta name
+	 * @return string
+	 */
+	 getSeasonNumberMetaName() {
+	 	return this.seasonNumberMetaName;
+	 }
+	
+	/**
+	 * @param seasonNumberMetaName string Season number meta name
+	 */
+	 setSeasonNumberMetaName(seasonNumberMetaName) {
+	 	this.seasonNumberMetaName = seasonNumberMetaName;
+	 }
+	
+	/**
+	 * Episode number meta name
+	 * @return string
+	 */
+	 getEpisodeNumberMetaName() {
+	 	return this.episodeNumberMetaName;
+	 }
+	
+	/**
+	 * @param episodeNumberMetaName string Episode number meta name
+	 */
+	 setEpisodeNumberMetaName(episodeNumberMetaName) {
+	 	this.episodeNumberMetaName = episodeNumberMetaName;
+	 }
+}
+module.exports.SeriesIdArguments = SeriesIdArguments;
 
 /**
  *
