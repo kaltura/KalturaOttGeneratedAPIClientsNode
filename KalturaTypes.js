@@ -8,7 +8,7 @@
 // to do with audio, video, and animation what Wiki platforms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2022  Kaltura Inc.
+// Copyright (C) 2006-2023  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -176,6 +176,8 @@ LIKES_DESC : 'LIKES_DESC',
 
 module.exports.AssetRuleOrderBy = {
 NONE : 'NONE',
+NAME_ASC : 'NAME_ASC',
+NAME_DESC : 'NAME_DESC',
 };
 
 module.exports.AssetRuleStatus = {
@@ -884,6 +886,11 @@ REMINDER : 'Reminder',
 SERIES_REMINDER : 'series_reminder',
 };
 
+module.exports.NotWatchedReturnStrategy = {
+RETURN_NO_NEXT_EPISODE : 'RETURN_NO_NEXT_EPISODE',
+RETURN_FIRST_EPISODE : 'RETURN_FIRST_EPISODE',
+};
+
 module.exports.ObjectState = {
 INACTIVE : 'INACTIVE',
 ACTIVE : 'ACTIVE',
@@ -1509,6 +1516,12 @@ OK : 'ok',
 USER_WITH_NO_HOUSEHOLD : 'user_with_no_household',
 USER_CREATED_WITH_NO_ROLE : 'user_created_with_no_role',
 USER_NOT_ACTIVATED : 'user_not_activated',
+};
+
+module.exports.WatchedAllReturnStrategy = {
+RETURN_NO_NEXT_EPISODE : 'RETURN_NO_NEXT_EPISODE',
+RETURN_FIRST_EPISODE : 'RETURN_FIRST_EPISODE',
+RETURN_LAST_EPISODE : 'RETURN_LAST_EPISODE',
 };
 
 module.exports.WatchStatus = {
