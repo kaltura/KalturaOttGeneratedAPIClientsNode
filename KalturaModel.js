@@ -1247,35 +1247,23 @@ class SegmentationTypeFilter extends BaseSegmentationTypeFilter{
 	 setNameContain(nameContain) {
 	 	this.nameContain = nameContain;
 	 }
-}
-module.exports.SegmentationTypeFilter = SegmentationTypeFilter;
-
-/**
- *
- */
-class SegmentationTypeShopFilter extends BaseSegmentationTypeFilter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaSegmentationTypeShopFilter';
-	}
 	
 	/**
 	 * comma-separated list of KalturaSegmentationType.assetUserRuleId values
 	 * @return string
 	 */
-	 getIdIn() {
-	 	return this.idIn;
+	 getAssetUserRuleIdIn() {
+	 	return this.assetUserRuleIdIn;
 	 }
 	
 	/**
-	 * @param idIn string comma-separated list of KalturaSegmentationType.assetUserRuleId values
+	 * @param assetUserRuleIdIn string comma-separated list of KalturaSegmentationType.assetUserRuleId values
 	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
+	 setAssetUserRuleIdIn(assetUserRuleIdIn) {
+	 	this.assetUserRuleIdIn = assetUserRuleIdIn;
 	 }
 }
-module.exports.SegmentationTypeShopFilter = SegmentationTypeShopFilter;
+module.exports.SegmentationTypeFilter = SegmentationTypeFilter;
 
 /**
  *
@@ -1933,6 +1921,23 @@ class SubscriptionFilter extends Filter{
 	 */
 	 setAlsoInactive(alsoInactive) {
 	 	this.alsoInactive = alsoInactive;
+	 }
+	
+	/**
+	 * comma separated values of KalturaSubscriptionDependencyType
+ * return subscriptions associated by their subscription sets dependency Type
+	 * @return string
+	 */
+	 getDependencyTypeIn() {
+	 	return this.dependencyTypeIn;
+	 }
+	
+	/**
+	 * @param dependencyTypeIn string comma separated values of KalturaSubscriptionDependencyType
+ * return subscriptions associated by their subscription sets dependency Type
+	 */
+	 setDependencyTypeIn(dependencyTypeIn) {
+	 	this.dependencyTypeIn = dependencyTypeIn;
 	 }
 }
 module.exports.SubscriptionFilter = SubscriptionFilter;
