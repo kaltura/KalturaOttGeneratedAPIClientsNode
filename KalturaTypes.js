@@ -816,6 +816,10 @@ SUM : 'sum',
 AVG : 'avg',
 };
 
+module.exports.MediaFileDynamicDataOrderBy = {
+NONE : 'NONE',
+};
+
 module.exports.MediaFileOrderBy = {
 NONE : 'NONE',
 };
@@ -1190,6 +1194,8 @@ FILTERFILEBYSTREAMERTYPEINDISCOVERY : 'FilterFileByStreamerTypeInDiscovery',
 FILTERFILEBYSTREAMERTYPEINPLAYBACK : 'FilterFileByStreamerTypeInPlayback',
 FILTERFILEBYLABELINDISCOVERY : 'FilterFileByLabelInDiscovery',
 FILTERFILEBYLABELINPLAYBACK : 'FilterFileByLabelInPlayback',
+FILTERFILEBYDYNAMICDATAINDISCOVERY : 'FilterFileByDynamicDataInDiscovery',
+FILTERFILEBYDYNAMICDATAINPLAYBACK : 'FilterFileByDynamicDataInPlayback',
 };
 
 module.exports.RuleConditionType = {
