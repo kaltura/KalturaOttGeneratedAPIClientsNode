@@ -5852,6 +5852,37 @@ module.exports.permissionItem = permissionItem;
 
 
 /**
+ *Class definition for the Kaltura service: personalActivityCleanup.
+ * The available service actions:
+ * @action getPartnerConfiguration PersonalActivityCleanupConfiguration get.
+ * @action updatePartnerConfiguration PersonalActivityCleanupConfiguration Update.
+ */
+class personalActivityCleanup{
+	
+	/**
+	 * PersonalActivityCleanupConfiguration get.
+	 * @return KalturaPersonalActivityCleanupConfiguration
+	 */
+	static getPartnerConfiguration(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('personalactivitycleanup', 'getPartnerConfiguration', kparams);
+	};
+	
+	/**
+	 * PersonalActivityCleanupConfiguration Update.
+	 * @param personalActivityCleanupConfiguration PersonalActivityCleanupConfiguration PersonalActivityCleanupConfiguration details
+	 * @return KalturaPersonalActivityCleanupConfiguration
+	 */
+	static updatePartnerConfiguration(personalActivityCleanupConfiguration){
+		let kparams = {};
+		kparams.personalActivityCleanupConfiguration = personalActivityCleanupConfiguration;
+		return new kaltura.RequestBuilder('personalactivitycleanup', 'updatePartnerConfiguration', kparams);
+	};
+}
+module.exports.personalActivityCleanup = personalActivityCleanup;
+
+
+/**
  *Class definition for the Kaltura service: personalFeed.
  * The available service actions:
  * @action list List user&#39;s feeds.

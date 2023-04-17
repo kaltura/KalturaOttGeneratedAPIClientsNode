@@ -38885,6 +38885,33 @@ module.exports.PartnerPremiumServices = PartnerPremiumServices;
 /**
  *
  */
+class PersonalActivityCleanupConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPersonalActivityCleanupConfiguration';
+	}
+	
+	/**
+	 * Retention Period Days
+	 * @return int
+	 */
+	 getRetentionPeriodDays() {
+	 	return this.retentionPeriodDays;
+	 }
+	
+	/**
+	 * @param retentionPeriodDays int Retention Period Days
+	 */
+	 setRetentionPeriodDays(retentionPeriodDays) {
+	 	this.retentionPeriodDays = retentionPeriodDays;
+	 }
+}
+module.exports.PersonalActivityCleanupConfiguration = PersonalActivityCleanupConfiguration;
+
+/**
+ *
+ */
 class Pin extends kaltura.BaseObject{
 	
 	constructor(object = null) {
