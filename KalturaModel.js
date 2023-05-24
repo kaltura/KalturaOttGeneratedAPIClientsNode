@@ -1487,6 +1487,21 @@ class CollectionFilter extends Filter{
 	 setAssetUserRuleIdIn(assetUserRuleIdIn) {
 	 	this.assetUserRuleIdIn = assetUserRuleIdIn;
 	 }
+	
+	/**
+	 * A string that is included in the collection name
+	 * @return string
+	 */
+	 getNameContains() {
+	 	return this.nameContains;
+	 }
+	
+	/**
+	 * @param nameContains string A string that is included in the collection name
+	 */
+	 setNameContains(nameContains) {
+	 	this.nameContains = nameContains;
+	 }
 }
 module.exports.CollectionFilter = CollectionFilter;
 
@@ -1570,6 +1585,21 @@ class PpvFilter extends Filter{
 	 */
 	 setAlsoInactive(alsoInactive) {
 	 	this.alsoInactive = alsoInactive;
+	 }
+	
+	/**
+	 * A string that is included in the ppv name
+	 * @return string
+	 */
+	 getNameContains() {
+	 	return this.nameContains;
+	 }
+	
+	/**
+	 * @param nameContains string A string that is included in the ppv name
+	 */
+	 setNameContains(nameContains) {
+	 	this.nameContains = nameContains;
 	 }
 	
 	/**
@@ -1693,6 +1723,21 @@ class ProgramAssetGroupOfferFilter extends Filter{
 	 */
 	 setAlsoInactive(alsoInactive) {
 	 	this.alsoInactive = alsoInactive;
+	 }
+	
+	/**
+	 * A string that is included in the PAGO name
+	 * @return string
+	 */
+	 getNameContains() {
+	 	return this.nameContains;
+	 }
+	
+	/**
+	 * @param nameContains string A string that is included in the PAGO name
+	 */
+	 setNameContains(nameContains) {
+	 	this.nameContains = nameContains;
 	 }
 }
 module.exports.ProgramAssetGroupOfferFilter = ProgramAssetGroupOfferFilter;
@@ -1969,6 +2014,21 @@ class SubscriptionFilter extends Filter{
 	 setDependencyTypeIn(dependencyTypeIn) {
 	 	this.dependencyTypeIn = dependencyTypeIn;
 	 }
+	
+	/**
+	 * A string that is included in the subscription name
+	 * @return string
+	 */
+	 getNameContains() {
+	 	return this.nameContains;
+	 }
+	
+	/**
+	 * @param nameContains string A string that is included in the subscription name
+	 */
+	 setNameContains(nameContains) {
+	 	this.nameContains = nameContains;
+	 }
 }
 module.exports.SubscriptionFilter = SubscriptionFilter;
 
@@ -2054,6 +2114,33 @@ class PersonalListFilter extends Filter{
 	 }
 }
 module.exports.PersonalListFilter = PersonalListFilter;
+
+/**
+ *
+ */
+class AnnouncementFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAnnouncementFilter';
+	}
+	
+	/**
+	 * A list of comma separated announcement ids
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string A list of comma separated announcement ids
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.AnnouncementFilter = AnnouncementFilter;
 
 /**
  *
@@ -2288,33 +2375,6 @@ class InboxMessageFilter extends Filter{
 	 }
 }
 module.exports.InboxMessageFilter = InboxMessageFilter;
-
-/**
- *
- */
-class AnnouncementFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAnnouncementFilter';
-	}
-	
-	/**
-	 * A list of comma separated announcement ids
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string A list of comma separated announcement ids
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.AnnouncementFilter = AnnouncementFilter;
 
 /**
  *
@@ -3583,6 +3643,21 @@ class ChannelExternalFilter extends AssetFilter{
 	 */
 	 setFreeText(freeText) {
 	 	this.freeText = freeText;
+	 }
+	
+	/**
+	 * Alias for External Channel Id
+	 * @return string
+	 */
+	 getAlias() {
+	 	return this.alias;
+	 }
+	
+	/**
+	 * @param alias string Alias for External Channel Id
+	 */
+	 setAlias(alias) {
+	 	this.alias = alias;
 	 }
 }
 module.exports.ChannelExternalFilter = ChannelExternalFilter;
@@ -6442,6 +6517,93 @@ module.exports.SearchPriorityGroupFilter = SearchPriorityGroupFilter;
 /**
  *
  */
+class LineupRegionalChannelFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaLineupRegionalChannelFilter';
+	}
+	
+	/**
+	 * Region ID filter
+	 * @return int
+	 */
+	 getRegionIdEqual() {
+	 	return this.regionIdEqual;
+	 }
+	
+	/**
+	 * @param regionIdEqual int Region ID filter
+	 */
+	 setRegionIdEqual(regionIdEqual) {
+	 	this.regionIdEqual = regionIdEqual;
+	 }
+	
+	/**
+	 * Should include lineup from parent region into response
+	 * @return bool
+	 */
+	 getParentRegionIncluded() {
+	 	return this.parentRegionIncluded;
+	 }
+	
+	/**
+	 * @param parentRegionIncluded bool Should include lineup from parent region into response
+	 */
+	 setParentRegionIncluded(parentRegionIncluded) {
+	 	this.parentRegionIncluded = parentRegionIncluded;
+	 }
+	
+	/**
+	 * A valid KSQL statement - Only linear channels that satisfies the KSQL statement will be included in the results
+	 * @return string
+	 */
+	 getKSql() {
+	 	return this.kSql;
+	 }
+	
+	/**
+	 * @param kSql string A valid KSQL statement - Only linear channels that satisfies the KSQL statement will be included in the results
+	 */
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
+	 }
+	
+	/**
+	 * Filter only LCNs that greater or equals to the provided number
+	 * @return int
+	 */
+	 getLcnGreaterThanOrEqual() {
+	 	return this.lcnGreaterThanOrEqual;
+	 }
+	
+	/**
+	 * @param lcnGreaterThanOrEqual int Filter only LCNs that greater or equals to the provided number
+	 */
+	 setLcnGreaterThanOrEqual(lcnGreaterThanOrEqual) {
+	 	this.lcnGreaterThanOrEqual = lcnGreaterThanOrEqual;
+	 }
+	
+	/**
+	 * Filter only LCNs that less or equals to the provided number
+	 * @return int
+	 */
+	 getLcnLessThanOrEqual() {
+	 	return this.lcnLessThanOrEqual;
+	 }
+	
+	/**
+	 * @param lcnLessThanOrEqual int Filter only LCNs that less or equals to the provided number
+	 */
+	 setLcnLessThanOrEqual(lcnLessThanOrEqual) {
+	 	this.lcnLessThanOrEqual = lcnLessThanOrEqual;
+	 }
+}
+module.exports.LineupRegionalChannelFilter = LineupRegionalChannelFilter;
+
+/**
+ *
+ */
 class ListGroupsRepresentativesFilter extends Filter{
 	
 	constructor(object = null) {
@@ -6590,6 +6752,21 @@ class AssetRuleFilter extends Filter{
 	 */
 	 setAssetRuleIdEqual(assetRuleIdEqual) {
 	 	this.assetRuleIdEqual = assetRuleIdEqual;
+	 }
+	
+	/**
+	 * Name
+	 * @return string
+	 */
+	 getNameContains() {
+	 	return this.nameContains;
+	 }
+	
+	/**
+	 * @param nameContains string Name
+	 */
+	 setNameContains(nameContains) {
+	 	this.nameContains = nameContains;
 	 }
 }
 module.exports.AssetRuleFilter = AssetRuleFilter;
@@ -13952,12 +14129,39 @@ module.exports.StartDateOffsetRuleAction = StartDateOffsetRuleAction;
 /**
  *
  */
+class BasePreActionCondition extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBasePreActionCondition';
+	}
+}
+module.exports.BasePreActionCondition = BasePreActionCondition;
+
+/**
+ *
+ */
 class FilterAction extends AssetRuleAction{
 	
 	constructor(object = null) {
 		super(object);
 		this.objectType = 'KalturaFilterAction';
 	}
+	
+	/**
+	 * PreAction condition
+	 * @return BasePreActionCondition
+	 */
+	 getPreActionCondition() {
+	 	return this.preActionCondition;
+	 }
+	
+	/**
+	 * @param preActionCondition BasePreActionCondition PreAction condition
+	 */
+	 setPreActionCondition(preActionCondition) {
+	 	this.preActionCondition = preActionCondition;
+	 }
 }
 module.exports.FilterAction = FilterAction;
 
@@ -14410,6 +14614,45 @@ class FilterAssetByKsqlAction extends FilterAction{
 	 }
 }
 module.exports.FilterAssetByKsqlAction = FilterAssetByKsqlAction;
+
+/**
+ *
+ */
+class NoShopPreActionCondition extends BasePreActionCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaNoShopPreActionCondition';
+	}
+}
+module.exports.NoShopPreActionCondition = NoShopPreActionCondition;
+
+/**
+ *
+ */
+class ShopPreActionCondition extends BasePreActionCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaShopPreActionCondition';
+	}
+	
+	/**
+	 * Asset user rule ID with shop condition
+	 * @return int
+	 */
+	 getShopAssetUserRuleId() {
+	 	return this.shopAssetUserRuleId;
+	 }
+	
+	/**
+	 * @param shopAssetUserRuleId int Asset user rule ID with shop condition
+	 */
+	 setShopAssetUserRuleId(shopAssetUserRuleId) {
+	 	this.shopAssetUserRuleId = shopAssetUserRuleId;
+	 }
+}
+module.exports.ShopPreActionCondition = ShopPreActionCondition;
 
 /**
  *
@@ -38653,6 +38896,33 @@ class PartnerPremiumServices extends kaltura.BaseObject{
 	 }
 }
 module.exports.PartnerPremiumServices = PartnerPremiumServices;
+
+/**
+ *
+ */
+class PersonalActivityCleanupConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPersonalActivityCleanupConfiguration';
+	}
+	
+	/**
+	 * Retention Period Days
+	 * @return int
+	 */
+	 getRetentionPeriodDays() {
+	 	return this.retentionPeriodDays;
+	 }
+	
+	/**
+	 * @param retentionPeriodDays int Retention Period Days
+	 */
+	 setRetentionPeriodDays(retentionPeriodDays) {
+	 	this.retentionPeriodDays = retentionPeriodDays;
+	 }
+}
+module.exports.PersonalActivityCleanupConfiguration = PersonalActivityCleanupConfiguration;
 
 /**
  *
