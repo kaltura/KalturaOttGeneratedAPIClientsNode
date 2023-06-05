@@ -176,6 +176,8 @@ LIKES_DESC : 'LIKES_DESC',
 
 module.exports.AssetRuleOrderBy = {
 NONE : 'NONE',
+NAME_ASC : 'NAME_ASC',
+NAME_DESC : 'NAME_DESC',
 };
 
 module.exports.AssetRuleStatus = {
@@ -797,6 +799,13 @@ DTT : 'DTT',
 OTT : 'OTT',
 DTT_AND_OTT : 'DTT_AND_OTT',
 VRM_EXPORT : 'VRM_EXPORT',
+};
+
+module.exports.LineupRegionalChannelOrderBy = {
+LCN_ASC : 'LCN_ASC',
+LCN_DESC : 'LCN_DESC',
+NAME_ASC : 'NAME_ASC',
+NAME_DESC : 'NAME_DESC',
 };
 
 module.exports.ListGroupsRepresentativesOrderBy = {
@@ -1508,6 +1517,7 @@ USER : 'USER',
 PARTNER : 'PARTNER',
 PROFILE : 'PROFILE',
 SYSTEM : 'SYSTEM',
+PERMISSION_EMBEDDED : 'PERMISSION_EMBEDDED',
 };
 
 module.exports.UserRoleType = {
