@@ -1487,6 +1487,21 @@ class CollectionFilter extends Filter{
 	 setAssetUserRuleIdIn(assetUserRuleIdIn) {
 	 	this.assetUserRuleIdIn = assetUserRuleIdIn;
 	 }
+	
+	/**
+	 * A string that is included in the collection name
+	 * @return string
+	 */
+	 getNameContains() {
+	 	return this.nameContains;
+	 }
+	
+	/**
+	 * @param nameContains string A string that is included in the collection name
+	 */
+	 setNameContains(nameContains) {
+	 	this.nameContains = nameContains;
+	 }
 }
 module.exports.CollectionFilter = CollectionFilter;
 
@@ -1570,6 +1585,21 @@ class PpvFilter extends Filter{
 	 */
 	 setAlsoInactive(alsoInactive) {
 	 	this.alsoInactive = alsoInactive;
+	 }
+	
+	/**
+	 * A string that is included in the ppv name
+	 * @return string
+	 */
+	 getNameContains() {
+	 	return this.nameContains;
+	 }
+	
+	/**
+	 * @param nameContains string A string that is included in the ppv name
+	 */
+	 setNameContains(nameContains) {
+	 	this.nameContains = nameContains;
 	 }
 	
 	/**
@@ -1693,6 +1723,21 @@ class ProgramAssetGroupOfferFilter extends Filter{
 	 */
 	 setAlsoInactive(alsoInactive) {
 	 	this.alsoInactive = alsoInactive;
+	 }
+	
+	/**
+	 * A string that is included in the PAGO name
+	 * @return string
+	 */
+	 getNameContains() {
+	 	return this.nameContains;
+	 }
+	
+	/**
+	 * @param nameContains string A string that is included in the PAGO name
+	 */
+	 setNameContains(nameContains) {
+	 	this.nameContains = nameContains;
 	 }
 }
 module.exports.ProgramAssetGroupOfferFilter = ProgramAssetGroupOfferFilter;
@@ -1969,6 +2014,21 @@ class SubscriptionFilter extends Filter{
 	 setDependencyTypeIn(dependencyTypeIn) {
 	 	this.dependencyTypeIn = dependencyTypeIn;
 	 }
+	
+	/**
+	 * A string that is included in the subscription name
+	 * @return string
+	 */
+	 getNameContains() {
+	 	return this.nameContains;
+	 }
+	
+	/**
+	 * @param nameContains string A string that is included in the subscription name
+	 */
+	 setNameContains(nameContains) {
+	 	this.nameContains = nameContains;
+	 }
 }
 module.exports.SubscriptionFilter = SubscriptionFilter;
 
@@ -2054,6 +2114,33 @@ class PersonalListFilter extends Filter{
 	 }
 }
 module.exports.PersonalListFilter = PersonalListFilter;
+
+/**
+ *
+ */
+class AnnouncementFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAnnouncementFilter';
+	}
+	
+	/**
+	 * A list of comma separated announcement ids
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string A list of comma separated announcement ids
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.AnnouncementFilter = AnnouncementFilter;
 
 /**
  *
@@ -2288,33 +2375,6 @@ class InboxMessageFilter extends Filter{
 	 }
 }
 module.exports.InboxMessageFilter = InboxMessageFilter;
-
-/**
- *
- */
-class AnnouncementFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAnnouncementFilter';
-	}
-	
-	/**
-	 * A list of comma separated announcement ids
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string A list of comma separated announcement ids
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.AnnouncementFilter = AnnouncementFilter;
 
 /**
  *
@@ -2743,6 +2803,123 @@ class IngestProgramResultsByProgramIdsFilter extends IngestEpgProgramResultFilte
 	 }
 }
 module.exports.IngestProgramResultsByProgramIdsFilter = IngestProgramResultsByProgramIdsFilter;
+
+/**
+ *
+ */
+class VodIngestAssetResultFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaVodIngestAssetResultFilter';
+	}
+	
+	/**
+	 * Filter KalturaVodIngestAssetResult elements based on the ingest XML file name or partial name
+	 * @return string
+	 */
+	 getFileNameContains() {
+	 	return this.fileNameContains;
+	 }
+	
+	/**
+	 * @param fileNameContains string Filter KalturaVodIngestAssetResult elements based on the ingest XML file name or partial name
+	 */
+	 setFileNameContains(fileNameContains) {
+	 	this.fileNameContains = fileNameContains;
+	 }
+	
+	/**
+	 * Filter KalturaVodIngestAssetResult elements based on the asset name or partial name
+	 * @return string
+	 */
+	 getAssetNameContains() {
+	 	return this.assetNameContains;
+	 }
+	
+	/**
+	 * @param assetNameContains string Filter KalturaVodIngestAssetResult elements based on the asset name or partial name
+	 */
+	 setAssetNameContains(assetNameContains) {
+	 	this.assetNameContains = assetNameContains;
+	 }
+	
+	/**
+	 * Comma separated values, representing multiple selection of ingest status state (\&quot;SUCCESS\&quot;,\&quot;FAIL\&quot;,\&quot;SUCCESS_WARNING\&quot;EXTERNAL_FAIL\&quot;)
+	 * @return string
+	 */
+	 getIngestStatusIn() {
+	 	return this.ingestStatusIn;
+	 }
+	
+	/**
+	 * @param ingestStatusIn string Comma separated values, representing multiple selection of ingest status state (\&quot;SUCCESS\&quot;,\&quot;FAIL\&quot;,\&quot;SUCCESS_WARNING\&quot;EXTERNAL_FAIL\&quot;)
+	 */
+	 setIngestStatusIn(ingestStatusIn) {
+	 	this.ingestStatusIn = ingestStatusIn;
+	 }
+	
+	/**
+	 * Filter assets ingested after the greater than value. Date and time represented as epoch
+	 * @return int
+	 */
+	 getIngestDateGreaterThan() {
+	 	return this.ingestDateGreaterThan;
+	 }
+	
+	/**
+	 * @param ingestDateGreaterThan int Filter assets ingested after the greater than value. Date and time represented as epoch
+	 */
+	 setIngestDateGreaterThan(ingestDateGreaterThan) {
+	 	this.ingestDateGreaterThan = ingestDateGreaterThan;
+	 }
+	
+	/**
+	 * Filter assets ingested before the smaller than value. Date and time represented as epoch
+	 * @return int
+	 */
+	 getIngestDateSmallerThan() {
+	 	return this.ingestDateSmallerThan;
+	 }
+	
+	/**
+	 * @param ingestDateSmallerThan int Filter assets ingested before the smaller than value. Date and time represented as epoch
+	 */
+	 setIngestDateSmallerThan(ingestDateSmallerThan) {
+	 	this.ingestDateSmallerThan = ingestDateSmallerThan;
+	 }
+	
+	/**
+	 * Comma separated asset types, representing multiple selection of VOD asset types (e.g. \&quot;MOVIE\&quot;,\&quot;SERIES\&quot;,\&quot;SEASON\&quot;,\&quot;EPISODE\&quot;...)
+	 * @return string
+	 */
+	 getVodTypeSystemNameIn() {
+	 	return this.vodTypeSystemNameIn;
+	 }
+	
+	/**
+	 * @param vodTypeSystemNameIn string Comma separated asset types, representing multiple selection of VOD asset types (e.g. \&quot;MOVIE\&quot;,\&quot;SERIES\&quot;,\&quot;SEASON\&quot;,\&quot;EPISODE\&quot;...)
+	 */
+	 setVodTypeSystemNameIn(vodTypeSystemNameIn) {
+	 	this.vodTypeSystemNameIn = vodTypeSystemNameIn;
+	 }
+	
+	/**
+	 * Comma separated Ids, pointing to AssetUserRules which hold the shop markers (shop provider values)
+	 * @return string
+	 */
+	 getShopAssetUserRuleIdIn() {
+	 	return this.shopAssetUserRuleIdIn;
+	 }
+	
+	/**
+	 * @param shopAssetUserRuleIdIn string Comma separated Ids, pointing to AssetUserRules which hold the shop markers (shop provider values)
+	 */
+	 setShopAssetUserRuleIdIn(shopAssetUserRuleIdIn) {
+	 	this.shopAssetUserRuleIdIn = shopAssetUserRuleIdIn;
+	 }
+}
+module.exports.VodIngestAssetResultFilter = VodIngestAssetResultFilter;
 
 /**
  *
@@ -3583,6 +3760,21 @@ class ChannelExternalFilter extends AssetFilter{
 	 */
 	 setFreeText(freeText) {
 	 	this.freeText = freeText;
+	 }
+	
+	/**
+	 * Alias for External Channel Id
+	 * @return string
+	 */
+	 getAlias() {
+	 	return this.alias;
+	 }
+	
+	/**
+	 * @param alias string Alias for External Channel Id
+	 */
+	 setAlias(alias) {
+	 	this.alias = alias;
 	 }
 }
 module.exports.ChannelExternalFilter = ChannelExternalFilter;
@@ -6442,6 +6634,93 @@ module.exports.SearchPriorityGroupFilter = SearchPriorityGroupFilter;
 /**
  *
  */
+class LineupRegionalChannelFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaLineupRegionalChannelFilter';
+	}
+	
+	/**
+	 * Region ID filter
+	 * @return int
+	 */
+	 getRegionIdEqual() {
+	 	return this.regionIdEqual;
+	 }
+	
+	/**
+	 * @param regionIdEqual int Region ID filter
+	 */
+	 setRegionIdEqual(regionIdEqual) {
+	 	this.regionIdEqual = regionIdEqual;
+	 }
+	
+	/**
+	 * Should include lineup from parent region into response
+	 * @return bool
+	 */
+	 getParentRegionIncluded() {
+	 	return this.parentRegionIncluded;
+	 }
+	
+	/**
+	 * @param parentRegionIncluded bool Should include lineup from parent region into response
+	 */
+	 setParentRegionIncluded(parentRegionIncluded) {
+	 	this.parentRegionIncluded = parentRegionIncluded;
+	 }
+	
+	/**
+	 * A valid KSQL statement - Only linear channels that satisfies the KSQL statement will be included in the results
+	 * @return string
+	 */
+	 getKSql() {
+	 	return this.kSql;
+	 }
+	
+	/**
+	 * @param kSql string A valid KSQL statement - Only linear channels that satisfies the KSQL statement will be included in the results
+	 */
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
+	 }
+	
+	/**
+	 * Filter only LCNs that greater or equals to the provided number
+	 * @return int
+	 */
+	 getLcnGreaterThanOrEqual() {
+	 	return this.lcnGreaterThanOrEqual;
+	 }
+	
+	/**
+	 * @param lcnGreaterThanOrEqual int Filter only LCNs that greater or equals to the provided number
+	 */
+	 setLcnGreaterThanOrEqual(lcnGreaterThanOrEqual) {
+	 	this.lcnGreaterThanOrEqual = lcnGreaterThanOrEqual;
+	 }
+	
+	/**
+	 * Filter only LCNs that less or equals to the provided number
+	 * @return int
+	 */
+	 getLcnLessThanOrEqual() {
+	 	return this.lcnLessThanOrEqual;
+	 }
+	
+	/**
+	 * @param lcnLessThanOrEqual int Filter only LCNs that less or equals to the provided number
+	 */
+	 setLcnLessThanOrEqual(lcnLessThanOrEqual) {
+	 	this.lcnLessThanOrEqual = lcnLessThanOrEqual;
+	 }
+}
+module.exports.LineupRegionalChannelFilter = LineupRegionalChannelFilter;
+
+/**
+ *
+ */
 class ListGroupsRepresentativesFilter extends Filter{
 	
 	constructor(object = null) {
@@ -6590,6 +6869,21 @@ class AssetRuleFilter extends Filter{
 	 */
 	 setAssetRuleIdEqual(assetRuleIdEqual) {
 	 	this.assetRuleIdEqual = assetRuleIdEqual;
+	 }
+	
+	/**
+	 * Name
+	 * @return string
+	 */
+	 getNameContains() {
+	 	return this.nameContains;
+	 }
+	
+	/**
+	 * @param nameContains string Name
+	 */
+	 setNameContains(nameContains) {
+	 	this.nameContains = nameContains;
 	 }
 }
 module.exports.AssetRuleFilter = AssetRuleFilter;
@@ -13952,12 +14246,39 @@ module.exports.StartDateOffsetRuleAction = StartDateOffsetRuleAction;
 /**
  *
  */
+class BasePreActionCondition extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBasePreActionCondition';
+	}
+}
+module.exports.BasePreActionCondition = BasePreActionCondition;
+
+/**
+ *
+ */
 class FilterAction extends AssetRuleAction{
 	
 	constructor(object = null) {
 		super(object);
 		this.objectType = 'KalturaFilterAction';
 	}
+	
+	/**
+	 * PreAction condition
+	 * @return BasePreActionCondition
+	 */
+	 getPreActionCondition() {
+	 	return this.preActionCondition;
+	 }
+	
+	/**
+	 * @param preActionCondition BasePreActionCondition PreAction condition
+	 */
+	 setPreActionCondition(preActionCondition) {
+	 	this.preActionCondition = preActionCondition;
+	 }
 }
 module.exports.FilterAction = FilterAction;
 
@@ -14410,6 +14731,45 @@ class FilterAssetByKsqlAction extends FilterAction{
 	 }
 }
 module.exports.FilterAssetByKsqlAction = FilterAssetByKsqlAction;
+
+/**
+ *
+ */
+class NoShopPreActionCondition extends BasePreActionCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaNoShopPreActionCondition';
+	}
+}
+module.exports.NoShopPreActionCondition = NoShopPreActionCondition;
+
+/**
+ *
+ */
+class ShopPreActionCondition extends BasePreActionCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaShopPreActionCondition';
+	}
+	
+	/**
+	 * Asset user rule ID with shop condition
+	 * @return int
+	 */
+	 getShopAssetUserRuleId() {
+	 	return this.shopAssetUserRuleId;
+	 }
+	
+	/**
+	 * @param shopAssetUserRuleId int Asset user rule ID with shop condition
+	 */
+	 setShopAssetUserRuleId(shopAssetUserRuleId) {
+	 	this.shopAssetUserRuleId = shopAssetUserRuleId;
+	 }
+}
+module.exports.ShopPreActionCondition = ShopPreActionCondition;
 
 /**
  *
@@ -24035,6 +24395,215 @@ class IngestStatusEpgProgramResultListResponse extends ListResponse{
 	 }
 }
 module.exports.IngestStatusEpgProgramResultListResponse = IngestStatusEpgProgramResultListResponse;
+
+/**
+ *
+ */
+class VodIngestAssetResultErrorMessage extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaVodIngestAssetResultErrorMessage';
+	}
+	
+	/**
+	 * The message description with arguments place holders
+	 * @return string
+	 */
+	 getMessage() {
+	 	return this.message;
+	 }
+	
+	/**
+	 * @param message string The message description with arguments place holders
+	 */
+	 setMessage(message) {
+	 	this.message = message;
+	 }
+	
+	/**
+	 * The message code
+	 * @return string
+	 */
+	 getCode() {
+	 	return this.code;
+	 }
+	
+	/**
+	 * @param code string The message code
+	 */
+	 setCode(code) {
+	 	this.code = code;
+	 }
+}
+module.exports.VodIngestAssetResultErrorMessage = VodIngestAssetResultErrorMessage;
+
+/**
+ *
+ */
+class VodIngestAssetResult extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaVodIngestAssetResult';
+	}
+	
+	/**
+	 * Ingested asset name. Absent only in case of NameRequired error
+	 * @return string
+	 */
+	 getAssetName() {
+	 	return this.assetName;
+	 }
+	
+	/**
+	 * @param assetName string Ingested asset name. Absent only in case of NameRequired error
+	 */
+	 setAssetName(assetName) {
+	 	this.assetName = assetName;
+	 }
+	
+	/**
+	 * The shop ID the asset is assigned to. Omitted if the asset is not associated to any shop
+	 * @return int
+	 */
+	 getShopAssetUserRuleId() {
+	 	return this.shopAssetUserRuleId;
+	 }
+	
+	/**
+	 * @param shopAssetUserRuleId int The shop ID the asset is assigned to. Omitted if the asset is not associated to any shop
+	 */
+	 setShopAssetUserRuleId(shopAssetUserRuleId) {
+	 	this.shopAssetUserRuleId = shopAssetUserRuleId;
+	 }
+	
+	/**
+	 * The XML file name used at the ingest gateway. Referred to as process name
+	 * @return string
+	 */
+	 getFileName() {
+	 	return this.fileName;
+	 }
+	
+	/**
+	 * @param fileName string The XML file name used at the ingest gateway. Referred to as process name
+	 */
+	 setFileName(fileName) {
+	 	this.fileName = fileName;
+	 }
+	
+	/**
+	 * Date and time the asset was ingested. Date and time represented as epoch
+	 * @return int
+	 */
+	 getIngestDate() {
+	 	return this.ingestDate;
+	 }
+	
+	/**
+	 * @param ingestDate int Date and time the asset was ingested. Date and time represented as epoch
+	 */
+	 setIngestDate(ingestDate) {
+	 	this.ingestDate = ingestDate;
+	 }
+	
+	/**
+	 * The status result for the asset ingest.
+ * FAILURE - the asset ingest was failed after the ingest process started, specify the error for it.
+ * SUCCESS - the asset was succeeded to be ingested.
+ * SUCCESS_WARNING - the asset was succeeded to be ingested with warnings that do not prevent the ingest.
+ * EXTERNAL_FAILURE - the asset ingest was failed before the ingest process started, specify the error for it
+	 * @return string
+	 */
+	 getStatus() {
+	 	return this.status;
+	 }
+	
+	/**
+	 * @param status string The status result for the asset ingest.
+ * FAILURE - the asset ingest was failed after the ingest process started, specify the error for it.
+ * SUCCESS - the asset was succeeded to be ingested.
+ * SUCCESS_WARNING - the asset was succeeded to be ingested with warnings that do not prevent the ingest.
+ * EXTERNAL_FAILURE - the asset ingest was failed before the ingest process started, specify the error for it
+	 */
+	 setStatus(status) {
+	 	this.status = status;
+	 }
+	
+	/**
+	 * VOD asset type (assetStruct.systemName)
+	 * @return string
+	 */
+	 getVodTypeSystemName() {
+	 	return this.vodTypeSystemName;
+	 }
+	
+	/**
+	 * @param vodTypeSystemName string VOD asset type (assetStruct.systemName)
+	 */
+	 setVodTypeSystemName(vodTypeSystemName) {
+	 	this.vodTypeSystemName = vodTypeSystemName;
+	 }
+	
+	/**
+	 * Errors which prevent the asset from being ingested
+	 * @return array
+	 */
+	 getErrors() {
+	 	return this.errors;
+	 }
+	
+	/**
+	 * @param errors array Errors which prevent the asset from being ingested
+	 */
+	 setErrors(errors) {
+	 	this.errors = errors;
+	 }
+	
+	/**
+	 * Errors which do not prevent the asset from being ingested
+	 * @return array
+	 */
+	 getWarnings() {
+	 	return this.warnings;
+	 }
+	
+	/**
+	 * @param warnings array Errors which do not prevent the asset from being ingested
+	 */
+	 setWarnings(warnings) {
+	 	this.warnings = warnings;
+	 }
+}
+module.exports.VodIngestAssetResult = VodIngestAssetResult;
+
+/**
+ *
+ */
+class VodIngestAssetResultListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaVodIngestAssetResultListResponse';
+	}
+	
+	/**
+	 * list of KalturaVodIngestAssetResult
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array list of KalturaVodIngestAssetResult
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.VodIngestAssetResultListResponse = VodIngestAssetResultListResponse;
 
 /**
  *
@@ -37048,6 +37617,48 @@ module.exports.IngestStatusEpgConfiguration = IngestStatusEpgConfiguration;
 /**
  *
  */
+class IngestStatusVodConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaIngestStatusVodConfiguration';
+	}
+	
+	/**
+	 * Defines whether partner in question enabled core ingest status service
+	 * @return bool
+	 */
+	 getIsSupported() {
+	 	return this.isSupported;
+	 }
+	
+	/**
+	 * @param isSupported bool Defines whether partner in question enabled core ingest status service
+	 */
+	 setIsSupported(isSupported) {
+	 	this.isSupported = isSupported;
+	 }
+	
+	/**
+	 * Defines the time in seconds that the service retain information about ingest status
+	 * @return int
+	 */
+	 getRetainingPeriod() {
+	 	return this.retainingPeriod;
+	 }
+	
+	/**
+	 * @param retainingPeriod int Defines the time in seconds that the service retain information about ingest status
+	 */
+	 setRetainingPeriod(retainingPeriod) {
+	 	this.retainingPeriod = retainingPeriod;
+	 }
+}
+module.exports.IngestStatusVodConfiguration = IngestStatusVodConfiguration;
+
+/**
+ *
+ */
 class IngestStatusPartnerConfiguration extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -37069,8 +37680,167 @@ class IngestStatusPartnerConfiguration extends kaltura.BaseObject{
 	 setEpg(epg) {
 	 	this.epg = epg;
 	 }
+	
+	/**
+	 * Defines the vod configuration of the partner
+	 * @return IngestStatusVodConfiguration
+	 */
+	 getVod() {
+	 	return this.vod;
+	 }
+	
+	/**
+	 * @param vod IngestStatusVodConfiguration Defines the vod configuration of the partner
+	 */
+	 setVod(vod) {
+	 	this.vod = vod;
+	 }
 }
 module.exports.IngestStatusPartnerConfiguration = IngestStatusPartnerConfiguration;
+
+/**
+ *
+ */
+class VodIngestAssetResultAggregation extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaVodIngestAssetResultAggregation';
+	}
+	
+	/**
+	 * Ingest date of the first asset in the response list. Date and time represented as epoch
+	 * @return int
+	 */
+	 getIngestDateFrom() {
+	 	return this.ingestDateFrom;
+	 }
+	
+	/**
+	 * @param ingestDateFrom int Ingest date of the first asset in the response list. Date and time represented as epoch
+	 */
+	 setIngestDateFrom(ingestDateFrom) {
+	 	this.ingestDateFrom = ingestDateFrom;
+	 }
+	
+	/**
+	 * Ingest date of the last asset in the response list. Date and time represented as epoch
+	 * @return int
+	 */
+	 getIngestDateTo() {
+	 	return this.ingestDateTo;
+	 }
+	
+	/**
+	 * @param ingestDateTo int Ingest date of the last asset in the response list. Date and time represented as epoch
+	 */
+	 setIngestDateTo(ingestDateTo) {
+	 	this.ingestDateTo = ingestDateTo;
+	 }
+	
+	/**
+	 * Number of assets which failed ingest. Calculated on the assets returned according to the applied filters
+	 * @return int
+	 */
+	 getFailureCount() {
+	 	return this.failureCount;
+	 }
+	
+	/**
+	 * @param failureCount int Number of assets which failed ingest. Calculated on the assets returned according to the applied filters
+	 */
+	 setFailureCount(failureCount) {
+	 	this.failureCount = failureCount;
+	 }
+	
+	/**
+	 * Number of assets which succeeded ingest without any warning. Calculated on the assets returned according to the applied filters
+	 * @return int
+	 */
+	 getSuccessCount() {
+	 	return this.successCount;
+	 }
+	
+	/**
+	 * @param successCount int Number of assets which succeeded ingest without any warning. Calculated on the assets returned according to the applied filters
+	 */
+	 setSuccessCount(successCount) {
+	 	this.successCount = successCount;
+	 }
+	
+	/**
+	 * Number of files (not assets) which failed ingest and are reported by external none-WS_ingest entity. Calculated on the failed files returned according to the applied filters
+	 * @return int
+	 */
+	 getExternalFailureCount() {
+	 	return this.externalFailureCount;
+	 }
+	
+	/**
+	 * @param externalFailureCount int Number of files (not assets) which failed ingest and are reported by external none-WS_ingest entity. Calculated on the failed files returned according to the applied filters
+	 */
+	 setExternalFailureCount(externalFailureCount) {
+	 	this.externalFailureCount = externalFailureCount;
+	 }
+	
+	/**
+	 * Number of assets which succeeded ingest, but with warnings. Calculated on the assets returned according to the applied filters
+	 * @return int
+	 */
+	 getSuccessWithWarningCount() {
+	 	return this.successWithWarningCount;
+	 }
+	
+	/**
+	 * @param successWithWarningCount int Number of assets which succeeded ingest, but with warnings. Calculated on the assets returned according to the applied filters
+	 */
+	 setSuccessWithWarningCount(successWithWarningCount) {
+	 	this.successWithWarningCount = successWithWarningCount;
+	 }
+}
+module.exports.VodIngestAssetResultAggregation = VodIngestAssetResultAggregation;
+
+/**
+ *
+ */
+class VodIngestAssetResultResponse extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaVodIngestAssetResultResponse';
+	}
+	
+	/**
+	 * Errors
+	 * @return VodIngestAssetResultListResponse
+	 */
+	 getResult() {
+	 	return this.result;
+	 }
+	
+	/**
+	 * @param result VodIngestAssetResultListResponse Errors
+	 */
+	 setResult(result) {
+	 	this.result = result;
+	 }
+	
+	/**
+	 * Aggregated counters
+	 * @return VodIngestAssetResultAggregation
+	 */
+	 getAggregations() {
+	 	return this.aggregations;
+	 }
+	
+	/**
+	 * @param aggregations VodIngestAssetResultAggregation Aggregated counters
+	 */
+	 setAggregations(aggregations) {
+	 	this.aggregations = aggregations;
+	 }
+}
+module.exports.VodIngestAssetResultResponse = VodIngestAssetResultResponse;
 
 /**
  *
@@ -38653,6 +39423,33 @@ class PartnerPremiumServices extends kaltura.BaseObject{
 	 }
 }
 module.exports.PartnerPremiumServices = PartnerPremiumServices;
+
+/**
+ *
+ */
+class PersonalActivityCleanupConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPersonalActivityCleanupConfiguration';
+	}
+	
+	/**
+	 * Retention Period Days
+	 * @return int
+	 */
+	 getRetentionPeriodDays() {
+	 	return this.retentionPeriodDays;
+	 }
+	
+	/**
+	 * @param retentionPeriodDays int Retention Period Days
+	 */
+	 setRetentionPeriodDays(retentionPeriodDays) {
+	 	this.retentionPeriodDays = retentionPeriodDays;
+	 }
+}
+module.exports.PersonalActivityCleanupConfiguration = PersonalActivityCleanupConfiguration;
 
 /**
  *
