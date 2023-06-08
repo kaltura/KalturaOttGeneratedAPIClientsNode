@@ -1487,6 +1487,21 @@ class CollectionFilter extends Filter{
 	 setAssetUserRuleIdIn(assetUserRuleIdIn) {
 	 	this.assetUserRuleIdIn = assetUserRuleIdIn;
 	 }
+	
+	/**
+	 * A string that is included in the collection name
+	 * @return string
+	 */
+	 getNameContains() {
+	 	return this.nameContains;
+	 }
+	
+	/**
+	 * @param nameContains string A string that is included in the collection name
+	 */
+	 setNameContains(nameContains) {
+	 	this.nameContains = nameContains;
+	 }
 }
 module.exports.CollectionFilter = CollectionFilter;
 
@@ -1570,6 +1585,21 @@ class PpvFilter extends Filter{
 	 */
 	 setAlsoInactive(alsoInactive) {
 	 	this.alsoInactive = alsoInactive;
+	 }
+	
+	/**
+	 * A string that is included in the ppv name
+	 * @return string
+	 */
+	 getNameContains() {
+	 	return this.nameContains;
+	 }
+	
+	/**
+	 * @param nameContains string A string that is included in the ppv name
+	 */
+	 setNameContains(nameContains) {
+	 	this.nameContains = nameContains;
 	 }
 	
 	/**
@@ -1693,6 +1723,21 @@ class ProgramAssetGroupOfferFilter extends Filter{
 	 */
 	 setAlsoInactive(alsoInactive) {
 	 	this.alsoInactive = alsoInactive;
+	 }
+	
+	/**
+	 * A string that is included in the PAGO name
+	 * @return string
+	 */
+	 getNameContains() {
+	 	return this.nameContains;
+	 }
+	
+	/**
+	 * @param nameContains string A string that is included in the PAGO name
+	 */
+	 setNameContains(nameContains) {
+	 	this.nameContains = nameContains;
 	 }
 }
 module.exports.ProgramAssetGroupOfferFilter = ProgramAssetGroupOfferFilter;
@@ -1969,6 +2014,21 @@ class SubscriptionFilter extends Filter{
 	 setDependencyTypeIn(dependencyTypeIn) {
 	 	this.dependencyTypeIn = dependencyTypeIn;
 	 }
+	
+	/**
+	 * A string that is included in the subscription name
+	 * @return string
+	 */
+	 getNameContains() {
+	 	return this.nameContains;
+	 }
+	
+	/**
+	 * @param nameContains string A string that is included in the subscription name
+	 */
+	 setNameContains(nameContains) {
+	 	this.nameContains = nameContains;
+	 }
 }
 module.exports.SubscriptionFilter = SubscriptionFilter;
 
@@ -2054,6 +2114,33 @@ class PersonalListFilter extends Filter{
 	 }
 }
 module.exports.PersonalListFilter = PersonalListFilter;
+
+/**
+ *
+ */
+class AnnouncementFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAnnouncementFilter';
+	}
+	
+	/**
+	 * A list of comma separated announcement ids
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string A list of comma separated announcement ids
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.AnnouncementFilter = AnnouncementFilter;
 
 /**
  *
@@ -2288,33 +2375,6 @@ class InboxMessageFilter extends Filter{
 	 }
 }
 module.exports.InboxMessageFilter = InboxMessageFilter;
-
-/**
- *
- */
-class AnnouncementFilter extends Filter{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAnnouncementFilter';
-	}
-	
-	/**
-	 * A list of comma separated announcement ids
-	 * @return string
-	 */
-	 getIdIn() {
-	 	return this.idIn;
-	 }
-	
-	/**
-	 * @param idIn string A list of comma separated announcement ids
-	 */
-	 setIdIn(idIn) {
-	 	this.idIn = idIn;
-	 }
-}
-module.exports.AnnouncementFilter = AnnouncementFilter;
 
 /**
  *
@@ -2879,18 +2939,6 @@ module.exports.PersistedFilter = PersistedFilter;
 /**
  *
  */
-class BaseAssetOrder extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBaseAssetOrder';
-	}
-}
-module.exports.BaseAssetOrder = BaseAssetOrder;
-
-/**
- *
- */
 class DynamicOrderBy extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -2929,6 +2977,18 @@ class DynamicOrderBy extends kaltura.BaseObject{
 	 }
 }
 module.exports.DynamicOrderBy = DynamicOrderBy;
+
+/**
+ *
+ */
+class BaseAssetOrder extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBaseAssetOrder';
+	}
+}
+module.exports.BaseAssetOrder = BaseAssetOrder;
 
 /**
  *
@@ -3031,7 +3091,7 @@ class BaseSearchAssetFilter extends AssetFilter{
  * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restricted to the user by geo-block rules will return.
  * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
  * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
- * epg_channel_id – the channel identifier of the EPG program.
+ * epg_channel_id - the channel identifier of the EPG program.
  * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
  * asset_type - valid values: &quot;media&quot;, &quot;epg&quot;, &quot;recording&quot; or any number that represents media type in group.
  * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
@@ -3052,7 +3112,7 @@ class BaseSearchAssetFilter extends AssetFilter{
  * geo_block - only valid value is &quot;true&quot;: When enabled, only assets that are not restricted to the user by geo-block rules will return.
  * parental_rules - only valid value is &quot;true&quot;: When enabled, only assets that the user doesn&#39;t need to provide PIN code will return.
  * user_interests - only valid value is &quot;true&quot;. When enabled, only assets that the user defined as his interests (by tags and metas) will return.
- * epg_channel_id – the channel identifier of the EPG program.
+ * epg_channel_id - the channel identifier of the EPG program.
  * entitled_assets - valid values: &quot;free&quot;, &quot;entitled&quot;, &quot;not_entitled&quot;, &quot;both&quot;. free - gets only free to watch assets. entitled - only those that the user is implicitly entitled to watch.
  * asset_type - valid values: &quot;media&quot;, &quot;epg&quot;, &quot;recording&quot; or any number that represents media type in group.
  * Comparison operators: for numerical fields =, &gt;, &gt;=, &lt;, &lt;=, : (in).
@@ -3157,117 +3217,6 @@ module.exports.ChannelFilter = ChannelFilter;
 /**
  *
  */
-class AssetDynamicOrder extends BaseAssetOrder{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetDynamicOrder';
-	}
-	
-	/**
-	 * order by name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string order by name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
-	 * order by meta asc/desc
-	 * @return string
-	 */
-	 getOrderBy() {
-	 	return this.orderBy;
-	 }
-	
-	/**
-	 * @param orderBy string order by meta asc/desc
-	 */
-	 setOrderBy(orderBy) {
-	 	this.orderBy = orderBy;
-	 }
-}
-module.exports.AssetDynamicOrder = AssetDynamicOrder;
-
-/**
- *
- */
-class AssetOrder extends BaseAssetOrder{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetOrder';
-	}
-	
-	/**
-	 * Order By
-	 * @return string
-	 */
-	 getOrderBy() {
-	 	return this.orderBy;
-	 }
-	
-	/**
-	 * @param orderBy string Order By
-	 */
-	 setOrderBy(orderBy) {
-	 	this.orderBy = orderBy;
-	 }
-}
-module.exports.AssetOrder = AssetOrder;
-
-/**
- *
- */
-class AssetStatisticsOrder extends BaseAssetOrder{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetStatisticsOrder';
-	}
-	
-	/**
-	 * Trending Days Equal
-	 * @return int
-	 */
-	 getTrendingDaysEqual() {
-	 	return this.trendingDaysEqual;
-	 }
-	
-	/**
-	 * @param trendingDaysEqual int Trending Days Equal
-	 */
-	 setTrendingDaysEqual(trendingDaysEqual) {
-	 	this.trendingDaysEqual = trendingDaysEqual;
-	 }
-	
-	/**
-	 * order by meta asc/desc
-	 * @return string
-	 */
-	 getOrderBy() {
-	 	return this.orderBy;
-	 }
-	
-	/**
-	 * @param orderBy string order by meta asc/desc
-	 */
-	 setOrderBy(orderBy) {
-	 	this.orderBy = orderBy;
-	 }
-}
-module.exports.AssetStatisticsOrder = AssetStatisticsOrder;
-
-/**
- *
- */
 class PersonalListSearchFilter extends BaseSearchAssetFilter{
 	
 	constructor(object = null) {
@@ -3277,7 +3226,7 @@ class PersonalListSearchFilter extends BaseSearchAssetFilter{
 	
 	/**
 	 * Comma separated list of partner list types to search within.
- * If omitted – all types should be included
+ * If omitted - all types should be included
 	 * @return string
 	 */
 	 getPartnerListTypeIn() {
@@ -3286,7 +3235,7 @@ class PersonalListSearchFilter extends BaseSearchAssetFilter{
 	
 	/**
 	 * @param partnerListTypeIn string Comma separated list of partner list types to search within.
- * If omitted – all types should be included
+ * If omitted - all types should be included
 	 */
 	 setPartnerListTypeIn(partnerListTypeIn) {
 	 	this.partnerListTypeIn = partnerListTypeIn;
@@ -3322,7 +3271,7 @@ class RelatedFilter extends BaseSearchAssetFilter{
 	/**
 	 * Comma separated list of asset types to search within.
  * Possible values: any media type ID (according to media type IDs defined dynamically in the system).
- * If omitted – same type as the provided asset
+ * If omitted - same type as the provided asset
 	 * @return string
 	 */
 	 getTypeIn() {
@@ -3332,7 +3281,7 @@ class RelatedFilter extends BaseSearchAssetFilter{
 	/**
 	 * @param typeIn string Comma separated list of asset types to search within.
  * Possible values: any media type ID (according to media type IDs defined dynamically in the system).
- * If omitted – same type as the provided asset
+ * If omitted - same type as the provided asset
 	 */
 	 setTypeIn(typeIn) {
 	 	this.typeIn = typeIn;
@@ -3368,8 +3317,8 @@ class SearchAssetFilter extends BaseSearchAssetFilter{
 	/**
 	 * (Deprecated - use KalturaBaseSearchAssetFilter.kSql)
  * Comma separated list of asset types to search within.
- * Possible values: 0 – EPG linear programs entries; 1 - Recordings; Any media type ID (according to media type IDs defined dynamically in the system).
- * If omitted – all types should be included
+ * Possible values: 0 - EPG linear programs entries; 1 - Recordings; Any media type ID (according to media type IDs defined dynamically in the system).
+ * If omitted - all types should be included
 	 * @return string
 	 */
 	 getTypeIn() {
@@ -3379,8 +3328,8 @@ class SearchAssetFilter extends BaseSearchAssetFilter{
 	/**
 	 * @param typeIn string (Deprecated - use KalturaBaseSearchAssetFilter.kSql)
  * Comma separated list of asset types to search within.
- * Possible values: 0 – EPG linear programs entries; 1 - Recordings; Any media type ID (according to media type IDs defined dynamically in the system).
- * If omitted – all types should be included
+ * Possible values: 0 - EPG linear programs entries; 1 - Recordings; Any media type ID (according to media type IDs defined dynamically in the system).
+ * If omitted - all types should be included
 	 */
 	 setTypeIn(typeIn) {
 	 	this.typeIn = typeIn;
@@ -3418,33 +3367,6 @@ module.exports.SearchAssetListFilter = SearchAssetListFilter;
 /**
  *
  */
-class AssetMetaOrTagGroupBy extends AssetGroupBy{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetMetaOrTagGroupBy';
-	}
-	
-	/**
-	 * Group by a tag or meta - according to the name that appears in the system (similar to KSQL)
-	 * @return string
-	 */
-	 getValue() {
-	 	return this.value;
-	 }
-	
-	/**
-	 * @param value string Group by a tag or meta - according to the name that appears in the system (similar to KSQL)
-	 */
-	 setValue(value) {
-	 	this.value = value;
-	 }
-}
-module.exports.AssetMetaOrTagGroupBy = AssetMetaOrTagGroupBy;
-
-/**
- *
- */
 class AssetFieldGroupBy extends AssetGroupBy{
 	
 	constructor(object = null) {
@@ -3468,6 +3390,33 @@ class AssetFieldGroupBy extends AssetGroupBy{
 	 }
 }
 module.exports.AssetFieldGroupBy = AssetFieldGroupBy;
+
+/**
+ *
+ */
+class AssetMetaOrTagGroupBy extends AssetGroupBy{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetMetaOrTagGroupBy';
+	}
+	
+	/**
+	 * Group by a tag or meta - according to the name that appears in the system (similar to KSQL)
+	 * @return string
+	 */
+	 getValue() {
+	 	return this.value;
+	 }
+	
+	/**
+	 * @param value string Group by a tag or meta - according to the name that appears in the system (similar to KSQL)
+	 */
+	 setValue(value) {
+	 	this.value = value;
+	 }
+}
+module.exports.AssetMetaOrTagGroupBy = AssetMetaOrTagGroupBy;
 
 /**
  *
@@ -3496,8 +3445,8 @@ class BundleFilter extends AssetFilter{
 	
 	/**
 	 * Comma separated list of asset types to search within.
- * Possible values: 0 – EPG linear programs entries, any media type ID (according to media type IDs defined dynamically in the system).
- * If omitted – all types should be included
+ * Possible values: 0 - EPG linear programs entries, any media type ID (according to media type IDs defined dynamically in the system).
+ * If omitted - all types should be included
 	 * @return string
 	 */
 	 getTypeIn() {
@@ -3506,8 +3455,8 @@ class BundleFilter extends AssetFilter{
 	
 	/**
 	 * @param typeIn string Comma separated list of asset types to search within.
- * Possible values: 0 – EPG linear programs entries, any media type ID (according to media type IDs defined dynamically in the system).
- * If omitted – all types should be included
+ * Possible values: 0 - EPG linear programs entries, any media type ID (according to media type IDs defined dynamically in the system).
+ * If omitted - all types should be included
 	 */
 	 setTypeIn(typeIn) {
 	 	this.typeIn = typeIn;
@@ -3584,6 +3533,21 @@ class ChannelExternalFilter extends AssetFilter{
 	 setFreeText(freeText) {
 	 	this.freeText = freeText;
 	 }
+	
+	/**
+	 * Alias for External Channel Id
+	 * @return string
+	 */
+	 getAlias() {
+	 	return this.alias;
+	 }
+	
+	/**
+	 * @param alias string Alias for External Channel Id
+	 */
+	 setAlias(alias) {
+	 	this.alias = alias;
+	 }
 }
 module.exports.ChannelExternalFilter = ChannelExternalFilter;
 
@@ -3614,8 +3578,8 @@ class RelatedExternalFilter extends AssetFilter{
 	
 	/**
 	 * Comma separated list of asset types to search within.
- * Possible values: 0 – EPG linear programs entries, any media type ID (according to media type IDs defined dynamically in the system).
- * If omitted – all types should be included
+ * Possible values: 0 - EPG linear programs entries, any media type ID (according to media type IDs defined dynamically in the system).
+ * If omitted - all types should be included
 	 * @return string
 	 */
 	 getTypeIn() {
@@ -3624,8 +3588,8 @@ class RelatedExternalFilter extends AssetFilter{
 	
 	/**
 	 * @param typeIn string Comma separated list of asset types to search within.
- * Possible values: 0 – EPG linear programs entries, any media type ID (according to media type IDs defined dynamically in the system).
- * If omitted – all types should be included
+ * Possible values: 0 - EPG linear programs entries, any media type ID (according to media type IDs defined dynamically in the system).
+ * If omitted - all types should be included
 	 */
 	 setTypeIn(typeIn) {
 	 	this.typeIn = typeIn;
@@ -3792,8 +3756,8 @@ class SearchExternalFilter extends AssetFilter{
 	
 	/**
 	 * Comma separated list of asset types to search within.
- * Possible values: 0 – EPG linear programs entries, any media type ID (according to media type IDs defined dynamically in the system).
- * If omitted – all types should be included
+ * Possible values: 0 - EPG linear programs entries, any media type ID (according to media type IDs defined dynamically in the system).
+ * If omitted - all types should be included
 	 * @return string
 	 */
 	 getTypeIn() {
@@ -3802,14 +3766,125 @@ class SearchExternalFilter extends AssetFilter{
 	
 	/**
 	 * @param typeIn string Comma separated list of asset types to search within.
- * Possible values: 0 – EPG linear programs entries, any media type ID (according to media type IDs defined dynamically in the system).
- * If omitted – all types should be included
+ * Possible values: 0 - EPG linear programs entries, any media type ID (according to media type IDs defined dynamically in the system).
+ * If omitted - all types should be included
 	 */
 	 setTypeIn(typeIn) {
 	 	this.typeIn = typeIn;
 	 }
 }
 module.exports.SearchExternalFilter = SearchExternalFilter;
+
+/**
+ *
+ */
+class AssetDynamicOrder extends BaseAssetOrder{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetDynamicOrder';
+	}
+	
+	/**
+	 * order by name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string order by name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * order by meta asc/desc
+	 * @return string
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy string order by meta asc/desc
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.AssetDynamicOrder = AssetDynamicOrder;
+
+/**
+ *
+ */
+class AssetOrder extends BaseAssetOrder{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetOrder';
+	}
+	
+	/**
+	 * Order By
+	 * @return string
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy string Order By
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.AssetOrder = AssetOrder;
+
+/**
+ *
+ */
+class AssetStatisticsOrder extends BaseAssetOrder{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetStatisticsOrder';
+	}
+	
+	/**
+	 * Trending Days Equal
+	 * @return int
+	 */
+	 getTrendingDaysEqual() {
+	 	return this.trendingDaysEqual;
+	 }
+	
+	/**
+	 * @param trendingDaysEqual int Trending Days Equal
+	 */
+	 setTrendingDaysEqual(trendingDaysEqual) {
+	 	this.trendingDaysEqual = trendingDaysEqual;
+	 }
+	
+	/**
+	 * order by meta asc/desc
+	 * @return string
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy string order by meta asc/desc
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.AssetStatisticsOrder = AssetStatisticsOrder;
 
 /**
  *
@@ -4669,8 +4744,8 @@ class AssetHistoryFilter extends Filter{
 	
 	/**
 	 * Comma separated list of asset types to search within.
- * Possible values: 0 – EPG linear programs entries, any media type ID (according to media type IDs defined dynamically in the system).
- * If omitted – all types should be included
+ * Possible values: 0 - EPG linear programs entries, any media type ID (according to media type IDs defined dynamically in the system).
+ * If omitted - all types should be included
 	 * @return string
 	 */
 	 getTypeIn() {
@@ -4679,8 +4754,8 @@ class AssetHistoryFilter extends Filter{
 	
 	/**
 	 * @param typeIn string Comma separated list of asset types to search within.
- * Possible values: 0 – EPG linear programs entries, any media type ID (according to media type IDs defined dynamically in the system).
- * If omitted – all types should be included
+ * Possible values: 0 - EPG linear programs entries, any media type ID (according to media type IDs defined dynamically in the system).
+ * If omitted - all types should be included
 	 */
 	 setTypeIn(typeIn) {
 	 	this.typeIn = typeIn;
@@ -4702,9 +4777,9 @@ class AssetHistoryFilter extends Filter{
 	 }
 	
 	/**
-	 * Which type of recently watched media to include in the result – those that finished watching, those that are in progress or both.
- * If omitted or specified filter = all – return all types.
- * Allowed values: progress – return medias that are in-progress, done – return medias that finished watching
+	 * Which type of recently watched media to include in the result - those that finished watching, those that are in progress or both.
+ * If omitted or specified filter = all - return all types.
+ * Allowed values: progress - return medias that are in-progress, done - return medias that finished watching
 	 * @return string
 	 */
 	 getStatusEqual() {
@@ -4712,9 +4787,9 @@ class AssetHistoryFilter extends Filter{
 	 }
 	
 	/**
-	 * @param statusEqual string Which type of recently watched media to include in the result – those that finished watching, those that are in progress or both.
- * If omitted or specified filter = all – return all types.
- * Allowed values: progress – return medias that are in-progress, done – return medias that finished watching
+	 * @param statusEqual string Which type of recently watched media to include in the result - those that finished watching, those that are in progress or both.
+ * If omitted or specified filter = all - return all types.
+ * Allowed values: progress - return medias that are in-progress, done - return medias that finished watching
 	 */
 	 setStatusEqual(statusEqual) {
 	 	this.statusEqual = statusEqual;
@@ -6442,6 +6517,93 @@ module.exports.SearchPriorityGroupFilter = SearchPriorityGroupFilter;
 /**
  *
  */
+class LineupRegionalChannelFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaLineupRegionalChannelFilter';
+	}
+	
+	/**
+	 * Region ID filter
+	 * @return int
+	 */
+	 getRegionIdEqual() {
+	 	return this.regionIdEqual;
+	 }
+	
+	/**
+	 * @param regionIdEqual int Region ID filter
+	 */
+	 setRegionIdEqual(regionIdEqual) {
+	 	this.regionIdEqual = regionIdEqual;
+	 }
+	
+	/**
+	 * Should include lineup from parent region into response
+	 * @return bool
+	 */
+	 getParentRegionIncluded() {
+	 	return this.parentRegionIncluded;
+	 }
+	
+	/**
+	 * @param parentRegionIncluded bool Should include lineup from parent region into response
+	 */
+	 setParentRegionIncluded(parentRegionIncluded) {
+	 	this.parentRegionIncluded = parentRegionIncluded;
+	 }
+	
+	/**
+	 * A valid KSQL statement - Only linear channels that satisfies the KSQL statement will be included in the results
+	 * @return string
+	 */
+	 getKSql() {
+	 	return this.kSql;
+	 }
+	
+	/**
+	 * @param kSql string A valid KSQL statement - Only linear channels that satisfies the KSQL statement will be included in the results
+	 */
+	 setKSql(kSql) {
+	 	this.kSql = kSql;
+	 }
+	
+	/**
+	 * Filter only LCNs that greater or equals to the provided number
+	 * @return int
+	 */
+	 getLcnGreaterThanOrEqual() {
+	 	return this.lcnGreaterThanOrEqual;
+	 }
+	
+	/**
+	 * @param lcnGreaterThanOrEqual int Filter only LCNs that greater or equals to the provided number
+	 */
+	 setLcnGreaterThanOrEqual(lcnGreaterThanOrEqual) {
+	 	this.lcnGreaterThanOrEqual = lcnGreaterThanOrEqual;
+	 }
+	
+	/**
+	 * Filter only LCNs that less or equals to the provided number
+	 * @return int
+	 */
+	 getLcnLessThanOrEqual() {
+	 	return this.lcnLessThanOrEqual;
+	 }
+	
+	/**
+	 * @param lcnLessThanOrEqual int Filter only LCNs that less or equals to the provided number
+	 */
+	 setLcnLessThanOrEqual(lcnLessThanOrEqual) {
+	 	this.lcnLessThanOrEqual = lcnLessThanOrEqual;
+	 }
+}
+module.exports.LineupRegionalChannelFilter = LineupRegionalChannelFilter;
+
+/**
+ *
+ */
 class ListGroupsRepresentativesFilter extends Filter{
 	
 	constructor(object = null) {
@@ -6590,6 +6752,21 @@ class AssetRuleFilter extends Filter{
 	 */
 	 setAssetRuleIdEqual(assetRuleIdEqual) {
 	 	this.assetRuleIdEqual = assetRuleIdEqual;
+	 }
+	
+	/**
+	 * Name
+	 * @return string
+	 */
+	 getNameContains() {
+	 	return this.nameContains;
+	 }
+	
+	/**
+	 * @param nameContains string Name
+	 */
+	 setNameContains(nameContains) {
+	 	this.nameContains = nameContains;
 	 }
 }
 module.exports.AssetRuleFilter = AssetRuleFilter;
@@ -11828,48 +12005,6 @@ module.exports.UdidDynamicList = UdidDynamicList;
 /**
  *
  */
-class HouseholdCoupon extends OTTObjectSupportNullable{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdCoupon';
-	}
-	
-	/**
-	 * Coupon code
-	 * @return string
-	 */
-	 getCode() {
-	 	return this.code;
-	 }
-	
-	/**
-	 * @param code string Coupon code
-	 */
-	 setCode(code) {
-	 	this.code = code;
-	 }
-	
-	/**
-	 * Last Usage Date
-	 * @return int
-	 */
-	 getLastUsageDate() {
-	 	return this.lastUsageDate;
-	 }
-	
-	/**
-	 * @param lastUsageDate int Last Usage Date
-	 */
-	 setLastUsageDate(lastUsageDate) {
-	 	this.lastUsageDate = lastUsageDate;
-	 }
-}
-module.exports.HouseholdCoupon = HouseholdCoupon;
-
-/**
- *
- */
 class PluginData extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -12191,6 +12326,48 @@ class FairPlayPlaybackPluginData extends DrmPlaybackPluginData{
 	 }
 }
 module.exports.FairPlayPlaybackPluginData = FairPlayPlaybackPluginData;
+
+/**
+ *
+ */
+class HouseholdCoupon extends OTTObjectSupportNullable{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdCoupon';
+	}
+	
+	/**
+	 * Coupon code
+	 * @return string
+	 */
+	 getCode() {
+	 	return this.code;
+	 }
+	
+	/**
+	 * @param code string Coupon code
+	 */
+	 setCode(code) {
+	 	this.code = code;
+	 }
+	
+	/**
+	 * Last Usage Date
+	 * @return int
+	 */
+	 getLastUsageDate() {
+	 	return this.lastUsageDate;
+	 }
+	
+	/**
+	 * @param lastUsageDate int Last Usage Date
+	 */
+	 setLastUsageDate(lastUsageDate) {
+	 	this.lastUsageDate = lastUsageDate;
+	 }
+}
+module.exports.HouseholdCoupon = HouseholdCoupon;
 
 /**
  *
@@ -13952,12 +14129,39 @@ module.exports.StartDateOffsetRuleAction = StartDateOffsetRuleAction;
 /**
  *
  */
+class BasePreActionCondition extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBasePreActionCondition';
+	}
+}
+module.exports.BasePreActionCondition = BasePreActionCondition;
+
+/**
+ *
+ */
 class FilterAction extends AssetRuleAction{
 	
 	constructor(object = null) {
 		super(object);
 		this.objectType = 'KalturaFilterAction';
 	}
+	
+	/**
+	 * PreAction condition
+	 * @return BasePreActionCondition
+	 */
+	 getPreActionCondition() {
+	 	return this.preActionCondition;
+	 }
+	
+	/**
+	 * @param preActionCondition BasePreActionCondition PreAction condition
+	 */
+	 setPreActionCondition(preActionCondition) {
+	 	this.preActionCondition = preActionCondition;
+	 }
 }
 module.exports.FilterAction = FilterAction;
 
@@ -14410,6 +14614,45 @@ class FilterAssetByKsqlAction extends FilterAction{
 	 }
 }
 module.exports.FilterAssetByKsqlAction = FilterAssetByKsqlAction;
+
+/**
+ *
+ */
+class NoShopPreActionCondition extends BasePreActionCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaNoShopPreActionCondition';
+	}
+}
+module.exports.NoShopPreActionCondition = NoShopPreActionCondition;
+
+/**
+ *
+ */
+class ShopPreActionCondition extends BasePreActionCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaShopPreActionCondition';
+	}
+	
+	/**
+	 * Asset user rule ID with shop condition
+	 * @return int
+	 */
+	 getShopAssetUserRuleId() {
+	 	return this.shopAssetUserRuleId;
+	 }
+	
+	/**
+	 * @param shopAssetUserRuleId int Asset user rule ID with shop condition
+	 */
+	 setShopAssetUserRuleId(shopAssetUserRuleId) {
+	 	this.shopAssetUserRuleId = shopAssetUserRuleId;
+	 }
+}
+module.exports.ShopPreActionCondition = ShopPreActionCondition;
 
 /**
  *
@@ -26738,6 +26981,22 @@ class PaddedRecording extends Recording{
 	 setEndPadding(endPadding) {
 	 	this.endPadding = endPadding;
 	 }
+	
+	/**
+	 * Indicates whether startPadding value is personal padding (counts towards HH quota) or system padding (does not count towards HH quota)
+	 * @return bool
+	 */
+	 getStartPaddingIsPersonal() {
+	 	return this.startPaddingIsPersonal;
+	 }
+	
+	/**
+	 * Indicates whether endPadding value is personal padding (counts towards HH quota) or system padding (does not count towards HH quota)
+	 * @return bool
+	 */
+	 getEndPaddingIsPersonal() {
+	 	return this.endPaddingIsPersonal;
+	 }
 }
 module.exports.PaddedRecording = PaddedRecording;
 
@@ -27357,7 +27616,7 @@ class Asset extends kaltura.BaseObject{
 	
 	/**
 	 * Identifies the asset type (EPG, Recording, Movie, TV Series, etc).
- * Possible values: 0 – EPG linear programs, 1 - Recording; or any asset type ID according to the asset types IDs defined in the system
+ * Possible values: 0 - EPG linear programs, 1 - Recording; or any asset type ID according to the asset types IDs defined in the system
 	 * @return int
 	 */
 	 getType() {
@@ -27366,7 +27625,7 @@ class Asset extends kaltura.BaseObject{
 	
 	/**
 	 * @param type int Identifies the asset type (EPG, Recording, Movie, TV Series, etc).
- * Possible values: 0 – EPG linear programs, 1 - Recording; or any asset type ID according to the asset types IDs defined in the system
+ * Possible values: 0 - EPG linear programs, 1 - Recording; or any asset type ID according to the asset types IDs defined in the system
 	 */
 	 setType(type) {
 	 	this.type = type;
@@ -27480,7 +27739,7 @@ class Asset extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Date and time represented as epoch. For VOD – since when the asset is available in the catalog. For EPG/Linear – when the program is aired (can be in the future)
+	 * Date and time represented as epoch. For VOD - since when the asset is available in the catalog. For EPG/Linear - when the program is aired (can be in the future)
 	 * @return int
 	 */
 	 getStartDate() {
@@ -27488,14 +27747,14 @@ class Asset extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param startDate int Date and time represented as epoch. For VOD – since when the asset is available in the catalog. For EPG/Linear – when the program is aired (can be in the future)
+	 * @param startDate int Date and time represented as epoch. For VOD - since when the asset is available in the catalog. For EPG/Linear - when the program is aired (can be in the future)
 	 */
 	 setStartDate(startDate) {
 	 	this.startDate = startDate;
 	 }
 	
 	/**
-	 * Date and time represented as epoch. For VOD – till when the asset be available in the catalog. For EPG/Linear – program end time and date
+	 * Date and time represented as epoch. For VOD - till when the asset be available in the catalog. For EPG/Linear - program end time and date
 	 * @return int
 	 */
 	 getEndDate() {
@@ -27503,7 +27762,7 @@ class Asset extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param endDate int Date and time represented as epoch. For VOD – till when the asset be available in the catalog. For EPG/Linear – program end time and date
+	 * @param endDate int Date and time represented as epoch. For VOD - till when the asset be available in the catalog. For EPG/Linear - program end time and date
 	 */
 	 setEndDate(endDate) {
 	 	this.endDate = endDate;
@@ -34992,7 +35251,7 @@ class BulkUploadAssetData extends BulkUploadObjectData{
 	
 	/**
 	 * Identifies the asset type (EPG, Recording, Movie, TV Series, etc).
- * Possible values: 0 – EPG linear programs, 1 - Recording; or any asset type ID according to the asset types IDs defined in the system
+ * Possible values: 0 - EPG linear programs, 1 - Recording; or any asset type ID according to the asset types IDs defined in the system
 	 * @return int
 	 */
 	 getTypeId() {
@@ -35001,7 +35260,7 @@ class BulkUploadAssetData extends BulkUploadObjectData{
 	
 	/**
 	 * @param typeId int Identifies the asset type (EPG, Recording, Movie, TV Series, etc).
- * Possible values: 0 – EPG linear programs, 1 - Recording; or any asset type ID according to the asset types IDs defined in the system
+ * Possible values: 0 - EPG linear programs, 1 - Recording; or any asset type ID according to the asset types IDs defined in the system
 	 */
 	 setTypeId(typeId) {
 	 	this.typeId = typeId;
@@ -38657,6 +38916,33 @@ module.exports.PartnerPremiumServices = PartnerPremiumServices;
 /**
  *
  */
+class PersonalActivityCleanupConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPersonalActivityCleanupConfiguration';
+	}
+	
+	/**
+	 * Retention Period Days
+	 * @return int
+	 */
+	 getRetentionPeriodDays() {
+	 	return this.retentionPeriodDays;
+	 }
+	
+	/**
+	 * @param retentionPeriodDays int Retention Period Days
+	 */
+	 setRetentionPeriodDays(retentionPeriodDays) {
+	 	this.retentionPeriodDays = retentionPeriodDays;
+	 }
+}
+module.exports.PersonalActivityCleanupConfiguration = PersonalActivityCleanupConfiguration;
+
+/**
+ *
+ */
 class Pin extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -39750,6 +40036,21 @@ class TimeShiftedTvPartnerSettings extends kaltura.BaseObject{
 	 */
 	 setMaxConcurrencyMargin(maxConcurrencyMargin) {
 	 	this.maxConcurrencyMargin = maxConcurrencyMargin;
+	 }
+	
+	/**
+	 * Is CDVR Migration Enabled
+	 * @return bool
+	 */
+	 getCDvrMigrationEnabled() {
+	 	return this.cDvrMigrationEnabled;
+	 }
+	
+	/**
+	 * @param cDvrMigrationEnabled bool Is CDVR Migration Enabled
+	 */
+	 setCDvrMigrationEnabled(cDvrMigrationEnabled) {
+	 	this.cDvrMigrationEnabled = cDvrMigrationEnabled;
 	 }
 }
 module.exports.TimeShiftedTvPartnerSettings = TimeShiftedTvPartnerSettings;
