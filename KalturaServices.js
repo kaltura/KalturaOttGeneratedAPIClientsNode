@@ -4143,6 +4143,7 @@ module.exports.IngestProfile = IngestProfile;
  * @action getEpgList Response with list of ingest jobs.
  * @action getEpgProgramResultList Get as input ingest job id, filter and pager and response with page of filtered detailed ingest job results.
  * @action getPartnerConfiguration Returns Core Ingest service partner configurations.
+ * @action getVodAssetResult List detailed results of ingested assets.
  * @action updatePartnerConfiguration Returns Core Ingest service partner configurations.
  */
 class ingestStatus{
@@ -4195,6 +4196,19 @@ class ingestStatus{
 	static getPartnerConfiguration(){
 		let kparams = {};
 		return new kaltura.RequestBuilder('ingeststatus', 'getPartnerConfiguration', kparams);
+	};
+	
+	/**
+	 * List detailed results of ingested assets.
+	 * @param filter VodIngestAssetResultFilter Filter object with parameters to filter selected ingest processes and assets (optional, default: null)
+	 * @param pager FilterPager Paging the request (optional, default: null)
+	 * @return KalturaVodIngestAssetResultResponse
+	 */
+	static getVodAssetResult(filter = null, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('ingeststatus', 'getVodAssetResult', kparams);
 	};
 	
 	/**
