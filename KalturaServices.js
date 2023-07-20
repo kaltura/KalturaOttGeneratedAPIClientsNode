@@ -4143,6 +4143,7 @@ module.exports.IngestProfile = IngestProfile;
  * @action getEpgList Response with list of ingest jobs.
  * @action getEpgProgramResultList Get as input ingest job id, filter and pager and response with page of filtered detailed ingest job results.
  * @action getPartnerConfiguration Returns Core Ingest service partner configurations.
+ * @action getVodAssetResult List detailed results of ingested assets.
  * @action updatePartnerConfiguration Returns Core Ingest service partner configurations.
  */
 class ingestStatus{
@@ -4195,6 +4196,19 @@ class ingestStatus{
 	static getPartnerConfiguration(){
 		let kparams = {};
 		return new kaltura.RequestBuilder('ingeststatus', 'getPartnerConfiguration', kparams);
+	};
+	
+	/**
+	 * List detailed results of ingested assets.
+	 * @param filter VodIngestAssetResultFilter Filter object with parameters to filter selected ingest processes and assets (optional, default: null)
+	 * @param pager FilterPager Paging the request (optional, default: null)
+	 * @return KalturaVodIngestAssetResultResponse
+	 */
+	static getVodAssetResult(filter = null, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('ingeststatus', 'getVodAssetResult', kparams);
 	};
 	
 	/**
@@ -4365,6 +4379,7 @@ module.exports.licensedUrl = licensedUrl;
  *Class definition for the Kaltura service: lineup.
  * The available service actions:
  * @action get Return regional lineup (list of lineup channel asset objects) based on the requester session characteristics and his region.
+ * @action list Returns list of lineup regional linear channels associated with one LCN and its region information. Allows to apply sorting and filtering by LCN and linear channels.
  * @action sendUpdatedNotification Sends lineup update requested notification.
  */
 class lineup{
@@ -4380,6 +4395,19 @@ class lineup{
 		kparams.pageIndex = pageIndex;
 		kparams.pageSize = pageSize;
 		return new kaltura.RequestBuilder('lineup', 'get', kparams);
+	};
+	
+	/**
+	 * Returns list of lineup regional linear channels associated with one LCN and its region information. Allows to apply sorting and filtering by LCN and linear channels.
+	 * @param filter LineupRegionalChannelFilter Request filter
+	 * @param pager FilterPager Paging the request (optional, default: null)
+	 * @return KalturaLineupChannelAssetListResponse
+	 */
+	static listAction(filter, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('lineup', 'list', kparams);
 	};
 	
 	/**
@@ -5835,6 +5863,37 @@ class permissionItem{
 	};
 }
 module.exports.permissionItem = permissionItem;
+
+
+/**
+ *Class definition for the Kaltura service: personalActivityCleanup.
+ * The available service actions:
+ * @action getPartnerConfiguration PersonalActivityCleanupConfiguration get.
+ * @action updatePartnerConfiguration PersonalActivityCleanupConfiguration Update.
+ */
+class personalActivityCleanup{
+	
+	/**
+	 * PersonalActivityCleanupConfiguration get.
+	 * @return KalturaPersonalActivityCleanupConfiguration
+	 */
+	static getPartnerConfiguration(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('personalactivitycleanup', 'getPartnerConfiguration', kparams);
+	};
+	
+	/**
+	 * PersonalActivityCleanupConfiguration Update.
+	 * @param personalActivityCleanupConfiguration PersonalActivityCleanupConfiguration PersonalActivityCleanupConfiguration details
+	 * @return KalturaPersonalActivityCleanupConfiguration
+	 */
+	static updatePartnerConfiguration(personalActivityCleanupConfiguration){
+		let kparams = {};
+		kparams.personalActivityCleanupConfiguration = personalActivityCleanupConfiguration;
+		return new kaltura.RequestBuilder('personalactivitycleanup', 'updatePartnerConfiguration', kparams);
+	};
+}
+module.exports.personalActivityCleanup = personalActivityCleanup;
 
 
 /**
