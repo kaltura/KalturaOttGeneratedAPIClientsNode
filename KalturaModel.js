@@ -27307,6 +27307,22 @@ class PaddedRecording extends Recording{
 	 setEndPadding(endPadding) {
 	 	this.endPadding = endPadding;
 	 }
+	
+	/**
+	 * Indicates whether startPadding value is personal padding (counts towards HH quota) or system padding (does not count towards HH quota)
+	 * @return bool
+	 */
+	 getStartPaddingIsPersonal() {
+	 	return this.startPaddingIsPersonal;
+	 }
+	
+	/**
+	 * Indicates whether endPadding value is personal padding (counts towards HH quota) or system padding (does not count towards HH quota)
+	 * @return bool
+	 */
+	 getEndPaddingIsPersonal() {
+	 	return this.endPaddingIsPersonal;
+	 }
 }
 module.exports.PaddedRecording = PaddedRecording;
 
