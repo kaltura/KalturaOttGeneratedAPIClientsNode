@@ -4143,7 +4143,6 @@ module.exports.IngestProfile = IngestProfile;
  * @action getEpgList Response with list of ingest jobs.
  * @action getEpgProgramResultList Get as input ingest job id, filter and pager and response with page of filtered detailed ingest job results.
  * @action getPartnerConfiguration Returns Core Ingest service partner configurations.
- * @action getVodAssetResult List detailed results of ingested assets.
  * @action updatePartnerConfiguration Returns Core Ingest service partner configurations.
  */
 class ingestStatus{
@@ -4196,19 +4195,6 @@ class ingestStatus{
 	static getPartnerConfiguration(){
 		let kparams = {};
 		return new kaltura.RequestBuilder('ingeststatus', 'getPartnerConfiguration', kparams);
-	};
-	
-	/**
-	 * List detailed results of ingested assets.
-	 * @param filter VodIngestAssetResultFilter Filter object with parameters to filter selected ingest processes and assets (optional, default: null)
-	 * @param pager FilterPager Paging the request (optional, default: null)
-	 * @return KalturaVodIngestAssetResultResponse
-	 */
-	static getVodAssetResult(filter = null, pager = null){
-		let kparams = {};
-		kparams.filter = filter;
-		kparams.pager = pager;
-		return new kaltura.RequestBuilder('ingeststatus', 'getVodAssetResult', kparams);
 	};
 	
 	/**
@@ -4378,18 +4364,14 @@ module.exports.licensedUrl = licensedUrl;
 /**
  *Class definition for the Kaltura service: lineup.
  * The available service actions:
- * @action get Returns regional lineup (list of lineup channel asset objects) based on the requester session characteristics and his region.
- * NOTE: Calling lineup.get action using HTTP POST is supported only for tests (non production environment) and is rate limited or blocked.
- * For production, HTTP GET shall be used: GET https://{Host_IP}/{build version}/api_v3/service/lineup/action/get.
+ * @action get Return regional lineup (list of lineup channel asset objects) based on the requester session characteristics and his region.
  * @action list Returns list of lineup regional linear channels associated with one LCN and its region information. Allows to apply sorting and filtering by LCN and linear channels.
  * @action sendUpdatedNotification Sends lineup update requested notification.
  */
 class lineup{
 	
 	/**
-	 * Returns regional lineup (list of lineup channel asset objects) based on the requester session characteristics and his region.
- * NOTE: Calling lineup.get action using HTTP POST is supported only for tests (non production environment) and is rate limited or blocked.
- * For production, HTTP GET shall be used: GET https://{Host_IP}/{build version}/api_v3/service/lineup/action/get.
+	 * Return regional lineup (list of lineup channel asset objects) based on the requester session characteristics and his region.
 	 * @param pageIndex int Page index - The page index to retrieve, (if it is not sent the default page size is 1)
 	 * @param pageSize int Page size - The page size to retrieve. Must be one of the follow numbers: 100, 200, 800, 1200, 1600 (if it is not sent the default page size is 500)
 	 * @return KalturaLineupChannelAssetListResponse
