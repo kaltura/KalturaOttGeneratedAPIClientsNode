@@ -16989,6 +16989,21 @@ class SSOAdapterProfile extends kaltura.BaseObject{
 	 setSharedSecret(sharedSecret) {
 	 	this.sharedSecret = sharedSecret;
 	 }
+	
+	/**
+	 * Adapter GRPC Address, without protocol, i.e: &#39;adapter-hostname:9090&#39;
+	 * @return string
+	 */
+	 getAdapterGrpcAddress() {
+	 	return this.adapterGrpcAddress;
+	 }
+	
+	/**
+	 * @param adapterGrpcAddress string Adapter GRPC Address, without protocol, i.e: &#39;adapter-hostname:9090&#39;
+	 */
+	 setAdapterGrpcAddress(adapterGrpcAddress) {
+	 	this.adapterGrpcAddress = adapterGrpcAddress;
+	 }
 }
 module.exports.SSOAdapterProfile = SSOAdapterProfile;
 
