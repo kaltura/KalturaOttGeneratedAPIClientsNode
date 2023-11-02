@@ -22395,6 +22395,33 @@ module.exports.SecurityPartnerConfig = SecurityPartnerConfig;
 /**
  *
  */
+class UploadSettingsConfiguration extends PartnerConfiguration{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUploadSettingsConfiguration';
+	}
+	
+	/**
+	 * comma separated Allowed File Extensions
+	 * @return string
+	 */
+	 getAllowedFileExtensions() {
+	 	return this.allowedFileExtensions;
+	 }
+	
+	/**
+	 * @param allowedFileExtensions string comma separated Allowed File Extensions
+	 */
+	 setAllowedFileExtensions(allowedFileExtensions) {
+	 	this.allowedFileExtensions = allowedFileExtensions;
+	 }
+}
+module.exports.UploadSettingsConfiguration = UploadSettingsConfiguration;
+
+/**
+ *
+ */
 class PersonalList extends kaltura.BaseObject{
 	
 	constructor(object = null) {
