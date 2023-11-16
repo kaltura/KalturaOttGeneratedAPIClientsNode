@@ -16989,6 +16989,21 @@ class SSOAdapterProfile extends kaltura.BaseObject{
 	 setSharedSecret(sharedSecret) {
 	 	this.sharedSecret = sharedSecret;
 	 }
+	
+	/**
+	 * Adapter GRPC Address, without protocol, i.e: &#39;adapter-hostname:9090&#39;
+	 * @return string
+	 */
+	 getAdapterGrpcAddress() {
+	 	return this.adapterGrpcAddress;
+	 }
+	
+	/**
+	 * @param adapterGrpcAddress string Adapter GRPC Address, without protocol, i.e: &#39;adapter-hostname:9090&#39;
+	 */
+	 setAdapterGrpcAddress(adapterGrpcAddress) {
+	 	this.adapterGrpcAddress = adapterGrpcAddress;
+	 }
 }
 module.exports.SSOAdapterProfile = SSOAdapterProfile;
 
@@ -19509,6 +19524,33 @@ class CollectionListResponse extends ListResponse{
 	 }
 }
 module.exports.CollectionListResponse = CollectionListResponse;
+
+/**
+ *
+ */
+class CouponFilesLinks extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCouponFilesLinks';
+	}
+	
+	/**
+	 * A pre-signed URL pointing to a coupon codes file
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A pre-signed URL pointing to a coupon codes file
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.CouponFilesLinks = CouponFilesLinks;
 
 /**
  *
