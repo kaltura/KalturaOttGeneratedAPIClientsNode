@@ -2000,6 +2000,7 @@ module.exports.country = country;
  *Class definition for the Kaltura service: coupon.
  * The available service actions:
  * @action get Returns information about a coupon.
+ * @action getFilesLinks get all coupon codes of a specific couponGroup.
  */
 class coupon{
 	
@@ -2012,6 +2013,17 @@ class coupon{
 		let kparams = {};
 		kparams.code = code;
 		return new kaltura.RequestBuilder('coupon', 'get', kparams);
+	};
+	
+	/**
+	 * get all coupon codes of a specific couponGroup.
+	 * @param couponsGroupId int The couponsGroup ID for which its file links will be listed
+	 * @return KalturaCouponFilesLinks
+	 */
+	static getFilesLinks(couponsGroupId){
+		let kparams = {};
+		kparams.couponsGroupId = couponsGroupId;
+		return new kaltura.RequestBuilder('coupon', 'getFilesLinks', kparams);
 	};
 }
 module.exports.coupon = coupon;
