@@ -951,6 +951,7 @@ OPC : 'Opc',
 BASE : 'Base',
 CUSTOMFIELDS : 'CustomFields',
 DEFAULTPARENTALSETTINGS : 'DefaultParentalSettings',
+CLOUDUPLOADSETTINGS : 'CloudUploadSettings',
 };
 
 module.exports.PasswordPolicyOrderBy = {
