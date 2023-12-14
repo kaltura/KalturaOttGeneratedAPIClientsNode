@@ -16989,6 +16989,21 @@ class SSOAdapterProfile extends kaltura.BaseObject{
 	 setSharedSecret(sharedSecret) {
 	 	this.sharedSecret = sharedSecret;
 	 }
+	
+	/**
+	 * Adapter GRPC Address, without protocol, i.e: &#39;adapter-hostname:9090&#39;
+	 * @return string
+	 */
+	 getAdapterGrpcAddress() {
+	 	return this.adapterGrpcAddress;
+	 }
+	
+	/**
+	 * @param adapterGrpcAddress string Adapter GRPC Address, without protocol, i.e: &#39;adapter-hostname:9090&#39;
+	 */
+	 setAdapterGrpcAddress(adapterGrpcAddress) {
+	 	this.adapterGrpcAddress = adapterGrpcAddress;
+	 }
 }
 module.exports.SSOAdapterProfile = SSOAdapterProfile;
 
@@ -37126,6 +37141,75 @@ class TriggerCampaignEvent extends EventObject{
 	 }
 }
 module.exports.TriggerCampaignEvent = TriggerCampaignEvent;
+
+/**
+ *
+ */
+class RetryDeleteRequest extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRetryDeleteRequest';
+	}
+	
+	/**
+	 * The first date (epoch) to start the retryDelete from - by default {now} - {30 days in second}
+	 * @return int
+	 */
+	 getStartDate() {
+	 	return this.startDate;
+	 }
+	
+	/**
+	 * @param startDate int The first date (epoch) to start the retryDelete from - by default {now} - {30 days in second}
+	 */
+	 setStartDate(startDate) {
+	 	this.startDate = startDate;
+	 }
+	
+	/**
+	 * The last date (epoch) to do the retryDelete - by default {now} (should be greater than startDate)
+	 * @return int
+	 */
+	 getEndDate() {
+	 	return this.endDate;
+	 }
+	
+	/**
+	 * @param endDate int The last date (epoch) to do the retryDelete - by default {now} (should be greater than startDate)
+	 */
+	 setEndDate(endDate) {
+	 	this.endDate = endDate;
+	 }
+}
+module.exports.RetryDeleteRequest = RetryDeleteRequest;
+
+/**
+ *
+ */
+class HouseholdPartnerConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdPartnerConfiguration';
+	}
+	
+	/**
+	 * Retention period in days
+	 * @return int
+	 */
+	 getRetentionPeriodDays() {
+	 	return this.retentionPeriodDays;
+	 }
+	
+	/**
+	 * @param retentionPeriodDays int Retention period in days
+	 */
+	 setRetentionPeriodDays(retentionPeriodDays) {
+	 	this.retentionPeriodDays = retentionPeriodDays;
+	 }
+}
+module.exports.HouseholdPartnerConfiguration = HouseholdPartnerConfiguration;
 
 /**
  *

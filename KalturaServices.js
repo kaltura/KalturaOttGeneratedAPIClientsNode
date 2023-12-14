@@ -3204,12 +3204,15 @@ module.exports.homeNetwork = homeNetwork;
  * @action add Creates a household for the user.
  * @action delete Fully delete a household. Delete all of the household information, including users, devices, entitlements, payment methods and notification date.
  * @action get Returns the household model.
+ * @action getPartnerConfiguration Get household partner configuration.
  * @action list Retrive household for the partner filter by external identifier.
  * @action purge Purge a household. Delete all of the household information, including users, devices, entitlements, payment methods and notification date.
  * @action resetFrequency Reset a household’s time limitation for removing user or device.
  * @action resume Resumed a given household service to its previous service settings.
+ * @action retryDelete Retry delete household entities by retention.
  * @action suspend Suspend a given household service. Sets the household status to “suspended&quot;.The household service settings are maintained for later resume.
  * @action update Update the household name and description.
+ * @action updatePartnerConfiguration Update household partner configuration.
  */
 class household{
 	
@@ -3244,6 +3247,15 @@ class household{
 		let kparams = {};
 		kparams.id = id;
 		return new kaltura.RequestBuilder('household', 'get', kparams);
+	};
+	
+	/**
+	 * Get household partner configuration.
+	 * @return KalturaHouseholdPartnerConfiguration
+	 */
+	static getPartnerConfiguration(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('household', 'getPartnerConfiguration', kparams);
 	};
 	
 	/**
@@ -3292,6 +3304,16 @@ class household{
 	};
 	
 	/**
+	 * Retry delete household entities by retention.
+	 * @param request RetryDeleteRequest Request data
+	 */
+	static retryDelete(request){
+		let kparams = {};
+		kparams.request = request;
+		return new kaltura.RequestBuilder('household', 'retryDelete', kparams);
+	};
+	
+	/**
 	 * Suspend a given household service. Sets the household status to “suspended&quot;.The household service settings are maintained for later resume.
 	 * @param roleId int roleId (optional, default: null)
 	 * @return bool
@@ -3311,6 +3333,16 @@ class household{
 		let kparams = {};
 		kparams.household = household;
 		return new kaltura.RequestBuilder('household', 'update', kparams);
+	};
+	
+	/**
+	 * Update household partner configuration.
+	 * @param configuration HouseholdPartnerConfiguration Household partner configuration details
+	 */
+	static updatePartnerConfiguration(configuration){
+		let kparams = {};
+		kparams.configuration = configuration;
+		return new kaltura.RequestBuilder('household', 'updatePartnerConfiguration', kparams);
 	};
 }
 module.exports.household = household;
@@ -3371,6 +3403,7 @@ module.exports.householdCoupon = householdCoupon;
  * @action get Returns device registration status to the supplied household.
  * @action list Returns the devices within the household.
  * @action loginWithPin User sign-in via a time-expired sign-in PIN.
+ * @action retryDelete Retry delete household device entities by retention.
  * @action update Update the name of the device by UDID.
  * @action updateStatus Update the name of the device by UDID.
  * @action upsertDynamicData Adds or updates dynamic data item for device with identifier udid. If it is needed to update several items, use a multi-request to avoid race conditions.
@@ -3475,6 +3508,16 @@ class householdDevice{
 		kparams.udid = udid;
 		kparams.extraParams = extraParams;
 		return new kaltura.RequestBuilder('householddevice', 'loginWithPin', kparams);
+	};
+	
+	/**
+	 * Retry delete household device entities by retention.
+	 * @param request RetryDeleteRequest Request data
+	 */
+	static retryDelete(request){
+		let kparams = {};
+		kparams.request = request;
+		return new kaltura.RequestBuilder('householddevice', 'retryDelete', kparams);
 	};
 	
 	/**
@@ -5031,6 +5074,7 @@ module.exports.ottCategory = ottCategory;
  * @action register Sign up a new user.
  * @action resendActivationToken Resend the activation token to a user.
  * @action resetPassword Send an e-mail with URL to enable the user to set new password.
+ * @action retryDelete Retry delete OTT user entities by retention.
  * @action setInitialPassword Renew the user&#39;s password after validating the token that sent as part of URL in e-mail.
  * @action update Update user information.
  * @action updateDynamicData Update user dynamic data. If it is needed to update several items, use a multi-request to avoid race conditions.
@@ -5219,6 +5263,16 @@ class ottUser{
 		kparams.username = username;
 		kparams.templateName = templateName;
 		return new kaltura.RequestBuilder('ottuser', 'resetPassword', kparams);
+	};
+	
+	/**
+	 * Retry delete OTT user entities by retention.
+	 * @param request RetryDeleteRequest Request data
+	 */
+	static retryDelete(request){
+		let kparams = {};
+		kparams.request = request;
+		return new kaltura.RequestBuilder('ottuser', 'retryDelete', kparams);
 	};
 	
 	/**
