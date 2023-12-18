@@ -16989,6 +16989,21 @@ class SSOAdapterProfile extends kaltura.BaseObject{
 	 setSharedSecret(sharedSecret) {
 	 	this.sharedSecret = sharedSecret;
 	 }
+	
+	/**
+	 * Adapter GRPC Address, without protocol, i.e: &#39;adapter-hostname:9090&#39;
+	 * @return string
+	 */
+	 getAdapterGrpcAddress() {
+	 	return this.adapterGrpcAddress;
+	 }
+	
+	/**
+	 * @param adapterGrpcAddress string Adapter GRPC Address, without protocol, i.e: &#39;adapter-hostname:9090&#39;
+	 */
+	 setAdapterGrpcAddress(adapterGrpcAddress) {
+	 	this.adapterGrpcAddress = adapterGrpcAddress;
+	 }
 }
 module.exports.SSOAdapterProfile = SSOAdapterProfile;
 
@@ -21202,6 +21217,75 @@ module.exports.CatalogPartnerConfig = CatalogPartnerConfig;
 /**
  *
  */
+class CloudUploadSettingsConfiguration extends PartnerConfiguration{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCloudUploadSettingsConfiguration';
+	}
+	
+	/**
+	 * Comma seperated list of file extensions that allowed to all partners
+	 * @return string
+	 */
+	 getDefaultAllowedFileExtensions() {
+	 	return this.defaultAllowedFileExtensions;
+	 }
+	
+	/**
+	 * Comma seperated list of file extensions that allowed to partner in question
+ * {&quot;jpeg&quot;,&quot;image/jpeg&quot;},
+ * {&quot;jpg&quot;,&quot;image/jpeg&quot;},
+ * {&quot;png&quot;,&quot;image/png&quot;},
+ * {&quot;tif&quot;,&quot;image/tiff&quot;},
+ * {&quot;tiff&quot;,&quot;image/tiff&quot;},
+ * {&quot;gif&quot;,&quot;image/gif&quot;},
+ * {&quot;xls&quot;,&quot;application/vnd.ms-excel&quot;},
+ * {&quot;xlsx&quot;,&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;},
+ * {&quot;csv&quot;,&quot;text/csv&quot;},
+ * {&quot;xml&quot;,&quot;text/xml&quot;},
+ * {&quot;txt&quot;,&quot;text/plain&quot;},
+ * {&quot;doc&quot;,&quot;application/msword&quot;},
+ * {&quot;docx&quot;,&quot;application/vnd.openxmlformats-officedocument.wordprocessingml.document&quot;},
+ * {&quot;bmp&quot;,&quot;image/bmp&quot;},
+ * {&quot;ico&quot;,&quot;image/x-icon&quot;},
+ * {&quot;mp3&quot;,&quot;audio/mpeg&quot;},
+ * {&quot;pdf&quot;,&quot;application/pdf&quot;}}
+	 * @return string
+	 */
+	 getCustomAllowedFileExtensions() {
+	 	return this.customAllowedFileExtensions;
+	 }
+	
+	/**
+	 * @param customAllowedFileExtensions string Comma seperated list of file extensions that allowed to partner in question
+ * {&quot;jpeg&quot;,&quot;image/jpeg&quot;},
+ * {&quot;jpg&quot;,&quot;image/jpeg&quot;},
+ * {&quot;png&quot;,&quot;image/png&quot;},
+ * {&quot;tif&quot;,&quot;image/tiff&quot;},
+ * {&quot;tiff&quot;,&quot;image/tiff&quot;},
+ * {&quot;gif&quot;,&quot;image/gif&quot;},
+ * {&quot;xls&quot;,&quot;application/vnd.ms-excel&quot;},
+ * {&quot;xlsx&quot;,&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;},
+ * {&quot;csv&quot;,&quot;text/csv&quot;},
+ * {&quot;xml&quot;,&quot;text/xml&quot;},
+ * {&quot;txt&quot;,&quot;text/plain&quot;},
+ * {&quot;doc&quot;,&quot;application/msword&quot;},
+ * {&quot;docx&quot;,&quot;application/vnd.openxmlformats-officedocument.wordprocessingml.document&quot;},
+ * {&quot;bmp&quot;,&quot;image/bmp&quot;},
+ * {&quot;ico&quot;,&quot;image/x-icon&quot;},
+ * {&quot;mp3&quot;,&quot;audio/mpeg&quot;},
+ * {&quot;pdf&quot;,&quot;application/pdf&quot;}}
+	 */
+	 setCustomAllowedFileExtensions(customAllowedFileExtensions) {
+	 	this.customAllowedFileExtensions = customAllowedFileExtensions;
+	 }
+}
+module.exports.CloudUploadSettingsConfiguration = CloudUploadSettingsConfiguration;
+
+/**
+ *
+ */
 class BookmarkEventThreshold extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -21717,7 +21801,7 @@ class GeneralPartnerConfig extends PartnerConfiguration{
 	 }
 	
 	/**
-	 * Household limitation&#160;module
+	 * Household limitation module
 	 * @return int
 	 */
 	 getHouseholdLimitationModule() {
@@ -21725,7 +21809,7 @@ class GeneralPartnerConfig extends PartnerConfiguration{
 	 }
 	
 	/**
-	 * @param householdLimitationModule int Household limitation&#160;module
+	 * @param householdLimitationModule int Household limitation module
 	 */
 	 setHouseholdLimitationModule(householdLimitationModule) {
 	 	this.householdLimitationModule = householdLimitationModule;
@@ -36303,6 +36387,48 @@ class Compensation extends kaltura.BaseObject{
 	 }
 }
 module.exports.Compensation = Compensation;
+
+/**
+ *
+ */
+class CouponFilesLinks extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCouponFilesLinks';
+	}
+	
+	/**
+	 * Total count of coupons code files
+	 * @return int
+	 */
+	 getTotalCount() {
+	 	return this.totalCount;
+	 }
+	
+	/**
+	 * @param totalCount int Total count of coupons code files
+	 */
+	 setTotalCount(totalCount) {
+	 	this.totalCount = totalCount;
+	 }
+	
+	/**
+	 * A pre-signed URL pointing to a coupon codes file
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A pre-signed URL pointing to a coupon codes file
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.CouponFilesLinks = CouponFilesLinks;
 
 /**
  *
