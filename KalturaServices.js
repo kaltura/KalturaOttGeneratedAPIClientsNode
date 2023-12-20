@@ -225,7 +225,6 @@ module.exports.assetComment = assetComment;
  * @action count Returns a group-by result for media or EPG according to given filter. Lists values of each field and their respective count.
  * @action delete Delete an existing asset.
  * @action get Returns media or EPG asset by media / EPG internal or external identifier.
- * Note: OPC accounts asset.get for internal identifier doesn&#39;t take under consideration personalized aspects neither shop limitations.
  * @action getAdsContext Returns the data for ads control.
  * @action getPlaybackContext This action delivers all data relevant for player.
  * @action getPlaybackManifest This action delivers all data relevant for player.
@@ -292,7 +291,6 @@ class asset{
 	
 	/**
 	 * Returns media or EPG asset by media / EPG internal or external identifier.
- * Note: OPC accounts asset.get for internal identifier doesn&#39;t take under consideration personalized aspects neither shop limitations.
 	 * @param id string Asset identifier
 	 * @param assetReferenceType string Asset type (enum: KalturaAssetReferenceType)
 	 * @return KalturaAsset
@@ -563,18 +561,12 @@ class assetHistory{
 	
 	/**
 	 * Get next episode by last watch asset in given assetId.
-	 * @param assetId int asset Id of series to search for next episode (optional, default: null)
-	 * @param seriesIdArguments SeriesIdArguments series Id arguments (optional, default: null)
-	 * @param notWatchedReturnStrategy string not watched any episode strategy (optional, enum: KalturaNotWatchedReturnStrategy, default: null)
-	 * @param watchedAllReturnStrategy string watched all series episodes strategy (optional, enum: KalturaWatchedAllReturnStrategy, default: null)
+	 * @param assetId int asset Id of series to search for next episode
 	 * @return KalturaAssetHistory
 	 */
-	static getNextEpisode(assetId = null, seriesIdArguments = null, notWatchedReturnStrategy = null, watchedAllReturnStrategy = null){
+	static getNextEpisode(assetId){
 		let kparams = {};
 		kparams.assetId = assetId;
-		kparams.seriesIdArguments = seriesIdArguments;
-		kparams.notWatchedReturnStrategy = notWatchedReturnStrategy;
-		kparams.watchedAllReturnStrategy = watchedAllReturnStrategy;
 		return new kaltura.RequestBuilder('assethistory', 'getNextEpisode', kparams);
 	};
 	
@@ -4143,7 +4135,6 @@ module.exports.IngestProfile = IngestProfile;
  * @action getEpgList Response with list of ingest jobs.
  * @action getEpgProgramResultList Get as input ingest job id, filter and pager and response with page of filtered detailed ingest job results.
  * @action getPartnerConfiguration Returns Core Ingest service partner configurations.
- * @action getVodAssetResult List detailed results of ingested assets.
  * @action updatePartnerConfiguration Returns Core Ingest service partner configurations.
  */
 class ingestStatus{
@@ -4196,19 +4187,6 @@ class ingestStatus{
 	static getPartnerConfiguration(){
 		let kparams = {};
 		return new kaltura.RequestBuilder('ingeststatus', 'getPartnerConfiguration', kparams);
-	};
-	
-	/**
-	 * List detailed results of ingested assets.
-	 * @param filter VodIngestAssetResultFilter Filter object with parameters to filter selected ingest processes and assets (optional, default: null)
-	 * @param pager FilterPager Paging the request (optional, default: null)
-	 * @return KalturaVodIngestAssetResultResponse
-	 */
-	static getVodAssetResult(filter = null, pager = null){
-		let kparams = {};
-		kparams.filter = filter;
-		kparams.pager = pager;
-		return new kaltura.RequestBuilder('ingeststatus', 'getVodAssetResult', kparams);
 	};
 	
 	/**
@@ -4378,18 +4356,13 @@ module.exports.licensedUrl = licensedUrl;
 /**
  *Class definition for the Kaltura service: lineup.
  * The available service actions:
- * @action get Returns regional lineup (list of lineup channel asset objects) based on the requester session characteristics and his region.
- * NOTE: Calling lineup.get action using HTTP POST is supported only for tests (non production environment) and is rate limited or blocked.
- * For production, HTTP GET shall be used: GET https://{Host_IP}/{build version}/api_v3/service/lineup/action/get.
- * @action list Returns list of lineup regional linear channels associated with one LCN and its region information. Allows to apply sorting and filtering by LCN and linear channels.
+ * @action get Return regional lineup (list of lineup channel asset objects) based on the requester session characteristics and his region.
  * @action sendUpdatedNotification Sends lineup update requested notification.
  */
 class lineup{
 	
 	/**
-	 * Returns regional lineup (list of lineup channel asset objects) based on the requester session characteristics and his region.
- * NOTE: Calling lineup.get action using HTTP POST is supported only for tests (non production environment) and is rate limited or blocked.
- * For production, HTTP GET shall be used: GET https://{Host_IP}/{build version}/api_v3/service/lineup/action/get.
+	 * Return regional lineup (list of lineup channel asset objects) based on the requester session characteristics and his region.
 	 * @param pageIndex int Page index - The page index to retrieve, (if it is not sent the default page size is 1)
 	 * @param pageSize int Page size - The page size to retrieve. Must be one of the follow numbers: 100, 200, 800, 1200, 1600 (if it is not sent the default page size is 500)
 	 * @return KalturaLineupChannelAssetListResponse
@@ -4399,19 +4372,6 @@ class lineup{
 		kparams.pageIndex = pageIndex;
 		kparams.pageSize = pageSize;
 		return new kaltura.RequestBuilder('lineup', 'get', kparams);
-	};
-	
-	/**
-	 * Returns list of lineup regional linear channels associated with one LCN and its region information. Allows to apply sorting and filtering by LCN and linear channels.
-	 * @param filter LineupRegionalChannelFilter Request filter
-	 * @param pager FilterPager Paging the request (optional, default: null)
-	 * @return KalturaLineupChannelAssetListResponse
-	 */
-	static listAction(filter, pager = null){
-		let kparams = {};
-		kparams.filter = filter;
-		kparams.pager = pager;
-		return new kaltura.RequestBuilder('lineup', 'list', kparams);
 	};
 	
 	/**
@@ -4569,53 +4529,6 @@ class mediaFile{
 	};
 }
 module.exports.mediaFile = mediaFile;
-
-
-/**
- *Class definition for the Kaltura service: mediaFileDynamicData.
- * The available service actions:
- * @action add Add a dynamicData value to the values list of a specific key name in a specific mediaFileTypeId.
- * @action delete Delete an existing DynamicData value.
- * @action list List and filter existing mediaFile dynamicData values.
- */
-class mediaFileDynamicData{
-	
-	/**
-	 * Add a dynamicData value to the values list of a specific key name in a specific mediaFileTypeId.
-	 * @param dynamicData MediaFileDynamicData DynamicData value
-	 * @return KalturaMediaFileDynamicData
-	 */
-	static add(dynamicData){
-		let kparams = {};
-		kparams.dynamicData = dynamicData;
-		return new kaltura.RequestBuilder('mediafiledynamicdata', 'add', kparams);
-	};
-	
-	/**
-	 * Delete an existing DynamicData value.
-	 * @param id int DynamicData identifier
-	 * @return bool
-	 */
-	static deleteAction(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('mediafiledynamicdata', 'delete', kparams);
-	};
-	
-	/**
-	 * List and filter existing mediaFile dynamicData values.
-	 * @param filter MediaFileDynamicDataFilter Filter
-	 * @param pager FilterPager Pager (optional, default: null)
-	 * @return KalturaMediaFileDynamicDataListResponse
-	 */
-	static listAction(filter, pager = null){
-		let kparams = {};
-		kparams.filter = filter;
-		kparams.pager = pager;
-		return new kaltura.RequestBuilder('mediafiledynamicdata', 'list', kparams);
-	};
-}
-module.exports.mediaFileDynamicData = mediaFileDynamicData;
 
 
 /**
@@ -5870,37 +5783,6 @@ module.exports.permissionItem = permissionItem;
 
 
 /**
- *Class definition for the Kaltura service: personalActivityCleanup.
- * The available service actions:
- * @action getPartnerConfiguration PersonalActivityCleanupConfiguration get.
- * @action updatePartnerConfiguration PersonalActivityCleanupConfiguration Update.
- */
-class personalActivityCleanup{
-	
-	/**
-	 * PersonalActivityCleanupConfiguration get.
-	 * @return KalturaPersonalActivityCleanupConfiguration
-	 */
-	static getPartnerConfiguration(){
-		let kparams = {};
-		return new kaltura.RequestBuilder('personalactivitycleanup', 'getPartnerConfiguration', kparams);
-	};
-	
-	/**
-	 * PersonalActivityCleanupConfiguration Update.
-	 * @param personalActivityCleanupConfiguration PersonalActivityCleanupConfiguration PersonalActivityCleanupConfiguration details
-	 * @return KalturaPersonalActivityCleanupConfiguration
-	 */
-	static updatePartnerConfiguration(personalActivityCleanupConfiguration){
-		let kparams = {};
-		kparams.personalActivityCleanupConfiguration = personalActivityCleanupConfiguration;
-		return new kaltura.RequestBuilder('personalactivitycleanup', 'updatePartnerConfiguration', kparams);
-	};
-}
-module.exports.personalActivityCleanup = personalActivityCleanup;
-
-
-/**
  *Class definition for the Kaltura service: personalFeed.
  * The available service actions:
  * @action list List user&#39;s feeds.
@@ -6596,11 +6478,9 @@ module.exports.recommendationProfile = recommendationProfile;
  * @action cancel Cancel a previously requested recording. Cancel recording can be called for recording in status Scheduled or Recording Only.
  * @action delete Delete one or more user recording(s). Delete recording can be called only for recordings in status Recorded.
  * @action get Returns recording object by internal identifier.
- * @action immediateRecord Immediate Record.
  * @action list Return a list of recordings for the household with optional filter by status and KSQL.
  * @action protect Deprecated, please use recording.update instead
  * Protects an existing recording from the cleanup process for the defined protection period.
- * @action stop Stop ongoing household recording.
  * @action update Update an existing recording with is protected field.
  */
 class recording{
@@ -6662,19 +6542,6 @@ class recording{
 	};
 	
 	/**
-	 * Immediate Record.
-	 * @param assetId int asset identifier
-	 * @param endPadding int end padding offset (optional, default: null)
-	 * @return KalturaImmediateRecording
-	 */
-	static immediateRecord(assetId, endPadding = null){
-		let kparams = {};
-		kparams.assetId = assetId;
-		kparams.endPadding = endPadding;
-		return new kaltura.RequestBuilder('recording', 'immediateRecord', kparams);
-	};
-	
-	/**
 	 * Return a list of recordings for the household with optional filter by status and KSQL.
 	 * @param filter RecordingFilter Filter parameters for filtering out the result (optional, default: null)
 	 * @param pager FilterPager Page size and index (optional, default: null)
@@ -6697,19 +6564,6 @@ class recording{
 		let kparams = {};
 		kparams.id = id;
 		return new kaltura.RequestBuilder('recording', 'protect', kparams);
-	};
-	
-	/**
-	 * Stop ongoing household recording.
-	 * @param assetId int asset identifier
-	 * @param id int household recording identifier
-	 * @return KalturaRecording
-	 */
-	static stop(assetId, id){
-		let kparams = {};
-		kparams.assetId = assetId;
-		kparams.id = id;
-		return new kaltura.RequestBuilder('recording', 'stop', kparams);
 	};
 	
 	/**
