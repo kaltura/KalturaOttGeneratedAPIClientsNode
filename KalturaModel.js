@@ -34892,33 +34892,6 @@ module.exports.RepresentativeSelectionPolicy = RepresentativeSelectionPolicy;
 /**
  *
  */
-class TopEntitledOrFreeRsp extends RepresentativeSelectionPolicy{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaTopEntitledOrFreeRsp';
-	}
-	
-	/**
-	 * order by
-	 * @return BaseAssetOrder
-	 */
-	 getOrderBy() {
-	 	return this.orderBy;
-	 }
-	
-	/**
-	 * @param orderBy BaseAssetOrder order by
-	 */
-	 setOrderBy(orderBy) {
-	 	this.orderBy = orderBy;
-	 }
-}
-module.exports.TopEntitledOrFreeRsp = TopEntitledOrFreeRsp;
-
-/**
- *
- */
 class TopRsp extends RepresentativeSelectionPolicy{
 	
 	constructor(object = null) {
@@ -34942,33 +34915,6 @@ class TopRsp extends RepresentativeSelectionPolicy{
 	 }
 }
 module.exports.TopRsp = TopRsp;
-
-/**
- *
- */
-class TopSubscriptionEntitledOrFreeRsp extends RepresentativeSelectionPolicy{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaTopSubscriptionEntitledOrFreeRsp';
-	}
-	
-	/**
-	 * order by
-	 * @return BaseAssetOrder
-	 */
-	 getOrderBy() {
-	 	return this.orderBy;
-	 }
-	
-	/**
-	 * @param orderBy BaseAssetOrder order by
-	 */
-	 setOrderBy(orderBy) {
-	 	this.orderBy = orderBy;
-	 }
-}
-module.exports.TopSubscriptionEntitledOrFreeRsp = TopSubscriptionEntitledOrFreeRsp;
 
 /**
  *
