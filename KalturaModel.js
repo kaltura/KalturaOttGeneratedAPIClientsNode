@@ -16989,6 +16989,21 @@ class SSOAdapterProfile extends kaltura.BaseObject{
 	 setSharedSecret(sharedSecret) {
 	 	this.sharedSecret = sharedSecret;
 	 }
+	
+	/**
+	 * Adapter GRPC Address, without protocol, i.e: &#39;adapter-hostname:9090&#39;
+	 * @return string
+	 */
+	 getAdapterGrpcAddress() {
+	 	return this.adapterGrpcAddress;
+	 }
+	
+	/**
+	 * @param adapterGrpcAddress string Adapter GRPC Address, without protocol, i.e: &#39;adapter-hostname:9090&#39;
+	 */
+	 setAdapterGrpcAddress(adapterGrpcAddress) {
+	 	this.adapterGrpcAddress = adapterGrpcAddress;
+	 }
 }
 module.exports.SSOAdapterProfile = SSOAdapterProfile;
 
@@ -21202,6 +21217,75 @@ module.exports.CatalogPartnerConfig = CatalogPartnerConfig;
 /**
  *
  */
+class CloudUploadSettingsConfiguration extends PartnerConfiguration{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCloudUploadSettingsConfiguration';
+	}
+	
+	/**
+	 * Comma seperated list of file extensions that allowed to all partners
+	 * @return string
+	 */
+	 getDefaultAllowedFileExtensions() {
+	 	return this.defaultAllowedFileExtensions;
+	 }
+	
+	/**
+	 * Comma seperated list of file extensions that allowed to partner in question
+ * {&quot;jpeg&quot;,&quot;image/jpeg&quot;},
+ * {&quot;jpg&quot;,&quot;image/jpeg&quot;},
+ * {&quot;png&quot;,&quot;image/png&quot;},
+ * {&quot;tif&quot;,&quot;image/tiff&quot;},
+ * {&quot;tiff&quot;,&quot;image/tiff&quot;},
+ * {&quot;gif&quot;,&quot;image/gif&quot;},
+ * {&quot;xls&quot;,&quot;application/vnd.ms-excel&quot;},
+ * {&quot;xlsx&quot;,&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;},
+ * {&quot;csv&quot;,&quot;text/csv&quot;},
+ * {&quot;xml&quot;,&quot;text/xml&quot;},
+ * {&quot;txt&quot;,&quot;text/plain&quot;},
+ * {&quot;doc&quot;,&quot;application/msword&quot;},
+ * {&quot;docx&quot;,&quot;application/vnd.openxmlformats-officedocument.wordprocessingml.document&quot;},
+ * {&quot;bmp&quot;,&quot;image/bmp&quot;},
+ * {&quot;ico&quot;,&quot;image/x-icon&quot;},
+ * {&quot;mp3&quot;,&quot;audio/mpeg&quot;},
+ * {&quot;pdf&quot;,&quot;application/pdf&quot;}}
+	 * @return string
+	 */
+	 getCustomAllowedFileExtensions() {
+	 	return this.customAllowedFileExtensions;
+	 }
+	
+	/**
+	 * @param customAllowedFileExtensions string Comma seperated list of file extensions that allowed to partner in question
+ * {&quot;jpeg&quot;,&quot;image/jpeg&quot;},
+ * {&quot;jpg&quot;,&quot;image/jpeg&quot;},
+ * {&quot;png&quot;,&quot;image/png&quot;},
+ * {&quot;tif&quot;,&quot;image/tiff&quot;},
+ * {&quot;tiff&quot;,&quot;image/tiff&quot;},
+ * {&quot;gif&quot;,&quot;image/gif&quot;},
+ * {&quot;xls&quot;,&quot;application/vnd.ms-excel&quot;},
+ * {&quot;xlsx&quot;,&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;},
+ * {&quot;csv&quot;,&quot;text/csv&quot;},
+ * {&quot;xml&quot;,&quot;text/xml&quot;},
+ * {&quot;txt&quot;,&quot;text/plain&quot;},
+ * {&quot;doc&quot;,&quot;application/msword&quot;},
+ * {&quot;docx&quot;,&quot;application/vnd.openxmlformats-officedocument.wordprocessingml.document&quot;},
+ * {&quot;bmp&quot;,&quot;image/bmp&quot;},
+ * {&quot;ico&quot;,&quot;image/x-icon&quot;},
+ * {&quot;mp3&quot;,&quot;audio/mpeg&quot;},
+ * {&quot;pdf&quot;,&quot;application/pdf&quot;}}
+	 */
+	 setCustomAllowedFileExtensions(customAllowedFileExtensions) {
+	 	this.customAllowedFileExtensions = customAllowedFileExtensions;
+	 }
+}
+module.exports.CloudUploadSettingsConfiguration = CloudUploadSettingsConfiguration;
+
+/**
+ *
+ */
 class BookmarkEventThreshold extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -21717,7 +21801,7 @@ class GeneralPartnerConfig extends PartnerConfiguration{
 	 }
 	
 	/**
-	 * Household limitation&#160;module
+	 * Household limitation module
 	 * @return int
 	 */
 	 getHouseholdLimitationModule() {
@@ -21725,7 +21809,7 @@ class GeneralPartnerConfig extends PartnerConfiguration{
 	 }
 	
 	/**
-	 * @param householdLimitationModule int Household limitation&#160;module
+	 * @param householdLimitationModule int Household limitation module
 	 */
 	 setHouseholdLimitationModule(householdLimitationModule) {
 	 	this.householdLimitationModule = householdLimitationModule;
@@ -26060,6 +26144,10 @@ class BillingTransaction extends kaltura.BaseObject{
 	
 	/**
 	 * Billing Action
+ * Note: when purchasing subscription that is “ENTITLED_TO_PREVIEW_MODULE”:
+ * the first BillingTransaction.billingAction will be “unknown”,
+ * the second BillingTransaction.billingAction will be “purchase”,
+ * and the rest of them will be “renew_payment&quot;
 	 * @return string
 	 */
 	 getBillingAction() {
@@ -34804,6 +34892,33 @@ module.exports.RepresentativeSelectionPolicy = RepresentativeSelectionPolicy;
 /**
  *
  */
+class TopEntitledOrFreeRsp extends RepresentativeSelectionPolicy{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTopEntitledOrFreeRsp';
+	}
+	
+	/**
+	 * order by
+	 * @return BaseAssetOrder
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy BaseAssetOrder order by
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.TopEntitledOrFreeRsp = TopEntitledOrFreeRsp;
+
+/**
+ *
+ */
 class TopRsp extends RepresentativeSelectionPolicy{
 	
 	constructor(object = null) {
@@ -34827,6 +34942,33 @@ class TopRsp extends RepresentativeSelectionPolicy{
 	 }
 }
 module.exports.TopRsp = TopRsp;
+
+/**
+ *
+ */
+class TopSubscriptionEntitledOrFreeRsp extends RepresentativeSelectionPolicy{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTopSubscriptionEntitledOrFreeRsp';
+	}
+	
+	/**
+	 * order by
+	 * @return BaseAssetOrder
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy BaseAssetOrder order by
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.TopSubscriptionEntitledOrFreeRsp = TopSubscriptionEntitledOrFreeRsp;
 
 /**
  *
@@ -36307,6 +36449,48 @@ module.exports.Compensation = Compensation;
 /**
  *
  */
+class CouponFilesLinks extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCouponFilesLinks';
+	}
+	
+	/**
+	 * Total count of coupons code files
+	 * @return int
+	 */
+	 getTotalCount() {
+	 	return this.totalCount;
+	 }
+	
+	/**
+	 * @param totalCount int Total count of coupons code files
+	 */
+	 setTotalCount(totalCount) {
+	 	this.totalCount = totalCount;
+	 }
+	
+	/**
+	 * A pre-signed URL pointing to a coupon codes file
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A pre-signed URL pointing to a coupon codes file
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.CouponFilesLinks = CouponFilesLinks;
+
+/**
+ *
+ */
 class CouponGenerationOptions extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -37126,6 +37310,75 @@ class TriggerCampaignEvent extends EventObject{
 	 }
 }
 module.exports.TriggerCampaignEvent = TriggerCampaignEvent;
+
+/**
+ *
+ */
+class RetryDeleteRequest extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRetryDeleteRequest';
+	}
+	
+	/**
+	 * The first date (epoch) to start the retryDelete from - by default {now} - {30 days in second}
+	 * @return int
+	 */
+	 getStartDate() {
+	 	return this.startDate;
+	 }
+	
+	/**
+	 * @param startDate int The first date (epoch) to start the retryDelete from - by default {now} - {30 days in second}
+	 */
+	 setStartDate(startDate) {
+	 	this.startDate = startDate;
+	 }
+	
+	/**
+	 * The last date (epoch) to do the retryDelete - by default {now} (should be greater than startDate)
+	 * @return int
+	 */
+	 getEndDate() {
+	 	return this.endDate;
+	 }
+	
+	/**
+	 * @param endDate int The last date (epoch) to do the retryDelete - by default {now} (should be greater than startDate)
+	 */
+	 setEndDate(endDate) {
+	 	this.endDate = endDate;
+	 }
+}
+module.exports.RetryDeleteRequest = RetryDeleteRequest;
+
+/**
+ *
+ */
+class HouseholdPartnerConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaHouseholdPartnerConfiguration';
+	}
+	
+	/**
+	 * Retention period in days
+	 * @return int
+	 */
+	 getRetentionPeriodDays() {
+	 	return this.retentionPeriodDays;
+	 }
+	
+	/**
+	 * @param retentionPeriodDays int Retention period in days
+	 */
+	 setRetentionPeriodDays(retentionPeriodDays) {
+	 	this.retentionPeriodDays = retentionPeriodDays;
+	 }
+}
+module.exports.HouseholdPartnerConfiguration = HouseholdPartnerConfiguration;
 
 /**
  *
