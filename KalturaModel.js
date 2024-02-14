@@ -16989,21 +16989,6 @@ class SSOAdapterProfile extends kaltura.BaseObject{
 	 setSharedSecret(sharedSecret) {
 	 	this.sharedSecret = sharedSecret;
 	 }
-	
-	/**
-	 * Adapter GRPC Address, without protocol, i.e: &#39;adapter-hostname:9090&#39;
-	 * @return string
-	 */
-	 getAdapterGrpcAddress() {
-	 	return this.adapterGrpcAddress;
-	 }
-	
-	/**
-	 * @param adapterGrpcAddress string Adapter GRPC Address, without protocol, i.e: &#39;adapter-hostname:9090&#39;
-	 */
-	 setAdapterGrpcAddress(adapterGrpcAddress) {
-	 	this.adapterGrpcAddress = adapterGrpcAddress;
-	 }
 }
 module.exports.SSOAdapterProfile = SSOAdapterProfile;
 
@@ -21217,75 +21202,6 @@ module.exports.CatalogPartnerConfig = CatalogPartnerConfig;
 /**
  *
  */
-class CloudUploadSettingsConfiguration extends PartnerConfiguration{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCloudUploadSettingsConfiguration';
-	}
-	
-	/**
-	 * Comma seperated list of file extensions that allowed to all partners
-	 * @return string
-	 */
-	 getDefaultAllowedFileExtensions() {
-	 	return this.defaultAllowedFileExtensions;
-	 }
-	
-	/**
-	 * Comma seperated list of file extensions that allowed to partner in question
- * {&quot;jpeg&quot;,&quot;image/jpeg&quot;},
- * {&quot;jpg&quot;,&quot;image/jpeg&quot;},
- * {&quot;png&quot;,&quot;image/png&quot;},
- * {&quot;tif&quot;,&quot;image/tiff&quot;},
- * {&quot;tiff&quot;,&quot;image/tiff&quot;},
- * {&quot;gif&quot;,&quot;image/gif&quot;},
- * {&quot;xls&quot;,&quot;application/vnd.ms-excel&quot;},
- * {&quot;xlsx&quot;,&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;},
- * {&quot;csv&quot;,&quot;text/csv&quot;},
- * {&quot;xml&quot;,&quot;text/xml&quot;},
- * {&quot;txt&quot;,&quot;text/plain&quot;},
- * {&quot;doc&quot;,&quot;application/msword&quot;},
- * {&quot;docx&quot;,&quot;application/vnd.openxmlformats-officedocument.wordprocessingml.document&quot;},
- * {&quot;bmp&quot;,&quot;image/bmp&quot;},
- * {&quot;ico&quot;,&quot;image/x-icon&quot;},
- * {&quot;mp3&quot;,&quot;audio/mpeg&quot;},
- * {&quot;pdf&quot;,&quot;application/pdf&quot;}}
-	 * @return string
-	 */
-	 getCustomAllowedFileExtensions() {
-	 	return this.customAllowedFileExtensions;
-	 }
-	
-	/**
-	 * @param customAllowedFileExtensions string Comma seperated list of file extensions that allowed to partner in question
- * {&quot;jpeg&quot;,&quot;image/jpeg&quot;},
- * {&quot;jpg&quot;,&quot;image/jpeg&quot;},
- * {&quot;png&quot;,&quot;image/png&quot;},
- * {&quot;tif&quot;,&quot;image/tiff&quot;},
- * {&quot;tiff&quot;,&quot;image/tiff&quot;},
- * {&quot;gif&quot;,&quot;image/gif&quot;},
- * {&quot;xls&quot;,&quot;application/vnd.ms-excel&quot;},
- * {&quot;xlsx&quot;,&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;},
- * {&quot;csv&quot;,&quot;text/csv&quot;},
- * {&quot;xml&quot;,&quot;text/xml&quot;},
- * {&quot;txt&quot;,&quot;text/plain&quot;},
- * {&quot;doc&quot;,&quot;application/msword&quot;},
- * {&quot;docx&quot;,&quot;application/vnd.openxmlformats-officedocument.wordprocessingml.document&quot;},
- * {&quot;bmp&quot;,&quot;image/bmp&quot;},
- * {&quot;ico&quot;,&quot;image/x-icon&quot;},
- * {&quot;mp3&quot;,&quot;audio/mpeg&quot;},
- * {&quot;pdf&quot;,&quot;application/pdf&quot;}}
-	 */
-	 setCustomAllowedFileExtensions(customAllowedFileExtensions) {
-	 	this.customAllowedFileExtensions = customAllowedFileExtensions;
-	 }
-}
-module.exports.CloudUploadSettingsConfiguration = CloudUploadSettingsConfiguration;
-
-/**
- *
- */
 class BookmarkEventThreshold extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -21801,7 +21717,7 @@ class GeneralPartnerConfig extends PartnerConfiguration{
 	 }
 	
 	/**
-	 * Household limitation module
+	 * Household limitation&#160;module
 	 * @return int
 	 */
 	 getHouseholdLimitationModule() {
@@ -21809,7 +21725,7 @@ class GeneralPartnerConfig extends PartnerConfiguration{
 	 }
 	
 	/**
-	 * @param householdLimitationModule int Household limitation module
+	 * @param householdLimitationModule int Household limitation&#160;module
 	 */
 	 setHouseholdLimitationModule(householdLimitationModule) {
 	 	this.householdLimitationModule = householdLimitationModule;
@@ -24483,6 +24399,215 @@ module.exports.IngestStatusEpgProgramResultListResponse = IngestStatusEpgProgram
 /**
  *
  */
+class VodIngestAssetResultErrorMessage extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaVodIngestAssetResultErrorMessage';
+	}
+	
+	/**
+	 * The message description with arguments place holders
+	 * @return string
+	 */
+	 getMessage() {
+	 	return this.message;
+	 }
+	
+	/**
+	 * @param message string The message description with arguments place holders
+	 */
+	 setMessage(message) {
+	 	this.message = message;
+	 }
+	
+	/**
+	 * The message code
+	 * @return string
+	 */
+	 getCode() {
+	 	return this.code;
+	 }
+	
+	/**
+	 * @param code string The message code
+	 */
+	 setCode(code) {
+	 	this.code = code;
+	 }
+}
+module.exports.VodIngestAssetResultErrorMessage = VodIngestAssetResultErrorMessage;
+
+/**
+ *
+ */
+class VodIngestAssetResult extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaVodIngestAssetResult';
+	}
+	
+	/**
+	 * Ingested asset name. Absent only in case of NameRequired error
+	 * @return string
+	 */
+	 getAssetName() {
+	 	return this.assetName;
+	 }
+	
+	/**
+	 * @param assetName string Ingested asset name. Absent only in case of NameRequired error
+	 */
+	 setAssetName(assetName) {
+	 	this.assetName = assetName;
+	 }
+	
+	/**
+	 * The shop ID the asset is assigned to. Omitted if the asset is not associated to any shop
+	 * @return int
+	 */
+	 getShopAssetUserRuleId() {
+	 	return this.shopAssetUserRuleId;
+	 }
+	
+	/**
+	 * @param shopAssetUserRuleId int The shop ID the asset is assigned to. Omitted if the asset is not associated to any shop
+	 */
+	 setShopAssetUserRuleId(shopAssetUserRuleId) {
+	 	this.shopAssetUserRuleId = shopAssetUserRuleId;
+	 }
+	
+	/**
+	 * The XML file name used at the ingest gateway. Referred to as process name
+	 * @return string
+	 */
+	 getFileName() {
+	 	return this.fileName;
+	 }
+	
+	/**
+	 * @param fileName string The XML file name used at the ingest gateway. Referred to as process name
+	 */
+	 setFileName(fileName) {
+	 	this.fileName = fileName;
+	 }
+	
+	/**
+	 * Date and time the asset was ingested. Date and time represented as epoch
+	 * @return int
+	 */
+	 getIngestDate() {
+	 	return this.ingestDate;
+	 }
+	
+	/**
+	 * @param ingestDate int Date and time the asset was ingested. Date and time represented as epoch
+	 */
+	 setIngestDate(ingestDate) {
+	 	this.ingestDate = ingestDate;
+	 }
+	
+	/**
+	 * The status result for the asset ingest.
+ * FAILURE - the asset ingest was failed after the ingest process started, specify the error for it.
+ * SUCCESS - the asset was succeeded to be ingested.
+ * SUCCESS_WARNING - the asset was succeeded to be ingested with warnings that do not prevent the ingest.
+ * EXTERNAL_FAILURE - the asset ingest was failed before the ingest process started, specify the error for it
+	 * @return string
+	 */
+	 getStatus() {
+	 	return this.status;
+	 }
+	
+	/**
+	 * @param status string The status result for the asset ingest.
+ * FAILURE - the asset ingest was failed after the ingest process started, specify the error for it.
+ * SUCCESS - the asset was succeeded to be ingested.
+ * SUCCESS_WARNING - the asset was succeeded to be ingested with warnings that do not prevent the ingest.
+ * EXTERNAL_FAILURE - the asset ingest was failed before the ingest process started, specify the error for it
+	 */
+	 setStatus(status) {
+	 	this.status = status;
+	 }
+	
+	/**
+	 * VOD asset type (assetStruct.systemName)
+	 * @return string
+	 */
+	 getVodTypeSystemName() {
+	 	return this.vodTypeSystemName;
+	 }
+	
+	/**
+	 * @param vodTypeSystemName string VOD asset type (assetStruct.systemName)
+	 */
+	 setVodTypeSystemName(vodTypeSystemName) {
+	 	this.vodTypeSystemName = vodTypeSystemName;
+	 }
+	
+	/**
+	 * Errors which prevent the asset from being ingested
+	 * @return array
+	 */
+	 getErrors() {
+	 	return this.errors;
+	 }
+	
+	/**
+	 * @param errors array Errors which prevent the asset from being ingested
+	 */
+	 setErrors(errors) {
+	 	this.errors = errors;
+	 }
+	
+	/**
+	 * Errors which do not prevent the asset from being ingested
+	 * @return array
+	 */
+	 getWarnings() {
+	 	return this.warnings;
+	 }
+	
+	/**
+	 * @param warnings array Errors which do not prevent the asset from being ingested
+	 */
+	 setWarnings(warnings) {
+	 	this.warnings = warnings;
+	 }
+}
+module.exports.VodIngestAssetResult = VodIngestAssetResult;
+
+/**
+ *
+ */
+class VodIngestAssetResultListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaVodIngestAssetResultListResponse';
+	}
+	
+	/**
+	 * list of KalturaVodIngestAssetResult
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array list of KalturaVodIngestAssetResult
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.VodIngestAssetResultListResponse = VodIngestAssetResultListResponse;
+
+/**
+ *
+ */
 class DurationListResponse extends ListResponse{
 	
 	constructor(object = null) {
@@ -26144,10 +26269,6 @@ class BillingTransaction extends kaltura.BaseObject{
 	
 	/**
 	 * Billing Action
- * Note: when purchasing subscription that is “ENTITLED_TO_PREVIEW_MODULE”:
- * the first BillingTransaction.billingAction will be “unknown”,
- * the second BillingTransaction.billingAction will be “purchase”,
- * and the rest of them will be “renew_payment&quot;
 	 * @return string
 	 */
 	 getBillingAction() {
@@ -29726,36 +29847,6 @@ class LineupChannelAssetListResponse extends ListResponse{
 	 */
 	 setObjects(objects) {
 	 	this.objects = objects;
-	 }
-	
-	/**
-	 * Lineup External Id
-	 * @return string
-	 */
-	 getLineupExternalId() {
-	 	return this.lineupExternalId;
-	 }
-	
-	/**
-	 * @param lineupExternalId string Lineup External Id
-	 */
-	 setLineupExternalId(lineupExternalId) {
-	 	this.lineupExternalId = lineupExternalId;
-	 }
-	
-	/**
-	 * Parent Lineup External Id
-	 * @return string
-	 */
-	 getParentLineupExternalId() {
-	 	return this.parentLineupExternalId;
-	 }
-	
-	/**
-	 * @param parentLineupExternalId string Parent Lineup External Id
-	 */
-	 setParentLineupExternalId(parentLineupExternalId) {
-	 	this.parentLineupExternalId = parentLineupExternalId;
 	 }
 }
 module.exports.LineupChannelAssetListResponse = LineupChannelAssetListResponse;
@@ -36395,48 +36486,6 @@ module.exports.Compensation = Compensation;
 /**
  *
  */
-class CouponFilesLinks extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCouponFilesLinks';
-	}
-	
-	/**
-	 * Total count of coupons code files
-	 * @return int
-	 */
-	 getTotalCount() {
-	 	return this.totalCount;
-	 }
-	
-	/**
-	 * @param totalCount int Total count of coupons code files
-	 */
-	 setTotalCount(totalCount) {
-	 	this.totalCount = totalCount;
-	 }
-	
-	/**
-	 * A pre-signed URL pointing to a coupon codes file
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array A pre-signed URL pointing to a coupon codes file
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.CouponFilesLinks = CouponFilesLinks;
-
-/**
- *
- */
 class CouponGenerationOptions extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -37260,75 +37309,6 @@ module.exports.TriggerCampaignEvent = TriggerCampaignEvent;
 /**
  *
  */
-class RetryDeleteRequest extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaRetryDeleteRequest';
-	}
-	
-	/**
-	 * The first date (epoch) to start the retryDelete from - by default {now} - {30 days in second}
-	 * @return int
-	 */
-	 getStartDate() {
-	 	return this.startDate;
-	 }
-	
-	/**
-	 * @param startDate int The first date (epoch) to start the retryDelete from - by default {now} - {30 days in second}
-	 */
-	 setStartDate(startDate) {
-	 	this.startDate = startDate;
-	 }
-	
-	/**
-	 * The last date (epoch) to do the retryDelete - by default {now} (should be greater than startDate)
-	 * @return int
-	 */
-	 getEndDate() {
-	 	return this.endDate;
-	 }
-	
-	/**
-	 * @param endDate int The last date (epoch) to do the retryDelete - by default {now} (should be greater than startDate)
-	 */
-	 setEndDate(endDate) {
-	 	this.endDate = endDate;
-	 }
-}
-module.exports.RetryDeleteRequest = RetryDeleteRequest;
-
-/**
- *
- */
-class HouseholdPartnerConfiguration extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaHouseholdPartnerConfiguration';
-	}
-	
-	/**
-	 * Retention period in days
-	 * @return int
-	 */
-	 getRetentionPeriodDays() {
-	 	return this.retentionPeriodDays;
-	 }
-	
-	/**
-	 * @param retentionPeriodDays int Retention period in days
-	 */
-	 setRetentionPeriodDays(retentionPeriodDays) {
-	 	this.retentionPeriodDays = retentionPeriodDays;
-	 }
-}
-module.exports.HouseholdPartnerConfiguration = HouseholdPartnerConfiguration;
-
-/**
- *
- */
 class DevicePin extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -37737,230 +37717,6 @@ module.exports.IngestStatusPartnerConfiguration = IngestStatusPartnerConfigurati
 /**
  *
  */
-class VodIngestAssetResultErrorMessage extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaVodIngestAssetResultErrorMessage';
-	}
-	
-	/**
-	 * The message description with arguments place holders
-	 * @return string
-	 */
-	 getMessage() {
-	 	return this.message;
-	 }
-	
-	/**
-	 * @param message string The message description with arguments place holders
-	 */
-	 setMessage(message) {
-	 	this.message = message;
-	 }
-	
-	/**
-	 * The message code
-	 * @return string
-	 */
-	 getCode() {
-	 	return this.code;
-	 }
-	
-	/**
-	 * @param code string The message code
-	 */
-	 setCode(code) {
-	 	this.code = code;
-	 }
-}
-module.exports.VodIngestAssetResultErrorMessage = VodIngestAssetResultErrorMessage;
-
-/**
- *
- */
-class VodIngestAssetResult extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaVodIngestAssetResult';
-	}
-	
-	/**
-	 * Ingested asset name. Absent only in case of NameRequired error
-	 * @return string
-	 */
-	 getAssetName() {
-	 	return this.assetName;
-	 }
-	
-	/**
-	 * @param assetName string Ingested asset name. Absent only in case of NameRequired error
-	 */
-	 setAssetName(assetName) {
-	 	this.assetName = assetName;
-	 }
-	
-	/**
-	 * The shop ID the asset is assigned to. Omitted if the asset is not associated to any shop
-	 * @return int
-	 */
-	 getShopAssetUserRuleId() {
-	 	return this.shopAssetUserRuleId;
-	 }
-	
-	/**
-	 * @param shopAssetUserRuleId int The shop ID the asset is assigned to. Omitted if the asset is not associated to any shop
-	 */
-	 setShopAssetUserRuleId(shopAssetUserRuleId) {
-	 	this.shopAssetUserRuleId = shopAssetUserRuleId;
-	 }
-	
-	/**
-	 * The XML file name used at the ingest gateway. Referred to as process name
-	 * @return string
-	 */
-	 getFileName() {
-	 	return this.fileName;
-	 }
-	
-	/**
-	 * @param fileName string The XML file name used at the ingest gateway. Referred to as process name
-	 */
-	 setFileName(fileName) {
-	 	this.fileName = fileName;
-	 }
-	
-	/**
-	 * Date and time the asset was ingested. Date and time represented as epoch
-	 * @return int
-	 */
-	 getIngestDate() {
-	 	return this.ingestDate;
-	 }
-	
-	/**
-	 * @param ingestDate int Date and time the asset was ingested. Date and time represented as epoch
-	 */
-	 setIngestDate(ingestDate) {
-	 	this.ingestDate = ingestDate;
-	 }
-	
-	/**
-	 * The status result for the asset ingest.
- * FAILURE - the asset ingest was failed after the ingest process started, specify the error for it.
- * SUCCESS - the asset was succeeded to be ingested.
- * SUCCESS_WARNING - the asset was succeeded to be ingested with warnings that do not prevent the ingest.
- * EXTERNAL_FAILURE - the asset ingest was failed before the ingest process started, specify the error for it
-	 * @return string
-	 */
-	 getStatus() {
-	 	return this.status;
-	 }
-	
-	/**
-	 * @param status string The status result for the asset ingest.
- * FAILURE - the asset ingest was failed after the ingest process started, specify the error for it.
- * SUCCESS - the asset was succeeded to be ingested.
- * SUCCESS_WARNING - the asset was succeeded to be ingested with warnings that do not prevent the ingest.
- * EXTERNAL_FAILURE - the asset ingest was failed before the ingest process started, specify the error for it
-	 */
-	 setStatus(status) {
-	 	this.status = status;
-	 }
-	
-	/**
-	 * VOD asset type (assetStruct.systemName)
-	 * @return string
-	 */
-	 getVodTypeSystemName() {
-	 	return this.vodTypeSystemName;
-	 }
-	
-	/**
-	 * @param vodTypeSystemName string VOD asset type (assetStruct.systemName)
-	 */
-	 setVodTypeSystemName(vodTypeSystemName) {
-	 	this.vodTypeSystemName = vodTypeSystemName;
-	 }
-	
-	/**
-	 * Errors which prevent the asset from being ingested
-	 * @return array
-	 */
-	 getErrors() {
-	 	return this.errors;
-	 }
-	
-	/**
-	 * @param errors array Errors which prevent the asset from being ingested
-	 */
-	 setErrors(errors) {
-	 	this.errors = errors;
-	 }
-	
-	/**
-	 * Errors which do not prevent the asset from being ingested
-	 * @return array
-	 */
-	 getWarnings() {
-	 	return this.warnings;
-	 }
-	
-	/**
-	 * @param warnings array Errors which do not prevent the asset from being ingested
-	 */
-	 setWarnings(warnings) {
-	 	this.warnings = warnings;
-	 }
-}
-module.exports.VodIngestAssetResult = VodIngestAssetResult;
-
-/**
- *
- */
-class VodIngestAssetResultList extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaVodIngestAssetResultList';
-	}
-	
-	/**
-	 * list of KalturaVodIngestAssetResult
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array list of KalturaVodIngestAssetResult
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-	
-	/**
-	 * Total items
-	 * @return int
-	 */
-	 getTotalCount() {
-	 	return this.totalCount;
-	 }
-	
-	/**
-	 * @param totalCount int Total items
-	 */
-	 setTotalCount(totalCount) {
-	 	this.totalCount = totalCount;
-	 }
-}
-module.exports.VodIngestAssetResultList = VodIngestAssetResultList;
-
-/**
- *
- */
 class VodIngestAssetResultAggregation extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -38072,14 +37828,14 @@ class VodIngestAssetResultResponse extends kaltura.BaseObject{
 	
 	/**
 	 * Errors
-	 * @return VodIngestAssetResultList
+	 * @return VodIngestAssetResultListResponse
 	 */
 	 getResult() {
 	 	return this.result;
 	 }
 	
 	/**
-	 * @param result VodIngestAssetResultList Errors
+	 * @param result VodIngestAssetResultListResponse Errors
 	 */
 	 setResult(result) {
 	 	this.result = result;
