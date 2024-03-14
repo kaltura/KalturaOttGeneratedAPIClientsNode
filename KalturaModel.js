@@ -1508,6 +1508,50 @@ module.exports.CollectionFilter = CollectionFilter;
 /**
  *
  */
+class AssociatedShopEntities extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssociatedShopEntities';
+	}
+	
+	/**
+	 * comma-separated list of assetUserRuleId values. Matching entities will be returned by the filter
+	 * @return string
+	 */
+	 getAssetUserRuleIdIn() {
+	 	return this.assetUserRuleIdIn;
+	 }
+	
+	/**
+	 * @param assetUserRuleIdIn string comma-separated list of assetUserRuleId values. Matching entities will be returned by the filter
+	 */
+	 setAssetUserRuleIdIn(assetUserRuleIdIn) {
+	 	this.assetUserRuleIdIn = assetUserRuleIdIn;
+	 }
+	
+	/**
+	 * If true, filter will return entities with null/empty assetUserRuleId value, in addition to any entities whose assetUserRuleId value matches the assetUserRuleIdIn parameter.
+ * If false (or field is not specified) filter will return only entities whose assetUserRuleId value matches the assetUserRuleIdIn parameter
+	 * @return bool
+	 */
+	 getIncludeNullAssetUserRuleId() {
+	 	return this.includeNullAssetUserRuleId;
+	 }
+	
+	/**
+	 * @param includeNullAssetUserRuleId bool If true, filter will return entities with null/empty assetUserRuleId value, in addition to any entities whose assetUserRuleId value matches the assetUserRuleIdIn parameter.
+ * If false (or field is not specified) filter will return only entities whose assetUserRuleId value matches the assetUserRuleIdIn parameter
+	 */
+	 setIncludeNullAssetUserRuleId(includeNullAssetUserRuleId) {
+	 	this.includeNullAssetUserRuleId = includeNullAssetUserRuleId;
+	 }
+}
+module.exports.AssociatedShopEntities = AssociatedShopEntities;
+
+/**
+ *
+ */
 class DiscountDetailsFilter extends Filter{
 	
 	constructor(object = null) {
@@ -1528,6 +1572,21 @@ class DiscountDetailsFilter extends Filter{
 	 */
 	 setIdIn(idIn) {
 	 	this.idIn = idIn;
+	 }
+	
+	/**
+	 * filter all discountDetails by associate shop entities
+	 * @return AssociatedShopEntities
+	 */
+	 getAssociatedShopEntities() {
+	 	return this.associatedShopEntities;
+	 }
+	
+	/**
+	 * @param associatedShopEntities AssociatedShopEntities filter all discountDetails by associate shop entities
+	 */
+	 setAssociatedShopEntities(associatedShopEntities) {
+	 	this.associatedShopEntities = associatedShopEntities;
 	 }
 }
 module.exports.DiscountDetailsFilter = DiscountDetailsFilter;
@@ -2055,6 +2114,21 @@ class UsageModuleFilter extends Filter{
 	 */
 	 setIdEqual(idEqual) {
 	 	this.idEqual = idEqual;
+	 }
+	
+	/**
+	 * filter all usageModules by associate shop entities
+	 * @return AssociatedShopEntities
+	 */
+	 getAssociatedShopEntities() {
+	 	return this.associatedShopEntities;
+	 }
+	
+	/**
+	 * @param associatedShopEntities AssociatedShopEntities filter all usageModules by associate shop entities
+	 */
+	 setAssociatedShopEntities(associatedShopEntities) {
+	 	this.associatedShopEntities = associatedShopEntities;
 	 }
 }
 module.exports.UsageModuleFilter = UsageModuleFilter;
@@ -9343,6 +9417,21 @@ class DiscountModule extends kaltura.BaseObject{
 	 setEndDate(endDate) {
 	 	this.endDate = endDate;
 	 }
+	
+	/**
+	 * Asset user rule identifier
+	 * @return int
+	 */
+	 getAssetUserRuleId() {
+	 	return this.assetUserRuleId;
+	 }
+	
+	/**
+	 * @param assetUserRuleId int Asset user rule identifier
+	 */
+	 setAssetUserRuleId(assetUserRuleId) {
+	 	this.assetUserRuleId = assetUserRuleId;
+	 }
 }
 module.exports.DiscountModule = DiscountModule;
 
@@ -9482,6 +9571,21 @@ class UsageModule extends kaltura.BaseObject{
 	 */
 	 setIsOfflinePlayback(isOfflinePlayback) {
 	 	this.isOfflinePlayback = isOfflinePlayback;
+	 }
+	
+	/**
+	 * Asset user rule identifier
+	 * @return int
+	 */
+	 getAssetUserRuleId() {
+	 	return this.assetUserRuleId;
+	 }
+	
+	/**
+	 * @param assetUserRuleId int Asset user rule identifier
+	 */
+	 setAssetUserRuleId(assetUserRuleId) {
+	 	this.assetUserRuleId = assetUserRuleId;
 	 }
 }
 module.exports.UsageModule = UsageModule;
@@ -18641,36 +18745,6 @@ class MonetizationCondition extends BaseSegmentCondition{
 	}
 	
 	/**
-	 * The minimum value to be met
-	 * @return int
-	 */
-	 getMinValue() {
-	 	return this.minValue;
-	 }
-	
-	/**
-	 * @param minValue int The minimum value to be met
-	 */
-	 setMinValue(minValue) {
-	 	this.minValue = minValue;
-	 }
-	
-	/**
-	 * The maximum value to be met
-	 * @return int
-	 */
-	 getMaxValue() {
-	 	return this.maxValue;
-	 }
-	
-	/**
-	 * @param maxValue int The maximum value to be met
-	 */
-	 setMaxValue(maxValue) {
-	 	this.maxValue = maxValue;
-	 }
-	
-	/**
 	 * How many days back should the actions be considered
 	 * @return int
 	 */
@@ -18743,6 +18817,36 @@ class MonetizationCondition extends BaseSegmentCondition{
 	 */
 	 setCurrencyCode(currencyCode) {
 	 	this.currencyCode = currencyCode;
+	 }
+	
+	/**
+	 * The minimum value to be met
+	 * @return int
+	 */
+	 getMinValue() {
+	 	return this.minValue;
+	 }
+	
+	/**
+	 * @param minValue int The minimum value to be met
+	 */
+	 setMinValue(minValue) {
+	 	this.minValue = minValue;
+	 }
+	
+	/**
+	 * The maximum value to be met
+	 * @return int
+	 */
+	 getMaxValue() {
+	 	return this.maxValue;
+	 }
+	
+	/**
+	 * @param maxValue int The maximum value to be met
+	 */
+	 setMaxValue(maxValue) {
+	 	this.maxValue = maxValue;
 	 }
 }
 module.exports.MonetizationCondition = MonetizationCondition;
@@ -19737,6 +19841,21 @@ class DiscountDetails extends kaltura.BaseObject{
 	 */
 	 setWhenAlgoType(whenAlgoType) {
 	 	this.whenAlgoType = whenAlgoType;
+	 }
+	
+	/**
+	 * Asset user rule identifier
+	 * @return int
+	 */
+	 getAssetUserRuleId() {
+	 	return this.assetUserRuleId;
+	 }
+	
+	/**
+	 * @param assetUserRuleId int Asset user rule identifier
+	 */
+	 setAssetUserRuleId(assetUserRuleId) {
+	 	this.assetUserRuleId = assetUserRuleId;
 	 }
 }
 module.exports.DiscountDetails = DiscountDetails;
@@ -21234,14 +21353,14 @@ class CloudUploadSettingsConfiguration extends PartnerConfiguration{
 	
 	/**
 	 * Comma seperated list of file extensions that allowed to partner in question
- * {&quot;jpeg&quot;,&quot;image/jpeg&quot;},
+ * {&quot;jpeg&quot;, &quot;image/jpeg&quot; },
  * {&quot;jpg&quot;,&quot;image/jpeg&quot;},
- * {&quot;png&quot;,&quot;image/png&quot;},
- * {&quot;tif&quot;,&quot;image/tiff&quot;},
- * {&quot;tiff&quot;,&quot;image/tiff&quot;},
- * {&quot;gif&quot;,&quot;image/gif&quot;},
- * {&quot;xls&quot;,&quot;application/vnd.ms-excel&quot;},
- * {&quot;xlsx&quot;,&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;},
+ * {&quot;jpg&quot;,&quot;image/png&quot;},
+ * { &quot;tif&quot;,&quot;image/tiff&quot;},
+ * { &quot;tiff&quot;, &quot;image/tiff&quot;},
+ * {&quot;gif&quot;,  &quot;image/gif&quot;},
+ * {&quot;xls&quot;,  &quot;application/vnd.ms-excel&quot;},
+ * {&quot;xlsx&quot;,&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot; },
  * {&quot;csv&quot;,&quot;text/csv&quot;},
  * {&quot;xml&quot;,&quot;text/xml&quot;},
  * {&quot;txt&quot;,&quot;text/plain&quot;},
@@ -21259,14 +21378,14 @@ class CloudUploadSettingsConfiguration extends PartnerConfiguration{
 	
 	/**
 	 * @param customAllowedFileExtensions string Comma seperated list of file extensions that allowed to partner in question
- * {&quot;jpeg&quot;,&quot;image/jpeg&quot;},
+ * {&quot;jpeg&quot;, &quot;image/jpeg&quot; },
  * {&quot;jpg&quot;,&quot;image/jpeg&quot;},
- * {&quot;png&quot;,&quot;image/png&quot;},
- * {&quot;tif&quot;,&quot;image/tiff&quot;},
- * {&quot;tiff&quot;,&quot;image/tiff&quot;},
- * {&quot;gif&quot;,&quot;image/gif&quot;},
- * {&quot;xls&quot;,&quot;application/vnd.ms-excel&quot;},
- * {&quot;xlsx&quot;,&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;},
+ * {&quot;jpg&quot;,&quot;image/png&quot;},
+ * { &quot;tif&quot;,&quot;image/tiff&quot;},
+ * { &quot;tiff&quot;, &quot;image/tiff&quot;},
+ * {&quot;gif&quot;,  &quot;image/gif&quot;},
+ * {&quot;xls&quot;,  &quot;application/vnd.ms-excel&quot;},
+ * {&quot;xlsx&quot;,&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot; },
  * {&quot;csv&quot;,&quot;text/csv&quot;},
  * {&quot;xml&quot;,&quot;text/xml&quot;},
  * {&quot;txt&quot;,&quot;text/plain&quot;},
@@ -34892,6 +35011,33 @@ module.exports.RepresentativeSelectionPolicy = RepresentativeSelectionPolicy;
 /**
  *
  */
+class TopEntitledOrFreeRsp extends RepresentativeSelectionPolicy{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTopEntitledOrFreeRsp';
+	}
+	
+	/**
+	 * order by
+	 * @return BaseAssetOrder
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy BaseAssetOrder order by
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.TopEntitledOrFreeRsp = TopEntitledOrFreeRsp;
+
+/**
+ *
+ */
 class TopRsp extends RepresentativeSelectionPolicy{
 	
 	constructor(object = null) {
@@ -34915,6 +35061,33 @@ class TopRsp extends RepresentativeSelectionPolicy{
 	 }
 }
 module.exports.TopRsp = TopRsp;
+
+/**
+ *
+ */
+class TopSubscriptionEntitledOrFreeRsp extends RepresentativeSelectionPolicy{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTopSubscriptionEntitledOrFreeRsp';
+	}
+	
+	/**
+	 * order by
+	 * @return BaseAssetOrder
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy BaseAssetOrder order by
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.TopSubscriptionEntitledOrFreeRsp = TopSubscriptionEntitledOrFreeRsp;
 
 /**
  *
