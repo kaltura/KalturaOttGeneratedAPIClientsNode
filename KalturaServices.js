@@ -221,7 +221,7 @@ module.exports.assetComment = assetComment;
  * The available service actions:
  * @action add Add a new asset.
  * For metas of type bool-&gt; use kalturaBoolValue, type number-&gt; KalturaDoubleValue, type date -&gt; KalturaLongValue, type string -&gt; KalturaStringValue.
- * @action addFromBulkUpload Add new bulk upload batch job Conversion profile id can be specified in the API.
+ * @action addFromBulkUpload Add new bulk upload batch job Conversion profile id can be specified in the API (note that the total request body size is limited to 10MB).
  * @action count Returns a group-by result for media or EPG according to given filter. Lists values of each field and their respective count.
  * @action delete Delete an existing asset.
  * @action get Returns media or EPG asset by media / EPG internal or external identifier.
@@ -251,7 +251,7 @@ class asset{
 	};
 	
 	/**
-	 * Add new bulk upload batch job Conversion profile id can be specified in the API.
+	 * Add new bulk upload batch job Conversion profile id can be specified in the API (note that the total request body size is limited to 10MB).
 	 * @param fileData file fileData
 	 * @param bulkUploadJobData BulkUploadJobData bulkUploadJobData
 	 * @param bulkUploadAssetData BulkUploadAssetData bulkUploadAssetData
@@ -2416,7 +2416,7 @@ module.exports.duration = duration;
  *Class definition for the Kaltura service: dynamicList.
  * The available service actions:
  * @action add Add new KalturaDynamicList.
- * @action addFromBulkUpload Add new bulk upload batch job Conversion profile id can be specified in the API.
+ * @action addFromBulkUpload Add new bulk upload batch job Conversion profile id can be specified in the API (note that the total request body size is limited to 10MB).
  * @action delete Delete existing DynamicList.
  * @action list Returns the list of available DynamicList.
  * @action update Update existing KalturaDynamicList.
@@ -2435,7 +2435,7 @@ class dynamicList{
 	};
 	
 	/**
-	 * Add new bulk upload batch job Conversion profile id can be specified in the API.
+	 * Add new bulk upload batch job Conversion profile id can be specified in the API (note that the total request body size is limited to 10MB).
 	 * @param fileData file fileData
 	 * @param jobData BulkUploadExcelJobData jobData
 	 * @param bulkUploadData BulkUploadDynamicListData bulkUploadData
