@@ -25257,6 +25257,14 @@ class HouseholdDeviceFamilyLimitations extends DeviceFamilyBase{
 	 getIsDefaultConcurrentLimit() {
 	 	return this.isDefaultConcurrentLimit;
 	 }
+	
+	/**
+	 * Is the Allowed device change frequency code for this family is default value or not
+	 * @return bool
+	 */
+	 getIsDefaultFrequencyLimit() {
+	 	return this.isDefaultFrequencyLimit;
+	 }
 }
 module.exports.HouseholdDeviceFamilyLimitations = HouseholdDeviceFamilyLimitations;
 
@@ -26883,6 +26891,38 @@ class SubscriptionEntitlement extends Entitlement{
 		super(object);
 		this.objectType = 'KalturaSubscriptionEntitlement';
 	}
+	
+	/**
+	 * The date of the next renewal (only for subscription)
+	 * @return int
+	 */
+	 getNextRenewalDate() {
+	 	return this.nextRenewalDate;
+	 }
+	
+	/**
+	 * Indicates whether the subscription is renewable in this purchase (only for subscription)
+	 * @return bool
+	 */
+	 getIsRenewableForPurchase() {
+	 	return this.isRenewableForPurchase;
+	 }
+	
+	/**
+	 * Indicates whether a subscription is renewable (only for subscription)
+	 * @return bool
+	 */
+	 getIsRenewable() {
+	 	return this.isRenewable;
+	 }
+	
+	/**
+	 * Indicates whether the user is currently in his grace period entitlement
+	 * @return bool
+	 */
+	 getIsInGracePeriod() {
+	 	return this.isInGracePeriod;
+	 }
 	
 	/**
 	 * Payment Gateway identifier
