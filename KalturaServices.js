@@ -221,7 +221,7 @@ module.exports.assetComment = assetComment;
  * The available service actions:
  * @action add Add a new asset.
  * For metas of type bool-&gt; use kalturaBoolValue, type number-&gt; KalturaDoubleValue, type date -&gt; KalturaLongValue, type string -&gt; KalturaStringValue.
- * @action addFromBulkUpload Add new bulk upload batch job Conversion profile id can be specified in the API.
+ * @action addFromBulkUpload Add new bulk upload batch job Conversion profile id can be specified in the API (note that the total request body size is limited to 10MB).
  * @action count Returns a group-by result for media or EPG according to given filter. Lists values of each field and their respective count.
  * @action delete Delete an existing asset.
  * @action get Returns media or EPG asset by media / EPG internal or external identifier.
@@ -251,7 +251,7 @@ class asset{
 	};
 	
 	/**
-	 * Add new bulk upload batch job Conversion profile id can be specified in the API.
+	 * Add new bulk upload batch job Conversion profile id can be specified in the API (note that the total request body size is limited to 10MB).
 	 * @param fileData file fileData
 	 * @param bulkUploadJobData BulkUploadJobData bulkUploadJobData
 	 * @param bulkUploadAssetData BulkUploadAssetData bulkUploadAssetData
@@ -729,11 +729,13 @@ module.exports.assetRule = assetRule;
  *Class definition for the Kaltura service: assetStatistics.
  * The available service actions:
  * @action query Returns statistics for given list of assets by type and / or time period.
+ * Supported values for KalturaAssetStatisticsQuery.assetTypeEqual : KalturaAssetType.media, KalturaAssetType.epg.
  */
 class assetStatistics{
 	
 	/**
 	 * Returns statistics for given list of assets by type and / or time period.
+ * Supported values for KalturaAssetStatisticsQuery.assetTypeEqual : KalturaAssetType.media, KalturaAssetType.epg.
 	 * @param query AssetStatisticsQuery Query for assets statistics
 	 * @return KalturaAssetStatisticsListResponse
 	 */
@@ -2416,7 +2418,7 @@ module.exports.duration = duration;
  *Class definition for the Kaltura service: dynamicList.
  * The available service actions:
  * @action add Add new KalturaDynamicList.
- * @action addFromBulkUpload Add new bulk upload batch job Conversion profile id can be specified in the API.
+ * @action addFromBulkUpload Add new bulk upload batch job Conversion profile id can be specified in the API (note that the total request body size is limited to 10MB).
  * @action delete Delete existing DynamicList.
  * @action list Returns the list of available DynamicList.
  * @action update Update existing KalturaDynamicList.
@@ -2435,7 +2437,7 @@ class dynamicList{
 	};
 	
 	/**
-	 * Add new bulk upload batch job Conversion profile id can be specified in the API.
+	 * Add new bulk upload batch job Conversion profile id can be specified in the API (note that the total request body size is limited to 10MB).
 	 * @param fileData file fileData
 	 * @param jobData BulkUploadExcelJobData jobData
 	 * @param bulkUploadData BulkUploadDynamicListData bulkUploadData
@@ -4436,6 +4438,7 @@ module.exports.licensedUrl = licensedUrl;
  * @action get Returns regional lineup (list of lineup channel asset objects) based on the requester session characteristics and his region.
  * NOTE: Calling lineup.get action using HTTP POST is supported only for tests (non production environment) and is rate limited or blocked.
  * For production, HTTP GET shall be used: GET https://{Host_IP}/{build version}/api_v3/service/lineup/action/get.
+ * @action invalidate Sends lineup requested invalidation.
  * @action list Returns list of lineup regional linear channels associated with one LCN and its region information. Allows to apply sorting and filtering by LCN and linear channels.
  * @action sendUpdatedNotification Sends lineup update requested notification.
  */
@@ -4454,6 +4457,15 @@ class lineup{
 		kparams.pageIndex = pageIndex;
 		kparams.pageSize = pageSize;
 		return new kaltura.RequestBuilder('lineup', 'get', kparams);
+	};
+	
+	/**
+	 * Sends lineup requested invalidation.
+	 * @return bool
+	 */
+	static invalidate(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('lineup', 'invalidate', kparams);
 	};
 	
 	/**
