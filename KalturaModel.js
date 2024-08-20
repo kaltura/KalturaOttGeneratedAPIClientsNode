@@ -34937,6 +34937,14 @@ class AppToken extends kaltura.BaseObject{
 	 getUpdateDate() {
 	 	return this.updateDate;
 	 }
+	
+	/**
+	 * The region identifier of the KS used to create the appToken. Value is presented only for partners with the enabled feature
+	 * @return int
+	 */
+	 getRegionId() {
+	 	return this.regionId;
+	 }
 }
 module.exports.AppToken = AppToken;
 
@@ -41068,6 +41076,23 @@ class TimeShiftedTvPartnerSettings extends kaltura.BaseObject{
 	 */
 	 setMaxConcurrencyMargin(maxConcurrencyMargin) {
 	 	this.maxConcurrencyMargin = maxConcurrencyMargin;
+	 }
+	
+	/**
+	 * When using padded and immediate recordings, define if end date of recording should be rounded by the minute or by the second.
+ * Default by minutes, FALSE
+	 * @return bool
+	 */
+	 getShouldRoundStopRecordingsBySeconds() {
+	 	return this.shouldRoundStopRecordingsBySeconds;
+	 }
+	
+	/**
+	 * @param shouldRoundStopRecordingsBySeconds bool When using padded and immediate recordings, define if end date of recording should be rounded by the minute or by the second.
+ * Default by minutes, FALSE
+	 */
+	 setShouldRoundStopRecordingsBySeconds(shouldRoundStopRecordingsBySeconds) {
+	 	this.shouldRoundStopRecordingsBySeconds = shouldRoundStopRecordingsBySeconds;
 	 }
 }
 module.exports.TimeShiftedTvPartnerSettings = TimeShiftedTvPartnerSettings;
