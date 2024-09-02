@@ -1508,6 +1508,50 @@ module.exports.CollectionFilter = CollectionFilter;
 /**
  *
  */
+class AssociatedShopEntities extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssociatedShopEntities';
+	}
+	
+	/**
+	 * comma-separated list of assetUserRuleId values. Matching entities will be returned by the filter
+	 * @return string
+	 */
+	 getAssetUserRuleIdIn() {
+	 	return this.assetUserRuleIdIn;
+	 }
+	
+	/**
+	 * @param assetUserRuleIdIn string comma-separated list of assetUserRuleId values. Matching entities will be returned by the filter
+	 */
+	 setAssetUserRuleIdIn(assetUserRuleIdIn) {
+	 	this.assetUserRuleIdIn = assetUserRuleIdIn;
+	 }
+	
+	/**
+	 * If true, filter will return entities with null/empty assetUserRuleId value, in addition to any entities whose assetUserRuleId value matches the assetUserRuleIdIn parameter.
+ * If false (or field is not specified) filter will return only entities whose assetUserRuleId value matches the assetUserRuleIdIn parameter
+	 * @return bool
+	 */
+	 getIncludeNullAssetUserRuleId() {
+	 	return this.includeNullAssetUserRuleId;
+	 }
+	
+	/**
+	 * @param includeNullAssetUserRuleId bool If true, filter will return entities with null/empty assetUserRuleId value, in addition to any entities whose assetUserRuleId value matches the assetUserRuleIdIn parameter.
+ * If false (or field is not specified) filter will return only entities whose assetUserRuleId value matches the assetUserRuleIdIn parameter
+	 */
+	 setIncludeNullAssetUserRuleId(includeNullAssetUserRuleId) {
+	 	this.includeNullAssetUserRuleId = includeNullAssetUserRuleId;
+	 }
+}
+module.exports.AssociatedShopEntities = AssociatedShopEntities;
+
+/**
+ *
+ */
 class DiscountDetailsFilter extends Filter{
 	
 	constructor(object = null) {
@@ -1528,6 +1572,21 @@ class DiscountDetailsFilter extends Filter{
 	 */
 	 setIdIn(idIn) {
 	 	this.idIn = idIn;
+	 }
+	
+	/**
+	 * filter all discountDetails by associate shop entities
+	 * @return AssociatedShopEntities
+	 */
+	 getAssociatedShopEntities() {
+	 	return this.associatedShopEntities;
+	 }
+	
+	/**
+	 * @param associatedShopEntities AssociatedShopEntities filter all discountDetails by associate shop entities
+	 */
+	 setAssociatedShopEntities(associatedShopEntities) {
+	 	this.associatedShopEntities = associatedShopEntities;
 	 }
 }
 module.exports.DiscountDetailsFilter = DiscountDetailsFilter;
@@ -2055,6 +2114,21 @@ class UsageModuleFilter extends Filter{
 	 */
 	 setIdEqual(idEqual) {
 	 	this.idEqual = idEqual;
+	 }
+	
+	/**
+	 * filter all usageModules by associate shop entities
+	 * @return AssociatedShopEntities
+	 */
+	 getAssociatedShopEntities() {
+	 	return this.associatedShopEntities;
+	 }
+	
+	/**
+	 * @param associatedShopEntities AssociatedShopEntities filter all usageModules by associate shop entities
+	 */
+	 setAssociatedShopEntities(associatedShopEntities) {
+	 	this.associatedShopEntities = associatedShopEntities;
 	 }
 }
 module.exports.UsageModuleFilter = UsageModuleFilter;
@@ -3667,6 +3741,33 @@ class ChannelExternalFilter extends AssetFilter{
 	 }
 }
 module.exports.ChannelExternalFilter = ChannelExternalFilter;
+
+/**
+ *
+ */
+class LiveAssetHasRecordingsFilter extends AssetFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaLiveAssetHasRecordingsFilter';
+	}
+	
+	/**
+	 * KalturaLiveAsset.id value of the live linear channel to be examined for associated recordings
+	 * @return int
+	 */
+	 getLiveAssetIdEqual() {
+	 	return this.liveAssetIdEqual;
+	 }
+	
+	/**
+	 * @param liveAssetIdEqual int KalturaLiveAsset.id value of the live linear channel to be examined for associated recordings
+	 */
+	 setLiveAssetIdEqual(liveAssetIdEqual) {
+	 	this.liveAssetIdEqual = liveAssetIdEqual;
+	 }
+}
+module.exports.LiveAssetHasRecordingsFilter = LiveAssetHasRecordingsFilter;
 
 /**
  *
@@ -9343,6 +9444,21 @@ class DiscountModule extends kaltura.BaseObject{
 	 setEndDate(endDate) {
 	 	this.endDate = endDate;
 	 }
+	
+	/**
+	 * Asset user rule identifier
+	 * @return int
+	 */
+	 getAssetUserRuleId() {
+	 	return this.assetUserRuleId;
+	 }
+	
+	/**
+	 * @param assetUserRuleId int Asset user rule identifier
+	 */
+	 setAssetUserRuleId(assetUserRuleId) {
+	 	this.assetUserRuleId = assetUserRuleId;
+	 }
 }
 module.exports.DiscountModule = DiscountModule;
 
@@ -9482,6 +9598,21 @@ class UsageModule extends kaltura.BaseObject{
 	 */
 	 setIsOfflinePlayback(isOfflinePlayback) {
 	 	this.isOfflinePlayback = isOfflinePlayback;
+	 }
+	
+	/**
+	 * Asset user rule identifier
+	 * @return int
+	 */
+	 getAssetUserRuleId() {
+	 	return this.assetUserRuleId;
+	 }
+	
+	/**
+	 * @param assetUserRuleId int Asset user rule identifier
+	 */
+	 setAssetUserRuleId(assetUserRuleId) {
+	 	this.assetUserRuleId = assetUserRuleId;
 	 }
 }
 module.exports.UsageModule = UsageModule;
@@ -11609,6 +11740,21 @@ class Subscription extends OTTObjectSupportNullable{
 	 */
 	 setPricePlanIds(pricePlanIds) {
 	 	this.pricePlanIds = pricePlanIds;
+	 }
+	
+	/**
+	 * Optional: If the subscription has a flexible price plan. Represents an initial none-recurring discounted period which is charged immediately (no unified billing), followed by a recuring price plan which should be aligned with the unified billing cycle
+	 * @return int
+	 */
+	 getFlexiblePricePlanId() {
+	 	return this.flexiblePricePlanId;
+	 }
+	
+	/**
+	 * @param flexiblePricePlanId int Optional: If the subscription has a flexible price plan. Represents an initial none-recurring discounted period which is charged immediately (no unified billing), followed by a recuring price plan which should be aligned with the unified billing cycle
+	 */
+	 setFlexiblePricePlanId(flexiblePricePlanId) {
+	 	this.flexiblePricePlanId = flexiblePricePlanId;
 	 }
 	
 	/**
@@ -18641,36 +18787,6 @@ class MonetizationCondition extends BaseSegmentCondition{
 	}
 	
 	/**
-	 * The minimum value to be met
-	 * @return int
-	 */
-	 getMinValue() {
-	 	return this.minValue;
-	 }
-	
-	/**
-	 * @param minValue int The minimum value to be met
-	 */
-	 setMinValue(minValue) {
-	 	this.minValue = minValue;
-	 }
-	
-	/**
-	 * The maximum value to be met
-	 * @return int
-	 */
-	 getMaxValue() {
-	 	return this.maxValue;
-	 }
-	
-	/**
-	 * @param maxValue int The maximum value to be met
-	 */
-	 setMaxValue(maxValue) {
-	 	this.maxValue = maxValue;
-	 }
-	
-	/**
 	 * How many days back should the actions be considered
 	 * @return int
 	 */
@@ -18743,6 +18859,36 @@ class MonetizationCondition extends BaseSegmentCondition{
 	 */
 	 setCurrencyCode(currencyCode) {
 	 	this.currencyCode = currencyCode;
+	 }
+	
+	/**
+	 * The minimum value to be met
+	 * @return int
+	 */
+	 getMinValue() {
+	 	return this.minValue;
+	 }
+	
+	/**
+	 * @param minValue int The minimum value to be met
+	 */
+	 setMinValue(minValue) {
+	 	this.minValue = minValue;
+	 }
+	
+	/**
+	 * The maximum value to be met
+	 * @return int
+	 */
+	 getMaxValue() {
+	 	return this.maxValue;
+	 }
+	
+	/**
+	 * @param maxValue int The maximum value to be met
+	 */
+	 setMaxValue(maxValue) {
+	 	this.maxValue = maxValue;
 	 }
 }
 module.exports.MonetizationCondition = MonetizationCondition;
@@ -19737,6 +19883,21 @@ class DiscountDetails extends kaltura.BaseObject{
 	 */
 	 setWhenAlgoType(whenAlgoType) {
 	 	this.whenAlgoType = whenAlgoType;
+	 }
+	
+	/**
+	 * Asset user rule identifier
+	 * @return int
+	 */
+	 getAssetUserRuleId() {
+	 	return this.assetUserRuleId;
+	 }
+	
+	/**
+	 * @param assetUserRuleId int Asset user rule identifier
+	 */
+	 setAssetUserRuleId(assetUserRuleId) {
+	 	this.assetUserRuleId = assetUserRuleId;
 	 }
 }
 module.exports.DiscountDetails = DiscountDetails;
@@ -21234,14 +21395,14 @@ class CloudUploadSettingsConfiguration extends PartnerConfiguration{
 	
 	/**
 	 * Comma seperated list of file extensions that allowed to partner in question
- * {&quot;jpeg&quot;,&quot;image/jpeg&quot;},
+ * {&quot;jpeg&quot;, &quot;image/jpeg&quot; },
  * {&quot;jpg&quot;,&quot;image/jpeg&quot;},
- * {&quot;png&quot;,&quot;image/png&quot;},
- * {&quot;tif&quot;,&quot;image/tiff&quot;},
- * {&quot;tiff&quot;,&quot;image/tiff&quot;},
- * {&quot;gif&quot;,&quot;image/gif&quot;},
- * {&quot;xls&quot;,&quot;application/vnd.ms-excel&quot;},
- * {&quot;xlsx&quot;,&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;},
+ * {&quot;jpg&quot;,&quot;image/png&quot;},
+ * { &quot;tif&quot;,&quot;image/tiff&quot;},
+ * { &quot;tiff&quot;, &quot;image/tiff&quot;},
+ * {&quot;gif&quot;,  &quot;image/gif&quot;},
+ * {&quot;xls&quot;,  &quot;application/vnd.ms-excel&quot;},
+ * {&quot;xlsx&quot;,&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot; },
  * {&quot;csv&quot;,&quot;text/csv&quot;},
  * {&quot;xml&quot;,&quot;text/xml&quot;},
  * {&quot;txt&quot;,&quot;text/plain&quot;},
@@ -21259,14 +21420,14 @@ class CloudUploadSettingsConfiguration extends PartnerConfiguration{
 	
 	/**
 	 * @param customAllowedFileExtensions string Comma seperated list of file extensions that allowed to partner in question
- * {&quot;jpeg&quot;,&quot;image/jpeg&quot;},
+ * {&quot;jpeg&quot;, &quot;image/jpeg&quot; },
  * {&quot;jpg&quot;,&quot;image/jpeg&quot;},
- * {&quot;png&quot;,&quot;image/png&quot;},
- * {&quot;tif&quot;,&quot;image/tiff&quot;},
- * {&quot;tiff&quot;,&quot;image/tiff&quot;},
- * {&quot;gif&quot;,&quot;image/gif&quot;},
- * {&quot;xls&quot;,&quot;application/vnd.ms-excel&quot;},
- * {&quot;xlsx&quot;,&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;},
+ * {&quot;jpg&quot;,&quot;image/png&quot;},
+ * { &quot;tif&quot;,&quot;image/tiff&quot;},
+ * { &quot;tiff&quot;, &quot;image/tiff&quot;},
+ * {&quot;gif&quot;,  &quot;image/gif&quot;},
+ * {&quot;xls&quot;,  &quot;application/vnd.ms-excel&quot;},
+ * {&quot;xlsx&quot;,&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot; },
  * {&quot;csv&quot;,&quot;text/csv&quot;},
  * {&quot;xml&quot;,&quot;text/xml&quot;},
  * {&quot;txt&quot;,&quot;text/plain&quot;},
@@ -25096,6 +25257,14 @@ class HouseholdDeviceFamilyLimitations extends DeviceFamilyBase{
 	 getIsDefaultConcurrentLimit() {
 	 	return this.isDefaultConcurrentLimit;
 	 }
+	
+	/**
+	 * Is the Allowed device change frequency code for this family is default value or not
+	 * @return bool
+	 */
+	 getIsDefaultFrequencyLimit() {
+	 	return this.isDefaultFrequencyLimit;
+	 }
 }
 module.exports.HouseholdDeviceFamilyLimitations = HouseholdDeviceFamilyLimitations;
 
@@ -26815,6 +26984,14 @@ class SubscriptionEntitlement extends Entitlement{
 	 */
 	 getPriceDetails() {
 	 	return this.priceDetails;
+	 }
+	
+	/**
+	 * Indicates whether the subscription is now within the flexible price plan lifecycle or not
+	 * @return bool
+	 */
+	 getIsFlexiblePricePlan() {
+	 	return this.isFlexiblePricePlan;
 	 }
 }
 module.exports.SubscriptionEntitlement = SubscriptionEntitlement;
@@ -34036,6 +34213,21 @@ class RegionalChannel extends kaltura.BaseObject{
 	 setChannelNumber(channelNumber) {
 	 	this.channelNumber = channelNumber;
 	 }
+	
+	/**
+	 * The dynamic data of a channel
+	 * @return map
+	 */
+	 getDynamicData() {
+	 	return this.dynamicData;
+	 }
+	
+	/**
+	 * @param dynamicData map The dynamic data of a channel
+	 */
+	 setDynamicData(dynamicData) {
+	 	this.dynamicData = dynamicData;
+	 }
 }
 module.exports.RegionalChannel = RegionalChannel;
 
@@ -34745,6 +34937,14 @@ class AppToken extends kaltura.BaseObject{
 	 getUpdateDate() {
 	 	return this.updateDate;
 	 }
+	
+	/**
+	 * The region identifier of the KS used to create the appToken. Value is presented only for partners with the enabled feature
+	 * @return int
+	 */
+	 getRegionId() {
+	 	return this.regionId;
+	 }
 }
 module.exports.AppToken = AppToken;
 
@@ -34892,6 +35092,33 @@ module.exports.RepresentativeSelectionPolicy = RepresentativeSelectionPolicy;
 /**
  *
  */
+class TopEntitledOrFreeRsp extends RepresentativeSelectionPolicy{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTopEntitledOrFreeRsp';
+	}
+	
+	/**
+	 * order by
+	 * @return BaseAssetOrder
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy BaseAssetOrder order by
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.TopEntitledOrFreeRsp = TopEntitledOrFreeRsp;
+
+/**
+ *
+ */
 class TopRsp extends RepresentativeSelectionPolicy{
 	
 	constructor(object = null) {
@@ -34915,6 +35142,33 @@ class TopRsp extends RepresentativeSelectionPolicy{
 	 }
 }
 module.exports.TopRsp = TopRsp;
+
+/**
+ *
+ */
+class TopSubscriptionEntitledOrFreeRsp extends RepresentativeSelectionPolicy{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTopSubscriptionEntitledOrFreeRsp';
+	}
+	
+	/**
+	 * order by
+	 * @return BaseAssetOrder
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy BaseAssetOrder order by
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.TopSubscriptionEntitledOrFreeRsp = TopSubscriptionEntitledOrFreeRsp;
 
 /**
  *
@@ -38842,6 +39096,78 @@ module.exports.MessageTemplate = MessageTemplate;
 /**
  *
  */
+class MultifactorAuthenticationPartnerConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaMultifactorAuthenticationPartnerConfiguration';
+	}
+	
+	/**
+	 * Is MFA Enabled for partner
+	 * @return bool
+	 */
+	 getIsEnabled() {
+	 	return this.isEnabled;
+	 }
+	
+	/**
+	 * @param isEnabled bool Is MFA Enabled for partner
+	 */
+	 setIsEnabled(isEnabled) {
+	 	this.isEnabled = isEnabled;
+	 }
+	
+	/**
+	 * Roles
+	 * @return string
+	 */
+	 getRoles() {
+	 	return this.roles;
+	 }
+	
+	/**
+	 * @param roles string Roles
+	 */
+	 setRoles(roles) {
+	 	this.roles = roles;
+	 }
+	
+	/**
+	 * Token expiration in seconds
+	 * @return int
+	 */
+	 getTokenExpirationInSeconds() {
+	 	return this.tokenExpirationInSeconds;
+	 }
+	
+	/**
+	 * @param tokenExpirationInSeconds int Token expiration in seconds
+	 */
+	 setTokenExpirationInSeconds(tokenExpirationInSeconds) {
+	 	this.tokenExpirationInSeconds = tokenExpirationInSeconds;
+	 }
+	
+	/**
+	 * Token delivery method
+	 * @return string
+	 */
+	 getTokenDeliveryMethod() {
+	 	return this.tokenDeliveryMethod;
+	 }
+	
+	/**
+	 * @param tokenDeliveryMethod string Token delivery method
+	 */
+	 setTokenDeliveryMethod(tokenDeliveryMethod) {
+	 	this.tokenDeliveryMethod = tokenDeliveryMethod;
+	 }
+}
+module.exports.MultifactorAuthenticationPartnerConfiguration = MultifactorAuthenticationPartnerConfiguration;
+
+/**
+ *
+ */
 class RegistryResponse extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -39553,6 +39879,33 @@ module.exports.OTTUserDynamicData = OTTUserDynamicData;
 /**
  *
  */
+class ResendMfaTokenResponse extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaResendMfaTokenResponse';
+	}
+	
+	/**
+	 * Result of resend MFA token operation
+	 * @return bool
+	 */
+	 getResult() {
+	 	return this.result;
+	 }
+	
+	/**
+	 * @param result bool Result of resend MFA token operation
+	 */
+	 setResult(result) {
+	 	this.result = result;
+	 }
+}
+module.exports.ResendMfaTokenResponse = ResendMfaTokenResponse;
+
+/**
+ *
+ */
 class PartnerSetup extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -39849,7 +40202,7 @@ class RegionChannelNumber extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * The number of the channel
+	 * The LCN of a channel
 	 * @return int
 	 */
 	 getChannelNumber() {
@@ -39857,10 +40210,25 @@ class RegionChannelNumber extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param channelNumber int The number of the channel
+	 * @param channelNumber int The LCN of a channel
 	 */
 	 setChannelNumber(channelNumber) {
 	 	this.channelNumber = channelNumber;
+	 }
+	
+	/**
+	 * The dynamic data of a channel
+	 * @return map
+	 */
+	 getDynamicData() {
+	 	return this.dynamicData;
+	 }
+	
+	/**
+	 * @param dynamicData map The dynamic data of a channel
+	 */
+	 setDynamicData(dynamicData) {
+	 	this.dynamicData = dynamicData;
 	 }
 }
 module.exports.RegionChannelNumber = RegionChannelNumber;
