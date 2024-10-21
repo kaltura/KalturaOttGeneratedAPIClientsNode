@@ -1364,6 +1364,72 @@ module.exports.UserSegmentFilter = UserSegmentFilter;
 /**
  *
  */
+class WatchBasedRecommendationsProfileFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaWatchBasedRecommendationsProfileFilter';
+	}
+}
+module.exports.WatchBasedRecommendationsProfileFilter = WatchBasedRecommendationsProfileFilter;
+
+/**
+ *
+ */
+class WatchBasedRecommendationsProfileByIdsFilter extends WatchBasedRecommendationsProfileFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaWatchBasedRecommendationsProfileByIdsFilter';
+	}
+	
+	/**
+	 * Comma seperated watch based recommendation profile ids
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string Comma seperated watch based recommendation profile ids
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+}
+module.exports.WatchBasedRecommendationsProfileByIdsFilter = WatchBasedRecommendationsProfileByIdsFilter;
+
+/**
+ *
+ */
+class WatchBasedRecommendationsProfileByNameFilter extends WatchBasedRecommendationsProfileFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaWatchBasedRecommendationsProfileByNameFilter';
+	}
+	
+	/**
+	 * A string that is included in the profile name
+	 * @return string
+	 */
+	 getNameContains() {
+	 	return this.nameContains;
+	 }
+	
+	/**
+	 * @param nameContains string A string that is included in the profile name
+	 */
+	 setNameContains(nameContains) {
+	 	this.nameContains = nameContains;
+	 }
+}
+module.exports.WatchBasedRecommendationsProfileByNameFilter = WatchBasedRecommendationsProfileByNameFilter;
+
+/**
+ *
+ */
 class AssetFilePpvFilter extends Filter{
 	
 	constructor(object = null) {
@@ -1508,6 +1574,50 @@ module.exports.CollectionFilter = CollectionFilter;
 /**
  *
  */
+class AssociatedShopEntities extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssociatedShopEntities';
+	}
+	
+	/**
+	 * comma-separated list of assetUserRuleId values. Matching entities will be returned by the filter
+	 * @return string
+	 */
+	 getAssetUserRuleIdIn() {
+	 	return this.assetUserRuleIdIn;
+	 }
+	
+	/**
+	 * @param assetUserRuleIdIn string comma-separated list of assetUserRuleId values. Matching entities will be returned by the filter
+	 */
+	 setAssetUserRuleIdIn(assetUserRuleIdIn) {
+	 	this.assetUserRuleIdIn = assetUserRuleIdIn;
+	 }
+	
+	/**
+	 * If true, filter will return entities with null/empty assetUserRuleId value, in addition to any entities whose assetUserRuleId value matches the assetUserRuleIdIn parameter.
+ * If false (or field is not specified) filter will return only entities whose assetUserRuleId value matches the assetUserRuleIdIn parameter
+	 * @return bool
+	 */
+	 getIncludeNullAssetUserRuleId() {
+	 	return this.includeNullAssetUserRuleId;
+	 }
+	
+	/**
+	 * @param includeNullAssetUserRuleId bool If true, filter will return entities with null/empty assetUserRuleId value, in addition to any entities whose assetUserRuleId value matches the assetUserRuleIdIn parameter.
+ * If false (or field is not specified) filter will return only entities whose assetUserRuleId value matches the assetUserRuleIdIn parameter
+	 */
+	 setIncludeNullAssetUserRuleId(includeNullAssetUserRuleId) {
+	 	this.includeNullAssetUserRuleId = includeNullAssetUserRuleId;
+	 }
+}
+module.exports.AssociatedShopEntities = AssociatedShopEntities;
+
+/**
+ *
+ */
 class DiscountDetailsFilter extends Filter{
 	
 	constructor(object = null) {
@@ -1528,6 +1638,21 @@ class DiscountDetailsFilter extends Filter{
 	 */
 	 setIdIn(idIn) {
 	 	this.idIn = idIn;
+	 }
+	
+	/**
+	 * filter all discountDetails by associate shop entities
+	 * @return AssociatedShopEntities
+	 */
+	 getAssociatedShopEntities() {
+	 	return this.associatedShopEntities;
+	 }
+	
+	/**
+	 * @param associatedShopEntities AssociatedShopEntities filter all discountDetails by associate shop entities
+	 */
+	 setAssociatedShopEntities(associatedShopEntities) {
+	 	this.associatedShopEntities = associatedShopEntities;
 	 }
 }
 module.exports.DiscountDetailsFilter = DiscountDetailsFilter;
@@ -2055,6 +2180,21 @@ class UsageModuleFilter extends Filter{
 	 */
 	 setIdEqual(idEqual) {
 	 	this.idEqual = idEqual;
+	 }
+	
+	/**
+	 * filter all usageModules by associate shop entities
+	 * @return AssociatedShopEntities
+	 */
+	 getAssociatedShopEntities() {
+	 	return this.associatedShopEntities;
+	 }
+	
+	/**
+	 * @param associatedShopEntities AssociatedShopEntities filter all usageModules by associate shop entities
+	 */
+	 setAssociatedShopEntities(associatedShopEntities) {
+	 	this.associatedShopEntities = associatedShopEntities;
 	 }
 }
 module.exports.UsageModuleFilter = UsageModuleFilter;
@@ -3667,6 +3807,33 @@ class ChannelExternalFilter extends AssetFilter{
 	 }
 }
 module.exports.ChannelExternalFilter = ChannelExternalFilter;
+
+/**
+ *
+ */
+class LiveAssetHasRecordingsFilter extends AssetFilter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaLiveAssetHasRecordingsFilter';
+	}
+	
+	/**
+	 * KalturaLiveAsset.id value of the live linear channel to be examined for associated recordings
+	 * @return int
+	 */
+	 getLiveAssetIdEqual() {
+	 	return this.liveAssetIdEqual;
+	 }
+	
+	/**
+	 * @param liveAssetIdEqual int KalturaLiveAsset.id value of the live linear channel to be examined for associated recordings
+	 */
+	 setLiveAssetIdEqual(liveAssetIdEqual) {
+	 	this.liveAssetIdEqual = liveAssetIdEqual;
+	 }
+}
+module.exports.LiveAssetHasRecordingsFilter = LiveAssetHasRecordingsFilter;
 
 /**
  *
@@ -9343,6 +9510,21 @@ class DiscountModule extends kaltura.BaseObject{
 	 setEndDate(endDate) {
 	 	this.endDate = endDate;
 	 }
+	
+	/**
+	 * Asset user rule identifier
+	 * @return int
+	 */
+	 getAssetUserRuleId() {
+	 	return this.assetUserRuleId;
+	 }
+	
+	/**
+	 * @param assetUserRuleId int Asset user rule identifier
+	 */
+	 setAssetUserRuleId(assetUserRuleId) {
+	 	this.assetUserRuleId = assetUserRuleId;
+	 }
 }
 module.exports.DiscountModule = DiscountModule;
 
@@ -9482,6 +9664,21 @@ class UsageModule extends kaltura.BaseObject{
 	 */
 	 setIsOfflinePlayback(isOfflinePlayback) {
 	 	this.isOfflinePlayback = isOfflinePlayback;
+	 }
+	
+	/**
+	 * Asset user rule identifier
+	 * @return int
+	 */
+	 getAssetUserRuleId() {
+	 	return this.assetUserRuleId;
+	 }
+	
+	/**
+	 * @param assetUserRuleId int Asset user rule identifier
+	 */
+	 setAssetUserRuleId(assetUserRuleId) {
+	 	this.assetUserRuleId = assetUserRuleId;
 	 }
 }
 module.exports.UsageModule = UsageModule;
@@ -11609,6 +11806,21 @@ class Subscription extends OTTObjectSupportNullable{
 	 */
 	 setPricePlanIds(pricePlanIds) {
 	 	this.pricePlanIds = pricePlanIds;
+	 }
+	
+	/**
+	 * Optional: If the subscription has a flexible price plan. Represents an initial none-recurring discounted period which is charged immediately (no unified billing), followed by a recuring price plan which should be aligned with the unified billing cycle
+	 * @return int
+	 */
+	 getFlexiblePricePlanId() {
+	 	return this.flexiblePricePlanId;
+	 }
+	
+	/**
+	 * @param flexiblePricePlanId int Optional: If the subscription has a flexible price plan. Represents an initial none-recurring discounted period which is charged immediately (no unified billing), followed by a recuring price plan which should be aligned with the unified billing cycle
+	 */
+	 setFlexiblePricePlanId(flexiblePricePlanId) {
+	 	this.flexiblePricePlanId = flexiblePricePlanId;
 	 }
 	
 	/**
@@ -18641,36 +18853,6 @@ class MonetizationCondition extends BaseSegmentCondition{
 	}
 	
 	/**
-	 * The minimum value to be met
-	 * @return int
-	 */
-	 getMinValue() {
-	 	return this.minValue;
-	 }
-	
-	/**
-	 * @param minValue int The minimum value to be met
-	 */
-	 setMinValue(minValue) {
-	 	this.minValue = minValue;
-	 }
-	
-	/**
-	 * The maximum value to be met
-	 * @return int
-	 */
-	 getMaxValue() {
-	 	return this.maxValue;
-	 }
-	
-	/**
-	 * @param maxValue int The maximum value to be met
-	 */
-	 setMaxValue(maxValue) {
-	 	this.maxValue = maxValue;
-	 }
-	
-	/**
 	 * How many days back should the actions be considered
 	 * @return int
 	 */
@@ -18743,6 +18925,36 @@ class MonetizationCondition extends BaseSegmentCondition{
 	 */
 	 setCurrencyCode(currencyCode) {
 	 	this.currencyCode = currencyCode;
+	 }
+	
+	/**
+	 * The minimum value to be met
+	 * @return int
+	 */
+	 getMinValue() {
+	 	return this.minValue;
+	 }
+	
+	/**
+	 * @param minValue int The minimum value to be met
+	 */
+	 setMinValue(minValue) {
+	 	this.minValue = minValue;
+	 }
+	
+	/**
+	 * The maximum value to be met
+	 * @return int
+	 */
+	 getMaxValue() {
+	 	return this.maxValue;
+	 }
+	
+	/**
+	 * @param maxValue int The maximum value to be met
+	 */
+	 setMaxValue(maxValue) {
+	 	this.maxValue = maxValue;
 	 }
 }
 module.exports.MonetizationCondition = MonetizationCondition;
@@ -19474,6 +19686,275 @@ module.exports.UserSegmentListResponse = UserSegmentListResponse;
 /**
  *
  */
+class SeriesInfo extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSeriesInfo';
+	}
+	
+	/**
+	 * Series ID meta name
+	 * @return string
+	 */
+	 getSeriesIdMetadataName() {
+	 	return this.seriesIdMetadataName;
+	 }
+	
+	/**
+	 * @param seriesIdMetadataName string Series ID meta name
+	 */
+	 setSeriesIdMetadataName(seriesIdMetadataName) {
+	 	this.seriesIdMetadataName = seriesIdMetadataName;
+	 }
+	
+	/**
+	 * Series asset type ID
+	 * @return int
+	 */
+	 getSeriesTypeId() {
+	 	return this.seriesTypeId;
+	 }
+	
+	/**
+	 * @param seriesTypeId int Series asset type ID
+	 */
+	 setSeriesTypeId(seriesTypeId) {
+	 	this.seriesTypeId = seriesTypeId;
+	 }
+	
+	/**
+	 * Episode asset type ID
+	 * @return int
+	 */
+	 getEpisodeTypeId() {
+	 	return this.episodeTypeId;
+	 }
+	
+	/**
+	 * @param episodeTypeId int Episode asset type ID
+	 */
+	 setEpisodeTypeId(episodeTypeId) {
+	 	this.episodeTypeId = episodeTypeId;
+	 }
+}
+module.exports.SeriesInfo = SeriesInfo;
+
+/**
+ *
+ */
+class WatchBasedRecommendationsProfile extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaWatchBasedRecommendationsProfile';
+	}
+	
+	/**
+	 * Unique identifier for the profile
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Friendly name for the profile
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Friendly name for the profile
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * List of comma seperated topic ids considered for recommendations calculation
+	 * @return string
+	 */
+	 getTopicIds() {
+	 	return this.topicIds;
+	 }
+	
+	/**
+	 * @param topicIds string List of comma seperated topic ids considered for recommendations calculation
+	 */
+	 setTopicIds(topicIds) {
+	 	this.topicIds = topicIds;
+	 }
+	
+	/**
+	 * List of comma seperated type ids considered for recommendations calculation
+	 * @return string
+	 */
+	 getAnalysisMediaTypeIds() {
+	 	return this.analysisMediaTypeIds;
+	 }
+	
+	/**
+	 * @param analysisMediaTypeIds string List of comma seperated type ids considered for recommendations calculation
+	 */
+	 setAnalysisMediaTypeIds(analysisMediaTypeIds) {
+	 	this.analysisMediaTypeIds = analysisMediaTypeIds;
+	 }
+	
+	/**
+	 * The minimum coverage in percentages that media is considered viewed
+	 * @return int
+	 */
+	 getUserInterestPlayThresholdInPercentages() {
+	 	return this.userInterestPlayThresholdInPercentages;
+	 }
+	
+	/**
+	 * @param userInterestPlayThresholdInPercentages int The minimum coverage in percentages that media is considered viewed
+	 */
+	 setUserInterestPlayThresholdInPercentages(userInterestPlayThresholdInPercentages) {
+	 	this.userInterestPlayThresholdInPercentages = userInterestPlayThresholdInPercentages;
+	 }
+	
+	/**
+	 * The number of interests that will be selected per user
+	 * @return int
+	 */
+	 getNumberOfInterests() {
+	 	return this.numberOfInterests;
+	 }
+	
+	/**
+	 * @param numberOfInterests int The number of interests that will be selected per user
+	 */
+	 setNumberOfInterests(numberOfInterests) {
+	 	this.numberOfInterests = numberOfInterests;
+	 }
+	
+	/**
+	 * Reference to partner default recommendations (first 30 assets that are included in the referred KalturaChannel)
+	 * @return int
+	 */
+	 getFallbackChannelId() {
+	 	return this.fallbackChannelId;
+	 }
+	
+	/**
+	 * @param fallbackChannelId int Reference to partner default recommendations (first 30 assets that are included in the referred KalturaChannel)
+	 */
+	 setFallbackChannelId(fallbackChannelId) {
+	 	this.fallbackChannelId = fallbackChannelId;
+	 }
+	
+	/**
+	 * Minimum number of media assets that user shall watch to trigger user interests calculation
+	 * @return int
+	 */
+	 getMinPlaybacks() {
+	 	return this.minPlaybacks;
+	 }
+	
+	/**
+	 * @param minPlaybacks int Minimum number of media assets that user shall watch to trigger user interests calculation
+	 */
+	 setMinPlaybacks(minPlaybacks) {
+	 	this.minPlaybacks = minPlaybacks;
+	 }
+	
+	/**
+	 * Maximum number of assets that watched by a user and will be considered for recommendations calculation (the last maxPlaybacks shall be used in the analysis)
+	 * @return int
+	 */
+	 getMaxPlaybacks() {
+	 	return this.maxPlaybacks;
+	 }
+	
+	/**
+	 * @param maxPlaybacks int Maximum number of assets that watched by a user and will be considered for recommendations calculation (the last maxPlaybacks shall be used in the analysis)
+	 */
+	 setMaxPlaybacks(maxPlaybacks) {
+	 	this.maxPlaybacks = maxPlaybacks;
+	 }
+	
+	/**
+	 * A kSql is used to filter the “user interests“ recommendations. Only asset properties, metas, or tags are allowed ti be included in this ksql
+	 * @return string
+	 */
+	 getAllowedRecommendationsKsql() {
+	 	return this.allowedRecommendationsKsql;
+	 }
+	
+	/**
+	 * @param allowedRecommendationsKsql string A kSql is used to filter the “user interests“ recommendations. Only asset properties, metas, or tags are allowed ti be included in this ksql
+	 */
+	 setAllowedRecommendationsKsql(allowedRecommendationsKsql) {
+	 	this.allowedRecommendationsKsql = allowedRecommendationsKsql;
+	 }
+	
+	/**
+	 * List of comma seperated media type ids that will be included in the recommendations
+	 * @return string
+	 */
+	 getRecommendationsMediaTypeIds() {
+	 	return this.recommendationsMediaTypeIds;
+	 }
+	
+	/**
+	 * @param recommendationsMediaTypeIds string List of comma seperated media type ids that will be included in the recommendations
+	 */
+	 setRecommendationsMediaTypeIds(recommendationsMediaTypeIds) {
+	 	this.recommendationsMediaTypeIds = recommendationsMediaTypeIds;
+	 }
+	
+	/**
+	 * Series info ror recommendations calculation
+	 * @return SeriesInfo
+	 */
+	 getRecommendationsSeriesInfo() {
+	 	return this.recommendationsSeriesInfo;
+	 }
+	
+	/**
+	 * @param recommendationsSeriesInfo SeriesInfo Series info ror recommendations calculation
+	 */
+	 setRecommendationsSeriesInfo(recommendationsSeriesInfo) {
+	 	this.recommendationsSeriesInfo = recommendationsSeriesInfo;
+	 }
+}
+module.exports.WatchBasedRecommendationsProfile = WatchBasedRecommendationsProfile;
+
+/**
+ *
+ */
+class WatchBasedRecommendationsProfileListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaWatchBasedRecommendationsProfileListResponse';
+	}
+	
+	/**
+	 * Assets
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Assets
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.WatchBasedRecommendationsProfileListResponse = WatchBasedRecommendationsProfileListResponse;
+
+/**
+ *
+ */
 class AssetFilePpvListResponse extends ListResponse{
 	
 	constructor(object = null) {
@@ -19737,6 +20218,21 @@ class DiscountDetails extends kaltura.BaseObject{
 	 */
 	 setWhenAlgoType(whenAlgoType) {
 	 	this.whenAlgoType = whenAlgoType;
+	 }
+	
+	/**
+	 * Asset user rule identifier
+	 * @return int
+	 */
+	 getAssetUserRuleId() {
+	 	return this.assetUserRuleId;
+	 }
+	
+	/**
+	 * @param assetUserRuleId int Asset user rule identifier
+	 */
+	 setAssetUserRuleId(assetUserRuleId) {
+	 	this.assetUserRuleId = assetUserRuleId;
 	 }
 }
 module.exports.DiscountDetails = DiscountDetails;
@@ -21234,14 +21730,14 @@ class CloudUploadSettingsConfiguration extends PartnerConfiguration{
 	
 	/**
 	 * Comma seperated list of file extensions that allowed to partner in question
- * {&quot;jpeg&quot;,&quot;image/jpeg&quot;},
+ * {&quot;jpeg&quot;, &quot;image/jpeg&quot; },
  * {&quot;jpg&quot;,&quot;image/jpeg&quot;},
- * {&quot;png&quot;,&quot;image/png&quot;},
- * {&quot;tif&quot;,&quot;image/tiff&quot;},
- * {&quot;tiff&quot;,&quot;image/tiff&quot;},
- * {&quot;gif&quot;,&quot;image/gif&quot;},
- * {&quot;xls&quot;,&quot;application/vnd.ms-excel&quot;},
- * {&quot;xlsx&quot;,&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;},
+ * {&quot;jpg&quot;,&quot;image/png&quot;},
+ * { &quot;tif&quot;,&quot;image/tiff&quot;},
+ * { &quot;tiff&quot;, &quot;image/tiff&quot;},
+ * {&quot;gif&quot;,  &quot;image/gif&quot;},
+ * {&quot;xls&quot;,  &quot;application/vnd.ms-excel&quot;},
+ * {&quot;xlsx&quot;,&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot; },
  * {&quot;csv&quot;,&quot;text/csv&quot;},
  * {&quot;xml&quot;,&quot;text/xml&quot;},
  * {&quot;txt&quot;,&quot;text/plain&quot;},
@@ -21259,14 +21755,14 @@ class CloudUploadSettingsConfiguration extends PartnerConfiguration{
 	
 	/**
 	 * @param customAllowedFileExtensions string Comma seperated list of file extensions that allowed to partner in question
- * {&quot;jpeg&quot;,&quot;image/jpeg&quot;},
+ * {&quot;jpeg&quot;, &quot;image/jpeg&quot; },
  * {&quot;jpg&quot;,&quot;image/jpeg&quot;},
- * {&quot;png&quot;,&quot;image/png&quot;},
- * {&quot;tif&quot;,&quot;image/tiff&quot;},
- * {&quot;tiff&quot;,&quot;image/tiff&quot;},
- * {&quot;gif&quot;,&quot;image/gif&quot;},
- * {&quot;xls&quot;,&quot;application/vnd.ms-excel&quot;},
- * {&quot;xlsx&quot;,&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;},
+ * {&quot;jpg&quot;,&quot;image/png&quot;},
+ * { &quot;tif&quot;,&quot;image/tiff&quot;},
+ * { &quot;tiff&quot;, &quot;image/tiff&quot;},
+ * {&quot;gif&quot;,  &quot;image/gif&quot;},
+ * {&quot;xls&quot;,  &quot;application/vnd.ms-excel&quot;},
+ * {&quot;xlsx&quot;,&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot; },
  * {&quot;csv&quot;,&quot;text/csv&quot;},
  * {&quot;xml&quot;,&quot;text/xml&quot;},
  * {&quot;txt&quot;,&quot;text/plain&quot;},
@@ -25096,6 +25592,14 @@ class HouseholdDeviceFamilyLimitations extends DeviceFamilyBase{
 	 getIsDefaultConcurrentLimit() {
 	 	return this.isDefaultConcurrentLimit;
 	 }
+	
+	/**
+	 * Is the Allowed device change frequency code for this family is default value or not
+	 * @return bool
+	 */
+	 getIsDefaultFrequencyLimit() {
+	 	return this.isDefaultFrequencyLimit;
+	 }
 }
 module.exports.HouseholdDeviceFamilyLimitations = HouseholdDeviceFamilyLimitations;
 
@@ -26815,6 +27319,14 @@ class SubscriptionEntitlement extends Entitlement{
 	 */
 	 getPriceDetails() {
 	 	return this.priceDetails;
+	 }
+	
+	/**
+	 * Indicates whether the subscription is now within the flexible price plan lifecycle or not
+	 * @return bool
+	 */
+	 getIsFlexiblePricePlan() {
+	 	return this.isFlexiblePricePlan;
 	 }
 }
 module.exports.SubscriptionEntitlement = SubscriptionEntitlement;
@@ -34036,6 +34548,21 @@ class RegionalChannel extends kaltura.BaseObject{
 	 setChannelNumber(channelNumber) {
 	 	this.channelNumber = channelNumber;
 	 }
+	
+	/**
+	 * The dynamic data of a channel
+	 * @return map
+	 */
+	 getDynamicData() {
+	 	return this.dynamicData;
+	 }
+	
+	/**
+	 * @param dynamicData map The dynamic data of a channel
+	 */
+	 setDynamicData(dynamicData) {
+	 	this.dynamicData = dynamicData;
+	 }
 }
 module.exports.RegionalChannel = RegionalChannel;
 
@@ -34745,6 +35272,14 @@ class AppToken extends kaltura.BaseObject{
 	 getUpdateDate() {
 	 	return this.updateDate;
 	 }
+	
+	/**
+	 * The region identifier of the KS used to create the appToken. Value is presented only for partners with the enabled feature
+	 * @return int
+	 */
+	 getRegionId() {
+	 	return this.regionId;
+	 }
 }
 module.exports.AppToken = AppToken;
 
@@ -34892,6 +35427,33 @@ module.exports.RepresentativeSelectionPolicy = RepresentativeSelectionPolicy;
 /**
  *
  */
+class TopEntitledOrFreeRsp extends RepresentativeSelectionPolicy{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTopEntitledOrFreeRsp';
+	}
+	
+	/**
+	 * order by
+	 * @return BaseAssetOrder
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy BaseAssetOrder order by
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.TopEntitledOrFreeRsp = TopEntitledOrFreeRsp;
+
+/**
+ *
+ */
 class TopRsp extends RepresentativeSelectionPolicy{
 	
 	constructor(object = null) {
@@ -34915,6 +35477,33 @@ class TopRsp extends RepresentativeSelectionPolicy{
 	 }
 }
 module.exports.TopRsp = TopRsp;
+
+/**
+ *
+ */
+class TopSubscriptionEntitledOrFreeRsp extends RepresentativeSelectionPolicy{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTopSubscriptionEntitledOrFreeRsp';
+	}
+	
+	/**
+	 * order by
+	 * @return BaseAssetOrder
+	 */
+	 getOrderBy() {
+	 	return this.orderBy;
+	 }
+	
+	/**
+	 * @param orderBy BaseAssetOrder order by
+	 */
+	 setOrderBy(orderBy) {
+	 	this.orderBy = orderBy;
+	 }
+}
+module.exports.TopSubscriptionEntitledOrFreeRsp = TopSubscriptionEntitledOrFreeRsp;
 
 /**
  *
@@ -38842,6 +39431,78 @@ module.exports.MessageTemplate = MessageTemplate;
 /**
  *
  */
+class MultifactorAuthenticationPartnerConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaMultifactorAuthenticationPartnerConfiguration';
+	}
+	
+	/**
+	 * Is MFA Enabled for partner
+	 * @return bool
+	 */
+	 getIsEnabled() {
+	 	return this.isEnabled;
+	 }
+	
+	/**
+	 * @param isEnabled bool Is MFA Enabled for partner
+	 */
+	 setIsEnabled(isEnabled) {
+	 	this.isEnabled = isEnabled;
+	 }
+	
+	/**
+	 * Roles
+	 * @return string
+	 */
+	 getRoles() {
+	 	return this.roles;
+	 }
+	
+	/**
+	 * @param roles string Roles
+	 */
+	 setRoles(roles) {
+	 	this.roles = roles;
+	 }
+	
+	/**
+	 * Token expiration in seconds
+	 * @return int
+	 */
+	 getTokenExpirationInSeconds() {
+	 	return this.tokenExpirationInSeconds;
+	 }
+	
+	/**
+	 * @param tokenExpirationInSeconds int Token expiration in seconds
+	 */
+	 setTokenExpirationInSeconds(tokenExpirationInSeconds) {
+	 	this.tokenExpirationInSeconds = tokenExpirationInSeconds;
+	 }
+	
+	/**
+	 * Token delivery method
+	 * @return string
+	 */
+	 getTokenDeliveryMethod() {
+	 	return this.tokenDeliveryMethod;
+	 }
+	
+	/**
+	 * @param tokenDeliveryMethod string Token delivery method
+	 */
+	 setTokenDeliveryMethod(tokenDeliveryMethod) {
+	 	this.tokenDeliveryMethod = tokenDeliveryMethod;
+	 }
+}
+module.exports.MultifactorAuthenticationPartnerConfiguration = MultifactorAuthenticationPartnerConfiguration;
+
+/**
+ *
+ */
 class RegistryResponse extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -39553,6 +40214,33 @@ module.exports.OTTUserDynamicData = OTTUserDynamicData;
 /**
  *
  */
+class ResendMfaTokenResponse extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaResendMfaTokenResponse';
+	}
+	
+	/**
+	 * Result of resend MFA token operation
+	 * @return bool
+	 */
+	 getResult() {
+	 	return this.result;
+	 }
+	
+	/**
+	 * @param result bool Result of resend MFA token operation
+	 */
+	 setResult(result) {
+	 	this.result = result;
+	 }
+}
+module.exports.ResendMfaTokenResponse = ResendMfaTokenResponse;
+
+/**
+ *
+ */
 class PartnerSetup extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -39849,7 +40537,7 @@ class RegionChannelNumber extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * The number of the channel
+	 * The LCN of a channel
 	 * @return int
 	 */
 	 getChannelNumber() {
@@ -39857,10 +40545,25 @@ class RegionChannelNumber extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param channelNumber int The number of the channel
+	 * @param channelNumber int The LCN of a channel
 	 */
 	 setChannelNumber(channelNumber) {
 	 	this.channelNumber = channelNumber;
+	 }
+	
+	/**
+	 * The dynamic data of a channel
+	 * @return map
+	 */
+	 getDynamicData() {
+	 	return this.dynamicData;
+	 }
+	
+	/**
+	 * @param dynamicData map The dynamic data of a channel
+	 */
+	 setDynamicData(dynamicData) {
+	 	this.dynamicData = dynamicData;
 	 }
 }
 module.exports.RegionChannelNumber = RegionChannelNumber;
@@ -40808,6 +41511,23 @@ class TimeShiftedTvPartnerSettings extends kaltura.BaseObject{
 	 setMaxConcurrencyMargin(maxConcurrencyMargin) {
 	 	this.maxConcurrencyMargin = maxConcurrencyMargin;
 	 }
+	
+	/**
+	 * When using padded and immediate recordings, define if end date of recording should be rounded by the minute or by the second.
+ * Default by minutes, FALSE
+	 * @return bool
+	 */
+	 getShouldRoundStopRecordingsBySeconds() {
+	 	return this.shouldRoundStopRecordingsBySeconds;
+	 }
+	
+	/**
+	 * @param shouldRoundStopRecordingsBySeconds bool When using padded and immediate recordings, define if end date of recording should be rounded by the minute or by the second.
+ * Default by minutes, FALSE
+	 */
+	 setShouldRoundStopRecordingsBySeconds(shouldRoundStopRecordingsBySeconds) {
+	 	this.shouldRoundStopRecordingsBySeconds = shouldRoundStopRecordingsBySeconds;
+	 }
 }
 module.exports.TimeShiftedTvPartnerSettings = TimeShiftedTvPartnerSettings;
 
@@ -41561,3 +42281,75 @@ class UserLoginPin extends kaltura.BaseObject{
 	 }
 }
 module.exports.UserLoginPin = UserLoginPin;
+
+/**
+ *
+ */
+class WatchBasedRecommendationsAdminConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaWatchBasedRecommendationsAdminConfiguration';
+	}
+	
+	/**
+	 * The maximum number of profiles
+	 * @return int
+	 */
+	 getMaxProfiles() {
+	 	return this.maxProfiles;
+	 }
+	
+	/**
+	 * @param maxProfiles int The maximum number of profiles
+	 */
+	 setMaxProfiles(maxProfiles) {
+	 	this.maxProfiles = maxProfiles;
+	 }
+	
+	/**
+	 * The duration that a user is considered active after his last playback
+	 * @return int
+	 */
+	 getActiveUserDurationDays() {
+	 	return this.activeUserDurationDays;
+	 }
+	
+	/**
+	 * @param activeUserDurationDays int The duration that a user is considered active after his last playback
+	 */
+	 setActiveUserDurationDays(activeUserDurationDays) {
+	 	this.activeUserDurationDays = activeUserDurationDays;
+	 }
+	
+	/**
+	 * The number of days the recommendations will be cached
+	 * @return int
+	 */
+	 getRecommendationsCachingTimeDays() {
+	 	return this.recommendationsCachingTimeDays;
+	 }
+	
+	/**
+	 * @param recommendationsCachingTimeDays int The number of days the recommendations will be cached
+	 */
+	 setRecommendationsCachingTimeDays(recommendationsCachingTimeDays) {
+	 	this.recommendationsCachingTimeDays = recommendationsCachingTimeDays;
+	 }
+	
+	/**
+	 * The number of days the user interests are considered to be up-to-date
+	 * @return int
+	 */
+	 getPlaybackInterestsCalculationPeriodDays() {
+	 	return this.playbackInterestsCalculationPeriodDays;
+	 }
+	
+	/**
+	 * @param playbackInterestsCalculationPeriodDays int The number of days the user interests are considered to be up-to-date
+	 */
+	 setPlaybackInterestsCalculationPeriodDays(playbackInterestsCalculationPeriodDays) {
+	 	this.playbackInterestsCalculationPeriodDays = playbackInterestsCalculationPeriodDays;
+	 }
+}
+module.exports.WatchBasedRecommendationsAdminConfiguration = WatchBasedRecommendationsAdminConfiguration;
