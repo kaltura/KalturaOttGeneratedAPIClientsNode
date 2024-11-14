@@ -1430,6 +1430,11 @@ ENABLED : 'ENABLED',
 DISABLED : 'DISABLED',
 };
 
+module.exports.TokenDeliveryMethod = {
+EMAIL : 'Email',
+SSO : 'Sso',
+};
+
 module.exports.TopicAutomaticIssueNotification = {
 INHERIT : 'Inherit',
 YES : 'Yes',
