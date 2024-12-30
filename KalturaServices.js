@@ -221,7 +221,7 @@ module.exports.assetComment = assetComment;
  * The available service actions:
  * @action add Add a new asset.
  * For metas of type bool-&gt; use kalturaBoolValue, type number-&gt; KalturaDoubleValue, type date -&gt; KalturaLongValue, type string -&gt; KalturaStringValue.
- * @action addFromBulkUpload Add new bulk upload batch job Conversion profile id can be specified in the API.
+ * @action addFromBulkUpload Add new bulk upload batch job Conversion profile id can be specified in the API (note that the total request body size is limited to 10MB).
  * @action count Returns a group-by result for media or EPG according to given filter. Lists values of each field and their respective count.
  * @action delete Delete an existing asset.
  * @action get Returns media or EPG asset by media / EPG internal or external identifier.
@@ -235,6 +235,7 @@ module.exports.assetComment = assetComment;
  * @action removeMetasAndTags remove metas and tags from asset.
  * @action update update an existing asset.
  * For metas of type bool-&gt; use kalturaBoolValue, type number-&gt; KalturaDoubleValue, type date -&gt; KalturaLongValue, type string -&gt; KalturaStringValue.
+ * @action watchBasedRecommendationsList Return list of assets - assets are personal recommendations for the caller.
  */
 class asset{
 	
@@ -251,7 +252,7 @@ class asset{
 	};
 	
 	/**
-	 * Add new bulk upload batch job Conversion profile id can be specified in the API.
+	 * Add new bulk upload batch job Conversion profile id can be specified in the API (note that the total request body size is limited to 10MB).
 	 * @param fileData file fileData
 	 * @param bulkUploadJobData BulkUploadJobData bulkUploadJobData
 	 * @param bulkUploadAssetData BulkUploadAssetData bulkUploadAssetData
@@ -425,6 +426,17 @@ class asset{
 		kparams.id = id;
 		kparams.asset = asset;
 		return new kaltura.RequestBuilder('asset', 'update', kparams);
+	};
+	
+	/**
+	 * Return list of assets - assets are personal recommendations for the caller.
+	 * @param profileId int WatchBasedRecommendations profile id
+	 * @return KalturaAssetListResponse
+	 */
+	static watchBasedRecommendationsList(profileId){
+		let kparams = {};
+		kparams.profileId = profileId;
+		return new kaltura.RequestBuilder('asset', 'watchBasedRecommendationsList', kparams);
 	};
 }
 module.exports.asset = asset;
@@ -729,11 +741,13 @@ module.exports.assetRule = assetRule;
  *Class definition for the Kaltura service: assetStatistics.
  * The available service actions:
  * @action query Returns statistics for given list of assets by type and / or time period.
+ * Supported values for KalturaAssetStatisticsQuery.assetTypeEqual : KalturaAssetType.media, KalturaAssetType.epg.
  */
 class assetStatistics{
 	
 	/**
 	 * Returns statistics for given list of assets by type and / or time period.
+ * Supported values for KalturaAssetStatisticsQuery.assetTypeEqual : KalturaAssetType.media, KalturaAssetType.epg.
 	 * @param query AssetStatisticsQuery Query for assets statistics
 	 * @return KalturaAssetStatisticsListResponse
 	 */
@@ -1271,12 +1285,14 @@ class categoryTree{
 	 * Retrieve default category tree of deviceFamilyId by KS or specific one if versionId is set.
 	 * @param versionId int Category version id of tree (optional, default: null)
 	 * @param deviceFamilyId int deviceFamilyId related to category tree (optional, default: null)
+	 * @param filter bool filter=true excludes items for which the start date has not been reached yet; default is false (optional, default: false)
 	 * @return KalturaCategoryTree
 	 */
-	static getByVersion(versionId = null, deviceFamilyId = null){
+	static getByVersion(versionId = null, deviceFamilyId = null, filter = false){
 		let kparams = {};
 		kparams.versionId = versionId;
 		kparams.deviceFamilyId = deviceFamilyId;
+		kparams.filter = filter;
 		return new kaltura.RequestBuilder('categorytree', 'getByVersion', kparams);
 	};
 }
@@ -2416,7 +2432,7 @@ module.exports.duration = duration;
  *Class definition for the Kaltura service: dynamicList.
  * The available service actions:
  * @action add Add new KalturaDynamicList.
- * @action addFromBulkUpload Add new bulk upload batch job Conversion profile id can be specified in the API.
+ * @action addFromBulkUpload Add new bulk upload batch job Conversion profile id can be specified in the API (note that the total request body size is limited to 10MB).
  * @action delete Delete existing DynamicList.
  * @action list Returns the list of available DynamicList.
  * @action update Update existing KalturaDynamicList.
@@ -2435,7 +2451,7 @@ class dynamicList{
 	};
 	
 	/**
-	 * Add new bulk upload batch job Conversion profile id can be specified in the API.
+	 * Add new bulk upload batch job Conversion profile id can be specified in the API (note that the total request body size is limited to 10MB).
 	 * @param fileData file fileData
 	 * @param jobData BulkUploadExcelJobData jobData
 	 * @param bulkUploadData BulkUploadDynamicListData bulkUploadData
@@ -4436,6 +4452,7 @@ module.exports.licensedUrl = licensedUrl;
  * @action get Returns regional lineup (list of lineup channel asset objects) based on the requester session characteristics and his region.
  * NOTE: Calling lineup.get action using HTTP POST is supported only for tests (non production environment) and is rate limited or blocked.
  * For production, HTTP GET shall be used: GET https://{Host_IP}/{build version}/api_v3/service/lineup/action/get.
+ * @action invalidate Sends lineup requested invalidation.
  * @action list Returns list of lineup regional linear channels associated with one LCN and its region information. Allows to apply sorting and filtering by LCN and linear channels.
  * @action sendUpdatedNotification Sends lineup update requested notification.
  */
@@ -4454,6 +4471,15 @@ class lineup{
 		kparams.pageIndex = pageIndex;
 		kparams.pageSize = pageSize;
 		return new kaltura.RequestBuilder('lineup', 'get', kparams);
+	};
+	
+	/**
+	 * Sends lineup requested invalidation.
+	 * @return bool
+	 */
+	static invalidate(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('lineup', 'invalidate', kparams);
 	};
 	
 	/**
@@ -4825,6 +4851,37 @@ module.exports.meta = meta;
 
 
 /**
+ *Class definition for the Kaltura service: mfaPartnerConfiguration.
+ * The available service actions:
+ * @action get Get MFA partner configuration.
+ * @action update Update MFA partner configuration.
+ */
+class mfaPartnerConfiguration{
+	
+	/**
+	 * Get MFA partner configuration.
+	 * @return KalturaMultifactorAuthenticationPartnerConfiguration
+	 */
+	static get(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('mfapartnerconfiguration', 'get', kparams);
+	};
+	
+	/**
+	 * Update MFA partner configuration.
+	 * @param configuration MultifactorAuthenticationPartnerConfiguration MFA configuration
+	 * @return KalturaMultifactorAuthenticationPartnerConfiguration
+	 */
+	static update(configuration){
+		let kparams = {};
+		kparams.configuration = configuration;
+		return new kaltura.RequestBuilder('mfapartnerconfiguration', 'update', kparams);
+	};
+}
+module.exports.mfaPartnerConfiguration = mfaPartnerConfiguration;
+
+
+/**
  *Class definition for the Kaltura service: notification.
  * The available service actions:
  * @action register TBD.
@@ -5083,8 +5140,10 @@ module.exports.ottCategory = ottCategory;
  * @action login login with user name and password.
  * @action loginWithPin User sign-in via a time-expired sign-in PIN.
  * @action logout Logout the calling user.
+ * @action mfaLogin login based on MFA token.
  * @action register Sign up a new user.
  * @action resendActivationToken Resend the activation token to a user.
+ * @action resendMfaToken resend MFA Token for the user.
  * @action resetPassword Send an e-mail with URL to enable the user to set new password.
  * @action retryDelete Retry delete OTT user entities by retention.
  * @action setInitialPassword Renew the user&#39;s password after validating the token that sent as part of URL in e-mail.
@@ -5235,6 +5294,27 @@ class ottUser{
 	};
 	
 	/**
+	 * login based on MFA token.
+	 * @param partnerId int Partner identifier
+	 * @param token string MFA token
+	 * @param username string user name (optional, default: null)
+	 * @param password string password (optional, default: null)
+	 * @param extraParams map extra params (optional, default: null)
+	 * @param udid string Device UDID (optional, default: null)
+	 * @return KalturaLoginResponse
+	 */
+	static mfaLogin(partnerId, token, username = null, password = null, extraParams = null, udid = null){
+		let kparams = {};
+		kparams.partnerId = partnerId;
+		kparams.token = token;
+		kparams.username = username;
+		kparams.password = password;
+		kparams.extraParams = extraParams;
+		kparams.udid = udid;
+		return new kaltura.RequestBuilder('ottuser', 'mfaLogin', kparams);
+	};
+	
+	/**
 	 * Sign up a new user.
 	 * @param partnerId int Partner identifier
 	 * @param user OTTUser The user model to add
@@ -5260,6 +5340,23 @@ class ottUser{
 		kparams.partnerId = partnerId;
 		kparams.username = username;
 		return new kaltura.RequestBuilder('ottuser', 'resendActivationToken', kparams);
+	};
+	
+	/**
+	 * resend MFA Token for the user.
+	 * @param partnerId int Partner identifier
+	 * @param username string user name (optional, default: null)
+	 * @param password string password (optional, default: null)
+	 * @param extraParams map extra params (optional, default: null)
+	 * @return KalturaResendMfaTokenResponse
+	 */
+	static resendMfaToken(partnerId, username = null, password = null, extraParams = null){
+		let kparams = {};
+		kparams.partnerId = partnerId;
+		kparams.username = username;
+		kparams.password = password;
+		kparams.extraParams = extraParams;
+		return new kaltura.RequestBuilder('ottuser', 'resendMfaToken', kparams);
 	};
 	
 	/**
@@ -8121,6 +8218,7 @@ module.exports.tag = tag;
  * The available service actions:
  * @action get Retrieve the account’s time-shifted TV settings (catch-up and C-DVR, Trick-play, Start-over).
  * @action update Configure the account’s time-shifted TV settings (catch-up and C-DVR, Trick-play, Start-over).
+ * When updating the timeshiftedtvpartnersettings, user must provide values for all the setting fields. If any field is omitted, its value may reset to the default configuration, potentially overwriting the current settings.
  */
 class timeShiftedTvPartnerSettings{
 	
@@ -8135,6 +8233,7 @@ class timeShiftedTvPartnerSettings{
 	
 	/**
 	 * Configure the account’s time-shifted TV settings (catch-up and C-DVR, Trick-play, Start-over).
+ * When updating the timeshiftedtvpartnersettings, user must provide values for all the setting fields. If any field is omitted, its value may reset to the default configuration, potentially overwriting the current settings.
 	 * @param settings TimeShiftedTvPartnerSettings Time shifted TV settings
 	 * @return bool
 	 */
@@ -8973,4 +9072,104 @@ class userSessionProfile{
 	};
 }
 module.exports.userSessionProfile = userSessionProfile;
+
+
+/**
+ *Class definition for the Kaltura service: watchBasedRecommendationsAdminConfiguration.
+ * The available service actions:
+ * @action get Get partner&#39;s watch based recommendations admin configuration.
+ * @action update Updates partner&#39;s watch based recommendations admin configuration.
+ */
+class watchBasedRecommendationsAdminConfiguration{
+	
+	/**
+	 * Get partner&#39;s watch based recommendations admin configuration.
+	 * @return KalturaWatchBasedRecommendationsAdminConfiguration
+	 */
+	static get(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('watchbasedrecommendationsadminconfiguration', 'get', kparams);
+	};
+	
+	/**
+	 * Updates partner&#39;s watch based recommendations admin configuration.
+	 * @param configuration WatchBasedRecommendationsAdminConfiguration watch based recommendations admin configuration
+	 * @return KalturaWatchBasedRecommendationsAdminConfiguration
+	 */
+	static update(configuration){
+		let kparams = {};
+		kparams.configuration = configuration;
+		return new kaltura.RequestBuilder('watchbasedrecommendationsadminconfiguration', 'update', kparams);
+	};
+}
+module.exports.watchBasedRecommendationsAdminConfiguration = watchBasedRecommendationsAdminConfiguration;
+
+
+/**
+ *Class definition for the Kaltura service: watchBasedRecommendationsProfile.
+ * The available service actions:
+ * @action add Add partner&#39;s watch based recommendations profile.
+ * @action delete Delete partner&#39;s watch based recommendations profile.
+ * @action deleteWatchBasedRecommendationsOfProfile Delete all recommendations that were calculated based on specific profile.
+ * @action list Get partner&#39;s watch based recommendations profiles.
+ * @action update Update partner&#39;s watch based recommendations profile.
+ */
+class watchBasedRecommendationsProfile{
+	
+	/**
+	 * Add partner&#39;s watch based recommendations profile.
+	 * @param profile WatchBasedRecommendationsProfile watch based recommendations profile to add
+	 * @return KalturaWatchBasedRecommendationsProfile
+	 */
+	static add(profile){
+		let kparams = {};
+		kparams.profile = profile;
+		return new kaltura.RequestBuilder('watchbasedrecommendationsprofile', 'add', kparams);
+	};
+	
+	/**
+	 * Delete partner&#39;s watch based recommendations profile.
+	 * @param id int profile id to update
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('watchbasedrecommendationsprofile', 'delete', kparams);
+	};
+	
+	/**
+	 * Delete all recommendations that were calculated based on specific profile.
+	 * @param id int profile id
+	 */
+	static deleteWatchBasedRecommendationsOfProfile(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('watchbasedrecommendationsprofile', 'deleteWatchBasedRecommendationsOfProfile', kparams);
+	};
+	
+	/**
+	 * Get partner&#39;s watch based recommendations profiles.
+	 * @param filter WatchBasedRecommendationsProfileFilter Filtering parameters for watch based recommendations profiles (optional, default: null)
+	 * @return KalturaWatchBasedRecommendationsProfileListResponse
+	 */
+	static listAction(filter = null){
+		let kparams = {};
+		kparams.filter = filter;
+		return new kaltura.RequestBuilder('watchbasedrecommendationsprofile', 'list', kparams);
+	};
+	
+	/**
+	 * Update partner&#39;s watch based recommendations profile.
+	 * @param id int profile id to update
+	 * @param profile WatchBasedRecommendationsProfile watch based recommendations profile to add
+	 * @return KalturaWatchBasedRecommendationsProfile
+	 */
+	static update(id, profile){
+		let kparams = {};
+		kparams.id = id;
+		kparams.profile = profile;
+		return new kaltura.RequestBuilder('watchbasedrecommendationsprofile', 'update', kparams);
+	};
+}
+module.exports.watchBasedRecommendationsProfile = watchBasedRecommendationsProfile;
 
