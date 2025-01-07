@@ -86,6 +86,12 @@ module.exports.AssetCommentOrderBy = {
 CREATE_DATE_DESC : 'CREATE_DATE_DESC',
 };
 
+module.exports.AssetEnrichCaptionType = {
+SRT : 'SRT',
+WEBTTV : 'WebTTV',
+TEXT_ONLY : 'Text_Only',
+};
+
 module.exports.AssetFilePpvOrderBy = {
 NONE : 'NONE',
 };
@@ -305,6 +311,14 @@ UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
 UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',
 END_DATE_DESC : 'END_DATE_DESC',
 END_DATE_ASC : 'END_DATE_ASC',
+};
+
+module.exports.CaptionUploadStatus = {
+PENDING : 'Pending',
+UPLOADED : 'Uploaded',
+PROCESSING : 'Processing',
+SUCCESS : 'Success',
+FAILED : 'Failed',
 };
 
 module.exports.CategoryItemOrderBy = {
