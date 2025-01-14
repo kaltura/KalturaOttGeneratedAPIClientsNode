@@ -8866,6 +8866,108 @@ module.exports.GenerateMetadataResult = GenerateMetadataResult;
 /**
  *
  */
+class MetaFieldNameMap extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaMetaFieldNameMap';
+	}
+	
+	/**
+	 * Genre
+	 * @return string
+	 */
+	 getGenre() {
+	 	return this.genre;
+	 }
+	
+	/**
+	 * @param genre string Genre
+	 */
+	 setGenre(genre) {
+	 	this.genre = genre;
+	 }
+	
+	/**
+	 * Sentiment
+	 * @return string
+	 */
+	 getSentiment() {
+	 	return this.sentiment;
+	 }
+	
+	/**
+	 * @param sentiment string Sentiment
+	 */
+	 setSentiment(sentiment) {
+	 	this.sentiment = sentiment;
+	 }
+	
+	/**
+	 * Short Description
+	 * @return string
+	 */
+	 getShortDescription() {
+	 	return this.shortDescription;
+	 }
+	
+	/**
+	 * @param shortDescription string Short Description
+	 */
+	 setShortDescription(shortDescription) {
+	 	this.shortDescription = shortDescription;
+	 }
+	
+	/**
+	 * Long Description
+	 * @return string
+	 */
+	 getLongDescription() {
+	 	return this.longDescription;
+	 }
+	
+	/**
+	 * @param longDescription string Long Description
+	 */
+	 setLongDescription(longDescription) {
+	 	this.longDescription = longDescription;
+	 }
+	
+	/**
+	 * One Liner
+	 * @return string
+	 */
+	 getOneLiner() {
+	 	return this.oneLiner;
+	 }
+	
+	/**
+	 * @param oneLiner string One Liner
+	 */
+	 setOneLiner(oneLiner) {
+	 	this.oneLiner = oneLiner;
+	 }
+	
+	/**
+	 * Keywords
+	 * @return string
+	 */
+	 getKeywords() {
+	 	return this.keywords;
+	 }
+	
+	/**
+	 * @param keywords string Keywords
+	 */
+	 setKeywords(keywords) {
+	 	this.keywords = keywords;
+	 }
+}
+module.exports.MetaFieldNameMap = MetaFieldNameMap;
+
+/**
+ *
+ */
 class AiMetadataGeneratorConfiguration extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -8889,22 +8991,22 @@ class AiMetadataGeneratorConfiguration extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * A type of dictionary defined as [KalturaLlmMetadataKeysEnum,Integer].
- * This property is used to correlate the newly generated metadata to existing metadata IDs which are available in the asset’s struct.
- * That is, per each generated metadata key (name), to which metadata ID on the asset it is mapped and stored
+	 * A type of dictionary defined as [long,KalturaMetaFieldNameMap].
+ * This property is used to correlate the newly generated metadata to
+ * existing metadata IDs which are available in the asset’s struct
 	 * @return map
 	 */
-	 getMetaFieldNameMap() {
-	 	return this.metaFieldNameMap;
+	 getAssetStructMetaNameMap() {
+	 	return this.assetStructMetaNameMap;
 	 }
 	
 	/**
-	 * @param metaFieldNameMap map A type of dictionary defined as [KalturaLlmMetadataKeysEnum,Integer].
- * This property is used to correlate the newly generated metadata to existing metadata IDs which are available in the asset’s struct.
- * That is, per each generated metadata key (name), to which metadata ID on the asset it is mapped and stored
+	 * @param assetStructMetaNameMap map A type of dictionary defined as [long,KalturaMetaFieldNameMap].
+ * This property is used to correlate the newly generated metadata to
+ * existing metadata IDs which are available in the asset’s struct
 	 */
-	 setMetaFieldNameMap(metaFieldNameMap) {
-	 	this.metaFieldNameMap = metaFieldNameMap;
+	 setAssetStructMetaNameMap(assetStructMetaNameMap) {
+	 	this.assetStructMetaNameMap = assetStructMetaNameMap;
 	 }
 	
 	/**
@@ -18182,6 +18284,16 @@ class Subtitles extends kaltura.BaseObject{
 	 */
 	 getSubtitlesLanguage() {
 	 	return this.subtitlesLanguage;
+	 }
+	
+	/**
+	 * @param subtitlesLanguage string Mandatory. The language in which the subtitles are written.
+ * It is used in the LLM prompt to inform it what is the language it needs to analyze which will also
+ * be the language in which it generates the metadata values
+ * (note that the metadata keys are always in English). It includes a KalturaLanguage systemName
+	 */
+	 setSubtitlesLanguage(subtitlesLanguage) {
+	 	this.subtitlesLanguage = subtitlesLanguage;
 	 }
 }
 module.exports.Subtitles = Subtitles;
