@@ -35463,104 +35463,44 @@ module.exports.TopSubscriptionEntitledRsp = TopSubscriptionEntitledRsp;
 /**
  *
  */
-class PlaybackContextOptions extends kaltura.BaseObject{
+class KeyValue extends kaltura.BaseObject{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaPlaybackContextOptions';
+		this.objectType = 'KalturaKeyValue';
 	}
 	
 	/**
-	 * Protocol of the specific media object (http / https)
+	 * Key
 	 * @return string
 	 */
-	 getMediaProtocol() {
-	 	return this.mediaProtocol;
+	 getKey() {
+	 	return this.key;
 	 }
 	
 	/**
-	 * @param mediaProtocol string Protocol of the specific media object (http / https)
+	 * @param key string Key
 	 */
-	 setMediaProtocol(mediaProtocol) {
-	 	this.mediaProtocol = mediaProtocol;
+	 setKey(key) {
+	 	this.key = key;
 	 }
 	
 	/**
-	 * Playback streamer type: applehttp, mpegdash, url, smothstreaming, multicast, none
+	 * Value
 	 * @return string
 	 */
-	 getStreamerType() {
-	 	return this.streamerType;
+	 getValue() {
+	 	return this.value;
 	 }
 	
 	/**
-	 * @param streamerType string Playback streamer type: applehttp, mpegdash, url, smothstreaming, multicast, none
+	 * @param value string Value
 	 */
-	 setStreamerType(streamerType) {
-	 	this.streamerType = streamerType;
-	 }
-	
-	/**
-	 * List of comma separated media file IDs
-	 * @return string
-	 */
-	 getAssetFileIds() {
-	 	return this.assetFileIds;
-	 }
-	
-	/**
-	 * @param assetFileIds string List of comma separated media file IDs
-	 */
-	 setAssetFileIds(assetFileIds) {
-	 	this.assetFileIds = assetFileIds;
-	 }
-	
-	/**
-	 * key/value map field for extra data
-	 * @return map
-	 */
-	 getAdapterData() {
-	 	return this.adapterData;
-	 }
-	
-	/**
-	 * @param adapterData map key/value map field for extra data
-	 */
-	 setAdapterData(adapterData) {
-	 	this.adapterData = adapterData;
-	 }
-	
-	/**
-	 * Playback context type
-	 * @return string
-	 */
-	 getContext() {
-	 	return this.context;
-	 }
-	
-	/**
-	 * @param context string Playback context type
-	 */
-	 setContext(context) {
-	 	this.context = context;
-	 }
-	
-	/**
-	 * Url type
-	 * @return string
-	 */
-	 getUrlType() {
-	 	return this.urlType;
-	 }
-	
-	/**
-	 * @param urlType string Url type
-	 */
-	 setUrlType(urlType) {
-	 	this.urlType = urlType;
+	 setValue(value) {
+	 	this.value = value;
 	 }
 }
-module.exports.PlaybackContextOptions = PlaybackContextOptions;
+module.exports.KeyValue = KeyValue;
 
 /**
  *
@@ -35778,6 +35718,33 @@ module.exports.PlaybackContext = PlaybackContext;
 /**
  *
  */
+class BulkPlaybackContext extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkPlaybackContext';
+	}
+	
+	/**
+	 * List of playback contexts
+	 * @return array
+	 */
+	 getPlaybackContexts() {
+	 	return this.playbackContexts;
+	 }
+	
+	/**
+	 * @param playbackContexts array List of playback contexts
+	 */
+	 setPlaybackContexts(playbackContexts) {
+	 	this.playbackContexts = playbackContexts;
+	 }
+}
+module.exports.BulkPlaybackContext = BulkPlaybackContext;
+
+/**
+ *
+ */
 class BumpersPlaybackPluginData extends PlaybackPluginData{
 	
 	constructor(object = null) {
@@ -35816,6 +35783,108 @@ class BumpersPlaybackPluginData extends PlaybackPluginData{
 	 }
 }
 module.exports.BumpersPlaybackPluginData = BumpersPlaybackPluginData;
+
+/**
+ *
+ */
+class PlaybackContextOptions extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPlaybackContextOptions';
+	}
+	
+	/**
+	 * Protocol of the specific media object (http / https)
+	 * @return string
+	 */
+	 getMediaProtocol() {
+	 	return this.mediaProtocol;
+	 }
+	
+	/**
+	 * @param mediaProtocol string Protocol of the specific media object (http / https)
+	 */
+	 setMediaProtocol(mediaProtocol) {
+	 	this.mediaProtocol = mediaProtocol;
+	 }
+	
+	/**
+	 * Playback streamer type: applehttp, mpegdash, url, smothstreaming, multicast, none
+	 * @return string
+	 */
+	 getStreamerType() {
+	 	return this.streamerType;
+	 }
+	
+	/**
+	 * @param streamerType string Playback streamer type: applehttp, mpegdash, url, smothstreaming, multicast, none
+	 */
+	 setStreamerType(streamerType) {
+	 	this.streamerType = streamerType;
+	 }
+	
+	/**
+	 * List of comma separated media file IDs
+	 * @return string
+	 */
+	 getAssetFileIds() {
+	 	return this.assetFileIds;
+	 }
+	
+	/**
+	 * @param assetFileIds string List of comma separated media file IDs
+	 */
+	 setAssetFileIds(assetFileIds) {
+	 	this.assetFileIds = assetFileIds;
+	 }
+	
+	/**
+	 * key/value map field for extra data
+	 * @return map
+	 */
+	 getAdapterData() {
+	 	return this.adapterData;
+	 }
+	
+	/**
+	 * @param adapterData map key/value map field for extra data
+	 */
+	 setAdapterData(adapterData) {
+	 	this.adapterData = adapterData;
+	 }
+	
+	/**
+	 * Playback context type
+	 * @return string
+	 */
+	 getContext() {
+	 	return this.context;
+	 }
+	
+	/**
+	 * @param context string Playback context type
+	 */
+	 setContext(context) {
+	 	this.context = context;
+	 }
+	
+	/**
+	 * Url type
+	 * @return string
+	 */
+	 getUrlType() {
+	 	return this.urlType;
+	 }
+	
+	/**
+	 * @param urlType string Url type
+	 */
+	 setUrlType(urlType) {
+	 	this.urlType = urlType;
+	 }
+}
+module.exports.PlaybackContextOptions = PlaybackContextOptions;
 
 /**
  *
@@ -37061,48 +37130,6 @@ class RandomCouponGenerationOptions extends CouponGenerationOptions{
 	 }
 }
 module.exports.RandomCouponGenerationOptions = RandomCouponGenerationOptions;
-
-/**
- *
- */
-class KeyValue extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaKeyValue';
-	}
-	
-	/**
-	 * Key
-	 * @return string
-	 */
-	 getKey() {
-	 	return this.key;
-	 }
-	
-	/**
-	 * @param key string Key
-	 */
-	 setKey(key) {
-	 	this.key = key;
-	 }
-	
-	/**
-	 * Value
-	 * @return string
-	 */
-	 getValue() {
-	 	return this.value;
-	 }
-	
-	/**
-	 * @param value string Value
-	 */
-	 setValue(value) {
-	 	this.value = value;
-	 }
-}
-module.exports.KeyValue = KeyValue;
 
 /**
  *

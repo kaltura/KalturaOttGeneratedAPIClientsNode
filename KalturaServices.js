@@ -227,6 +227,7 @@ module.exports.assetComment = assetComment;
  * @action get Returns media or EPG asset by media / EPG internal or external identifier.
  * Note: OPC accounts asset.get for internal identifier doesn&#39;t take under consideration personalized aspects neither shop limitations.
  * @action getAdsContext Returns the data for ads control.
+ * @action getBulkPlaybackContext Gets the bulk playback context for assets.
  * @action getPlaybackContext This action delivers all data relevant for player.
  * @action getPlaybackManifest This action delivers all data relevant for player.
  * @action groupRepresentativeList Returns assets deduplicated by asset metadata (or supported asset&#39;s property).
@@ -318,6 +319,23 @@ class asset{
 		kparams.assetType = assetType;
 		kparams.contextDataParams = contextDataParams;
 		return new kaltura.RequestBuilder('asset', 'getAdsContext', kparams);
+	};
+	
+	/**
+	 * Gets the bulk playback context for assets.
+	 * @param fileTypes array The types of files to include in the playback context
+	 * @param streamerType string The type of streamer to use
+	 * @param context string The context for the playback (enum: KalturaPlaybackContextType)
+	 * @param urlType string The type of URL to generate (enum: KalturaUrlType)
+	 * @return KalturaBulkPlaybackContext
+	 */
+	static getBulkPlaybackContext(fileTypes, streamerType, context, urlType){
+		let kparams = {};
+		kparams.fileTypes = fileTypes;
+		kparams.streamerType = streamerType;
+		kparams.context = context;
+		kparams.urlType = urlType;
+		return new kaltura.RequestBuilder('asset', 'getBulkPlaybackContext', kparams);
 	};
 	
 	/**
