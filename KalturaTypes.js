@@ -709,6 +709,7 @@ NONE : 'NONE',
 module.exports.ImageStatus = {
 PENDING : 'PENDING',
 READY : 'READY',
+FAILED : 'FAILED',
 };
 
 module.exports.ImageTypeOrderBy = {
