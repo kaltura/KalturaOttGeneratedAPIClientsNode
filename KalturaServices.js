@@ -33,8 +33,9 @@ const kaltura = require('./KalturaClientBase');
  * @action generateMetadataBySubtitles initiate the the process of metadata generation based on the subtitles file.
  * @action getGeneratedMetadata retrieve the generated metadata.
  * @action getGenerateMetadataJob retrieve the status of the metadata generation job, identified by the subtitles file ID.
+ * @action getMetadataFieldDefinitions Get metadata mapping structure and available generated metadata fields.
  * @action getPartnerConfiguration retrieve feature configuration.
- * @action setPartnerConfiguration update feature configuration.
+ * @action updatePartnerConfiguration update feature configuration.
  */
 class aiMetadataGenerator{
 	
@@ -78,6 +79,15 @@ class aiMetadataGenerator{
 	};
 	
 	/**
+	 * Get metadata mapping structure and available generated metadata fields.
+	 * @return KalturaMetaFieldNameMap
+	 */
+	static getMetadataFieldDefinitions(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('aimetadatagenerator', 'getMetadataFieldDefinitions', kparams);
+	};
+	
+	/**
 	 * retrieve feature configuration.
 	 * @return KalturaAiMetadataGeneratorConfiguration
 	 */
@@ -91,10 +101,10 @@ class aiMetadataGenerator{
 	 * @param configuration AiMetadataGeneratorConfiguration the partner configuration to be set
 	 * @return KalturaAiMetadataGeneratorConfiguration
 	 */
-	static setPartnerConfiguration(configuration){
+	static updatePartnerConfiguration(configuration){
 		let kparams = {};
 		kparams.configuration = configuration;
-		return new kaltura.RequestBuilder('aimetadatagenerator', 'setPartnerConfiguration', kparams);
+		return new kaltura.RequestBuilder('aimetadatagenerator', 'updatePartnerConfiguration', kparams);
 	};
 }
 module.exports.aiMetadataGenerator = aiMetadataGenerator;
