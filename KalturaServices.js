@@ -44,15 +44,12 @@ class aiMetadataGenerator{
 	 * @param subtitlesFileId int he subtitles file ID returned when uploaded the subtitles file by the subtitles service.
  * Represents also the job ID used by the generate metadata process
 	 * @param externalAssetIds array A list of external asset IDs to be populated with the generated metadata
-	 * @param targetDisplayLanguage string The language used for the generated results.
- * Must be a valid existing KalturaLanguage systemName.\nIf not provided then the subtitles language will be used
 	 * @return KalturaGenerateMetadataBySubtitlesJob
 	 */
-	static generateMetadataBySubtitles(subtitlesFileId, externalAssetIds, targetDisplayLanguage){
+	static generateMetadataBySubtitles(subtitlesFileId, externalAssetIds){
 		let kparams = {};
 		kparams.subtitlesFileId = subtitlesFileId;
 		kparams.externalAssetIds = externalAssetIds;
-		kparams.targetDisplayLanguage = targetDisplayLanguage;
 		return new kaltura.RequestBuilder('aimetadatagenerator', 'generateMetadataBySubtitles', kparams);
 	};
 	
@@ -523,92 +520,6 @@ class asset{
 	};
 }
 module.exports.asset = asset;
-
-
-/**
- *Class definition for the Kaltura service: assetEnrich.
- * The available service actions:
- * @action generateMetadata Initiate the process of metadata generation.
- * @action getCaptionUploadJob retrieve the status of the metadata generation job.
- * @action getGeneratedMetadata retrieve the generated metadata.
- * @action getPartnerConfiguration retrieve feature configuration.
- * @action updatePartnerConfiguration update feature configuration.
- * @action uploadCaptionFile Add a file to be used for enriching the assets&#39; metadata.
- */
-class assetEnrich{
-	
-	/**
-	 * Initiate the process of metadata generation.
-	 * @param captionUploadJobId int job id to generate metadata for
-	 * @param externalAssetIds array external asset ids
-	 * @param targetDisplayLanguage string relevant language
-	 * @return KalturaCaptionUploadJob
-	 */
-	static generateMetadata(captionUploadJobId, externalAssetIds, targetDisplayLanguage){
-		let kparams = {};
-		kparams.captionUploadJobId = captionUploadJobId;
-		kparams.externalAssetIds = externalAssetIds;
-		kparams.targetDisplayLanguage = targetDisplayLanguage;
-		return new kaltura.RequestBuilder('assetenrich', 'generateMetadata', kparams);
-	};
-	
-	/**
-	 * retrieve the status of the metadata generation job.
-	 * @param captionUploadJobId int job id to get
-	 * @return KalturaCaptionUploadJob
-	 */
-	static getCaptionUploadJob(captionUploadJobId){
-		let kparams = {};
-		kparams.captionUploadJobId = captionUploadJobId;
-		return new kaltura.RequestBuilder('assetenrich', 'getCaptionUploadJob', kparams);
-	};
-	
-	/**
-	 * retrieve the generated metadata.
-	 * @param captionUploadJobId int job id
-	 * @return KalturaEnrichedMetadataResult
-	 */
-	static getGeneratedMetadata(captionUploadJobId){
-		let kparams = {};
-		kparams.captionUploadJobId = captionUploadJobId;
-		return new kaltura.RequestBuilder('assetenrich', 'getGeneratedMetadata', kparams);
-	};
-	
-	/**
-	 * retrieve feature configuration.
-	 * @return KalturaMetaEnrichConfiguration
-	 */
-	static getPartnerConfiguration(){
-		let kparams = {};
-		return new kaltura.RequestBuilder('assetenrich', 'getPartnerConfiguration', kparams);
-	};
-	
-	/**
-	 * update feature configuration.
-	 * @param configuration MetaEnrichConfiguration the partner configuration to be set
-	 * @return KalturaMetaEnrichConfiguration
-	 */
-	static updatePartnerConfiguration(configuration){
-		let kparams = {};
-		kparams.configuration = configuration;
-		return new kaltura.RequestBuilder('assetenrich', 'updatePartnerConfiguration', kparams);
-	};
-	
-	/**
-	 * Add a file to be used for enriching the assets&#39; metadata.
-	 * @param json CaptionUploadData Properties of the caption file to be uploaded
-	 * @param fileName file The caption text file to upload. The file must be in UTF-8 encoding
-	 * @return KalturaCaptionUploadJob
-	 */
-	static uploadCaptionFile(json, fileName){
-		let kparams = {};
-		kparams.json = json;
-		let kfiles = {};
-		kfiles.fileName = fileName;
-		return new kaltura.RequestBuilder('assetenrich', 'uploadCaptionFile', kparams, kfiles);
-	};
-}
-module.exports.assetEnrich = assetEnrich;
 
 
 /**
