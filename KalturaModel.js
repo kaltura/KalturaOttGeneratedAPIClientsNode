@@ -8889,6 +8889,21 @@ class MetaFieldNameMap extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * Sub-Genre
+	 * @return string
+	 */
+	 getSubGenre() {
+	 	return this.subGenre;
+	 }
+	
+	/**
+	 * @param subGenre string Sub-Genre
+	 */
+	 setSubGenre(subGenre) {
+	 	this.subGenre = subGenre;
+	 }
+	
+	/**
 	 * Sentiment
 	 * @return string
 	 */
@@ -8904,33 +8919,33 @@ class MetaFieldNameMap extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Short Description
+	 * Suggested Title
 	 * @return string
 	 */
-	 getShortDescription() {
-	 	return this.shortDescription;
+	 getSuggestedTitle() {
+	 	return this.suggestedTitle;
 	 }
 	
 	/**
-	 * @param shortDescription string Short Description
+	 * @param suggestedTitle string Suggested Title
 	 */
-	 setShortDescription(shortDescription) {
-	 	this.shortDescription = shortDescription;
+	 setSuggestedTitle(suggestedTitle) {
+	 	this.suggestedTitle = suggestedTitle;
 	 }
 	
 	/**
-	 * Long Description
+	 * Description
 	 * @return string
 	 */
-	 getLongDescription() {
-	 	return this.longDescription;
+	 getDescription() {
+	 	return this.description;
 	 }
 	
 	/**
-	 * @param longDescription string Long Description
+	 * @param description string Description
 	 */
-	 setLongDescription(longDescription) {
-	 	this.longDescription = longDescription;
+	 setDescription(description) {
+	 	this.description = description;
 	 }
 	
 	/**
@@ -8961,6 +8976,21 @@ class MetaFieldNameMap extends kaltura.BaseObject{
 	 */
 	 setKeywords(keywords) {
 	 	this.keywords = keywords;
+	 }
+	
+	/**
+	 * Sensitive Content
+	 * @return string
+	 */
+	 getSensitiveContent() {
+	 	return this.sensitiveContent;
+	 }
+	
+	/**
+	 * @param sensitiveContent string Sensitive Content
+	 */
+	 setSensitiveContent(sensitiveContent) {
+	 	this.sensitiveContent = sensitiveContent;
 	 }
 }
 module.exports.MetaFieldNameMap = MetaFieldNameMap;
