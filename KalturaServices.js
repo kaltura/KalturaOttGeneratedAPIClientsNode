@@ -8163,14 +8163,14 @@ class subtitles{
 	/**
 	 * Upload a subtitles file for a later analysis.
 	 * @param subtitles Subtitles Subtitle metadata
-	 * @param file file The subtitles text file to upload. The file must be in UTF-8 encoding
+	 * @param fileData file The subtitles text file to upload. Must be in UTF-8 encoding
 	 * @return KalturaSubtitles
 	 */
-	static uploadFile(subtitles, file){
+	static uploadFile(subtitles, fileData){
 		let kparams = {};
 		kparams.subtitles = subtitles;
 		let kfiles = {};
-		kfiles.file = file;
+		kfiles.fileData = fileData;
 		return new kaltura.RequestBuilder('subtitles', 'uploadFile', kparams, kfiles);
 	};
 }

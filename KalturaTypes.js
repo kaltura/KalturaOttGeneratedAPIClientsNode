@@ -1422,9 +1422,9 @@ END_DATE : 'END_DATE',
 };
 
 module.exports.SubtitlesType = {
+TEXT : 'Text',
 SRT : 'SRT',
-WEBTTV : 'WebTTV',
-TEXT_ONLY : 'Text_Only',
+WEBVTT : 'WebVTT',
 };
 
 module.exports.SuspensionProfileInheritanceType = {
