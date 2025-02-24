@@ -40595,6 +40595,132 @@ module.exports.SegmentationPartnerConfiguration = SegmentationPartnerConfigurati
 /**
  *
  */
+class SearchableAttribute extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSearchableAttribute';
+	}
+	
+	/**
+	 * The unique identifier for the asset structure associated with the searchable attribute
+	 * @return string
+	 */
+	 getAssetStructId() {
+	 	return this.assetStructId;
+	 }
+	
+	/**
+	 * @param assetStructId string The unique identifier for the asset structure associated with the searchable attribute
+	 */
+	 setAssetStructId(assetStructId) {
+	 	this.assetStructId = assetStructId;
+	 }
+	
+	/**
+	 * The specific attributes that define the searchable aspect of the asset
+	 * @return string
+	 */
+	 getAttributes() {
+	 	return this.attributes;
+	 }
+	
+	/**
+	 * @param attributes string The specific attributes that define the searchable aspect of the asset
+	 */
+	 setAttributes(attributes) {
+	 	this.attributes = attributes;
+	 }
+}
+module.exports.SearchableAttribute = SearchableAttribute;
+
+/**
+ *
+ */
+class SearchableAttributes extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSearchableAttributes';
+	}
+	
+	/**
+	 * A list of searchable attributes associated with an asset structure
+	 * @return array
+	 */
+	 getItems() {
+	 	return this.items;
+	 }
+	
+	/**
+	 * @param items array A list of searchable attributes associated with an asset structure
+	 */
+	 setItems(items) {
+	 	this.items = items;
+	 }
+}
+module.exports.SearchableAttributes = SearchableAttributes;
+
+/**
+ *
+ */
+class FilteringCondition extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaFilteringCondition';
+	}
+	
+	/**
+	 * The name of the metadata attribute to apply the filtering condition on
+	 * @return string
+	 */
+	 getMetaName() {
+	 	return this.metaName;
+	 }
+	
+	/**
+	 * @param metaName string The name of the metadata attribute to apply the filtering condition on
+	 */
+	 setMetaName(metaName) {
+	 	this.metaName = metaName;
+	 }
+	
+	/**
+	 * The operator defining how the value should be compared (e.g., Equal, NotEqual)
+	 * @return string
+	 */
+	 getOperator() {
+	 	return this.operator;
+	 }
+	
+	/**
+	 * @param operator string The operator defining how the value should be compared (e.g., Equal, NotEqual)
+	 */
+	 setOperator(operator) {
+	 	this.operator = operator;
+	 }
+	
+	/**
+	 * The value to compare against the metadata attribute using the specified operator
+	 * @return string
+	 */
+	 getValue() {
+	 	return this.value;
+	 }
+	
+	/**
+	 * @param value string The value to compare against the metadata attribute using the specified operator
+	 */
+	 setValue(value) {
+	 	this.value = value;
+	 }
+}
+module.exports.FilteringCondition = FilteringCondition;
+
+/**
+ *
+ */
 class NetworkActionStatus extends kaltura.BaseObject{
 	
 	constructor(object = null) {

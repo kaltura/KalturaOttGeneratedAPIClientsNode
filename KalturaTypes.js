@@ -416,6 +416,11 @@ SINGLE : 'Single',
 GROUP : 'Group',
 };
 
+module.exports.ConditionOperator = {
+EQUAL : 'Equal',
+NOTEQUAL : 'NotEqual',
+};
+
 module.exports.ConfigurationGroupDeviceOrderBy = {
 NONE : 'NONE',
 };

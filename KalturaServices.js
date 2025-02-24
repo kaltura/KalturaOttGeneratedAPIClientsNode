@@ -233,6 +233,7 @@ module.exports.assetComment = assetComment;
  * @action list Returns media or EPG assets. Filters by media identifiers or by EPG internal or external identifier.
  * @action listPersonalSelection Returns recent selected assets.
  * @action removeMetasAndTags remove metas and tags from asset.
+ * @action semanticSearch This API provides search capabilities for assets using semantic similarity based on the provided query.
  * @action update update an existing asset.
  * For metas of type bool-&gt; use kalturaBoolValue, type number-&gt; KalturaDoubleValue, type date -&gt; KalturaLongValue, type string -&gt; KalturaStringValue.
  * @action watchBasedRecommendationsList Return list of assets - assets are personal recommendations for the caller.
@@ -412,6 +413,21 @@ class asset{
 		kparams.assetReferenceType = assetReferenceType;
 		kparams.idIn = idIn;
 		return new kaltura.RequestBuilder('asset', 'removeMetasAndTags', kparams);
+	};
+	
+	/**
+	 * This API provides search capabilities for assets using semantic similarity based on the provided query.
+	 * @param query string The search query text used to find semantically similar assets
+	 * @param refineQuery bool When true, the search query is refined using LLM before vector search (optional, default: false)
+	 * @param size int The maximum number of results to return. Must be between 1 and 100 (optional, default: 10)
+	 * @return KalturaAssetListResponse
+	 */
+	static semanticSearch(query, refineQuery = false, size = 10){
+		let kparams = {};
+		kparams.query = query;
+		kparams.refineQuery = refineQuery;
+		kparams.size = size;
+		return new kaltura.RequestBuilder('asset', 'semanticSearch', kparams);
 	};
 	
 	/**
@@ -7325,6 +7341,61 @@ class segmentationType{
 	};
 }
 module.exports.segmentationType = segmentationType;
+
+
+/**
+ *Class definition for the Kaltura service: semanticAssetSearchPartnerConfig.
+ * The available service actions:
+ * @action getFilteringCondition Retrieves the filtering condition applied to asset searches.
+ * @action getSearchableAttributes Retrieves the searchable attributes associated with a specific asset structure.
+ * @action upsertFilteringCondition Adds or updates a filtering condition for asset searches.
+ * @action upsertSearchableAttributes Adds or updates searchable attributes for a given asset.
+ */
+class semanticAssetSearchPartnerConfig{
+	
+	/**
+	 * Retrieves the filtering condition applied to asset searches.
+	 * @return KalturaFilteringCondition
+	 */
+	static getFilteringCondition(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('semanticassetsearchpartnerconfig', 'getFilteringCondition', kparams);
+	};
+	
+	/**
+	 * Retrieves the searchable attributes associated with a specific asset structure.
+	 * @param assetStructId string The unique identifier of the asset structure
+	 * @return KalturaSearchableAttributes
+	 */
+	static getSearchableAttributes(assetStructId){
+		let kparams = {};
+		kparams.assetStructId = assetStructId;
+		return new kaltura.RequestBuilder('semanticassetsearchpartnerconfig', 'getSearchableAttributes', kparams);
+	};
+	
+	/**
+	 * Adds or updates a filtering condition for asset searches.
+	 * @param filteringCondition FilteringCondition The filtering condition to be applied to asset searches
+	 * @return KalturaFilteringCondition
+	 */
+	static upsertFilteringCondition(filteringCondition){
+		let kparams = {};
+		kparams.filteringCondition = filteringCondition;
+		return new kaltura.RequestBuilder('semanticassetsearchpartnerconfig', 'upsertFilteringCondition', kparams);
+	};
+	
+	/**
+	 * Adds or updates searchable attributes for a given asset.
+	 * @param attributes SearchableAttributes The searchable attributes to be added or updated
+	 * @return KalturaSearchableAttributes
+	 */
+	static upsertSearchableAttributes(attributes){
+		let kparams = {};
+		kparams.attributes = attributes;
+		return new kaltura.RequestBuilder('semanticassetsearchpartnerconfig', 'upsertSearchableAttributes', kparams);
+	};
+}
+module.exports.semanticAssetSearchPartnerConfig = semanticAssetSearchPartnerConfig;
 
 
 /**
