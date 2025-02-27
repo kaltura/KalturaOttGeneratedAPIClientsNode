@@ -709,6 +709,7 @@ NONE : 'NONE',
 module.exports.ImageStatus = {
 PENDING : 'PENDING',
 READY : 'READY',
+FAILED : 'FAILED',
 };
 
 module.exports.ImageTypeOrderBy = {
@@ -1553,10 +1554,6 @@ FAILURE : 'FAILURE',
 EXTERNAL_FAILURE : 'EXTERNAL_FAILURE',
 SUCCESS_WARNING : 'SUCCESS_WARNING',
 SUCCESS : 'SUCCESS',
-};
-
-module.exports.WatchBasedRecommendationsProfileOrderBy = {
-NONE : 'NONE',
 };
 
 module.exports.WatchedAllReturnStrategy = {
