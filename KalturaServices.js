@@ -632,7 +632,7 @@ module.exports.assetPersonalMarkup = assetPersonalMarkup;
  * The available service actions:
  * @action delete Remove asset selection in slot.
  * @action deleteAll Remove asset selection in slot.
- * @action upsert Add or update asset selection in slot.
+ * @action upsert upsert manages asset selections within slots.  It adds a new asset ID if it doesn&#39;t exist, or updates the timestamp if it does.  Slots are limited to 30 unique IDs.  When a slot is full, the oldest entry is removed (FIFO).  Inactive assets are automatically removed after 90 days.
  */
 class assetPersonalSelection{
 	
@@ -661,7 +661,7 @@ class assetPersonalSelection{
 	};
 	
 	/**
-	 * Add or update asset selection in slot.
+	 * upsert manages asset selections within slots.  It adds a new asset ID if it doesn&#39;t exist, or updates the timestamp if it does.  Slots are limited to 30 unique IDs.  When a slot is full, the oldest entry is removed (FIFO).  Inactive assets are automatically removed after 90 days.
 	 * @param assetId int asset id
 	 * @param assetType string asset type: media/epg (enum: KalturaAssetType)
 	 * @param slotNumber int slot number
