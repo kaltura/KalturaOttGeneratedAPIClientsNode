@@ -632,7 +632,7 @@ module.exports.assetPersonalMarkup = assetPersonalMarkup;
  * The available service actions:
  * @action delete Remove asset selection in slot.
  * @action deleteAll Remove asset selection in slot.
- * @action upsert Add or update asset selection in slot.
+ * @action upsert upsert manages asset selections within slots.  It adds a new asset ID if it doesn&#39;t exist, or updates the timestamp if it does.  Slots are limited to 30 unique IDs.  When a slot is full, the oldest entry is removed (FIFO).  Inactive assets are automatically removed after 90 days.
  */
 class assetPersonalSelection{
 	
@@ -661,7 +661,7 @@ class assetPersonalSelection{
 	};
 	
 	/**
-	 * Add or update asset selection in slot.
+	 * upsert manages asset selections within slots.  It adds a new asset ID if it doesn&#39;t exist, or updates the timestamp if it does.  Slots are limited to 30 unique IDs.  When a slot is full, the oldest entry is removed (FIFO).  Inactive assets are automatically removed after 90 days.
 	 * @param assetId int asset id
 	 * @param assetType string asset type: media/epg (enum: KalturaAssetType)
 	 * @param slotNumber int slot number
@@ -8837,6 +8837,29 @@ class userInterest{
 	};
 }
 module.exports.userInterest = userInterest;
+
+
+/**
+ *Class definition for the Kaltura service: userLog.
+ * The available service actions:
+ * @action list Retrieves a list of user log entries matching the specified filter criteria.
+ */
+class userLog{
+	
+	/**
+	 * Retrieves a list of user log entries matching the specified filter criteria.
+	 * @param filter UserLogFilter Filters user logs by user ID(s), message content, and creation date (optional, default: null)
+	 * @param pager FilterPager Specify the requested page (optional, default: null)
+	 * @return KalturaUserLogListResponse
+	 */
+	static listAction(filter = null, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('userlog', 'list', kparams);
+	};
+}
+module.exports.userLog = userLog;
 
 
 /**

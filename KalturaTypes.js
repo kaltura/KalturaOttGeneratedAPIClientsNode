@@ -1513,6 +1513,10 @@ PURCHASE : 'purchase',
 LIBRARY : 'library',
 };
 
+module.exports.UserLogOrderBy = {
+NONE : 'NONE',
+};
+
 module.exports.UserRoleOrderBy = {
 NONE : 'NONE',
 };

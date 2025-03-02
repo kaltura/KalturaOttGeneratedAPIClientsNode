@@ -3064,6 +3064,69 @@ module.exports.VodIngestAssetResultFilter = VodIngestAssetResultFilter;
 /**
  *
  */
+class UserLogFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUserLogFilter';
+	}
+	
+	/**
+	 * A comma-separated list of up to 15 positive integer user IDs (greater than zero) used to filter log entries. An empty list is not permitted;
+ * Valid IDs: Only log entries associated with valid, existing user IDs are returned;
+ * Invalid IDs: Specifying a non-existent user ID will result in no log entries being returned for that specific ID;
+ * Users: Log entries associated with a deleted user will be returned unless the log entry itself has also been deleted;
+	 * @return string
+	 */
+	 getUserIdIn() {
+	 	return this.userIdIn;
+	 }
+	
+	/**
+	 * @param userIdIn string A comma-separated list of up to 15 positive integer user IDs (greater than zero) used to filter log entries. An empty list is not permitted;
+ * Valid IDs: Only log entries associated with valid, existing user IDs are returned;
+ * Invalid IDs: Specifying a non-existent user ID will result in no log entries being returned for that specific ID;
+ * Users: Log entries associated with a deleted user will be returned unless the log entry itself has also been deleted;
+	 */
+	 setUserIdIn(userIdIn) {
+	 	this.userIdIn = userIdIn;
+	 }
+	
+	/**
+	 * The start date for filtering (Epoch format). Only logs created on or after this date are returned. If omitted, no start date filter is applied
+	 * @return int
+	 */
+	 getStartDate() {
+	 	return this.startDate;
+	 }
+	
+	/**
+	 * @param startDate int The start date for filtering (Epoch format). Only logs created on or after this date are returned. If omitted, no start date filter is applied
+	 */
+	 setStartDate(startDate) {
+	 	this.startDate = startDate;
+	 }
+	
+	/**
+	 * The end date for filtering (Epoch format). Only logs created on or before this date are returned. If omitted, no end date filter is applied
+	 * @return int
+	 */
+	 getEndDate() {
+	 	return this.endDate;
+	 }
+	
+	/**
+	 * @param endDate int The end date for filtering (Epoch format). Only logs created on or before this date are returned. If omitted, no end date filter is applied
+	 */
+	 setEndDate(endDate) {
+	 	this.endDate = endDate;
+	 }
+}
+module.exports.UserLogFilter = UserLogFilter;
+
+/**
+ *
+ */
 class AggregationCountFilter extends RelatedObjectFilter{
 	
 	constructor(object = null) {
@@ -6626,7 +6689,7 @@ class PersonalAssetSelectionFilter extends Filter{
 	}
 	
 	/**
-	 * selected assets for specific slot number
+	 * Filters the results of asset.listPersonalSelection by slot number.  Takes a slot number as input and returns only those assets from the personal selection that are assigned to that slot
 	 * @return int
 	 */
 	 getSlotNumberEqual() {
@@ -6634,7 +6697,7 @@ class PersonalAssetSelectionFilter extends Filter{
 	 }
 	
 	/**
-	 * @param slotNumberEqual int selected assets for specific slot number
+	 * @param slotNumberEqual int Filters the results of asset.listPersonalSelection by slot number.  Takes a slot number as input and returns only those assets from the personal selection that are assigned to that slot
 	 */
 	 setSlotNumberEqual(slotNumberEqual) {
 	 	this.slotNumberEqual = slotNumberEqual;
@@ -24903,6 +24966,77 @@ class IngestStatusEpgProgramResultListResponse extends ListResponse{
 	 }
 }
 module.exports.IngestStatusEpgProgramResultListResponse = IngestStatusEpgProgramResultListResponse;
+
+/**
+ *
+ */
+class UserLog extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUserLog';
+	}
+	
+	/**
+	 * UserLog entry unique identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * The log created date in epoch
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * A valid user unique identifier
+	 * @return int
+	 */
+	 getUserId() {
+	 	return this.userId;
+	 }
+	
+	/**
+	 * Log message
+	 * @return string
+	 */
+	 getMessage() {
+	 	return this.message;
+	 }
+}
+module.exports.UserLog = UserLog;
+
+/**
+ *
+ */
+class UserLogListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUserLogListResponse';
+	}
+	
+	/**
+	 * KalturaUserLog list response
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array KalturaUserLog list response
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.UserLogListResponse = UserLogListResponse;
 
 /**
  *
