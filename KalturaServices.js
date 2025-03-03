@@ -28,6 +28,87 @@
 const kaltura = require('./KalturaClientBase');
 
 /**
+ *Class definition for the Kaltura service: aiMetadataGenerator.
+ * The available service actions:
+ * @action generateMetadataBySubtitles Initiate the the process of metadata generation based on the subtitles file.
+ * @action getGeneratedMetadata retrieve the generated metadata.
+ * @action getGenerateMetadataJob retrieve the status of the metadata generation job, identified by the subtitles file ID.
+ * @action getMetadataFieldDefinitions Get metadata mapping structure and available generated metadata fields.
+ * @action getPartnerConfiguration retrieve feature configuration.
+ * @action updatePartnerConfiguration update feature configuration.
+ */
+class aiMetadataGenerator{
+	
+	/**
+	 * Initiate the the process of metadata generation based on the subtitles file.
+	 * @param subtitlesFileId int The subtitles file ID returned when uploaded the subtitles file by the subtitles service.
+ * Represents also the job ID used by the generate metadata process
+	 * @param externalAssetIds array A list of external asset IDs to be populated with the generated metadata
+ * Must be a valid existing KalturaLanguage systemName.\nIf not provided then the subtitles language will be used (optional, default: null)
+	 * @return KalturaGenerateMetadataBySubtitlesJob
+	 */
+	static generateMetadataBySubtitles(subtitlesFileId, externalAssetIds = null){
+		let kparams = {};
+		kparams.subtitlesFileId = subtitlesFileId;
+		kparams.externalAssetIds = externalAssetIds;
+		return new kaltura.RequestBuilder('aimetadatagenerator', 'generateMetadataBySubtitles', kparams);
+	};
+	
+	/**
+	 * retrieve the generated metadata.
+	 * @param jobId int The job ID (equals the subtitles file ID returned by the subtitles.uploadFile service)
+	 * @return KalturaGenerateMetadataResult
+	 */
+	static getGeneratedMetadata(jobId){
+		let kparams = {};
+		kparams.jobId = jobId;
+		return new kaltura.RequestBuilder('aimetadatagenerator', 'getGeneratedMetadata', kparams);
+	};
+	
+	/**
+	 * retrieve the status of the metadata generation job, identified by the subtitles file ID.
+	 * @param id int The file (job) ID as received from subtitles.uploadFile response"
+	 * @return KalturaGenerateMetadataBySubtitlesJob
+	 */
+	static getGenerateMetadataJob(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('aimetadatagenerator', 'getGenerateMetadataJob', kparams);
+	};
+	
+	/**
+	 * Get metadata mapping structure and available generated metadata fields.
+	 * @return KalturaMetaFieldNameMap
+	 */
+	static getMetadataFieldDefinitions(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('aimetadatagenerator', 'getMetadataFieldDefinitions', kparams);
+	};
+	
+	/**
+	 * retrieve feature configuration.
+	 * @return KalturaAiMetadataGeneratorConfiguration
+	 */
+	static getPartnerConfiguration(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('aimetadatagenerator', 'getPartnerConfiguration', kparams);
+	};
+	
+	/**
+	 * update feature configuration.
+	 * @param configuration AiMetadataGeneratorConfiguration the partner configuration to be set
+	 * @return KalturaAiMetadataGeneratorConfiguration
+	 */
+	static updatePartnerConfiguration(configuration){
+		let kparams = {};
+		kparams.configuration = configuration;
+		return new kaltura.RequestBuilder('aimetadatagenerator', 'updatePartnerConfiguration', kparams);
+	};
+}
+module.exports.aiMetadataGenerator = aiMetadataGenerator;
+
+
+/**
  *Class definition for the Kaltura service: announcement.
  * The available service actions:
  * @action add Add a new future scheduled system announcement push notification.
@@ -8045,6 +8126,56 @@ class subscriptionSet{
 	};
 }
 module.exports.subscriptionSet = subscriptionSet;
+
+
+/**
+ *Class definition for the Kaltura service: subtitles.
+ * The available service actions:
+ * @action get Return a subtitles file.
+ * @action list Return a list of available subtitles files.
+ * @action uploadFile Upload a subtitles file for a later analysis.
+ */
+class subtitles{
+	
+	/**
+	 * Return a subtitles file.
+	 * @param id int A subtitles file ID to be retrieved
+	 * @return KalturaSubtitles
+	 */
+	static get(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('subtitles', 'get', kparams);
+	};
+	
+	/**
+	 * Return a list of available subtitles files.
+	 * @param filter SubtitlesFilter Filter
+	 * @param pager FilterPager Pager
+	 * @return KalturaSubtitlesListResponse
+	 */
+	static listAction(filter, pager){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('subtitles', 'list', kparams);
+	};
+	
+	/**
+	 * Upload a subtitles file for a later analysis.
+	 * @param subtitles Subtitles Subtitle metadata
+	 * @param fileData file The subtitles text file to upload. Must be in UTF-8 encoding
+	 * @return KalturaSubtitles
+	 */
+	static uploadFile(subtitles, fileData){
+		let kparams = {};
+		kparams.subtitles = subtitles;
+		let kfiles = {};
+		kfiles.fileData = fileData;
+		return new kaltura.RequestBuilder('subtitles', 'uploadFile', kparams, kfiles);
+	};
+}
+module.exports.subtitles = subtitles;
 
 
 /**
