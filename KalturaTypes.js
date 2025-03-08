@@ -1421,12 +1421,6 @@ START_DATE : 'START_DATE',
 END_DATE : 'END_DATE',
 };
 
-module.exports.SubtitlesType = {
-TEXT : 'Text',
-SRT : 'SRT',
-WEBVTT : 'WebVTT',
-};
-
 module.exports.SuspensionProfileInheritanceType = {
 ALWAYS : 'ALWAYS',
 NEVER : 'NEVER',

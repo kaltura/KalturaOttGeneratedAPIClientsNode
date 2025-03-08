@@ -30,7 +30,7 @@ const kaltura = require('./KalturaClientBase');
 /**
  *Class definition for the Kaltura service: aiMetadataGenerator.
  * The available service actions:
- * @action generateMetadataBySubtitles initiate the the process of metadata generation based on the subtitles file.
+ * @action generateMetadataBySubtitles Initiate the the process of metadata generation based on the subtitles file.
  * @action getGeneratedMetadata retrieve the generated metadata.
  * @action getGenerateMetadataJob retrieve the status of the metadata generation job, identified by the subtitles file ID.
  * @action getMetadataFieldDefinitions Get metadata mapping structure and available generated metadata fields.
@@ -40,13 +40,14 @@ const kaltura = require('./KalturaClientBase');
 class aiMetadataGenerator{
 	
 	/**
-	 * initiate the the process of metadata generation based on the subtitles file.
-	 * @param subtitlesFileId int he subtitles file ID returned when uploaded the subtitles file by the subtitles service.
+	 * Initiate the the process of metadata generation based on the subtitles file.
+	 * @param subtitlesFileId int The subtitles file ID returned when uploaded the subtitles file by the subtitles service.
  * Represents also the job ID used by the generate metadata process
 	 * @param externalAssetIds array A list of external asset IDs to be populated with the generated metadata
+ * Must be a valid existing KalturaLanguage systemName.\nIf not provided then the subtitles language will be used (optional, default: null)
 	 * @return KalturaGenerateMetadataBySubtitlesJob
 	 */
-	static generateMetadataBySubtitles(subtitlesFileId, externalAssetIds){
+	static generateMetadataBySubtitles(subtitlesFileId, externalAssetIds = null){
 		let kparams = {};
 		kparams.subtitlesFileId = subtitlesFileId;
 		kparams.externalAssetIds = externalAssetIds;

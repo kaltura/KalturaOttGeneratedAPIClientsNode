@@ -18283,21 +18283,6 @@ class Subtitles extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Mandatory. The type of the subtitles file. Supported - Text, SRT, WebVTT
-	 * @return string
-	 */
-	 getType() {
-	 	return this.type;
-	 }
-	
-	/**
-	 * @param type string Mandatory. The type of the subtitles file. Supported - Text, SRT, WebVTT
-	 */
-	 setType(type) {
-	 	this.type = type;
-	 }
-	
-	/**
 	 * Mandatory. The language in which the subtitles are written.
  * It is used in the LLM prompt to inform it what is the language it needs to analyze
 	 * @return string
