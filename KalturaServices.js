@@ -8131,39 +8131,13 @@ module.exports.subscriptionSet = subscriptionSet;
 /**
  *Class definition for the Kaltura service: subtitles.
  * The available service actions:
- * @action get Return a subtitles file.
- * @action list Return a list of available subtitles files.
  * @action uploadFile Upload a subtitles file for a later analysis.
  */
 class subtitles{
 	
 	/**
-	 * Return a subtitles file.
-	 * @param id int A subtitles file ID to be retrieved
-	 * @return KalturaSubtitles
-	 */
-	static get(id){
-		let kparams = {};
-		kparams.id = id;
-		return new kaltura.RequestBuilder('subtitles', 'get', kparams);
-	};
-	
-	/**
-	 * Return a list of available subtitles files.
-	 * @param filter SubtitlesFilter Filter
-	 * @param pager FilterPager Pager
-	 * @return KalturaSubtitlesListResponse
-	 */
-	static listAction(filter, pager){
-		let kparams = {};
-		kparams.filter = filter;
-		kparams.pager = pager;
-		return new kaltura.RequestBuilder('subtitles', 'list', kparams);
-	};
-	
-	/**
 	 * Upload a subtitles file for a later analysis.
-	 * @param subtitles Subtitles Subtitle metadata
+	 * @param subtitles UploadSubtitles Subtitle metadata
 	 * @param fileData file The subtitles text file to upload. Must be in UTF-8 encoding
 	 * @return KalturaSubtitles
 	 */

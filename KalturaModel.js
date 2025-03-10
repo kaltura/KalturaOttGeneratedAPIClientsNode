@@ -18283,20 +18283,35 @@ class Subtitles extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Mandatory. The language in which the subtitles are written.
- * It is used in the LLM prompt to inform it what is the language it needs to analyze
+	 * Mandatory. The detected type of the subtitles file. Supported - Text, SRT, WebVTT
 	 * @return string
 	 */
-	 getLanguage() {
-	 	return this.language;
+	 getDetectedType() {
+	 	return this.detectedType;
 	 }
 	
 	/**
-	 * @param language string Mandatory. The language in which the subtitles are written.
- * It is used in the LLM prompt to inform it what is the language it needs to analyze
+	 * @param detectedType string Mandatory. The detected type of the subtitles file. Supported - Text, SRT, WebVTT
 	 */
-	 setLanguage(language) {
-	 	this.language = language;
+	 setDetectedType(detectedType) {
+	 	this.detectedType = detectedType;
+	 }
+	
+	/**
+	 * Mandatory. The detected language in which the subtitles are written.
+ * It is used in the LLM prompt to inform it what language it needs to analyze
+	 * @return string
+	 */
+	 getDetectedLanguage() {
+	 	return this.detectedLanguage;
+	 }
+	
+	/**
+	 * @param detectedLanguage string Mandatory. The detected language in which the subtitles are written.
+ * It is used in the LLM prompt to inform it what language it needs to analyze
+	 */
+	 setDetectedLanguage(detectedLanguage) {
+	 	this.detectedLanguage = detectedLanguage;
 	 }
 }
 module.exports.Subtitles = Subtitles;
@@ -41448,6 +41463,48 @@ class SSOAdapterProfileInvoke extends kaltura.BaseObject{
 	 }
 }
 module.exports.SSOAdapterProfileInvoke = SSOAdapterProfileInvoke;
+
+/**
+ *
+ */
+class UploadSubtitles extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUploadSubtitles';
+	}
+	
+	/**
+	 * Mandatory. The name that will be associated with the uploaded file
+	 * @return string
+	 */
+	 getFileName() {
+	 	return this.fileName;
+	 }
+	
+	/**
+	 * @param fileName string Mandatory. The name that will be associated with the uploaded file
+	 */
+	 setFileName(fileName) {
+	 	this.fileName = fileName;
+	 }
+	
+	/**
+	 * Mandatory. The content of the subtitles file as a string
+	 * @return string
+	 */
+	 getContent() {
+	 	return this.content;
+	 }
+	
+	/**
+	 * @param content string Mandatory. The content of the subtitles file as a string
+	 */
+	 setContent(content) {
+	 	this.content = content;
+	 }
+}
+module.exports.UploadSubtitles = UploadSubtitles;
 
 /**
  *
