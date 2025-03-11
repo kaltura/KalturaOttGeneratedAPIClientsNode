@@ -1514,7 +1514,7 @@ LIBRARY : 'library',
 };
 
 module.exports.UserLogOrderBy = {
-NONE : 'NONE',
+CREATE_DATE_DESC : 'CREATE_DATE_DESC',
 };
 
 module.exports.UserRoleOrderBy = {
