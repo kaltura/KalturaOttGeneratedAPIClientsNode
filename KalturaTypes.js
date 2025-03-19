@@ -613,6 +613,14 @@ START_DATE_DESC : 'START_DATE_DESC',
 START_DATE_ASC : 'START_DATE_ASC',
 };
 
+module.exports.GenerateMetadataStatus = {
+PROCESSING : 'Processing',
+PARTIALSUCCESS : 'PartialSuccess',
+SUCCESSPENDINGASSETS : 'SuccessPendingAssets',
+SUCCESS : 'Success',
+FAILED : 'Failed',
+};
+
 module.exports.GroupByField = {
 MEDIA_TYPE_ID : 'media_type_id',
 SUPPRESSED : 'suppressed',
@@ -1411,6 +1419,12 @@ DEPENDENCY : 'DEPENDENCY',
 module.exports.SubscriptionTriggerType = {
 START_DATE : 'START_DATE',
 END_DATE : 'END_DATE',
+};
+
+module.exports.SubtitlesType = {
+TEXT : 'Text',
+SRT : 'SRT',
+WEBVTT : 'WebVTT',
 };
 
 module.exports.SuspensionProfileInheritanceType = {
