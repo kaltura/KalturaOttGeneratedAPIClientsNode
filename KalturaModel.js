@@ -18298,20 +18298,20 @@ class Subtitles extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Mandatory. The detected language in which the subtitles are written.
+	 * Mandatory. The language in which the subtitles are written.
  * It is used in the LLM prompt to inform it what language it needs to analyze
 	 * @return string
 	 */
-	 getDetectedLanguage() {
-	 	return this.detectedLanguage;
+	 getLanguage() {
+	 	return this.language;
 	 }
 	
 	/**
-	 * @param detectedLanguage string Mandatory. The detected language in which the subtitles are written.
+	 * @param language string Mandatory. The language in which the subtitles are written.
  * It is used in the LLM prompt to inform it what language it needs to analyze
 	 */
-	 setDetectedLanguage(detectedLanguage) {
-	 	this.detectedLanguage = detectedLanguage;
+	 setLanguage(language) {
+	 	this.language = language;
 	 }
 }
 module.exports.Subtitles = Subtitles;
@@ -41487,6 +41487,23 @@ class UploadSubtitles extends kaltura.BaseObject{
 	 */
 	 setFileName(fileName) {
 	 	this.fileName = fileName;
+	 }
+	
+	/**
+	 * Mandatory. The language in which the subtitles are written.
+ * It is used in the LLM prompt to inform it what language it needs to analyze
+	 * @return string
+	 */
+	 getLanguage() {
+	 	return this.language;
+	 }
+	
+	/**
+	 * @param language string Mandatory. The language in which the subtitles are written.
+ * It is used in the LLM prompt to inform it what language it needs to analyze
+	 */
+	 setLanguage(language) {
+	 	this.language = language;
 	 }
 }
 module.exports.UploadSubtitles = UploadSubtitles;
