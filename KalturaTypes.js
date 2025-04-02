@@ -416,6 +416,11 @@ SINGLE : 'Single',
 GROUP : 'Group',
 };
 
+module.exports.ConditionOperator = {
+EQUAL : 'Equal',
+NOTEQUAL : 'NotEqual',
+};
+
 module.exports.ConfigurationGroupDeviceOrderBy = {
 NONE : 'NONE',
 };
@@ -1525,6 +1530,10 @@ ALL : 'all',
 WATCH : 'watch',
 PURCHASE : 'purchase',
 LIBRARY : 'library',
+};
+
+module.exports.UserLogOrderBy = {
+CREATE_DATE_DESC : 'CREATE_DATE_DESC',
 };
 
 module.exports.UserRoleOrderBy = {

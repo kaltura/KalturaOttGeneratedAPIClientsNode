@@ -3106,6 +3106,69 @@ module.exports.VodIngestAssetResultFilter = VodIngestAssetResultFilter;
 /**
  *
  */
+class UserLogFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUserLogFilter';
+	}
+	
+	/**
+	 * A comma-separated list of up to 15 positive integer user IDs (greater than zero) used to filter log entries. An empty list is not permitted;
+ * Valid IDs: Only log entries associated with valid, existing user IDs are returned;
+ * Invalid IDs: Specifying a non-existent user ID will result in no log entries being returned for that specific ID;
+ * Users: Log entries associated with a deleted user will be returned unless the log entry itself has also been deleted;
+	 * @return string
+	 */
+	 getUserIdIn() {
+	 	return this.userIdIn;
+	 }
+	
+	/**
+	 * @param userIdIn string A comma-separated list of up to 15 positive integer user IDs (greater than zero) used to filter log entries. An empty list is not permitted;
+ * Valid IDs: Only log entries associated with valid, existing user IDs are returned;
+ * Invalid IDs: Specifying a non-existent user ID will result in no log entries being returned for that specific ID;
+ * Users: Log entries associated with a deleted user will be returned unless the log entry itself has also been deleted;
+	 */
+	 setUserIdIn(userIdIn) {
+	 	this.userIdIn = userIdIn;
+	 }
+	
+	/**
+	 * The start date for filtering (Epoch format). Only logs created on or after this date are returned. If omitted, no start date filter is applied
+	 * @return int
+	 */
+	 getStartDate() {
+	 	return this.startDate;
+	 }
+	
+	/**
+	 * @param startDate int The start date for filtering (Epoch format). Only logs created on or after this date are returned. If omitted, no start date filter is applied
+	 */
+	 setStartDate(startDate) {
+	 	this.startDate = startDate;
+	 }
+	
+	/**
+	 * The end date for filtering (Epoch format). Only logs created on or before this date are returned. If omitted, no end date filter is applied
+	 * @return int
+	 */
+	 getEndDate() {
+	 	return this.endDate;
+	 }
+	
+	/**
+	 * @param endDate int The end date for filtering (Epoch format). Only logs created on or before this date are returned. If omitted, no end date filter is applied
+	 */
+	 setEndDate(endDate) {
+	 	this.endDate = endDate;
+	 }
+}
+module.exports.UserLogFilter = UserLogFilter;
+
+/**
+ *
+ */
 class AggregationCountFilter extends RelatedObjectFilter{
 	
 	constructor(object = null) {
@@ -25331,6 +25394,77 @@ module.exports.IngestStatusEpgProgramResultListResponse = IngestStatusEpgProgram
 /**
  *
  */
+class UserLog extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUserLog';
+	}
+	
+	/**
+	 * UserLog entry unique identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * The log created date in epoch
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * A valid user unique identifier
+	 * @return int
+	 */
+	 getUserId() {
+	 	return this.userId;
+	 }
+	
+	/**
+	 * Log message
+	 * @return string
+	 */
+	 getMessage() {
+	 	return this.message;
+	 }
+}
+module.exports.UserLog = UserLog;
+
+/**
+ *
+ */
+class UserLogListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUserLogListResponse';
+	}
+	
+	/**
+	 * KalturaUserLog list response
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array KalturaUserLog list response
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.UserLogListResponse = UserLogListResponse;
+
+/**
+ *
+ */
 class DurationListResponse extends ListResponse{
 	
 	constructor(object = null) {
@@ -41015,6 +41149,132 @@ class SegmentationPartnerConfiguration extends kaltura.BaseObject{
 	 }
 }
 module.exports.SegmentationPartnerConfiguration = SegmentationPartnerConfiguration;
+
+/**
+ *
+ */
+class SearchableAttribute extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSearchableAttribute';
+	}
+	
+	/**
+	 * The unique identifier for the asset structure associated with the searchable attribute
+	 * @return int
+	 */
+	 getAssetStructId() {
+	 	return this.assetStructId;
+	 }
+	
+	/**
+	 * @param assetStructId int The unique identifier for the asset structure associated with the searchable attribute
+	 */
+	 setAssetStructId(assetStructId) {
+	 	this.assetStructId = assetStructId;
+	 }
+	
+	/**
+	 * The specific attributes that define the searchable aspect of the asset
+	 * @return string
+	 */
+	 getAttributes() {
+	 	return this.attributes;
+	 }
+	
+	/**
+	 * @param attributes string The specific attributes that define the searchable aspect of the asset
+	 */
+	 setAttributes(attributes) {
+	 	this.attributes = attributes;
+	 }
+}
+module.exports.SearchableAttribute = SearchableAttribute;
+
+/**
+ *
+ */
+class SearchableAttributes extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSearchableAttributes';
+	}
+	
+	/**
+	 * A list of searchable attributes associated with an asset structure
+	 * @return array
+	 */
+	 getItems() {
+	 	return this.items;
+	 }
+	
+	/**
+	 * @param items array A list of searchable attributes associated with an asset structure
+	 */
+	 setItems(items) {
+	 	this.items = items;
+	 }
+}
+module.exports.SearchableAttributes = SearchableAttributes;
+
+/**
+ *
+ */
+class FilteringCondition extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaFilteringCondition';
+	}
+	
+	/**
+	 * The name of the metadata attribute to apply the filtering condition on
+	 * @return string
+	 */
+	 getMetaName() {
+	 	return this.metaName;
+	 }
+	
+	/**
+	 * @param metaName string The name of the metadata attribute to apply the filtering condition on
+	 */
+	 setMetaName(metaName) {
+	 	this.metaName = metaName;
+	 }
+	
+	/**
+	 * The operator defining how the value should be compared (e.g., Equal, NotEqual)
+	 * @return string
+	 */
+	 getOperator() {
+	 	return this.operator;
+	 }
+	
+	/**
+	 * @param operator string The operator defining how the value should be compared (e.g., Equal, NotEqual)
+	 */
+	 setOperator(operator) {
+	 	this.operator = operator;
+	 }
+	
+	/**
+	 * The value to compare against the metadata attribute using the specified operator
+	 * @return string
+	 */
+	 getValue() {
+	 	return this.value;
+	 }
+	
+	/**
+	 * @param value string The value to compare against the metadata attribute using the specified operator
+	 */
+	 setValue(value) {
+	 	this.value = value;
+	 }
+}
+module.exports.FilteringCondition = FilteringCondition;
 
 /**
  *
