@@ -416,6 +416,11 @@ SINGLE : 'Single',
 GROUP : 'Group',
 };
 
+module.exports.ConditionOperator = {
+EQUAL : 'Equal',
+NOTEQUAL : 'NotEqual',
+};
+
 module.exports.ConfigurationGroupDeviceOrderBy = {
 NONE : 'NONE',
 };
@@ -611,6 +616,14 @@ CREATE_DATE_DESC : 'CREATE_DATE_DESC',
 module.exports.FollowTvSeriesOrderBy = {
 START_DATE_DESC : 'START_DATE_DESC',
 START_DATE_ASC : 'START_DATE_ASC',
+};
+
+module.exports.GenerateMetadataStatus = {
+PROCESSING : 'Processing',
+PARTIALSUCCESS : 'PartialSuccess',
+SUCCESSPENDINGASSETS : 'SuccessPendingAssets',
+SUCCESS : 'Success',
+FAILED : 'Failed',
 };
 
 module.exports.GroupByField = {
@@ -1413,6 +1426,12 @@ START_DATE : 'START_DATE',
 END_DATE : 'END_DATE',
 };
 
+module.exports.SubtitlesType = {
+TEXT : 'Text',
+SRT : 'SRT',
+WEBVTT : 'WebVTT',
+};
+
 module.exports.SuspensionProfileInheritanceType = {
 ALWAYS : 'ALWAYS',
 NEVER : 'NEVER',
@@ -1511,6 +1530,10 @@ ALL : 'all',
 WATCH : 'watch',
 PURCHASE : 'purchase',
 LIBRARY : 'library',
+};
+
+module.exports.UserLogOrderBy = {
+CREATE_DATE_DESC : 'CREATE_DATE_DESC',
 };
 
 module.exports.UserRoleOrderBy = {
