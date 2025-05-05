@@ -7483,8 +7483,6 @@ module.exports.semanticAssetSearchPartnerConfig = semanticAssetSearchPartnerConf
  *Class definition for the Kaltura service: semanticQuery.
  * The available service actions:
  * @action generate Generates semantic queries based on the input query.
- * @action getPartnerConfiguration Retrieves the current partner configuration for semantic query.
- * @action updatePartnerConfiguration Updates the partner configuration for semantic query.
  */
 class semanticQuery{
 	
@@ -7498,14 +7496,25 @@ class semanticQuery{
 		kparams.query = query;
 		return new kaltura.RequestBuilder('semanticquery', 'generate', kparams);
 	};
+}
+module.exports.semanticQuery = semanticQuery;
+
+
+/**
+ *Class definition for the Kaltura service: semanticQueryPartnerConfiguration.
+ * The available service actions:
+ * @action get Retrieves the current partner configuration for semantic query.
+ * @action update Updates the partner configuration for semantic query.
+ */
+class semanticQueryPartnerConfiguration{
 	
 	/**
 	 * Retrieves the current partner configuration for semantic query.
 	 * @return KalturaSemanticQueryPartnerConfiguration
 	 */
-	static getPartnerConfiguration(){
+	static get(){
 		let kparams = {};
-		return new kaltura.RequestBuilder('semanticquery', 'getPartnerConfiguration', kparams);
+		return new kaltura.RequestBuilder('semanticquerypartnerconfiguration', 'get', kparams);
 	};
 	
 	/**
@@ -7513,13 +7522,13 @@ class semanticQuery{
 	 * @param configuration SemanticQueryPartnerConfiguration The configuration parameters for semantic query generation
 	 * @return KalturaSemanticQueryPartnerConfiguration
 	 */
-	static updatePartnerConfiguration(configuration){
+	static update(configuration){
 		let kparams = {};
 		kparams.configuration = configuration;
-		return new kaltura.RequestBuilder('semanticquery', 'updatePartnerConfiguration', kparams);
+		return new kaltura.RequestBuilder('semanticquerypartnerconfiguration', 'update', kparams);
 	};
 }
-module.exports.semanticQuery = semanticQuery;
+module.exports.semanticQueryPartnerConfiguration = semanticQueryPartnerConfiguration;
 
 
 /**
