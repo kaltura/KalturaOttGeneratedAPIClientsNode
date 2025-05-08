@@ -28,6 +28,87 @@
 const kaltura = require('./KalturaClientBase');
 
 /**
+ *Class definition for the Kaltura service: aiMetadataGenerator.
+ * The available service actions:
+ * @action generateMetadataBySubtitles Initiate the the process of metadata generation based on the subtitles file.
+ * @action getGeneratedMetadata retrieve the generated metadata.
+ * @action getGenerateMetadataJob retrieve the status of the metadata generation job, identified by the subtitles file ID.
+ * @action getMetadataFieldDefinitions Get metadata mapping structure and available generated metadata fields.
+ * @action getPartnerConfiguration retrieve feature configuration.
+ * @action updatePartnerConfiguration update feature configuration.
+ */
+class aiMetadataGenerator{
+	
+	/**
+	 * Initiate the the process of metadata generation based on the subtitles file.
+	 * @param subtitlesFileId int The subtitles file ID returned when uploaded the subtitles file by the subtitles service.
+ * Represents also the job ID used by the generate metadata process
+	 * @param externalAssetIds array A list of external asset IDs to be populated with the generated metadata
+ * Must be a valid existing KalturaLanguage systemName.\nIf not provided then the subtitles language will be used (optional, default: null)
+	 * @return KalturaGenerateMetadataBySubtitlesJob
+	 */
+	static generateMetadataBySubtitles(subtitlesFileId, externalAssetIds = null){
+		let kparams = {};
+		kparams.subtitlesFileId = subtitlesFileId;
+		kparams.externalAssetIds = externalAssetIds;
+		return new kaltura.RequestBuilder('aimetadatagenerator', 'generateMetadataBySubtitles', kparams);
+	};
+	
+	/**
+	 * retrieve the generated metadata.
+	 * @param jobId int The job ID (equals the subtitles file ID returned by the subtitles.uploadFile service)
+	 * @return KalturaGenerateMetadataResult
+	 */
+	static getGeneratedMetadata(jobId){
+		let kparams = {};
+		kparams.jobId = jobId;
+		return new kaltura.RequestBuilder('aimetadatagenerator', 'getGeneratedMetadata', kparams);
+	};
+	
+	/**
+	 * retrieve the status of the metadata generation job, identified by the subtitles file ID.
+	 * @param id int The file (job) ID as received from subtitles.uploadFile response"
+	 * @return KalturaGenerateMetadataBySubtitlesJob
+	 */
+	static getGenerateMetadataJob(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('aimetadatagenerator', 'getGenerateMetadataJob', kparams);
+	};
+	
+	/**
+	 * Get metadata mapping structure and available generated metadata fields.
+	 * @return KalturaMetaFieldNameMap
+	 */
+	static getMetadataFieldDefinitions(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('aimetadatagenerator', 'getMetadataFieldDefinitions', kparams);
+	};
+	
+	/**
+	 * retrieve feature configuration.
+	 * @return KalturaAiMetadataGeneratorConfiguration
+	 */
+	static getPartnerConfiguration(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('aimetadatagenerator', 'getPartnerConfiguration', kparams);
+	};
+	
+	/**
+	 * update feature configuration.
+	 * @param configuration AiMetadataGeneratorConfiguration the partner configuration to be set
+	 * @return KalturaAiMetadataGeneratorConfiguration
+	 */
+	static updatePartnerConfiguration(configuration){
+		let kparams = {};
+		kparams.configuration = configuration;
+		return new kaltura.RequestBuilder('aimetadatagenerator', 'updatePartnerConfiguration', kparams);
+	};
+}
+module.exports.aiMetadataGenerator = aiMetadataGenerator;
+
+
+/**
  *Class definition for the Kaltura service: announcement.
  * The available service actions:
  * @action add Add a new future scheduled system announcement push notification.
@@ -233,6 +314,7 @@ module.exports.assetComment = assetComment;
  * @action list Returns media or EPG assets. Filters by media identifiers or by EPG internal or external identifier.
  * @action listPersonalSelection Returns recent selected assets.
  * @action removeMetasAndTags remove metas and tags from asset.
+ * @action semanticSearch This API provides search capabilities for assets using semantic similarity based on the provided query.
  * @action update update an existing asset.
  * For metas of type bool-&gt; use kalturaBoolValue, type number-&gt; KalturaDoubleValue, type date -&gt; KalturaLongValue, type string -&gt; KalturaStringValue.
  * @action watchBasedRecommendationsList Return list of assets - assets are personal recommendations for the caller.
@@ -412,6 +494,21 @@ class asset{
 		kparams.assetReferenceType = assetReferenceType;
 		kparams.idIn = idIn;
 		return new kaltura.RequestBuilder('asset', 'removeMetasAndTags', kparams);
+	};
+	
+	/**
+	 * This API provides search capabilities for assets using semantic similarity based on the provided query.
+	 * @param query string The search query text used to find semantically similar assets
+	 * @param refineQuery bool When true, the search query is refined using LLM before vector search (optional, default: false)
+	 * @param size int The maximum number of results to return. Must be between 1 and 100 (optional, default: 10)
+	 * @return KalturaAssetListResponse
+	 */
+	static semanticSearch(query, refineQuery = false, size = 10){
+		let kparams = {};
+		kparams.query = query;
+		kparams.refineQuery = refineQuery;
+		kparams.size = size;
+		return new kaltura.RequestBuilder('asset', 'semanticSearch', kparams);
 	};
 	
 	/**
@@ -632,7 +729,7 @@ module.exports.assetPersonalMarkup = assetPersonalMarkup;
  * The available service actions:
  * @action delete Remove asset selection in slot.
  * @action deleteAll Remove asset selection in slot.
- * @action upsert Add or update asset selection in slot.
+ * @action upsert upsert manages asset selections within slots.  It adds a new asset ID if it doesn&#39;t exist, or updates the timestamp if it does.  Slots are limited to 30 unique IDs.  When a slot is full, the oldest entry is removed (FIFO).  Inactive assets are automatically removed after 90 days.
  */
 class assetPersonalSelection{
 	
@@ -661,7 +758,7 @@ class assetPersonalSelection{
 	};
 	
 	/**
-	 * Add or update asset selection in slot.
+	 * upsert manages asset selections within slots.  It adds a new asset ID if it doesn&#39;t exist, or updates the timestamp if it does.  Slots are limited to 30 unique IDs.  When a slot is full, the oldest entry is removed (FIFO).  Inactive assets are automatically removed after 90 days.
 	 * @param assetId int asset id
 	 * @param assetType string asset type: media/epg (enum: KalturaAssetType)
 	 * @param slotNumber int slot number
@@ -7328,6 +7425,61 @@ module.exports.segmentationType = segmentationType;
 
 
 /**
+ *Class definition for the Kaltura service: semanticAssetSearchPartnerConfig.
+ * The available service actions:
+ * @action getFilteringCondition Retrieves the filtering condition applied to asset searches.
+ * @action getSearchableAttributes Retrieves the searchable attributes associated with a specific asset structure.
+ * @action upsertFilteringCondition Adds or updates a filtering condition for asset searches.
+ * @action upsertSearchableAttributes Adds or updates searchable attributes for a given asset structure.
+ */
+class semanticAssetSearchPartnerConfig{
+	
+	/**
+	 * Retrieves the filtering condition applied to asset searches.
+	 * @return KalturaFilteringCondition
+	 */
+	static getFilteringCondition(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('semanticassetsearchpartnerconfig', 'getFilteringCondition', kparams);
+	};
+	
+	/**
+	 * Retrieves the searchable attributes associated with a specific asset structure.
+	 * @param assetStructId int The unique identifier of the asset structure
+	 * @return KalturaSearchableAttributes
+	 */
+	static getSearchableAttributes(assetStructId){
+		let kparams = {};
+		kparams.assetStructId = assetStructId;
+		return new kaltura.RequestBuilder('semanticassetsearchpartnerconfig', 'getSearchableAttributes', kparams);
+	};
+	
+	/**
+	 * Adds or updates a filtering condition for asset searches.
+	 * @param filteringCondition FilteringCondition The filtering condition to be applied to asset searches
+	 * @return KalturaFilteringCondition
+	 */
+	static upsertFilteringCondition(filteringCondition){
+		let kparams = {};
+		kparams.filteringCondition = filteringCondition;
+		return new kaltura.RequestBuilder('semanticassetsearchpartnerconfig', 'upsertFilteringCondition', kparams);
+	};
+	
+	/**
+	 * Adds or updates searchable attributes for a given asset structure.
+	 * @param attributes SearchableAttributes The searchable attributes to be added or updated
+	 * @return KalturaSearchableAttributes
+	 */
+	static upsertSearchableAttributes(attributes){
+		let kparams = {};
+		kparams.attributes = attributes;
+		return new kaltura.RequestBuilder('semanticassetsearchpartnerconfig', 'upsertSearchableAttributes', kparams);
+	};
+}
+module.exports.semanticAssetSearchPartnerConfig = semanticAssetSearchPartnerConfig;
+
+
+/**
  *Class definition for the Kaltura service: seriesRecording.
  * The available service actions:
  * @action add Issue a record request for a complete season or series.
@@ -8045,6 +8197,30 @@ class subscriptionSet{
 	};
 }
 module.exports.subscriptionSet = subscriptionSet;
+
+
+/**
+ *Class definition for the Kaltura service: subtitles.
+ * The available service actions:
+ * @action uploadFile Upload a subtitles file for a later analysis.
+ */
+class subtitles{
+	
+	/**
+	 * Upload a subtitles file for a later analysis.
+	 * @param subtitles UploadSubtitles Subtitle metadata
+	 * @param fileData file The subtitles text file to upload. Must be in UTF-8 encoding
+	 * @return KalturaSubtitles
+	 */
+	static uploadFile(subtitles, fileData){
+		let kparams = {};
+		kparams.subtitles = subtitles;
+		let kfiles = {};
+		kfiles.fileData = fileData;
+		return new kaltura.RequestBuilder('subtitles', 'uploadFile', kparams, kfiles);
+	};
+}
+module.exports.subtitles = subtitles;
 
 
 /**
@@ -8837,6 +9013,29 @@ class userInterest{
 	};
 }
 module.exports.userInterest = userInterest;
+
+
+/**
+ *Class definition for the Kaltura service: userLog.
+ * The available service actions:
+ * @action list Retrieves a list of user log entries matching the specified filter criteria.
+ */
+class userLog{
+	
+	/**
+	 * Retrieves a list of user log entries matching the specified filter criteria.
+	 * @param filter UserLogFilter Filters user logs by user ID(s), message content, and creation date
+	 * @param pager FilterPager Specify the requested page (optional, default: null)
+	 * @return KalturaUserLogListResponse
+	 */
+	static listAction(filter, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('userlog', 'list', kparams);
+	};
+}
+module.exports.userLog = userLog;
 
 
 /**
