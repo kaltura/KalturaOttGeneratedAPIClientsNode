@@ -41290,15 +41290,15 @@ class GenerateSemanticQuery extends kaltura.BaseObject{
 	 * The input query text to generate semantic queries from
 	 * @return string
 	 */
-	 getQuery() {
-	 	return this.query;
+	 getText() {
+	 	return this.text;
 	 }
 	
 	/**
-	 * @param query string The input query text to generate semantic queries from
+	 * @param text string The input query text to generate semantic queries from
 	 */
-	 setQuery(query) {
-	 	this.query = query;
+	 setText(text) {
+	 	this.text = text;
 	 }
 }
 module.exports.GenerateSemanticQuery = GenerateSemanticQuery;
