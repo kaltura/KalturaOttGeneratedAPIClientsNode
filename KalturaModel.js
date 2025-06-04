@@ -998,6 +998,48 @@ module.exports.BulkUploadFilter = BulkUploadFilter;
 /**
  *
  */
+class SubtitlesFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSubtitlesFilter';
+	}
+	
+	/**
+	 * A comma separated list of IDs indicating the KalturaSubtitles objects&#39; IDs
+	 * @return string
+	 */
+	 getIdIn() {
+	 	return this.idIn;
+	 }
+	
+	/**
+	 * @param idIn string A comma separated list of IDs indicating the KalturaSubtitles objects&#39; IDs
+	 */
+	 setIdIn(idIn) {
+	 	this.idIn = idIn;
+	 }
+	
+	/**
+	 * Contains a name or a partial name of the subtitles file
+	 * @return string
+	 */
+	 getFileNameContains() {
+	 	return this.fileNameContains;
+	 }
+	
+	/**
+	 * @param fileNameContains string Contains a name or a partial name of the subtitles file
+	 */
+	 setFileNameContains(fileNameContains) {
+	 	this.fileNameContains = fileNameContains;
+	 }
+}
+module.exports.SubtitlesFilter = SubtitlesFilter;
+
+/**
+ *
+ */
 class SocialActionFilter extends Filter{
 	
 	constructor(object = null) {
@@ -3060,6 +3102,69 @@ class VodIngestAssetResultFilter extends Filter{
 	 }
 }
 module.exports.VodIngestAssetResultFilter = VodIngestAssetResultFilter;
+
+/**
+ *
+ */
+class UserLogFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUserLogFilter';
+	}
+	
+	/**
+	 * A comma-separated list of up to 15 positive integer user IDs (greater than zero) used to filter log entries. An empty list is not permitted;
+ * Valid IDs: Only log entries associated with valid, existing user IDs are returned;
+ * Invalid IDs: Specifying a non-existent user ID will result in no log entries being returned for that specific ID;
+ * Users: Log entries associated with a deleted user will be returned unless the log entry itself has also been deleted;
+	 * @return string
+	 */
+	 getUserIdIn() {
+	 	return this.userIdIn;
+	 }
+	
+	/**
+	 * @param userIdIn string A comma-separated list of up to 15 positive integer user IDs (greater than zero) used to filter log entries. An empty list is not permitted;
+ * Valid IDs: Only log entries associated with valid, existing user IDs are returned;
+ * Invalid IDs: Specifying a non-existent user ID will result in no log entries being returned for that specific ID;
+ * Users: Log entries associated with a deleted user will be returned unless the log entry itself has also been deleted;
+	 */
+	 setUserIdIn(userIdIn) {
+	 	this.userIdIn = userIdIn;
+	 }
+	
+	/**
+	 * The start date for filtering (Epoch format). Only logs created on or after this date are returned. If omitted, no start date filter is applied
+	 * @return int
+	 */
+	 getStartDate() {
+	 	return this.startDate;
+	 }
+	
+	/**
+	 * @param startDate int The start date for filtering (Epoch format). Only logs created on or after this date are returned. If omitted, no start date filter is applied
+	 */
+	 setStartDate(startDate) {
+	 	this.startDate = startDate;
+	 }
+	
+	/**
+	 * The end date for filtering (Epoch format). Only logs created on or before this date are returned. If omitted, no end date filter is applied
+	 * @return int
+	 */
+	 getEndDate() {
+	 	return this.endDate;
+	 }
+	
+	/**
+	 * @param endDate int The end date for filtering (Epoch format). Only logs created on or before this date are returned. If omitted, no end date filter is applied
+	 */
+	 setEndDate(endDate) {
+	 	this.endDate = endDate;
+	 }
+}
+module.exports.UserLogFilter = UserLogFilter;
 
 /**
  *
@@ -6626,7 +6731,7 @@ class PersonalAssetSelectionFilter extends Filter{
 	}
 	
 	/**
-	 * selected assets for specific slot number
+	 * Filters the results of asset.listPersonalSelection by slot number.  Takes a slot number as input and returns only those assets from the personal selection that are assigned to that slot
 	 * @return int
 	 */
 	 getSlotNumberEqual() {
@@ -6634,7 +6739,7 @@ class PersonalAssetSelectionFilter extends Filter{
 	 }
 	
 	/**
-	 * @param slotNumberEqual int selected assets for specific slot number
+	 * @param slotNumberEqual int Filters the results of asset.listPersonalSelection by slot number.  Takes a slot number as input and returns only those assets from the personal selection that are assigned to that slot
 	 */
 	 setSlotNumberEqual(slotNumberEqual) {
 	 	this.slotNumberEqual = slotNumberEqual;
@@ -8727,6 +8832,738 @@ class SkipOnErrorCondition extends SkipCondition{
 	 }
 }
 module.exports.SkipOnErrorCondition = SkipOnErrorCondition;
+
+/**
+ *
+ */
+class GenerateMetadataBySubtitlesJob extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaGenerateMetadataBySubtitlesJob';
+	}
+	
+	/**
+	 * Unique identifier for the generation job
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Specifies when the job was created, expressed in Epoch timestamp
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * Specifies when the job was updated, expressed in Epoch timestamp
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
+	
+	/**
+	 * Name of the uploaded subtitles file from which the metadata is generated
+	 * @return string
+	 */
+	 getFileName() {
+	 	return this.fileName;
+	 }
+	
+	/**
+	 * Service status states
+	 * @return string
+	 */
+	 getStatus() {
+	 	return this.status;
+	 }
+	
+	/**
+	 * Error messages for non-success cases
+	 * @return string
+	 */
+	 getErrorMessage() {
+	 	return this.errorMessage;
+	 }
+}
+module.exports.GenerateMetadataBySubtitlesJob = GenerateMetadataBySubtitlesJob;
+
+/**
+ *
+ */
+class GenerateMetadataResult extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaGenerateMetadataResult';
+	}
+	
+	/**
+	 * A dictionary/map containing the generated metadata. The map key includes the metadata name and the map value includes the generated value
+	 * @return map
+	 */
+	 getEnrichedMetadata() {
+	 	return this.enrichedMetadata;
+	 }
+	
+	/**
+	 * @param enrichedMetadata map A dictionary/map containing the generated metadata. The map key includes the metadata name and the map value includes the generated value
+	 */
+	 setEnrichedMetadata(enrichedMetadata) {
+	 	this.enrichedMetadata = enrichedMetadata;
+	 }
+}
+module.exports.GenerateMetadataResult = GenerateMetadataResult;
+
+/**
+ *
+ */
+class MetaFieldNameMap extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaMetaFieldNameMap';
+	}
+	
+	/**
+	 * map &#39;genre&#39; AI generated metadata name to assetStruct&#39;s meta systemName
+	 * @return string
+	 */
+	 getGenre() {
+	 	return this.genre;
+	 }
+	
+	/**
+	 * @param genre string map &#39;genre&#39; AI generated metadata name to assetStruct&#39;s meta systemName
+	 */
+	 setGenre(genre) {
+	 	this.genre = genre;
+	 }
+	
+	/**
+	 * map &#39;subGenre&#39; AI generated metadata name to assetStruct&#39;s meta systemName
+	 * @return string
+	 */
+	 getSubGenre() {
+	 	return this.subGenre;
+	 }
+	
+	/**
+	 * @param subGenre string map &#39;subGenre&#39; AI generated metadata name to assetStruct&#39;s meta systemName
+	 */
+	 setSubGenre(subGenre) {
+	 	this.subGenre = subGenre;
+	 }
+	
+	/**
+	 * map &#39;sentiment&#39; AI generated metadata name to assetStruct&#39;s meta systemName
+	 * @return string
+	 */
+	 getSentiment() {
+	 	return this.sentiment;
+	 }
+	
+	/**
+	 * @param sentiment string map &#39;sentiment&#39; AI generated metadata name to assetStruct&#39;s meta systemName
+	 */
+	 setSentiment(sentiment) {
+	 	this.sentiment = sentiment;
+	 }
+	
+	/**
+	 * map &#39;suggestedTitle&#39; AI generated metadata name to assetStruct&#39;s meta systemName
+	 * @return string
+	 */
+	 getSuggestedTitle() {
+	 	return this.suggestedTitle;
+	 }
+	
+	/**
+	 * @param suggestedTitle string map &#39;suggestedTitle&#39; AI generated metadata name to assetStruct&#39;s meta systemName
+	 */
+	 setSuggestedTitle(suggestedTitle) {
+	 	this.suggestedTitle = suggestedTitle;
+	 }
+	
+	/**
+	 * map &#39;Description&#39; AI generated metadata name to assetStruct&#39;s meta systemName
+	 * @return string
+	 */
+	 getDescription() {
+	 	return this.description;
+	 }
+	
+	/**
+	 * @param description string map &#39;Description&#39; AI generated metadata name to assetStruct&#39;s meta systemName
+	 */
+	 setDescription(description) {
+	 	this.description = description;
+	 }
+	
+	/**
+	 * map &#39;oneLiner&#39; AI generated metadata name to assetStruct&#39;s meta systemName
+	 * @return string
+	 */
+	 getOneLiner() {
+	 	return this.oneLiner;
+	 }
+	
+	/**
+	 * @param oneLiner string map &#39;oneLiner&#39; AI generated metadata name to assetStruct&#39;s meta systemName
+	 */
+	 setOneLiner(oneLiner) {
+	 	this.oneLiner = oneLiner;
+	 }
+	
+	/**
+	 * map &#39;Keywords&#39; AI generated metadata name to assetStruct&#39;s meta systemName
+	 * @return string
+	 */
+	 getKeywords() {
+	 	return this.keywords;
+	 }
+	
+	/**
+	 * @param keywords string map &#39;Keywords&#39; AI generated metadata name to assetStruct&#39;s meta systemName
+	 */
+	 setKeywords(keywords) {
+	 	this.keywords = keywords;
+	 }
+	
+	/**
+	 * map &#39;sensitiveContent&#39; AI generated metadata name to assetStruct&#39;s meta systemName
+	 * @return string
+	 */
+	 getSensitiveContent() {
+	 	return this.sensitiveContent;
+	 }
+	
+	/**
+	 * @param sensitiveContent string map &#39;sensitiveContent&#39; AI generated metadata name to assetStruct&#39;s meta systemName
+	 */
+	 setSensitiveContent(sensitiveContent) {
+	 	this.sensitiveContent = sensitiveContent;
+	 }
+}
+module.exports.MetaFieldNameMap = MetaFieldNameMap;
+
+/**
+ *
+ */
+class AiMetadataGeneratorConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAiMetadataGeneratorConfiguration';
+	}
+	
+	/**
+	 * Specifies if the feature is enabled or disabled
+	 * @return bool
+	 */
+	 getIsEnabled() {
+	 	return this.isEnabled;
+	 }
+	
+	/**
+	 * @param isEnabled bool Specifies if the feature is enabled or disabled
+	 */
+	 setIsEnabled(isEnabled) {
+	 	this.isEnabled = isEnabled;
+	 }
+	
+	/**
+	 * A map (dictionary) to indicate to which existing metadata or tag the newly generated metadata value should be pushed, per assetStruct (per &#39;asset type&#39;)
+	 * @return map
+	 */
+	 getAssetStructMetaNameMap() {
+	 	return this.assetStructMetaNameMap;
+	 }
+	
+	/**
+	 * @param assetStructMetaNameMap map A map (dictionary) to indicate to which existing metadata or tag the newly generated metadata value should be pushed, per assetStruct (per &#39;asset type&#39;)
+	 */
+	 setAssetStructMetaNameMap(assetStructMetaNameMap) {
+	 	this.assetStructMetaNameMap = assetStructMetaNameMap;
+	 }
+	
+	/**
+	 * A read only array to list the set of languages which can be used with the service.
+ * In practice it is populated with the values set in KalturaMetadataGeneratorLanguages ENUM
+	 * @return array
+	 */
+	 getSupportedLanguages() {
+	 	return this.supportedLanguages;
+	 }
+}
+module.exports.AiMetadataGeneratorConfiguration = AiMetadataGeneratorConfiguration;
+
+/**
+ *
+ */
+class TreeQuestion extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTreeQuestion';
+	}
+	
+	/**
+	 * Unique identifier for the question
+	 * @return string
+	 */
+	 getQuestionId() {
+	 	return this.questionId;
+	 }
+	
+	/**
+	 * @param questionId string Unique identifier for the question
+	 */
+	 setQuestionId(questionId) {
+	 	this.questionId = questionId;
+	 }
+	
+	/**
+	 * The question text to display to the user
+	 * @return string
+	 */
+	 getText() {
+	 	return this.text;
+	 }
+	
+	/**
+	 * @param text string The question text to display to the user
+	 */
+	 setText(text) {
+	 	this.text = text;
+	 }
+	
+	/**
+	 * The depth level in the tree (1 for top-level)
+	 * @return int
+	 */
+	 getLevel() {
+	 	return this.level;
+	 }
+	
+	/**
+	 * @param level int The depth level in the tree (1 for top-level)
+	 */
+	 setLevel(level) {
+	 	this.level = level;
+	 }
+	
+	/**
+	 * Array of metadata categories this question focuses on
+	 * @return array
+	 */
+	 getMetadataTypes() {
+	 	return this.metadataTypes;
+	 }
+	
+	/**
+	 * @param metadataTypes array Array of metadata categories this question focuses on
+	 */
+	 setMetadataTypes(metadataTypes) {
+	 	this.metadataTypes = metadataTypes;
+	 }
+}
+module.exports.TreeQuestion = TreeQuestion;
+
+/**
+ *
+ */
+class TreeAnswer extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTreeAnswer';
+	}
+	
+	/**
+	 * Unique identifier for the answer
+	 * @return string
+	 */
+	 getAnswerId() {
+	 	return this.answerId;
+	 }
+	
+	/**
+	 * @param answerId string Unique identifier for the answer
+	 */
+	 setAnswerId(answerId) {
+	 	this.answerId = answerId;
+	 }
+	
+	/**
+	 * The answer text to display to the user
+	 * @return string
+	 */
+	 getText() {
+	 	return this.text;
+	 }
+	
+	/**
+	 * @param text string The answer text to display to the user
+	 */
+	 setText(text) {
+	 	this.text = text;
+	 }
+	
+	/**
+	 * Boolean indicating if selecting this answer leads to another question
+	 * @return bool
+	 */
+	 getHasNextQuestion() {
+	 	return this.hasNextQuestion;
+	 }
+	
+	/**
+	 * @param hasNextQuestion bool Boolean indicating if selecting this answer leads to another question
+	 */
+	 setHasNextQuestion(hasNextQuestion) {
+	 	this.hasNextQuestion = hasNextQuestion;
+	 }
+	
+	/**
+	 * Flag for special answers like &quot;I don&#39;t know&quot; (optional)
+	 * @return bool
+	 */
+	 getIsSpecial() {
+	 	return this.isSpecial;
+	 }
+	
+	/**
+	 * @param isSpecial bool Flag for special answers like &quot;I don&#39;t know&quot; (optional)
+	 */
+	 setIsSpecial(isSpecial) {
+	 	this.isSpecial = isSpecial;
+	 }
+	
+	/**
+	 * The type of special answer, e.g., &quot;unsure&quot; (optional)
+	 * @return string
+	 */
+	 getSpecialType() {
+	 	return this.specialType;
+	 }
+	
+	/**
+	 * @param specialType string The type of special answer, e.g., &quot;unsure&quot; (optional)
+	 */
+	 setSpecialType(specialType) {
+	 	this.specialType = specialType;
+	 }
+}
+module.exports.TreeAnswer = TreeAnswer;
+
+/**
+ *
+ */
+class TreeRecommendations extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTreeRecommendations';
+	}
+	
+	/**
+	 * Descriptive title for the recommendation set
+	 * @return string
+	 */
+	 getTitle() {
+	 	return this.title;
+	 }
+	
+	/**
+	 * @param title string Descriptive title for the recommendation set
+	 */
+	 setTitle(title) {
+	 	this.title = title;
+	 }
+	
+	/**
+	 * The semantic search query used to find matching assets
+	 * @return string
+	 */
+	 getSearchQuery() {
+	 	return this.searchQuery;
+	 }
+	
+	/**
+	 * @param searchQuery string The semantic search query used to find matching assets
+	 */
+	 setSearchQuery(searchQuery) {
+	 	this.searchQuery = searchQuery;
+	 }
+	
+	/**
+	 * Array of content assets Id&#39;s matching the recommendation criteria
+	 * @return array
+	 */
+	 getAssetIds() {
+	 	return this.assetIds;
+	 }
+	
+	/**
+	 * @param assetIds array Array of content assets Id&#39;s matching the recommendation criteria
+	 */
+	 setAssetIds(assetIds) {
+	 	this.assetIds = assetIds;
+	 }
+}
+module.exports.TreeRecommendations = TreeRecommendations;
+
+/**
+ *
+ */
+class TreeNextNodeResponse extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTreeNextNodeResponse';
+	}
+	
+	/**
+	 * The next question to present to the user, or null for terminal nodes
+	 * @return TreeQuestion
+	 */
+	 getQuestion() {
+	 	return this.question;
+	 }
+	
+	/**
+	 * @param question TreeQuestion The next question to present to the user, or null for terminal nodes
+	 */
+	 setQuestion(question) {
+	 	this.question = question;
+	 }
+	
+	/**
+	 * Array of possible answer options for the question
+	 * @return array
+	 */
+	 getAnswers() {
+	 	return this.answers;
+	 }
+	
+	/**
+	 * @param answers array Array of possible answer options for the question
+	 */
+	 setAnswers(answers) {
+	 	this.answers = answers;
+	 }
+	
+	/**
+	 * Content recommendations based on the current path
+	 * @return TreeRecommendations
+	 */
+	 getRecommendations() {
+	 	return this.recommendations;
+	 }
+	
+	/**
+	 * @param recommendations TreeRecommendations Content recommendations based on the current path
+	 */
+	 setRecommendations(recommendations) {
+	 	this.recommendations = recommendations;
+	 }
+}
+module.exports.TreeNextNodeResponse = TreeNextNodeResponse;
+
+/**
+ *
+ */
+class TreeNaturalTextResponse extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTreeNaturalTextResponse';
+	}
+	
+	/**
+	 * Content recommendations based on the natural language query
+	 * @return TreeRecommendations
+	 */
+	 getRecommendations() {
+	 	return this.recommendations;
+	 }
+	
+	/**
+	 * @param recommendations TreeRecommendations Content recommendations based on the natural language query
+	 */
+	 setRecommendations(recommendations) {
+	 	this.recommendations = recommendations;
+	 }
+}
+module.exports.TreeNaturalTextResponse = TreeNaturalTextResponse;
+
+/**
+ *
+ */
+class AiRecommendationTreePartnerConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAiRecommendationTreePartnerConfiguration';
+	}
+	
+	/**
+	 * List of metadata types to base questions on (genre, actor, director, etc.)
+	 * @return array
+	 */
+	 getActiveMetadataTypes() {
+	 	return this.activeMetadataTypes;
+	 }
+	
+	/**
+	 * @param activeMetadataTypes array List of metadata types to base questions on (genre, actor, director, etc.)
+	 */
+	 setActiveMetadataTypes(activeMetadataTypes) {
+	 	this.activeMetadataTypes = activeMetadataTypes;
+	 }
+	
+	/**
+	 * Number of top-level questions to generate (range: 5-21)
+	 * @return int
+	 */
+	 getTopLevelQuestions() {
+	 	return this.topLevelQuestions;
+	 }
+	
+	/**
+	 * @param topLevelQuestions int Number of top-level questions to generate (range: 5-21)
+	 */
+	 setTopLevelQuestions(topLevelQuestions) {
+	 	this.topLevelQuestions = topLevelQuestions;
+	 }
+	
+	/**
+	 * Number of regular answers per question (range: 2-3)
+	 * @return int
+	 */
+	 getAnswersPerQuestion() {
+	 	return this.answersPerQuestion;
+	 }
+	
+	/**
+	 * @param answersPerQuestion int Number of regular answers per question (range: 2-3)
+	 */
+	 setAnswersPerQuestion(answersPerQuestion) {
+	 	this.answersPerQuestion = answersPerQuestion;
+	 }
+	
+	/**
+	 * Maximum depth of the decision tree (range: 1-5)
+	 * @return int
+	 */
+	 getLevels() {
+	 	return this.levels;
+	 }
+	
+	/**
+	 * @param levels int Maximum depth of the decision tree (range: 1-5)
+	 */
+	 setLevels(levels) {
+	 	this.levels = levels;
+	 }
+	
+	/**
+	 * Whether to include special answers like &quot;I don&#39;t know&quot; or &quot;Surprise Me&quot;
+	 * @return bool
+	 */
+	 getSpecialAnswers() {
+	 	return this.specialAnswers;
+	 }
+	
+	/**
+	 * @param specialAnswers bool Whether to include special answers like &quot;I don&#39;t know&quot; or &quot;Surprise Me&quot;
+	 */
+	 setSpecialAnswers(specialAnswers) {
+	 	this.specialAnswers = specialAnswers;
+	 }
+	
+	/**
+	 * Number of assets to include in each recommendation set
+	 * @return int
+	 */
+	 getNumOfRecommendedAssets() {
+	 	return this.numOfRecommendedAssets;
+	 }
+	
+	/**
+	 * @param numOfRecommendedAssets int Number of assets to include in each recommendation set
+	 */
+	 setNumOfRecommendedAssets(numOfRecommendedAssets) {
+	 	this.numOfRecommendedAssets = numOfRecommendedAssets;
+	 }
+	
+	/**
+	 * Whether to exclude already watched content
+	 * @return bool
+	 */
+	 getRemoveWatchedRecommendations() {
+	 	return this.removeWatchedRecommendations;
+	 }
+	
+	/**
+	 * @param removeWatchedRecommendations bool Whether to exclude already watched content
+	 */
+	 setRemoveWatchedRecommendations(removeWatchedRecommendations) {
+	 	this.removeWatchedRecommendations = removeWatchedRecommendations;
+	 }
+	
+	/**
+	 * Cron expression for scheduling tree regeneration
+	 * @return string
+	 */
+	 getTreeGenerationFrequency() {
+	 	return this.treeGenerationFrequency;
+	 }
+	
+	/**
+	 * @param treeGenerationFrequency string Cron expression for scheduling tree regeneration
+	 */
+	 setTreeGenerationFrequency(treeGenerationFrequency) {
+	 	this.treeGenerationFrequency = treeGenerationFrequency;
+	 }
+	
+	/**
+	 * Identifier for the LLM model used for tree generation
+	 * @return string
+	 */
+	 getModelId() {
+	 	return this.modelId;
+	 }
+	
+	/**
+	 * @param modelId string Identifier for the LLM model used for tree generation
+	 */
+	 setModelId(modelId) {
+	 	this.modelId = modelId;
+	 }
+	
+	/**
+	 * Identifier for the tree that is currently marked as Active (can be only one at a time)
+	 * @return string
+	 */
+	 getActiveTreeId() {
+	 	return this.activeTreeId;
+	 }
+	
+	/**
+	 * @param activeTreeId string Identifier for the tree that is currently marked as Active (can be only one at a time)
+	 */
+	 setActiveTreeId(activeTreeId) {
+	 	this.activeTreeId = activeTreeId;
+	 }
+}
+module.exports.AiRecommendationTreePartnerConfiguration = AiRecommendationTreePartnerConfiguration;
 
 /**
  *
@@ -11594,7 +12431,7 @@ class Subscription extends OTTObjectSupportNullable{
 	 }
 	
 	/**
-	 * A list of channels associated with this subscription
+	 * List of KalturaBaseChannel objects associated with this subscription
 	 * @return array
 	 */
 	 getChannels() {
@@ -11602,7 +12439,7 @@ class Subscription extends OTTObjectSupportNullable{
 	 }
 	
 	/**
-	 * Comma separated channels Ids associated with this subscription
+	 * Comma separated list identifying the KalturaBaseChannel objects associated with this subscription. In practice this is a list of KalturaBaseChannel.id values
 	 * @return string
 	 */
 	 getChannelsIds() {
@@ -11610,14 +12447,14 @@ class Subscription extends OTTObjectSupportNullable{
 	 }
 	
 	/**
-	 * @param channelsIds string Comma separated channels Ids associated with this subscription
+	 * @param channelsIds string Comma separated list identifying the KalturaBaseChannel objects associated with this subscription. In practice this is a list of KalturaBaseChannel.id values
 	 */
 	 setChannelsIds(channelsIds) {
 	 	this.channelsIds = channelsIds;
 	 }
 	
 	/**
-	 * The first date the subscription is available for purchasing
+	 * The first date the subscription is available for purchasing (in seconds since the Unix epoch)
 	 * @return int
 	 */
 	 getStartDate() {
@@ -11625,14 +12462,14 @@ class Subscription extends OTTObjectSupportNullable{
 	 }
 	
 	/**
-	 * @param startDate int The first date the subscription is available for purchasing
+	 * @param startDate int The first date the subscription is available for purchasing (in seconds since the Unix epoch)
 	 */
 	 setStartDate(startDate) {
 	 	this.startDate = startDate;
 	 }
 	
 	/**
-	 * The last date the subscription is available for purchasing
+	 * The last date the subscription is available for purchasing (in seconds since the Unix epoch)
 	 * @return int
 	 */
 	 getEndDate() {
@@ -11640,14 +12477,14 @@ class Subscription extends OTTObjectSupportNullable{
 	 }
 	
 	/**
-	 * @param endDate int The last date the subscription is available for purchasing
+	 * @param endDate int The last date the subscription is available for purchasing (in seconds since the Unix epoch)
 	 */
 	 setEndDate(endDate) {
 	 	this.endDate = endDate;
 	 }
 	
 	/**
-	 * A list of file types identifiers that are supported in this subscription
+	 * List of file types (KalturaMediaFileType.id values) that are supported by this subscription
 	 * @return array
 	 */
 	 getFileTypes() {
@@ -11655,7 +12492,7 @@ class Subscription extends OTTObjectSupportNullable{
 	 }
 	
 	/**
-	 * Comma separated file types identifiers that are supported in this subscription
+	 * Comma separated list of file types (KalturaMediaFileType.id values) that are supported by this subscription
 	 * @return string
 	 */
 	 getFileTypesIds() {
@@ -11663,7 +12500,7 @@ class Subscription extends OTTObjectSupportNullable{
 	 }
 	
 	/**
-	 * @param fileTypesIds string Comma separated file types identifiers that are supported in this subscription
+	 * @param fileTypesIds string Comma separated list of file types (KalturaMediaFileType.id values) that are supported by this subscription
 	 */
 	 setFileTypesIds(fileTypesIds) {
 	 	this.fileTypesIds = fileTypesIds;
@@ -11710,7 +12547,7 @@ class Subscription extends OTTObjectSupportNullable{
 	 }
 	
 	/**
-	 * The internal discount module identifier for the subscription
+	 * The internal discount module identifier (kalturaDiscountModule.id value) for the subscription
 	 * @return int
 	 */
 	 getInternalDiscountModuleId() {
@@ -11718,7 +12555,7 @@ class Subscription extends OTTObjectSupportNullable{
 	 }
 	
 	/**
-	 * @param internalDiscountModuleId int The internal discount module identifier for the subscription
+	 * @param internalDiscountModuleId int The internal discount module identifier (kalturaDiscountModule.id value) for the subscription
 	 */
 	 setInternalDiscountModuleId(internalDiscountModuleId) {
 	 	this.internalDiscountModuleId = internalDiscountModuleId;
@@ -11771,7 +12608,7 @@ class Subscription extends OTTObjectSupportNullable{
 	 }
 	
 	/**
-	 * Identifier of the media associated with the subscription
+	 * Identifier of the media (KalturaAsset.id value) associated with the subscription
 	 * @return int
 	 */
 	 getMediaId() {
@@ -11794,7 +12631,7 @@ class Subscription extends OTTObjectSupportNullable{
 	 }
 	
 	/**
-	 * Comma separated subscription price plan IDs
+	 * Comma separated list of subscription price plans (KalturaPricePlan.id values) that are associated to this subscription
 	 * @return string
 	 */
 	 getPricePlanIds() {
@@ -11802,14 +12639,14 @@ class Subscription extends OTTObjectSupportNullable{
 	 }
 	
 	/**
-	 * @param pricePlanIds string Comma separated subscription price plan IDs
+	 * @param pricePlanIds string Comma separated list of subscription price plans (KalturaPricePlan.id values) that are associated to this subscription
 	 */
 	 setPricePlanIds(pricePlanIds) {
 	 	this.pricePlanIds = pricePlanIds;
 	 }
 	
 	/**
-	 * Optional: If the subscription has a flexible price plan. Represents an initial none-recurring discounted period which is charged immediately (no unified billing), followed by a recuring price plan which should be aligned with the unified billing cycle
+	 * Optional: If the subscription has a flexible price plan. Represents an initial non-recurring discounted period which is charged immediately (no unified billing), followed by a recurring price plan which should be aligned with the unified billing cycle
 	 * @return int
 	 */
 	 getFlexiblePricePlanId() {
@@ -11817,7 +12654,7 @@ class Subscription extends OTTObjectSupportNullable{
 	 }
 	
 	/**
-	 * @param flexiblePricePlanId int Optional: If the subscription has a flexible price plan. Represents an initial none-recurring discounted period which is charged immediately (no unified billing), followed by a recuring price plan which should be aligned with the unified billing cycle
+	 * @param flexiblePricePlanId int Optional: If the subscription has a flexible price plan. Represents an initial non-recurring discounted period which is charged immediately (no unified billing), followed by a recurring price plan which should be aligned with the unified billing cycle
 	 */
 	 setFlexiblePricePlanId(flexiblePricePlanId) {
 	 	this.flexiblePricePlanId = flexiblePricePlanId;
@@ -11832,7 +12669,7 @@ class Subscription extends OTTObjectSupportNullable{
 	 }
 	
 	/**
-	 * Subscription preview module identifier
+	 * Identifier of the KalturaPreviewModule (KalturaPreviewModule.id value) associated with this subscription
 	 * @return int
 	 */
 	 getPreviewModuleId() {
@@ -11840,14 +12677,14 @@ class Subscription extends OTTObjectSupportNullable{
 	 }
 	
 	/**
-	 * @param previewModuleId int Subscription preview module identifier
+	 * @param previewModuleId int Identifier of the KalturaPreviewModule (KalturaPreviewModule.id value) associated with this subscription
 	 */
 	 setPreviewModuleId(previewModuleId) {
 	 	this.previewModuleId = previewModuleId;
 	 }
 	
 	/**
-	 * The household limitation module identifier associated with this subscription
+	 * Identifier of the KalturaHouseholdLimitationModule (KalturaHouseholdLimitations.id value) associated with this subscription
 	 * @return int
 	 */
 	 getHouseholdLimitationsId() {
@@ -11855,7 +12692,7 @@ class Subscription extends OTTObjectSupportNullable{
 	 }
 	
 	/**
-	 * @param householdLimitationsId int The household limitation module identifier associated with this subscription
+	 * @param householdLimitationsId int Identifier of the KalturaHouseholdLimitationModule (KalturaHouseholdLimitations.id value) associated with this subscription
 	 */
 	 setHouseholdLimitationsId(householdLimitationsId) {
 	 	this.householdLimitationsId = householdLimitationsId;
@@ -11932,7 +12769,7 @@ class Subscription extends OTTObjectSupportNullable{
 	 }
 	
 	/**
-	 * List of Coupons group
+	 * List of KalturaCouponsGroup objects associated with the subscription
 	 * @return array
 	 */
 	 getCouponsGroups() {
@@ -11940,7 +12777,7 @@ class Subscription extends OTTObjectSupportNullable{
 	 }
 	
 	/**
-	 * List of subscription Coupons group
+	 * List of KalturaSubscriptionCouponGroup objects associated with the subscription
 	 * @return array
 	 */
 	 getSubscriptionCouponGroup() {
@@ -11948,7 +12785,7 @@ class Subscription extends OTTObjectSupportNullable{
 	 }
 	
 	/**
-	 * @param subscriptionCouponGroup array List of subscription Coupons group
+	 * @param subscriptionCouponGroup array List of KalturaSubscriptionCouponGroup objects associated with the subscription
 	 */
 	 setSubscriptionCouponGroup(subscriptionCouponGroup) {
 	 	this.subscriptionCouponGroup = subscriptionCouponGroup;
@@ -11985,7 +12822,7 @@ class Subscription extends OTTObjectSupportNullable{
 	 }
 	
 	/**
-	 * External ID
+	 * Identifier of the subsription object as assigned by an external system
 	 * @return string
 	 */
 	 getExternalId() {
@@ -11993,7 +12830,7 @@ class Subscription extends OTTObjectSupportNullable{
 	 }
 	
 	/**
-	 * @param externalId string External ID
+	 * @param externalId string Identifier of the subsription object as assigned by an external system
 	 */
 	 setExternalId(externalId) {
 	 	this.externalId = externalId;
@@ -12015,7 +12852,7 @@ class Subscription extends OTTObjectSupportNullable{
 	 }
 	
 	/**
-	 * The Pre-Sale date the subscription is available for purchasing
+	 * Pre-sale date that subscription is available for purchasing (in seconds since the Unix epoch)
 	 * @return int
 	 */
 	 getPreSaleDate() {
@@ -12023,7 +12860,7 @@ class Subscription extends OTTObjectSupportNullable{
 	 }
 	
 	/**
-	 * @param preSaleDate int The Pre-Sale date the subscription is available for purchasing
+	 * @param preSaleDate int Pre-sale date that subscription is available for purchasing (in seconds since the Unix epoch)
 	 */
 	 setPreSaleDate(preSaleDate) {
 	 	this.preSaleDate = preSaleDate;
@@ -12075,7 +12912,7 @@ class Subscription extends OTTObjectSupportNullable{
 	 }
 	
 	/**
-	 * Specifies when was the Subscription created. Date and time represented as epoch
+	 * Specifies when the subscription was created (in seconds since the Unix epoch)
 	 * @return int
 	 */
 	 getCreateDate() {
@@ -12083,7 +12920,7 @@ class Subscription extends OTTObjectSupportNullable{
 	 }
 	
 	/**
-	 * Specifies when was the Subscription last updated. Date and time represented as epoch
+	 * Specifies when the subscription was last updated (in seconds since the Unix epoch)
 	 * @return int
 	 */
 	 getUpdateDate() {
@@ -17918,6 +18755,106 @@ class BulkUploadProgramAssetResult extends BulkUploadResult{
 	 }
 }
 module.exports.BulkUploadProgramAssetResult = BulkUploadProgramAssetResult;
+
+/**
+ *
+ */
+class Subtitles extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSubtitles';
+	}
+	
+	/**
+	 * Unique identifier for the subtitles file
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Specifies when the file was uploaded, expressed in Epoch timestamp
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * Name of the uploaded subtitles text file
+	 * @return string
+	 */
+	 getFileName() {
+	 	return this.fileName;
+	 }
+	
+	/**
+	 * @param fileName string Name of the uploaded subtitles text file
+	 */
+	 setFileName(fileName) {
+	 	this.fileName = fileName;
+	 }
+	
+	/**
+	 * The content type included in the subtitles file, as auto-detected by the subtitles service. Can be of SRT, WebVTT or free text without cues
+	 * @return string
+	 */
+	 getDetectedType() {
+	 	return this.detectedType;
+	 }
+	
+	/**
+	 * @param detectedType string The content type included in the subtitles file, as auto-detected by the subtitles service. Can be of SRT, WebVTT or free text without cues
+	 */
+	 setDetectedType(detectedType) {
+	 	this.detectedType = detectedType;
+	 }
+	
+	/**
+	 * The language used for the subtitles
+	 * @return string
+	 */
+	 getLanguage() {
+	 	return this.language;
+	 }
+	
+	/**
+	 * @param language string The language used for the subtitles
+	 */
+	 setLanguage(language) {
+	 	this.language = language;
+	 }
+}
+module.exports.Subtitles = Subtitles;
+
+/**
+ *
+ */
+class SubtitlesListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSubtitlesListResponse';
+	}
+	
+	/**
+	 * A list of subtitles files
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array A list of subtitles files
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.SubtitlesListResponse = SubtitlesListResponse;
 
 /**
  *
@@ -24903,6 +25840,77 @@ class IngestStatusEpgProgramResultListResponse extends ListResponse{
 	 }
 }
 module.exports.IngestStatusEpgProgramResultListResponse = IngestStatusEpgProgramResultListResponse;
+
+/**
+ *
+ */
+class UserLog extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUserLog';
+	}
+	
+	/**
+	 * UserLog entry unique identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * The log created date in epoch
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * A valid user unique identifier
+	 * @return int
+	 */
+	 getUserId() {
+	 	return this.userId;
+	 }
+	
+	/**
+	 * Log message
+	 * @return string
+	 */
+	 getMessage() {
+	 	return this.message;
+	 }
+}
+module.exports.UserLog = UserLog;
+
+/**
+ *
+ */
+class UserLogListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUserLogListResponse';
+	}
+	
+	/**
+	 * KalturaUserLog list response
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array KalturaUserLog list response
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.UserLogListResponse = UserLogListResponse;
 
 /**
  *
@@ -40595,6 +41603,300 @@ module.exports.SegmentationPartnerConfiguration = SegmentationPartnerConfigurati
 /**
  *
  */
+class SearchableAttribute extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSearchableAttribute';
+	}
+	
+	/**
+	 * The unique identifier of the asset structure
+	 * @return int
+	 */
+	 getAssetStructId() {
+	 	return this.assetStructId;
+	 }
+	
+	/**
+	 * @param assetStructId int The unique identifier of the asset structure
+	 */
+	 setAssetStructId(assetStructId) {
+	 	this.assetStructId = assetStructId;
+	 }
+	
+	/**
+	 * Comma-separated list of field names to include in embedding
+	 * @return string
+	 */
+	 getAttributes() {
+	 	return this.attributes;
+	 }
+	
+	/**
+	 * @param attributes string Comma-separated list of field names to include in embedding
+	 */
+	 setAttributes(attributes) {
+	 	this.attributes = attributes;
+	 }
+}
+module.exports.SearchableAttribute = SearchableAttribute;
+
+/**
+ *
+ */
+class SearchableAttributes extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSearchableAttributes';
+	}
+	
+	/**
+	 * A list of searchable attributes
+	 * @return array
+	 */
+	 getItems() {
+	 	return this.items;
+	 }
+	
+	/**
+	 * @param items array A list of searchable attributes
+	 */
+	 setItems(items) {
+	 	this.items = items;
+	 }
+}
+module.exports.SearchableAttributes = SearchableAttributes;
+
+/**
+ *
+ */
+class FilteringCondition extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaFilteringCondition';
+	}
+	
+	/**
+	 * Meta Name (SystemName) to apply the rule to
+	 * @return string
+	 */
+	 getMetaName() {
+	 	return this.metaName;
+	 }
+	
+	/**
+	 * @param metaName string Meta Name (SystemName) to apply the rule to
+	 */
+	 setMetaName(metaName) {
+	 	this.metaName = metaName;
+	 }
+	
+	/**
+	 * Operator to use for the rule
+	 * @return string
+	 */
+	 getOperator() {
+	 	return this.operator;
+	 }
+	
+	/**
+	 * @param operator string Operator to use for the rule
+	 */
+	 setOperator(operator) {
+	 	this.operator = operator;
+	 }
+	
+	/**
+	 * Single value for the rule condition
+	 * @return string
+	 */
+	 getValue() {
+	 	return this.value;
+	 }
+	
+	/**
+	 * @param value string Single value for the rule condition
+	 */
+	 setValue(value) {
+	 	this.value = value;
+	 }
+}
+module.exports.FilteringCondition = FilteringCondition;
+
+/**
+ *
+ */
+class GenerateSemanticQuery extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaGenerateSemanticQuery';
+	}
+	
+	/**
+	 * A primary query to be extended with multiple sub-queries
+	 * @return string
+	 */
+	 getText() {
+	 	return this.text;
+	 }
+	
+	/**
+	 * @param text string A primary query to be extended with multiple sub-queries
+	 */
+	 setText(text) {
+	 	this.text = text;
+	 }
+}
+module.exports.GenerateSemanticQuery = GenerateSemanticQuery;
+
+/**
+ *
+ */
+class SemanticSubQuery extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSemanticSubQuery';
+	}
+	
+	/**
+	 * The text generated for the sub-query
+	 * @return string
+	 */
+	 getText() {
+	 	return this.text;
+	 }
+	
+	/**
+	 * @param text string The text generated for the sub-query
+	 */
+	 setText(text) {
+	 	this.text = text;
+	 }
+	
+	/**
+	 * The name generated for the sub-query, using the account&#39;s Primary language
+	 * @return TranslationToken
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name TranslationToken The name generated for the sub-query, using the account&#39;s Primary language
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+}
+module.exports.SemanticSubQuery = SemanticSubQuery;
+
+/**
+ *
+ */
+class SemanticQuery extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSemanticQuery';
+	}
+	
+	/**
+	 * A list of generated sub-queries
+	 * @return array
+	 */
+	 getSubQueries() {
+	 	return this.subQueries;
+	 }
+	
+	/**
+	 * @param subQueries array A list of generated sub-queries
+	 */
+	 setSubQueries(subQueries) {
+	 	this.subQueries = subQueries;
+	 }
+	
+	/**
+	 * A title generated for the entire queries&#39; generation
+	 * @return string
+	 */
+	 getTitle() {
+	 	return this.title;
+	 }
+	
+	/**
+	 * @param title string A title generated for the entire queries&#39; generation
+	 */
+	 setTitle(title) {
+	 	this.title = title;
+	 }
+}
+module.exports.SemanticQuery = SemanticQuery;
+
+/**
+ *
+ */
+class SemanticQueryPartnerConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSemanticQueryPartnerConfiguration';
+	}
+	
+	/**
+	 * The number of sub-queries to generate, including the main (base) one. Optional, Requires Admin role
+	 * @return int
+	 */
+	 getSubQueriesCount() {
+	 	return this.subQueriesCount;
+	 }
+	
+	/**
+	 * @param subQueriesCount int The number of sub-queries to generate, including the main (base) one. Optional, Requires Admin role
+	 */
+	 setSubQueriesCount(subQueriesCount) {
+	 	this.subQueriesCount = subQueriesCount;
+	 }
+	
+	/**
+	 * The number of default sub-queries to generate if the primary requested query is empty. Optional, Requires Admin role
+	 * @return int
+	 */
+	 getDefaultQueriesCount() {
+	 	return this.defaultQueriesCount;
+	 }
+	
+	/**
+	 * @param defaultQueriesCount int The number of default sub-queries to generate if the primary requested query is empty. Optional, Requires Admin role
+	 */
+	 setDefaultQueriesCount(defaultQueriesCount) {
+	 	this.defaultQueriesCount = defaultQueriesCount;
+	 }
+	
+	/**
+	 * The number of assets per suggested collection
+	 * @return int
+	 */
+	 getAssetsPerCollectionCount() {
+	 	return this.assetsPerCollectionCount;
+	 }
+	
+	/**
+	 * @param assetsPerCollectionCount int The number of assets per suggested collection
+	 */
+	 setAssetsPerCollectionCount(assetsPerCollectionCount) {
+	 	this.assetsPerCollectionCount = assetsPerCollectionCount;
+	 }
+}
+module.exports.SemanticQueryPartnerConfiguration = SemanticQueryPartnerConfiguration;
+
+/**
+ *
+ */
 class NetworkActionStatus extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -41039,6 +42341,48 @@ class SSOAdapterProfileInvoke extends kaltura.BaseObject{
 	 }
 }
 module.exports.SSOAdapterProfileInvoke = SSOAdapterProfileInvoke;
+
+/**
+ *
+ */
+class UploadSubtitles extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaUploadSubtitles';
+	}
+	
+	/**
+	 * Name of the subtitles file
+	 * @return string
+	 */
+	 getFileName() {
+	 	return this.fileName;
+	 }
+	
+	/**
+	 * @param fileName string Name of the subtitles file
+	 */
+	 setFileName(fileName) {
+	 	this.fileName = fileName;
+	 }
+	
+	/**
+	 * The language in which the subtitles are written
+	 * @return string
+	 */
+	 getLanguage() {
+	 	return this.language;
+	 }
+	
+	/**
+	 * @param language string The language in which the subtitles are written
+	 */
+	 setLanguage(language) {
+	 	this.language = language;
+	 }
+}
+module.exports.UploadSubtitles = UploadSubtitles;
 
 /**
  *
