@@ -121,15 +121,15 @@ class aiRecommendationTree{
 	 * @param treeId string ID of the tree to navigate (optional - if omitted, the active tree will be used) (optional, default: null)
 	 * @param previousQuestionId string The question ID that is currently presented (omit for first question) (optional, default: null)
 	 * @param answerId string Selected answer ID from the previous question (required if previousQuestionId is provided) (optional, default: null)
-	 * @param topQuestion string Specific top-level question ID (relevant for first question only) (optional, default: null)
+	 * @param topQuestionId string Specific top-level question ID (relevant for first question only) (optional, default: null)
 	 * @return KalturaTreeNextNodeResponse
 	 */
-	static getNextNodeAndRecommendation(treeId = null, previousQuestionId = null, answerId = null, topQuestion = null){
+	static getNextNodeAndRecommendation(treeId = null, previousQuestionId = null, answerId = null, topQuestionId = null){
 		let kparams = {};
 		kparams.treeId = treeId;
 		kparams.previousQuestionId = previousQuestionId;
 		kparams.answerId = answerId;
-		kparams.topQuestion = topQuestion;
+		kparams.topQuestionId = topQuestionId;
 		return new kaltura.RequestBuilder('airecommendationtree', 'getNextNodeAndRecommendation', kparams);
 	};
 	
