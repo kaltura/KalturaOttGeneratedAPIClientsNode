@@ -9106,161 +9106,267 @@ module.exports.AiMetadataGeneratorConfiguration = AiMetadataGeneratorConfigurati
 /**
  *
  */
-class TreeQuestion extends kaltura.BaseObject{
+class Announcement extends kaltura.BaseObject{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaTreeQuestion';
+		this.objectType = 'KalturaAnnouncement';
 	}
 	
 	/**
-	 * Unique identifier for the question
+	 * Announcement name
 	 * @return string
 	 */
-	 getQuestionId() {
-	 	return this.questionId;
+	 getName() {
+	 	return this.name;
 	 }
 	
 	/**
-	 * @param questionId string Unique identifier for the question
+	 * @param name string Announcement name
 	 */
-	 setQuestionId(questionId) {
-	 	this.questionId = questionId;
+	 setName(name) {
+	 	this.name = name;
 	 }
 	
 	/**
-	 * The question text to display to the user
+	 * Announcement message
 	 * @return string
 	 */
-	 getText() {
-	 	return this.text;
+	 getMessage() {
+	 	return this.message;
 	 }
 	
 	/**
-	 * @param text string The question text to display to the user
+	 * @param message string Announcement message
 	 */
-	 setText(text) {
-	 	this.text = text;
+	 setMessage(message) {
+	 	this.message = message;
 	 }
 	
 	/**
-	 * The depth level in the tree (1 for top-level)
+	 * Announcement enabled
+	 * @return bool
+	 */
+	 getEnabled() {
+	 	return this.enabled;
+	 }
+	
+	/**
+	 * @param enabled bool Announcement enabled
+	 */
+	 setEnabled(enabled) {
+	 	this.enabled = enabled;
+	 }
+	
+	/**
+	 * Announcement start time
 	 * @return int
 	 */
-	 getLevel() {
-	 	return this.level;
+	 getStartTime() {
+	 	return this.startTime;
 	 }
 	
 	/**
-	 * @param level int The depth level in the tree (1 for top-level)
+	 * @param startTime int Announcement start time
 	 */
-	 setLevel(level) {
-	 	this.level = level;
+	 setStartTime(startTime) {
+	 	this.startTime = startTime;
 	 }
 	
 	/**
-	 * Array of metadata categories this question focuses on
-	 * @return array
+	 * Announcement time zone
+	 * @return string
 	 */
-	 getMetadataTypes() {
-	 	return this.metadataTypes;
+	 getTimezone() {
+	 	return this.timezone;
 	 }
 	
 	/**
-	 * @param metadataTypes array Array of metadata categories this question focuses on
+	 * @param timezone string Announcement time zone
 	 */
-	 setMetadataTypes(metadataTypes) {
-	 	this.metadataTypes = metadataTypes;
+	 setTimezone(timezone) {
+	 	this.timezone = timezone;
+	 }
+	
+	/**
+	 * Announcement status: NotSent=0/Sending=1/Sent=2/Aborted=3
+	 * @return string
+	 */
+	 getStatus() {
+	 	return this.status;
+	 }
+	
+	/**
+	 * Announcement recipients: All=0/LoggedIn=1/Guests=2/Other=3
+	 * @return string
+	 */
+	 getRecipients() {
+	 	return this.recipients;
+	 }
+	
+	/**
+	 * @param recipients string Announcement recipients: All=0/LoggedIn=1/Guests=2/Other=3
+	 */
+	 setRecipients(recipients) {
+	 	this.recipients = recipients;
+	 }
+	
+	/**
+	 * Announcement id
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Announcement image URL, relevant for system announcements
+	 * @return string
+	 */
+	 getImageUrl() {
+	 	return this.imageUrl;
+	 }
+	
+	/**
+	 * @param imageUrl string Announcement image URL, relevant for system announcements
+	 */
+	 setImageUrl(imageUrl) {
+	 	this.imageUrl = imageUrl;
+	 }
+	
+	/**
+	 * Include Mail
+	 * @return bool
+	 */
+	 getIncludeMail() {
+	 	return this.includeMail;
+	 }
+	
+	/**
+	 * @param includeMail bool Include Mail
+	 */
+	 setIncludeMail(includeMail) {
+	 	this.includeMail = includeMail;
+	 }
+	
+	/**
+	 * Mail Template
+	 * @return string
+	 */
+	 getMailTemplate() {
+	 	return this.mailTemplate;
+	 }
+	
+	/**
+	 * @param mailTemplate string Mail Template
+	 */
+	 setMailTemplate(mailTemplate) {
+	 	this.mailTemplate = mailTemplate;
+	 }
+	
+	/**
+	 * Mail Subject
+	 * @return string
+	 */
+	 getMailSubject() {
+	 	return this.mailSubject;
+	 }
+	
+	/**
+	 * @param mailSubject string Mail Subject
+	 */
+	 setMailSubject(mailSubject) {
+	 	this.mailSubject = mailSubject;
+	 }
+	
+	/**
+	 * Include SMS
+	 * @return bool
+	 */
+	 getIncludeSms() {
+	 	return this.includeSms;
+	 }
+	
+	/**
+	 * @param includeSms bool Include SMS
+	 */
+	 setIncludeSms(includeSms) {
+	 	this.includeSms = includeSms;
+	 }
+	
+	/**
+	 * Include IOT
+	 * @return bool
+	 */
+	 getIncludeIot() {
+	 	return this.includeIot;
+	 }
+	
+	/**
+	 * @param includeIot bool Include IOT
+	 */
+	 setIncludeIot(includeIot) {
+	 	this.includeIot = includeIot;
+	 }
+	
+	/**
+	 * Should add to user inbox
+	 * @return bool
+	 */
+	 getIncludeUserInbox() {
+	 	return this.includeUserInbox;
+	 }
+	
+	/**
+	 * @param includeUserInbox bool Should add to user inbox
+	 */
+	 setIncludeUserInbox(includeUserInbox) {
+	 	this.includeUserInbox = includeUserInbox;
 	 }
 }
-module.exports.TreeQuestion = TreeQuestion;
+module.exports.Announcement = Announcement;
 
 /**
  *
  */
-class TreeAnswer extends kaltura.BaseObject{
+class FilterPager extends kaltura.BaseObject{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaTreeAnswer';
+		this.objectType = 'KalturaFilterPager';
 	}
 	
 	/**
-	 * Unique identifier for the answer
-	 * @return string
+	 * The number of objects to retrieve. Possible range 1 ≤ value ≤ 50. If omitted or value &lt; 1 - will be set to 25. If a value &gt; 50 provided – will be set to 50
+	 * @return int
 	 */
-	 getAnswerId() {
-	 	return this.answerId;
+	 getPageSize() {
+	 	return this.pageSize;
 	 }
 	
 	/**
-	 * @param answerId string Unique identifier for the answer
+	 * @param pageSize int The number of objects to retrieve. Possible range 1 ≤ value ≤ 50. If omitted or value &lt; 1 - will be set to 25. If a value &gt; 50 provided – will be set to 50
 	 */
-	 setAnswerId(answerId) {
-	 	this.answerId = answerId;
+	 setPageSize(pageSize) {
+	 	this.pageSize = pageSize;
 	 }
 	
 	/**
-	 * The answer text to display to the user
-	 * @return string
+	 * The page number for which {pageSize} of objects should be retrieved
+	 * @return int
 	 */
-	 getText() {
-	 	return this.text;
+	 getPageIndex() {
+	 	return this.pageIndex;
 	 }
 	
 	/**
-	 * @param text string The answer text to display to the user
+	 * @param pageIndex int The page number for which {pageSize} of objects should be retrieved
 	 */
-	 setText(text) {
-	 	this.text = text;
-	 }
-	
-	/**
-	 * Boolean indicating if selecting this answer leads to another question
-	 * @return bool
-	 */
-	 getHasNextQuestion() {
-	 	return this.hasNextQuestion;
-	 }
-	
-	/**
-	 * @param hasNextQuestion bool Boolean indicating if selecting this answer leads to another question
-	 */
-	 setHasNextQuestion(hasNextQuestion) {
-	 	this.hasNextQuestion = hasNextQuestion;
-	 }
-	
-	/**
-	 * Flag for special answers like &quot;I don&#39;t know&quot; (optional)
-	 * @return bool
-	 */
-	 getIsSpecial() {
-	 	return this.isSpecial;
-	 }
-	
-	/**
-	 * @param isSpecial bool Flag for special answers like &quot;I don&#39;t know&quot; (optional)
-	 */
-	 setIsSpecial(isSpecial) {
-	 	this.isSpecial = isSpecial;
-	 }
-	
-	/**
-	 * The type of special answer, e.g., &quot;unsure&quot; (optional)
-	 * @return string
-	 */
-	 getSpecialType() {
-	 	return this.specialType;
-	 }
-	
-	/**
-	 * @param specialType string The type of special answer, e.g., &quot;unsure&quot; (optional)
-	 */
-	 setSpecialType(specialType) {
-	 	this.specialType = specialType;
+	 setPageIndex(pageIndex) {
+	 	this.pageIndex = pageIndex;
 	 }
 }
-module.exports.TreeAnswer = TreeAnswer;
+module.exports.FilterPager = FilterPager;
 
 /**
  *
@@ -9292,155 +9398,15 @@ module.exports.ListResponse = ListResponse;
 /**
  *
  */
-class MediaImage extends kaltura.BaseObject{
+class AnnouncementListResponse extends ListResponse{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaMediaImage';
+		this.objectType = 'KalturaAnnouncementListResponse';
 	}
 	
 	/**
-	 * Image aspect ratio
-	 * @return string
-	 */
-	 getRatio() {
-	 	return this.ratio;
-	 }
-	
-	/**
-	 * @param ratio string Image aspect ratio
-	 */
-	 setRatio(ratio) {
-	 	this.ratio = ratio;
-	 }
-	
-	/**
-	 * Image width
-	 * @return int
-	 */
-	 getWidth() {
-	 	return this.width;
-	 }
-	
-	/**
-	 * @param width int Image width
-	 */
-	 setWidth(width) {
-	 	this.width = width;
-	 }
-	
-	/**
-	 * Image height
-	 * @return int
-	 */
-	 getHeight() {
-	 	return this.height;
-	 }
-	
-	/**
-	 * @param height int Image height
-	 */
-	 setHeight(height) {
-	 	this.height = height;
-	 }
-	
-	/**
-	 * Image URL
-	 * @return string
-	 */
-	 getUrl() {
-	 	return this.url;
-	 }
-	
-	/**
-	 * @param url string Image URL
-	 */
-	 setUrl(url) {
-	 	this.url = url;
-	 }
-	
-	/**
-	 * Image Version
-	 * @return int
-	 */
-	 getVersion() {
-	 	return this.version;
-	 }
-	
-	/**
-	 * @param version int Image Version
-	 */
-	 setVersion(version) {
-	 	this.version = version;
-	 }
-	
-	/**
-	 * Image ID
-	 * @return string
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Determined whether image was taken from default configuration or not
-	 * @return bool
-	 */
-	 getIsDefault() {
-	 	return this.isDefault;
-	 }
-	
-	/**
-	 * @param isDefault bool Determined whether image was taken from default configuration or not
-	 */
-	 setIsDefault(isDefault) {
-	 	this.isDefault = isDefault;
-	 }
-	
-	/**
-	 * Image type identifier
-	 * @return int
-	 */
-	 getImageTypeId() {
-	 	return this.imageTypeId;
-	 }
-	
-	/**
-	 * @param imageTypeId int Image type identifier
-	 */
-	 setImageTypeId(imageTypeId) {
-	 	this.imageTypeId = imageTypeId;
-	 }
-	
-	/**
-	 * Image type Name
-	 * @return string
-	 */
-	 getImageTypeName() {
-	 	return this.imageTypeName;
-	 }
-	
-	/**
-	 * @param imageTypeName string Image type Name
-	 */
-	 setImageTypeName(imageTypeName) {
-	 	this.imageTypeName = imageTypeName;
-	 }
-}
-module.exports.MediaImage = MediaImage;
-
-/**
- *
- */
-class StringValueArray extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaStringValueArray';
-	}
-	
-	/**
-	 * List of string values
+	 * Announcements
 	 * @return array
 	 */
 	 getObjects() {
@@ -9448,1064 +9414,13 @@ class StringValueArray extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param objects array List of string values
+	 * @param objects array Announcements
 	 */
 	 setObjects(objects) {
 	 	this.objects = objects;
 	 }
 }
-module.exports.StringValueArray = StringValueArray;
-
-/**
- *
- */
-class AssetFile extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetFile';
-	}
-	
-	/**
-	 * URL of the media file to be played
-	 * @return string
-	 */
-	 getUrl() {
-	 	return this.url;
-	 }
-	
-	/**
-	 * @param url string URL of the media file to be played
-	 */
-	 setUrl(url) {
-	 	this.url = url;
-	 }
-}
-module.exports.AssetFile = AssetFile;
-
-/**
- *
- */
-class BusinessModuleDetails extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBusinessModuleDetails';
-	}
-	
-	/**
-	 * BusinessModuleId
-	 * @return int
-	 */
-	 getBusinessModuleId() {
-	 	return this.businessModuleId;
-	 }
-	
-	/**
-	 * @param businessModuleId int BusinessModuleId
-	 */
-	 setBusinessModuleId(businessModuleId) {
-	 	this.businessModuleId = businessModuleId;
-	 }
-	
-	/**
-	 * BusinessModuleType
-	 * @return string
-	 */
-	 getBusinessModuleType() {
-	 	return this.businessModuleType;
-	 }
-	
-	/**
-	 * @param businessModuleType string BusinessModuleType
-	 */
-	 setBusinessModuleType(businessModuleType) {
-	 	this.businessModuleType = businessModuleType;
-	 }
-}
-module.exports.BusinessModuleDetails = BusinessModuleDetails;
-
-/**
- *
- */
-class MediaFile extends AssetFile{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaMediaFile';
-	}
-	
-	/**
-	 * Unique identifier for the asset
-	 * @return int
-	 */
-	 getAssetId() {
-	 	return this.assetId;
-	 }
-	
-	/**
-	 * @param assetId int Unique identifier for the asset
-	 */
-	 setAssetId(assetId) {
-	 	this.assetId = assetId;
-	 }
-	
-	/**
-	 * File unique identifier
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Deprecated - Device types as defined in the system
-	 * @return string
-	 */
-	 getType() {
-	 	return this.type;
-	 }
-	
-	/**
-	 * Device types identifier as defined in the system
-	 * @return int
-	 */
-	 getTypeId() {
-	 	return this.typeId;
-	 }
-	
-	/**
-	 * @param typeId int Device types identifier as defined in the system
-	 */
-	 setTypeId(typeId) {
-	 	this.typeId = typeId;
-	 }
-	
-	/**
-	 * URL of the media file to be played
-	 * @return string
-	 */
-	 getAltUrl() {
-	 	return this.altUrl;
-	 }
-	
-	/**
-	 * @param altUrl string URL of the media file to be played
-	 */
-	 setAltUrl(altUrl) {
-	 	this.altUrl = altUrl;
-	 }
-	
-	/**
-	 * Duration of the media file
-	 * @return int
-	 */
-	 getDuration() {
-	 	return this.duration;
-	 }
-	
-	/**
-	 * @param duration int Duration of the media file
-	 */
-	 setDuration(duration) {
-	 	this.duration = duration;
-	 }
-	
-	/**
-	 * External identifier for the media file
-	 * @return string
-	 */
-	 getExternalId() {
-	 	return this.externalId;
-	 }
-	
-	/**
-	 * @param externalId string External identifier for the media file
-	 */
-	 setExternalId(externalId) {
-	 	this.externalId = externalId;
-	 }
-	
-	/**
-	 * Alternative external identifier for the media file
-	 * @return string
-	 */
-	 getAltExternalId() {
-	 	return this.altExternalId;
-	 }
-	
-	/**
-	 * @param altExternalId string Alternative external identifier for the media file
-	 */
-	 setAltExternalId(altExternalId) {
-	 	this.altExternalId = altExternalId;
-	 }
-	
-	/**
-	 * File size
-	 * @return int
-	 */
-	 getFileSize() {
-	 	return this.fileSize;
-	 }
-	
-	/**
-	 * @param fileSize int File size
-	 */
-	 setFileSize(fileSize) {
-	 	this.fileSize = fileSize;
-	 }
-	
-	/**
-	 * Additional Data
-	 * @return string
-	 */
-	 getAdditionalData() {
-	 	return this.additionalData;
-	 }
-	
-	/**
-	 * @param additionalData string Additional Data
-	 */
-	 setAdditionalData(additionalData) {
-	 	this.additionalData = additionalData;
-	 }
-	
-	/**
-	 * Alternative streaming code
-	 * @return string
-	 */
-	 getAltStreamingCode() {
-	 	return this.altStreamingCode;
-	 }
-	
-	/**
-	 * @param altStreamingCode string Alternative streaming code
-	 */
-	 setAltStreamingCode(altStreamingCode) {
-	 	this.altStreamingCode = altStreamingCode;
-	 }
-	
-	/**
-	 * Alternative cdn adapter profile identifier
-	 * @return int
-	 */
-	 getAlternativeCdnAdapaterProfileId() {
-	 	return this.alternativeCdnAdapaterProfileId;
-	 }
-	
-	/**
-	 * @param alternativeCdnAdapaterProfileId int Alternative cdn adapter profile identifier
-	 */
-	 setAlternativeCdnAdapaterProfileId(alternativeCdnAdapaterProfileId) {
-	 	this.alternativeCdnAdapaterProfileId = alternativeCdnAdapaterProfileId;
-	 }
-	
-	/**
-	 * EndDate
-	 * @return int
-	 */
-	 getEndDate() {
-	 	return this.endDate;
-	 }
-	
-	/**
-	 * @param endDate int EndDate
-	 */
-	 setEndDate(endDate) {
-	 	this.endDate = endDate;
-	 }
-	
-	/**
-	 * StartDate
-	 * @return int
-	 */
-	 getStartDate() {
-	 	return this.startDate;
-	 }
-	
-	/**
-	 * @param startDate int StartDate
-	 */
-	 setStartDate(startDate) {
-	 	this.startDate = startDate;
-	 }
-	
-	/**
-	 * ExternalStoreId
-	 * @return string
-	 */
-	 getExternalStoreId() {
-	 	return this.externalStoreId;
-	 }
-	
-	/**
-	 * @param externalStoreId string ExternalStoreId
-	 */
-	 setExternalStoreId(externalStoreId) {
-	 	this.externalStoreId = externalStoreId;
-	 }
-	
-	/**
-	 * IsDefaultLanguage
-	 * @return bool
-	 */
-	 getIsDefaultLanguage() {
-	 	return this.isDefaultLanguage;
-	 }
-	
-	/**
-	 * @param isDefaultLanguage bool IsDefaultLanguage
-	 */
-	 setIsDefaultLanguage(isDefaultLanguage) {
-	 	this.isDefaultLanguage = isDefaultLanguage;
-	 }
-	
-	/**
-	 * Language
-	 * @return string
-	 */
-	 getLanguage() {
-	 	return this.language;
-	 }
-	
-	/**
-	 * @param language string Language
-	 */
-	 setLanguage(language) {
-	 	this.language = language;
-	 }
-	
-	/**
-	 * OrderNum
-	 * @return int
-	 */
-	 getOrderNum() {
-	 	return this.orderNum;
-	 }
-	
-	/**
-	 * @param orderNum int OrderNum
-	 */
-	 setOrderNum(orderNum) {
-	 	this.orderNum = orderNum;
-	 }
-	
-	/**
-	 * OutputProtecationLevel
-	 * @return string
-	 */
-	 getOutputProtecationLevel() {
-	 	return this.outputProtecationLevel;
-	 }
-	
-	/**
-	 * @param outputProtecationLevel string OutputProtecationLevel
-	 */
-	 setOutputProtecationLevel(outputProtecationLevel) {
-	 	this.outputProtecationLevel = outputProtecationLevel;
-	 }
-	
-	/**
-	 * cdn adapter profile identifier
-	 * @return int
-	 */
-	 getCdnAdapaterProfileId() {
-	 	return this.cdnAdapaterProfileId;
-	 }
-	
-	/**
-	 * @param cdnAdapaterProfileId int cdn adapter profile identifier
-	 */
-	 setCdnAdapaterProfileId(cdnAdapaterProfileId) {
-	 	this.cdnAdapaterProfileId = cdnAdapaterProfileId;
-	 }
-	
-	/**
-	 * The media file status
-	 * @return bool
-	 */
-	 getStatus() {
-	 	return this.status;
-	 }
-	
-	/**
-	 * @param status bool The media file status
-	 */
-	 setStatus(status) {
-	 	this.status = status;
-	 }
-	
-	/**
-	 * Catalog end date
-	 * @return int
-	 */
-	 getCatalogEndDate() {
-	 	return this.catalogEndDate;
-	 }
-	
-	/**
-	 * @param catalogEndDate int Catalog end date
-	 */
-	 setCatalogEndDate(catalogEndDate) {
-	 	this.catalogEndDate = catalogEndDate;
-	 }
-	
-	/**
-	 * OPL
-	 * @return string
-	 */
-	 getOpl() {
-	 	return this.opl;
-	 }
-	
-	/**
-	 * @param opl string OPL
-	 */
-	 setOpl(opl) {
-	 	this.opl = opl;
-	 }
-	
-	/**
-	 * businessModuleDetails
-	 * @return BusinessModuleDetails
-	 */
-	 getBusinessModuleDetails() {
-	 	return this.businessModuleDetails;
-	 }
-	
-	/**
-	 * @param businessModuleDetails BusinessModuleDetails businessModuleDetails
-	 */
-	 setBusinessModuleDetails(businessModuleDetails) {
-	 	this.businessModuleDetails = businessModuleDetails;
-	 }
-	
-	/**
-	 * Labels associated with the media file
-	 * @return string
-	 */
-	 getLabels() {
-	 	return this.labels;
-	 }
-	
-	/**
-	 * @param labels string Labels associated with the media file
-	 */
-	 setLabels(labels) {
-	 	this.labels = labels;
-	 }
-	
-	/**
-	 * List of KalturaMediaFile&#39;s dynamic data keys
-	 * @return map
-	 */
-	 getDynamicData() {
-	 	return this.dynamicData;
-	 }
-	
-	/**
-	 * @param dynamicData map List of KalturaMediaFile&#39;s dynamic data keys
-	 */
-	 setDynamicData(dynamicData) {
-	 	this.dynamicData = dynamicData;
-	 }
-}
-module.exports.MediaFile = MediaFile;
-
-/**
- *
- */
-class BuzzScore extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBuzzScore';
-	}
-	
-	/**
-	 * Normalized average score
-	 * @return float
-	 */
-	 getNormalizedAvgScore() {
-	 	return this.normalizedAvgScore;
-	 }
-	
-	/**
-	 * @param normalizedAvgScore float Normalized average score
-	 */
-	 setNormalizedAvgScore(normalizedAvgScore) {
-	 	this.normalizedAvgScore = normalizedAvgScore;
-	 }
-	
-	/**
-	 * Update date
-	 * @return int
-	 */
-	 getUpdateDate() {
-	 	return this.updateDate;
-	 }
-	
-	/**
-	 * @param updateDate int Update date
-	 */
-	 setUpdateDate(updateDate) {
-	 	this.updateDate = updateDate;
-	 }
-	
-	/**
-	 * Average score
-	 * @return float
-	 */
-	 getAvgScore() {
-	 	return this.avgScore;
-	 }
-	
-	/**
-	 * @param avgScore float Average score
-	 */
-	 setAvgScore(avgScore) {
-	 	this.avgScore = avgScore;
-	 }
-}
-module.exports.BuzzScore = BuzzScore;
-
-/**
- *
- */
-class AssetStatistics extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetStatistics';
-	}
-	
-	/**
-	 * Unique identifier for the asset
-	 * @return int
-	 */
-	 getAssetId() {
-	 	return this.assetId;
-	 }
-	
-	/**
-	 * @param assetId int Unique identifier for the asset
-	 */
-	 setAssetId(assetId) {
-	 	this.assetId = assetId;
-	 }
-	
-	/**
-	 * Total number of likes for this asset
-	 * @return int
-	 */
-	 getLikes() {
-	 	return this.likes;
-	 }
-	
-	/**
-	 * @param likes int Total number of likes for this asset
-	 */
-	 setLikes(likes) {
-	 	this.likes = likes;
-	 }
-	
-	/**
-	 * Total number of views for this asset
-	 * @return int
-	 */
-	 getViews() {
-	 	return this.views;
-	 }
-	
-	/**
-	 * @param views int Total number of views for this asset
-	 */
-	 setViews(views) {
-	 	this.views = views;
-	 }
-	
-	/**
-	 * Number of people that rated the asset
-	 * @return int
-	 */
-	 getRatingCount() {
-	 	return this.ratingCount;
-	 }
-	
-	/**
-	 * @param ratingCount int Number of people that rated the asset
-	 */
-	 setRatingCount(ratingCount) {
-	 	this.ratingCount = ratingCount;
-	 }
-	
-	/**
-	 * Average rating for the asset
-	 * @return float
-	 */
-	 getRating() {
-	 	return this.rating;
-	 }
-	
-	/**
-	 * @param rating float Average rating for the asset
-	 */
-	 setRating(rating) {
-	 	this.rating = rating;
-	 }
-	
-	/**
-	 * Buzz score
-	 * @return BuzzScore
-	 */
-	 getBuzzScore() {
-	 	return this.buzzScore;
-	 }
-	
-	/**
-	 * @param buzzScore BuzzScore Buzz score
-	 */
-	 setBuzzScore(buzzScore) {
-	 	this.buzzScore = buzzScore;
-	 }
-}
-module.exports.AssetStatistics = AssetStatistics;
-
-/**
- *
- */
-class MultilingualStringValueArray extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaMultilingualStringValueArray';
-	}
-	
-	/**
-	 * List of string values
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array List of string values
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.MultilingualStringValueArray = MultilingualStringValueArray;
-
-/**
- *
- */
-class RelatedEntity extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaRelatedEntity';
-	}
-	
-	/**
-	 * Unique identifier for the related entry
-	 * @return string
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * @param id string Unique identifier for the related entry
-	 */
-	 setId(id) {
-	 	this.id = id;
-	 }
-	
-	/**
-	 * Defines related entry type
-	 * @return string
-	 */
-	 getType() {
-	 	return this.type;
-	 }
-	
-	/**
-	 * @param type string Defines related entry type
-	 */
-	 setType(type) {
-	 	this.type = type;
-	 }
-}
-module.exports.RelatedEntity = RelatedEntity;
-
-/**
- *
- */
-class RelatedEntityArray extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaRelatedEntityArray';
-	}
-	
-	/**
-	 * List of related entities
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array List of related entities
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.RelatedEntityArray = RelatedEntityArray;
-
-/**
- *
- */
-class Asset extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAsset';
-	}
-	
-	/**
-	 * Unique identifier for the asset
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Identifies the asset type (EPG, Recording, Movie, TV Series, etc).
- * Possible values: 0 - EPG linear programs, 1 - Recording; or any asset type ID according to the asset types IDs defined in the system
-	 * @return int
-	 */
-	 getType() {
-	 	return this.type;
-	 }
-	
-	/**
-	 * @param type int Identifies the asset type (EPG, Recording, Movie, TV Series, etc).
- * Possible values: 0 - EPG linear programs, 1 - Recording; or any asset type ID according to the asset types IDs defined in the system
-	 */
-	 setType(type) {
-	 	this.type = type;
-	 }
-	
-	/**
-	 * Asset name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * Asset name
-	 * @return array
-	 */
-	 getMultilingualName() {
-	 	return this.multilingualName;
-	 }
-	
-	/**
-	 * @param multilingualName array Asset name
-	 */
-	 setMultilingualName(multilingualName) {
-	 	this.multilingualName = multilingualName;
-	 }
-	
-	/**
-	 * Asset description
-	 * @return string
-	 */
-	 getDescription() {
-	 	return this.description;
-	 }
-	
-	/**
-	 * Asset description
-	 * @return array
-	 */
-	 getMultilingualDescription() {
-	 	return this.multilingualDescription;
-	 }
-	
-	/**
-	 * @param multilingualDescription array Asset description
-	 */
-	 setMultilingualDescription(multilingualDescription) {
-	 	this.multilingualDescription = multilingualDescription;
-	 }
-	
-	/**
-	 * Collection of images details that can be used to represent this asset
-	 * @return array
-	 */
-	 getImages() {
-	 	return this.images;
-	 }
-	
-	/**
-	 * Files
-	 * @return array
-	 */
-	 getMediaFiles() {
-	 	return this.mediaFiles;
-	 }
-	
-	/**
-	 * Dynamic collection of key-value pairs according to the String Meta defined in the system
-	 * @return map
-	 */
-	 getMetas() {
-	 	return this.metas;
-	 }
-	
-	/**
-	 * @param metas map Dynamic collection of key-value pairs according to the String Meta defined in the system
-	 */
-	 setMetas(metas) {
-	 	this.metas = metas;
-	 }
-	
-	/**
-	 * Dynamic collection of key-value pairs according to the Tag Types defined in the system
-	 * @return map
-	 */
-	 getTags() {
-	 	return this.tags;
-	 }
-	
-	/**
-	 * @param tags map Dynamic collection of key-value pairs according to the Tag Types defined in the system
-	 */
-	 setTags(tags) {
-	 	this.tags = tags;
-	 }
-	
-	/**
-	 * Dynamic collection of key-value pairs according to the related entity defined in the system
-	 * @return map
-	 */
-	 getRelatedEntities() {
-	 	return this.relatedEntities;
-	 }
-	
-	/**
-	 * @param relatedEntities map Dynamic collection of key-value pairs according to the related entity defined in the system
-	 */
-	 setRelatedEntities(relatedEntities) {
-	 	this.relatedEntities = relatedEntities;
-	 }
-	
-	/**
-	 * Date and time represented as epoch. For VOD - since when the asset is available in the catalog. For EPG/Linear - when the program is aired (can be in the future)
-	 * @return int
-	 */
-	 getStartDate() {
-	 	return this.startDate;
-	 }
-	
-	/**
-	 * @param startDate int Date and time represented as epoch. For VOD - since when the asset is available in the catalog. For EPG/Linear - when the program is aired (can be in the future)
-	 */
-	 setStartDate(startDate) {
-	 	this.startDate = startDate;
-	 }
-	
-	/**
-	 * Date and time represented as epoch. For VOD - till when the asset be available in the catalog. For EPG/Linear - program end time and date
-	 * @return int
-	 */
-	 getEndDate() {
-	 	return this.endDate;
-	 }
-	
-	/**
-	 * @param endDate int Date and time represented as epoch. For VOD - till when the asset be available in the catalog. For EPG/Linear - program end time and date
-	 */
-	 setEndDate(endDate) {
-	 	this.endDate = endDate;
-	 }
-	
-	/**
-	 * Specifies when was the Asset was created. Date and time represented as epoch
-	 * @return int
-	 */
-	 getCreateDate() {
-	 	return this.createDate;
-	 }
-	
-	/**
-	 * Specifies when was the Asset last updated. Date and time represented as epoch
-	 * @return int
-	 */
-	 getUpdateDate() {
-	 	return this.updateDate;
-	 }
-	
-	/**
-	 * External identifier for the asset
-	 * @return string
-	 */
-	 getExternalId() {
-	 	return this.externalId;
-	 }
-	
-	/**
-	 * @param externalId string External identifier for the asset
-	 */
-	 setExternalId(externalId) {
-	 	this.externalId = externalId;
-	 }
-	
-	/**
-	 * The media asset index status
-	 * @return string
-	 */
-	 getIndexStatus() {
-	 	return this.indexStatus;
-	 }
-}
-module.exports.Asset = Asset;
-
-/**
- *
- */
-class AssetListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAssetListResponse';
-	}
-	
-	/**
-	 * Assets
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array Assets
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.AssetListResponse = AssetListResponse;
-
-/**
- *
- */
-class TreeRecommendations extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaTreeRecommendations';
-	}
-	
-	/**
-	 * Descriptive title for the recommendation set
-	 * @return string
-	 */
-	 getTitle() {
-	 	return this.title;
-	 }
-	
-	/**
-	 * @param title string Descriptive title for the recommendation set
-	 */
-	 setTitle(title) {
-	 	this.title = title;
-	 }
-	
-	/**
-	 * Array of content assets matching the recommendation criteria
-	 * @return AssetListResponse
-	 */
-	 getAssets() {
-	 	return this.assets;
-	 }
-	
-	/**
-	 * @param assets AssetListResponse Array of content assets matching the recommendation criteria
-	 */
-	 setAssets(assets) {
-	 	this.assets = assets;
-	 }
-}
-module.exports.TreeRecommendations = TreeRecommendations;
-
-/**
- *
- */
-class TreeNextNodeResponse extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaTreeNextNodeResponse';
-	}
-	
-	/**
-	 * The next question to present to the user, or null for terminal nodes
-	 * @return TreeQuestion
-	 */
-	 getQuestion() {
-	 	return this.question;
-	 }
-	
-	/**
-	 * @param question TreeQuestion The next question to present to the user, or null for terminal nodes
-	 */
-	 setQuestion(question) {
-	 	this.question = question;
-	 }
-	
-	/**
-	 * Array of possible answer options for the question
-	 * @return array
-	 */
-	 getAnswers() {
-	 	return this.answers;
-	 }
-	
-	/**
-	 * @param answers array Array of possible answer options for the question
-	 */
-	 setAnswers(answers) {
-	 	this.answers = answers;
-	 }
-	
-	/**
-	 * Content recommendations based on the current path
-	 * @return TreeRecommendations
-	 */
-	 getRecommendations() {
-	 	return this.recommendations;
-	 }
-	
-	/**
-	 * @param recommendations TreeRecommendations Content recommendations based on the current path
-	 */
-	 setRecommendations(recommendations) {
-	 	this.recommendations = recommendations;
-	 }
-}
-module.exports.TreeNextNodeResponse = TreeNextNodeResponse;
+module.exports.AnnouncementListResponse = AnnouncementListResponse;
 
 /**
  *
@@ -11709,6 +10624,146 @@ class Collection extends OTTObjectSupportNullable{
 	 }
 }
 module.exports.Collection = Collection;
+
+/**
+ *
+ */
+class MediaImage extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaMediaImage';
+	}
+	
+	/**
+	 * Image aspect ratio
+	 * @return string
+	 */
+	 getRatio() {
+	 	return this.ratio;
+	 }
+	
+	/**
+	 * @param ratio string Image aspect ratio
+	 */
+	 setRatio(ratio) {
+	 	this.ratio = ratio;
+	 }
+	
+	/**
+	 * Image width
+	 * @return int
+	 */
+	 getWidth() {
+	 	return this.width;
+	 }
+	
+	/**
+	 * @param width int Image width
+	 */
+	 setWidth(width) {
+	 	this.width = width;
+	 }
+	
+	/**
+	 * Image height
+	 * @return int
+	 */
+	 getHeight() {
+	 	return this.height;
+	 }
+	
+	/**
+	 * @param height int Image height
+	 */
+	 setHeight(height) {
+	 	this.height = height;
+	 }
+	
+	/**
+	 * Image URL
+	 * @return string
+	 */
+	 getUrl() {
+	 	return this.url;
+	 }
+	
+	/**
+	 * @param url string Image URL
+	 */
+	 setUrl(url) {
+	 	this.url = url;
+	 }
+	
+	/**
+	 * Image Version
+	 * @return int
+	 */
+	 getVersion() {
+	 	return this.version;
+	 }
+	
+	/**
+	 * @param version int Image Version
+	 */
+	 setVersion(version) {
+	 	this.version = version;
+	 }
+	
+	/**
+	 * Image ID
+	 * @return string
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Determined whether image was taken from default configuration or not
+	 * @return bool
+	 */
+	 getIsDefault() {
+	 	return this.isDefault;
+	 }
+	
+	/**
+	 * @param isDefault bool Determined whether image was taken from default configuration or not
+	 */
+	 setIsDefault(isDefault) {
+	 	this.isDefault = isDefault;
+	 }
+	
+	/**
+	 * Image type identifier
+	 * @return int
+	 */
+	 getImageTypeId() {
+	 	return this.imageTypeId;
+	 }
+	
+	/**
+	 * @param imageTypeId int Image type identifier
+	 */
+	 setImageTypeId(imageTypeId) {
+	 	this.imageTypeId = imageTypeId;
+	 }
+	
+	/**
+	 * Image type Name
+	 * @return string
+	 */
+	 getImageTypeName() {
+	 	return this.imageTypeName;
+	 }
+	
+	/**
+	 * @param imageTypeName string Image type Name
+	 */
+	 setImageTypeName(imageTypeName) {
+	 	this.imageTypeName = imageTypeName;
+	 }
+}
+module.exports.MediaImage = MediaImage;
 
 /**
  *
@@ -14780,6 +13835,33 @@ module.exports.ConcurrencyCondition = ConcurrencyCondition;
 /**
  *
  */
+class StringValueArray extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaStringValueArray';
+	}
+	
+	/**
+	 * List of string values
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array List of string values
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.StringValueArray = StringValueArray;
+
+/**
+ *
+ */
 class AssetShopCondition extends AssetConditionBase{
 	
 	constructor(object = null) {
@@ -17398,6 +16480,649 @@ class IotProfileAws extends OTTObjectSupportNullable{
 	 }
 }
 module.exports.IotProfileAws = IotProfileAws;
+
+/**
+ *
+ */
+class AssetFile extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetFile';
+	}
+	
+	/**
+	 * URL of the media file to be played
+	 * @return string
+	 */
+	 getUrl() {
+	 	return this.url;
+	 }
+	
+	/**
+	 * @param url string URL of the media file to be played
+	 */
+	 setUrl(url) {
+	 	this.url = url;
+	 }
+}
+module.exports.AssetFile = AssetFile;
+
+/**
+ *
+ */
+class BusinessModuleDetails extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBusinessModuleDetails';
+	}
+	
+	/**
+	 * BusinessModuleId
+	 * @return int
+	 */
+	 getBusinessModuleId() {
+	 	return this.businessModuleId;
+	 }
+	
+	/**
+	 * @param businessModuleId int BusinessModuleId
+	 */
+	 setBusinessModuleId(businessModuleId) {
+	 	this.businessModuleId = businessModuleId;
+	 }
+	
+	/**
+	 * BusinessModuleType
+	 * @return string
+	 */
+	 getBusinessModuleType() {
+	 	return this.businessModuleType;
+	 }
+	
+	/**
+	 * @param businessModuleType string BusinessModuleType
+	 */
+	 setBusinessModuleType(businessModuleType) {
+	 	this.businessModuleType = businessModuleType;
+	 }
+}
+module.exports.BusinessModuleDetails = BusinessModuleDetails;
+
+/**
+ *
+ */
+class MediaFile extends AssetFile{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaMediaFile';
+	}
+	
+	/**
+	 * Unique identifier for the asset
+	 * @return int
+	 */
+	 getAssetId() {
+	 	return this.assetId;
+	 }
+	
+	/**
+	 * @param assetId int Unique identifier for the asset
+	 */
+	 setAssetId(assetId) {
+	 	this.assetId = assetId;
+	 }
+	
+	/**
+	 * File unique identifier
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Deprecated - Device types as defined in the system
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * Device types identifier as defined in the system
+	 * @return int
+	 */
+	 getTypeId() {
+	 	return this.typeId;
+	 }
+	
+	/**
+	 * @param typeId int Device types identifier as defined in the system
+	 */
+	 setTypeId(typeId) {
+	 	this.typeId = typeId;
+	 }
+	
+	/**
+	 * URL of the media file to be played
+	 * @return string
+	 */
+	 getAltUrl() {
+	 	return this.altUrl;
+	 }
+	
+	/**
+	 * @param altUrl string URL of the media file to be played
+	 */
+	 setAltUrl(altUrl) {
+	 	this.altUrl = altUrl;
+	 }
+	
+	/**
+	 * Duration of the media file
+	 * @return int
+	 */
+	 getDuration() {
+	 	return this.duration;
+	 }
+	
+	/**
+	 * @param duration int Duration of the media file
+	 */
+	 setDuration(duration) {
+	 	this.duration = duration;
+	 }
+	
+	/**
+	 * External identifier for the media file
+	 * @return string
+	 */
+	 getExternalId() {
+	 	return this.externalId;
+	 }
+	
+	/**
+	 * @param externalId string External identifier for the media file
+	 */
+	 setExternalId(externalId) {
+	 	this.externalId = externalId;
+	 }
+	
+	/**
+	 * Alternative external identifier for the media file
+	 * @return string
+	 */
+	 getAltExternalId() {
+	 	return this.altExternalId;
+	 }
+	
+	/**
+	 * @param altExternalId string Alternative external identifier for the media file
+	 */
+	 setAltExternalId(altExternalId) {
+	 	this.altExternalId = altExternalId;
+	 }
+	
+	/**
+	 * File size
+	 * @return int
+	 */
+	 getFileSize() {
+	 	return this.fileSize;
+	 }
+	
+	/**
+	 * @param fileSize int File size
+	 */
+	 setFileSize(fileSize) {
+	 	this.fileSize = fileSize;
+	 }
+	
+	/**
+	 * Additional Data
+	 * @return string
+	 */
+	 getAdditionalData() {
+	 	return this.additionalData;
+	 }
+	
+	/**
+	 * @param additionalData string Additional Data
+	 */
+	 setAdditionalData(additionalData) {
+	 	this.additionalData = additionalData;
+	 }
+	
+	/**
+	 * Alternative streaming code
+	 * @return string
+	 */
+	 getAltStreamingCode() {
+	 	return this.altStreamingCode;
+	 }
+	
+	/**
+	 * @param altStreamingCode string Alternative streaming code
+	 */
+	 setAltStreamingCode(altStreamingCode) {
+	 	this.altStreamingCode = altStreamingCode;
+	 }
+	
+	/**
+	 * Alternative cdn adapter profile identifier
+	 * @return int
+	 */
+	 getAlternativeCdnAdapaterProfileId() {
+	 	return this.alternativeCdnAdapaterProfileId;
+	 }
+	
+	/**
+	 * @param alternativeCdnAdapaterProfileId int Alternative cdn adapter profile identifier
+	 */
+	 setAlternativeCdnAdapaterProfileId(alternativeCdnAdapaterProfileId) {
+	 	this.alternativeCdnAdapaterProfileId = alternativeCdnAdapaterProfileId;
+	 }
+	
+	/**
+	 * EndDate
+	 * @return int
+	 */
+	 getEndDate() {
+	 	return this.endDate;
+	 }
+	
+	/**
+	 * @param endDate int EndDate
+	 */
+	 setEndDate(endDate) {
+	 	this.endDate = endDate;
+	 }
+	
+	/**
+	 * StartDate
+	 * @return int
+	 */
+	 getStartDate() {
+	 	return this.startDate;
+	 }
+	
+	/**
+	 * @param startDate int StartDate
+	 */
+	 setStartDate(startDate) {
+	 	this.startDate = startDate;
+	 }
+	
+	/**
+	 * ExternalStoreId
+	 * @return string
+	 */
+	 getExternalStoreId() {
+	 	return this.externalStoreId;
+	 }
+	
+	/**
+	 * @param externalStoreId string ExternalStoreId
+	 */
+	 setExternalStoreId(externalStoreId) {
+	 	this.externalStoreId = externalStoreId;
+	 }
+	
+	/**
+	 * IsDefaultLanguage
+	 * @return bool
+	 */
+	 getIsDefaultLanguage() {
+	 	return this.isDefaultLanguage;
+	 }
+	
+	/**
+	 * @param isDefaultLanguage bool IsDefaultLanguage
+	 */
+	 setIsDefaultLanguage(isDefaultLanguage) {
+	 	this.isDefaultLanguage = isDefaultLanguage;
+	 }
+	
+	/**
+	 * Language
+	 * @return string
+	 */
+	 getLanguage() {
+	 	return this.language;
+	 }
+	
+	/**
+	 * @param language string Language
+	 */
+	 setLanguage(language) {
+	 	this.language = language;
+	 }
+	
+	/**
+	 * OrderNum
+	 * @return int
+	 */
+	 getOrderNum() {
+	 	return this.orderNum;
+	 }
+	
+	/**
+	 * @param orderNum int OrderNum
+	 */
+	 setOrderNum(orderNum) {
+	 	this.orderNum = orderNum;
+	 }
+	
+	/**
+	 * OutputProtecationLevel
+	 * @return string
+	 */
+	 getOutputProtecationLevel() {
+	 	return this.outputProtecationLevel;
+	 }
+	
+	/**
+	 * @param outputProtecationLevel string OutputProtecationLevel
+	 */
+	 setOutputProtecationLevel(outputProtecationLevel) {
+	 	this.outputProtecationLevel = outputProtecationLevel;
+	 }
+	
+	/**
+	 * cdn adapter profile identifier
+	 * @return int
+	 */
+	 getCdnAdapaterProfileId() {
+	 	return this.cdnAdapaterProfileId;
+	 }
+	
+	/**
+	 * @param cdnAdapaterProfileId int cdn adapter profile identifier
+	 */
+	 setCdnAdapaterProfileId(cdnAdapaterProfileId) {
+	 	this.cdnAdapaterProfileId = cdnAdapaterProfileId;
+	 }
+	
+	/**
+	 * The media file status
+	 * @return bool
+	 */
+	 getStatus() {
+	 	return this.status;
+	 }
+	
+	/**
+	 * @param status bool The media file status
+	 */
+	 setStatus(status) {
+	 	this.status = status;
+	 }
+	
+	/**
+	 * Catalog end date
+	 * @return int
+	 */
+	 getCatalogEndDate() {
+	 	return this.catalogEndDate;
+	 }
+	
+	/**
+	 * @param catalogEndDate int Catalog end date
+	 */
+	 setCatalogEndDate(catalogEndDate) {
+	 	this.catalogEndDate = catalogEndDate;
+	 }
+	
+	/**
+	 * OPL
+	 * @return string
+	 */
+	 getOpl() {
+	 	return this.opl;
+	 }
+	
+	/**
+	 * @param opl string OPL
+	 */
+	 setOpl(opl) {
+	 	this.opl = opl;
+	 }
+	
+	/**
+	 * businessModuleDetails
+	 * @return BusinessModuleDetails
+	 */
+	 getBusinessModuleDetails() {
+	 	return this.businessModuleDetails;
+	 }
+	
+	/**
+	 * @param businessModuleDetails BusinessModuleDetails businessModuleDetails
+	 */
+	 setBusinessModuleDetails(businessModuleDetails) {
+	 	this.businessModuleDetails = businessModuleDetails;
+	 }
+	
+	/**
+	 * Labels associated with the media file
+	 * @return string
+	 */
+	 getLabels() {
+	 	return this.labels;
+	 }
+	
+	/**
+	 * @param labels string Labels associated with the media file
+	 */
+	 setLabels(labels) {
+	 	this.labels = labels;
+	 }
+	
+	/**
+	 * List of KalturaMediaFile&#39;s dynamic data keys
+	 * @return map
+	 */
+	 getDynamicData() {
+	 	return this.dynamicData;
+	 }
+	
+	/**
+	 * @param dynamicData map List of KalturaMediaFile&#39;s dynamic data keys
+	 */
+	 setDynamicData(dynamicData) {
+	 	this.dynamicData = dynamicData;
+	 }
+}
+module.exports.MediaFile = MediaFile;
+
+/**
+ *
+ */
+class BuzzScore extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBuzzScore';
+	}
+	
+	/**
+	 * Normalized average score
+	 * @return float
+	 */
+	 getNormalizedAvgScore() {
+	 	return this.normalizedAvgScore;
+	 }
+	
+	/**
+	 * @param normalizedAvgScore float Normalized average score
+	 */
+	 setNormalizedAvgScore(normalizedAvgScore) {
+	 	this.normalizedAvgScore = normalizedAvgScore;
+	 }
+	
+	/**
+	 * Update date
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
+	
+	/**
+	 * @param updateDate int Update date
+	 */
+	 setUpdateDate(updateDate) {
+	 	this.updateDate = updateDate;
+	 }
+	
+	/**
+	 * Average score
+	 * @return float
+	 */
+	 getAvgScore() {
+	 	return this.avgScore;
+	 }
+	
+	/**
+	 * @param avgScore float Average score
+	 */
+	 setAvgScore(avgScore) {
+	 	this.avgScore = avgScore;
+	 }
+}
+module.exports.BuzzScore = BuzzScore;
+
+/**
+ *
+ */
+class AssetStatistics extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetStatistics';
+	}
+	
+	/**
+	 * Unique identifier for the asset
+	 * @return int
+	 */
+	 getAssetId() {
+	 	return this.assetId;
+	 }
+	
+	/**
+	 * @param assetId int Unique identifier for the asset
+	 */
+	 setAssetId(assetId) {
+	 	this.assetId = assetId;
+	 }
+	
+	/**
+	 * Total number of likes for this asset
+	 * @return int
+	 */
+	 getLikes() {
+	 	return this.likes;
+	 }
+	
+	/**
+	 * @param likes int Total number of likes for this asset
+	 */
+	 setLikes(likes) {
+	 	this.likes = likes;
+	 }
+	
+	/**
+	 * Total number of views for this asset
+	 * @return int
+	 */
+	 getViews() {
+	 	return this.views;
+	 }
+	
+	/**
+	 * @param views int Total number of views for this asset
+	 */
+	 setViews(views) {
+	 	this.views = views;
+	 }
+	
+	/**
+	 * Number of people that rated the asset
+	 * @return int
+	 */
+	 getRatingCount() {
+	 	return this.ratingCount;
+	 }
+	
+	/**
+	 * @param ratingCount int Number of people that rated the asset
+	 */
+	 setRatingCount(ratingCount) {
+	 	this.ratingCount = ratingCount;
+	 }
+	
+	/**
+	 * Average rating for the asset
+	 * @return float
+	 */
+	 getRating() {
+	 	return this.rating;
+	 }
+	
+	/**
+	 * @param rating float Average rating for the asset
+	 */
+	 setRating(rating) {
+	 	this.rating = rating;
+	 }
+	
+	/**
+	 * Buzz score
+	 * @return BuzzScore
+	 */
+	 getBuzzScore() {
+	 	return this.buzzScore;
+	 }
+	
+	/**
+	 * @param buzzScore BuzzScore Buzz score
+	 */
+	 setBuzzScore(buzzScore) {
+	 	this.buzzScore = buzzScore;
+	 }
+}
+module.exports.AssetStatistics = AssetStatistics;
+
+/**
+ *
+ */
+class MultilingualStringValueArray extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaMultilingualStringValueArray';
+	}
+	
+	/**
+	 * List of string values
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array List of string values
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.MultilingualStringValueArray = MultilingualStringValueArray;
 
 /**
  *
@@ -23779,256 +23504,6 @@ module.exports.PersonalListListResponse = PersonalListListResponse;
 /**
  *
  */
-class Announcement extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAnnouncement';
-	}
-	
-	/**
-	 * Announcement name
-	 * @return string
-	 */
-	 getName() {
-	 	return this.name;
-	 }
-	
-	/**
-	 * @param name string Announcement name
-	 */
-	 setName(name) {
-	 	this.name = name;
-	 }
-	
-	/**
-	 * Announcement message
-	 * @return string
-	 */
-	 getMessage() {
-	 	return this.message;
-	 }
-	
-	/**
-	 * @param message string Announcement message
-	 */
-	 setMessage(message) {
-	 	this.message = message;
-	 }
-	
-	/**
-	 * Announcement enabled
-	 * @return bool
-	 */
-	 getEnabled() {
-	 	return this.enabled;
-	 }
-	
-	/**
-	 * @param enabled bool Announcement enabled
-	 */
-	 setEnabled(enabled) {
-	 	this.enabled = enabled;
-	 }
-	
-	/**
-	 * Announcement start time
-	 * @return int
-	 */
-	 getStartTime() {
-	 	return this.startTime;
-	 }
-	
-	/**
-	 * @param startTime int Announcement start time
-	 */
-	 setStartTime(startTime) {
-	 	this.startTime = startTime;
-	 }
-	
-	/**
-	 * Announcement time zone
-	 * @return string
-	 */
-	 getTimezone() {
-	 	return this.timezone;
-	 }
-	
-	/**
-	 * @param timezone string Announcement time zone
-	 */
-	 setTimezone(timezone) {
-	 	this.timezone = timezone;
-	 }
-	
-	/**
-	 * Announcement status: NotSent=0/Sending=1/Sent=2/Aborted=3
-	 * @return string
-	 */
-	 getStatus() {
-	 	return this.status;
-	 }
-	
-	/**
-	 * Announcement recipients: All=0/LoggedIn=1/Guests=2/Other=3
-	 * @return string
-	 */
-	 getRecipients() {
-	 	return this.recipients;
-	 }
-	
-	/**
-	 * @param recipients string Announcement recipients: All=0/LoggedIn=1/Guests=2/Other=3
-	 */
-	 setRecipients(recipients) {
-	 	this.recipients = recipients;
-	 }
-	
-	/**
-	 * Announcement id
-	 * @return int
-	 */
-	 getId() {
-	 	return this.id;
-	 }
-	
-	/**
-	 * Announcement image URL, relevant for system announcements
-	 * @return string
-	 */
-	 getImageUrl() {
-	 	return this.imageUrl;
-	 }
-	
-	/**
-	 * @param imageUrl string Announcement image URL, relevant for system announcements
-	 */
-	 setImageUrl(imageUrl) {
-	 	this.imageUrl = imageUrl;
-	 }
-	
-	/**
-	 * Include Mail
-	 * @return bool
-	 */
-	 getIncludeMail() {
-	 	return this.includeMail;
-	 }
-	
-	/**
-	 * @param includeMail bool Include Mail
-	 */
-	 setIncludeMail(includeMail) {
-	 	this.includeMail = includeMail;
-	 }
-	
-	/**
-	 * Mail Template
-	 * @return string
-	 */
-	 getMailTemplate() {
-	 	return this.mailTemplate;
-	 }
-	
-	/**
-	 * @param mailTemplate string Mail Template
-	 */
-	 setMailTemplate(mailTemplate) {
-	 	this.mailTemplate = mailTemplate;
-	 }
-	
-	/**
-	 * Mail Subject
-	 * @return string
-	 */
-	 getMailSubject() {
-	 	return this.mailSubject;
-	 }
-	
-	/**
-	 * @param mailSubject string Mail Subject
-	 */
-	 setMailSubject(mailSubject) {
-	 	this.mailSubject = mailSubject;
-	 }
-	
-	/**
-	 * Include SMS
-	 * @return bool
-	 */
-	 getIncludeSms() {
-	 	return this.includeSms;
-	 }
-	
-	/**
-	 * @param includeSms bool Include SMS
-	 */
-	 setIncludeSms(includeSms) {
-	 	this.includeSms = includeSms;
-	 }
-	
-	/**
-	 * Include IOT
-	 * @return bool
-	 */
-	 getIncludeIot() {
-	 	return this.includeIot;
-	 }
-	
-	/**
-	 * @param includeIot bool Include IOT
-	 */
-	 setIncludeIot(includeIot) {
-	 	this.includeIot = includeIot;
-	 }
-	
-	/**
-	 * Should add to user inbox
-	 * @return bool
-	 */
-	 getIncludeUserInbox() {
-	 	return this.includeUserInbox;
-	 }
-	
-	/**
-	 * @param includeUserInbox bool Should add to user inbox
-	 */
-	 setIncludeUserInbox(includeUserInbox) {
-	 	this.includeUserInbox = includeUserInbox;
-	 }
-}
-module.exports.Announcement = Announcement;
-
-/**
- *
- */
-class AnnouncementListResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAnnouncementListResponse';
-	}
-	
-	/**
-	 * Announcements
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array Announcements
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.AnnouncementListResponse = AnnouncementListResponse;
-
-/**
- *
- */
 class EngagementAdapterBase extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -29246,6 +28721,1099 @@ module.exports.AssetHistoryListResponse = AssetHistoryListResponse;
 /**
  *
  */
+class RelatedEntity extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRelatedEntity';
+	}
+	
+	/**
+	 * Unique identifier for the related entry
+	 * @return string
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * @param id string Unique identifier for the related entry
+	 */
+	 setId(id) {
+	 	this.id = id;
+	 }
+	
+	/**
+	 * Defines related entry type
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * @param type string Defines related entry type
+	 */
+	 setType(type) {
+	 	this.type = type;
+	 }
+}
+module.exports.RelatedEntity = RelatedEntity;
+
+/**
+ *
+ */
+class RelatedEntityArray extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRelatedEntityArray';
+	}
+	
+	/**
+	 * List of related entities
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array List of related entities
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.RelatedEntityArray = RelatedEntityArray;
+
+/**
+ *
+ */
+class Asset extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAsset';
+	}
+	
+	/**
+	 * Unique identifier for the asset
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Identifies the asset type (EPG, Recording, Movie, TV Series, etc).
+ * Possible values: 0 - EPG linear programs, 1 - Recording; or any asset type ID according to the asset types IDs defined in the system
+	 * @return int
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * @param type int Identifies the asset type (EPG, Recording, Movie, TV Series, etc).
+ * Possible values: 0 - EPG linear programs, 1 - Recording; or any asset type ID according to the asset types IDs defined in the system
+	 */
+	 setType(type) {
+	 	this.type = type;
+	 }
+	
+	/**
+	 * Asset name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * Asset name
+	 * @return array
+	 */
+	 getMultilingualName() {
+	 	return this.multilingualName;
+	 }
+	
+	/**
+	 * @param multilingualName array Asset name
+	 */
+	 setMultilingualName(multilingualName) {
+	 	this.multilingualName = multilingualName;
+	 }
+	
+	/**
+	 * Asset description
+	 * @return string
+	 */
+	 getDescription() {
+	 	return this.description;
+	 }
+	
+	/**
+	 * Asset description
+	 * @return array
+	 */
+	 getMultilingualDescription() {
+	 	return this.multilingualDescription;
+	 }
+	
+	/**
+	 * @param multilingualDescription array Asset description
+	 */
+	 setMultilingualDescription(multilingualDescription) {
+	 	this.multilingualDescription = multilingualDescription;
+	 }
+	
+	/**
+	 * Collection of images details that can be used to represent this asset
+	 * @return array
+	 */
+	 getImages() {
+	 	return this.images;
+	 }
+	
+	/**
+	 * Files
+	 * @return array
+	 */
+	 getMediaFiles() {
+	 	return this.mediaFiles;
+	 }
+	
+	/**
+	 * Dynamic collection of key-value pairs according to the String Meta defined in the system
+	 * @return map
+	 */
+	 getMetas() {
+	 	return this.metas;
+	 }
+	
+	/**
+	 * @param metas map Dynamic collection of key-value pairs according to the String Meta defined in the system
+	 */
+	 setMetas(metas) {
+	 	this.metas = metas;
+	 }
+	
+	/**
+	 * Dynamic collection of key-value pairs according to the Tag Types defined in the system
+	 * @return map
+	 */
+	 getTags() {
+	 	return this.tags;
+	 }
+	
+	/**
+	 * @param tags map Dynamic collection of key-value pairs according to the Tag Types defined in the system
+	 */
+	 setTags(tags) {
+	 	this.tags = tags;
+	 }
+	
+	/**
+	 * Dynamic collection of key-value pairs according to the related entity defined in the system
+	 * @return map
+	 */
+	 getRelatedEntities() {
+	 	return this.relatedEntities;
+	 }
+	
+	/**
+	 * @param relatedEntities map Dynamic collection of key-value pairs according to the related entity defined in the system
+	 */
+	 setRelatedEntities(relatedEntities) {
+	 	this.relatedEntities = relatedEntities;
+	 }
+	
+	/**
+	 * Date and time represented as epoch. For VOD - since when the asset is available in the catalog. For EPG/Linear - when the program is aired (can be in the future)
+	 * @return int
+	 */
+	 getStartDate() {
+	 	return this.startDate;
+	 }
+	
+	/**
+	 * @param startDate int Date and time represented as epoch. For VOD - since when the asset is available in the catalog. For EPG/Linear - when the program is aired (can be in the future)
+	 */
+	 setStartDate(startDate) {
+	 	this.startDate = startDate;
+	 }
+	
+	/**
+	 * Date and time represented as epoch. For VOD - till when the asset be available in the catalog. For EPG/Linear - program end time and date
+	 * @return int
+	 */
+	 getEndDate() {
+	 	return this.endDate;
+	 }
+	
+	/**
+	 * @param endDate int Date and time represented as epoch. For VOD - till when the asset be available in the catalog. For EPG/Linear - program end time and date
+	 */
+	 setEndDate(endDate) {
+	 	this.endDate = endDate;
+	 }
+	
+	/**
+	 * Specifies when was the Asset was created. Date and time represented as epoch
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * Specifies when was the Asset last updated. Date and time represented as epoch
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
+	
+	/**
+	 * External identifier for the asset
+	 * @return string
+	 */
+	 getExternalId() {
+	 	return this.externalId;
+	 }
+	
+	/**
+	 * @param externalId string External identifier for the asset
+	 */
+	 setExternalId(externalId) {
+	 	this.externalId = externalId;
+	 }
+	
+	/**
+	 * The media asset index status
+	 * @return string
+	 */
+	 getIndexStatus() {
+	 	return this.indexStatus;
+	 }
+}
+module.exports.Asset = Asset;
+
+/**
+ *
+ */
+class AssetListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAssetListResponse';
+	}
+	
+	/**
+	 * Assets
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Assets
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.AssetListResponse = AssetListResponse;
+
+/**
+ *
+ */
+class LiveToVodInfoAsset extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaLiveToVodInfoAsset';
+	}
+	
+	/**
+	 * Linear Asset Id
+	 * @return int
+	 */
+	 getLinearAssetId() {
+	 	return this.linearAssetId;
+	 }
+	
+	/**
+	 * @param linearAssetId int Linear Asset Id
+	 */
+	 setLinearAssetId(linearAssetId) {
+	 	this.linearAssetId = linearAssetId;
+	 }
+	
+	/**
+	 * EPG Id
+	 * @return string
+	 */
+	 getEpgId() {
+	 	return this.epgId;
+	 }
+	
+	/**
+	 * @param epgId string EPG Id
+	 */
+	 setEpgId(epgId) {
+	 	this.epgId = epgId;
+	 }
+	
+	/**
+	 * EPG Channel Id
+	 * @return int
+	 */
+	 getEpgChannelId() {
+	 	return this.epgChannelId;
+	 }
+	
+	/**
+	 * @param epgChannelId int EPG Channel Id
+	 */
+	 setEpgChannelId(epgChannelId) {
+	 	this.epgChannelId = epgChannelId;
+	 }
+	
+	/**
+	 * Crid
+	 * @return string
+	 */
+	 getCrid() {
+	 	return this.crid;
+	 }
+	
+	/**
+	 * @param crid string Crid
+	 */
+	 setCrid(crid) {
+	 	this.crid = crid;
+	 }
+	
+	/**
+	 * Original Start Date
+	 * @return int
+	 */
+	 getOriginalStartDate() {
+	 	return this.originalStartDate;
+	 }
+	
+	/**
+	 * @param originalStartDate int Original Start Date
+	 */
+	 setOriginalStartDate(originalStartDate) {
+	 	this.originalStartDate = originalStartDate;
+	 }
+	
+	/**
+	 * Original End Date
+	 * @return int
+	 */
+	 getOriginalEndDate() {
+	 	return this.originalEndDate;
+	 }
+	
+	/**
+	 * @param originalEndDate int Original End Date
+	 */
+	 setOriginalEndDate(originalEndDate) {
+	 	this.originalEndDate = originalEndDate;
+	 }
+	
+	/**
+	 * Padding before program starts
+	 * @return int
+	 */
+	 getPaddingBeforeProgramStarts() {
+	 	return this.paddingBeforeProgramStarts;
+	 }
+	
+	/**
+	 * @param paddingBeforeProgramStarts int Padding before program starts
+	 */
+	 setPaddingBeforeProgramStarts(paddingBeforeProgramStarts) {
+	 	this.paddingBeforeProgramStarts = paddingBeforeProgramStarts;
+	 }
+	
+	/**
+	 * Padding after program ends
+	 * @return int
+	 */
+	 getPaddingAfterProgramEnds() {
+	 	return this.paddingAfterProgramEnds;
+	 }
+	
+	/**
+	 * @param paddingAfterProgramEnds int Padding after program ends
+	 */
+	 setPaddingAfterProgramEnds(paddingAfterProgramEnds) {
+	 	this.paddingAfterProgramEnds = paddingAfterProgramEnds;
+	 }
+}
+module.exports.LiveToVodInfoAsset = LiveToVodInfoAsset;
+
+/**
+ *
+ */
+class MediaAsset extends Asset{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaMediaAsset';
+	}
+	
+	/**
+	 * External identifiers
+	 * @return string
+	 */
+	 getExternalIds() {
+	 	return this.externalIds;
+	 }
+	
+	/**
+	 * @param externalIds string External identifiers
+	 */
+	 setExternalIds(externalIds) {
+	 	this.externalIds = externalIds;
+	 }
+	
+	/**
+	 * Entry Identifier
+	 * @return string
+	 */
+	 getEntryId() {
+	 	return this.entryId;
+	 }
+	
+	/**
+	 * @param entryId string Entry Identifier
+	 */
+	 setEntryId(entryId) {
+	 	this.entryId = entryId;
+	 }
+	
+	/**
+	 * Device rule identifier
+	 * @return int
+	 */
+	 getDeviceRuleId() {
+	 	return this.deviceRuleId;
+	 }
+	
+	/**
+	 * @param deviceRuleId int Device rule identifier
+	 */
+	 setDeviceRuleId(deviceRuleId) {
+	 	this.deviceRuleId = deviceRuleId;
+	 }
+	
+	/**
+	 * Geo block rule identifier
+	 * @return int
+	 */
+	 getGeoBlockRuleId() {
+	 	return this.geoBlockRuleId;
+	 }
+	
+	/**
+	 * @param geoBlockRuleId int Geo block rule identifier
+	 */
+	 setGeoBlockRuleId(geoBlockRuleId) {
+	 	this.geoBlockRuleId = geoBlockRuleId;
+	 }
+	
+	/**
+	 * The media asset status
+	 * @return bool
+	 */
+	 getStatus() {
+	 	return this.status;
+	 }
+	
+	/**
+	 * @param status bool The media asset status
+	 */
+	 setStatus(status) {
+	 	this.status = status;
+	 }
+	
+	/**
+	 * The media asset inheritance policy
+	 * @return string
+	 */
+	 getInheritancePolicy() {
+	 	return this.inheritancePolicy;
+	 }
+	
+	/**
+	 * @param inheritancePolicy string The media asset inheritance policy
+	 */
+	 setInheritancePolicy(inheritancePolicy) {
+	 	this.inheritancePolicy = inheritancePolicy;
+	 }
+	
+	/**
+	 * Live to VOD (if present)
+	 * @return LiveToVodInfoAsset
+	 */
+	 getLiveToVod() {
+	 	return this.liveToVod;
+	 }
+	
+	/**
+	 * @param liveToVod LiveToVodInfoAsset Live to VOD (if present)
+	 */
+	 setLiveToVod(liveToVod) {
+	 	this.liveToVod = liveToVod;
+	 }
+}
+module.exports.MediaAsset = MediaAsset;
+
+/**
+ *
+ */
+class LiveAsset extends MediaAsset{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaLiveAsset';
+	}
+	
+	/**
+	 * Enable CDVR, configuration only
+	 * @return string
+	 */
+	 getEnableCdvrState() {
+	 	return this.enableCdvrState;
+	 }
+	
+	/**
+	 * @param enableCdvrState string Enable CDVR, configuration only
+	 */
+	 setEnableCdvrState(enableCdvrState) {
+	 	this.enableCdvrState = enableCdvrState;
+	 }
+	
+	/**
+	 * Enable catch-up, configuration only
+	 * @return string
+	 */
+	 getEnableCatchUpState() {
+	 	return this.enableCatchUpState;
+	 }
+	
+	/**
+	 * @param enableCatchUpState string Enable catch-up, configuration only
+	 */
+	 setEnableCatchUpState(enableCatchUpState) {
+	 	this.enableCatchUpState = enableCatchUpState;
+	 }
+	
+	/**
+	 * Enable start over, configuration only
+	 * @return string
+	 */
+	 getEnableStartOverState() {
+	 	return this.enableStartOverState;
+	 }
+	
+	/**
+	 * @param enableStartOverState string Enable start over, configuration only
+	 */
+	 setEnableStartOverState(enableStartOverState) {
+	 	this.enableStartOverState = enableStartOverState;
+	 }
+	
+	/**
+	 * buffer Catch-up, configuration only
+	 * @return int
+	 */
+	 getBufferCatchUpSetting() {
+	 	return this.bufferCatchUpSetting;
+	 }
+	
+	/**
+	 * @param bufferCatchUpSetting int buffer Catch-up, configuration only
+	 */
+	 setBufferCatchUpSetting(bufferCatchUpSetting) {
+	 	this.bufferCatchUpSetting = bufferCatchUpSetting;
+	 }
+	
+	/**
+	 * Returns padding before program starts in seconds from a live asset if configured,
+ * otherwise returns corresponding value from TimeShiftedTvPartnerSettings
+	 * @return int
+	 */
+	 getPaddingBeforeProgramStarts() {
+	 	return this.paddingBeforeProgramStarts;
+	 }
+	
+	/**
+	 * @param paddingBeforeProgramStarts int Returns padding before program starts in seconds from a live asset if configured,
+ * otherwise returns corresponding value from TimeShiftedTvPartnerSettings
+	 */
+	 setPaddingBeforeProgramStarts(paddingBeforeProgramStarts) {
+	 	this.paddingBeforeProgramStarts = paddingBeforeProgramStarts;
+	 }
+	
+	/**
+	 * Returns padding after program ends in seconds from a live asset if configured,
+ * otherwise returns corresponding value from TimeShiftedTvPartnerSettings
+	 * @return int
+	 */
+	 getPaddingAfterProgramEnds() {
+	 	return this.paddingAfterProgramEnds;
+	 }
+	
+	/**
+	 * @param paddingAfterProgramEnds int Returns padding after program ends in seconds from a live asset if configured,
+ * otherwise returns corresponding value from TimeShiftedTvPartnerSettings
+	 */
+	 setPaddingAfterProgramEnds(paddingAfterProgramEnds) {
+	 	this.paddingAfterProgramEnds = paddingAfterProgramEnds;
+	 }
+	
+	/**
+	 * buffer Trick-play, configuration only
+	 * @return int
+	 */
+	 getBufferTrickPlaySetting() {
+	 	return this.bufferTrickPlaySetting;
+	 }
+	
+	/**
+	 * @param bufferTrickPlaySetting int buffer Trick-play, configuration only
+	 */
+	 setBufferTrickPlaySetting(bufferTrickPlaySetting) {
+	 	this.bufferTrickPlaySetting = bufferTrickPlaySetting;
+	 }
+	
+	/**
+	 * Enable Recording playback for non entitled channel, configuration only
+	 * @return string
+	 */
+	 getEnableRecordingPlaybackNonEntitledChannelState() {
+	 	return this.enableRecordingPlaybackNonEntitledChannelState;
+	 }
+	
+	/**
+	 * @param enableRecordingPlaybackNonEntitledChannelState string Enable Recording playback for non entitled channel, configuration only
+	 */
+	 setEnableRecordingPlaybackNonEntitledChannelState(enableRecordingPlaybackNonEntitledChannelState) {
+	 	this.enableRecordingPlaybackNonEntitledChannelState = enableRecordingPlaybackNonEntitledChannelState;
+	 }
+	
+	/**
+	 * Enable trick-play, configuration only
+	 * @return string
+	 */
+	 getEnableTrickPlayState() {
+	 	return this.enableTrickPlayState;
+	 }
+	
+	/**
+	 * @param enableTrickPlayState string Enable trick-play, configuration only
+	 */
+	 setEnableTrickPlayState(enableTrickPlayState) {
+	 	this.enableTrickPlayState = enableTrickPlayState;
+	 }
+	
+	/**
+	 * External identifier used when ingesting programs for this linear media asset
+	 * @return string
+	 */
+	 getExternalEpgIngestId() {
+	 	return this.externalEpgIngestId;
+	 }
+	
+	/**
+	 * @param externalEpgIngestId string External identifier used when ingesting programs for this linear media asset
+	 */
+	 setExternalEpgIngestId(externalEpgIngestId) {
+	 	this.externalEpgIngestId = externalEpgIngestId;
+	 }
+	
+	/**
+	 * External identifier for the CDVR
+	 * @return string
+	 */
+	 getExternalCdvrId() {
+	 	return this.externalCdvrId;
+	 }
+	
+	/**
+	 * @param externalCdvrId string External identifier for the CDVR
+	 */
+	 setExternalCdvrId(externalCdvrId) {
+	 	this.externalCdvrId = externalCdvrId;
+	 }
+	
+	/**
+	 * Is CDVR enabled for this asset
+ * Please, note that value of this property is strictly connected with CDV-R setting on Partner level.
+ * In order to enable CDV-R for KalturaLiveAsset, Partner CDV-R setting should be enabled
+	 * @return bool
+	 */
+	 getEnableCdvr() {
+	 	return this.enableCdvr;
+	 }
+	
+	/**
+	 * Is catch-up enabled for this asset
+ * Please, note that value of this property is strictly connected with Catch Up setting on Partner level.
+ * In order to enable Catch Up for KalturaLiveAsset, Partner Catch Up setting should be enabled
+	 * @return bool
+	 */
+	 getEnableCatchUp() {
+	 	return this.enableCatchUp;
+	 }
+	
+	/**
+	 * Is start over enabled for this asset
+ * Please, note that value of this property is strictly connected with Start Over setting on Partner level.
+ * In order to enable Start Over for KalturaLiveAsset, Partner Start Over setting should be enabled
+	 * @return bool
+	 */
+	 getEnableStartOver() {
+	 	return this.enableStartOver;
+	 }
+	
+	/**
+	 * summed Catch-up buffer, the TimeShiftedTvPartnerSettings are also taken into consideration
+	 * @return int
+	 */
+	 getCatchUpBuffer() {
+	 	return this.catchUpBuffer;
+	 }
+	
+	/**
+	 * summed Trick-play buffer, the TimeShiftedTvPartnerSettings are also taken into consideration
+	 * @return int
+	 */
+	 getTrickPlayBuffer() {
+	 	return this.trickPlayBuffer;
+	 }
+	
+	/**
+	 * Is recording playback for non entitled channel enabled for this asset
+	 * @return bool
+	 */
+	 getEnableRecordingPlaybackNonEntitledChannel() {
+	 	return this.enableRecordingPlaybackNonEntitledChannel;
+	 }
+	
+	/**
+	 * Is trick-play enabled for this asset
+ * Please, note that value of this property is strictly connected with Trick Play setting on Partner level.
+ * In order to enable Trick Play for KalturaLiveAsset, Partner Trick Play setting should be enabled
+	 * @return bool
+	 */
+	 getEnableTrickPlay() {
+	 	return this.enableTrickPlay;
+	 }
+	
+	/**
+	 * channel type, possible values: UNKNOWN, DTT, OTT, DTT_AND_OTT
+	 * @return string
+	 */
+	 getChannelType() {
+	 	return this.channelType;
+	 }
+	
+	/**
+	 * @param channelType string channel type, possible values: UNKNOWN, DTT, OTT, DTT_AND_OTT
+	 */
+	 setChannelType(channelType) {
+	 	this.channelType = channelType;
+	 }
+}
+module.exports.LiveAsset = LiveAsset;
+
+/**
+ *
+ */
+class LineupChannelAsset extends LiveAsset{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaLineupChannelAsset';
+	}
+	
+	/**
+	 * Lineup channel number (LCN) - A logical linear channel number. This number is unique in the region context
+	 * @return int
+	 */
+	 getLcn() {
+	 	return this.lcn;
+	 }
+	
+	/**
+	 * @param lcn int Lineup channel number (LCN) - A logical linear channel number. This number is unique in the region context
+	 */
+	 setLcn(lcn) {
+	 	this.lcn = lcn;
+	 }
+}
+module.exports.LineupChannelAsset = LineupChannelAsset;
+
+/**
+ *
+ */
+class ProgramAsset extends Asset{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaProgramAsset';
+	}
+	
+	/**
+	 * EPG channel identifier
+	 * @return int
+	 */
+	 getEpgChannelId() {
+	 	return this.epgChannelId;
+	 }
+	
+	/**
+	 * EPG identifier
+	 * @return string
+	 */
+	 getEpgId() {
+	 	return this.epgId;
+	 }
+	
+	/**
+	 * Ralated media identifier
+	 * @return int
+	 */
+	 getRelatedMediaId() {
+	 	return this.relatedMediaId;
+	 }
+	
+	/**
+	 * @param relatedMediaId int Ralated media identifier
+	 */
+	 setRelatedMediaId(relatedMediaId) {
+	 	this.relatedMediaId = relatedMediaId;
+	 }
+	
+	/**
+	 * Unique identifier for the program
+	 * @return string
+	 */
+	 getCrid() {
+	 	return this.crid;
+	 }
+	
+	/**
+	 * @param crid string Unique identifier for the program
+	 */
+	 setCrid(crid) {
+	 	this.crid = crid;
+	 }
+	
+	/**
+	 * Id of linear media asset
+	 * @return int
+	 */
+	 getLinearAssetId() {
+	 	return this.linearAssetId;
+	 }
+	
+	/**
+	 * @param linearAssetId int Id of linear media asset
+	 */
+	 setLinearAssetId(linearAssetId) {
+	 	this.linearAssetId = linearAssetId;
+	 }
+	
+	/**
+	 * Is CDVR enabled for this asset
+ * Please, note that value of this property is strictly connected with CDV-R setting on Partner and KalturaLiveAsset levels.
+ * In order to enable CDV-R for KalturaProgramAsset, Partner and KalturaLiveAsset CDV-R settings should be enabled
+	 * @return bool
+	 */
+	 getEnableCdvr() {
+	 	return this.enableCdvr;
+	 }
+	
+	/**
+	 * @param enableCdvr bool Is CDVR enabled for this asset
+ * Please, note that value of this property is strictly connected with CDV-R setting on Partner and KalturaLiveAsset levels.
+ * In order to enable CDV-R for KalturaProgramAsset, Partner and KalturaLiveAsset CDV-R settings should be enabled
+	 */
+	 setEnableCdvr(enableCdvr) {
+	 	this.enableCdvr = enableCdvr;
+	 }
+	
+	/**
+	 * Is catch-up enabled for this asset
+ * Please, note that value of this property is strictly connected with Catch Up setting on Partner and KalturaLiveAsset levels.
+ * In order to enable Catch Up for KalturaProgramAsset, Partner and KalturaLiveAsset Catch Up settings should be enabled
+	 * @return bool
+	 */
+	 getEnableCatchUp() {
+	 	return this.enableCatchUp;
+	 }
+	
+	/**
+	 * @param enableCatchUp bool Is catch-up enabled for this asset
+ * Please, note that value of this property is strictly connected with Catch Up setting on Partner and KalturaLiveAsset levels.
+ * In order to enable Catch Up for KalturaProgramAsset, Partner and KalturaLiveAsset Catch Up settings should be enabled
+	 */
+	 setEnableCatchUp(enableCatchUp) {
+	 	this.enableCatchUp = enableCatchUp;
+	 }
+	
+	/**
+	 * Is start over enabled for this asset
+ * Please, note that value of this property is strictly connected with Start Over setting on Partner and KalturaLiveAsset levels.
+ * In order to enable Start Over for KalturaProgramAsset, Partner and KalturaLiveAsset Start Over settings should be enabled
+	 * @return bool
+	 */
+	 getEnableStartOver() {
+	 	return this.enableStartOver;
+	 }
+	
+	/**
+	 * @param enableStartOver bool Is start over enabled for this asset
+ * Please, note that value of this property is strictly connected with Start Over setting on Partner and KalturaLiveAsset levels.
+ * In order to enable Start Over for KalturaProgramAsset, Partner and KalturaLiveAsset Start Over settings should be enabled
+	 */
+	 setEnableStartOver(enableStartOver) {
+	 	this.enableStartOver = enableStartOver;
+	 }
+	
+	/**
+	 * Is trick-play enabled for this asset
+ * Please, note that value of this property is strictly connected with Trick Play setting on Partner and KalturaLiveAsset levels.
+ * In order to enable Trick Play for KalturaProgramAsset, Partner and KalturaLiveAsset Trick Play settings should be enabled
+	 * @return bool
+	 */
+	 getEnableTrickPlay() {
+	 	return this.enableTrickPlay;
+	 }
+	
+	/**
+	 * @param enableTrickPlay bool Is trick-play enabled for this asset
+ * Please, note that value of this property is strictly connected with Trick Play setting on Partner and KalturaLiveAsset levels.
+ * In order to enable Trick Play for KalturaProgramAsset, Partner and KalturaLiveAsset Trick Play settings should be enabled
+	 */
+	 setEnableTrickPlay(enableTrickPlay) {
+	 	this.enableTrickPlay = enableTrickPlay;
+	 }
+	
+	/**
+	 * Contains comma separate list of KalturaProgramAssetGroupOffer.externalOfferId values indicating the PAGOs to which the Program Asset is bound
+	 * @return string
+	 */
+	 getExternalOfferIds() {
+	 	return this.externalOfferIds;
+	 }
+	
+	/**
+	 * @param externalOfferIds string Contains comma separate list of KalturaProgramAssetGroupOffer.externalOfferId values indicating the PAGOs to which the Program Asset is bound
+	 */
+	 setExternalOfferIds(externalOfferIds) {
+	 	this.externalOfferIds = externalOfferIds;
+	 }
+}
+module.exports.ProgramAsset = ProgramAsset;
+
+/**
+ *
+ */
+class RecordingAsset extends ProgramAsset{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaRecordingAsset';
+	}
+	
+	/**
+	 * Recording identifier
+	 * @return string
+	 */
+	 getRecordingId() {
+	 	return this.recordingId;
+	 }
+	
+	/**
+	 * @param recordingId string Recording identifier
+	 */
+	 setRecordingId(recordingId) {
+	 	this.recordingId = recordingId;
+	 }
+	
+	/**
+	 * Recording Type: single/season/series
+	 * @return string
+	 */
+	 getRecordingType() {
+	 	return this.recordingType;
+	 }
+	
+	/**
+	 * @param recordingType string Recording Type: single/season/series
+	 */
+	 setRecordingType(recordingType) {
+	 	this.recordingType = recordingType;
+	 }
+	
+	/**
+	 * Specifies until when the recording is available for viewing. Date and time represented as epoch
+	 * @return int
+	 */
+	 getViewableUntilDate() {
+	 	return this.viewableUntilDate;
+	 }
+	
+	/**
+	 * @param viewableUntilDate int Specifies until when the recording is available for viewing. Date and time represented as epoch
+	 */
+	 setViewableUntilDate(viewableUntilDate) {
+	 	this.viewableUntilDate = viewableUntilDate;
+	 }
+	
+	/**
+	 * When TRUE indicates that there are multiple KalturaImmediateRecording instances for the event
+	 * @return bool
+	 */
+	 getMultiRecord() {
+	 	return this.multiRecord;
+	 }
+	
+	/**
+	 * @param multiRecord bool When TRUE indicates that there are multiple KalturaImmediateRecording instances for the event
+	 */
+	 setMultiRecord(multiRecord) {
+	 	this.multiRecord = multiRecord;
+	 }
+}
+module.exports.RecordingAsset = RecordingAsset;
+
+/**
+ *
+ */
+class Epg extends ProgramAsset{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEpg';
+	}
+}
+module.exports.Epg = Epg;
+
+/**
+ *
+ */
 class AssetStatisticsListResponse extends ListResponse{
 	
 	constructor(object = null) {
@@ -30124,542 +30692,6 @@ module.exports.LabelListResponse = LabelListResponse;
 /**
  *
  */
-class LiveToVodInfoAsset extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaLiveToVodInfoAsset';
-	}
-	
-	/**
-	 * Linear Asset Id
-	 * @return int
-	 */
-	 getLinearAssetId() {
-	 	return this.linearAssetId;
-	 }
-	
-	/**
-	 * @param linearAssetId int Linear Asset Id
-	 */
-	 setLinearAssetId(linearAssetId) {
-	 	this.linearAssetId = linearAssetId;
-	 }
-	
-	/**
-	 * EPG Id
-	 * @return string
-	 */
-	 getEpgId() {
-	 	return this.epgId;
-	 }
-	
-	/**
-	 * @param epgId string EPG Id
-	 */
-	 setEpgId(epgId) {
-	 	this.epgId = epgId;
-	 }
-	
-	/**
-	 * EPG Channel Id
-	 * @return int
-	 */
-	 getEpgChannelId() {
-	 	return this.epgChannelId;
-	 }
-	
-	/**
-	 * @param epgChannelId int EPG Channel Id
-	 */
-	 setEpgChannelId(epgChannelId) {
-	 	this.epgChannelId = epgChannelId;
-	 }
-	
-	/**
-	 * Crid
-	 * @return string
-	 */
-	 getCrid() {
-	 	return this.crid;
-	 }
-	
-	/**
-	 * @param crid string Crid
-	 */
-	 setCrid(crid) {
-	 	this.crid = crid;
-	 }
-	
-	/**
-	 * Original Start Date
-	 * @return int
-	 */
-	 getOriginalStartDate() {
-	 	return this.originalStartDate;
-	 }
-	
-	/**
-	 * @param originalStartDate int Original Start Date
-	 */
-	 setOriginalStartDate(originalStartDate) {
-	 	this.originalStartDate = originalStartDate;
-	 }
-	
-	/**
-	 * Original End Date
-	 * @return int
-	 */
-	 getOriginalEndDate() {
-	 	return this.originalEndDate;
-	 }
-	
-	/**
-	 * @param originalEndDate int Original End Date
-	 */
-	 setOriginalEndDate(originalEndDate) {
-	 	this.originalEndDate = originalEndDate;
-	 }
-	
-	/**
-	 * Padding before program starts
-	 * @return int
-	 */
-	 getPaddingBeforeProgramStarts() {
-	 	return this.paddingBeforeProgramStarts;
-	 }
-	
-	/**
-	 * @param paddingBeforeProgramStarts int Padding before program starts
-	 */
-	 setPaddingBeforeProgramStarts(paddingBeforeProgramStarts) {
-	 	this.paddingBeforeProgramStarts = paddingBeforeProgramStarts;
-	 }
-	
-	/**
-	 * Padding after program ends
-	 * @return int
-	 */
-	 getPaddingAfterProgramEnds() {
-	 	return this.paddingAfterProgramEnds;
-	 }
-	
-	/**
-	 * @param paddingAfterProgramEnds int Padding after program ends
-	 */
-	 setPaddingAfterProgramEnds(paddingAfterProgramEnds) {
-	 	this.paddingAfterProgramEnds = paddingAfterProgramEnds;
-	 }
-}
-module.exports.LiveToVodInfoAsset = LiveToVodInfoAsset;
-
-/**
- *
- */
-class MediaAsset extends Asset{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaMediaAsset';
-	}
-	
-	/**
-	 * External identifiers
-	 * @return string
-	 */
-	 getExternalIds() {
-	 	return this.externalIds;
-	 }
-	
-	/**
-	 * @param externalIds string External identifiers
-	 */
-	 setExternalIds(externalIds) {
-	 	this.externalIds = externalIds;
-	 }
-	
-	/**
-	 * Entry Identifier
-	 * @return string
-	 */
-	 getEntryId() {
-	 	return this.entryId;
-	 }
-	
-	/**
-	 * @param entryId string Entry Identifier
-	 */
-	 setEntryId(entryId) {
-	 	this.entryId = entryId;
-	 }
-	
-	/**
-	 * Device rule identifier
-	 * @return int
-	 */
-	 getDeviceRuleId() {
-	 	return this.deviceRuleId;
-	 }
-	
-	/**
-	 * @param deviceRuleId int Device rule identifier
-	 */
-	 setDeviceRuleId(deviceRuleId) {
-	 	this.deviceRuleId = deviceRuleId;
-	 }
-	
-	/**
-	 * Geo block rule identifier
-	 * @return int
-	 */
-	 getGeoBlockRuleId() {
-	 	return this.geoBlockRuleId;
-	 }
-	
-	/**
-	 * @param geoBlockRuleId int Geo block rule identifier
-	 */
-	 setGeoBlockRuleId(geoBlockRuleId) {
-	 	this.geoBlockRuleId = geoBlockRuleId;
-	 }
-	
-	/**
-	 * The media asset status
-	 * @return bool
-	 */
-	 getStatus() {
-	 	return this.status;
-	 }
-	
-	/**
-	 * @param status bool The media asset status
-	 */
-	 setStatus(status) {
-	 	this.status = status;
-	 }
-	
-	/**
-	 * The media asset inheritance policy
-	 * @return string
-	 */
-	 getInheritancePolicy() {
-	 	return this.inheritancePolicy;
-	 }
-	
-	/**
-	 * @param inheritancePolicy string The media asset inheritance policy
-	 */
-	 setInheritancePolicy(inheritancePolicy) {
-	 	this.inheritancePolicy = inheritancePolicy;
-	 }
-	
-	/**
-	 * Live to VOD (if present)
-	 * @return LiveToVodInfoAsset
-	 */
-	 getLiveToVod() {
-	 	return this.liveToVod;
-	 }
-	
-	/**
-	 * @param liveToVod LiveToVodInfoAsset Live to VOD (if present)
-	 */
-	 setLiveToVod(liveToVod) {
-	 	this.liveToVod = liveToVod;
-	 }
-}
-module.exports.MediaAsset = MediaAsset;
-
-/**
- *
- */
-class LiveAsset extends MediaAsset{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaLiveAsset';
-	}
-	
-	/**
-	 * Enable CDVR, configuration only
-	 * @return string
-	 */
-	 getEnableCdvrState() {
-	 	return this.enableCdvrState;
-	 }
-	
-	/**
-	 * @param enableCdvrState string Enable CDVR, configuration only
-	 */
-	 setEnableCdvrState(enableCdvrState) {
-	 	this.enableCdvrState = enableCdvrState;
-	 }
-	
-	/**
-	 * Enable catch-up, configuration only
-	 * @return string
-	 */
-	 getEnableCatchUpState() {
-	 	return this.enableCatchUpState;
-	 }
-	
-	/**
-	 * @param enableCatchUpState string Enable catch-up, configuration only
-	 */
-	 setEnableCatchUpState(enableCatchUpState) {
-	 	this.enableCatchUpState = enableCatchUpState;
-	 }
-	
-	/**
-	 * Enable start over, configuration only
-	 * @return string
-	 */
-	 getEnableStartOverState() {
-	 	return this.enableStartOverState;
-	 }
-	
-	/**
-	 * @param enableStartOverState string Enable start over, configuration only
-	 */
-	 setEnableStartOverState(enableStartOverState) {
-	 	this.enableStartOverState = enableStartOverState;
-	 }
-	
-	/**
-	 * buffer Catch-up, configuration only
-	 * @return int
-	 */
-	 getBufferCatchUpSetting() {
-	 	return this.bufferCatchUpSetting;
-	 }
-	
-	/**
-	 * @param bufferCatchUpSetting int buffer Catch-up, configuration only
-	 */
-	 setBufferCatchUpSetting(bufferCatchUpSetting) {
-	 	this.bufferCatchUpSetting = bufferCatchUpSetting;
-	 }
-	
-	/**
-	 * Returns padding before program starts in seconds from a live asset if configured,
- * otherwise returns corresponding value from TimeShiftedTvPartnerSettings
-	 * @return int
-	 */
-	 getPaddingBeforeProgramStarts() {
-	 	return this.paddingBeforeProgramStarts;
-	 }
-	
-	/**
-	 * @param paddingBeforeProgramStarts int Returns padding before program starts in seconds from a live asset if configured,
- * otherwise returns corresponding value from TimeShiftedTvPartnerSettings
-	 */
-	 setPaddingBeforeProgramStarts(paddingBeforeProgramStarts) {
-	 	this.paddingBeforeProgramStarts = paddingBeforeProgramStarts;
-	 }
-	
-	/**
-	 * Returns padding after program ends in seconds from a live asset if configured,
- * otherwise returns corresponding value from TimeShiftedTvPartnerSettings
-	 * @return int
-	 */
-	 getPaddingAfterProgramEnds() {
-	 	return this.paddingAfterProgramEnds;
-	 }
-	
-	/**
-	 * @param paddingAfterProgramEnds int Returns padding after program ends in seconds from a live asset if configured,
- * otherwise returns corresponding value from TimeShiftedTvPartnerSettings
-	 */
-	 setPaddingAfterProgramEnds(paddingAfterProgramEnds) {
-	 	this.paddingAfterProgramEnds = paddingAfterProgramEnds;
-	 }
-	
-	/**
-	 * buffer Trick-play, configuration only
-	 * @return int
-	 */
-	 getBufferTrickPlaySetting() {
-	 	return this.bufferTrickPlaySetting;
-	 }
-	
-	/**
-	 * @param bufferTrickPlaySetting int buffer Trick-play, configuration only
-	 */
-	 setBufferTrickPlaySetting(bufferTrickPlaySetting) {
-	 	this.bufferTrickPlaySetting = bufferTrickPlaySetting;
-	 }
-	
-	/**
-	 * Enable Recording playback for non entitled channel, configuration only
-	 * @return string
-	 */
-	 getEnableRecordingPlaybackNonEntitledChannelState() {
-	 	return this.enableRecordingPlaybackNonEntitledChannelState;
-	 }
-	
-	/**
-	 * @param enableRecordingPlaybackNonEntitledChannelState string Enable Recording playback for non entitled channel, configuration only
-	 */
-	 setEnableRecordingPlaybackNonEntitledChannelState(enableRecordingPlaybackNonEntitledChannelState) {
-	 	this.enableRecordingPlaybackNonEntitledChannelState = enableRecordingPlaybackNonEntitledChannelState;
-	 }
-	
-	/**
-	 * Enable trick-play, configuration only
-	 * @return string
-	 */
-	 getEnableTrickPlayState() {
-	 	return this.enableTrickPlayState;
-	 }
-	
-	/**
-	 * @param enableTrickPlayState string Enable trick-play, configuration only
-	 */
-	 setEnableTrickPlayState(enableTrickPlayState) {
-	 	this.enableTrickPlayState = enableTrickPlayState;
-	 }
-	
-	/**
-	 * External identifier used when ingesting programs for this linear media asset
-	 * @return string
-	 */
-	 getExternalEpgIngestId() {
-	 	return this.externalEpgIngestId;
-	 }
-	
-	/**
-	 * @param externalEpgIngestId string External identifier used when ingesting programs for this linear media asset
-	 */
-	 setExternalEpgIngestId(externalEpgIngestId) {
-	 	this.externalEpgIngestId = externalEpgIngestId;
-	 }
-	
-	/**
-	 * External identifier for the CDVR
-	 * @return string
-	 */
-	 getExternalCdvrId() {
-	 	return this.externalCdvrId;
-	 }
-	
-	/**
-	 * @param externalCdvrId string External identifier for the CDVR
-	 */
-	 setExternalCdvrId(externalCdvrId) {
-	 	this.externalCdvrId = externalCdvrId;
-	 }
-	
-	/**
-	 * Is CDVR enabled for this asset
- * Please, note that value of this property is strictly connected with CDV-R setting on Partner level.
- * In order to enable CDV-R for KalturaLiveAsset, Partner CDV-R setting should be enabled
-	 * @return bool
-	 */
-	 getEnableCdvr() {
-	 	return this.enableCdvr;
-	 }
-	
-	/**
-	 * Is catch-up enabled for this asset
- * Please, note that value of this property is strictly connected with Catch Up setting on Partner level.
- * In order to enable Catch Up for KalturaLiveAsset, Partner Catch Up setting should be enabled
-	 * @return bool
-	 */
-	 getEnableCatchUp() {
-	 	return this.enableCatchUp;
-	 }
-	
-	/**
-	 * Is start over enabled for this asset
- * Please, note that value of this property is strictly connected with Start Over setting on Partner level.
- * In order to enable Start Over for KalturaLiveAsset, Partner Start Over setting should be enabled
-	 * @return bool
-	 */
-	 getEnableStartOver() {
-	 	return this.enableStartOver;
-	 }
-	
-	/**
-	 * summed Catch-up buffer, the TimeShiftedTvPartnerSettings are also taken into consideration
-	 * @return int
-	 */
-	 getCatchUpBuffer() {
-	 	return this.catchUpBuffer;
-	 }
-	
-	/**
-	 * summed Trick-play buffer, the TimeShiftedTvPartnerSettings are also taken into consideration
-	 * @return int
-	 */
-	 getTrickPlayBuffer() {
-	 	return this.trickPlayBuffer;
-	 }
-	
-	/**
-	 * Is recording playback for non entitled channel enabled for this asset
-	 * @return bool
-	 */
-	 getEnableRecordingPlaybackNonEntitledChannel() {
-	 	return this.enableRecordingPlaybackNonEntitledChannel;
-	 }
-	
-	/**
-	 * Is trick-play enabled for this asset
- * Please, note that value of this property is strictly connected with Trick Play setting on Partner level.
- * In order to enable Trick Play for KalturaLiveAsset, Partner Trick Play setting should be enabled
-	 * @return bool
-	 */
-	 getEnableTrickPlay() {
-	 	return this.enableTrickPlay;
-	 }
-	
-	/**
-	 * channel type, possible values: UNKNOWN, DTT, OTT, DTT_AND_OTT
-	 * @return string
-	 */
-	 getChannelType() {
-	 	return this.channelType;
-	 }
-	
-	/**
-	 * @param channelType string channel type, possible values: UNKNOWN, DTT, OTT, DTT_AND_OTT
-	 */
-	 setChannelType(channelType) {
-	 	this.channelType = channelType;
-	 }
-}
-module.exports.LiveAsset = LiveAsset;
-
-/**
- *
- */
-class LineupChannelAsset extends LiveAsset{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaLineupChannelAsset';
-	}
-	
-	/**
-	 * Lineup channel number (LCN) - A logical linear channel number. This number is unique in the region context
-	 * @return int
-	 */
-	 getLcn() {
-	 	return this.lcn;
-	 }
-	
-	/**
-	 * @param lcn int Lineup channel number (LCN) - A logical linear channel number. This number is unique in the region context
-	 */
-	 setLcn(lcn) {
-	 	this.lcn = lcn;
-	 }
-}
-module.exports.LineupChannelAsset = LineupChannelAsset;
-
-/**
- *
- */
 class LineupChannelAssetListResponse extends ListResponse{
 	
 	constructor(object = null) {
@@ -30713,254 +30745,6 @@ class LineupChannelAssetListResponse extends ListResponse{
 	 }
 }
 module.exports.LineupChannelAssetListResponse = LineupChannelAssetListResponse;
-
-/**
- *
- */
-class ProgramAsset extends Asset{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaProgramAsset';
-	}
-	
-	/**
-	 * EPG channel identifier
-	 * @return int
-	 */
-	 getEpgChannelId() {
-	 	return this.epgChannelId;
-	 }
-	
-	/**
-	 * EPG identifier
-	 * @return string
-	 */
-	 getEpgId() {
-	 	return this.epgId;
-	 }
-	
-	/**
-	 * Ralated media identifier
-	 * @return int
-	 */
-	 getRelatedMediaId() {
-	 	return this.relatedMediaId;
-	 }
-	
-	/**
-	 * @param relatedMediaId int Ralated media identifier
-	 */
-	 setRelatedMediaId(relatedMediaId) {
-	 	this.relatedMediaId = relatedMediaId;
-	 }
-	
-	/**
-	 * Unique identifier for the program
-	 * @return string
-	 */
-	 getCrid() {
-	 	return this.crid;
-	 }
-	
-	/**
-	 * @param crid string Unique identifier for the program
-	 */
-	 setCrid(crid) {
-	 	this.crid = crid;
-	 }
-	
-	/**
-	 * Id of linear media asset
-	 * @return int
-	 */
-	 getLinearAssetId() {
-	 	return this.linearAssetId;
-	 }
-	
-	/**
-	 * @param linearAssetId int Id of linear media asset
-	 */
-	 setLinearAssetId(linearAssetId) {
-	 	this.linearAssetId = linearAssetId;
-	 }
-	
-	/**
-	 * Is CDVR enabled for this asset
- * Please, note that value of this property is strictly connected with CDV-R setting on Partner and KalturaLiveAsset levels.
- * In order to enable CDV-R for KalturaProgramAsset, Partner and KalturaLiveAsset CDV-R settings should be enabled
-	 * @return bool
-	 */
-	 getEnableCdvr() {
-	 	return this.enableCdvr;
-	 }
-	
-	/**
-	 * @param enableCdvr bool Is CDVR enabled for this asset
- * Please, note that value of this property is strictly connected with CDV-R setting on Partner and KalturaLiveAsset levels.
- * In order to enable CDV-R for KalturaProgramAsset, Partner and KalturaLiveAsset CDV-R settings should be enabled
-	 */
-	 setEnableCdvr(enableCdvr) {
-	 	this.enableCdvr = enableCdvr;
-	 }
-	
-	/**
-	 * Is catch-up enabled for this asset
- * Please, note that value of this property is strictly connected with Catch Up setting on Partner and KalturaLiveAsset levels.
- * In order to enable Catch Up for KalturaProgramAsset, Partner and KalturaLiveAsset Catch Up settings should be enabled
-	 * @return bool
-	 */
-	 getEnableCatchUp() {
-	 	return this.enableCatchUp;
-	 }
-	
-	/**
-	 * @param enableCatchUp bool Is catch-up enabled for this asset
- * Please, note that value of this property is strictly connected with Catch Up setting on Partner and KalturaLiveAsset levels.
- * In order to enable Catch Up for KalturaProgramAsset, Partner and KalturaLiveAsset Catch Up settings should be enabled
-	 */
-	 setEnableCatchUp(enableCatchUp) {
-	 	this.enableCatchUp = enableCatchUp;
-	 }
-	
-	/**
-	 * Is start over enabled for this asset
- * Please, note that value of this property is strictly connected with Start Over setting on Partner and KalturaLiveAsset levels.
- * In order to enable Start Over for KalturaProgramAsset, Partner and KalturaLiveAsset Start Over settings should be enabled
-	 * @return bool
-	 */
-	 getEnableStartOver() {
-	 	return this.enableStartOver;
-	 }
-	
-	/**
-	 * @param enableStartOver bool Is start over enabled for this asset
- * Please, note that value of this property is strictly connected with Start Over setting on Partner and KalturaLiveAsset levels.
- * In order to enable Start Over for KalturaProgramAsset, Partner and KalturaLiveAsset Start Over settings should be enabled
-	 */
-	 setEnableStartOver(enableStartOver) {
-	 	this.enableStartOver = enableStartOver;
-	 }
-	
-	/**
-	 * Is trick-play enabled for this asset
- * Please, note that value of this property is strictly connected with Trick Play setting on Partner and KalturaLiveAsset levels.
- * In order to enable Trick Play for KalturaProgramAsset, Partner and KalturaLiveAsset Trick Play settings should be enabled
-	 * @return bool
-	 */
-	 getEnableTrickPlay() {
-	 	return this.enableTrickPlay;
-	 }
-	
-	/**
-	 * @param enableTrickPlay bool Is trick-play enabled for this asset
- * Please, note that value of this property is strictly connected with Trick Play setting on Partner and KalturaLiveAsset levels.
- * In order to enable Trick Play for KalturaProgramAsset, Partner and KalturaLiveAsset Trick Play settings should be enabled
-	 */
-	 setEnableTrickPlay(enableTrickPlay) {
-	 	this.enableTrickPlay = enableTrickPlay;
-	 }
-	
-	/**
-	 * Contains comma separate list of KalturaProgramAssetGroupOffer.externalOfferId values indicating the PAGOs to which the Program Asset is bound
-	 * @return string
-	 */
-	 getExternalOfferIds() {
-	 	return this.externalOfferIds;
-	 }
-	
-	/**
-	 * @param externalOfferIds string Contains comma separate list of KalturaProgramAssetGroupOffer.externalOfferId values indicating the PAGOs to which the Program Asset is bound
-	 */
-	 setExternalOfferIds(externalOfferIds) {
-	 	this.externalOfferIds = externalOfferIds;
-	 }
-}
-module.exports.ProgramAsset = ProgramAsset;
-
-/**
- *
- */
-class RecordingAsset extends ProgramAsset{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaRecordingAsset';
-	}
-	
-	/**
-	 * Recording identifier
-	 * @return string
-	 */
-	 getRecordingId() {
-	 	return this.recordingId;
-	 }
-	
-	/**
-	 * @param recordingId string Recording identifier
-	 */
-	 setRecordingId(recordingId) {
-	 	this.recordingId = recordingId;
-	 }
-	
-	/**
-	 * Recording Type: single/season/series
-	 * @return string
-	 */
-	 getRecordingType() {
-	 	return this.recordingType;
-	 }
-	
-	/**
-	 * @param recordingType string Recording Type: single/season/series
-	 */
-	 setRecordingType(recordingType) {
-	 	this.recordingType = recordingType;
-	 }
-	
-	/**
-	 * Specifies until when the recording is available for viewing. Date and time represented as epoch
-	 * @return int
-	 */
-	 getViewableUntilDate() {
-	 	return this.viewableUntilDate;
-	 }
-	
-	/**
-	 * @param viewableUntilDate int Specifies until when the recording is available for viewing. Date and time represented as epoch
-	 */
-	 setViewableUntilDate(viewableUntilDate) {
-	 	this.viewableUntilDate = viewableUntilDate;
-	 }
-	
-	/**
-	 * When TRUE indicates that there are multiple KalturaImmediateRecording instances for the event
-	 * @return bool
-	 */
-	 getMultiRecord() {
-	 	return this.multiRecord;
-	 }
-	
-	/**
-	 * @param multiRecord bool When TRUE indicates that there are multiple KalturaImmediateRecording instances for the event
-	 */
-	 setMultiRecord(multiRecord) {
-	 	this.multiRecord = multiRecord;
-	 }
-}
-module.exports.RecordingAsset = RecordingAsset;
-
-/**
- *
- */
-class Epg extends ProgramAsset{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaEpg';
-	}
-}
-module.exports.Epg = Epg;
 
 /**
  *
@@ -35837,237 +35621,6 @@ class EpgListResponse extends ListResponse{
 	 }
 }
 module.exports.EpgListResponse = EpgListResponse;
-
-/**
- *
- */
-class TreeNaturalTextResponse extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaTreeNaturalTextResponse';
-	}
-	
-	/**
-	 * Content recommendations based on the natural language query
-	 * @return TreeRecommendations
-	 */
-	 getRecommendations() {
-	 	return this.recommendations;
-	 }
-	
-	/**
-	 * @param recommendations TreeRecommendations Content recommendations based on the natural language query
-	 */
-	 setRecommendations(recommendations) {
-	 	this.recommendations = recommendations;
-	 }
-}
-module.exports.TreeNaturalTextResponse = TreeNaturalTextResponse;
-
-/**
- *
- */
-class AiRecommendationTreePartnerConfiguration extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAiRecommendationTreePartnerConfiguration';
-	}
-	
-	/**
-	 * Dictionary of metadata types to base questions on (genre, actor, director, etc.) with their respective counts
-	 * @return map
-	 */
-	 getActiveMetadataTypes() {
-	 	return this.activeMetadataTypes;
-	 }
-	
-	/**
-	 * @param activeMetadataTypes map Dictionary of metadata types to base questions on (genre, actor, director, etc.) with their respective counts
-	 */
-	 setActiveMetadataTypes(activeMetadataTypes) {
-	 	this.activeMetadataTypes = activeMetadataTypes;
-	 }
-	
-	/**
-	 * Number of top-level questions to generate (range: 5-21)
-	 * @return int
-	 */
-	 getTopLevelQuestions() {
-	 	return this.topLevelQuestions;
-	 }
-	
-	/**
-	 * @param topLevelQuestions int Number of top-level questions to generate (range: 5-21)
-	 */
-	 setTopLevelQuestions(topLevelQuestions) {
-	 	this.topLevelQuestions = topLevelQuestions;
-	 }
-	
-	/**
-	 * Number of regular answers per question (range: 2-3)
-	 * @return int
-	 */
-	 getAnswersPerQuestion() {
-	 	return this.answersPerQuestion;
-	 }
-	
-	/**
-	 * @param answersPerQuestion int Number of regular answers per question (range: 2-3)
-	 */
-	 setAnswersPerQuestion(answersPerQuestion) {
-	 	this.answersPerQuestion = answersPerQuestion;
-	 }
-	
-	/**
-	 * Maximum depth of the decision tree (range: 1-5)
-	 * @return int
-	 */
-	 getLevels() {
-	 	return this.levels;
-	 }
-	
-	/**
-	 * @param levels int Maximum depth of the decision tree (range: 1-5)
-	 */
-	 setLevels(levels) {
-	 	this.levels = levels;
-	 }
-	
-	/**
-	 * Whether to include special answers like &quot;I don&#39;t know&quot; or &quot;Surprise Me&quot;
-	 * @return bool
-	 */
-	 getSpecialAnswers() {
-	 	return this.specialAnswers;
-	 }
-	
-	/**
-	 * @param specialAnswers bool Whether to include special answers like &quot;I don&#39;t know&quot; or &quot;Surprise Me&quot;
-	 */
-	 setSpecialAnswers(specialAnswers) {
-	 	this.specialAnswers = specialAnswers;
-	 }
-	
-	/**
-	 * Number of assets to include in each recommendation set
-	 * @return int
-	 */
-	 getNumOfRecommendedAssets() {
-	 	return this.numOfRecommendedAssets;
-	 }
-	
-	/**
-	 * @param numOfRecommendedAssets int Number of assets to include in each recommendation set
-	 */
-	 setNumOfRecommendedAssets(numOfRecommendedAssets) {
-	 	this.numOfRecommendedAssets = numOfRecommendedAssets;
-	 }
-	
-	/**
-	 * Whether to exclude already watched content
-	 * @return bool
-	 */
-	 getRemoveWatchedRecommendations() {
-	 	return this.removeWatchedRecommendations;
-	 }
-	
-	/**
-	 * @param removeWatchedRecommendations bool Whether to exclude already watched content
-	 */
-	 setRemoveWatchedRecommendations(removeWatchedRecommendations) {
-	 	this.removeWatchedRecommendations = removeWatchedRecommendations;
-	 }
-	
-	/**
-	 * Cron expression for scheduling tree regeneration
-	 * @return string
-	 */
-	 getTreeGenerationFrequency() {
-	 	return this.treeGenerationFrequency;
-	 }
-	
-	/**
-	 * @param treeGenerationFrequency string Cron expression for scheduling tree regeneration
-	 */
-	 setTreeGenerationFrequency(treeGenerationFrequency) {
-	 	this.treeGenerationFrequency = treeGenerationFrequency;
-	 }
-	
-	/**
-	 * Identifier for the LLM model used for tree generation
-	 * @return string
-	 */
-	 getModelId() {
-	 	return this.modelId;
-	 }
-	
-	/**
-	 * @param modelId string Identifier for the LLM model used for tree generation
-	 */
-	 setModelId(modelId) {
-	 	this.modelId = modelId;
-	 }
-	
-	/**
-	 * Identifier for the tree that is currently marked as Active (can be only one at a time)
-	 * @return string
-	 */
-	 getActiveTreeId() {
-	 	return this.activeTreeId;
-	 }
-	
-	/**
-	 * @param activeTreeId string Identifier for the tree that is currently marked as Active (can be only one at a time)
-	 */
-	 setActiveTreeId(activeTreeId) {
-	 	this.activeTreeId = activeTreeId;
-	 }
-}
-module.exports.AiRecommendationTreePartnerConfiguration = AiRecommendationTreePartnerConfiguration;
-
-/**
- *
- */
-class FilterPager extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaFilterPager';
-	}
-	
-	/**
-	 * The number of objects to retrieve. Possible range 1 ≤ value ≤ 50. If omitted or value &lt; 1 - will be set to 25. If a value &gt; 50 provided – will be set to 50
-	 * @return int
-	 */
-	 getPageSize() {
-	 	return this.pageSize;
-	 }
-	
-	/**
-	 * @param pageSize int The number of objects to retrieve. Possible range 1 ≤ value ≤ 50. If omitted or value &lt; 1 - will be set to 25. If a value &gt; 50 provided – will be set to 50
-	 */
-	 setPageSize(pageSize) {
-	 	this.pageSize = pageSize;
-	 }
-	
-	/**
-	 * The page number for which {pageSize} of objects should be retrieved
-	 * @return int
-	 */
-	 getPageIndex() {
-	 	return this.pageIndex;
-	 }
-	
-	/**
-	 * @param pageIndex int The page number for which {pageSize} of objects should be retrieved
-	 */
-	 setPageIndex(pageIndex) {
-	 	this.pageIndex = pageIndex;
-	 }
-}
-module.exports.FilterPager = FilterPager;
 
 /**
  *
