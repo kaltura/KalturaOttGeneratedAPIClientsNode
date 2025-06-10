@@ -28,6 +28,150 @@
 const kaltura = require('./KalturaClientBase');
 
 /**
+ *Class definition for the Kaltura service: aiMetadataGenerator.
+ * The available service actions:
+ * @action generateMetadataBySubtitles Start metadata generation process based on subtitles.
+ * @action getGeneratedMetadata Retrieve the generated metadata.
+ * @action getGenerateMetadataJob Get a metadata generation job.
+ * @action getMetadataFieldDefinitions Get metadata mapping structure and available generated metadata fields.
+ * @action getPartnerConfiguration Get the metadata generation configuration.
+ * @action updatePartnerConfiguration Update/set the metadata generation configuration.
+ */
+class aiMetadataGenerator{
+	
+	/**
+	 * Start metadata generation process based on subtitles.
+	 * @param subtitlesFileId int The subtitles file ID returned from subtitles.uploadFile
+	 * @param externalAssetIds array A list of external asset IDs to be populated with the generated metadata (optional, default: null)
+	 * @return KalturaGenerateMetadataBySubtitlesJob
+	 */
+	static generateMetadataBySubtitles(subtitlesFileId, externalAssetIds = null){
+		let kparams = {};
+		kparams.subtitlesFileId = subtitlesFileId;
+		kparams.externalAssetIds = externalAssetIds;
+		return new kaltura.RequestBuilder('aimetadatagenerator', 'generateMetadataBySubtitles', kparams);
+	};
+	
+	/**
+	 * Retrieve the generated metadata.
+	 * @param jobId int The job ID as received from GenerateMetadataBySubtitles
+	 * @return KalturaGenerateMetadataResult
+	 */
+	static getGeneratedMetadata(jobId){
+		let kparams = {};
+		kparams.jobId = jobId;
+		return new kaltura.RequestBuilder('aimetadatagenerator', 'getGeneratedMetadata', kparams);
+	};
+	
+	/**
+	 * Get a metadata generation job.
+	 * @param id int The job ID as received from GenerateMetadataBySubtitles
+	 * @return KalturaGenerateMetadataBySubtitlesJob
+	 */
+	static getGenerateMetadataJob(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('aimetadatagenerator', 'getGenerateMetadataJob', kparams);
+	};
+	
+	/**
+	 * Get metadata mapping structure and available generated metadata fields.
+	 * @return KalturaMetaFieldNameMap
+	 */
+	static getMetadataFieldDefinitions(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('aimetadatagenerator', 'getMetadataFieldDefinitions', kparams);
+	};
+	
+	/**
+	 * Get the metadata generation configuration.
+	 * @return KalturaAiMetadataGeneratorConfiguration
+	 */
+	static getPartnerConfiguration(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('aimetadatagenerator', 'getPartnerConfiguration', kparams);
+	};
+	
+	/**
+	 * Update/set the metadata generation configuration.
+	 * @param configuration AiMetadataGeneratorConfiguration the partner configuration to be set
+	 * @return KalturaAiMetadataGeneratorConfiguration
+	 */
+	static updatePartnerConfiguration(configuration){
+		let kparams = {};
+		kparams.configuration = configuration;
+		return new kaltura.RequestBuilder('aimetadatagenerator', 'updatePartnerConfiguration', kparams);
+	};
+}
+module.exports.aiMetadataGenerator = aiMetadataGenerator;
+
+
+/**
+ *Class definition for the Kaltura service: aiRecommendationTree.
+ * The available service actions:
+ * @action getNextNodeAndRecommendation Returns the next question, available answers, and content recommendations based on the current path through the tree.
+ * @action getPartnerConfig Retrieves the current configuration settings for TV Genie for a specific partner.
+ * @action getRecommendationWithNaturalText Returns content recommendations based on natural language input.
+ * @action upsertPartnerConfig Updates the configuration settings for TV Genie on a per-partner basis.
+ */
+class aiRecommendationTree{
+	
+	/**
+	 * Returns the next question, available answers, and content recommendations based on the current path through the tree.
+	 * @param treeId string ID of the tree to navigate (optional - if omitted, the active tree will be used) (optional, default: null)
+	 * @param previousQuestionId string The question ID that is currently presented (omit for first question) (optional, default: null)
+	 * @param answerId string Selected answer ID from the previous question (required if previousQuestionId is provided) (optional, default: null)
+	 * @param topQuestionId string Specific top-level question ID (relevant for first question only) (optional, default: null)
+	 * @return KalturaTreeNextNodeResponse
+	 */
+	static getNextNodeAndRecommendation(treeId = null, previousQuestionId = null, answerId = null, topQuestionId = null){
+		let kparams = {};
+		kparams.treeId = treeId;
+		kparams.previousQuestionId = previousQuestionId;
+		kparams.answerId = answerId;
+		kparams.topQuestionId = topQuestionId;
+		return new kaltura.RequestBuilder('airecommendationtree', 'getNextNodeAndRecommendation', kparams);
+	};
+	
+	/**
+	 * Retrieves the current configuration settings for TV Genie for a specific partner.
+	 * @return KalturaAiRecommendationTreePartnerConfiguration
+	 */
+	static getPartnerConfig(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('airecommendationtree', 'getPartnerConfig', kparams);
+	};
+	
+	/**
+	 * Returns content recommendations based on natural language input.
+	 * @param naturalTextQuery string The query text entered by the user
+	 * @param previousQuestionId string Previous question ID if building on question history (optional) (optional, default: null)
+	 * @param treeId string ID of the tree to use (mandatory if previousQuestionId is provided) (optional, default: null)
+	 * @return KalturaTreeNaturalTextResponse
+	 */
+	static getRecommendationWithNaturalText(naturalTextQuery, previousQuestionId = null, treeId = null){
+		let kparams = {};
+		kparams.naturalTextQuery = naturalTextQuery;
+		kparams.previousQuestionId = previousQuestionId;
+		kparams.treeId = treeId;
+		return new kaltura.RequestBuilder('airecommendationtree', 'getRecommendationWithNaturalText', kparams);
+	};
+	
+	/**
+	 * Updates the configuration settings for TV Genie on a per-partner basis.
+	 * @param configuration AiRecommendationTreePartnerConfiguration The partner configuration to be set
+	 * @return KalturaAiRecommendationTreePartnerConfiguration
+	 */
+	static upsertPartnerConfig(configuration){
+		let kparams = {};
+		kparams.configuration = configuration;
+		return new kaltura.RequestBuilder('airecommendationtree', 'upsertPartnerConfig', kparams);
+	};
+}
+module.exports.aiRecommendationTree = aiRecommendationTree;
+
+
+/**
  *Class definition for the Kaltura service: announcement.
  * The available service actions:
  * @action add Add a new future scheduled system announcement push notification.
@@ -233,6 +377,7 @@ module.exports.assetComment = assetComment;
  * @action list Returns media or EPG assets. Filters by media identifiers or by EPG internal or external identifier.
  * @action listPersonalSelection Returns recent selected assets.
  * @action removeMetasAndTags remove metas and tags from asset.
+ * @action semanticSearch Search for assets using semantic similarity to a natural language query, with optional query refinement using LLM.
  * @action update update an existing asset.
  * For metas of type bool-&gt; use kalturaBoolValue, type number-&gt; KalturaDoubleValue, type date -&gt; KalturaLongValue, type string -&gt; KalturaStringValue.
  * @action watchBasedRecommendationsList Return list of assets - assets are personal recommendations for the caller.
@@ -412,6 +557,21 @@ class asset{
 		kparams.assetReferenceType = assetReferenceType;
 		kparams.idIn = idIn;
 		return new kaltura.RequestBuilder('asset', 'removeMetasAndTags', kparams);
+	};
+	
+	/**
+	 * Search for assets using semantic similarity to a natural language query, with optional query refinement using LLM.
+	 * @param query string The search query text used to find semantically similar assets
+	 * @param refineQuery bool When true, the search query is refined using LLM before vector search (optional, default: false)
+	 * @param size int The maximum number of results to return. Must be between 1 and 100 (optional, default: 10)
+	 * @return KalturaAssetListResponse
+	 */
+	static semanticSearch(query, refineQuery = false, size = 10){
+		let kparams = {};
+		kparams.query = query;
+		kparams.refineQuery = refineQuery;
+		kparams.size = size;
+		return new kaltura.RequestBuilder('asset', 'semanticSearch', kparams);
 	};
 	
 	/**
@@ -632,7 +792,7 @@ module.exports.assetPersonalMarkup = assetPersonalMarkup;
  * The available service actions:
  * @action delete Remove asset selection in slot.
  * @action deleteAll Remove asset selection in slot.
- * @action upsert Add or update asset selection in slot.
+ * @action upsert upsert manages asset selections within slots.  It adds a new asset ID if it doesn&#39;t exist, or updates the timestamp if it does.  Slots are limited to 30 unique IDs.  When a slot is full, the oldest entry is removed (FIFO).  Inactive assets are automatically removed after 90 days.
  */
 class assetPersonalSelection{
 	
@@ -661,7 +821,7 @@ class assetPersonalSelection{
 	};
 	
 	/**
-	 * Add or update asset selection in slot.
+	 * upsert manages asset selections within slots.  It adds a new asset ID if it doesn&#39;t exist, or updates the timestamp if it does.  Slots are limited to 30 unique IDs.  When a slot is full, the oldest entry is removed (FIFO).  Inactive assets are automatically removed after 90 days.
 	 * @param assetId int asset id
 	 * @param assetType string asset type: media/epg (enum: KalturaAssetType)
 	 * @param slotNumber int slot number
@@ -7328,6 +7488,113 @@ module.exports.segmentationType = segmentationType;
 
 
 /**
+ *Class definition for the Kaltura service: semanticAssetSearchPartnerConfig.
+ * The available service actions:
+ * @action getFilteringCondition Retrieve the filtering condition configuration for the partner.
+ * @action getSearchableAttributes Retrieve the current field configurations for semantic search.
+ * @action upsertFilteringCondition Update rule that controls embedding generation and search behavior.
+ * @action upsertSearchableAttributes Update which fields should be included in semantic search for specific asset types.
+ */
+class semanticAssetSearchPartnerConfig{
+	
+	/**
+	 * Retrieve the filtering condition configuration for the partner.
+	 * @return KalturaFilteringCondition
+	 */
+	static getFilteringCondition(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('semanticassetsearchpartnerconfig', 'getFilteringCondition', kparams);
+	};
+	
+	/**
+	 * Retrieve the current field configurations for semantic search.
+	 * @param assetStructId int Asset structure ID to filter configurations
+	 * @return KalturaSearchableAttributes
+	 */
+	static getSearchableAttributes(assetStructId){
+		let kparams = {};
+		kparams.assetStructId = assetStructId;
+		return new kaltura.RequestBuilder('semanticassetsearchpartnerconfig', 'getSearchableAttributes', kparams);
+	};
+	
+	/**
+	 * Update rule that controls embedding generation and search behavior.
+	 * @param filteringCondition FilteringCondition Rule configuration parameters
+	 * @return KalturaFilteringCondition
+	 */
+	static upsertFilteringCondition(filteringCondition){
+		let kparams = {};
+		kparams.filteringCondition = filteringCondition;
+		return new kaltura.RequestBuilder('semanticassetsearchpartnerconfig', 'upsertFilteringCondition', kparams);
+	};
+	
+	/**
+	 * Update which fields should be included in semantic search for specific asset types.
+	 * @param attributes SearchableAttributes Fields configuration parameters
+	 * @return KalturaSearchableAttributes
+	 */
+	static upsertSearchableAttributes(attributes){
+		let kparams = {};
+		kparams.attributes = attributes;
+		return new kaltura.RequestBuilder('semanticassetsearchpartnerconfig', 'upsertSearchableAttributes', kparams);
+	};
+}
+module.exports.semanticAssetSearchPartnerConfig = semanticAssetSearchPartnerConfig;
+
+
+/**
+ *Class definition for the Kaltura service: semanticQuery.
+ * The available service actions:
+ * @action generate Generates a title and semantic sub-queries.
+ */
+class semanticQuery{
+	
+	/**
+	 * Generates a title and semantic sub-queries.
+	 * @param query GenerateSemanticQuery Parameters required for generating semantic queries
+	 * @return KalturaSemanticQuery
+	 */
+	static generate(query){
+		let kparams = {};
+		kparams.query = query;
+		return new kaltura.RequestBuilder('semanticquery', 'generate', kparams);
+	};
+}
+module.exports.semanticQuery = semanticQuery;
+
+
+/**
+ *Class definition for the Kaltura service: semanticQueryPartnerConfiguration.
+ * The available service actions:
+ * @action get Retrieves partner configuration for semantic query service.
+ * @action update Updates the partner configuration for semantic query service.
+ */
+class semanticQueryPartnerConfiguration{
+	
+	/**
+	 * Retrieves partner configuration for semantic query service.
+	 * @return KalturaSemanticQueryPartnerConfiguration
+	 */
+	static get(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('semanticquerypartnerconfiguration', 'get', kparams);
+	};
+	
+	/**
+	 * Updates the partner configuration for semantic query service.
+	 * @param configuration SemanticQueryPartnerConfiguration The partner configuration for semantic query generation
+	 * @return KalturaSemanticQueryPartnerConfiguration
+	 */
+	static update(configuration){
+		let kparams = {};
+		kparams.configuration = configuration;
+		return new kaltura.RequestBuilder('semanticquerypartnerconfiguration', 'update', kparams);
+	};
+}
+module.exports.semanticQueryPartnerConfiguration = semanticQueryPartnerConfiguration;
+
+
+/**
  *Class definition for the Kaltura service: seriesRecording.
  * The available service actions:
  * @action add Issue a record request for a complete season or series.
@@ -8045,6 +8312,30 @@ class subscriptionSet{
 	};
 }
 module.exports.subscriptionSet = subscriptionSet;
+
+
+/**
+ *Class definition for the Kaltura service: subtitles.
+ * The available service actions:
+ * @action uploadFile Add a subtitles file to be used for generating metadata and enriching the assets using a multi-part form-data body including the JSON configuration object and the uploaded file.
+ */
+class subtitles{
+	
+	/**
+	 * Add a subtitles file to be used for generating metadata and enriching the assets using a multi-part form-data body including the JSON configuration object and the uploaded file.
+	 * @param subtitles UploadSubtitles Subtitle file metadata
+	 * @param fileData file The subtitles file to upload. The file must be in UTF-8 encoding
+	 * @return KalturaSubtitles
+	 */
+	static uploadFile(subtitles, fileData){
+		let kparams = {};
+		kparams.subtitles = subtitles;
+		let kfiles = {};
+		kfiles.fileData = fileData;
+		return new kaltura.RequestBuilder('subtitles', 'uploadFile', kparams, kfiles);
+	};
+}
+module.exports.subtitles = subtitles;
 
 
 /**
@@ -8837,6 +9128,29 @@ class userInterest{
 	};
 }
 module.exports.userInterest = userInterest;
+
+
+/**
+ *Class definition for the Kaltura service: userLog.
+ * The available service actions:
+ * @action list Retrieves a list of user log entries matching the specified filter criteria.
+ */
+class userLog{
+	
+	/**
+	 * Retrieves a list of user log entries matching the specified filter criteria.
+	 * @param filter UserLogFilter Filters user logs by user ID(s), message content, and creation date
+	 * @param pager FilterPager Specify the requested page (optional, default: null)
+	 * @return KalturaUserLogListResponse
+	 */
+	static listAction(filter, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('userlog', 'list', kparams);
+	};
+}
+module.exports.userLog = userLog;
 
 
 /**
