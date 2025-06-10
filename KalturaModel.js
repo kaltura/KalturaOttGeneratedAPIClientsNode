@@ -4628,6 +4628,21 @@ class RecordingFilter extends Filter{
 	 }
 	
 	/**
+	 * Comma separated list of assets identifiers
+	 * @return string
+	 */
+	 getAssetIdIn() {
+	 	return this.assetIdIn;
+	 }
+	
+	/**
+	 * @param assetIdIn string Comma separated list of assets identifiers
+	 */
+	 setAssetIdIn(assetIdIn) {
+	 	this.assetIdIn = assetIdIn;
+	 }
+	
+	/**
 	 * Comma separated external identifiers
 	 * @return string
 	 */
