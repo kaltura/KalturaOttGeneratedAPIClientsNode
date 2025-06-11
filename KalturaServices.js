@@ -107,6 +107,71 @@ module.exports.aiMetadataGenerator = aiMetadataGenerator;
 
 
 /**
+ *Class definition for the Kaltura service: aiRecommendationTree.
+ * The available service actions:
+ * @action getNextNodeAndRecommendation Returns the next question, available answers, and content recommendations based on the current path through the tree.
+ * @action getPartnerConfig Retrieves the current configuration settings for TV Genie for a specific partner.
+ * @action getRecommendationWithNaturalText Returns content recommendations based on natural language input.
+ * @action upsertPartnerConfig Updates the configuration settings for TV Genie on a per-partner basis.
+ */
+class aiRecommendationTree{
+	
+	/**
+	 * Returns the next question, available answers, and content recommendations based on the current path through the tree.
+	 * @param treeId string ID of the tree to navigate (optional - if omitted, the active tree will be used) (optional, default: null)
+	 * @param previousQuestionId string The question ID that is currently presented (omit for first question) (optional, default: null)
+	 * @param answerId string Selected answer ID from the previous question (required if previousQuestionId is provided) (optional, default: null)
+	 * @param topQuestionId string Specific top-level question ID (relevant for first question only) (optional, default: null)
+	 * @return KalturaTreeNextNodeResponse
+	 */
+	static getNextNodeAndRecommendation(treeId = null, previousQuestionId = null, answerId = null, topQuestionId = null){
+		let kparams = {};
+		kparams.treeId = treeId;
+		kparams.previousQuestionId = previousQuestionId;
+		kparams.answerId = answerId;
+		kparams.topQuestionId = topQuestionId;
+		return new kaltura.RequestBuilder('airecommendationtree', 'getNextNodeAndRecommendation', kparams);
+	};
+	
+	/**
+	 * Retrieves the current configuration settings for TV Genie for a specific partner.
+	 * @return KalturaAiRecommendationTreePartnerConfiguration
+	 */
+	static getPartnerConfig(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('airecommendationtree', 'getPartnerConfig', kparams);
+	};
+	
+	/**
+	 * Returns content recommendations based on natural language input.
+	 * @param naturalTextQuery string The query text entered by the user
+	 * @param previousQuestionId string Previous question ID if building on question history (optional) (optional, default: null)
+	 * @param treeId string ID of the tree to use (mandatory if previousQuestionId is provided) (optional, default: null)
+	 * @return KalturaTreeNaturalTextResponse
+	 */
+	static getRecommendationWithNaturalText(naturalTextQuery, previousQuestionId = null, treeId = null){
+		let kparams = {};
+		kparams.naturalTextQuery = naturalTextQuery;
+		kparams.previousQuestionId = previousQuestionId;
+		kparams.treeId = treeId;
+		return new kaltura.RequestBuilder('airecommendationtree', 'getRecommendationWithNaturalText', kparams);
+	};
+	
+	/**
+	 * Updates the configuration settings for TV Genie on a per-partner basis.
+	 * @param configuration AiRecommendationTreePartnerConfiguration The partner configuration to be set
+	 * @return KalturaAiRecommendationTreePartnerConfiguration
+	 */
+	static upsertPartnerConfig(configuration){
+		let kparams = {};
+		kparams.configuration = configuration;
+		return new kaltura.RequestBuilder('airecommendationtree', 'upsertPartnerConfig', kparams);
+	};
+}
+module.exports.aiRecommendationTree = aiRecommendationTree;
+
+
+/**
  *Class definition for the Kaltura service: announcement.
  * The available service actions:
  * @action add Add a new future scheduled system announcement push notification.
@@ -3262,6 +3327,67 @@ class followTvSeries{
 	};
 }
 module.exports.followTvSeries = followTvSeries;
+
+
+/**
+ *Class definition for the Kaltura service: geoBlockRule.
+ * The available service actions:
+ * @action add Add a new geo block rule.
+ * @action delete Delete a geo block rule.
+ * @action list Get the list of geo block rules for the partner.
+ * @action update Update an existing geo block rule.
+ */
+class geoBlockRule{
+	
+	/**
+	 * Add a new geo block rule.
+	 * @param geoBlockRule GeoBlockRule The geo block rule to add
+	 * @return KalturaGeoBlockRule
+	 */
+	static add(geoBlockRule){
+		let kparams = {};
+		kparams.geoBlockRule = geoBlockRule;
+		return new kaltura.RequestBuilder('geoblockrule', 'add', kparams);
+	};
+	
+	/**
+	 * Delete a geo block rule.
+	 * @param id int The id of the geo block rule to delete
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('geoblockrule', 'delete', kparams);
+	};
+	
+	/**
+	 * Get the list of geo block rules for the partner.
+	 * @param filter GeoBlockRuleFilter Filter criteria for the geo block rules (optional, default: null)
+	 * @param pager FilterPager Paging information for retrieving paginated results (optional, default: null)
+	 * @return KalturaGeoBlockRuleListResponse
+	 */
+	static listAction(filter = null, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('geoblockrule', 'list', kparams);
+	};
+	
+	/**
+	 * Update an existing geo block rule.
+	 * @param id int The id of the geo block rule to update
+	 * @param geoBlockRule GeoBlockRule The geo block rule data to update
+	 * @return KalturaGeoBlockRule
+	 */
+	static update(id, geoBlockRule){
+		let kparams = {};
+		kparams.id = id;
+		kparams.geoBlockRule = geoBlockRule;
+		return new kaltura.RequestBuilder('geoblockrule', 'update', kparams);
+	};
+}
+module.exports.geoBlockRule = geoBlockRule;
 
 
 /**
