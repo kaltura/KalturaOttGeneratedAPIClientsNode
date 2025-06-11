@@ -8683,6 +8683,18 @@ module.exports.UserRoleFilter = UserRoleFilter;
 /**
  *
  */
+class GeoBlockRuleFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaGeoBlockRuleFilter';
+	}
+}
+module.exports.GeoBlockRuleFilter = GeoBlockRuleFilter;
+
+/**
+ *
+ */
 class EpgFilter extends Filter{
 	
 	constructor(object = null) {
@@ -35814,6 +35826,148 @@ module.exports.UserRoleListResponse = UserRoleListResponse;
 /**
  *
  */
+class GeoBlockRule extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaGeoBlockRule';
+	}
+	
+	/**
+	 * Geo Block Rule id
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Create Date Epoch time in seconds
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * Update Date Epoch time in seconds
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
+	
+	/**
+	 * comma separated string representing list of countries that the rule shall apply to
+	 * @return string
+	 */
+	 getCountryIds() {
+	 	return this.countryIds;
+	 }
+	
+	/**
+	 * @param countryIds string comma separated string representing list of countries that the rule shall apply to
+	 */
+	 setCountryIds(countryIds) {
+	 	this.countryIds = countryIds;
+	 }
+	
+	/**
+	 * mode - Defines the geo-blocking strategy based on user location.
+ * AllowOnlySelected - Implements a restrictive whitelist approach where content is only accessible from explicitly selected countries. All other countries are blocked by default.
+ * BlockOnlySelected - Implements a permissive blacklist approach where content is accessible from all countries except those explicitly selected for blocking
+	 * @return string
+	 */
+	 getMode() {
+	 	return this.mode;
+	 }
+	
+	/**
+	 * @param mode string mode - Defines the geo-blocking strategy based on user location.
+ * AllowOnlySelected - Implements a restrictive whitelist approach where content is only accessible from explicitly selected countries. All other countries are blocked by default.
+ * BlockOnlySelected - Implements a permissive blacklist approach where content is accessible from all countries except those explicitly selected for blocking
+	 */
+	 setMode(mode) {
+	 	this.mode = mode;
+	 }
+	
+	/**
+	 * Should geo block rule check proxy as well
+	 * @return bool
+	 */
+	 getIsProxyRuleEnabled() {
+	 	return this.isProxyRuleEnabled;
+	 }
+	
+	/**
+	 * @param isProxyRuleEnabled bool Should geo block rule check proxy as well
+	 */
+	 setIsProxyRuleEnabled(isProxyRuleEnabled) {
+	 	this.isProxyRuleEnabled = isProxyRuleEnabled;
+	 }
+	
+	/**
+	 * Level of proxy rule check - medium or high
+	 * @return string
+	 */
+	 getProxyRuleLevel() {
+	 	return this.proxyRuleLevel;
+	 }
+	
+	/**
+	 * @param proxyRuleLevel string Level of proxy rule check - medium or high
+	 */
+	 setProxyRuleLevel(proxyRuleLevel) {
+	 	this.proxyRuleLevel = proxyRuleLevel;
+	 }
+}
+module.exports.GeoBlockRule = GeoBlockRule;
+
+/**
+ *
+ */
+class GeoBlockRuleListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaGeoBlockRuleListResponse';
+	}
+	
+	/**
+	 * Geo block rules
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Geo block rules
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.GeoBlockRuleListResponse = GeoBlockRuleListResponse;
+
+/**
+ *
+ */
 class EpgListResponse extends ListResponse{
 	
 	constructor(object = null) {
@@ -35936,21 +36090,6 @@ class AiRecommendationTreePartnerConfiguration extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Whether to include special answers like &quot;I don&#39;t know&quot; or &quot;Surprise Me&quot;
-	 * @return bool
-	 */
-	 getSpecialAnswers() {
-	 	return this.specialAnswers;
-	 }
-	
-	/**
-	 * @param specialAnswers bool Whether to include special answers like &quot;I don&#39;t know&quot; or &quot;Surprise Me&quot;
-	 */
-	 setSpecialAnswers(specialAnswers) {
-	 	this.specialAnswers = specialAnswers;
-	 }
-	
-	/**
 	 * Number of assets to include in each recommendation set
 	 * @return int
 	 */
@@ -35966,21 +36105,6 @@ class AiRecommendationTreePartnerConfiguration extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Whether to exclude already watched content
-	 * @return bool
-	 */
-	 getRemoveWatchedRecommendations() {
-	 	return this.removeWatchedRecommendations;
-	 }
-	
-	/**
-	 * @param removeWatchedRecommendations bool Whether to exclude already watched content
-	 */
-	 setRemoveWatchedRecommendations(removeWatchedRecommendations) {
-	 	this.removeWatchedRecommendations = removeWatchedRecommendations;
-	 }
-	
-	/**
 	 * Cron expression for scheduling tree regeneration
 	 * @return string
 	 */
@@ -35993,21 +36117,6 @@ class AiRecommendationTreePartnerConfiguration extends kaltura.BaseObject{
 	 */
 	 setTreeGenerationFrequency(treeGenerationFrequency) {
 	 	this.treeGenerationFrequency = treeGenerationFrequency;
-	 }
-	
-	/**
-	 * Identifier for the LLM model used for tree generation
-	 * @return string
-	 */
-	 getModelId() {
-	 	return this.modelId;
-	 }
-	
-	/**
-	 * @param modelId string Identifier for the LLM model used for tree generation
-	 */
-	 setModelId(modelId) {
-	 	this.modelId = modelId;
 	 }
 	
 	/**

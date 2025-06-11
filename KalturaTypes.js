@@ -626,6 +626,17 @@ SUCCESS : 'Success',
 FAILED : 'Failed',
 };
 
+module.exports.GeoBlockMode = {
+ALLOWONLYSELECTED : 'AllowOnlySelected',
+BLOCKONLYSELECTED : 'BlockOnlySelected',
+};
+
+module.exports.GeoBlockRuleOrderBy = {
+CREATE_DATE_DESC : 'CREATE_DATE_DESC',
+NAME_ASC : 'NAME_ASC',
+NAME_DESC : 'NAME_DESC',
+};
+
 module.exports.GroupByField = {
 MEDIA_TYPE_ID : 'media_type_id',
 SUPPRESSED : 'suppressed',
@@ -1091,6 +1102,11 @@ UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
 module.exports.ProtectionPolicy = {
 EXTENDINGRECORDINGLIFETIME : 'ExtendingRecordingLifetime',
 LIMITEDBYRECORDINGLIFETIME : 'LimitedByRecordingLifetime',
+};
+
+module.exports.ProxyRuleLevel = {
+MEDIUM : 'Medium',
+HIGH : 'High',
 };
 
 module.exports.PurchaseSettingsType = {

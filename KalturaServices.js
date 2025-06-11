@@ -3330,6 +3330,67 @@ module.exports.followTvSeries = followTvSeries;
 
 
 /**
+ *Class definition for the Kaltura service: geoBlockRule.
+ * The available service actions:
+ * @action add Add a new geo block rule.
+ * @action delete Delete a geo block rule.
+ * @action list Get the list of geo block rules for the partner.
+ * @action update Update an existing geo block rule.
+ */
+class geoBlockRule{
+	
+	/**
+	 * Add a new geo block rule.
+	 * @param geoBlockRule GeoBlockRule The geo block rule to add
+	 * @return KalturaGeoBlockRule
+	 */
+	static add(geoBlockRule){
+		let kparams = {};
+		kparams.geoBlockRule = geoBlockRule;
+		return new kaltura.RequestBuilder('geoblockrule', 'add', kparams);
+	};
+	
+	/**
+	 * Delete a geo block rule.
+	 * @param id int The id of the geo block rule to delete
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('geoblockrule', 'delete', kparams);
+	};
+	
+	/**
+	 * Get the list of geo block rules for the partner.
+	 * @param filter GeoBlockRuleFilter Filter criteria for the geo block rules (optional, default: null)
+	 * @param pager FilterPager Paging information for retrieving paginated results (optional, default: null)
+	 * @return KalturaGeoBlockRuleListResponse
+	 */
+	static listAction(filter = null, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('geoblockrule', 'list', kparams);
+	};
+	
+	/**
+	 * Update an existing geo block rule.
+	 * @param id int The id of the geo block rule to update
+	 * @param geoBlockRule GeoBlockRule The geo block rule data to update
+	 * @return KalturaGeoBlockRule
+	 */
+	static update(id, geoBlockRule){
+		let kparams = {};
+		kparams.id = id;
+		kparams.geoBlockRule = geoBlockRule;
+		return new kaltura.RequestBuilder('geoblockrule', 'update', kparams);
+	};
+}
+module.exports.geoBlockRule = geoBlockRule;
+
+
+/**
  *Class definition for the Kaltura service: homeNetwork.
  * The available service actions:
  * @action add Add a new home network to a household.
