@@ -30,19 +30,21 @@ const kaltura = require('./KalturaClientBase');
 /**
  *Class definition for the Kaltura service: aiMetadataGenerator.
  * The available service actions:
- * @action generateMetadataBySubtitles Start metadata generation process based on subtitles.
- * @action getGeneratedMetadata Retrieve the generated metadata.
- * @action getGenerateMetadataJob Get a metadata generation job.
+ * @action generateMetadataBySubtitles Initiate the the process of metadata generation based on the subtitles file.
+ * @action getGeneratedMetadata retrieve the generated metadata.
+ * @action getGenerateMetadataJob retrieve the status of the metadata generation job, identified by the subtitles file ID.
  * @action getMetadataFieldDefinitions Get metadata mapping structure and available generated metadata fields.
- * @action getPartnerConfiguration Get the metadata generation configuration.
- * @action updatePartnerConfiguration Update/set the metadata generation configuration.
+ * @action getPartnerConfiguration retrieve feature configuration.
+ * @action updatePartnerConfiguration update feature configuration.
  */
 class aiMetadataGenerator{
 	
 	/**
-	 * Start metadata generation process based on subtitles.
-	 * @param subtitlesFileId int The subtitles file ID returned from subtitles.uploadFile
-	 * @param externalAssetIds array A list of external asset IDs to be populated with the generated metadata (optional, default: null)
+	 * Initiate the the process of metadata generation based on the subtitles file.
+	 * @param subtitlesFileId int The subtitles file ID returned when uploaded the subtitles file by the subtitles service.
+ * Represents also the job ID used by the generate metadata process
+	 * @param externalAssetIds array A list of external asset IDs to be populated with the generated metadata
+ * Must be a valid existing KalturaLanguage systemName.\nIf not provided then the subtitles language will be used (optional, default: null)
 	 * @return KalturaGenerateMetadataBySubtitlesJob
 	 */
 	static generateMetadataBySubtitles(subtitlesFileId, externalAssetIds = null){
@@ -53,8 +55,8 @@ class aiMetadataGenerator{
 	};
 	
 	/**
-	 * Retrieve the generated metadata.
-	 * @param jobId int The job ID as received from GenerateMetadataBySubtitles
+	 * retrieve the generated metadata.
+	 * @param jobId int The job ID (equals the subtitles file ID returned by the subtitles.uploadFile service)
 	 * @return KalturaGenerateMetadataResult
 	 */
 	static getGeneratedMetadata(jobId){
@@ -64,8 +66,8 @@ class aiMetadataGenerator{
 	};
 	
 	/**
-	 * Get a metadata generation job.
-	 * @param id int The job ID as received from GenerateMetadataBySubtitles
+	 * retrieve the status of the metadata generation job, identified by the subtitles file ID.
+	 * @param id int The file (job) ID as received from subtitles.uploadFile response"
 	 * @return KalturaGenerateMetadataBySubtitlesJob
 	 */
 	static getGenerateMetadataJob(id){
@@ -84,7 +86,7 @@ class aiMetadataGenerator{
 	};
 	
 	/**
-	 * Get the metadata generation configuration.
+	 * retrieve feature configuration.
 	 * @return KalturaAiMetadataGeneratorConfiguration
 	 */
 	static getPartnerConfiguration(){
@@ -93,7 +95,7 @@ class aiMetadataGenerator{
 	};
 	
 	/**
-	 * Update/set the metadata generation configuration.
+	 * update feature configuration.
 	 * @param configuration AiMetadataGeneratorConfiguration the partner configuration to be set
 	 * @return KalturaAiMetadataGeneratorConfiguration
 	 */
@@ -312,7 +314,7 @@ module.exports.assetComment = assetComment;
  * @action list Returns media or EPG assets. Filters by media identifiers or by EPG internal or external identifier.
  * @action listPersonalSelection Returns recent selected assets.
  * @action removeMetasAndTags remove metas and tags from asset.
- * @action semanticSearch Search for assets using semantic similarity to a natural language query, with optional query refinement using LLM.
+ * @action semanticSearch This API provides search capabilities for assets using semantic similarity based on the provided query.
  * @action update update an existing asset.
  * For metas of type bool-&gt; use kalturaBoolValue, type number-&gt; KalturaDoubleValue, type date -&gt; KalturaLongValue, type string -&gt; KalturaStringValue.
  * @action watchBasedRecommendationsList Return list of assets - assets are personal recommendations for the caller.
@@ -495,7 +497,7 @@ class asset{
 	};
 	
 	/**
-	 * Search for assets using semantic similarity to a natural language query, with optional query refinement using LLM.
+	 * This API provides search capabilities for assets using semantic similarity based on the provided query.
 	 * @param query string The search query text used to find semantically similar assets
 	 * @param refineQuery bool When true, the search query is refined using LLM before vector search (optional, default: false)
 	 * @param size int The maximum number of results to return. Must be between 1 and 100 (optional, default: 10)
@@ -7425,15 +7427,15 @@ module.exports.segmentationType = segmentationType;
 /**
  *Class definition for the Kaltura service: semanticAssetSearchPartnerConfig.
  * The available service actions:
- * @action getFilteringCondition Retrieve the filtering condition configuration for the partner.
- * @action getSearchableAttributes Retrieve the current field configurations for semantic search.
- * @action upsertFilteringCondition Update rule that controls embedding generation and search behavior.
- * @action upsertSearchableAttributes Update which fields should be included in semantic search for specific asset types.
+ * @action getFilteringCondition Retrieves the filtering condition applied to asset searches.
+ * @action getSearchableAttributes Retrieves the searchable attributes associated with a specific asset structure.
+ * @action upsertFilteringCondition Adds or updates a filtering condition for asset searches.
+ * @action upsertSearchableAttributes Adds or updates searchable attributes for a given asset structure.
  */
 class semanticAssetSearchPartnerConfig{
 	
 	/**
-	 * Retrieve the filtering condition configuration for the partner.
+	 * Retrieves the filtering condition applied to asset searches.
 	 * @return KalturaFilteringCondition
 	 */
 	static getFilteringCondition(){
@@ -7442,8 +7444,8 @@ class semanticAssetSearchPartnerConfig{
 	};
 	
 	/**
-	 * Retrieve the current field configurations for semantic search.
-	 * @param assetStructId int Asset structure ID to filter configurations
+	 * Retrieves the searchable attributes associated with a specific asset structure.
+	 * @param assetStructId int The unique identifier of the asset structure
 	 * @return KalturaSearchableAttributes
 	 */
 	static getSearchableAttributes(assetStructId){
@@ -7453,8 +7455,8 @@ class semanticAssetSearchPartnerConfig{
 	};
 	
 	/**
-	 * Update rule that controls embedding generation and search behavior.
-	 * @param filteringCondition FilteringCondition Rule configuration parameters
+	 * Adds or updates a filtering condition for asset searches.
+	 * @param filteringCondition FilteringCondition The filtering condition to be applied to asset searches
 	 * @return KalturaFilteringCondition
 	 */
 	static upsertFilteringCondition(filteringCondition){
@@ -7464,8 +7466,8 @@ class semanticAssetSearchPartnerConfig{
 	};
 	
 	/**
-	 * Update which fields should be included in semantic search for specific asset types.
-	 * @param attributes SearchableAttributes Fields configuration parameters
+	 * Adds or updates searchable attributes for a given asset structure.
+	 * @param attributes SearchableAttributes The searchable attributes to be added or updated
 	 * @return KalturaSearchableAttributes
 	 */
 	static upsertSearchableAttributes(attributes){
@@ -7475,58 +7477,6 @@ class semanticAssetSearchPartnerConfig{
 	};
 }
 module.exports.semanticAssetSearchPartnerConfig = semanticAssetSearchPartnerConfig;
-
-
-/**
- *Class definition for the Kaltura service: semanticQuery.
- * The available service actions:
- * @action generate Generates a title and semantic sub-queries.
- */
-class semanticQuery{
-	
-	/**
-	 * Generates a title and semantic sub-queries.
-	 * @param query GenerateSemanticQuery Parameters required for generating semantic queries
-	 * @return KalturaSemanticQuery
-	 */
-	static generate(query){
-		let kparams = {};
-		kparams.query = query;
-		return new kaltura.RequestBuilder('semanticquery', 'generate', kparams);
-	};
-}
-module.exports.semanticQuery = semanticQuery;
-
-
-/**
- *Class definition for the Kaltura service: semanticQueryPartnerConfiguration.
- * The available service actions:
- * @action get Retrieves partner configuration for semantic query service.
- * @action update Updates the partner configuration for semantic query service.
- */
-class semanticQueryPartnerConfiguration{
-	
-	/**
-	 * Retrieves partner configuration for semantic query service.
-	 * @return KalturaSemanticQueryPartnerConfiguration
-	 */
-	static get(){
-		let kparams = {};
-		return new kaltura.RequestBuilder('semanticquerypartnerconfiguration', 'get', kparams);
-	};
-	
-	/**
-	 * Updates the partner configuration for semantic query service.
-	 * @param configuration SemanticQueryPartnerConfiguration The partner configuration for semantic query generation
-	 * @return KalturaSemanticQueryPartnerConfiguration
-	 */
-	static update(configuration){
-		let kparams = {};
-		kparams.configuration = configuration;
-		return new kaltura.RequestBuilder('semanticquerypartnerconfiguration', 'update', kparams);
-	};
-}
-module.exports.semanticQueryPartnerConfiguration = semanticQueryPartnerConfiguration;
 
 
 /**
@@ -8252,14 +8202,14 @@ module.exports.subscriptionSet = subscriptionSet;
 /**
  *Class definition for the Kaltura service: subtitles.
  * The available service actions:
- * @action uploadFile Add a subtitles file to be used for generating metadata and enriching the assets using a multi-part form-data body including the JSON configuration object and the uploaded file.
+ * @action uploadFile Upload a subtitles file for a later analysis.
  */
 class subtitles{
 	
 	/**
-	 * Add a subtitles file to be used for generating metadata and enriching the assets using a multi-part form-data body including the JSON configuration object and the uploaded file.
-	 * @param subtitles UploadSubtitles Subtitle file metadata
-	 * @param fileData file The subtitles file to upload. The file must be in UTF-8 encoding
+	 * Upload a subtitles file for a later analysis.
+	 * @param subtitles UploadSubtitles Subtitle metadata
+	 * @param fileData file The subtitles text file to upload. Must be in UTF-8 encoding
 	 * @return KalturaSubtitles
 	 */
 	static uploadFile(subtitles, fileData){
