@@ -39130,6 +39130,51 @@ class VodIngestAssetResult extends kaltura.BaseObject{
 	 setWarnings(warnings) {
 	 	this.warnings = warnings;
 	 }
+	
+	/**
+	 * The date and time for which the ingest file was uploaded to the remote file server. Expressed in milliseconds EPOCH time
+	 * @return int
+	 */
+	 getFileUploadDate() {
+	 	return this.fileUploadDate;
+	 }
+	
+	/**
+	 * @param fileUploadDate int The date and time for which the ingest file was uploaded to the remote file server. Expressed in milliseconds EPOCH time
+	 */
+	 setFileUploadDate(fileUploadDate) {
+	 	this.fileUploadDate = fileUploadDate;
+	 }
+	
+	/**
+	 * The date and time for which the ingest file moved to in progress folder and started processing. Expressed in milliseconds EPOCH time
+	 * @return int
+	 */
+	 getProcessingStartDate() {
+	 	return this.processingStartDate;
+	 }
+	
+	/**
+	 * @param processingStartDate int The date and time for which the ingest file moved to in progress folder and started processing. Expressed in milliseconds EPOCH time
+	 */
+	 setProcessingStartDate(processingStartDate) {
+	 	this.processingStartDate = processingStartDate;
+	 }
+	
+	/**
+	 * The date and time for which the ingest file completed the ingest process. Expressed in milliseconds EPOCH time
+	 * @return int
+	 */
+	 getProcessingCompletionDate() {
+	 	return this.processingCompletionDate;
+	 }
+	
+	/**
+	 * @param processingCompletionDate int The date and time for which the ingest file completed the ingest process. Expressed in milliseconds EPOCH time
+	 */
+	 setProcessingCompletionDate(processingCompletionDate) {
+	 	this.processingCompletionDate = processingCompletionDate;
+	 }
 }
 module.exports.VodIngestAssetResult = VodIngestAssetResult;
 
@@ -39273,6 +39318,66 @@ class VodIngestAssetResultAggregation extends kaltura.BaseObject{
 	 */
 	 setSuccessWithWarningCount(successWithWarningCount) {
 	 	this.successWithWarningCount = successWithWarningCount;
+	 }
+	
+	/**
+	 * Average calculated for the total processing duration of the assets returned according to the applied filters
+	 * @return int
+	 */
+	 getAverageTotalProcessingDuration() {
+	 	return this.averageTotalProcessingDuration;
+	 }
+	
+	/**
+	 * @param averageTotalProcessingDuration int Average calculated for the total processing duration of the assets returned according to the applied filters
+	 */
+	 setAverageTotalProcessingDuration(averageTotalProcessingDuration) {
+	 	this.averageTotalProcessingDuration = averageTotalProcessingDuration;
+	 }
+	
+	/**
+	 * Average calculated for the active processing duration of the assets returned according to the applied filters
+	 * @return int
+	 */
+	 getAverageTotalActiveProcessingDuration() {
+	 	return this.averageTotalActiveProcessingDuration;
+	 }
+	
+	/**
+	 * @param averageTotalActiveProcessingDuration int Average calculated for the active processing duration of the assets returned according to the applied filters
+	 */
+	 setAverageTotalActiveProcessingDuration(averageTotalActiveProcessingDuration) {
+	 	this.averageTotalActiveProcessingDuration = averageTotalActiveProcessingDuration;
+	 }
+	
+	/**
+	 * 0.95 percentile calculated for the total processing duration of the assets returned according to the applied filters
+	 * @return int
+	 */
+	 getP95TotalProcessingDuration() {
+	 	return this.p95TotalProcessingDuration;
+	 }
+	
+	/**
+	 * @param p95TotalProcessingDuration int 0.95 percentile calculated for the total processing duration of the assets returned according to the applied filters
+	 */
+	 setP95TotalProcessingDuration(p95TotalProcessingDuration) {
+	 	this.p95TotalProcessingDuration = p95TotalProcessingDuration;
+	 }
+	
+	/**
+	 * 0.95 percentile calculated for the active processing duration of the assets returned according to the applied filters
+	 * @return int
+	 */
+	 getP95TotalActiveProcessingDuration() {
+	 	return this.p95TotalActiveProcessingDuration;
+	 }
+	
+	/**
+	 * @param p95TotalActiveProcessingDuration int 0.95 percentile calculated for the active processing duration of the assets returned according to the applied filters
+	 */
+	 setP95TotalActiveProcessingDuration(p95TotalActiveProcessingDuration) {
+	 	this.p95TotalActiveProcessingDuration = p95TotalActiveProcessingDuration;
 	 }
 }
 module.exports.VodIngestAssetResultAggregation = VodIngestAssetResultAggregation;
