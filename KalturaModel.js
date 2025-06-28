@@ -27272,403 +27272,6 @@ module.exports.BillingTransactionListResponse = BillingTransactionListResponse;
 /**
  *
  */
-class BulkResponseItem extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBulkResponseItem';
-	}
-	
-	/**
-	 * Indicates whether the bulk operation was successful
-	 * @return bool
-	 */
-	 getIsSuccess() {
-	 	return this.isSuccess;
-	 }
-	
-	/**
-	 * @param isSuccess bool Indicates whether the bulk operation was successful
-	 */
-	 setIsSuccess(isSuccess) {
-	 	this.isSuccess = isSuccess;
-	 }
-}
-module.exports.BulkResponseItem = BulkResponseItem;
-
-/**
- *
- */
-class BulkPlaybackContextResponse extends ListResponse{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBulkPlaybackContextResponse';
-	}
-	
-	/**
-	 * Array of playback contexts or errors.
- * Each item corresponds to the request at the same index in the request array.
- * Items can be either KalturaPlaybackContext (success) or KalturaBulkPlaybackContextError (error)
-	 * @return array
-	 */
-	 getObjects() {
-	 	return this.objects;
-	 }
-	
-	/**
-	 * @param objects array Array of playback contexts or errors.
- * Each item corresponds to the request at the same index in the request array.
- * Items can be either KalturaPlaybackContext (success) or KalturaBulkPlaybackContextError (error)
-	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
-	 }
-}
-module.exports.BulkPlaybackContextResponse = BulkPlaybackContextResponse;
-
-/**
- *
- */
-class BulkPlaybackContextError extends BulkResponseItem{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBulkPlaybackContextError';
-	}
-	
-	/**
-	 * The error code from the API exception
-	 * @return string
-	 */
-	 getCode() {
-	 	return this.code;
-	 }
-	
-	/**
-	 * @param code string The error code from the API exception
-	 */
-	 setCode(code) {
-	 	this.code = code;
-	 }
-	
-	/**
-	 * The error message from the API exception
-	 * @return string
-	 */
-	 getMessage() {
-	 	return this.message;
-	 }
-	
-	/**
-	 * @param message string The error message from the API exception
-	 */
-	 setMessage(message) {
-	 	this.message = message;
-	 }
-	
-	/**
-	 * Additional error arguments from the API exception
-	 * @return array
-	 */
-	 getArgs() {
-	 	return this.args;
-	 }
-	
-	/**
-	 * @param args array Additional error arguments from the API exception
-	 */
-	 setArgs(args) {
-	 	this.args = args;
-	 }
-}
-module.exports.BulkPlaybackContextError = BulkPlaybackContextError;
-
-/**
- *
- */
-class AccessControlMessage extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAccessControlMessage';
-	}
-	
-	/**
-	 * Message
-	 * @return string
-	 */
-	 getMessage() {
-	 	return this.message;
-	 }
-	
-	/**
-	 * @param message string Message
-	 */
-	 setMessage(message) {
-	 	this.message = message;
-	 }
-	
-	/**
-	 * Code
-	 * @return string
-	 */
-	 getCode() {
-	 	return this.code;
-	 }
-	
-	/**
-	 * @param code string Code
-	 */
-	 setCode(code) {
-	 	this.code = code;
-	 }
-}
-module.exports.AccessControlMessage = AccessControlMessage;
-
-/**
- *
- */
-class CaptionPlaybackPluginData extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaCaptionPlaybackPluginData';
-	}
-	
-	/**
-	 * url
-	 * @return string
-	 */
-	 getUrl() {
-	 	return this.url;
-	 }
-	
-	/**
-	 * @param url string url
-	 */
-	 setUrl(url) {
-	 	this.url = url;
-	 }
-	
-	/**
-	 * Language
-	 * @return string
-	 */
-	 getLanguage() {
-	 	return this.language;
-	 }
-	
-	/**
-	 * @param language string Language
-	 */
-	 setLanguage(language) {
-	 	this.language = language;
-	 }
-	
-	/**
-	 * Label
-	 * @return string
-	 */
-	 getLabel() {
-	 	return this.label;
-	 }
-	
-	/**
-	 * @param label string Label
-	 */
-	 setLabel(label) {
-	 	this.label = label;
-	 }
-	
-	/**
-	 * Format
-	 * @return string
-	 */
-	 getFormat() {
-	 	return this.format;
-	 }
-	
-	/**
-	 * @param format string Format
-	 */
-	 setFormat(format) {
-	 	this.format = format;
-	 }
-}
-module.exports.CaptionPlaybackPluginData = CaptionPlaybackPluginData;
-
-/**
- *
- */
-class PlaybackPluginData extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPlaybackPluginData';
-	}
-}
-module.exports.PlaybackPluginData = PlaybackPluginData;
-
-/**
- *
- */
-class PlaybackContext extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaPlaybackContext';
-	}
-	
-	/**
-	 * Sources
-	 * @return array
-	 */
-	 getSources() {
-	 	return this.sources;
-	 }
-	
-	/**
-	 * @param sources array Sources
-	 */
-	 setSources(sources) {
-	 	this.sources = sources;
-	 }
-	
-	/**
-	 * Actions
-	 * @return array
-	 */
-	 getActions() {
-	 	return this.actions;
-	 }
-	
-	/**
-	 * @param actions array Actions
-	 */
-	 setActions(actions) {
-	 	this.actions = actions;
-	 }
-	
-	/**
-	 * Messages
-	 * @return array
-	 */
-	 getMessages() {
-	 	return this.messages;
-	 }
-	
-	/**
-	 * @param messages array Messages
-	 */
-	 setMessages(messages) {
-	 	this.messages = messages;
-	 }
-	
-	/**
-	 * Playback captions
-	 * @return array
-	 */
-	 getPlaybackCaptions() {
-	 	return this.playbackCaptions;
-	 }
-	
-	/**
-	 * @param playbackCaptions array Playback captions
-	 */
-	 setPlaybackCaptions(playbackCaptions) {
-	 	this.playbackCaptions = playbackCaptions;
-	 }
-	
-	/**
-	 * Plugins
-	 * @return array
-	 */
-	 getPlugins() {
-	 	return this.plugins;
-	 }
-	
-	/**
-	 * @param plugins array Plugins
-	 */
-	 setPlugins(plugins) {
-	 	this.plugins = plugins;
-	 }
-}
-module.exports.PlaybackContext = PlaybackContext;
-
-/**
- *
- */
-class BulkPlaybackContextSuccess extends BulkResponseItem{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBulkPlaybackContextSuccess';
-	}
-	
-	/**
-	 * The successful playback context
-	 * @return PlaybackContext
-	 */
-	 getPlaybackContext() {
-	 	return this.playbackContext;
-	 }
-	
-	/**
-	 * @param playbackContext PlaybackContext The successful playback context
-	 */
-	 setPlaybackContext(playbackContext) {
-	 	this.playbackContext = playbackContext;
-	 }
-}
-module.exports.BulkPlaybackContextSuccess = BulkPlaybackContextSuccess;
-
-/**
- *
- */
-class BumpersPlaybackPluginData extends PlaybackPluginData{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaBumpersPlaybackPluginData';
-	}
-	
-	/**
-	 * url
-	 * @return string
-	 */
-	 getUrl() {
-	 	return this.url;
-	 }
-	
-	/**
-	 * @param url string url
-	 */
-	 setUrl(url) {
-	 	this.url = url;
-	 }
-	
-	/**
-	 * Streamer type: hls, dash, progressive
-	 * @return string
-	 */
-	 getStreamertype() {
-	 	return this.streamertype;
-	 }
-	
-	/**
-	 * @param streamertype string Streamer type: hls, dash, progressive
-	 */
-	 setStreamertype(streamertype) {
-	 	this.streamertype = streamertype;
-	 }
-}
-module.exports.BumpersPlaybackPluginData = BumpersPlaybackPluginData;
-
-/**
- *
- */
 class CDVRAdapterProfile extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -36759,6 +36362,418 @@ class BulkPlaybackContextRequest extends kaltura.BaseObject{
 	 }
 }
 module.exports.BulkPlaybackContextRequest = BulkPlaybackContextRequest;
+
+/**
+ *
+ */
+class BulkResponseItem extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkResponseItem';
+	}
+	
+	/**
+	 * Indicates whether the bulk operation was successful
+	 * @return bool
+	 */
+	 getIsSuccess() {
+	 	return this.isSuccess;
+	 }
+	
+	/**
+	 * @param isSuccess bool Indicates whether the bulk operation was successful
+	 */
+	 setIsSuccess(isSuccess) {
+	 	this.isSuccess = isSuccess;
+	 }
+}
+module.exports.BulkResponseItem = BulkResponseItem;
+
+/**
+ *
+ */
+class BulkPlaybackContextResponse extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkPlaybackContextResponse';
+	}
+	
+	/**
+	 * Array of playback contexts or errors.
+ * Each item corresponds to the request at the same index in the request array.
+ * Items can be either KalturaPlaybackContext (success) or KalturaBulkPlaybackContextError (error)
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Array of playback contexts or errors.
+ * Each item corresponds to the request at the same index in the request array.
+ * Items can be either KalturaPlaybackContext (success) or KalturaBulkPlaybackContextError (error)
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+	
+	/**
+	 * Total items
+	 * @return int
+	 */
+	 getTotalCount() {
+	 	return this.totalCount;
+	 }
+	
+	/**
+	 * @param totalCount int Total items
+	 */
+	 setTotalCount(totalCount) {
+	 	this.totalCount = totalCount;
+	 }
+}
+module.exports.BulkPlaybackContextResponse = BulkPlaybackContextResponse;
+
+/**
+ *
+ */
+class BulkPlaybackContextError extends BulkResponseItem{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkPlaybackContextError';
+	}
+	
+	/**
+	 * The error code from the API exception
+	 * @return string
+	 */
+	 getCode() {
+	 	return this.code;
+	 }
+	
+	/**
+	 * @param code string The error code from the API exception
+	 */
+	 setCode(code) {
+	 	this.code = code;
+	 }
+	
+	/**
+	 * The error message from the API exception
+	 * @return string
+	 */
+	 getMessage() {
+	 	return this.message;
+	 }
+	
+	/**
+	 * @param message string The error message from the API exception
+	 */
+	 setMessage(message) {
+	 	this.message = message;
+	 }
+	
+	/**
+	 * Additional error arguments from the API exception
+	 * @return array
+	 */
+	 getArgs() {
+	 	return this.args;
+	 }
+	
+	/**
+	 * @param args array Additional error arguments from the API exception
+	 */
+	 setArgs(args) {
+	 	this.args = args;
+	 }
+}
+module.exports.BulkPlaybackContextError = BulkPlaybackContextError;
+
+/**
+ *
+ */
+class AccessControlMessage extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAccessControlMessage';
+	}
+	
+	/**
+	 * Message
+	 * @return string
+	 */
+	 getMessage() {
+	 	return this.message;
+	 }
+	
+	/**
+	 * @param message string Message
+	 */
+	 setMessage(message) {
+	 	this.message = message;
+	 }
+	
+	/**
+	 * Code
+	 * @return string
+	 */
+	 getCode() {
+	 	return this.code;
+	 }
+	
+	/**
+	 * @param code string Code
+	 */
+	 setCode(code) {
+	 	this.code = code;
+	 }
+}
+module.exports.AccessControlMessage = AccessControlMessage;
+
+/**
+ *
+ */
+class CaptionPlaybackPluginData extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCaptionPlaybackPluginData';
+	}
+	
+	/**
+	 * url
+	 * @return string
+	 */
+	 getUrl() {
+	 	return this.url;
+	 }
+	
+	/**
+	 * @param url string url
+	 */
+	 setUrl(url) {
+	 	this.url = url;
+	 }
+	
+	/**
+	 * Language
+	 * @return string
+	 */
+	 getLanguage() {
+	 	return this.language;
+	 }
+	
+	/**
+	 * @param language string Language
+	 */
+	 setLanguage(language) {
+	 	this.language = language;
+	 }
+	
+	/**
+	 * Label
+	 * @return string
+	 */
+	 getLabel() {
+	 	return this.label;
+	 }
+	
+	/**
+	 * @param label string Label
+	 */
+	 setLabel(label) {
+	 	this.label = label;
+	 }
+	
+	/**
+	 * Format
+	 * @return string
+	 */
+	 getFormat() {
+	 	return this.format;
+	 }
+	
+	/**
+	 * @param format string Format
+	 */
+	 setFormat(format) {
+	 	this.format = format;
+	 }
+}
+module.exports.CaptionPlaybackPluginData = CaptionPlaybackPluginData;
+
+/**
+ *
+ */
+class PlaybackPluginData extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPlaybackPluginData';
+	}
+}
+module.exports.PlaybackPluginData = PlaybackPluginData;
+
+/**
+ *
+ */
+class PlaybackContext extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaPlaybackContext';
+	}
+	
+	/**
+	 * Sources
+	 * @return array
+	 */
+	 getSources() {
+	 	return this.sources;
+	 }
+	
+	/**
+	 * @param sources array Sources
+	 */
+	 setSources(sources) {
+	 	this.sources = sources;
+	 }
+	
+	/**
+	 * Actions
+	 * @return array
+	 */
+	 getActions() {
+	 	return this.actions;
+	 }
+	
+	/**
+	 * @param actions array Actions
+	 */
+	 setActions(actions) {
+	 	this.actions = actions;
+	 }
+	
+	/**
+	 * Messages
+	 * @return array
+	 */
+	 getMessages() {
+	 	return this.messages;
+	 }
+	
+	/**
+	 * @param messages array Messages
+	 */
+	 setMessages(messages) {
+	 	this.messages = messages;
+	 }
+	
+	/**
+	 * Playback captions
+	 * @return array
+	 */
+	 getPlaybackCaptions() {
+	 	return this.playbackCaptions;
+	 }
+	
+	/**
+	 * @param playbackCaptions array Playback captions
+	 */
+	 setPlaybackCaptions(playbackCaptions) {
+	 	this.playbackCaptions = playbackCaptions;
+	 }
+	
+	/**
+	 * Plugins
+	 * @return array
+	 */
+	 getPlugins() {
+	 	return this.plugins;
+	 }
+	
+	/**
+	 * @param plugins array Plugins
+	 */
+	 setPlugins(plugins) {
+	 	this.plugins = plugins;
+	 }
+}
+module.exports.PlaybackContext = PlaybackContext;
+
+/**
+ *
+ */
+class BulkPlaybackContextSuccess extends BulkResponseItem{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkPlaybackContextSuccess';
+	}
+	
+	/**
+	 * The successful playback context
+	 * @return PlaybackContext
+	 */
+	 getPlaybackContext() {
+	 	return this.playbackContext;
+	 }
+	
+	/**
+	 * @param playbackContext PlaybackContext The successful playback context
+	 */
+	 setPlaybackContext(playbackContext) {
+	 	this.playbackContext = playbackContext;
+	 }
+}
+module.exports.BulkPlaybackContextSuccess = BulkPlaybackContextSuccess;
+
+/**
+ *
+ */
+class BumpersPlaybackPluginData extends PlaybackPluginData{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBumpersPlaybackPluginData';
+	}
+	
+	/**
+	 * url
+	 * @return string
+	 */
+	 getUrl() {
+	 	return this.url;
+	 }
+	
+	/**
+	 * @param url string url
+	 */
+	 setUrl(url) {
+	 	this.url = url;
+	 }
+	
+	/**
+	 * Streamer type: hls, dash, progressive
+	 * @return string
+	 */
+	 getStreamertype() {
+	 	return this.streamertype;
+	 }
+	
+	/**
+	 * @param streamertype string Streamer type: hls, dash, progressive
+	 */
+	 setStreamertype(streamertype) {
+	 	this.streamertype = streamertype;
+	 }
+}
+module.exports.BumpersPlaybackPluginData = BumpersPlaybackPluginData;
 
 /**
  *
