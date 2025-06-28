@@ -27272,11 +27272,11 @@ module.exports.BillingTransactionListResponse = BillingTransactionListResponse;
 /**
  *
  */
-class BulkResponseObject extends kaltura.BaseObject{
+class BulkResponseItem extends kaltura.BaseObject{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaBulkResponseObject';
+		this.objectType = 'KalturaBulkResponseItem';
 	}
 	
 	/**
@@ -27294,7 +27294,7 @@ class BulkResponseObject extends kaltura.BaseObject{
 	 	this.isSuccess = isSuccess;
 	 }
 }
-module.exports.BulkResponseObject = BulkResponseObject;
+module.exports.BulkResponseItem = BulkResponseItem;
 
 /**
  *
@@ -27330,7 +27330,7 @@ module.exports.BulkPlaybackContextResponse = BulkPlaybackContextResponse;
 /**
  *
  */
-class BulkPlaybackContextError extends BulkResponseObject{
+class BulkPlaybackContextError extends BulkResponseItem{
 	
 	constructor(object = null) {
 		super(object);
@@ -27600,7 +27600,7 @@ module.exports.PlaybackContext = PlaybackContext;
 /**
  *
  */
-class BulkPlaybackContextSuccess extends BulkResponseObject{
+class BulkPlaybackContextSuccess extends BulkResponseItem{
 	
 	constructor(object = null) {
 		super(object);
