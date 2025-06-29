@@ -36406,17 +36406,17 @@ class BulkPlaybackContextResponse extends kaltura.BaseObject{
  * Items can be either KalturaPlaybackContext (success) or KalturaBulkPlaybackContextError (error)
 	 * @return array
 	 */
-	 getObjects() {
-	 	return this.objects;
+	 getItems() {
+	 	return this.items;
 	 }
 	
 	/**
-	 * @param objects array Array of playback contexts or errors.
+	 * @param items array Array of playback contexts or errors.
  * Each item corresponds to the request at the same index in the request array.
  * Items can be either KalturaPlaybackContext (success) or KalturaBulkPlaybackContextError (error)
 	 */
-	 setObjects(objects) {
-	 	this.objects = objects;
+	 setItems(items) {
+	 	this.items = items;
 	 }
 	
 	/**
