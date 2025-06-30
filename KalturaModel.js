@@ -9169,21 +9169,6 @@ class TreeQuestion extends kaltura.BaseObject{
 	 setLevel(level) {
 	 	this.level = level;
 	 }
-	
-	/**
-	 * Array of metadata categories this question focuses on
-	 * @return array
-	 */
-	 getMetadataTypes() {
-	 	return this.metadataTypes;
-	 }
-	
-	/**
-	 * @param metadataTypes array Array of metadata categories this question focuses on
-	 */
-	 setMetadataTypes(metadataTypes) {
-	 	this.metadataTypes = metadataTypes;
-	 }
 }
 module.exports.TreeQuestion = TreeQuestion;
 
@@ -9225,51 +9210,6 @@ class TreeAnswer extends kaltura.BaseObject{
 	 */
 	 setText(text) {
 	 	this.text = text;
-	 }
-	
-	/**
-	 * Boolean indicating if selecting this answer leads to another question
-	 * @return bool
-	 */
-	 getHasNextQuestion() {
-	 	return this.hasNextQuestion;
-	 }
-	
-	/**
-	 * @param hasNextQuestion bool Boolean indicating if selecting this answer leads to another question
-	 */
-	 setHasNextQuestion(hasNextQuestion) {
-	 	this.hasNextQuestion = hasNextQuestion;
-	 }
-	
-	/**
-	 * Flag for special answers like &quot;I don&#39;t know&quot; (optional)
-	 * @return bool
-	 */
-	 getIsSpecial() {
-	 	return this.isSpecial;
-	 }
-	
-	/**
-	 * @param isSpecial bool Flag for special answers like &quot;I don&#39;t know&quot; (optional)
-	 */
-	 setIsSpecial(isSpecial) {
-	 	this.isSpecial = isSpecial;
-	 }
-	
-	/**
-	 * The type of special answer, e.g., &quot;unsure&quot; (optional)
-	 * @return string
-	 */
-	 getSpecialType() {
-	 	return this.specialType;
-	 }
-	
-	/**
-	 * @param specialType string The type of special answer, e.g., &quot;unsure&quot; (optional)
-	 */
-	 setSpecialType(specialType) {
-	 	this.specialType = specialType;
 	 }
 }
 module.exports.TreeAnswer = TreeAnswer;
@@ -10392,7 +10332,7 @@ class TreeRecommendations extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Array of content assets matching the recommendation criteria
+	 * Array of content assets matching the recommendation criteria, this is essentially a KalturaAssetListResponseObject
 	 * @return array
 	 */
 	 getAssets() {
@@ -10400,7 +10340,7 @@ class TreeRecommendations extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param assets array Array of content assets matching the recommendation criteria
+	 * @param assets array Array of content assets matching the recommendation criteria, this is essentially a KalturaAssetListResponseObject
 	 */
 	 setAssets(assets) {
 	 	this.assets = assets;
@@ -10431,6 +10371,21 @@ class TreeNextNodeResponse extends kaltura.BaseObject{
 	 */
 	 setQuestion(question) {
 	 	this.question = question;
+	 }
+	
+	/**
+	 * Number of total questions in the level
+	 * @return int
+	 */
+	 getTotalLevelQuestions() {
+	 	return this.totalLevelQuestions;
+	 }
+	
+	/**
+	 * @param totalLevelQuestions int Number of total questions in the level
+	 */
+	 setTotalLevelQuestions(totalLevelQuestions) {
+	 	this.totalLevelQuestions = totalLevelQuestions;
 	 }
 	
 	/**
@@ -11540,7 +11495,7 @@ class AiRecommendationTreePartnerConfiguration extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Number of top-level questions to generate (range: 5-21)
+	 * Number of top-level questions to generate (range: 5-30)
 	 * @return int
 	 */
 	 getTopLevelQuestions() {
@@ -11548,14 +11503,14 @@ class AiRecommendationTreePartnerConfiguration extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param topLevelQuestions int Number of top-level questions to generate (range: 5-21)
+	 * @param topLevelQuestions int Number of top-level questions to generate (range: 5-30)
 	 */
 	 setTopLevelQuestions(topLevelQuestions) {
 	 	this.topLevelQuestions = topLevelQuestions;
 	 }
 	
 	/**
-	 * Number of regular answers per question (range: 2-3)
+	 * Number of regular answers per question (range: 2-5)
 	 * @return int
 	 */
 	 getAnswersPerQuestion() {
@@ -11563,14 +11518,14 @@ class AiRecommendationTreePartnerConfiguration extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param answersPerQuestion int Number of regular answers per question (range: 2-3)
+	 * @param answersPerQuestion int Number of regular answers per question (range: 2-5)
 	 */
 	 setAnswersPerQuestion(answersPerQuestion) {
 	 	this.answersPerQuestion = answersPerQuestion;
 	 }
 	
 	/**
-	 * Maximum depth of the decision tree (range: 1-5)
+	 * Maximum depth of the decision tree (range: 1-4)
 	 * @return int
 	 */
 	 getLevels() {
@@ -11578,14 +11533,29 @@ class AiRecommendationTreePartnerConfiguration extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param levels int Maximum depth of the decision tree (range: 1-5)
+	 * @param levels int Maximum depth of the decision tree (range: 1-4)
 	 */
 	 setLevels(levels) {
 	 	this.levels = levels;
 	 }
 	
 	/**
-	 * Number of assets to include in each recommendation set
+	 * Number of assets to include in each recommendation set (max limit is 50)
+	 * @return bool
+	 */
+	 getSpecialAnswers() {
+	 	return this.specialAnswers;
+	 }
+	
+	/**
+	 * @param specialAnswers bool Number of assets to include in each recommendation set (max limit is 50)
+	 */
+	 setSpecialAnswers(specialAnswers) {
+	 	this.specialAnswers = specialAnswers;
+	 }
+	
+	/**
+	 * Number of assets to include in each recommendation set (max limit is 50)
 	 * @return int
 	 */
 	 getNumOfRecommendedAssets() {
@@ -11593,7 +11563,7 @@ class AiRecommendationTreePartnerConfiguration extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param numOfRecommendedAssets int Number of assets to include in each recommendation set
+	 * @param numOfRecommendedAssets int Number of assets to include in each recommendation set (max limit is 50)
 	 */
 	 setNumOfRecommendedAssets(numOfRecommendedAssets) {
 	 	this.numOfRecommendedAssets = numOfRecommendedAssets;
