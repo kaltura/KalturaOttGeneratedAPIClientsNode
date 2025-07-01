@@ -10359,6 +10359,21 @@ class TreeNextNodeResponse extends kaltura.BaseObject{
 	}
 	
 	/**
+	 * The tree id whom this node belongs to
+	 * @return string
+	 */
+	 getTreeId() {
+	 	return this.treeId;
+	 }
+	
+	/**
+	 * @param treeId string The tree id whom this node belongs to
+	 */
+	 setTreeId(treeId) {
+	 	this.treeId = treeId;
+	 }
+	
+	/**
 	 * The next question to present to the user, or null for terminal nodes
 	 * @return TreeQuestion
 	 */
