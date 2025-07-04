@@ -4628,6 +4628,21 @@ class RecordingFilter extends Filter{
 	 }
 	
 	/**
+	 * Comma separated list of assets identifiers
+	 * @return string
+	 */
+	 getAssetIdIn() {
+	 	return this.assetIdIn;
+	 }
+	
+	/**
+	 * @param assetIdIn string Comma separated list of assets identifiers
+	 */
+	 setAssetIdIn(assetIdIn) {
+	 	this.assetIdIn = assetIdIn;
+	 }
+	
+	/**
 	 * Comma separated external identifiers
 	 * @return string
 	 */
@@ -8683,6 +8698,18 @@ module.exports.UserRoleFilter = UserRoleFilter;
 /**
  *
  */
+class GeoBlockRuleFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaGeoBlockRuleFilter';
+	}
+}
+module.exports.GeoBlockRuleFilter = GeoBlockRuleFilter;
+
+/**
+ *
+ */
 class EpgFilter extends Filter{
 	
 	constructor(object = null) {
@@ -9063,22 +9090,9 @@ class AiMetadataGeneratorConfiguration extends kaltura.BaseObject{
 	}
 	
 	/**
-	 * Specifies if the feature is enabled or disabled
-	 * @return bool
-	 */
-	 getIsEnabled() {
-	 	return this.isEnabled;
-	 }
-	
-	/**
-	 * @param isEnabled bool Specifies if the feature is enabled or disabled
-	 */
-	 setIsEnabled(isEnabled) {
-	 	this.isEnabled = isEnabled;
-	 }
-	
-	/**
-	 * A map (dictionary) to indicate to which existing metadata or tag the newly generated metadata value should be pushed, per assetStruct (per &#39;asset type&#39;)
+	 * A type of dictionary defined as [long,KalturaMetaFieldNameMap].
+ * This property is used to correlate the newly generated metadata to
+ * existing metadata IDs which are available in the asset’s struct
 	 * @return map
 	 */
 	 getAssetStructMetaNameMap() {
@@ -9086,7 +9100,9 @@ class AiMetadataGeneratorConfiguration extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param assetStructMetaNameMap map A map (dictionary) to indicate to which existing metadata or tag the newly generated metadata value should be pushed, per assetStruct (per &#39;asset type&#39;)
+	 * @param assetStructMetaNameMap map A type of dictionary defined as [long,KalturaMetaFieldNameMap].
+ * This property is used to correlate the newly generated metadata to
+ * existing metadata IDs which are available in the asset’s struct
 	 */
 	 setAssetStructMetaNameMap(assetStructMetaNameMap) {
 	 	this.assetStructMetaNameMap = assetStructMetaNameMap;
@@ -35598,6 +35614,148 @@ module.exports.UserRoleListResponse = UserRoleListResponse;
 /**
  *
  */
+class GeoBlockRule extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaGeoBlockRule';
+	}
+	
+	/**
+	 * Geo Block Rule id
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Create Date Epoch time in seconds
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * Update Date Epoch time in seconds
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
+	
+	/**
+	 * comma separated string representing list of countries that the rule shall apply to
+	 * @return string
+	 */
+	 getCountryIds() {
+	 	return this.countryIds;
+	 }
+	
+	/**
+	 * @param countryIds string comma separated string representing list of countries that the rule shall apply to
+	 */
+	 setCountryIds(countryIds) {
+	 	this.countryIds = countryIds;
+	 }
+	
+	/**
+	 * mode - Defines the geo-blocking strategy based on user location.
+ * AllowOnlySelected - Implements a restrictive whitelist approach where content is only accessible from explicitly selected countries. All other countries are blocked by default.
+ * BlockOnlySelected - Implements a permissive blacklist approach where content is accessible from all countries except those explicitly selected for blocking
+	 * @return string
+	 */
+	 getMode() {
+	 	return this.mode;
+	 }
+	
+	/**
+	 * @param mode string mode - Defines the geo-blocking strategy based on user location.
+ * AllowOnlySelected - Implements a restrictive whitelist approach where content is only accessible from explicitly selected countries. All other countries are blocked by default.
+ * BlockOnlySelected - Implements a permissive blacklist approach where content is accessible from all countries except those explicitly selected for blocking
+	 */
+	 setMode(mode) {
+	 	this.mode = mode;
+	 }
+	
+	/**
+	 * Should geo block rule check proxy as well
+	 * @return bool
+	 */
+	 getIsProxyRuleEnabled() {
+	 	return this.isProxyRuleEnabled;
+	 }
+	
+	/**
+	 * @param isProxyRuleEnabled bool Should geo block rule check proxy as well
+	 */
+	 setIsProxyRuleEnabled(isProxyRuleEnabled) {
+	 	this.isProxyRuleEnabled = isProxyRuleEnabled;
+	 }
+	
+	/**
+	 * Level of proxy rule check - medium or high
+	 * @return string
+	 */
+	 getProxyRuleLevel() {
+	 	return this.proxyRuleLevel;
+	 }
+	
+	/**
+	 * @param proxyRuleLevel string Level of proxy rule check - medium or high
+	 */
+	 setProxyRuleLevel(proxyRuleLevel) {
+	 	this.proxyRuleLevel = proxyRuleLevel;
+	 }
+}
+module.exports.GeoBlockRule = GeoBlockRule;
+
+/**
+ *
+ */
+class GeoBlockRuleListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaGeoBlockRuleListResponse';
+	}
+	
+	/**
+	 * Geo block rules
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Geo block rules
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.GeoBlockRuleListResponse = GeoBlockRuleListResponse;
+
+/**
+ *
+ */
 class EpgListResponse extends ListResponse{
 	
 	constructor(object = null) {
@@ -38976,6 +39134,51 @@ class VodIngestAssetResult extends kaltura.BaseObject{
 	 setWarnings(warnings) {
 	 	this.warnings = warnings;
 	 }
+	
+	/**
+	 * The date and time for which the ingest file was uploaded to the remote file server. Expressed in milliseconds EPOCH time
+	 * @return int
+	 */
+	 getFileUploadDate() {
+	 	return this.fileUploadDate;
+	 }
+	
+	/**
+	 * @param fileUploadDate int The date and time for which the ingest file was uploaded to the remote file server. Expressed in milliseconds EPOCH time
+	 */
+	 setFileUploadDate(fileUploadDate) {
+	 	this.fileUploadDate = fileUploadDate;
+	 }
+	
+	/**
+	 * The date and time for which the ingest file moved to in progress folder and started processing. Expressed in milliseconds EPOCH time
+	 * @return int
+	 */
+	 getProcessingStartDate() {
+	 	return this.processingStartDate;
+	 }
+	
+	/**
+	 * @param processingStartDate int The date and time for which the ingest file moved to in progress folder and started processing. Expressed in milliseconds EPOCH time
+	 */
+	 setProcessingStartDate(processingStartDate) {
+	 	this.processingStartDate = processingStartDate;
+	 }
+	
+	/**
+	 * The date and time for which the ingest file completed the ingest process. Expressed in milliseconds EPOCH time
+	 * @return int
+	 */
+	 getProcessingCompletionDate() {
+	 	return this.processingCompletionDate;
+	 }
+	
+	/**
+	 * @param processingCompletionDate int The date and time for which the ingest file completed the ingest process. Expressed in milliseconds EPOCH time
+	 */
+	 setProcessingCompletionDate(processingCompletionDate) {
+	 	this.processingCompletionDate = processingCompletionDate;
+	 }
 }
 module.exports.VodIngestAssetResult = VodIngestAssetResult;
 
@@ -39119,6 +39322,66 @@ class VodIngestAssetResultAggregation extends kaltura.BaseObject{
 	 */
 	 setSuccessWithWarningCount(successWithWarningCount) {
 	 	this.successWithWarningCount = successWithWarningCount;
+	 }
+	
+	/**
+	 * Average calculated for the total processing duration of the assets returned according to the applied filters
+	 * @return int
+	 */
+	 getAverageTotalProcessingDuration() {
+	 	return this.averageTotalProcessingDuration;
+	 }
+	
+	/**
+	 * @param averageTotalProcessingDuration int Average calculated for the total processing duration of the assets returned according to the applied filters
+	 */
+	 setAverageTotalProcessingDuration(averageTotalProcessingDuration) {
+	 	this.averageTotalProcessingDuration = averageTotalProcessingDuration;
+	 }
+	
+	/**
+	 * Average calculated for the active processing duration of the assets returned according to the applied filters
+	 * @return int
+	 */
+	 getAverageTotalActiveProcessingDuration() {
+	 	return this.averageTotalActiveProcessingDuration;
+	 }
+	
+	/**
+	 * @param averageTotalActiveProcessingDuration int Average calculated for the active processing duration of the assets returned according to the applied filters
+	 */
+	 setAverageTotalActiveProcessingDuration(averageTotalActiveProcessingDuration) {
+	 	this.averageTotalActiveProcessingDuration = averageTotalActiveProcessingDuration;
+	 }
+	
+	/**
+	 * 0.95 percentile calculated for the total processing duration of the assets returned according to the applied filters
+	 * @return int
+	 */
+	 getP95TotalProcessingDuration() {
+	 	return this.p95TotalProcessingDuration;
+	 }
+	
+	/**
+	 * @param p95TotalProcessingDuration int 0.95 percentile calculated for the total processing duration of the assets returned according to the applied filters
+	 */
+	 setP95TotalProcessingDuration(p95TotalProcessingDuration) {
+	 	this.p95TotalProcessingDuration = p95TotalProcessingDuration;
+	 }
+	
+	/**
+	 * 0.95 percentile calculated for the active processing duration of the assets returned according to the applied filters
+	 * @return int
+	 */
+	 getP95TotalActiveProcessingDuration() {
+	 	return this.p95TotalActiveProcessingDuration;
+	 }
+	
+	/**
+	 * @param p95TotalActiveProcessingDuration int 0.95 percentile calculated for the active processing duration of the assets returned according to the applied filters
+	 */
+	 setP95TotalActiveProcessingDuration(p95TotalActiveProcessingDuration) {
+	 	this.p95TotalActiveProcessingDuration = p95TotalActiveProcessingDuration;
 	 }
 }
 module.exports.VodIngestAssetResultAggregation = VodIngestAssetResultAggregation;
