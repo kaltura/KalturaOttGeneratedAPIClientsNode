@@ -301,6 +301,7 @@ module.exports.assetComment = assetComment;
  * @action add Add a new asset.
  * For metas of type bool-&gt; use kalturaBoolValue, type number-&gt; KalturaDoubleValue, type date -&gt; KalturaLongValue, type string -&gt; KalturaStringValue.
  * @action addFromBulkUpload Add new bulk upload batch job Conversion profile id can be specified in the API (note that the total request body size is limited to 10MB).
+ * @action bulkGetPlaybackContext Returns playback contexts for multiple assets in a single request.
  * @action count Returns a group-by result for media or EPG according to given filter. Lists values of each field and their respective count.
  * @action delete Delete an existing asset.
  * @action get Returns media or EPG asset by media / EPG internal or external identifier.
@@ -345,6 +346,17 @@ class asset{
 		kparams.bulkUploadJobData = bulkUploadJobData;
 		kparams.bulkUploadAssetData = bulkUploadAssetData;
 		return new kaltura.RequestBuilder('asset', 'addFromBulkUpload', kparams, kfiles);
+	};
+	
+	/**
+	 * Returns playback contexts for multiple assets in a single request.
+	 * @param request BulkPlaybackContextRequest Bulk request containing array of playback context parameters
+	 * @return KalturaBulkPlaybackContextResponse
+	 */
+	static bulkGetPlaybackContext(request){
+		let kparams = {};
+		kparams.request = request;
+		return new kaltura.RequestBuilder('asset', 'bulkGetPlaybackContext', kparams);
 	};
 	
 	/**
@@ -3262,6 +3274,67 @@ class followTvSeries{
 	};
 }
 module.exports.followTvSeries = followTvSeries;
+
+
+/**
+ *Class definition for the Kaltura service: geoBlockRule.
+ * The available service actions:
+ * @action add Add a new geo block rule.
+ * @action delete Delete a geo block rule.
+ * @action list Get the list of geo block rules for the partner.
+ * @action update Update an existing geo block rule.
+ */
+class geoBlockRule{
+	
+	/**
+	 * Add a new geo block rule.
+	 * @param geoBlockRule GeoBlockRule The geo block rule to add
+	 * @return KalturaGeoBlockRule
+	 */
+	static add(geoBlockRule){
+		let kparams = {};
+		kparams.geoBlockRule = geoBlockRule;
+		return new kaltura.RequestBuilder('geoblockrule', 'add', kparams);
+	};
+	
+	/**
+	 * Delete a geo block rule.
+	 * @param id int The id of the geo block rule to delete
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('geoblockrule', 'delete', kparams);
+	};
+	
+	/**
+	 * Get the list of geo block rules for the partner.
+	 * @param filter GeoBlockRuleFilter Filter criteria for the geo block rules (optional, default: null)
+	 * @param pager FilterPager Paging information for retrieving paginated results (optional, default: null)
+	 * @return KalturaGeoBlockRuleListResponse
+	 */
+	static listAction(filter = null, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('geoblockrule', 'list', kparams);
+	};
+	
+	/**
+	 * Update an existing geo block rule.
+	 * @param id int The id of the geo block rule to update
+	 * @param geoBlockRule GeoBlockRule The geo block rule data to update
+	 * @return KalturaGeoBlockRule
+	 */
+	static update(id, geoBlockRule){
+		let kparams = {};
+		kparams.id = id;
+		kparams.geoBlockRule = geoBlockRule;
+		return new kaltura.RequestBuilder('geoblockrule', 'update', kparams);
+	};
+}
+module.exports.geoBlockRule = geoBlockRule;
 
 
 /**
