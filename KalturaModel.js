@@ -4628,6 +4628,21 @@ class RecordingFilter extends Filter{
 	 }
 	
 	/**
+	 * Comma separated list of assets identifiers
+	 * @return string
+	 */
+	 getAssetIdIn() {
+	 	return this.assetIdIn;
+	 }
+	
+	/**
+	 * @param assetIdIn string Comma separated list of assets identifiers
+	 */
+	 setAssetIdIn(assetIdIn) {
+	 	this.assetIdIn = assetIdIn;
+	 }
+	
+	/**
 	 * Comma separated external identifiers
 	 * @return string
 	 */
@@ -8683,6 +8698,18 @@ module.exports.UserRoleFilter = UserRoleFilter;
 /**
  *
  */
+class GeoBlockRuleFilter extends Filter{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaGeoBlockRuleFilter';
+	}
+}
+module.exports.GeoBlockRuleFilter = GeoBlockRuleFilter;
+
+/**
+ *
+ */
 class EpgFilter extends Filter{
 	
 	constructor(object = null) {
@@ -9063,22 +9090,9 @@ class AiMetadataGeneratorConfiguration extends kaltura.BaseObject{
 	}
 	
 	/**
-	 * Specifies if the feature is enabled or disabled
-	 * @return bool
-	 */
-	 getIsEnabled() {
-	 	return this.isEnabled;
-	 }
-	
-	/**
-	 * @param isEnabled bool Specifies if the feature is enabled or disabled
-	 */
-	 setIsEnabled(isEnabled) {
-	 	this.isEnabled = isEnabled;
-	 }
-	
-	/**
-	 * A map (dictionary) to indicate to which existing metadata or tag the newly generated metadata value should be pushed, per assetStruct (per &#39;asset type&#39;)
+	 * A type of dictionary defined as [long,KalturaMetaFieldNameMap].
+ * This property is used to correlate the newly generated metadata to
+ * existing metadata IDs which are available in the asset’s struct
 	 * @return map
 	 */
 	 getAssetStructMetaNameMap() {
@@ -9086,7 +9100,9 @@ class AiMetadataGeneratorConfiguration extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param assetStructMetaNameMap map A map (dictionary) to indicate to which existing metadata or tag the newly generated metadata value should be pushed, per assetStruct (per &#39;asset type&#39;)
+	 * @param assetStructMetaNameMap map A type of dictionary defined as [long,KalturaMetaFieldNameMap].
+ * This property is used to correlate the newly generated metadata to
+ * existing metadata IDs which are available in the asset’s struct
 	 */
 	 setAssetStructMetaNameMap(assetStructMetaNameMap) {
 	 	this.assetStructMetaNameMap = assetStructMetaNameMap;
@@ -35598,6 +35614,148 @@ module.exports.UserRoleListResponse = UserRoleListResponse;
 /**
  *
  */
+class GeoBlockRule extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaGeoBlockRule';
+	}
+	
+	/**
+	 * Geo Block Rule id
+	 * @return int
+	 */
+	 getId() {
+	 	return this.id;
+	 }
+	
+	/**
+	 * Name
+	 * @return string
+	 */
+	 getName() {
+	 	return this.name;
+	 }
+	
+	/**
+	 * @param name string Name
+	 */
+	 setName(name) {
+	 	this.name = name;
+	 }
+	
+	/**
+	 * Create Date Epoch time in seconds
+	 * @return int
+	 */
+	 getCreateDate() {
+	 	return this.createDate;
+	 }
+	
+	/**
+	 * Update Date Epoch time in seconds
+	 * @return int
+	 */
+	 getUpdateDate() {
+	 	return this.updateDate;
+	 }
+	
+	/**
+	 * comma separated string representing list of countries that the rule shall apply to
+	 * @return string
+	 */
+	 getCountryIds() {
+	 	return this.countryIds;
+	 }
+	
+	/**
+	 * @param countryIds string comma separated string representing list of countries that the rule shall apply to
+	 */
+	 setCountryIds(countryIds) {
+	 	this.countryIds = countryIds;
+	 }
+	
+	/**
+	 * mode - Defines the geo-blocking strategy based on user location.
+ * AllowOnlySelected - Implements a restrictive whitelist approach where content is only accessible from explicitly selected countries. All other countries are blocked by default.
+ * BlockOnlySelected - Implements a permissive blacklist approach where content is accessible from all countries except those explicitly selected for blocking
+	 * @return string
+	 */
+	 getMode() {
+	 	return this.mode;
+	 }
+	
+	/**
+	 * @param mode string mode - Defines the geo-blocking strategy based on user location.
+ * AllowOnlySelected - Implements a restrictive whitelist approach where content is only accessible from explicitly selected countries. All other countries are blocked by default.
+ * BlockOnlySelected - Implements a permissive blacklist approach where content is accessible from all countries except those explicitly selected for blocking
+	 */
+	 setMode(mode) {
+	 	this.mode = mode;
+	 }
+	
+	/**
+	 * Should geo block rule check proxy as well
+	 * @return bool
+	 */
+	 getIsProxyRuleEnabled() {
+	 	return this.isProxyRuleEnabled;
+	 }
+	
+	/**
+	 * @param isProxyRuleEnabled bool Should geo block rule check proxy as well
+	 */
+	 setIsProxyRuleEnabled(isProxyRuleEnabled) {
+	 	this.isProxyRuleEnabled = isProxyRuleEnabled;
+	 }
+	
+	/**
+	 * Level of proxy rule check - medium or high
+	 * @return string
+	 */
+	 getProxyRuleLevel() {
+	 	return this.proxyRuleLevel;
+	 }
+	
+	/**
+	 * @param proxyRuleLevel string Level of proxy rule check - medium or high
+	 */
+	 setProxyRuleLevel(proxyRuleLevel) {
+	 	this.proxyRuleLevel = proxyRuleLevel;
+	 }
+}
+module.exports.GeoBlockRule = GeoBlockRule;
+
+/**
+ *
+ */
+class GeoBlockRuleListResponse extends ListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaGeoBlockRuleListResponse';
+	}
+	
+	/**
+	 * Geo block rules
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Geo block rules
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.GeoBlockRuleListResponse = GeoBlockRuleListResponse;
+
+/**
+ *
+ */
 class EpgListResponse extends ListResponse{
 	
 	constructor(object = null) {
@@ -36111,6 +36269,237 @@ module.exports.PlaybackContextOptions = PlaybackContextOptions;
 /**
  *
  */
+class GetPlaybackContextParams extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaGetPlaybackContextParams';
+	}
+	
+	/**
+	 * Unique identifier of the asset
+	 * @return string
+	 */
+	 getAssetId() {
+	 	return this.assetId;
+	 }
+	
+	/**
+	 * @param assetId string Unique identifier of the asset
+	 */
+	 setAssetId(assetId) {
+	 	this.assetId = assetId;
+	 }
+	
+	/**
+	 * Type of the asset
+	 * @return string
+	 */
+	 getAssetType() {
+	 	return this.assetType;
+	 }
+	
+	/**
+	 * @param assetType string Type of the asset
+	 */
+	 setAssetType(assetType) {
+	 	this.assetType = assetType;
+	 }
+	
+	/**
+	 * Playback context options
+	 * @return PlaybackContextOptions
+	 */
+	 getContextDataParams() {
+	 	return this.contextDataParams;
+	 }
+	
+	/**
+	 * @param contextDataParams PlaybackContextOptions Playback context options
+	 */
+	 setContextDataParams(contextDataParams) {
+	 	this.contextDataParams = contextDataParams;
+	 }
+	
+	/**
+	 * Source type (optional)
+	 * @return string
+	 */
+	 getSourceType() {
+	 	return this.sourceType;
+	 }
+	
+	/**
+	 * @param sourceType string Source type (optional)
+	 */
+	 setSourceType(sourceType) {
+	 	this.sourceType = sourceType;
+	 }
+}
+module.exports.GetPlaybackContextParams = GetPlaybackContextParams;
+
+/**
+ *
+ */
+class BulkPlaybackContextRequest extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkPlaybackContextRequest';
+	}
+	
+	/**
+	 * Array of request parameters for getPlaybackContext.
+ * Each entry represents an individual playback context request
+	 * @return array
+	 */
+	 getPlaybackContextParamSets() {
+	 	return this.playbackContextParamSets;
+	 }
+	
+	/**
+	 * @param playbackContextParamSets array Array of request parameters for getPlaybackContext.
+ * Each entry represents an individual playback context request
+	 */
+	 setPlaybackContextParamSets(playbackContextParamSets) {
+	 	this.playbackContextParamSets = playbackContextParamSets;
+	 }
+}
+module.exports.BulkPlaybackContextRequest = BulkPlaybackContextRequest;
+
+/**
+ *
+ */
+class BulkResponseItem extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkResponseItem';
+	}
+	
+	/**
+	 * Indicates whether the bulk operation was successful
+	 * @return bool
+	 */
+	 getIsSuccess() {
+	 	return this.isSuccess;
+	 }
+	
+	/**
+	 * @param isSuccess bool Indicates whether the bulk operation was successful
+	 */
+	 setIsSuccess(isSuccess) {
+	 	this.isSuccess = isSuccess;
+	 }
+}
+module.exports.BulkResponseItem = BulkResponseItem;
+
+/**
+ *
+ */
+class BulkPlaybackContextResponse extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkPlaybackContextResponse';
+	}
+	
+	/**
+	 * Array of playback contexts or errors.
+ * Each item corresponds to the request at the same index in the request array.
+ * Items can be either KalturaPlaybackContext (success) or KalturaBulkPlaybackContextError (error)
+	 * @return array
+	 */
+	 getItems() {
+	 	return this.items;
+	 }
+	
+	/**
+	 * @param items array Array of playback contexts or errors.
+ * Each item corresponds to the request at the same index in the request array.
+ * Items can be either KalturaPlaybackContext (success) or KalturaBulkPlaybackContextError (error)
+	 */
+	 setItems(items) {
+	 	this.items = items;
+	 }
+	
+	/**
+	 * Total items
+	 * @return int
+	 */
+	 getTotalCount() {
+	 	return this.totalCount;
+	 }
+	
+	/**
+	 * @param totalCount int Total items
+	 */
+	 setTotalCount(totalCount) {
+	 	this.totalCount = totalCount;
+	 }
+}
+module.exports.BulkPlaybackContextResponse = BulkPlaybackContextResponse;
+
+/**
+ *
+ */
+class BulkPlaybackContextError extends BulkResponseItem{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkPlaybackContextError';
+	}
+	
+	/**
+	 * The error code from the API exception
+	 * @return string
+	 */
+	 getCode() {
+	 	return this.code;
+	 }
+	
+	/**
+	 * @param code string The error code from the API exception
+	 */
+	 setCode(code) {
+	 	this.code = code;
+	 }
+	
+	/**
+	 * The error message from the API exception
+	 * @return string
+	 */
+	 getMessage() {
+	 	return this.message;
+	 }
+	
+	/**
+	 * @param message string The error message from the API exception
+	 */
+	 setMessage(message) {
+	 	this.message = message;
+	 }
+	
+	/**
+	 * Additional error arguments from the API exception
+	 * @return array
+	 */
+	 getArgs() {
+	 	return this.args;
+	 }
+	
+	/**
+	 * @param args array Additional error arguments from the API exception
+	 */
+	 setArgs(args) {
+	 	this.args = args;
+	 }
+}
+module.exports.BulkPlaybackContextError = BulkPlaybackContextError;
+
+/**
+ *
+ */
 class AccessControlMessage extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -36320,6 +36709,33 @@ class PlaybackContext extends kaltura.BaseObject{
 	 }
 }
 module.exports.PlaybackContext = PlaybackContext;
+
+/**
+ *
+ */
+class BulkPlaybackContextSuccess extends BulkResponseItem{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBulkPlaybackContextSuccess';
+	}
+	
+	/**
+	 * The successful playback context
+	 * @return PlaybackContext
+	 */
+	 getPlaybackContext() {
+	 	return this.playbackContext;
+	 }
+	
+	/**
+	 * @param playbackContext PlaybackContext The successful playback context
+	 */
+	 setPlaybackContext(playbackContext) {
+	 	this.playbackContext = playbackContext;
+	 }
+}
+module.exports.BulkPlaybackContextSuccess = BulkPlaybackContextSuccess;
 
 /**
  *
@@ -38976,6 +39392,51 @@ class VodIngestAssetResult extends kaltura.BaseObject{
 	 setWarnings(warnings) {
 	 	this.warnings = warnings;
 	 }
+	
+	/**
+	 * The date and time for which the ingest file was uploaded to the remote file server. Expressed in milliseconds EPOCH time
+	 * @return int
+	 */
+	 getFileUploadDate() {
+	 	return this.fileUploadDate;
+	 }
+	
+	/**
+	 * @param fileUploadDate int The date and time for which the ingest file was uploaded to the remote file server. Expressed in milliseconds EPOCH time
+	 */
+	 setFileUploadDate(fileUploadDate) {
+	 	this.fileUploadDate = fileUploadDate;
+	 }
+	
+	/**
+	 * The date and time for which the ingest file moved to in progress folder and started processing. Expressed in milliseconds EPOCH time
+	 * @return int
+	 */
+	 getProcessingStartDate() {
+	 	return this.processingStartDate;
+	 }
+	
+	/**
+	 * @param processingStartDate int The date and time for which the ingest file moved to in progress folder and started processing. Expressed in milliseconds EPOCH time
+	 */
+	 setProcessingStartDate(processingStartDate) {
+	 	this.processingStartDate = processingStartDate;
+	 }
+	
+	/**
+	 * The date and time for which the ingest file completed the ingest process. Expressed in milliseconds EPOCH time
+	 * @return int
+	 */
+	 getProcessingCompletionDate() {
+	 	return this.processingCompletionDate;
+	 }
+	
+	/**
+	 * @param processingCompletionDate int The date and time for which the ingest file completed the ingest process. Expressed in milliseconds EPOCH time
+	 */
+	 setProcessingCompletionDate(processingCompletionDate) {
+	 	this.processingCompletionDate = processingCompletionDate;
+	 }
 }
 module.exports.VodIngestAssetResult = VodIngestAssetResult;
 
@@ -39119,6 +39580,66 @@ class VodIngestAssetResultAggregation extends kaltura.BaseObject{
 	 */
 	 setSuccessWithWarningCount(successWithWarningCount) {
 	 	this.successWithWarningCount = successWithWarningCount;
+	 }
+	
+	/**
+	 * Average calculated for the total processing duration of the assets returned according to the applied filters
+	 * @return int
+	 */
+	 getAverageTotalProcessingDuration() {
+	 	return this.averageTotalProcessingDuration;
+	 }
+	
+	/**
+	 * @param averageTotalProcessingDuration int Average calculated for the total processing duration of the assets returned according to the applied filters
+	 */
+	 setAverageTotalProcessingDuration(averageTotalProcessingDuration) {
+	 	this.averageTotalProcessingDuration = averageTotalProcessingDuration;
+	 }
+	
+	/**
+	 * Average calculated for the active processing duration of the assets returned according to the applied filters
+	 * @return int
+	 */
+	 getAverageTotalActiveProcessingDuration() {
+	 	return this.averageTotalActiveProcessingDuration;
+	 }
+	
+	/**
+	 * @param averageTotalActiveProcessingDuration int Average calculated for the active processing duration of the assets returned according to the applied filters
+	 */
+	 setAverageTotalActiveProcessingDuration(averageTotalActiveProcessingDuration) {
+	 	this.averageTotalActiveProcessingDuration = averageTotalActiveProcessingDuration;
+	 }
+	
+	/**
+	 * 0.95 percentile calculated for the total processing duration of the assets returned according to the applied filters
+	 * @return int
+	 */
+	 getP95TotalProcessingDuration() {
+	 	return this.p95TotalProcessingDuration;
+	 }
+	
+	/**
+	 * @param p95TotalProcessingDuration int 0.95 percentile calculated for the total processing duration of the assets returned according to the applied filters
+	 */
+	 setP95TotalProcessingDuration(p95TotalProcessingDuration) {
+	 	this.p95TotalProcessingDuration = p95TotalProcessingDuration;
+	 }
+	
+	/**
+	 * 0.95 percentile calculated for the active processing duration of the assets returned according to the applied filters
+	 * @return int
+	 */
+	 getP95TotalActiveProcessingDuration() {
+	 	return this.p95TotalActiveProcessingDuration;
+	 }
+	
+	/**
+	 * @param p95TotalActiveProcessingDuration int 0.95 percentile calculated for the active processing duration of the assets returned according to the applied filters
+	 */
+	 setP95TotalActiveProcessingDuration(p95TotalActiveProcessingDuration) {
+	 	this.p95TotalActiveProcessingDuration = p95TotalActiveProcessingDuration;
 	 }
 }
 module.exports.VodIngestAssetResultAggregation = VodIngestAssetResultAggregation;
