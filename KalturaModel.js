@@ -8979,14 +8979,14 @@ class GenerateMetadataByDescription extends kaltura.BaseObject{
 	/**
 	 * A string that uniquely identifies the asset which will be enriched and from which the description will be extracted.
  * This is the external asset ID set by the customer (CoGuid) and not the internal Kaltura asset ID
-	 * @return StringValue
+	 * @return string
 	 */
 	 getExternalAssetId() {
 	 	return this.externalAssetId;
 	 }
 	
 	/**
-	 * @param externalAssetId StringValue A string that uniquely identifies the asset which will be enriched and from which the description will be extracted.
+	 * @param externalAssetId string A string that uniquely identifies the asset which will be enriched and from which the description will be extracted.
  * This is the external asset ID set by the customer (CoGuid) and not the internal Kaltura asset ID
 	 */
 	 setExternalAssetId(externalAssetId) {
