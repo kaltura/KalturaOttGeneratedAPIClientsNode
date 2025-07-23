@@ -8875,16 +8875,16 @@ class GenerateMetadataBySubtitles extends kaltura.BaseObject{
  * It is used to correlate the uploaded file with the metadata generation request
 	 * @return int
 	 */
-	 getId() {
-	 	return this.id;
+	 getSubtitlesFileId() {
+	 	return this.subtitlesFileId;
 	 }
 	
 	/**
-	 * @param id int A mandatory Long type with the subtitles file ID returned from the subtitles.uploadFile request.
+	 * @param subtitlesFileId int A mandatory Long type with the subtitles file ID returned from the subtitles.uploadFile request.
  * It is used to correlate the uploaded file with the metadata generation request
 	 */
-	 setId(id) {
-	 	this.id = id;
+	 setSubtitlesFileId(subtitlesFileId) {
+	 	this.subtitlesFileId = subtitlesFileId;
 	 }
 	
 	/**
