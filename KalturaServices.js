@@ -691,7 +691,7 @@ module.exports.assetFile = assetFile;
  * @action add Add asset file ppv.
  * @action delete Delete asset file ppv.
  * @action list Return a list of asset files ppvs for the account with optional filter.
- * @action update Update assetFilePpv dates.
+ * @action update Update assetFilePpv.
  */
 class assetFilePpv{
 	
@@ -731,7 +731,7 @@ class assetFilePpv{
 	};
 	
 	/**
-	 * Update assetFilePpv dates.
+	 * Update assetFilePpv.
 	 * @param assetFileId int Asset file id
 	 * @param ppvModuleId int Ppv module id
 	 * @param assetFilePpv AssetFilePpv assetFilePpv
