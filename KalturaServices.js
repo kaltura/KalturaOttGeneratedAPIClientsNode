@@ -30,7 +30,15 @@ const kaltura = require('./KalturaClientBase');
 /**
  *Class definition for the Kaltura service: aiMetadataGenerator.
  * The available service actions:
- * @action generateMetadataBySubtitles Start metadata generation process based on subtitles.
+ * @action generateMetadataByDescription Initiate the process of metadata generation based on existing asset description metadata.
+ * The service will analyze the asset&#39;s description and genre metadata using AI/LLM to generate
+ * additional enriched metadata fields including enhanced genre classifications, sentiment analysis,
+ * and relevant keywords. This method is useful for enriching assets that already have basic
+ * description metadata but need additional AI-generated metadata fields.
+ * @action generateMetadataBySubtitles Initiate the process of metadata generation based on the subtitles file.
+ * The subtitles file must be previously uploaded using the subtitles.uploadFile service.
+ * The service will analyze the subtitle content using AI/LLM to generate enriched metadata including
+ * genre, description, keywords, sentiment analysis, and other metadata fields.
  * @action getGeneratedMetadata Retrieve the generated metadata.
  * @action getGenerateMetadataJob Get a metadata generation job.
  * @action getMetadataFieldDefinitions Get metadata mapping structure and available generated metadata fields.
@@ -40,15 +48,31 @@ const kaltura = require('./KalturaClientBase');
 class aiMetadataGenerator{
 	
 	/**
-	 * Start metadata generation process based on subtitles.
-	 * @param subtitlesFileId int The subtitles file ID returned from subtitles.uploadFile
-	 * @param externalAssetIds array A list of external asset IDs to be populated with the generated metadata (optional, default: null)
-	 * @return KalturaGenerateMetadataBySubtitlesJob
+	 * Initiate the process of metadata generation based on existing asset description metadata.
+ * The service will analyze the asset&#39;s description and genre metadata using AI/LLM to generate
+ * additional enriched metadata fields including enhanced genre classifications, sentiment analysis,
+ * and relevant keywords. This method is useful for enriching assets that already have basic
+ * description metadata but need additional AI-generated metadata fields.
+	 * @param generateMetadataByDescription GenerateMetadataByDescription Request object containing the external asset ID to analyze and enrich
+	 * @return KalturaGenerateMetadataJob
 	 */
-	static generateMetadataBySubtitles(subtitlesFileId, externalAssetIds = null){
+	static generateMetadataByDescription(generateMetadataByDescription){
 		let kparams = {};
-		kparams.subtitlesFileId = subtitlesFileId;
-		kparams.externalAssetIds = externalAssetIds;
+		kparams.generateMetadataByDescription = generateMetadataByDescription;
+		return new kaltura.RequestBuilder('aimetadatagenerator', 'generateMetadataByDescription', kparams);
+	};
+	
+	/**
+	 * Initiate the process of metadata generation based on the subtitles file.
+ * The subtitles file must be previously uploaded using the subtitles.uploadFile service.
+ * The service will analyze the subtitle content using AI/LLM to generate enriched metadata including
+ * genre, description, keywords, sentiment analysis, and other metadata fields.
+	 * @param generateMetadataBySubtitles GenerateMetadataBySubtitles Request object containing the subtitles file ID and optional external asset IDs to update
+	 * @return KalturaGenerateMetadataJob
+	 */
+	static generateMetadataBySubtitles(generateMetadataBySubtitles){
+		let kparams = {};
+		kparams.generateMetadataBySubtitles = generateMetadataBySubtitles;
 		return new kaltura.RequestBuilder('aimetadatagenerator', 'generateMetadataBySubtitles', kparams);
 	};
 	
@@ -66,7 +90,7 @@ class aiMetadataGenerator{
 	/**
 	 * Get a metadata generation job.
 	 * @param id int The job ID as received from GenerateMetadataBySubtitles
-	 * @return KalturaGenerateMetadataBySubtitlesJob
+	 * @return KalturaGenerateMetadataJob
 	 */
 	static getGenerateMetadataJob(id){
 		let kparams = {};
@@ -104,6 +128,69 @@ class aiMetadataGenerator{
 	};
 }
 module.exports.aiMetadataGenerator = aiMetadataGenerator;
+
+
+/**
+ *Class definition for the Kaltura service: aiRecommendationTree.
+ * The available service actions:
+ * @action getNextNodeAndRecommendation Returns the next question, available answers, and content recommendations based on the current path through the tree.
+ * @action getPartnerConfig Retrieves the current configuration settings for TV Genie for a specific partner.
+ * @action getRecommendationWithNaturalText Returns content recommendations based on natural language input.
+ * @action upsertPartnerConfig Updates the configuration settings for TV Genie on a per-partner basis.
+ */
+class aiRecommendationTree{
+	
+	/**
+	 * Returns the next question, available answers, and content recommendations based on the current path through the tree.
+	 * @param treeId string ID of the tree to navigate (optional - if omitted, the active tree will be used) (optional, default: null)
+	 * @param answerId string Selected answer ID from the previous question (required if previousQuestionId is provided) (optional, default: null)
+	 * @param topQuestionId string Specific top-level question ID (relevant for first question only) (optional, default: null)
+	 * @return KalturaTreeNextNodeResponse
+	 */
+	static getNextNodeAndRecommendation(treeId = null, answerId = null, topQuestionId = null){
+		let kparams = {};
+		kparams.treeId = treeId;
+		kparams.answerId = answerId;
+		kparams.topQuestionId = topQuestionId;
+		return new kaltura.RequestBuilder('airecommendationtree', 'getNextNodeAndRecommendation', kparams);
+	};
+	
+	/**
+	 * Retrieves the current configuration settings for TV Genie for a specific partner.
+	 * @return KalturaAiRecommendationTreePartnerConfiguration
+	 */
+	static getPartnerConfig(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('airecommendationtree', 'getPartnerConfig', kparams);
+	};
+	
+	/**
+	 * Returns content recommendations based on natural language input.
+	 * @param naturalTextQuery string The query text entered by the user
+	 * @param questionId string The Id of the question that naturalTextQuery is the answer to (optional) (optional, default: null)
+	 * @param treeId string ID of the tree to use (mandatory if previousQuestionId is provided) (optional, default: null)
+	 * @return KalturaTreeNaturalTextResponse
+	 */
+	static getRecommendationWithNaturalText(naturalTextQuery, questionId = null, treeId = null){
+		let kparams = {};
+		kparams.naturalTextQuery = naturalTextQuery;
+		kparams.questionId = questionId;
+		kparams.treeId = treeId;
+		return new kaltura.RequestBuilder('airecommendationtree', 'getRecommendationWithNaturalText', kparams);
+	};
+	
+	/**
+	 * Updates the configuration settings for TV Genie on a per-partner basis.
+	 * @param configuration AiRecommendationTreePartnerConfiguration The partner configuration to be set
+	 * @return KalturaAiRecommendationTreePartnerConfiguration
+	 */
+	static upsertPartnerConfig(configuration){
+		let kparams = {};
+		kparams.configuration = configuration;
+		return new kaltura.RequestBuilder('airecommendationtree', 'upsertPartnerConfig', kparams);
+	};
+}
+module.exports.aiRecommendationTree = aiRecommendationTree;
 
 
 /**
@@ -301,6 +388,7 @@ module.exports.assetComment = assetComment;
  * @action add Add a new asset.
  * For metas of type bool-&gt; use kalturaBoolValue, type number-&gt; KalturaDoubleValue, type date -&gt; KalturaLongValue, type string -&gt; KalturaStringValue.
  * @action addFromBulkUpload Add new bulk upload batch job Conversion profile id can be specified in the API (note that the total request body size is limited to 10MB).
+ * @action bulkGetPlaybackContext Returns playback contexts for multiple assets in a single request.
  * @action count Returns a group-by result for media or EPG according to given filter. Lists values of each field and their respective count.
  * @action delete Delete an existing asset.
  * @action get Returns media or EPG asset by media / EPG internal or external identifier.
@@ -345,6 +433,17 @@ class asset{
 		kparams.bulkUploadJobData = bulkUploadJobData;
 		kparams.bulkUploadAssetData = bulkUploadAssetData;
 		return new kaltura.RequestBuilder('asset', 'addFromBulkUpload', kparams, kfiles);
+	};
+	
+	/**
+	 * Returns playback contexts for multiple assets in a single request.
+	 * @param request BulkPlaybackContextRequest Bulk request containing array of playback context parameters
+	 * @return KalturaBulkPlaybackContextResponse
+	 */
+	static bulkGetPlaybackContext(request){
+		let kparams = {};
+		kparams.request = request;
+		return new kaltura.RequestBuilder('asset', 'bulkGetPlaybackContext', kparams);
 	};
 	
 	/**
@@ -592,7 +691,7 @@ module.exports.assetFile = assetFile;
  * @action add Add asset file ppv.
  * @action delete Delete asset file ppv.
  * @action list Return a list of asset files ppvs for the account with optional filter.
- * @action update Update assetFilePpv.
+ * @action update Update assetFilePpv dates.
  */
 class assetFilePpv{
 	
@@ -632,7 +731,7 @@ class assetFilePpv{
 	};
 	
 	/**
-	 * Update assetFilePpv.
+	 * Update assetFilePpv dates.
 	 * @param assetFileId int Asset file id
 	 * @param ppvModuleId int Ppv module id
 	 * @param assetFilePpv AssetFilePpv assetFilePpv
@@ -3262,6 +3361,67 @@ class followTvSeries{
 	};
 }
 module.exports.followTvSeries = followTvSeries;
+
+
+/**
+ *Class definition for the Kaltura service: geoBlockRule.
+ * The available service actions:
+ * @action add Add a new geo block rule.
+ * @action delete Delete a geo block rule.
+ * @action list Get the list of geo block rules for the partner.
+ * @action update Update an existing geo block rule.
+ */
+class geoBlockRule{
+	
+	/**
+	 * Add a new geo block rule.
+	 * @param geoBlockRule GeoBlockRule The geo block rule to add
+	 * @return KalturaGeoBlockRule
+	 */
+	static add(geoBlockRule){
+		let kparams = {};
+		kparams.geoBlockRule = geoBlockRule;
+		return new kaltura.RequestBuilder('geoblockrule', 'add', kparams);
+	};
+	
+	/**
+	 * Delete a geo block rule.
+	 * @param id int The id of the geo block rule to delete
+	 * @return bool
+	 */
+	static deleteAction(id){
+		let kparams = {};
+		kparams.id = id;
+		return new kaltura.RequestBuilder('geoblockrule', 'delete', kparams);
+	};
+	
+	/**
+	 * Get the list of geo block rules for the partner.
+	 * @param filter GeoBlockRuleFilter Filter criteria for the geo block rules (optional, default: null)
+	 * @param pager FilterPager Paging information for retrieving paginated results (optional, default: null)
+	 * @return KalturaGeoBlockRuleListResponse
+	 */
+	static listAction(filter = null, pager = null){
+		let kparams = {};
+		kparams.filter = filter;
+		kparams.pager = pager;
+		return new kaltura.RequestBuilder('geoblockrule', 'list', kparams);
+	};
+	
+	/**
+	 * Update an existing geo block rule.
+	 * @param id int The id of the geo block rule to update
+	 * @param geoBlockRule GeoBlockRule The geo block rule data to update
+	 * @return KalturaGeoBlockRule
+	 */
+	static update(id, geoBlockRule){
+		let kparams = {};
+		kparams.id = id;
+		kparams.geoBlockRule = geoBlockRule;
+		return new kaltura.RequestBuilder('geoblockrule', 'update', kparams);
+	};
+}
+module.exports.geoBlockRule = geoBlockRule;
 
 
 /**
