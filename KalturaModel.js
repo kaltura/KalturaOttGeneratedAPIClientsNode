@@ -12386,6 +12386,36 @@ class AssetFilePpv extends OTTObjectSupportNullable{
 	 setEndDate(endDate) {
 	 	this.endDate = endDate;
 	 }
+	
+	/**
+	 * First date and time an KalturaAssetFilePpv.AssetFileId can be purchased with the given KalturaAssetFilePpv.PpvModuleId. Represented as epoch
+	 * @return int
+	 */
+	 getPurchaseStartDate() {
+	 	return this.purchaseStartDate;
+	 }
+	
+	/**
+	 * @param purchaseStartDate int First date and time an KalturaAssetFilePpv.AssetFileId can be purchased with the given KalturaAssetFilePpv.PpvModuleId. Represented as epoch
+	 */
+	 setPurchaseStartDate(purchaseStartDate) {
+	 	this.purchaseStartDate = purchaseStartDate;
+	 }
+	
+	/**
+	 * Final date and time an KalturaAssetFilePpv.AssetFileId can be purchased with the given KalturaAssetFilePpv.PpvModuleId. Represented as epoch
+	 * @return int
+	 */
+	 getPurchaseEndDate() {
+	 	return this.purchaseEndDate;
+	 }
+	
+	/**
+	 * @param purchaseEndDate int Final date and time an KalturaAssetFilePpv.AssetFileId can be purchased with the given KalturaAssetFilePpv.PpvModuleId. Represented as epoch
+	 */
+	 setPurchaseEndDate(purchaseEndDate) {
+	 	this.purchaseEndDate = purchaseEndDate;
+	 }
 }
 module.exports.AssetFilePpv = AssetFilePpv;
 
