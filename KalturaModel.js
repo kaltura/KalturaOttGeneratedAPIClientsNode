@@ -8863,55 +8863,11 @@ module.exports.SkipOnErrorCondition = SkipOnErrorCondition;
 /**
  *
  */
-class GenerateMetadataBySubtitles extends kaltura.BaseObject{
+class GenerateMetadataBySubtitlesJob extends kaltura.BaseObject{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaGenerateMetadataBySubtitles';
-	}
-	
-	/**
-	 * A mandatory Long type with the subtitles file ID returned from the subtitles.uploadFile request.
- * It is used to correlate the uploaded file with the metadata generation request
-	 * @return int
-	 */
-	 getSubtitlesFileId() {
-	 	return this.subtitlesFileId;
-	 }
-	
-	/**
-	 * @param subtitlesFileId int A mandatory Long type with the subtitles file ID returned from the subtitles.uploadFile request.
- * It is used to correlate the uploaded file with the metadata generation request
-	 */
-	 setSubtitlesFileId(subtitlesFileId) {
-	 	this.subtitlesFileId = subtitlesFileId;
-	 }
-	
-	/**
-	 * An optional array of KalturaStringValue specifying the target assets to which the generated metadata will be pushed
-	 * @return array
-	 */
-	 getExternalAssetIds() {
-	 	return this.externalAssetIds;
-	 }
-	
-	/**
-	 * @param externalAssetIds array An optional array of KalturaStringValue specifying the target assets to which the generated metadata will be pushed
-	 */
-	 setExternalAssetIds(externalAssetIds) {
-	 	this.externalAssetIds = externalAssetIds;
-	 }
-}
-module.exports.GenerateMetadataBySubtitles = GenerateMetadataBySubtitles;
-
-/**
- *
- */
-class GenerateMetadataJob extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaGenerateMetadataJob';
+		this.objectType = 'KalturaGenerateMetadataBySubtitlesJob';
 	}
 	
 	/**
@@ -8939,17 +8895,15 @@ class GenerateMetadataJob extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Name of the source job element generating the metadata.
- * For generateMetadataBySubtitles: the uploaded subtitle file name.
- * For generateMetadataByDescription: the asset name from which metadata is generated
+	 * Name of the uploaded subtitles file from which the metadata is generated
 	 * @return string
 	 */
-	 getSourceName() {
-	 	return this.sourceName;
+	 getFileName() {
+	 	return this.fileName;
 	 }
 	
 	/**
-	 * can be either Processing/Success/Failed, per the last status updated by the aiMetadataGenerator
+	 * Service status states
 	 * @return string
 	 */
 	 getStatus() {
@@ -8964,36 +8918,7 @@ class GenerateMetadataJob extends kaltura.BaseObject{
 	 	return this.errorMessage;
 	 }
 }
-module.exports.GenerateMetadataJob = GenerateMetadataJob;
-
-/**
- *
- */
-class GenerateMetadataByDescription extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaGenerateMetadataByDescription';
-	}
-	
-	/**
-	 * A string that uniquely identifies the asset which will be enriched and from which the description will be extracted.
- * This is the external asset ID set by the customer (CoGuid) and not the internal Kaltura asset ID
-	 * @return string
-	 */
-	 getExternalAssetId() {
-	 	return this.externalAssetId;
-	 }
-	
-	/**
-	 * @param externalAssetId string A string that uniquely identifies the asset which will be enriched and from which the description will be extracted.
- * This is the external asset ID set by the customer (CoGuid) and not the internal Kaltura asset ID
-	 */
-	 setExternalAssetId(externalAssetId) {
-	 	this.externalAssetId = externalAssetId;
-	 }
-}
-module.exports.GenerateMetadataByDescription = GenerateMetadataByDescription;
+module.exports.GenerateMetadataBySubtitlesJob = GenerateMetadataBySubtitlesJob;
 
 /**
  *

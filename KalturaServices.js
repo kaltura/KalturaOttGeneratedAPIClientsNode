@@ -30,15 +30,7 @@ const kaltura = require('./KalturaClientBase');
 /**
  *Class definition for the Kaltura service: aiMetadataGenerator.
  * The available service actions:
- * @action generateMetadataByDescription Initiate the process of metadata generation based on existing asset description metadata.
- * The service will analyze the asset&#39;s description and genre metadata using AI/LLM to generate
- * additional enriched metadata fields including enhanced genre classifications, sentiment analysis,
- * and relevant keywords. This method is useful for enriching assets that already have basic
- * description metadata but need additional AI-generated metadata fields.
- * @action generateMetadataBySubtitles Initiate the process of metadata generation based on the subtitles file.
- * The subtitles file must be previously uploaded using the subtitles.uploadFile service.
- * The service will analyze the subtitle content using AI/LLM to generate enriched metadata including
- * genre, description, keywords, sentiment analysis, and other metadata fields.
+ * @action generateMetadataBySubtitles Start metadata generation process based on subtitles.
  * @action getGeneratedMetadata Retrieve the generated metadata.
  * @action getGenerateMetadataJob Get a metadata generation job.
  * @action getMetadataFieldDefinitions Get metadata mapping structure and available generated metadata fields.
@@ -48,31 +40,15 @@ const kaltura = require('./KalturaClientBase');
 class aiMetadataGenerator{
 	
 	/**
-	 * Initiate the process of metadata generation based on existing asset description metadata.
- * The service will analyze the asset&#39;s description and genre metadata using AI/LLM to generate
- * additional enriched metadata fields including enhanced genre classifications, sentiment analysis,
- * and relevant keywords. This method is useful for enriching assets that already have basic
- * description metadata but need additional AI-generated metadata fields.
-	 * @param generateMetadataByDescription GenerateMetadataByDescription Request object containing the external asset ID to analyze and enrich
-	 * @return KalturaGenerateMetadataJob
+	 * Start metadata generation process based on subtitles.
+	 * @param subtitlesFileId int The subtitles file ID returned from subtitles.uploadFile
+	 * @param externalAssetIds array A list of external asset IDs to be populated with the generated metadata (optional, default: null)
+	 * @return KalturaGenerateMetadataBySubtitlesJob
 	 */
-	static generateMetadataByDescription(generateMetadataByDescription){
+	static generateMetadataBySubtitles(subtitlesFileId, externalAssetIds = null){
 		let kparams = {};
-		kparams.generateMetadataByDescription = generateMetadataByDescription;
-		return new kaltura.RequestBuilder('aimetadatagenerator', 'generateMetadataByDescription', kparams);
-	};
-	
-	/**
-	 * Initiate the process of metadata generation based on the subtitles file.
- * The subtitles file must be previously uploaded using the subtitles.uploadFile service.
- * The service will analyze the subtitle content using AI/LLM to generate enriched metadata including
- * genre, description, keywords, sentiment analysis, and other metadata fields.
-	 * @param generateMetadataBySubtitles GenerateMetadataBySubtitles Request object containing the subtitles file ID and optional external asset IDs to update
-	 * @return KalturaGenerateMetadataJob
-	 */
-	static generateMetadataBySubtitles(generateMetadataBySubtitles){
-		let kparams = {};
-		kparams.generateMetadataBySubtitles = generateMetadataBySubtitles;
+		kparams.subtitlesFileId = subtitlesFileId;
+		kparams.externalAssetIds = externalAssetIds;
 		return new kaltura.RequestBuilder('aimetadatagenerator', 'generateMetadataBySubtitles', kparams);
 	};
 	
@@ -90,7 +66,7 @@ class aiMetadataGenerator{
 	/**
 	 * Get a metadata generation job.
 	 * @param id int The job ID as received from GenerateMetadataBySubtitles
-	 * @return KalturaGenerateMetadataJob
+	 * @return KalturaGenerateMetadataBySubtitlesJob
 	 */
 	static getGenerateMetadataJob(id){
 		let kparams = {};
