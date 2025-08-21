@@ -21877,6 +21877,36 @@ class WatchBasedRecommendationsProfile extends kaltura.BaseObject{
 	 setPlaybackInterestsCalculationPeriodDays(playbackInterestsCalculationPeriodDays) {
 	 	this.playbackInterestsCalculationPeriodDays = playbackInterestsCalculationPeriodDays;
 	 }
+	
+	/**
+	 * Minimum required viewing time per session (in minutes) for live content to be considered in the analysis
+	 * @return int
+	 */
+	 getUserInterestPlayThresholdForEventInMinutes() {
+	 	return this.userInterestPlayThresholdForEventInMinutes;
+	 }
+	
+	/**
+	 * @param userInterestPlayThresholdForEventInMinutes int Minimum required viewing time per session (in minutes) for live content to be considered in the analysis
+	 */
+	 setUserInterestPlayThresholdForEventInMinutes(userInterestPlayThresholdForEventInMinutes) {
+	 	this.userInterestPlayThresholdForEventInMinutes = userInterestPlayThresholdForEventInMinutes;
+	 }
+	
+	/**
+	 * Minimum required viewing time per session (in minutes) for live content to be considered in the analysis
+	 * @return int
+	 */
+	 getMaximumEventsPerSession() {
+	 	return this.maximumEventsPerSession;
+	 }
+	
+	/**
+	 * @param maximumEventsPerSession int Minimum required viewing time per session (in minutes) for live content to be considered in the analysis
+	 */
+	 setMaximumEventsPerSession(maximumEventsPerSession) {
+	 	this.maximumEventsPerSession = maximumEventsPerSession;
+	 }
 }
 module.exports.WatchBasedRecommendationsProfile = WatchBasedRecommendationsProfile;
 
