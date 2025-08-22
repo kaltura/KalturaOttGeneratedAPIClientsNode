@@ -21879,6 +21879,36 @@ class WatchBasedRecommendationsProfile extends kaltura.BaseObject{
 	 }
 	
 	/**
+	 * Determines whether catch-up viewing data should be included in the user&#39;s interest analysis
+	 * @return bool
+	 */
+	 getAnalyzeCatchUps() {
+	 	return this.analyzeCatchUps;
+	 }
+	
+	/**
+	 * @param analyzeCatchUps bool Determines whether catch-up viewing data should be included in the user&#39;s interest analysis
+	 */
+	 setAnalyzeCatchUps(analyzeCatchUps) {
+	 	this.analyzeCatchUps = analyzeCatchUps;
+	 }
+	
+	/**
+	 * Determines whether linear events viewing data should be included in the user&#39;s interest analysis
+	 * @return bool
+	 */
+	 getAnalyzeLinearEvents() {
+	 	return this.analyzeLinearEvents;
+	 }
+	
+	/**
+	 * @param analyzeLinearEvents bool Determines whether linear events viewing data should be included in the user&#39;s interest analysis
+	 */
+	 setAnalyzeLinearEvents(analyzeLinearEvents) {
+	 	this.analyzeLinearEvents = analyzeLinearEvents;
+	 }
+	
+	/**
 	 * Minimum required viewing time per session (in minutes) for live content to be considered in the analysis
 	 * @return int
 	 */
