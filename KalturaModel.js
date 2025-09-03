@@ -11619,7 +11619,7 @@ class AiRecommendationTreePartnerConfiguration extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Number of regular answers per question (range: 2-5)
+	 * Number of regular answers per question (range: 2-4)
 	 * @return int
 	 */
 	 getAnswersPerQuestion() {
@@ -11627,7 +11627,7 @@ class AiRecommendationTreePartnerConfiguration extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param answersPerQuestion int Number of regular answers per question (range: 2-5)
+	 * @param answersPerQuestion int Number of regular answers per question (range: 2-4)
 	 */
 	 setAnswersPerQuestion(answersPerQuestion) {
 	 	this.answersPerQuestion = answersPerQuestion;
@@ -11699,6 +11699,14 @@ class AiRecommendationTreePartnerConfiguration extends kaltura.BaseObject{
 	 */
 	 getActiveTreeId() {
 	 	return this.activeTreeId;
+	 }
+	
+	/**
+	 * Feature level of the recommendation tree (e.g., Basic, Premium)
+	 * @return string
+	 */
+	 getFeatureType() {
+	 	return this.featureType;
 	 }
 }
 module.exports.AiRecommendationTreePartnerConfiguration = AiRecommendationTreePartnerConfiguration;
