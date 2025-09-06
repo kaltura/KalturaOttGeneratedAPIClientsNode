@@ -618,6 +618,12 @@ START_DATE_DESC : 'START_DATE_DESC',
 START_DATE_ASC : 'START_DATE_ASC',
 };
 
+module.exports.GenerateMetadataJobType = {
+VODBYDESCRIPTION : 'VodByDescription',
+VODBYSUBTITLES : 'VodBySubtitles',
+PROGRAMBYDESCRIPTION : 'ProgramByDescription',
+};
+
 module.exports.GenerateMetadataStatus = {
 PROCESSING : 'Processing',
 PARTIALSUCCESS : 'PartialSuccess',
@@ -887,6 +893,12 @@ NUMBER : 'NUMBER',
 BOOLEAN : 'BOOLEAN',
 DATE : 'DATE',
 RELEATED_ENTITY : 'RELEATED_ENTITY',
+};
+
+module.exports.MetadataUpdateOperation = {
+PROTECT : 'PROTECT',
+EXTEND : 'EXTEND',
+OVERWRITE : 'OVERWRITE',
 };
 
 module.exports.MetaOrderBy = {
