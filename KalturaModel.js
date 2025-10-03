@@ -11619,7 +11619,7 @@ class AiRecommendationTreePartnerConfiguration extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Number of regular answers per question (range: 2-5)
+	 * Number of regular answers per question (range: 2-4)
 	 * @return int
 	 */
 	 getAnswersPerQuestion() {
@@ -11627,7 +11627,7 @@ class AiRecommendationTreePartnerConfiguration extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param answersPerQuestion int Number of regular answers per question (range: 2-5)
+	 * @param answersPerQuestion int Number of regular answers per question (range: 2-4)
 	 */
 	 setAnswersPerQuestion(answersPerQuestion) {
 	 	this.answersPerQuestion = answersPerQuestion;
@@ -11699,6 +11699,14 @@ class AiRecommendationTreePartnerConfiguration extends kaltura.BaseObject{
 	 */
 	 getActiveTreeId() {
 	 	return this.activeTreeId;
+	 }
+	
+	/**
+	 * Feature level of the recommendation tree (e.g., Basic, Premium)
+	 * @return string
+	 */
+	 getFeatureType() {
+	 	return this.featureType;
 	 }
 }
 module.exports.AiRecommendationTreePartnerConfiguration = AiRecommendationTreePartnerConfiguration;
@@ -12385,6 +12393,36 @@ class AssetFilePpv extends OTTObjectSupportNullable{
 	 */
 	 setEndDate(endDate) {
 	 	this.endDate = endDate;
+	 }
+	
+	/**
+	 * First date and time an KalturaAssetFilePpv.AssetFileId can be purchased with the given KalturaAssetFilePpv.PpvModuleId. Represented as epoch
+	 * @return int
+	 */
+	 getPurchaseStartDate() {
+	 	return this.purchaseStartDate;
+	 }
+	
+	/**
+	 * @param purchaseStartDate int First date and time an KalturaAssetFilePpv.AssetFileId can be purchased with the given KalturaAssetFilePpv.PpvModuleId. Represented as epoch
+	 */
+	 setPurchaseStartDate(purchaseStartDate) {
+	 	this.purchaseStartDate = purchaseStartDate;
+	 }
+	
+	/**
+	 * Final date and time an KalturaAssetFilePpv.AssetFileId can be purchased with the given KalturaAssetFilePpv.PpvModuleId. Represented as epoch
+	 * @return int
+	 */
+	 getPurchaseEndDate() {
+	 	return this.purchaseEndDate;
+	 }
+	
+	/**
+	 * @param purchaseEndDate int Final date and time an KalturaAssetFilePpv.AssetFileId can be purchased with the given KalturaAssetFilePpv.PpvModuleId. Represented as epoch
+	 */
+	 setPurchaseEndDate(purchaseEndDate) {
+	 	this.purchaseEndDate = purchaseEndDate;
 	 }
 }
 module.exports.AssetFilePpv = AssetFilePpv;
@@ -21876,6 +21914,66 @@ class WatchBasedRecommendationsProfile extends kaltura.BaseObject{
 	 */
 	 setPlaybackInterestsCalculationPeriodDays(playbackInterestsCalculationPeriodDays) {
 	 	this.playbackInterestsCalculationPeriodDays = playbackInterestsCalculationPeriodDays;
+	 }
+	
+	/**
+	 * Determines whether catch-up viewing data should be included in the user&#39;s interest analysis
+	 * @return bool
+	 */
+	 getAnalyzeCatchUps() {
+	 	return this.analyzeCatchUps;
+	 }
+	
+	/**
+	 * @param analyzeCatchUps bool Determines whether catch-up viewing data should be included in the user&#39;s interest analysis
+	 */
+	 setAnalyzeCatchUps(analyzeCatchUps) {
+	 	this.analyzeCatchUps = analyzeCatchUps;
+	 }
+	
+	/**
+	 * Determines whether linear events viewing data should be included in the user&#39;s interest analysis
+	 * @return bool
+	 */
+	 getAnalyzeLinearEvents() {
+	 	return this.analyzeLinearEvents;
+	 }
+	
+	/**
+	 * @param analyzeLinearEvents bool Determines whether linear events viewing data should be included in the user&#39;s interest analysis
+	 */
+	 setAnalyzeLinearEvents(analyzeLinearEvents) {
+	 	this.analyzeLinearEvents = analyzeLinearEvents;
+	 }
+	
+	/**
+	 * Minimum required viewing time per session (in minutes) for live content to be considered in the analysis
+	 * @return int
+	 */
+	 getUserInterestPlayThresholdForEventInMinutes() {
+	 	return this.userInterestPlayThresholdForEventInMinutes;
+	 }
+	
+	/**
+	 * @param userInterestPlayThresholdForEventInMinutes int Minimum required viewing time per session (in minutes) for live content to be considered in the analysis
+	 */
+	 setUserInterestPlayThresholdForEventInMinutes(userInterestPlayThresholdForEventInMinutes) {
+	 	this.userInterestPlayThresholdForEventInMinutes = userInterestPlayThresholdForEventInMinutes;
+	 }
+	
+	/**
+	 * Minimum required viewing time per session (in minutes) for live content to be considered in the analysis
+	 * @return int
+	 */
+	 getMaximumEventsPerSession() {
+	 	return this.maximumEventsPerSession;
+	 }
+	
+	/**
+	 * @param maximumEventsPerSession int Minimum required viewing time per session (in minutes) for live content to be considered in the analysis
+	 */
+	 setMaximumEventsPerSession(maximumEventsPerSession) {
+	 	this.maximumEventsPerSession = maximumEventsPerSession;
 	 }
 }
 module.exports.WatchBasedRecommendationsProfile = WatchBasedRecommendationsProfile;
