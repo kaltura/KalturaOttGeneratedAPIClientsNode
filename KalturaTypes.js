@@ -41,6 +41,11 @@ SUM : 'Sum',
 AVG : 'Avg',
 };
 
+module.exports.AiRecommendationTreeFeatureLevel = {
+BASIC : 'Basic',
+PREMIUM : 'Premium',
+};
+
 module.exports.AnnouncementOrderBy = {
 NONE : 'NONE',
 };
