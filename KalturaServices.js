@@ -691,7 +691,7 @@ module.exports.assetFile = assetFile;
  * @action add Add asset file ppv.
  * @action delete Delete asset file ppv.
  * @action list Return a list of asset files ppvs for the account with optional filter.
- * @action update Update assetFilePpv.
+ * @action update Update assetFilePpv dates.
  */
 class assetFilePpv{
 	
@@ -731,7 +731,7 @@ class assetFilePpv{
 	};
 	
 	/**
-	 * Update assetFilePpv.
+	 * Update assetFilePpv dates.
 	 * @param assetFileId int Asset file id
 	 * @param ppvModuleId int Ppv module id
 	 * @param assetFilePpv AssetFilePpv assetFilePpv
@@ -8239,13 +8239,15 @@ class streamingDevice{
 	 * @param fileId string KalturaMediaFile.id media file belonging to the asset for which a concurrency slot is being reserved
 	 * @param assetId string KalturaAsset.id - asset for which a concurrency slot is being reserved
 	 * @param assetType string Identifies the type of asset for which the concurrency slot is being reserved (enum: KalturaAssetType)
+	 * @param programId int Program Id for recording fallback (optional, default: null)
 	 * @return bool
 	 */
-	static bookPlaybackSession(fileId, assetId, assetType){
+	static bookPlaybackSession(fileId, assetId, assetType, programId = null){
 		let kparams = {};
 		kparams.fileId = fileId;
 		kparams.assetId = assetId;
 		kparams.assetType = assetType;
+		kparams.programId = programId;
 		return new kaltura.RequestBuilder('streamingdevice', 'bookPlaybackSession', kparams);
 	};
 	
