@@ -8963,6 +8963,14 @@ class GenerateMetadataJob extends kaltura.BaseObject{
 	 getErrorMessage() {
 	 	return this.errorMessage;
 	 }
+	
+	/**
+	 * Type of the metadata generation job (vodByDescription, vodBySubtitles, programByDescription)
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
 }
 module.exports.GenerateMetadataJob = GenerateMetadataJob;
 
@@ -8998,6 +9006,37 @@ module.exports.GenerateMetadataByDescription = GenerateMetadataByDescription;
 /**
  *
  */
+class GenerateProgramMetadatasByDescription extends GenerateMetadataByDescription{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaGenerateProgramMetadatasByDescription';
+	}
+	
+	/**
+	 * A boolean flag that allows the API user to force the regeneration of metadata.
+ * If true, the service will run a new analysis even if enriched metadata already exists for the program&#39;s CRID.
+ * If false (default), the service will reuse existing metadata if available for the CRID
+	 * @return bool
+	 */
+	 getRegenerate() {
+	 	return this.regenerate;
+	 }
+	
+	/**
+	 * @param regenerate bool A boolean flag that allows the API user to force the regeneration of metadata.
+ * If true, the service will run a new analysis even if enriched metadata already exists for the program&#39;s CRID.
+ * If false (default), the service will reuse existing metadata if available for the CRID
+	 */
+	 setRegenerate(regenerate) {
+	 	this.regenerate = regenerate;
+	 }
+}
+module.exports.GenerateProgramMetadatasByDescription = GenerateProgramMetadatasByDescription;
+
+/**
+ *
+ */
 class GenerateMetadataResult extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -9021,6 +9060,220 @@ class GenerateMetadataResult extends kaltura.BaseObject{
 	 }
 }
 module.exports.GenerateMetadataResult = GenerateMetadataResult;
+
+/**
+ *
+ */
+class MetadataFieldConfig extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaMetadataFieldConfig';
+	}
+	
+	/**
+	 * The system name of the metadata field in the asset struct
+	 * @return string
+	 */
+	 getSystemName() {
+	 	return this.systemName;
+	 }
+	
+	/**
+	 * @param systemName string The system name of the metadata field in the asset struct
+	 */
+	 setSystemName(systemName) {
+	 	this.systemName = systemName;
+	 }
+	
+	/**
+	 * The update operation to be performed on this metadata field
+	 * @return string
+	 */
+	 getOperation() {
+	 	return this.operation;
+	 }
+	
+	/**
+	 * @param operation string The update operation to be performed on this metadata field
+	 */
+	 setOperation(operation) {
+	 	this.operation = operation;
+	 }
+}
+module.exports.MetadataFieldConfig = MetadataFieldConfig;
+
+/**
+ *
+ */
+class MetadataFieldConfigurationMap extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaMetadataFieldConfigurationMap';
+	}
+	
+	/**
+	 * Configuration for &#39;genre&#39; AI generated metadata field
+	 * @return MetadataFieldConfig
+	 */
+	 getGenre() {
+	 	return this.genre;
+	 }
+	
+	/**
+	 * @param genre MetadataFieldConfig Configuration for &#39;genre&#39; AI generated metadata field
+	 */
+	 setGenre(genre) {
+	 	this.genre = genre;
+	 }
+	
+	/**
+	 * Configuration for &#39;subGenre&#39; AI generated metadata field
+	 * @return MetadataFieldConfig
+	 */
+	 getSubGenre() {
+	 	return this.subGenre;
+	 }
+	
+	/**
+	 * @param subGenre MetadataFieldConfig Configuration for &#39;subGenre&#39; AI generated metadata field
+	 */
+	 setSubGenre(subGenre) {
+	 	this.subGenre = subGenre;
+	 }
+	
+	/**
+	 * Configuration for &#39;sentiment&#39; AI generated metadata field
+	 * @return MetadataFieldConfig
+	 */
+	 getSentiment() {
+	 	return this.sentiment;
+	 }
+	
+	/**
+	 * @param sentiment MetadataFieldConfig Configuration for &#39;sentiment&#39; AI generated metadata field
+	 */
+	 setSentiment(sentiment) {
+	 	this.sentiment = sentiment;
+	 }
+	
+	/**
+	 * Configuration for &#39;suggestedTitle&#39; AI generated metadata field
+	 * @return MetadataFieldConfig
+	 */
+	 getSuggestedTitle() {
+	 	return this.suggestedTitle;
+	 }
+	
+	/**
+	 * @param suggestedTitle MetadataFieldConfig Configuration for &#39;suggestedTitle&#39; AI generated metadata field
+	 */
+	 setSuggestedTitle(suggestedTitle) {
+	 	this.suggestedTitle = suggestedTitle;
+	 }
+	
+	/**
+	 * Configuration for &#39;Description&#39; AI generated metadata field
+	 * @return MetadataFieldConfig
+	 */
+	 getDescription() {
+	 	return this.description;
+	 }
+	
+	/**
+	 * @param description MetadataFieldConfig Configuration for &#39;Description&#39; AI generated metadata field
+	 */
+	 setDescription(description) {
+	 	this.description = description;
+	 }
+	
+	/**
+	 * Configuration for &#39;oneLiner&#39; AI generated metadata field
+	 * @return MetadataFieldConfig
+	 */
+	 getOneLiner() {
+	 	return this.oneLiner;
+	 }
+	
+	/**
+	 * @param oneLiner MetadataFieldConfig Configuration for &#39;oneLiner&#39; AI generated metadata field
+	 */
+	 setOneLiner(oneLiner) {
+	 	this.oneLiner = oneLiner;
+	 }
+	
+	/**
+	 * Configuration for &#39;Keywords&#39; AI generated metadata field
+	 * @return MetadataFieldConfig
+	 */
+	 getKeywords() {
+	 	return this.keywords;
+	 }
+	
+	/**
+	 * @param keywords MetadataFieldConfig Configuration for &#39;Keywords&#39; AI generated metadata field
+	 */
+	 setKeywords(keywords) {
+	 	this.keywords = keywords;
+	 }
+	
+	/**
+	 * Configuration for &#39;sensitiveContent&#39; AI generated metadata field
+	 * @return MetadataFieldConfig
+	 */
+	 getSensitiveContent() {
+	 	return this.sensitiveContent;
+	 }
+	
+	/**
+	 * @param sensitiveContent MetadataFieldConfig Configuration for &#39;sensitiveContent&#39; AI generated metadata field
+	 */
+	 setSensitiveContent(sensitiveContent) {
+	 	this.sensitiveContent = sensitiveContent;
+	 }
+}
+module.exports.MetadataFieldConfigurationMap = MetadataFieldConfigurationMap;
+
+/**
+ *
+ */
+class AiMetadataGeneratorConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAiMetadataGeneratorConfiguration';
+	}
+	
+	/**
+	 * A type of dictionary defined as [string,KalturaMetadataFieldConfigurationMap].
+ * This property is used to correlate the newly generated metadata to
+ * existing metadata IDs which are available in the asset&#39;s struct with configuration
+	 * @return map
+	 */
+	 getAssetStructConfigMap() {
+	 	return this.assetStructConfigMap;
+	 }
+	
+	/**
+	 * @param assetStructConfigMap map A type of dictionary defined as [string,KalturaMetadataFieldConfigurationMap].
+ * This property is used to correlate the newly generated metadata to
+ * existing metadata IDs which are available in the asset&#39;s struct with configuration
+	 */
+	 setAssetStructConfigMap(assetStructConfigMap) {
+	 	this.assetStructConfigMap = assetStructConfigMap;
+	 }
+	
+	/**
+	 * A read only array to list the set of languages which can be used with the service.
+ * In practice it is populated with the values set in KalturaMetadataGeneratorLanguages ENUM
+	 * @return array
+	 */
+	 getSupportedLanguages() {
+	 	return this.supportedLanguages;
+	 }
+}
+module.exports.AiMetadataGeneratorConfiguration = AiMetadataGeneratorConfiguration;
 
 /**
  *
@@ -9153,46 +9406,6 @@ class MetaFieldNameMap extends kaltura.BaseObject{
 	 }
 }
 module.exports.MetaFieldNameMap = MetaFieldNameMap;
-
-/**
- *
- */
-class AiMetadataGeneratorConfiguration extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAiMetadataGeneratorConfiguration';
-	}
-	
-	/**
-	 * A type of dictionary defined as [long,KalturaMetaFieldNameMap].
- * This property is used to correlate the newly generated metadata to
- * existing metadata IDs which are available in the asset’s struct
-	 * @return map
-	 */
-	 getAssetStructMetaNameMap() {
-	 	return this.assetStructMetaNameMap;
-	 }
-	
-	/**
-	 * @param assetStructMetaNameMap map A type of dictionary defined as [long,KalturaMetaFieldNameMap].
- * This property is used to correlate the newly generated metadata to
- * existing metadata IDs which are available in the asset’s struct
-	 */
-	 setAssetStructMetaNameMap(assetStructMetaNameMap) {
-	 	this.assetStructMetaNameMap = assetStructMetaNameMap;
-	 }
-	
-	/**
-	 * A read only array to list the set of languages which can be used with the service.
- * In practice it is populated with the values set in KalturaMetadataGeneratorLanguages ENUM
-	 * @return array
-	 */
-	 getSupportedLanguages() {
-	 	return this.supportedLanguages;
-	 }
-}
-module.exports.AiMetadataGeneratorConfiguration = AiMetadataGeneratorConfiguration;
 
 /**
  *

@@ -39,6 +39,11 @@ const kaltura = require('./KalturaClientBase');
  * The subtitles file must be previously uploaded using the subtitles.uploadFile service.
  * The service will analyze the subtitle content using AI/LLM to generate enriched metadata including
  * genre, description, keywords, sentiment analysis, and other metadata fields.
+ * @action generateProgramMetadataByDescription Initiate the process of metadata generation for Program assets based on existing asset description metadata.
+ * The service will analyze the program&#39;s description and genre metadata using AI/LLM to generate
+ * additional enriched metadata fields. This method is specifically designed for Program/EPG assets
+ * and supports CRID-based uniqueness, regeneration options, and configurable overwrite behavior.
+ * Programs without a CRID are out of scope for this feature.
  * @action getGeneratedMetadata Retrieve the generated metadata.
  * @action getGenerateMetadataJob Get a metadata generation job.
  * @action getMetadataFieldDefinitions Get metadata mapping structure and available generated metadata fields.
@@ -74,6 +79,21 @@ class aiMetadataGenerator{
 		let kparams = {};
 		kparams.generateMetadataBySubtitles = generateMetadataBySubtitles;
 		return new kaltura.RequestBuilder('aimetadatagenerator', 'generateMetadataBySubtitles', kparams);
+	};
+	
+	/**
+	 * Initiate the process of metadata generation for Program assets based on existing asset description metadata.
+ * The service will analyze the program&#39;s description and genre metadata using AI/LLM to generate
+ * additional enriched metadata fields. This method is specifically designed for Program/EPG assets
+ * and supports CRID-based uniqueness, regeneration options, and configurable overwrite behavior.
+ * Programs without a CRID are out of scope for this feature.
+	 * @param generateProgramMetadataByDescription GenerateProgramMetadatasByDescription Request object containing the external asset ID and regenerate flag
+	 * @return KalturaGenerateMetadataJob
+	 */
+	static generateProgramMetadataByDescription(generateProgramMetadataByDescription){
+		let kparams = {};
+		kparams.generateProgramMetadataByDescription = generateProgramMetadataByDescription;
+		return new kaltura.RequestBuilder('aimetadatagenerator', 'generateProgramMetadataByDescription', kparams);
 	};
 	
 	/**
@@ -8239,15 +8259,15 @@ class streamingDevice{
 	 * @param fileId string KalturaMediaFile.id media file belonging to the asset for which a concurrency slot is being reserved
 	 * @param assetId string KalturaAsset.id - asset for which a concurrency slot is being reserved
 	 * @param assetType string Identifies the type of asset for which the concurrency slot is being reserved (enum: KalturaAssetType)
-	 * @param programId int Program Id for recording fallback (optional, default: null)
+	 * @param externalRecordingProgramId int Optional EPG program ID used as fallback for concurrency checks when the external recording ID does not exist in the backend (e.g., recording not yet created). Only applicable for recording asset types when external recordings feature is enabled (optional, default: null)
 	 * @return bool
 	 */
-	static bookPlaybackSession(fileId, assetId, assetType, programId = null){
+	static bookPlaybackSession(fileId, assetId, assetType, externalRecordingProgramId = null){
 		let kparams = {};
 		kparams.fileId = fileId;
 		kparams.assetId = assetId;
 		kparams.assetType = assetType;
-		kparams.programId = programId;
+		kparams.externalRecordingProgramId = externalRecordingProgramId;
 		return new kaltura.RequestBuilder('streamingdevice', 'bookPlaybackSession', kparams);
 	};
 	
