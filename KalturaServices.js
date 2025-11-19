@@ -39,6 +39,11 @@ const kaltura = require('./KalturaClientBase');
  * The subtitles file must be previously uploaded using the subtitles.uploadFile service.
  * The service will analyze the subtitle content using AI/LLM to generate enriched metadata including
  * genre, description, keywords, sentiment analysis, and other metadata fields.
+ * @action generateProgramMetadataByDescription Initiate the process of metadata generation for Program assets based on existing asset description metadata.
+ * The service will analyze the program&#39;s description and genre metadata using AI/LLM to generate
+ * additional enriched metadata fields. This method is specifically designed for Program/EPG assets
+ * and supports CRID-based uniqueness, regeneration options, and configurable overwrite behavior.
+ * Programs without a CRID are out of scope for this feature.
  * @action getGeneratedMetadata Retrieve the generated metadata.
  * @action getGenerateMetadataJob Get a metadata generation job.
  * @action getMetadataFieldDefinitions Get metadata mapping structure and available generated metadata fields.
@@ -74,6 +79,21 @@ class aiMetadataGenerator{
 		let kparams = {};
 		kparams.generateMetadataBySubtitles = generateMetadataBySubtitles;
 		return new kaltura.RequestBuilder('aimetadatagenerator', 'generateMetadataBySubtitles', kparams);
+	};
+	
+	/**
+	 * Initiate the process of metadata generation for Program assets based on existing asset description metadata.
+ * The service will analyze the program&#39;s description and genre metadata using AI/LLM to generate
+ * additional enriched metadata fields. This method is specifically designed for Program/EPG assets
+ * and supports CRID-based uniqueness, regeneration options, and configurable overwrite behavior.
+ * Programs without a CRID are out of scope for this feature.
+	 * @param generateProgramMetadataByDescription GenerateProgramMetadatasByDescription Request object containing the external asset ID and regenerate flag
+	 * @return KalturaGenerateMetadataJob
+	 */
+	static generateProgramMetadataByDescription(generateProgramMetadataByDescription){
+		let kparams = {};
+		kparams.generateProgramMetadataByDescription = generateProgramMetadataByDescription;
+		return new kaltura.RequestBuilder('aimetadatagenerator', 'generateProgramMetadataByDescription', kparams);
 	};
 	
 	/**
@@ -691,7 +711,7 @@ module.exports.assetFile = assetFile;
  * @action add Add asset file ppv.
  * @action delete Delete asset file ppv.
  * @action list Return a list of asset files ppvs for the account with optional filter.
- * @action update Update assetFilePpv.
+ * @action update Update assetFilePpv dates.
  */
 class assetFilePpv{
 	
@@ -731,7 +751,7 @@ class assetFilePpv{
 	};
 	
 	/**
-	 * Update assetFilePpv.
+	 * Update assetFilePpv dates.
 	 * @param assetFileId int Asset file id
 	 * @param ppvModuleId int Ppv module id
 	 * @param assetFilePpv AssetFilePpv assetFilePpv
