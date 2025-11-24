@@ -41,6 +41,11 @@ SUM : 'Sum',
 AVG : 'Avg',
 };
 
+module.exports.AiRecommendationTreeFeatureLevel = {
+BASIC : 'Basic',
+PREMIUM : 'Premium',
+};
+
 module.exports.AnnouncementOrderBy = {
 NONE : 'NONE',
 };
@@ -417,8 +422,13 @@ GROUP : 'Group',
 };
 
 module.exports.ConditionOperator = {
+UNKNOWN : 'Unknown',
 EQUAL : 'Equal',
 NOTEQUAL : 'NotEqual',
+GREATERTHAN : 'GreaterThan',
+LESSTHAN : 'LessThan',
+GREATERTHANOREQUAL : 'GreaterThanOrEqual',
+LESSTHANOREQUAL : 'LessThanOrEqual',
 };
 
 module.exports.ConfigurationGroupDeviceOrderBy = {
@@ -616,6 +626,12 @@ CREATE_DATE_DESC : 'CREATE_DATE_DESC',
 module.exports.FollowTvSeriesOrderBy = {
 START_DATE_DESC : 'START_DATE_DESC',
 START_DATE_ASC : 'START_DATE_ASC',
+};
+
+module.exports.GenerateMetadataJobType = {
+VODBYDESCRIPTION : 'VodByDescription',
+VODBYSUBTITLES : 'VodBySubtitles',
+PROGRAMBYDESCRIPTION : 'ProgramByDescription',
 };
 
 module.exports.GenerateMetadataStatus = {
@@ -887,6 +903,12 @@ NUMBER : 'NUMBER',
 BOOLEAN : 'BOOLEAN',
 DATE : 'DATE',
 RELEATED_ENTITY : 'RELEATED_ENTITY',
+};
+
+module.exports.MetadataUpdateOperation = {
+PROTECT : 'PROTECT',
+EXTEND : 'EXTEND',
+OVERWRITE : 'OVERWRITE',
 };
 
 module.exports.MetaOrderBy = {
@@ -1295,6 +1317,12 @@ module.exports.SearchPriorityGroupOrderBy = {
 PRIORITY_DESC : 'PRIORITY_DESC',
 NAME_ASC : 'NAME_ASC',
 NAME_DESC : 'NAME_DESC',
+};
+
+module.exports.SearchType = {
+UNKNOWN : 'Unknown',
+ASSET : 'Asset',
+PROGRAM : 'Program',
 };
 
 module.exports.SegmentationTypeOrderBy = {

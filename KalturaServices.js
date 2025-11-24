@@ -39,6 +39,11 @@ const kaltura = require('./KalturaClientBase');
  * The subtitles file must be previously uploaded using the subtitles.uploadFile service.
  * The service will analyze the subtitle content using AI/LLM to generate enriched metadata including
  * genre, description, keywords, sentiment analysis, and other metadata fields.
+ * @action generateProgramMetadataByDescription Initiate the process of metadata generation for Program assets based on existing asset description metadata.
+ * The service will analyze the program&#39;s description and genre metadata using AI/LLM to generate
+ * additional enriched metadata fields. This method is specifically designed for Program/EPG assets
+ * and supports CRID-based uniqueness, regeneration options, and configurable overwrite behavior.
+ * Programs without a CRID are out of scope for this feature.
  * @action getGeneratedMetadata Retrieve the generated metadata.
  * @action getGenerateMetadataJob Get a metadata generation job.
  * @action getMetadataFieldDefinitions Get metadata mapping structure and available generated metadata fields.
@@ -74,6 +79,21 @@ class aiMetadataGenerator{
 		let kparams = {};
 		kparams.generateMetadataBySubtitles = generateMetadataBySubtitles;
 		return new kaltura.RequestBuilder('aimetadatagenerator', 'generateMetadataBySubtitles', kparams);
+	};
+	
+	/**
+	 * Initiate the process of metadata generation for Program assets based on existing asset description metadata.
+ * The service will analyze the program&#39;s description and genre metadata using AI/LLM to generate
+ * additional enriched metadata fields. This method is specifically designed for Program/EPG assets
+ * and supports CRID-based uniqueness, regeneration options, and configurable overwrite behavior.
+ * Programs without a CRID are out of scope for this feature.
+	 * @param generateProgramMetadataByDescription GenerateProgramMetadatasByDescription Request object containing the external asset ID and regenerate flag
+	 * @return KalturaGenerateMetadataJob
+	 */
+	static generateProgramMetadataByDescription(generateProgramMetadataByDescription){
+		let kparams = {};
+		kparams.generateProgramMetadataByDescription = generateProgramMetadataByDescription;
+		return new kaltura.RequestBuilder('aimetadatagenerator', 'generateProgramMetadataByDescription', kparams);
 	};
 	
 	/**
@@ -401,6 +421,7 @@ module.exports.assetComment = assetComment;
  * @action listPersonalSelection Returns recent selected assets.
  * @action removeMetasAndTags remove metas and tags from asset.
  * @action semanticSearch Search for assets using semantic similarity to a natural language query, with optional query refinement using LLM.
+ * @action unifiedSemanticSearch Performs unified semantic search across both assets and programs.
  * @action update update an existing asset.
  * For metas of type bool-&gt; use kalturaBoolValue, type number-&gt; KalturaDoubleValue, type date -&gt; KalturaLongValue, type string -&gt; KalturaStringValue.
  * @action watchBasedRecommendationsList Return list of assets - assets are personal recommendations for the caller.
@@ -609,6 +630,23 @@ class asset{
 	};
 	
 	/**
+	 * Performs unified semantic search across both assets and programs.
+	 * @param query string Search query text
+	 * @param searchScopes array List of search scopes defining which types to search (Asset/Program) and optional filters
+	 * @param refineQuery bool Whether to refine the query using LLM (optional, default: false)
+	 * @param size int Maximum number of results to return (optional, default: 10)
+	 * @return KalturaAssetListResponse
+	 */
+	static unifiedSemanticSearch(query, searchScopes, refineQuery = false, size = 10){
+		let kparams = {};
+		kparams.query = query;
+		kparams.searchScopes = searchScopes;
+		kparams.refineQuery = refineQuery;
+		kparams.size = size;
+		return new kaltura.RequestBuilder('asset', 'unifiedSemanticSearch', kparams);
+	};
+	
+	/**
 	 * update an existing asset.
  * For metas of type bool-&gt; use kalturaBoolValue, type number-&gt; KalturaDoubleValue, type date -&gt; KalturaLongValue, type string -&gt; KalturaStringValue.
 	 * @param id int Asset Identifier
@@ -691,7 +729,7 @@ module.exports.assetFile = assetFile;
  * @action add Add asset file ppv.
  * @action delete Delete asset file ppv.
  * @action list Return a list of asset files ppvs for the account with optional filter.
- * @action update Update assetFilePpv.
+ * @action update Update assetFilePpv dates.
  */
 class assetFilePpv{
 	
@@ -731,7 +769,7 @@ class assetFilePpv{
 	};
 	
 	/**
-	 * Update assetFilePpv.
+	 * Update assetFilePpv dates.
 	 * @param assetFileId int Asset file id
 	 * @param ppvModuleId int Ppv module id
 	 * @param assetFilePpv AssetFilePpv assetFilePpv
@@ -7586,8 +7624,12 @@ module.exports.segmentationType = segmentationType;
  *Class definition for the Kaltura service: semanticAssetSearchPartnerConfig.
  * The available service actions:
  * @action getFilteringCondition Retrieve the filtering condition configuration for the partner.
+ * @action getProgramFilteringCondition Retrieve the filtering condition configuration for program assets.
+ * @action getProgramSearchableAttributes Retrieve the current program field configurations for semantic search.
  * @action getSearchableAttributes Retrieve the current field configurations for semantic search.
  * @action upsertFilteringCondition Update rule that controls embedding generation and search behavior.
+ * @action upsertProgramFilteringCondition Update rule that controls embedding generation and search behavior for program assets.
+ * @action upsertProgramSearchableAttributes Update which fields should be included in semantic search for program assets.
  * @action upsertSearchableAttributes Update which fields should be included in semantic search for specific asset types.
  */
 class semanticAssetSearchPartnerConfig{
@@ -7599,6 +7641,24 @@ class semanticAssetSearchPartnerConfig{
 	static getFilteringCondition(){
 		let kparams = {};
 		return new kaltura.RequestBuilder('semanticassetsearchpartnerconfig', 'getFilteringCondition', kparams);
+	};
+	
+	/**
+	 * Retrieve the filtering condition configuration for program assets.
+	 * @return KalturaFilteringCondition
+	 */
+	static getProgramFilteringCondition(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('semanticassetsearchpartnerconfig', 'getProgramFilteringCondition', kparams);
+	};
+	
+	/**
+	 * Retrieve the current program field configurations for semantic search.
+	 * @return string
+	 */
+	static getProgramSearchableAttributes(){
+		let kparams = {};
+		return new kaltura.RequestBuilder('semanticassetsearchpartnerconfig', 'getProgramSearchableAttributes', kparams);
 	};
 	
 	/**
@@ -7621,6 +7681,28 @@ class semanticAssetSearchPartnerConfig{
 		let kparams = {};
 		kparams.filteringCondition = filteringCondition;
 		return new kaltura.RequestBuilder('semanticassetsearchpartnerconfig', 'upsertFilteringCondition', kparams);
+	};
+	
+	/**
+	 * Update rule that controls embedding generation and search behavior for program assets.
+	 * @param filteringCondition FilteringCondition Rule configuration parameters for programs
+	 * @return KalturaFilteringCondition
+	 */
+	static upsertProgramFilteringCondition(filteringCondition){
+		let kparams = {};
+		kparams.filteringCondition = filteringCondition;
+		return new kaltura.RequestBuilder('semanticassetsearchpartnerconfig', 'upsertProgramFilteringCondition', kparams);
+	};
+	
+	/**
+	 * Update which fields should be included in semantic search for program assets.
+	 * @param programAttributes string Comma-separated list of program attribute names to be searchable
+	 * @return string
+	 */
+	static upsertProgramSearchableAttributes(programAttributes){
+		let kparams = {};
+		kparams.programAttributes = programAttributes;
+		return new kaltura.RequestBuilder('semanticassetsearchpartnerconfig', 'upsertProgramSearchableAttributes', kparams);
 	};
 	
 	/**
