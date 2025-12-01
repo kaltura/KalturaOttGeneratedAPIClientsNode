@@ -420,8 +420,8 @@ module.exports.assetComment = assetComment;
  * @action list Returns media or EPG assets. Filters by media identifiers or by EPG internal or external identifier.
  * @action listPersonalSelection Returns recent selected assets.
  * @action removeMetasAndTags remove metas and tags from asset.
- * @action semanticSearch Search for assets using semantic similarity to a natural language query, with optional query refinement using LLM.
- * @action unifiedSemanticSearch Performs unified semantic search across media and programs.
+ * @action semanticSearch Search for assets using semantic similarity to a natural language query.
+ * Supports unified search across both media/VOD assets and programs/EPG with optional type-specific filters.
  * @action update update an existing asset.
  * For metas of type bool-&gt; use kalturaBoolValue, type number-&gt; KalturaDoubleValue, type date -&gt; KalturaLongValue, type string -&gt; KalturaStringValue.
  * @action watchBasedRecommendationsList Return list of assets - assets are personal recommendations for the caller.
@@ -615,29 +615,15 @@ class asset{
 	};
 	
 	/**
-	 * Search for assets using semantic similarity to a natural language query, with optional query refinement using LLM.
-	 * @param query string The search query text used to find semantically similar assets
-	 * @param refineQuery bool When true, the search query is refined using LLM before vector search (optional, default: false)
-	 * @param size int The maximum number of results to return. Must be between 1 and 100 (optional, default: 10)
-	 * @return KalturaAssetListResponse
-	 */
-	static semanticSearch(query, refineQuery = false, size = 10){
-		let kparams = {};
-		kparams.query = query;
-		kparams.refineQuery = refineQuery;
-		kparams.size = size;
-		return new kaltura.RequestBuilder('asset', 'semanticSearch', kparams);
-	};
-	
-	/**
-	 * Performs unified semantic search across media and programs.
+	 * Search for assets using semantic similarity to a natural language query.
+ * Supports unified search across both media/VOD assets and programs/EPG with optional type-specific filters.
 	 * @param searchParams SemanticSearchParams Search parameters including query text, content type filters, and optional type-specific filters
 	 * @return KalturaAssetListResponse
 	 */
-	static unifiedSemanticSearch(searchParams){
+	static semanticSearch(searchParams){
 		let kparams = {};
 		kparams.searchParams = searchParams;
-		return new kaltura.RequestBuilder('asset', 'unifiedSemanticSearch', kparams);
+		return new kaltura.RequestBuilder('asset', 'semanticSearch', kparams);
 	};
 	
 	/**
