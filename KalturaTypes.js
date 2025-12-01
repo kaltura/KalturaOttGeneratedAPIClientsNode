@@ -1319,12 +1319,6 @@ NAME_ASC : 'NAME_ASC',
 NAME_DESC : 'NAME_DESC',
 };
 
-module.exports.SearchType = {
-UNKNOWN : 'Unknown',
-ASSET : 'Asset',
-PROGRAM : 'Program',
-};
-
 module.exports.SegmentationTypeOrderBy = {
 UPDATE_DATE_DESC : 'UPDATE_DATE_DESC',
 UPDATE_DATE_ASC : 'UPDATE_DATE_ASC',

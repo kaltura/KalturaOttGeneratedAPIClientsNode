@@ -421,7 +421,7 @@ module.exports.assetComment = assetComment;
  * @action listPersonalSelection Returns recent selected assets.
  * @action removeMetasAndTags remove metas and tags from asset.
  * @action semanticSearch Search for assets using semantic similarity to a natural language query, with optional query refinement using LLM.
- * @action unifiedSemanticSearch Performs unified semantic search across both assets and programs.
+ * @action unifiedSemanticSearch Performs unified semantic search across media and programs.
  * @action update update an existing asset.
  * For metas of type bool-&gt; use kalturaBoolValue, type number-&gt; KalturaDoubleValue, type date -&gt; KalturaLongValue, type string -&gt; KalturaStringValue.
  * @action watchBasedRecommendationsList Return list of assets - assets are personal recommendations for the caller.
@@ -630,19 +630,13 @@ class asset{
 	};
 	
 	/**
-	 * Performs unified semantic search across both assets and programs.
-	 * @param query string Search query text
-	 * @param searchScopes array List of search scopes defining which types to search (Asset/Program) and optional filters
-	 * @param refineQuery bool Whether to refine the query using LLM (optional, default: false)
-	 * @param size int Maximum number of results to return (optional, default: 10)
+	 * Performs unified semantic search across media and programs.
+	 * @param searchParams SemanticSearchParams Search parameters including query text, content type filters, and optional type-specific filters
 	 * @return KalturaAssetListResponse
 	 */
-	static unifiedSemanticSearch(query, searchScopes, refineQuery = false, size = 10){
+	static unifiedSemanticSearch(searchParams){
 		let kparams = {};
-		kparams.query = query;
-		kparams.searchScopes = searchScopes;
-		kparams.refineQuery = refineQuery;
-		kparams.size = size;
+		kparams.searchParams = searchParams;
 		return new kaltura.RequestBuilder('asset', 'unifiedSemanticSearch', kparams);
 	};
 	

@@ -36828,101 +36828,151 @@ module.exports.SessionInfo = SessionInfo;
 /**
  *
  */
-class SearchCondition extends kaltura.BaseObject{
+class ProgramSemanticSearchParams extends kaltura.BaseObject{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaSearchCondition';
+		this.objectType = 'KalturaProgramSemanticSearchParams';
 	}
 	
 	/**
-	 * Field name to filter by
-	 * @return string
+	 * Only include programs that end after this timestamp (Unix epoch seconds).
+ * Optional filter
+	 * @return int
 	 */
-	 getField() {
-	 	return this.field;
+	 getEndsAfter() {
+	 	return this.endsAfter;
 	 }
 	
 	/**
-	 * @param field string Field name to filter by
+	 * @param endsAfter int Only include programs that end after this timestamp (Unix epoch seconds).
+ * Optional filter
 	 */
-	 setField(field) {
-	 	this.field = field;
+	 setEndsAfter(endsAfter) {
+	 	this.endsAfter = endsAfter;
 	 }
 	
 	/**
-	 * Operator to use for filtering
-	 * @return string
+	 * Only include programs that expire after this timestamp (Unix epoch seconds).
+ * Optional filter
+	 * @return int
 	 */
-	 getOperator() {
-	 	return this.operator;
+	 getExpiresAfter() {
+	 	return this.expiresAfter;
 	 }
 	
 	/**
-	 * @param operator string Operator to use for filtering
+	 * @param expiresAfter int Only include programs that expire after this timestamp (Unix epoch seconds).
+ * Optional filter
 	 */
-	 setOperator(operator) {
-	 	this.operator = operator;
-	 }
-	
-	/**
-	 * Value to filter by
-	 * @return string
-	 */
-	 getValue() {
-	 	return this.value;
-	 }
-	
-	/**
-	 * @param value string Value to filter by
-	 */
-	 setValue(value) {
-	 	this.value = value;
+	 setExpiresAfter(expiresAfter) {
+	 	this.expiresAfter = expiresAfter;
 	 }
 }
-module.exports.SearchCondition = SearchCondition;
+module.exports.ProgramSemanticSearchParams = ProgramSemanticSearchParams;
 
 /**
  *
  */
-class SearchScope extends kaltura.BaseObject{
+class MediaSemanticSearchParams extends kaltura.BaseObject{
 	
 	constructor(object = null) {
 		super(object);
-		this.objectType = 'KalturaSearchScope';
+		this.objectType = 'KalturaMediaSemanticSearchParams';
+	}
+}
+module.exports.MediaSemanticSearchParams = MediaSemanticSearchParams;
+
+/**
+ *
+ */
+class SemanticSearchParams extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSemanticSearchParams';
 	}
 	
 	/**
-	 * The type of search scope (Asset or Program)
+	 * Search query text
 	 * @return string
 	 */
-	 getType() {
-	 	return this.type;
+	 getQuery() {
+	 	return this.query;
 	 }
 	
 	/**
-	 * @param type string The type of search scope (Asset or Program)
+	 * @param query string Search query text
 	 */
-	 setType(type) {
-	 	this.type = type;
+	 setQuery(query) {
+	 	this.query = query;
 	 }
 	
 	/**
-	 * Optional filters to apply for this scope
-	 * @return array
+	 * Whether to refine the query using LLM
+	 * @return bool
 	 */
-	 getFilters() {
-	 	return this.filters;
+	 getRefineQuery() {
+	 	return this.refineQuery;
 	 }
 	
 	/**
-	 * @param filters array Optional filters to apply for this scope
+	 * @param refineQuery bool Whether to refine the query using LLM
 	 */
-	 setFilters(filters) {
-	 	this.filters = filters;
+	 setRefineQuery(refineQuery) {
+	 	this.refineQuery = refineQuery;
+	 }
+	
+	/**
+	 * Maximum number of results to return
+	 * @return int
+	 */
+	 getSize() {
+	 	return this.size;
+	 }
+	
+	/**
+	 * @param size int Maximum number of results to return
+	 */
+	 setSize(size) {
+	 	this.size = size;
+	 }
+	
+	/**
+	 * Program-specific search parameters.
+ * If provided, programs will be included in search results
+	 * @return ProgramSemanticSearchParams
+	 */
+	 getProgramParams() {
+	 	return this.programParams;
+	 }
+	
+	/**
+	 * @param programParams ProgramSemanticSearchParams Program-specific search parameters.
+ * If provided, programs will be included in search results
+	 */
+	 setProgramParams(programParams) {
+	 	this.programParams = programParams;
+	 }
+	
+	/**
+	 * Media-specific search parameters.
+ * If provided, media/VOD assets will be included in search results
+	 * @return MediaSemanticSearchParams
+	 */
+	 getMediaParams() {
+	 	return this.mediaParams;
+	 }
+	
+	/**
+	 * @param mediaParams MediaSemanticSearchParams Media-specific search parameters.
+ * If provided, media/VOD assets will be included in search results
+	 */
+	 setMediaParams(mediaParams) {
+	 	this.mediaParams = mediaParams;
 	 }
 }
-module.exports.SearchScope = SearchScope;
+module.exports.SemanticSearchParams = SemanticSearchParams;
 
 /**
  *
