@@ -42718,6 +42718,35 @@ module.exports.FilteringCondition = FilteringCondition;
 /**
  *
  */
+class ProgramSearchableAttributes extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaProgramSearchableAttributes';
+	}
+	
+	/**
+	 * Comma-separated list of Program metadata field names that should be searchable.
+ * Examples: &quot;name,description,genre,tags,meta_cast,meta_director&quot;
+	 * @return string
+	 */
+	 getAttributes() {
+	 	return this.attributes;
+	 }
+	
+	/**
+	 * @param attributes string Comma-separated list of Program metadata field names that should be searchable.
+ * Examples: &quot;name,description,genre,tags,meta_cast,meta_director&quot;
+	 */
+	 setAttributes(attributes) {
+	 	this.attributes = attributes;
+	 }
+}
+module.exports.ProgramSearchableAttributes = ProgramSearchableAttributes;
+
+/**
+ *
+ */
 class GenerateSemanticQuery extends kaltura.BaseObject{
 	
 	constructor(object = null) {

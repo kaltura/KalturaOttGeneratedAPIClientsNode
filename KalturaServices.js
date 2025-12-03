@@ -7634,7 +7634,7 @@ class semanticAssetSearchPartnerConfig{
 	
 	/**
 	 * Retrieve the current program field configurations for semantic search.
-	 * @return string
+	 * @return KalturaProgramSearchableAttributes
 	 */
 	static getProgramSearchableAttributes(){
 		let kparams = {};
@@ -7676,8 +7676,8 @@ class semanticAssetSearchPartnerConfig{
 	
 	/**
 	 * Update which fields should be included in semantic search for program assets.
-	 * @param programAttributes string Comma-separated list of program attribute names to be searchable
-	 * @return string
+	 * @param programAttributes ProgramSearchableAttributes Program searchable attributes configuration containing comma-separated attribute names
+	 * @return KalturaProgramSearchableAttributes
 	 */
 	static upsertProgramSearchableAttributes(programAttributes){
 		let kparams = {};
