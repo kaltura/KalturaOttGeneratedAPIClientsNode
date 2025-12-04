@@ -36836,20 +36836,20 @@ class ProgramSemanticSearchParams extends kaltura.BaseObject{
 	}
 	
 	/**
-	 * Only include programs that end after this timestamp (Unix epoch seconds).
+	 * Only include programs that end before this timestamp (Unix epoch seconds).
  * Optional filter
 	 * @return int
 	 */
-	 getEndsAfter() {
-	 	return this.endsAfter;
+	 getEndsBefore() {
+	 	return this.endsBefore;
 	 }
 	
 	/**
-	 * @param endsAfter int Only include programs that end after this timestamp (Unix epoch seconds).
+	 * @param endsBefore int Only include programs that end before this timestamp (Unix epoch seconds).
  * Optional filter
 	 */
-	 setEndsAfter(endsAfter) {
-	 	this.endsAfter = endsAfter;
+	 setEndsBefore(endsBefore) {
+	 	this.endsBefore = endsBefore;
 	 }
 	
 	/**

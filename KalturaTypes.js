@@ -422,13 +422,8 @@ GROUP : 'Group',
 };
 
 module.exports.ConditionOperator = {
-UNKNOWN : 'Unknown',
 EQUAL : 'Equal',
 NOTEQUAL : 'NotEqual',
-GREATERTHAN : 'GreaterThan',
-LESSTHAN : 'LessThan',
-GREATERTHANOREQUAL : 'GreaterThanOrEqual',
-LESSTHANOREQUAL : 'LessThanOrEqual',
 };
 
 module.exports.ConfigurationGroupDeviceOrderBy = {
