@@ -17394,6 +17394,33 @@ module.exports.StartDateOffsetRuleAction = StartDateOffsetRuleAction;
 /**
  *
  */
+class SetPlaybackContextUrlTypeAction extends AssetRuleAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSetPlaybackContextUrlTypeAction';
+	}
+	
+	/**
+	 * URL Type to override (DIRECT or PLAYMANIFEST)
+	 * @return string
+	 */
+	 getUrlType() {
+	 	return this.urlType;
+	 }
+	
+	/**
+	 * @param urlType string URL Type to override (DIRECT or PLAYMANIFEST)
+	 */
+	 setUrlType(urlType) {
+	 	this.urlType = urlType;
+	 }
+}
+module.exports.SetPlaybackContextUrlTypeAction = SetPlaybackContextUrlTypeAction;
+
+/**
+ *
+ */
 class BasePreActionCondition extends kaltura.BaseObject{
 	
 	constructor(object = null) {
