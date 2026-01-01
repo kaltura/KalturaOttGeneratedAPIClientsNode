@@ -36855,6 +36855,155 @@ module.exports.SessionInfo = SessionInfo;
 /**
  *
  */
+class ProgramSemanticSearchParams extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaProgramSemanticSearchParams';
+	}
+	
+	/**
+	 * Only include programs that end before this timestamp (Unix epoch seconds).
+ * Optional filter
+	 * @return int
+	 */
+	 getEndsBefore() {
+	 	return this.endsBefore;
+	 }
+	
+	/**
+	 * @param endsBefore int Only include programs that end before this timestamp (Unix epoch seconds).
+ * Optional filter
+	 */
+	 setEndsBefore(endsBefore) {
+	 	this.endsBefore = endsBefore;
+	 }
+	
+	/**
+	 * Only include programs that expire after this timestamp (Unix epoch seconds).
+ * Optional filter
+	 * @return int
+	 */
+	 getExpiresAfter() {
+	 	return this.expiresAfter;
+	 }
+	
+	/**
+	 * @param expiresAfter int Only include programs that expire after this timestamp (Unix epoch seconds).
+ * Optional filter
+	 */
+	 setExpiresAfter(expiresAfter) {
+	 	this.expiresAfter = expiresAfter;
+	 }
+}
+module.exports.ProgramSemanticSearchParams = ProgramSemanticSearchParams;
+
+/**
+ *
+ */
+class MediaSemanticSearchParams extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaMediaSemanticSearchParams';
+	}
+}
+module.exports.MediaSemanticSearchParams = MediaSemanticSearchParams;
+
+/**
+ *
+ */
+class SemanticSearchParams extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSemanticSearchParams';
+	}
+	
+	/**
+	 * Search query text
+	 * @return string
+	 */
+	 getQuery() {
+	 	return this.query;
+	 }
+	
+	/**
+	 * @param query string Search query text
+	 */
+	 setQuery(query) {
+	 	this.query = query;
+	 }
+	
+	/**
+	 * Whether to refine the query using LLM
+	 * @return bool
+	 */
+	 getRefineQuery() {
+	 	return this.refineQuery;
+	 }
+	
+	/**
+	 * @param refineQuery bool Whether to refine the query using LLM
+	 */
+	 setRefineQuery(refineQuery) {
+	 	this.refineQuery = refineQuery;
+	 }
+	
+	/**
+	 * Maximum number of results to return
+	 * @return int
+	 */
+	 getSize() {
+	 	return this.size;
+	 }
+	
+	/**
+	 * @param size int Maximum number of results to return
+	 */
+	 setSize(size) {
+	 	this.size = size;
+	 }
+	
+	/**
+	 * Program-specific search parameters.
+ * If provided, programs will be included in search results
+	 * @return ProgramSemanticSearchParams
+	 */
+	 getProgramParams() {
+	 	return this.programParams;
+	 }
+	
+	/**
+	 * @param programParams ProgramSemanticSearchParams Program-specific search parameters.
+ * If provided, programs will be included in search results
+	 */
+	 setProgramParams(programParams) {
+	 	this.programParams = programParams;
+	 }
+	
+	/**
+	 * Media-specific search parameters.
+ * If provided, media/VOD assets will be included in search results
+	 * @return MediaSemanticSearchParams
+	 */
+	 getMediaParams() {
+	 	return this.mediaParams;
+	 }
+	
+	/**
+	 * @param mediaParams MediaSemanticSearchParams Media-specific search parameters.
+ * If provided, media/VOD assets will be included in search results
+	 */
+	 setMediaParams(mediaParams) {
+	 	this.mediaParams = mediaParams;
+	 }
+}
+module.exports.SemanticSearchParams = SemanticSearchParams;
+
+/**
+ *
+ */
 class RepresentativeSelectionPolicy extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -42592,6 +42741,35 @@ class FilteringCondition extends kaltura.BaseObject{
 	 }
 }
 module.exports.FilteringCondition = FilteringCondition;
+
+/**
+ *
+ */
+class ProgramSearchableAttributes extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaProgramSearchableAttributes';
+	}
+	
+	/**
+	 * Comma-separated list of Program metadata field names that should be searchable.
+ * Examples: &quot;name,description,genre,tags,meta_cast,meta_director&quot;
+	 * @return string
+	 */
+	 getAttributes() {
+	 	return this.attributes;
+	 }
+	
+	/**
+	 * @param attributes string Comma-separated list of Program metadata field names that should be searchable.
+ * Examples: &quot;name,description,genre,tags,meta_cast,meta_director&quot;
+	 */
+	 setAttributes(attributes) {
+	 	this.attributes = attributes;
+	 }
+}
+module.exports.ProgramSearchableAttributes = ProgramSearchableAttributes;
 
 /**
  *
