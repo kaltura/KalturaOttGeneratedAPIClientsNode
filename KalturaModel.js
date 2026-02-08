@@ -4671,6 +4671,21 @@ class RecordingFilter extends Filter{
 	 setKSql(kSql) {
 	 	this.kSql = kSql;
 	 }
+	
+	/**
+	 * Enforce content filtering
+	 * @return bool
+	 */
+	 getContentFilteringEnforced() {
+	 	return this.contentFilteringEnforced;
+	 }
+	
+	/**
+	 * @param contentFilteringEnforced bool Enforce content filtering
+	 */
+	 setContentFilteringEnforced(contentFilteringEnforced) {
+	 	this.contentFilteringEnforced = contentFilteringEnforced;
+	 }
 }
 module.exports.RecordingFilter = RecordingFilter;
 
@@ -8963,6 +8978,14 @@ class GenerateMetadataJob extends kaltura.BaseObject{
 	 getErrorMessage() {
 	 	return this.errorMessage;
 	 }
+	
+	/**
+	 * Type of the metadata generation job (vodByDescription, vodBySubtitles, programByDescription)
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
 }
 module.exports.GenerateMetadataJob = GenerateMetadataJob;
 
@@ -8998,6 +9021,37 @@ module.exports.GenerateMetadataByDescription = GenerateMetadataByDescription;
 /**
  *
  */
+class GenerateProgramMetadatasByDescription extends GenerateMetadataByDescription{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaGenerateProgramMetadatasByDescription';
+	}
+	
+	/**
+	 * A boolean flag that allows the API user to force the regeneration of metadata.
+ * If true, the service will run a new analysis even if enriched metadata already exists for the program&#39;s CRID.
+ * If false (default), the service will reuse existing metadata if available for the CRID
+	 * @return bool
+	 */
+	 getRegenerate() {
+	 	return this.regenerate;
+	 }
+	
+	/**
+	 * @param regenerate bool A boolean flag that allows the API user to force the regeneration of metadata.
+ * If true, the service will run a new analysis even if enriched metadata already exists for the program&#39;s CRID.
+ * If false (default), the service will reuse existing metadata if available for the CRID
+	 */
+	 setRegenerate(regenerate) {
+	 	this.regenerate = regenerate;
+	 }
+}
+module.exports.GenerateProgramMetadatasByDescription = GenerateProgramMetadatasByDescription;
+
+/**
+ *
+ */
 class GenerateMetadataResult extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -9021,6 +9075,220 @@ class GenerateMetadataResult extends kaltura.BaseObject{
 	 }
 }
 module.exports.GenerateMetadataResult = GenerateMetadataResult;
+
+/**
+ *
+ */
+class MetadataFieldConfig extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaMetadataFieldConfig';
+	}
+	
+	/**
+	 * The system name of the metadata field in the asset struct
+	 * @return string
+	 */
+	 getSystemName() {
+	 	return this.systemName;
+	 }
+	
+	/**
+	 * @param systemName string The system name of the metadata field in the asset struct
+	 */
+	 setSystemName(systemName) {
+	 	this.systemName = systemName;
+	 }
+	
+	/**
+	 * The update operation to be performed on this metadata field
+	 * @return string
+	 */
+	 getOperation() {
+	 	return this.operation;
+	 }
+	
+	/**
+	 * @param operation string The update operation to be performed on this metadata field
+	 */
+	 setOperation(operation) {
+	 	this.operation = operation;
+	 }
+}
+module.exports.MetadataFieldConfig = MetadataFieldConfig;
+
+/**
+ *
+ */
+class MetadataFieldConfigurationMap extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaMetadataFieldConfigurationMap';
+	}
+	
+	/**
+	 * Configuration for &#39;genre&#39; AI generated metadata field
+	 * @return MetadataFieldConfig
+	 */
+	 getGenre() {
+	 	return this.genre;
+	 }
+	
+	/**
+	 * @param genre MetadataFieldConfig Configuration for &#39;genre&#39; AI generated metadata field
+	 */
+	 setGenre(genre) {
+	 	this.genre = genre;
+	 }
+	
+	/**
+	 * Configuration for &#39;subGenre&#39; AI generated metadata field
+	 * @return MetadataFieldConfig
+	 */
+	 getSubGenre() {
+	 	return this.subGenre;
+	 }
+	
+	/**
+	 * @param subGenre MetadataFieldConfig Configuration for &#39;subGenre&#39; AI generated metadata field
+	 */
+	 setSubGenre(subGenre) {
+	 	this.subGenre = subGenre;
+	 }
+	
+	/**
+	 * Configuration for &#39;sentiment&#39; AI generated metadata field
+	 * @return MetadataFieldConfig
+	 */
+	 getSentiment() {
+	 	return this.sentiment;
+	 }
+	
+	/**
+	 * @param sentiment MetadataFieldConfig Configuration for &#39;sentiment&#39; AI generated metadata field
+	 */
+	 setSentiment(sentiment) {
+	 	this.sentiment = sentiment;
+	 }
+	
+	/**
+	 * Configuration for &#39;suggestedTitle&#39; AI generated metadata field
+	 * @return MetadataFieldConfig
+	 */
+	 getSuggestedTitle() {
+	 	return this.suggestedTitle;
+	 }
+	
+	/**
+	 * @param suggestedTitle MetadataFieldConfig Configuration for &#39;suggestedTitle&#39; AI generated metadata field
+	 */
+	 setSuggestedTitle(suggestedTitle) {
+	 	this.suggestedTitle = suggestedTitle;
+	 }
+	
+	/**
+	 * Configuration for &#39;Description&#39; AI generated metadata field
+	 * @return MetadataFieldConfig
+	 */
+	 getDescription() {
+	 	return this.description;
+	 }
+	
+	/**
+	 * @param description MetadataFieldConfig Configuration for &#39;Description&#39; AI generated metadata field
+	 */
+	 setDescription(description) {
+	 	this.description = description;
+	 }
+	
+	/**
+	 * Configuration for &#39;oneLiner&#39; AI generated metadata field
+	 * @return MetadataFieldConfig
+	 */
+	 getOneLiner() {
+	 	return this.oneLiner;
+	 }
+	
+	/**
+	 * @param oneLiner MetadataFieldConfig Configuration for &#39;oneLiner&#39; AI generated metadata field
+	 */
+	 setOneLiner(oneLiner) {
+	 	this.oneLiner = oneLiner;
+	 }
+	
+	/**
+	 * Configuration for &#39;Keywords&#39; AI generated metadata field
+	 * @return MetadataFieldConfig
+	 */
+	 getKeywords() {
+	 	return this.keywords;
+	 }
+	
+	/**
+	 * @param keywords MetadataFieldConfig Configuration for &#39;Keywords&#39; AI generated metadata field
+	 */
+	 setKeywords(keywords) {
+	 	this.keywords = keywords;
+	 }
+	
+	/**
+	 * Configuration for &#39;sensitiveContent&#39; AI generated metadata field
+	 * @return MetadataFieldConfig
+	 */
+	 getSensitiveContent() {
+	 	return this.sensitiveContent;
+	 }
+	
+	/**
+	 * @param sensitiveContent MetadataFieldConfig Configuration for &#39;sensitiveContent&#39; AI generated metadata field
+	 */
+	 setSensitiveContent(sensitiveContent) {
+	 	this.sensitiveContent = sensitiveContent;
+	 }
+}
+module.exports.MetadataFieldConfigurationMap = MetadataFieldConfigurationMap;
+
+/**
+ *
+ */
+class AiMetadataGeneratorConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAiMetadataGeneratorConfiguration';
+	}
+	
+	/**
+	 * A type of dictionary defined as [string,KalturaMetadataFieldConfigurationMap].
+ * This property is used to correlate the newly generated metadata to
+ * existing metadata IDs which are available in the asset&#39;s struct with configuration
+	 * @return map
+	 */
+	 getAssetStructConfigMap() {
+	 	return this.assetStructConfigMap;
+	 }
+	
+	/**
+	 * @param assetStructConfigMap map A type of dictionary defined as [string,KalturaMetadataFieldConfigurationMap].
+ * This property is used to correlate the newly generated metadata to
+ * existing metadata IDs which are available in the asset&#39;s struct with configuration
+	 */
+	 setAssetStructConfigMap(assetStructConfigMap) {
+	 	this.assetStructConfigMap = assetStructConfigMap;
+	 }
+	
+	/**
+	 * A read only array to list the set of languages which can be used with the service.
+ * In practice it is populated with the values set in KalturaMetadataGeneratorLanguages ENUM
+	 * @return array
+	 */
+	 getSupportedLanguages() {
+	 	return this.supportedLanguages;
+	 }
+}
+module.exports.AiMetadataGeneratorConfiguration = AiMetadataGeneratorConfiguration;
 
 /**
  *
@@ -9153,46 +9421,6 @@ class MetaFieldNameMap extends kaltura.BaseObject{
 	 }
 }
 module.exports.MetaFieldNameMap = MetaFieldNameMap;
-
-/**
- *
- */
-class AiMetadataGeneratorConfiguration extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAiMetadataGeneratorConfiguration';
-	}
-	
-	/**
-	 * A type of dictionary defined as [long,KalturaMetaFieldNameMap].
- * This property is used to correlate the newly generated metadata to
- * existing metadata IDs which are available in the asset’s struct
-	 * @return map
-	 */
-	 getAssetStructMetaNameMap() {
-	 	return this.assetStructMetaNameMap;
-	 }
-	
-	/**
-	 * @param assetStructMetaNameMap map A type of dictionary defined as [long,KalturaMetaFieldNameMap].
- * This property is used to correlate the newly generated metadata to
- * existing metadata IDs which are available in the asset’s struct
-	 */
-	 setAssetStructMetaNameMap(assetStructMetaNameMap) {
-	 	this.assetStructMetaNameMap = assetStructMetaNameMap;
-	 }
-	
-	/**
-	 * A read only array to list the set of languages which can be used with the service.
- * In practice it is populated with the values set in KalturaMetadataGeneratorLanguages ENUM
-	 * @return array
-	 */
-	 getSupportedLanguages() {
-	 	return this.supportedLanguages;
-	 }
-}
-module.exports.AiMetadataGeneratorConfiguration = AiMetadataGeneratorConfiguration;
 
 /**
  *
@@ -11619,7 +11847,7 @@ class AiRecommendationTreePartnerConfiguration extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Number of regular answers per question (range: 2-5)
+	 * Number of regular answers per question (range: 2-4)
 	 * @return int
 	 */
 	 getAnswersPerQuestion() {
@@ -11627,7 +11855,7 @@ class AiRecommendationTreePartnerConfiguration extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param answersPerQuestion int Number of regular answers per question (range: 2-5)
+	 * @param answersPerQuestion int Number of regular answers per question (range: 2-4)
 	 */
 	 setAnswersPerQuestion(answersPerQuestion) {
 	 	this.answersPerQuestion = answersPerQuestion;
@@ -11699,6 +11927,14 @@ class AiRecommendationTreePartnerConfiguration extends kaltura.BaseObject{
 	 */
 	 getActiveTreeId() {
 	 	return this.activeTreeId;
+	 }
+	
+	/**
+	 * Feature level of the recommendation tree (e.g., Basic, Premium)
+	 * @return string
+	 */
+	 getFeatureType() {
+	 	return this.featureType;
 	 }
 }
 module.exports.AiRecommendationTreePartnerConfiguration = AiRecommendationTreePartnerConfiguration;
@@ -12385,6 +12621,36 @@ class AssetFilePpv extends OTTObjectSupportNullable{
 	 */
 	 setEndDate(endDate) {
 	 	this.endDate = endDate;
+	 }
+	
+	/**
+	 * First date and time an KalturaAssetFilePpv.AssetFileId can be purchased with the given KalturaAssetFilePpv.PpvModuleId. Represented as epoch
+	 * @return int
+	 */
+	 getPurchaseStartDate() {
+	 	return this.purchaseStartDate;
+	 }
+	
+	/**
+	 * @param purchaseStartDate int First date and time an KalturaAssetFilePpv.AssetFileId can be purchased with the given KalturaAssetFilePpv.PpvModuleId. Represented as epoch
+	 */
+	 setPurchaseStartDate(purchaseStartDate) {
+	 	this.purchaseStartDate = purchaseStartDate;
+	 }
+	
+	/**
+	 * Final date and time an KalturaAssetFilePpv.AssetFileId can be purchased with the given KalturaAssetFilePpv.PpvModuleId. Represented as epoch
+	 * @return int
+	 */
+	 getPurchaseEndDate() {
+	 	return this.purchaseEndDate;
+	 }
+	
+	/**
+	 * @param purchaseEndDate int Final date and time an KalturaAssetFilePpv.AssetFileId can be purchased with the given KalturaAssetFilePpv.PpvModuleId. Represented as epoch
+	 */
+	 setPurchaseEndDate(purchaseEndDate) {
+	 	this.purchaseEndDate = purchaseEndDate;
 	 }
 }
 module.exports.AssetFilePpv = AssetFilePpv;
@@ -17143,6 +17409,33 @@ module.exports.StartDateOffsetRuleAction = StartDateOffsetRuleAction;
 /**
  *
  */
+class SetPlaybackContextUrlTypeAction extends AssetRuleAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSetPlaybackContextUrlTypeAction';
+	}
+	
+	/**
+	 * URL Type to override (DIRECT or PLAYMANIFEST)
+	 * @return string
+	 */
+	 getUrlType() {
+	 	return this.urlType;
+	 }
+	
+	/**
+	 * @param urlType string URL Type to override (DIRECT or PLAYMANIFEST)
+	 */
+	 setUrlType(urlType) {
+	 	this.urlType = urlType;
+	 }
+}
+module.exports.SetPlaybackContextUrlTypeAction = SetPlaybackContextUrlTypeAction;
+
+/**
+ *
+ */
 class BasePreActionCondition extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -20482,6 +20775,21 @@ class BaseSegmentCondition extends kaltura.BaseObject{
 		super(object);
 		this.objectType = 'KalturaBaseSegmentCondition';
 	}
+	
+	/**
+	 * Defines the scope of the condition evaluation
+	 * @return string
+	 */
+	 getScope() {
+	 	return this.scope;
+	 }
+	
+	/**
+	 * @param scope string Defines the scope of the condition evaluation
+	 */
+	 setScope(scope) {
+	 	this.scope = scope;
+	 }
 }
 module.exports.BaseSegmentCondition = BaseSegmentCondition;
 
@@ -20663,6 +20971,21 @@ class SegmentationType extends kaltura.BaseObject{
 	 setAssetUserRuleId(assetUserRuleId) {
 	 	this.assetUserRuleId = assetUserRuleId;
 	 }
+	
+	/**
+	 * Defines whether segments are applied to users or households
+	 * @return string
+	 */
+	 getScope() {
+	 	return this.scope;
+	 }
+	
+	/**
+	 * @param scope string Defines whether segments are applied to users or households
+	 */
+	 setScope(scope) {
+	 	this.scope = scope;
+	 }
 }
 module.exports.SegmentationType = SegmentationType;
 
@@ -20692,6 +21015,720 @@ class SegmentationTypeListResponse extends ListResponse{
 	 }
 }
 module.exports.SegmentationTypeListResponse = SegmentationTypeListResponse;
+
+/**
+ *
+ */
+class ContentTypeSelector extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaContentTypeSelector';
+	}
+	
+	/**
+	 * Determines if Recording assets are counted.
+ * Omitted or true: Recordings are included.
+ * false: Recordings are excluded
+	 * @return bool
+	 */
+	 getIncludeRecordings() {
+	 	return this.includeRecordings;
+	 }
+	
+	/**
+	 * @param includeRecordings bool Determines if Recording assets are counted.
+ * Omitted or true: Recordings are included.
+ * false: Recordings are excluded
+	 */
+	 setIncludeRecordings(includeRecordings) {
+	 	this.includeRecordings = includeRecordings;
+	 }
+	
+	/**
+	 * Determines if EPG Program assets (Live, Catch-up, Start-over) are counted.
+ * Omitted or true: Programs are included.
+ * false: Programs are excluded
+	 * @return bool
+	 */
+	 getIncludePrograms() {
+	 	return this.includePrograms;
+	 }
+	
+	/**
+	 * @param includePrograms bool Determines if EPG Program assets (Live, Catch-up, Start-over) are counted.
+ * Omitted or true: Programs are included.
+ * false: Programs are excluded
+	 */
+	 setIncludePrograms(includePrograms) {
+	 	this.includePrograms = includePrograms;
+	 }
+	
+	/**
+	 * Filter for specific playable media types (e.g., Movie, Episode).
+ * Omitted: ALL playable media types are included.
+ * Provided (List of IDs): ONLY the media types matching the listed IDs are included.
+ * Provided (Empty String): NO media types are included.
+ * Constraint: IDs must correspond to valid playable media types. Providing an invalid ID will result in an error
+	 * @return string
+	 */
+	 getMediaTypeIdIn() {
+	 	return this.mediaTypeIdIn;
+	 }
+	
+	/**
+	 * @param mediaTypeIdIn string Filter for specific playable media types (e.g., Movie, Episode).
+ * Omitted: ALL playable media types are included.
+ * Provided (List of IDs): ONLY the media types matching the listed IDs are included.
+ * Provided (Empty String): NO media types are included.
+ * Constraint: IDs must correspond to valid playable media types. Providing an invalid ID will result in an error
+	 */
+	 setMediaTypeIdIn(mediaTypeIdIn) {
+	 	this.mediaTypeIdIn = mediaTypeIdIn;
+	 }
+}
+module.exports.ContentTypeSelector = ContentTypeSelector;
+
+/**
+ *
+ */
+class ViewTimeConstraint extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaViewTimeConstraint';
+	}
+	
+	/**
+	 * The starting time of the viewing window
+	 * @return string
+	 */
+	 getStartTime() {
+	 	return this.startTime;
+	 }
+	
+	/**
+	 * @param startTime string The starting time of the viewing window
+	 */
+	 setStartTime(startTime) {
+	 	this.startTime = startTime;
+	 }
+	
+	/**
+	 * The ending time of the viewing window
+	 * @return string
+	 */
+	 getEndTime() {
+	 	return this.endTime;
+	 }
+	
+	/**
+	 * @param endTime string The ending time of the viewing window
+	 */
+	 setEndTime(endTime) {
+	 	this.endTime = endTime;
+	 }
+}
+module.exports.ViewTimeConstraint = ViewTimeConstraint;
+
+/**
+ *
+ */
+class BaseAttributeConstraint extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBaseAttributeConstraint';
+	}
+	
+	/**
+	 * Discriminator field to identify the specific attribute constraint type
+	 * @return string
+	 */
+	 getAttributeType() {
+	 	return this.attributeType;
+	 }
+	
+	/**
+	 * @param attributeType string Discriminator field to identify the specific attribute constraint type
+	 */
+	 setAttributeType(attributeType) {
+	 	this.attributeType = attributeType;
+	 }
+	
+	/**
+	 * The system name of the metadata field to query
+	 * @return string
+	 */
+	 getKey() {
+	 	return this.key;
+	 }
+	
+	/**
+	 * @param key string The system name of the metadata field to query
+	 */
+	 setKey(key) {
+	 	this.key = key;
+	 }
+}
+module.exports.BaseAttributeConstraint = BaseAttributeConstraint;
+
+/**
+ *
+ */
+class BaseWatchCondition extends BaseSegmentCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaBaseWatchCondition';
+	}
+	
+	/**
+	 * Defines the scope of the condition evaluation
+	 * @return string
+	 */
+	 getLevel() {
+	 	return this.level;
+	 }
+	
+	/**
+	 * @param level string Defines the scope of the condition evaluation
+	 */
+	 setLevel(level) {
+	 	this.level = level;
+	 }
+	
+	/**
+	 * Specifies criteria to include or exclude specific content types (recordings, programs, media types) from the evaluation
+	 * @return ContentTypeSelector
+	 */
+	 getContentFilter() {
+	 	return this.contentFilter;
+	 }
+	
+	/**
+	 * @param contentFilter ContentTypeSelector Specifies criteria to include or exclude specific content types (recordings, programs, media types) from the evaluation
+	 */
+	 setContentFilter(contentFilter) {
+	 	this.contentFilter = contentFilter;
+	 }
+	
+	/**
+	 * The period in days to look back for watch history
+	 * @return int
+	 */
+	 getEvaluationDays() {
+	 	return this.evaluationDays;
+	 }
+	
+	/**
+	 * @param evaluationDays int The period in days to look back for watch history
+	 */
+	 setEvaluationDays(evaluationDays) {
+	 	this.evaluationDays = evaluationDays;
+	 }
+	
+	/**
+	 * A comma-separated list of device family names (e.g., &#39;mobile&#39;, &#39;web&#39;, &#39;stb&#39;)
+	 * @return string
+	 */
+	 getDeviceFamilyIn() {
+	 	return this.deviceFamilyIn;
+	 }
+	
+	/**
+	 * @param deviceFamilyIn string A comma-separated list of device family names (e.g., &#39;mobile&#39;, &#39;web&#39;, &#39;stb&#39;)
+	 */
+	 setDeviceFamilyIn(deviceFamilyIn) {
+	 	this.deviceFamilyIn = deviceFamilyIn;
+	 }
+	
+	/**
+	 * Filters watch actions that occurred within a specific time window
+	 * @return ViewTimeConstraint
+	 */
+	 getViewTimeConstraint() {
+	 	return this.viewTimeConstraint;
+	 }
+	
+	/**
+	 * @param viewTimeConstraint ViewTimeConstraint Filters watch actions that occurred within a specific time window
+	 */
+	 setViewTimeConstraint(viewTimeConstraint) {
+	 	this.viewTimeConstraint = viewTimeConstraint;
+	 }
+	
+	/**
+	 * Defines whether to use AND or OR between the items in constraintAttributes
+	 * @return string
+	 */
+	 getConstraintsOperator() {
+	 	return this.constraintsOperator;
+	 }
+	
+	/**
+	 * @param constraintsOperator string Defines whether to use AND or OR between the items in constraintAttributes
+	 */
+	 setConstraintsOperator(constraintsOperator) {
+	 	this.constraintsOperator = constraintsOperator;
+	 }
+	
+	/**
+	 * A list of up to 5 specific constraints to filter the watch history
+	 * @return array
+	 */
+	 getConstraintAttributes() {
+	 	return this.constraintAttributes;
+	 }
+	
+	/**
+	 * @param constraintAttributes array A list of up to 5 specific constraints to filter the watch history
+	 */
+	 setConstraintAttributes(constraintAttributes) {
+	 	this.constraintAttributes = constraintAttributes;
+	 }
+}
+module.exports.BaseWatchCondition = BaseWatchCondition;
+
+/**
+ *
+ */
+class WatchCountCondition extends BaseWatchCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaWatchCountCondition';
+	}
+	
+	/**
+	 * The minimum count to be met.
+ * Constraint: Must be less than or equal to maxCount
+	 * @return int
+	 */
+	 getMinCount() {
+	 	return this.minCount;
+	 }
+	
+	/**
+	 * @param minCount int The minimum count to be met.
+ * Constraint: Must be less than or equal to maxCount
+	 */
+	 setMinCount(minCount) {
+	 	this.minCount = minCount;
+	 }
+	
+	/**
+	 * The maximum count to be met.
+ * Constraint: Must be greater than or equal to minCount
+	 * @return int
+	 */
+	 getMaxCount() {
+	 	return this.maxCount;
+	 }
+	
+	/**
+	 * @param maxCount int The maximum count to be met.
+ * Constraint: Must be greater than or equal to minCount
+	 */
+	 setMaxCount(maxCount) {
+	 	this.maxCount = maxCount;
+	 }
+}
+module.exports.WatchCountCondition = WatchCountCondition;
+
+/**
+ *
+ */
+class WatchDurationCondition extends BaseWatchCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaWatchDurationCondition';
+	}
+	
+	/**
+	 * The minimum duration in hours to be met.
+ * Constraint: Must be less than or equal to maxDurationHours
+	 * @return int
+	 */
+	 getMinDurationHours() {
+	 	return this.minDurationHours;
+	 }
+	
+	/**
+	 * @param minDurationHours int The minimum duration in hours to be met.
+ * Constraint: Must be less than or equal to maxDurationHours
+	 */
+	 setMinDurationHours(minDurationHours) {
+	 	this.minDurationHours = minDurationHours;
+	 }
+	
+	/**
+	 * The maximum duration in hours to be met.
+ * Constraint: Must be greater than or equal to minDurationHours
+	 * @return int
+	 */
+	 getMaxDurationHours() {
+	 	return this.maxDurationHours;
+	 }
+	
+	/**
+	 * @param maxDurationHours int The maximum duration in hours to be met.
+ * Constraint: Must be greater than or equal to minDurationHours
+	 */
+	 setMaxDurationHours(maxDurationHours) {
+	 	this.maxDurationHours = maxDurationHours;
+	 }
+}
+module.exports.WatchDurationCondition = WatchDurationCondition;
+
+/**
+ *
+ */
+class AudioLanguageConstraint extends BaseAttributeConstraint{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAudioLanguageConstraint';
+	}
+	
+	/**
+	 * A comma-separated list of audio language codes
+	 * @return string
+	 */
+	 getLanguageCodes() {
+	 	return this.languageCodes;
+	 }
+	
+	/**
+	 * @param languageCodes string A comma-separated list of audio language codes
+	 */
+	 setLanguageCodes(languageCodes) {
+	 	this.languageCodes = languageCodes;
+	 }
+}
+module.exports.AudioLanguageConstraint = AudioLanguageConstraint;
+
+/**
+ *
+ */
+class DateMetaConstraint extends BaseAttributeConstraint{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaDateMetaConstraint';
+	}
+	
+	/**
+	 * The exact epoch timestamp the field must equal
+	 * @return string
+	 */
+	 getEquals() {
+	 	return this.equals;
+	 }
+	
+	/**
+	 * @param equals string The exact epoch timestamp the field must equal
+	 */
+	 setEquals(equals) {
+	 	this.equals = equals;
+	 }
+	
+	/**
+	 * The epoch timestamp the field must be greater than
+	 * @return string
+	 */
+	 getGreaterThan() {
+	 	return this.greaterThan;
+	 }
+	
+	/**
+	 * @param greaterThan string The epoch timestamp the field must be greater than
+	 */
+	 setGreaterThan(greaterThan) {
+	 	this.greaterThan = greaterThan;
+	 }
+	
+	/**
+	 * The epoch timestamp the field must be smaller than
+	 * @return string
+	 */
+	 getSmallerThan() {
+	 	return this.smallerThan;
+	 }
+	
+	/**
+	 * @param smallerThan string The epoch timestamp the field must be smaller than
+	 */
+	 setSmallerThan(smallerThan) {
+	 	this.smallerThan = smallerThan;
+	 }
+}
+module.exports.DateMetaConstraint = DateMetaConstraint;
+
+/**
+ *
+ */
+class EntitlementConstraint extends BaseAttributeConstraint{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEntitlementConstraint';
+	}
+	
+	/**
+	 * A comma-separated list of entitlement product IDs
+	 * @return string
+	 */
+	 getProductIds() {
+	 	return this.productIds;
+	 }
+	
+	/**
+	 * @param productIds string A comma-separated list of entitlement product IDs
+	 */
+	 setProductIds(productIds) {
+	 	this.productIds = productIds;
+	 }
+}
+module.exports.EntitlementConstraint = EntitlementConstraint;
+
+/**
+ *
+ */
+class EnumMetaConstraint extends BaseAttributeConstraint{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaEnumMetaConstraint';
+	}
+	
+	/**
+	 * A comma-separated list of values. The metadata field enum&#39;s values must match at least one of these items
+	 * @return string
+	 */
+	 getOneOf() {
+	 	return this.oneOf;
+	 }
+	
+	/**
+	 * @param oneOf string A comma-separated list of values. The metadata field enum&#39;s values must match at least one of these items
+	 */
+	 setOneOf(oneOf) {
+	 	this.oneOf = oneOf;
+	 }
+}
+module.exports.EnumMetaConstraint = EnumMetaConstraint;
+
+/**
+ *
+ */
+class NumberMetaConstraint extends BaseAttributeConstraint{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaNumberMetaConstraint';
+	}
+	
+	/**
+	 * The exact numeric value the field must equal
+	 * @return string
+	 */
+	 getEquals() {
+	 	return this.equals;
+	 }
+	
+	/**
+	 * @param equals string The exact numeric value the field must equal
+	 */
+	 setEquals(equals) {
+	 	this.equals = equals;
+	 }
+	
+	/**
+	 * The numeric value the field must be greater than
+	 * @return string
+	 */
+	 getGreaterThan() {
+	 	return this.greaterThan;
+	 }
+	
+	/**
+	 * @param greaterThan string The numeric value the field must be greater than
+	 */
+	 setGreaterThan(greaterThan) {
+	 	this.greaterThan = greaterThan;
+	 }
+	
+	/**
+	 * The numeric value the field must be smaller than
+	 * @return string
+	 */
+	 getSmallerThan() {
+	 	return this.smallerThan;
+	 }
+	
+	/**
+	 * @param smallerThan string The numeric value the field must be smaller than
+	 */
+	 setSmallerThan(smallerThan) {
+	 	this.smallerThan = smallerThan;
+	 }
+}
+module.exports.NumberMetaConstraint = NumberMetaConstraint;
+
+/**
+ *
+ */
+class SubtitleLanguageConstraint extends BaseAttributeConstraint{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSubtitleLanguageConstraint';
+	}
+	
+	/**
+	 * A comma-separated list of subtitle language codes
+	 * @return string
+	 */
+	 getLanguageCodes() {
+	 	return this.languageCodes;
+	 }
+	
+	/**
+	 * @param languageCodes string A comma-separated list of subtitle language codes
+	 */
+	 setLanguageCodes(languageCodes) {
+	 	this.languageCodes = languageCodes;
+	 }
+}
+module.exports.SubtitleLanguageConstraint = SubtitleLanguageConstraint;
+
+/**
+ *
+ */
+class TagsMetaConstraint extends BaseAttributeConstraint{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTagsMetaConstraint';
+	}
+	
+	/**
+	 * A comma-separated list of values. The metadata field tag&#39;s values must match at least one of these items
+	 * @return string
+	 */
+	 getOneOf() {
+	 	return this.oneOf;
+	 }
+	
+	/**
+	 * @param oneOf string A comma-separated list of values. The metadata field tag&#39;s values must match at least one of these items
+	 */
+	 setOneOf(oneOf) {
+	 	this.oneOf = oneOf;
+	 }
+}
+module.exports.TagsMetaConstraint = TagsMetaConstraint;
+
+/**
+ *
+ */
+class TextMetaConstraint extends BaseAttributeConstraint{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTextMetaConstraint';
+	}
+	
+	/**
+	 * The substring that the metadata field value must contain
+	 * @return string
+	 */
+	 getContains() {
+	 	return this.contains;
+	 }
+	
+	/**
+	 * @param contains string The substring that the metadata field value must contain
+	 */
+	 setContains(contains) {
+	 	this.contains = contains;
+	 }
+	
+	/**
+	 * The exact string value the field must equal
+	 * @return string
+	 */
+	 getEquals() {
+	 	return this.equals;
+	 }
+	
+	/**
+	 * @param equals string The exact string value the field must equal
+	 */
+	 setEquals(equals) {
+	 	this.equals = equals;
+	 }
+}
+module.exports.TextMetaConstraint = TextMetaConstraint;
+
+/**
+ *
+ */
+class CollectionPurchasedCondition extends BaseSegmentCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaCollectionPurchasedCondition';
+	}
+	
+	/**
+	 * Collection purchase conditions are always evaluated at the Household level
+	 * @return string
+	 */
+	 getLevel() {
+	 	return this.level;
+	 }
+	
+	/**
+	 * @param level string Collection purchase conditions are always evaluated at the Household level
+	 */
+	 setLevel(level) {
+	 	this.level = level;
+	 }
+	
+	/**
+	 * The specific purchased collection product identifier to check
+	 * @return int
+	 */
+	 getCollectionIdEquals() {
+	 	return this.collectionIdEquals;
+	 }
+	
+	/**
+	 * @param collectionIdEquals int The specific purchased collection product identifier to check
+	 */
+	 setCollectionIdEquals(collectionIdEquals) {
+	 	this.collectionIdEquals = collectionIdEquals;
+	 }
+	
+	/**
+	 * The number of days to look back for the purchase
+	 * @return int
+	 */
+	 getDays() {
+	 	return this.days;
+	 }
+	
+	/**
+	 * @param days int The number of days to look back for the purchase
+	 */
+	 setDays(days) {
+	 	this.days = days;
+	 }
+}
+module.exports.CollectionPurchasedCondition = CollectionPurchasedCondition;
 
 /**
  *
@@ -20880,52 +21917,22 @@ class MonetizationCondition extends BaseSegmentCondition{
 	}
 	
 	/**
-	 * How many days back should the actions be considered
-	 * @return int
-	 */
-	 getDays() {
-	 	return this.days;
-	 }
-	
-	/**
-	 * @param days int How many days back should the actions be considered
-	 */
-	 setDays(days) {
-	 	this.days = days;
-	 }
-	
-	/**
-	 * Purchase type
+	 * Monetization conditions are always evaluated at the Household level
 	 * @return string
 	 */
-	 getType() {
-	 	return this.type;
+	 getLevel() {
+	 	return this.level;
 	 }
 	
 	/**
-	 * @param type string Purchase type
+	 * @param level string Monetization conditions are always evaluated at the Household level
 	 */
-	 setType(type) {
-	 	this.type = type;
+	 setLevel(level) {
+	 	this.level = level;
 	 }
 	
 	/**
-	 * Mathermtical operator to calculate
-	 * @return string
-	 */
-	 getOperator() {
-	 	return this.operator;
-	 }
-	
-	/**
-	 * @param operator string Mathermtical operator to calculate
-	 */
-	 setOperator(operator) {
-	 	this.operator = operator;
-	 }
-	
-	/**
-	 * Comma saperated list of business module IDs
+	 * A comma-separated list of business module IDs to include in the filter
 	 * @return string
 	 */
 	 getBusinessModuleIdIn() {
@@ -20933,14 +21940,14 @@ class MonetizationCondition extends BaseSegmentCondition{
 	 }
 	
 	/**
-	 * @param businessModuleIdIn string Comma saperated list of business module IDs
+	 * @param businessModuleIdIn string A comma-separated list of business module IDs to include in the filter
 	 */
 	 setBusinessModuleIdIn(businessModuleIdIn) {
 	 	this.businessModuleIdIn = businessModuleIdIn;
 	 }
 	
 	/**
-	 * Which currency code should be taken into consideration
+	 * The ISO 4217 currency code to filter by
 	 * @return string
 	 */
 	 getCurrencyCode() {
@@ -20948,29 +21955,30 @@ class MonetizationCondition extends BaseSegmentCondition{
 	 }
 	
 	/**
-	 * @param currencyCode string Which currency code should be taken into consideration
+	 * @param currencyCode string The ISO 4217 currency code to filter by
 	 */
 	 setCurrencyCode(currencyCode) {
 	 	this.currencyCode = currencyCode;
 	 }
 	
 	/**
-	 * The minimum value to be met
+	 * The number of days to look back for monetization actions
 	 * @return int
 	 */
-	 getMinValue() {
-	 	return this.minValue;
+	 getDays() {
+	 	return this.days;
 	 }
 	
 	/**
-	 * @param minValue int The minimum value to be met
+	 * @param days int The number of days to look back for monetization actions
 	 */
-	 setMinValue(minValue) {
-	 	this.minValue = minValue;
+	 setDays(days) {
+	 	this.days = days;
 	 }
 	
 	/**
-	 * The maximum value to be met
+	 * The maximum allowable value for the calculated metric.
+ * MinValue must be greater than or equal to MaxValue
 	 * @return int
 	 */
 	 getMaxValue() {
@@ -20978,13 +21986,175 @@ class MonetizationCondition extends BaseSegmentCondition{
 	 }
 	
 	/**
-	 * @param maxValue int The maximum value to be met
+	 * @param maxValue int The maximum allowable value for the calculated metric.
+ * MinValue must be greater than or equal to MaxValue
 	 */
 	 setMaxValue(maxValue) {
 	 	this.maxValue = maxValue;
 	 }
+	
+	/**
+	 * The minimum required value for the calculated metric.
+ * MinValue must be less than or equal to MaxValue
+	 * @return int
+	 */
+	 getMinValue() {
+	 	return this.minValue;
+	 }
+	
+	/**
+	 * @param minValue int The minimum required value for the calculated metric.
+ * MinValue must be less than or equal to MaxValue
+	 */
+	 setMinValue(minValue) {
+	 	this.minValue = minValue;
+	 }
+	
+	/**
+	 * The aggregation method used to calculate the value (e.g., counting transactions, summing amounts)
+	 * @return string
+	 */
+	 getOperator() {
+	 	return this.operator;
+	 }
+	
+	/**
+	 * @param operator string The aggregation method used to calculate the value (e.g., counting transactions, summing amounts)
+	 */
+	 setOperator(operator) {
+	 	this.operator = operator;
+	 }
+	
+	/**
+	 * The specific monetization type to filter by
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
+	
+	/**
+	 * @param type string The specific monetization type to filter by
+	 */
+	 setType(type) {
+	 	this.type = type;
+	 }
 }
 module.exports.MonetizationCondition = MonetizationCondition;
+
+/**
+ *
+ */
+class SubscriptionEntitledCondition extends BaseSegmentCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSubscriptionEntitledCondition';
+	}
+	
+	/**
+	 * Entitlement conditions are always evaluated at the Household level
+	 * @return string
+	 */
+	 getLevel() {
+	 	return this.level;
+	 }
+	
+	/**
+	 * @param level string Entitlement conditions are always evaluated at the Household level
+	 */
+	 setLevel(level) {
+	 	this.level = level;
+	 }
+	
+	/**
+	 * The specific subscription product identifier to check
+	 * @return int
+	 */
+	 getSubscriptionIdEquals() {
+	 	return this.subscriptionIdEquals;
+	 }
+	
+	/**
+	 * @param subscriptionIdEquals int The specific subscription product identifier to check
+	 */
+	 setSubscriptionIdEquals(subscriptionIdEquals) {
+	 	this.subscriptionIdEquals = subscriptionIdEquals;
+	 }
+}
+module.exports.SubscriptionEntitledCondition = SubscriptionEntitledCondition;
+
+/**
+ *
+ */
+class TvodPurchasedCondition extends BaseSegmentCondition{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaTvodPurchasedCondition';
+	}
+	
+	/**
+	 * TVOD purchase conditions are always evaluated at the Household level
+	 * @return string
+	 */
+	 getLevel() {
+	 	return this.level;
+	 }
+	
+	/**
+	 * @param level string TVOD purchase conditions are always evaluated at the Household level
+	 */
+	 setLevel(level) {
+	 	this.level = level;
+	 }
+	
+	/**
+	 * The specific purchased ppv product identifier to check
+	 * @return int
+	 */
+	 getPpvIdEquals() {
+	 	return this.ppvIdEquals;
+	 }
+	
+	/**
+	 * @param ppvIdEquals int The specific purchased ppv product identifier to check
+	 */
+	 setPpvIdEquals(ppvIdEquals) {
+	 	this.ppvIdEquals = ppvIdEquals;
+	 }
+	
+	/**
+	 * The specific purchased media entry identifier to check
+	 * @return int
+	 */
+	 getMediaIdEquals() {
+	 	return this.mediaIdEquals;
+	 }
+	
+	/**
+	 * @param mediaIdEquals int The specific purchased media entry identifier to check
+	 */
+	 setMediaIdEquals(mediaIdEquals) {
+	 	this.mediaIdEquals = mediaIdEquals;
+	 }
+	
+	/**
+	 * The number of days to look back for the purchase
+	 * @return int
+	 */
+	 getDays() {
+	 	return this.days;
+	 }
+	
+	/**
+	 * @param days int The number of days to look back for the purchase
+	 */
+	 setDays(days) {
+	 	this.days = days;
+	 }
+}
+module.exports.TvodPurchasedCondition = TvodPurchasedCondition;
 
 /**
  *
@@ -21876,6 +23046,66 @@ class WatchBasedRecommendationsProfile extends kaltura.BaseObject{
 	 */
 	 setPlaybackInterestsCalculationPeriodDays(playbackInterestsCalculationPeriodDays) {
 	 	this.playbackInterestsCalculationPeriodDays = playbackInterestsCalculationPeriodDays;
+	 }
+	
+	/**
+	 * Determines whether catch-up viewing data should be included in the user&#39;s interest analysis
+	 * @return bool
+	 */
+	 getAnalyzeCatchUps() {
+	 	return this.analyzeCatchUps;
+	 }
+	
+	/**
+	 * @param analyzeCatchUps bool Determines whether catch-up viewing data should be included in the user&#39;s interest analysis
+	 */
+	 setAnalyzeCatchUps(analyzeCatchUps) {
+	 	this.analyzeCatchUps = analyzeCatchUps;
+	 }
+	
+	/**
+	 * Determines whether linear events viewing data should be included in the user&#39;s interest analysis
+	 * @return bool
+	 */
+	 getAnalyzeLinearEvents() {
+	 	return this.analyzeLinearEvents;
+	 }
+	
+	/**
+	 * @param analyzeLinearEvents bool Determines whether linear events viewing data should be included in the user&#39;s interest analysis
+	 */
+	 setAnalyzeLinearEvents(analyzeLinearEvents) {
+	 	this.analyzeLinearEvents = analyzeLinearEvents;
+	 }
+	
+	/**
+	 * Minimum required viewing time per session (in minutes) for live content to be considered in the analysis
+	 * @return int
+	 */
+	 getUserInterestPlayThresholdForEventInMinutes() {
+	 	return this.userInterestPlayThresholdForEventInMinutes;
+	 }
+	
+	/**
+	 * @param userInterestPlayThresholdForEventInMinutes int Minimum required viewing time per session (in minutes) for live content to be considered in the analysis
+	 */
+	 setUserInterestPlayThresholdForEventInMinutes(userInterestPlayThresholdForEventInMinutes) {
+	 	this.userInterestPlayThresholdForEventInMinutes = userInterestPlayThresholdForEventInMinutes;
+	 }
+	
+	/**
+	 * Minimum required viewing time per session (in minutes) for live content to be considered in the analysis
+	 * @return int
+	 */
+	 getMaximumEventsPerSession() {
+	 	return this.maximumEventsPerSession;
+	 }
+	
+	/**
+	 * @param maximumEventsPerSession int Minimum required viewing time per session (in minutes) for live content to be considered in the analysis
+	 */
+	 setMaximumEventsPerSession(maximumEventsPerSession) {
+	 	this.maximumEventsPerSession = maximumEventsPerSession;
 	 }
 }
 module.exports.WatchBasedRecommendationsProfile = WatchBasedRecommendationsProfile;
@@ -30300,6 +31530,48 @@ module.exports.AssetListResponse = AssetListResponse;
 /**
  *
  */
+class ExternalAssetListResponse extends AssetListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaExternalAssetListResponse';
+	}
+	
+	/**
+	 * Identify the query that sent to the external subsystem to retrieve the response
+	 * @return string
+	 */
+	 getExternalQueryId() {
+	 	return this.externalQueryId;
+	 }
+	
+	/**
+	 * @param externalQueryId string Identify the query that sent to the external subsystem to retrieve the response
+	 */
+	 setExternalQueryId(externalQueryId) {
+	 	this.externalQueryId = externalQueryId;
+	 }
+	
+	/**
+	 * Assets
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Assets
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.ExternalAssetListResponse = ExternalAssetListResponse;
+
+/**
+ *
+ */
 class AssetStatisticsListResponse extends ListResponse{
 	
 	constructor(object = null) {
@@ -36517,6 +37789,155 @@ module.exports.SessionInfo = SessionInfo;
 /**
  *
  */
+class ProgramSemanticSearchParams extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaProgramSemanticSearchParams';
+	}
+	
+	/**
+	 * Only include programs that end before this timestamp (Unix epoch seconds).
+ * Optional filter
+	 * @return int
+	 */
+	 getEndsBefore() {
+	 	return this.endsBefore;
+	 }
+	
+	/**
+	 * @param endsBefore int Only include programs that end before this timestamp (Unix epoch seconds).
+ * Optional filter
+	 */
+	 setEndsBefore(endsBefore) {
+	 	this.endsBefore = endsBefore;
+	 }
+	
+	/**
+	 * Only include programs that expire after this timestamp (Unix epoch seconds).
+ * Optional filter
+	 * @return int
+	 */
+	 getExpiresAfter() {
+	 	return this.expiresAfter;
+	 }
+	
+	/**
+	 * @param expiresAfter int Only include programs that expire after this timestamp (Unix epoch seconds).
+ * Optional filter
+	 */
+	 setExpiresAfter(expiresAfter) {
+	 	this.expiresAfter = expiresAfter;
+	 }
+}
+module.exports.ProgramSemanticSearchParams = ProgramSemanticSearchParams;
+
+/**
+ *
+ */
+class MediaSemanticSearchParams extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaMediaSemanticSearchParams';
+	}
+}
+module.exports.MediaSemanticSearchParams = MediaSemanticSearchParams;
+
+/**
+ *
+ */
+class SemanticSearchParams extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSemanticSearchParams';
+	}
+	
+	/**
+	 * Search query text
+	 * @return string
+	 */
+	 getQuery() {
+	 	return this.query;
+	 }
+	
+	/**
+	 * @param query string Search query text
+	 */
+	 setQuery(query) {
+	 	this.query = query;
+	 }
+	
+	/**
+	 * Whether to refine the query using LLM
+	 * @return bool
+	 */
+	 getRefineQuery() {
+	 	return this.refineQuery;
+	 }
+	
+	/**
+	 * @param refineQuery bool Whether to refine the query using LLM
+	 */
+	 setRefineQuery(refineQuery) {
+	 	this.refineQuery = refineQuery;
+	 }
+	
+	/**
+	 * Maximum number of results to return
+	 * @return int
+	 */
+	 getSize() {
+	 	return this.size;
+	 }
+	
+	/**
+	 * @param size int Maximum number of results to return
+	 */
+	 setSize(size) {
+	 	this.size = size;
+	 }
+	
+	/**
+	 * Program-specific search parameters.
+ * If provided, programs will be included in search results
+	 * @return ProgramSemanticSearchParams
+	 */
+	 getProgramParams() {
+	 	return this.programParams;
+	 }
+	
+	/**
+	 * @param programParams ProgramSemanticSearchParams Program-specific search parameters.
+ * If provided, programs will be included in search results
+	 */
+	 setProgramParams(programParams) {
+	 	this.programParams = programParams;
+	 }
+	
+	/**
+	 * Media-specific search parameters.
+ * If provided, media/VOD assets will be included in search results
+	 * @return MediaSemanticSearchParams
+	 */
+	 getMediaParams() {
+	 	return this.mediaParams;
+	 }
+	
+	/**
+	 * @param mediaParams MediaSemanticSearchParams Media-specific search parameters.
+ * If provided, media/VOD assets will be included in search results
+	 */
+	 setMediaParams(mediaParams) {
+	 	this.mediaParams = mediaParams;
+	 }
+}
+module.exports.SemanticSearchParams = SemanticSearchParams;
+
+/**
+ *
+ */
 class RepresentativeSelectionPolicy extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -42254,6 +43675,35 @@ class FilteringCondition extends kaltura.BaseObject{
 	 }
 }
 module.exports.FilteringCondition = FilteringCondition;
+
+/**
+ *
+ */
+class ProgramSearchableAttributes extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaProgramSearchableAttributes';
+	}
+	
+	/**
+	 * Comma-separated list of Program metadata field names that should be searchable.
+ * Examples: &quot;name,description,genre,tags,meta_cast,meta_director&quot;
+	 * @return string
+	 */
+	 getAttributes() {
+	 	return this.attributes;
+	 }
+	
+	/**
+	 * @param attributes string Comma-separated list of Program metadata field names that should be searchable.
+ * Examples: &quot;name,description,genre,tags,meta_cast,meta_director&quot;
+	 */
+	 setAttributes(attributes) {
+	 	this.attributes = attributes;
+	 }
+}
+module.exports.ProgramSearchableAttributes = ProgramSearchableAttributes;
 
 /**
  *
