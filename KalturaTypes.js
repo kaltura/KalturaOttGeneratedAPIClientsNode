@@ -421,14 +421,14 @@ SINGLE : 'Single',
 GROUP : 'Group',
 };
 
-module.exports.ConditionLevel = {
-USER : 'USER',
-HOUSEHOLD : 'HOUSEHOLD',
-};
-
 module.exports.ConditionOperator = {
 EQUAL : 'Equal',
 NOTEQUAL : 'NotEqual',
+};
+
+module.exports.ConditionScope = {
+USER : 'USER',
+HOUSEHOLD : 'HOUSEHOLD',
 };
 
 module.exports.ConfigurationGroupDeviceOrderBy = {
@@ -849,11 +849,6 @@ NAME_DESC : 'NAME_DESC',
 
 module.exports.ListGroupsRepresentativesOrderBy = {
 NONE : 'None',
-};
-
-module.exports.LogicalOperator = {
-AND : 'AND',
-OR : 'OR',
 };
 
 module.exports.ManualCollectionAssetType = {

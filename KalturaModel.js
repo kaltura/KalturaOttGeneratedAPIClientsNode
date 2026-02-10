@@ -21142,21 +21142,6 @@ class BaseAttributeConstraint extends kaltura.BaseObject{
 	}
 	
 	/**
-	 * Discriminator field to identify the specific attribute constraint type
-	 * @return string
-	 */
-	 getAttributeType() {
-	 	return this.attributeType;
-	 }
-	
-	/**
-	 * @param attributeType string Discriminator field to identify the specific attribute constraint type
-	 */
-	 setAttributeType(attributeType) {
-	 	this.attributeType = attributeType;
-	 }
-	
-	/**
 	 * The system name of the metadata field to query
 	 * @return string
 	 */
@@ -21182,21 +21167,6 @@ class BaseWatchCondition extends BaseSegmentCondition{
 		super(object);
 		this.objectType = 'KalturaBaseWatchCondition';
 	}
-	
-	/**
-	 * Defines the scope of the condition evaluation
-	 * @return string
-	 */
-	 getLevel() {
-	 	return this.level;
-	 }
-	
-	/**
-	 * @param level string Defines the scope of the condition evaluation
-	 */
-	 setLevel(level) {
-	 	this.level = level;
-	 }
 	
 	/**
 	 * Specifies criteria to include or exclude specific content types (recordings, programs, media types) from the evaluation
@@ -21421,14 +21391,14 @@ class DateMetaConstraint extends BaseAttributeConstraint{
 	
 	/**
 	 * The exact epoch timestamp the field must equal
-	 * @return string
+	 * @return int
 	 */
 	 getEquals() {
 	 	return this.equals;
 	 }
 	
 	/**
-	 * @param equals string The exact epoch timestamp the field must equal
+	 * @param equals int The exact epoch timestamp the field must equal
 	 */
 	 setEquals(equals) {
 	 	this.equals = equals;
@@ -21436,14 +21406,14 @@ class DateMetaConstraint extends BaseAttributeConstraint{
 	
 	/**
 	 * The epoch timestamp the field must be greater than
-	 * @return string
+	 * @return int
 	 */
 	 getGreaterThan() {
 	 	return this.greaterThan;
 	 }
 	
 	/**
-	 * @param greaterThan string The epoch timestamp the field must be greater than
+	 * @param greaterThan int The epoch timestamp the field must be greater than
 	 */
 	 setGreaterThan(greaterThan) {
 	 	this.greaterThan = greaterThan;
@@ -21451,14 +21421,14 @@ class DateMetaConstraint extends BaseAttributeConstraint{
 	
 	/**
 	 * The epoch timestamp the field must be smaller than
-	 * @return string
+	 * @return int
 	 */
 	 getSmallerThan() {
 	 	return this.smallerThan;
 	 }
 	
 	/**
-	 * @param smallerThan string The epoch timestamp the field must be smaller than
+	 * @param smallerThan int The epoch timestamp the field must be smaller than
 	 */
 	 setSmallerThan(smallerThan) {
 	 	this.smallerThan = smallerThan;
@@ -21532,14 +21502,14 @@ class NumberMetaConstraint extends BaseAttributeConstraint{
 	
 	/**
 	 * The exact numeric value the field must equal
-	 * @return string
+	 * @return int
 	 */
 	 getEquals() {
 	 	return this.equals;
 	 }
 	
 	/**
-	 * @param equals string The exact numeric value the field must equal
+	 * @param equals int The exact numeric value the field must equal
 	 */
 	 setEquals(equals) {
 	 	this.equals = equals;
@@ -21547,14 +21517,14 @@ class NumberMetaConstraint extends BaseAttributeConstraint{
 	
 	/**
 	 * The numeric value the field must be greater than
-	 * @return string
+	 * @return int
 	 */
 	 getGreaterThan() {
 	 	return this.greaterThan;
 	 }
 	
 	/**
-	 * @param greaterThan string The numeric value the field must be greater than
+	 * @param greaterThan int The numeric value the field must be greater than
 	 */
 	 setGreaterThan(greaterThan) {
 	 	this.greaterThan = greaterThan;
@@ -21562,14 +21532,14 @@ class NumberMetaConstraint extends BaseAttributeConstraint{
 	
 	/**
 	 * The numeric value the field must be smaller than
-	 * @return string
+	 * @return int
 	 */
 	 getSmallerThan() {
 	 	return this.smallerThan;
 	 }
 	
 	/**
-	 * @param smallerThan string The numeric value the field must be smaller than
+	 * @param smallerThan int The numeric value the field must be smaller than
 	 */
 	 setSmallerThan(smallerThan) {
 	 	this.smallerThan = smallerThan;
@@ -21670,6 +21640,21 @@ class TextMetaConstraint extends BaseAttributeConstraint{
 	 setEquals(equals) {
 	 	this.equals = equals;
 	 }
+	
+	/**
+	 * Discriminator field to identify the specific attribute constraint type
+	 * @return string
+	 */
+	 getAttributeType() {
+	 	return this.attributeType;
+	 }
+	
+	/**
+	 * @param attributeType string Discriminator field to identify the specific attribute constraint type
+	 */
+	 setAttributeType(attributeType) {
+	 	this.attributeType = attributeType;
+	 }
 }
 module.exports.TextMetaConstraint = TextMetaConstraint;
 
@@ -21682,21 +21667,6 @@ class CollectionPurchasedCondition extends BaseSegmentCondition{
 		super(object);
 		this.objectType = 'KalturaCollectionPurchasedCondition';
 	}
-	
-	/**
-	 * Collection purchase conditions are always evaluated at the Household level
-	 * @return string
-	 */
-	 getLevel() {
-	 	return this.level;
-	 }
-	
-	/**
-	 * @param level string Collection purchase conditions are always evaluated at the Household level
-	 */
-	 setLevel(level) {
-	 	this.level = level;
-	 }
 	
 	/**
 	 * The specific purchased collection product identifier to check
@@ -21917,21 +21887,6 @@ class MonetizationCondition extends BaseSegmentCondition{
 	}
 	
 	/**
-	 * Monetization conditions are always evaluated at the Household level
-	 * @return string
-	 */
-	 getLevel() {
-	 	return this.level;
-	 }
-	
-	/**
-	 * @param level string Monetization conditions are always evaluated at the Household level
-	 */
-	 setLevel(level) {
-	 	this.level = level;
-	 }
-	
-	/**
 	 * A comma-separated list of business module IDs to include in the filter
 	 * @return string
 	 */
@@ -22053,21 +22008,6 @@ class SubscriptionEntitledCondition extends BaseSegmentCondition{
 	}
 	
 	/**
-	 * Entitlement conditions are always evaluated at the Household level
-	 * @return string
-	 */
-	 getLevel() {
-	 	return this.level;
-	 }
-	
-	/**
-	 * @param level string Entitlement conditions are always evaluated at the Household level
-	 */
-	 setLevel(level) {
-	 	this.level = level;
-	 }
-	
-	/**
 	 * The specific subscription product identifier to check
 	 * @return int
 	 */
@@ -22093,21 +22033,6 @@ class TvodPurchasedCondition extends BaseSegmentCondition{
 		super(object);
 		this.objectType = 'KalturaTvodPurchasedCondition';
 	}
-	
-	/**
-	 * TVOD purchase conditions are always evaluated at the Household level
-	 * @return string
-	 */
-	 getLevel() {
-	 	return this.level;
-	 }
-	
-	/**
-	 * @param level string TVOD purchase conditions are always evaluated at the Household level
-	 */
-	 setLevel(level) {
-	 	this.level = level;
-	 }
 	
 	/**
 	 * The specific purchased ppv product identifier to check
