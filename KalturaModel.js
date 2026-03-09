@@ -992,6 +992,25 @@ class BulkUploadFilter extends Filter{
 	 setStatusIn(statusIn) {
 	 	this.statusIn = statusIn;
 	 }
+	
+	/**
+	 * Indicates whether to include detailed results data (from Couchbase) in the response.
+ * When false, only lightweight metadata (status, fileName, dates, etc.) is returned.
+ * Default is true for backward compatibility
+	 * @return bool
+	 */
+	 getIncludeResultsEqual() {
+	 	return this.includeResultsEqual;
+	 }
+	
+	/**
+	 * @param includeResultsEqual bool Indicates whether to include detailed results data (from Couchbase) in the response.
+ * When false, only lightweight metadata (status, fileName, dates, etc.) is returned.
+ * Default is true for backward compatibility
+	 */
+	 setIncludeResultsEqual(includeResultsEqual) {
+	 	this.includeResultsEqual = includeResultsEqual;
+	 }
 }
 module.exports.BulkUploadFilter = BulkUploadFilter;
 
@@ -4670,6 +4689,21 @@ class RecordingFilter extends Filter{
 	 */
 	 setKSql(kSql) {
 	 	this.kSql = kSql;
+	 }
+	
+	/**
+	 * Enforce content filtering
+	 * @return bool
+	 */
+	 getContentFilteringEnforced() {
+	 	return this.contentFilteringEnforced;
+	 }
+	
+	/**
+	 * @param contentFilteringEnforced bool Enforce content filtering
+	 */
+	 setContentFilteringEnforced(contentFilteringEnforced) {
+	 	this.contentFilteringEnforced = contentFilteringEnforced;
 	 }
 }
 module.exports.RecordingFilter = RecordingFilter;
@@ -8963,6 +8997,14 @@ class GenerateMetadataJob extends kaltura.BaseObject{
 	 getErrorMessage() {
 	 	return this.errorMessage;
 	 }
+	
+	/**
+	 * Type of the metadata generation job (vodByDescription, vodBySubtitles, programByDescription)
+	 * @return string
+	 */
+	 getType() {
+	 	return this.type;
+	 }
 }
 module.exports.GenerateMetadataJob = GenerateMetadataJob;
 
@@ -8998,6 +9040,37 @@ module.exports.GenerateMetadataByDescription = GenerateMetadataByDescription;
 /**
  *
  */
+class GenerateProgramMetadatasByDescription extends GenerateMetadataByDescription{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaGenerateProgramMetadatasByDescription';
+	}
+	
+	/**
+	 * A boolean flag that allows the API user to force the regeneration of metadata.
+ * If true, the service will run a new analysis even if enriched metadata already exists for the program&#39;s CRID.
+ * If false (default), the service will reuse existing metadata if available for the CRID
+	 * @return bool
+	 */
+	 getRegenerate() {
+	 	return this.regenerate;
+	 }
+	
+	/**
+	 * @param regenerate bool A boolean flag that allows the API user to force the regeneration of metadata.
+ * If true, the service will run a new analysis even if enriched metadata already exists for the program&#39;s CRID.
+ * If false (default), the service will reuse existing metadata if available for the CRID
+	 */
+	 setRegenerate(regenerate) {
+	 	this.regenerate = regenerate;
+	 }
+}
+module.exports.GenerateProgramMetadatasByDescription = GenerateProgramMetadatasByDescription;
+
+/**
+ *
+ */
 class GenerateMetadataResult extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -9021,6 +9094,220 @@ class GenerateMetadataResult extends kaltura.BaseObject{
 	 }
 }
 module.exports.GenerateMetadataResult = GenerateMetadataResult;
+
+/**
+ *
+ */
+class MetadataFieldConfig extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaMetadataFieldConfig';
+	}
+	
+	/**
+	 * The system name of the metadata field in the asset struct
+	 * @return string
+	 */
+	 getSystemName() {
+	 	return this.systemName;
+	 }
+	
+	/**
+	 * @param systemName string The system name of the metadata field in the asset struct
+	 */
+	 setSystemName(systemName) {
+	 	this.systemName = systemName;
+	 }
+	
+	/**
+	 * The update operation to be performed on this metadata field
+	 * @return string
+	 */
+	 getOperation() {
+	 	return this.operation;
+	 }
+	
+	/**
+	 * @param operation string The update operation to be performed on this metadata field
+	 */
+	 setOperation(operation) {
+	 	this.operation = operation;
+	 }
+}
+module.exports.MetadataFieldConfig = MetadataFieldConfig;
+
+/**
+ *
+ */
+class MetadataFieldConfigurationMap extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaMetadataFieldConfigurationMap';
+	}
+	
+	/**
+	 * Configuration for &#39;genre&#39; AI generated metadata field
+	 * @return MetadataFieldConfig
+	 */
+	 getGenre() {
+	 	return this.genre;
+	 }
+	
+	/**
+	 * @param genre MetadataFieldConfig Configuration for &#39;genre&#39; AI generated metadata field
+	 */
+	 setGenre(genre) {
+	 	this.genre = genre;
+	 }
+	
+	/**
+	 * Configuration for &#39;subGenre&#39; AI generated metadata field
+	 * @return MetadataFieldConfig
+	 */
+	 getSubGenre() {
+	 	return this.subGenre;
+	 }
+	
+	/**
+	 * @param subGenre MetadataFieldConfig Configuration for &#39;subGenre&#39; AI generated metadata field
+	 */
+	 setSubGenre(subGenre) {
+	 	this.subGenre = subGenre;
+	 }
+	
+	/**
+	 * Configuration for &#39;sentiment&#39; AI generated metadata field
+	 * @return MetadataFieldConfig
+	 */
+	 getSentiment() {
+	 	return this.sentiment;
+	 }
+	
+	/**
+	 * @param sentiment MetadataFieldConfig Configuration for &#39;sentiment&#39; AI generated metadata field
+	 */
+	 setSentiment(sentiment) {
+	 	this.sentiment = sentiment;
+	 }
+	
+	/**
+	 * Configuration for &#39;suggestedTitle&#39; AI generated metadata field
+	 * @return MetadataFieldConfig
+	 */
+	 getSuggestedTitle() {
+	 	return this.suggestedTitle;
+	 }
+	
+	/**
+	 * @param suggestedTitle MetadataFieldConfig Configuration for &#39;suggestedTitle&#39; AI generated metadata field
+	 */
+	 setSuggestedTitle(suggestedTitle) {
+	 	this.suggestedTitle = suggestedTitle;
+	 }
+	
+	/**
+	 * Configuration for &#39;Description&#39; AI generated metadata field
+	 * @return MetadataFieldConfig
+	 */
+	 getDescription() {
+	 	return this.description;
+	 }
+	
+	/**
+	 * @param description MetadataFieldConfig Configuration for &#39;Description&#39; AI generated metadata field
+	 */
+	 setDescription(description) {
+	 	this.description = description;
+	 }
+	
+	/**
+	 * Configuration for &#39;oneLiner&#39; AI generated metadata field
+	 * @return MetadataFieldConfig
+	 */
+	 getOneLiner() {
+	 	return this.oneLiner;
+	 }
+	
+	/**
+	 * @param oneLiner MetadataFieldConfig Configuration for &#39;oneLiner&#39; AI generated metadata field
+	 */
+	 setOneLiner(oneLiner) {
+	 	this.oneLiner = oneLiner;
+	 }
+	
+	/**
+	 * Configuration for &#39;Keywords&#39; AI generated metadata field
+	 * @return MetadataFieldConfig
+	 */
+	 getKeywords() {
+	 	return this.keywords;
+	 }
+	
+	/**
+	 * @param keywords MetadataFieldConfig Configuration for &#39;Keywords&#39; AI generated metadata field
+	 */
+	 setKeywords(keywords) {
+	 	this.keywords = keywords;
+	 }
+	
+	/**
+	 * Configuration for &#39;sensitiveContent&#39; AI generated metadata field
+	 * @return MetadataFieldConfig
+	 */
+	 getSensitiveContent() {
+	 	return this.sensitiveContent;
+	 }
+	
+	/**
+	 * @param sensitiveContent MetadataFieldConfig Configuration for &#39;sensitiveContent&#39; AI generated metadata field
+	 */
+	 setSensitiveContent(sensitiveContent) {
+	 	this.sensitiveContent = sensitiveContent;
+	 }
+}
+module.exports.MetadataFieldConfigurationMap = MetadataFieldConfigurationMap;
+
+/**
+ *
+ */
+class AiMetadataGeneratorConfiguration extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaAiMetadataGeneratorConfiguration';
+	}
+	
+	/**
+	 * A type of dictionary defined as [string,KalturaMetadataFieldConfigurationMap].
+ * This property is used to correlate the newly generated metadata to
+ * existing metadata IDs which are available in the asset&#39;s struct with configuration
+	 * @return map
+	 */
+	 getAssetStructConfigMap() {
+	 	return this.assetStructConfigMap;
+	 }
+	
+	/**
+	 * @param assetStructConfigMap map A type of dictionary defined as [string,KalturaMetadataFieldConfigurationMap].
+ * This property is used to correlate the newly generated metadata to
+ * existing metadata IDs which are available in the asset&#39;s struct with configuration
+	 */
+	 setAssetStructConfigMap(assetStructConfigMap) {
+	 	this.assetStructConfigMap = assetStructConfigMap;
+	 }
+	
+	/**
+	 * A read only array to list the set of languages which can be used with the service.
+ * In practice it is populated with the values set in KalturaMetadataGeneratorLanguages ENUM
+	 * @return array
+	 */
+	 getSupportedLanguages() {
+	 	return this.supportedLanguages;
+	 }
+}
+module.exports.AiMetadataGeneratorConfiguration = AiMetadataGeneratorConfiguration;
 
 /**
  *
@@ -9153,46 +9440,6 @@ class MetaFieldNameMap extends kaltura.BaseObject{
 	 }
 }
 module.exports.MetaFieldNameMap = MetaFieldNameMap;
-
-/**
- *
- */
-class AiMetadataGeneratorConfiguration extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaAiMetadataGeneratorConfiguration';
-	}
-	
-	/**
-	 * A type of dictionary defined as [long,KalturaMetaFieldNameMap].
- * This property is used to correlate the newly generated metadata to
- * existing metadata IDs which are available in the asset’s struct
-	 * @return map
-	 */
-	 getAssetStructMetaNameMap() {
-	 	return this.assetStructMetaNameMap;
-	 }
-	
-	/**
-	 * @param assetStructMetaNameMap map A type of dictionary defined as [long,KalturaMetaFieldNameMap].
- * This property is used to correlate the newly generated metadata to
- * existing metadata IDs which are available in the asset’s struct
-	 */
-	 setAssetStructMetaNameMap(assetStructMetaNameMap) {
-	 	this.assetStructMetaNameMap = assetStructMetaNameMap;
-	 }
-	
-	/**
-	 * A read only array to list the set of languages which can be used with the service.
- * In practice it is populated with the values set in KalturaMetadataGeneratorLanguages ENUM
-	 * @return array
-	 */
-	 getSupportedLanguages() {
-	 	return this.supportedLanguages;
-	 }
-}
-module.exports.AiMetadataGeneratorConfiguration = AiMetadataGeneratorConfiguration;
 
 /**
  *
@@ -11619,7 +11866,7 @@ class AiRecommendationTreePartnerConfiguration extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * Number of regular answers per question (range: 2-5)
+	 * Number of regular answers per question (range: 2-4)
 	 * @return int
 	 */
 	 getAnswersPerQuestion() {
@@ -11627,7 +11874,7 @@ class AiRecommendationTreePartnerConfiguration extends kaltura.BaseObject{
 	 }
 	
 	/**
-	 * @param answersPerQuestion int Number of regular answers per question (range: 2-5)
+	 * @param answersPerQuestion int Number of regular answers per question (range: 2-4)
 	 */
 	 setAnswersPerQuestion(answersPerQuestion) {
 	 	this.answersPerQuestion = answersPerQuestion;
@@ -11699,6 +11946,14 @@ class AiRecommendationTreePartnerConfiguration extends kaltura.BaseObject{
 	 */
 	 getActiveTreeId() {
 	 	return this.activeTreeId;
+	 }
+	
+	/**
+	 * Feature level of the recommendation tree (e.g., Basic, Premium)
+	 * @return string
+	 */
+	 getFeatureType() {
+	 	return this.featureType;
 	 }
 }
 module.exports.AiRecommendationTreePartnerConfiguration = AiRecommendationTreePartnerConfiguration;
@@ -12385,6 +12640,36 @@ class AssetFilePpv extends OTTObjectSupportNullable{
 	 */
 	 setEndDate(endDate) {
 	 	this.endDate = endDate;
+	 }
+	
+	/**
+	 * First date and time an KalturaAssetFilePpv.AssetFileId can be purchased with the given KalturaAssetFilePpv.PpvModuleId. Represented as epoch
+	 * @return int
+	 */
+	 getPurchaseStartDate() {
+	 	return this.purchaseStartDate;
+	 }
+	
+	/**
+	 * @param purchaseStartDate int First date and time an KalturaAssetFilePpv.AssetFileId can be purchased with the given KalturaAssetFilePpv.PpvModuleId. Represented as epoch
+	 */
+	 setPurchaseStartDate(purchaseStartDate) {
+	 	this.purchaseStartDate = purchaseStartDate;
+	 }
+	
+	/**
+	 * Final date and time an KalturaAssetFilePpv.AssetFileId can be purchased with the given KalturaAssetFilePpv.PpvModuleId. Represented as epoch
+	 * @return int
+	 */
+	 getPurchaseEndDate() {
+	 	return this.purchaseEndDate;
+	 }
+	
+	/**
+	 * @param purchaseEndDate int Final date and time an KalturaAssetFilePpv.AssetFileId can be purchased with the given KalturaAssetFilePpv.PpvModuleId. Represented as epoch
+	 */
+	 setPurchaseEndDate(purchaseEndDate) {
+	 	this.purchaseEndDate = purchaseEndDate;
 	 }
 }
 module.exports.AssetFilePpv = AssetFilePpv;
@@ -17143,6 +17428,33 @@ module.exports.StartDateOffsetRuleAction = StartDateOffsetRuleAction;
 /**
  *
  */
+class SetPlaybackContextUrlTypeAction extends AssetRuleAction{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSetPlaybackContextUrlTypeAction';
+	}
+	
+	/**
+	 * URL Type to override (DIRECT or PLAYMANIFEST)
+	 * @return string
+	 */
+	 getUrlType() {
+	 	return this.urlType;
+	 }
+	
+	/**
+	 * @param urlType string URL Type to override (DIRECT or PLAYMANIFEST)
+	 */
+	 setUrlType(urlType) {
+	 	this.urlType = urlType;
+	 }
+}
+module.exports.SetPlaybackContextUrlTypeAction = SetPlaybackContextUrlTypeAction;
+
+/**
+ *
+ */
 class BasePreActionCondition extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -21876,6 +22188,66 @@ class WatchBasedRecommendationsProfile extends kaltura.BaseObject{
 	 */
 	 setPlaybackInterestsCalculationPeriodDays(playbackInterestsCalculationPeriodDays) {
 	 	this.playbackInterestsCalculationPeriodDays = playbackInterestsCalculationPeriodDays;
+	 }
+	
+	/**
+	 * Determines whether catch-up viewing data should be included in the user&#39;s interest analysis
+	 * @return bool
+	 */
+	 getAnalyzeCatchUps() {
+	 	return this.analyzeCatchUps;
+	 }
+	
+	/**
+	 * @param analyzeCatchUps bool Determines whether catch-up viewing data should be included in the user&#39;s interest analysis
+	 */
+	 setAnalyzeCatchUps(analyzeCatchUps) {
+	 	this.analyzeCatchUps = analyzeCatchUps;
+	 }
+	
+	/**
+	 * Determines whether linear events viewing data should be included in the user&#39;s interest analysis
+	 * @return bool
+	 */
+	 getAnalyzeLinearEvents() {
+	 	return this.analyzeLinearEvents;
+	 }
+	
+	/**
+	 * @param analyzeLinearEvents bool Determines whether linear events viewing data should be included in the user&#39;s interest analysis
+	 */
+	 setAnalyzeLinearEvents(analyzeLinearEvents) {
+	 	this.analyzeLinearEvents = analyzeLinearEvents;
+	 }
+	
+	/**
+	 * Minimum required viewing time per session (in minutes) for live content to be considered in the analysis
+	 * @return int
+	 */
+	 getUserInterestPlayThresholdForEventInMinutes() {
+	 	return this.userInterestPlayThresholdForEventInMinutes;
+	 }
+	
+	/**
+	 * @param userInterestPlayThresholdForEventInMinutes int Minimum required viewing time per session (in minutes) for live content to be considered in the analysis
+	 */
+	 setUserInterestPlayThresholdForEventInMinutes(userInterestPlayThresholdForEventInMinutes) {
+	 	this.userInterestPlayThresholdForEventInMinutes = userInterestPlayThresholdForEventInMinutes;
+	 }
+	
+	/**
+	 * Minimum required viewing time per session (in minutes) for live content to be considered in the analysis
+	 * @return int
+	 */
+	 getMaximumEventsPerSession() {
+	 	return this.maximumEventsPerSession;
+	 }
+	
+	/**
+	 * @param maximumEventsPerSession int Minimum required viewing time per session (in minutes) for live content to be considered in the analysis
+	 */
+	 setMaximumEventsPerSession(maximumEventsPerSession) {
+	 	this.maximumEventsPerSession = maximumEventsPerSession;
 	 }
 }
 module.exports.WatchBasedRecommendationsProfile = WatchBasedRecommendationsProfile;
@@ -30300,6 +30672,48 @@ module.exports.AssetListResponse = AssetListResponse;
 /**
  *
  */
+class ExternalAssetListResponse extends AssetListResponse{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaExternalAssetListResponse';
+	}
+	
+	/**
+	 * Identify the query that sent to the external subsystem to retrieve the response
+	 * @return string
+	 */
+	 getExternalQueryId() {
+	 	return this.externalQueryId;
+	 }
+	
+	/**
+	 * @param externalQueryId string Identify the query that sent to the external subsystem to retrieve the response
+	 */
+	 setExternalQueryId(externalQueryId) {
+	 	this.externalQueryId = externalQueryId;
+	 }
+	
+	/**
+	 * Assets
+	 * @return array
+	 */
+	 getObjects() {
+	 	return this.objects;
+	 }
+	
+	/**
+	 * @param objects array Assets
+	 */
+	 setObjects(objects) {
+	 	this.objects = objects;
+	 }
+}
+module.exports.ExternalAssetListResponse = ExternalAssetListResponse;
+
+/**
+ *
+ */
 class AssetStatisticsListResponse extends ListResponse{
 	
 	constructor(object = null) {
@@ -36253,6 +36667,130 @@ module.exports.EpgListResponse = EpgListResponse;
 /**
  *
  */
+class SocialServiceId extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSocialServiceId';
+	}
+	
+	/**
+	 * The service ID identifier
+	 * @return string
+	 */
+	 getServiceId() {
+	 	return this.serviceId;
+	 }
+}
+module.exports.SocialServiceId = SocialServiceId;
+
+/**
+ *
+ */
+class SocialAttachStatus extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSocialAttachStatus';
+	}
+	
+	/**
+	 * Indicates the attachment status of the user to the IDP
+	 * @return bool
+	 */
+	 getAttached() {
+	 	return this.attached;
+	 }
+}
+module.exports.SocialAttachStatus = SocialAttachStatus;
+
+/**
+ *
+ */
+class LoginSession extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaLoginSession';
+	}
+	
+	/**
+	 * Access token in a KS format
+	 * @return string
+	 */
+	 getKs() {
+	 	return this.ks;
+	 }
+	
+	/**
+	 * @param ks string Access token in a KS format
+	 */
+	 setKs(ks) {
+	 	this.ks = ks;
+	 }
+	
+	/**
+	 * Expiration
+	 * @return int
+	 */
+	 getExpiry() {
+	 	return this.expiry;
+	 }
+	
+	/**
+	 * @param expiry int Expiration
+	 */
+	 setExpiry(expiry) {
+	 	this.expiry = expiry;
+	 }
+}
+module.exports.LoginSession = LoginSession;
+
+/**
+ *
+ */
+class LoginResponse extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaLoginResponse';
+	}
+	
+	/**
+	 * User
+	 * @return OTTUser
+	 */
+	 getUser() {
+	 	return this.user;
+	 }
+	
+	/**
+	 * @param user OTTUser User
+	 */
+	 setUser(user) {
+	 	this.user = user;
+	 }
+	
+	/**
+	 * Kaltura login session details
+	 * @return LoginSession
+	 */
+	 getLoginSession() {
+	 	return this.loginSession;
+	 }
+	
+	/**
+	 * @param loginSession LoginSession Kaltura login session details
+	 */
+	 setLoginSession(loginSession) {
+	 	this.loginSession = loginSession;
+	 }
+}
+module.exports.LoginResponse = LoginResponse;
+
+/**
+ *
+ */
 class AppToken extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -36513,6 +37051,155 @@ class SessionInfo extends Session{
 	}
 }
 module.exports.SessionInfo = SessionInfo;
+
+/**
+ *
+ */
+class ProgramSemanticSearchParams extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaProgramSemanticSearchParams';
+	}
+	
+	/**
+	 * Only include programs that end before this timestamp (Unix epoch seconds).
+ * Optional filter
+	 * @return int
+	 */
+	 getEndsBefore() {
+	 	return this.endsBefore;
+	 }
+	
+	/**
+	 * @param endsBefore int Only include programs that end before this timestamp (Unix epoch seconds).
+ * Optional filter
+	 */
+	 setEndsBefore(endsBefore) {
+	 	this.endsBefore = endsBefore;
+	 }
+	
+	/**
+	 * Only include programs that expire after this timestamp (Unix epoch seconds).
+ * Optional filter
+	 * @return int
+	 */
+	 getExpiresAfter() {
+	 	return this.expiresAfter;
+	 }
+	
+	/**
+	 * @param expiresAfter int Only include programs that expire after this timestamp (Unix epoch seconds).
+ * Optional filter
+	 */
+	 setExpiresAfter(expiresAfter) {
+	 	this.expiresAfter = expiresAfter;
+	 }
+}
+module.exports.ProgramSemanticSearchParams = ProgramSemanticSearchParams;
+
+/**
+ *
+ */
+class MediaSemanticSearchParams extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaMediaSemanticSearchParams';
+	}
+}
+module.exports.MediaSemanticSearchParams = MediaSemanticSearchParams;
+
+/**
+ *
+ */
+class SemanticSearchParams extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSemanticSearchParams';
+	}
+	
+	/**
+	 * Search query text
+	 * @return string
+	 */
+	 getQuery() {
+	 	return this.query;
+	 }
+	
+	/**
+	 * @param query string Search query text
+	 */
+	 setQuery(query) {
+	 	this.query = query;
+	 }
+	
+	/**
+	 * Whether to refine the query using LLM
+	 * @return bool
+	 */
+	 getRefineQuery() {
+	 	return this.refineQuery;
+	 }
+	
+	/**
+	 * @param refineQuery bool Whether to refine the query using LLM
+	 */
+	 setRefineQuery(refineQuery) {
+	 	this.refineQuery = refineQuery;
+	 }
+	
+	/**
+	 * Maximum number of results to return
+	 * @return int
+	 */
+	 getSize() {
+	 	return this.size;
+	 }
+	
+	/**
+	 * @param size int Maximum number of results to return
+	 */
+	 setSize(size) {
+	 	this.size = size;
+	 }
+	
+	/**
+	 * Program-specific search parameters.
+ * If provided, programs will be included in search results
+	 * @return ProgramSemanticSearchParams
+	 */
+	 getProgramParams() {
+	 	return this.programParams;
+	 }
+	
+	/**
+	 * @param programParams ProgramSemanticSearchParams Program-specific search parameters.
+ * If provided, programs will be included in search results
+	 */
+	 setProgramParams(programParams) {
+	 	this.programParams = programParams;
+	 }
+	
+	/**
+	 * Media-specific search parameters.
+ * If provided, media/VOD assets will be included in search results
+	 * @return MediaSemanticSearchParams
+	 */
+	 getMediaParams() {
+	 	return this.mediaParams;
+	 }
+	
+	/**
+	 * @param mediaParams MediaSemanticSearchParams Media-specific search parameters.
+ * If provided, media/VOD assets will be included in search results
+	 */
+	 setMediaParams(mediaParams) {
+	 	this.mediaParams = mediaParams;
+	 }
+}
+module.exports.SemanticSearchParams = SemanticSearchParams;
 
 /**
  *
@@ -39209,6 +39896,26 @@ module.exports.TriggerCampaignEvent = TriggerCampaignEvent;
 /**
  *
  */
+class SocialSetSecretResponse extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaSocialSetSecretResponse';
+	}
+	
+	/**
+	 * Indicates whether the secret was set
+	 * @return bool
+	 */
+	 getSecretSet() {
+	 	return this.secretSet;
+	 }
+}
+module.exports.SocialSetSecretResponse = SocialSetSecretResponse;
+
+/**
+ *
+ */
 class RetryDeleteRequest extends kaltura.BaseObject{
 	
 	constructor(object = null) {
@@ -39301,90 +40008,6 @@ class DevicePin extends kaltura.BaseObject{
 	 }
 }
 module.exports.DevicePin = DevicePin;
-
-/**
- *
- */
-class LoginSession extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaLoginSession';
-	}
-	
-	/**
-	 * Access token in a KS format
-	 * @return string
-	 */
-	 getKs() {
-	 	return this.ks;
-	 }
-	
-	/**
-	 * @param ks string Access token in a KS format
-	 */
-	 setKs(ks) {
-	 	this.ks = ks;
-	 }
-	
-	/**
-	 * Expiration
-	 * @return int
-	 */
-	 getExpiry() {
-	 	return this.expiry;
-	 }
-	
-	/**
-	 * @param expiry int Expiration
-	 */
-	 setExpiry(expiry) {
-	 	this.expiry = expiry;
-	 }
-}
-module.exports.LoginSession = LoginSession;
-
-/**
- *
- */
-class LoginResponse extends kaltura.BaseObject{
-	
-	constructor(object = null) {
-		super(object);
-		this.objectType = 'KalturaLoginResponse';
-	}
-	
-	/**
-	 * User
-	 * @return OTTUser
-	 */
-	 getUser() {
-	 	return this.user;
-	 }
-	
-	/**
-	 * @param user OTTUser User
-	 */
-	 setUser(user) {
-	 	this.user = user;
-	 }
-	
-	/**
-	 * Kaltura login session details
-	 * @return LoginSession
-	 */
-	 getLoginSession() {
-	 	return this.loginSession;
-	 }
-	
-	/**
-	 * @param loginSession LoginSession Kaltura login session details
-	 */
-	 setLoginSession(loginSession) {
-	 	this.loginSession = loginSession;
-	 }
-}
-module.exports.LoginResponse = LoginResponse;
 
 /**
  *
@@ -42254,6 +42877,35 @@ class FilteringCondition extends kaltura.BaseObject{
 	 }
 }
 module.exports.FilteringCondition = FilteringCondition;
+
+/**
+ *
+ */
+class ProgramSearchableAttributes extends kaltura.BaseObject{
+	
+	constructor(object = null) {
+		super(object);
+		this.objectType = 'KalturaProgramSearchableAttributes';
+	}
+	
+	/**
+	 * Comma-separated list of Program metadata field names that should be searchable.
+ * Examples: &quot;name,description,genre,tags,meta_cast,meta_director&quot;
+	 * @return string
+	 */
+	 getAttributes() {
+	 	return this.attributes;
+	 }
+	
+	/**
+	 * @param attributes string Comma-separated list of Program metadata field names that should be searchable.
+ * Examples: &quot;name,description,genre,tags,meta_cast,meta_director&quot;
+	 */
+	 setAttributes(attributes) {
+	 	this.attributes = attributes;
+	 }
+}
+module.exports.ProgramSearchableAttributes = ProgramSearchableAttributes;
 
 /**
  *
