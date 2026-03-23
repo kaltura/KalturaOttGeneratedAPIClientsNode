@@ -426,6 +426,11 @@ EQUAL : 'Equal',
 NOTEQUAL : 'NotEqual',
 };
 
+module.exports.ConditionScope = {
+USER : 'USER',
+HOUSEHOLD : 'HOUSEHOLD',
+};
+
 module.exports.ConfigurationGroupDeviceOrderBy = {
 NONE : 'NONE',
 };
