@@ -44760,17 +44760,17 @@ class TimeShiftedTvPartnerSettings extends kaltura.BaseObject{
  * KalturaRecording API. Uses partner default padding. Default value should be FALSE
 	 * @return bool
 	 */
-	 getRecordingsV2Enabled() {
-	 	return this.recordingsV2Enabled;
+	 getIsRecordingsV2Enabled() {
+	 	return this.isRecordingsV2Enabled;
 	 }
 	
 	/**
-	 * @param recordingsV2Enabled bool Enable V2 recordings mode. When enabled, recordings are handled internally as padded recordings
+	 * @param isRecordingsV2Enabled bool Enable V2 recordings mode. When enabled, recordings are handled internally as padded recordings
  * using MongoDB storage and async handlers, while maintaining backward compatibility with the existing
  * KalturaRecording API. Uses partner default padding. Default value should be FALSE
 	 */
-	 setRecordingsV2Enabled(recordingsV2Enabled) {
-	 	this.recordingsV2Enabled = recordingsV2Enabled;
+	 setIsRecordingsV2Enabled(isRecordingsV2Enabled) {
+	 	this.isRecordingsV2Enabled = isRecordingsV2Enabled;
 	 }
 }
 module.exports.TimeShiftedTvPartnerSettings = TimeShiftedTvPartnerSettings;
