@@ -41,6 +41,11 @@ SUM : 'Sum',
 AVG : 'Avg',
 };
 
+module.exports.AiRecommendationTreeFeatureLevel = {
+BASIC : 'Basic',
+PREMIUM : 'Premium',
+};
+
 module.exports.AnnouncementOrderBy = {
 NONE : 'NONE',
 };
@@ -421,6 +426,11 @@ EQUAL : 'Equal',
 NOTEQUAL : 'NotEqual',
 };
 
+module.exports.ConditionScope = {
+USER : 'USER',
+HOUSEHOLD : 'HOUSEHOLD',
+};
+
 module.exports.ConfigurationGroupDeviceOrderBy = {
 NONE : 'NONE',
 };
@@ -616,6 +626,12 @@ CREATE_DATE_DESC : 'CREATE_DATE_DESC',
 module.exports.FollowTvSeriesOrderBy = {
 START_DATE_DESC : 'START_DATE_DESC',
 START_DATE_ASC : 'START_DATE_ASC',
+};
+
+module.exports.GenerateMetadataJobType = {
+VODBYDESCRIPTION : 'VodByDescription',
+VODBYSUBTITLES : 'VodBySubtitles',
+PROGRAMBYDESCRIPTION : 'ProgramByDescription',
 };
 
 module.exports.GenerateMetadataStatus = {
@@ -887,6 +903,12 @@ NUMBER : 'NUMBER',
 BOOLEAN : 'BOOLEAN',
 DATE : 'DATE',
 RELEATED_ENTITY : 'RELEATED_ENTITY',
+};
+
+module.exports.MetadataUpdateOperation = {
+PROTECT : 'PROTECT',
+EXTEND : 'EXTEND',
+OVERWRITE : 'OVERWRITE',
 };
 
 module.exports.MetaOrderBy = {
@@ -1232,6 +1254,7 @@ FILTERFILEBYLABELINDISCOVERY : 'FilterFileByLabelInDiscovery',
 FILTERFILEBYLABELINPLAYBACK : 'FilterFileByLabelInPlayback',
 FILTERFILEBYDYNAMICDATAINDISCOVERY : 'FilterFileByDynamicDataInDiscovery',
 FILTERFILEBYDYNAMICDATAINPLAYBACK : 'FilterFileByDynamicDataInPlayback',
+SET_PLAYBACK_CONTEXT_URL_TYPE : 'SET_PLAYBACK_CONTEXT_URL_TYPE',
 };
 
 module.exports.RuleConditionType = {
